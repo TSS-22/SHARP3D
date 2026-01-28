@@ -1,6 +1,6 @@
 ﻿namespace SHAPR3D
 {
-    public class Class1
+    public class C3dFile
     {
 
     }
