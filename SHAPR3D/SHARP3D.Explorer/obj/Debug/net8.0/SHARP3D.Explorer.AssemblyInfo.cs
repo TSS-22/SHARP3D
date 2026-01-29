@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SHARP3D.Explorer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d595ad306d5e528594e4cbb729878b96365c3c2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+818e30d13e3de307b4f05f010a7351e8bb46f14e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SHARP3D.Explorer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SHARP3D.Explorer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
