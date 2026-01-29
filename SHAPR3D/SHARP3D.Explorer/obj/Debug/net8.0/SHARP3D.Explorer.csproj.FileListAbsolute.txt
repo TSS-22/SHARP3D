@@ -1,0 +1,15 @@
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.exe
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.deps.json
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.runtimeconfig.json
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.pdb
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.AssemblyInfoInputs.cache
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.AssemblyInfo.cs
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.csproj.CoreCompileInputs.cache
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.sourcelink.json
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\refint\SHARP3D.Explorer.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.pdb
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\SHARP3D.Explorer.genruntimeconfig.cache
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHARP3D.Explorer\obj\Debug\net8.0\ref\SHARP3D.Explorer.dll

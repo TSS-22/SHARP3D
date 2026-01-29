@@ -1,0 +1,12 @@
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\bin\Debug\net8.0\SHAPR3D.deps.json
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\bin\Debug\net8.0\SHAPR3D.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\bin\Debug\net8.0\SHAPR3D.pdb
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.AssemblyInfoInputs.cache
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.AssemblyInfo.cs
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.csproj.CoreCompileInputs.cache
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.sourcelink.json
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\refint\SHAPR3D.dll
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\SHAPR3D.pdb
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHAPR3D\SHAPR3D\obj\Debug\net8.0\ref\SHAPR3D.dll
