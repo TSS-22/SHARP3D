@@ -1,1 +1,16 @@
 .vs
+
+SHARP3D/SHARP3D/bin/
+SHARP3D/SHARP3D/obj/
+
+SHARP3D/SHARP3D.Explorer/bin/
+SHARP3D/SHARP3D.Explorer/obj/
+
+SHARP3D/SHARP3D.Test/bin/
+SHARP3D/SHARP3D.Test/obj/
+
+*.user
+*.suo
+*.cache
+*.pdb
+*.dll
