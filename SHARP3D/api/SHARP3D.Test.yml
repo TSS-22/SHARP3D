@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Test
+  commentId: N:SHARP3D.Test
+  id: SHARP3D.Test
+  children:
+  - SHARP3D.Test.UnitTest1
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Test
+  nameWithType: SHARP3D.Test
+  fullName: SHARP3D.Test
+  type: Namespace
+  assemblies:
+  - SHARP3D.Test
+references:
+- uid: SHARP3D.Test.UnitTest1
+  commentId: T:SHARP3D.Test.UnitTest1
+  href: SHARP3D.Test.UnitTest1.html
+  name: UnitTest1
+  nameWithType: UnitTest1
+  fullName: SHARP3D.Test.UnitTest1

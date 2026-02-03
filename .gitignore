@@ -9,8 +9,11 @@ SHARP3D/SHARP3D.Explorer/obj/
 SHARP3D/SHARP3D.Test/bin/
 SHARP3D/SHARP3D.Test/obj/
 
+SHARP3D/_site
+
 *.user
 *.suo
 *.cache
 *.pdb
 *.dll
+

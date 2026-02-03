@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  id: SHARP3D
+  children:
+  - SHARP3D.C3dFile
+  - SHARP3D.C3dFileManager
+  - SHARP3D.C3dHeader
+  - SHARP3D.C3dHeaderEvent
+  - SHARP3D.C3dParameter
+  - SHARP3D.EventDisplayFlag
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.C3dFile
+  commentId: T:SHARP3D.C3dFile
+  parent: SHARP3D
+  href: SHARP3D.C3dFile.html
+  name: C3dFile
+  nameWithType: C3dFile
+  fullName: SHARP3D.C3dFile
+- uid: SHARP3D.C3dFileManager
+  commentId: T:SHARP3D.C3dFileManager
+  href: SHARP3D.C3dFileManager.html
+  name: C3dFileManager
+  nameWithType: C3dFileManager
+  fullName: SHARP3D.C3dFileManager
+- uid: SHARP3D.C3dHeader
+  commentId: T:SHARP3D.C3dHeader
+  parent: SHARP3D
+  href: SHARP3D.C3dHeader.html
+  name: C3dHeader
+  nameWithType: C3dHeader
+  fullName: SHARP3D.C3dHeader
+- uid: SHARP3D.C3dHeaderEvent
+  commentId: T:SHARP3D.C3dHeaderEvent
+  href: SHARP3D.C3dHeaderEvent.html
+  name: C3dHeaderEvent
+  nameWithType: C3dHeaderEvent
+  fullName: SHARP3D.C3dHeaderEvent
+- uid: SHARP3D.EventDisplayFlag
+  commentId: T:SHARP3D.EventDisplayFlag
+  parent: SHARP3D
+  href: SHARP3D.EventDisplayFlag.html
+  name: EventDisplayFlag
+  nameWithType: EventDisplayFlag
+  fullName: SHARP3D.EventDisplayFlag
+- uid: SHARP3D.C3dParameter
+  commentId: T:SHARP3D.C3dParameter
+  parent: SHARP3D
+  href: SHARP3D.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.C3dParameter
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D

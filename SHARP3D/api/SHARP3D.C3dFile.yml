@@ -1,0 +1,591 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.C3dFile
+  commentId: T:SHARP3D.C3dFile
+  id: C3dFile
+  parent: SHARP3D
+  children:
+  - SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
+  - SHARP3D.C3dFile.LoadFromFile(System.String)
+  - SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
+  - SHARP3D.C3dFile.ProcessParameterBytes(System.Byte[])
+  - SHARP3D.C3dFile.SaveToFile(System.String)
+  - SHARP3D.C3dFile.ToBinaries
+  langs:
+  - csharp
+  - vb
+  name: C3dFile
+  nameWithType: C3dFile
+  fullName: SHARP3D.C3dFile
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dFile
+    path: SHARP3D/C3dFile.cs
+    startLine: 3
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public class C3dFile
+    content.vb: Public Class C3dFile
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
+  commentId: M:SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
+  id: '#ctor(System.Byte[],System.Byte[])'
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: C3dFile(byte[], byte[])
+  nameWithType: C3dFile.C3dFile(byte[], byte[])
+  fullName: SHARP3D.C3dFile.C3dFile(byte[], byte[])
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/C3dFile.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public C3dFile(byte[] headerBytes, byte[] parameterBytes)
+    parameters:
+    - id: headerBytes
+      type: System.Byte[]
+    - id: parameterBytes
+      type: System.Byte[]
+    content.vb: Public Sub New(headerBytes As Byte(), parameterBytes As Byte())
+  overload: SHARP3D.C3dFile.#ctor*
+  nameWithType.vb: C3dFile.New(Byte(), Byte())
+  fullName.vb: SHARP3D.C3dFile.New(Byte(), Byte())
+  name.vb: New(Byte(), Byte())
+- uid: SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
+  commentId: M:SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
+  id: ProcessHeaderBytes(System.Byte[])
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: ProcessHeaderBytes(byte[])
+  nameWithType: C3dFile.ProcessHeaderBytes(byte[])
+  fullName: SHARP3D.C3dFile.ProcessHeaderBytes(byte[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ProcessHeaderBytes
+    path: SHARP3D/C3dFile.cs
+    startLine: 17
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public static C3dHeader ProcessHeaderBytes(byte[] headerBytes)
+    parameters:
+    - id: headerBytes
+      type: System.Byte[]
+    return:
+      type: SHARP3D.C3dHeader
+    content.vb: Public Shared Function ProcessHeaderBytes(headerBytes As Byte()) As C3dHeader
+  overload: SHARP3D.C3dFile.ProcessHeaderBytes*
+  nameWithType.vb: C3dFile.ProcessHeaderBytes(Byte())
+  fullName.vb: SHARP3D.C3dFile.ProcessHeaderBytes(Byte())
+  name.vb: ProcessHeaderBytes(Byte())
+- uid: SHARP3D.C3dFile.ProcessParameterBytes(System.Byte[])
+  commentId: M:SHARP3D.C3dFile.ProcessParameterBytes(System.Byte[])
+  id: ProcessParameterBytes(System.Byte[])
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: ProcessParameterBytes(byte[])
+  nameWithType: C3dFile.ProcessParameterBytes(byte[])
+  fullName: SHARP3D.C3dFile.ProcessParameterBytes(byte[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ProcessParameterBytes
+    path: SHARP3D/C3dFile.cs
+    startLine: 23
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public static C3dParameter ProcessParameterBytes(byte[] parameterBytes)
+    parameters:
+    - id: parameterBytes
+      type: System.Byte[]
+    return:
+      type: SHARP3D.C3dParameter
+    content.vb: Public Shared Function ProcessParameterBytes(parameterBytes As Byte()) As C3dParameter
+  overload: SHARP3D.C3dFile.ProcessParameterBytes*
+  nameWithType.vb: C3dFile.ProcessParameterBytes(Byte())
+  fullName.vb: SHARP3D.C3dFile.ProcessParameterBytes(Byte())
+  name.vb: ProcessParameterBytes(Byte())
+- uid: SHARP3D.C3dFile.LoadFromFile(System.String)
+  commentId: M:SHARP3D.C3dFile.LoadFromFile(System.String)
+  id: LoadFromFile(System.String)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: LoadFromFile(string)
+  nameWithType: C3dFile.LoadFromFile(string)
+  fullName: SHARP3D.C3dFile.LoadFromFile(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: LoadFromFile
+    path: SHARP3D/C3dFile.cs
+    startLine: 29
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public static C3dFile LoadFromFile(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+    return:
+      type: SHARP3D.C3dFile
+    content.vb: Public Shared Function LoadFromFile(filepath As String) As C3dFile
+  overload: SHARP3D.C3dFile.LoadFromFile*
+  nameWithType.vb: C3dFile.LoadFromFile(String)
+  fullName.vb: SHARP3D.C3dFile.LoadFromFile(String)
+  name.vb: LoadFromFile(String)
+- uid: SHARP3D.C3dFile.ToBinaries
+  commentId: M:SHARP3D.C3dFile.ToBinaries
+  id: ToBinaries
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: ToBinaries()
+  nameWithType: C3dFile.ToBinaries()
+  fullName: SHARP3D.C3dFile.ToBinaries()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToBinaries
+    path: SHARP3D/C3dFile.cs
+    startLine: 35
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public byte[] ToBinaries()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function ToBinaries() As Byte()
+  overload: SHARP3D.C3dFile.ToBinaries*
+- uid: SHARP3D.C3dFile.SaveToFile(System.String)
+  commentId: M:SHARP3D.C3dFile.SaveToFile(System.String)
+  id: SaveToFile(System.String)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: SaveToFile(string)
+  nameWithType: C3dFile.SaveToFile(string)
+  fullName: SHARP3D.C3dFile.SaveToFile(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SaveToFile
+    path: SHARP3D/C3dFile.cs
+    startLine: 41
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public int SaveToFile(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+    return:
+      type: System.Int32
+    content.vb: Public Function SaveToFile(filepath As String) As Integer
+  overload: SHARP3D.C3dFile.SaveToFile*
+  nameWithType.vb: C3dFile.SaveToFile(String)
+  fullName.vb: SHARP3D.C3dFile.SaveToFile(String)
+  name.vb: SaveToFile(String)
+references:
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.C3dFile.#ctor*
+  commentId: Overload:SHARP3D.C3dFile.#ctor
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile__ctor_System_Byte___System_Byte___
+  name: C3dFile
+  nameWithType: C3dFile.C3dFile
+  fullName: SHARP3D.C3dFile.C3dFile
+  nameWithType.vb: C3dFile.New
+  fullName.vb: SHARP3D.C3dFile.New
+  name.vb: New
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: SHARP3D.C3dFile.ProcessHeaderBytes*
+  commentId: Overload:SHARP3D.C3dFile.ProcessHeaderBytes
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ProcessHeaderBytes_System_Byte___
+  name: ProcessHeaderBytes
+  nameWithType: C3dFile.ProcessHeaderBytes
+  fullName: SHARP3D.C3dFile.ProcessHeaderBytes
+- uid: SHARP3D.C3dHeader
+  commentId: T:SHARP3D.C3dHeader
+  parent: SHARP3D
+  href: SHARP3D.C3dHeader.html
+  name: C3dHeader
+  nameWithType: C3dHeader
+  fullName: SHARP3D.C3dHeader
+- uid: SHARP3D.C3dFile.ProcessParameterBytes*
+  commentId: Overload:SHARP3D.C3dFile.ProcessParameterBytes
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ProcessParameterBytes_System_Byte___
+  name: ProcessParameterBytes
+  nameWithType: C3dFile.ProcessParameterBytes
+  fullName: SHARP3D.C3dFile.ProcessParameterBytes
+- uid: SHARP3D.C3dParameter
+  commentId: T:SHARP3D.C3dParameter
+  parent: SHARP3D
+  href: SHARP3D.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.C3dParameter
+- uid: SHARP3D.C3dFile.LoadFromFile*
+  commentId: Overload:SHARP3D.C3dFile.LoadFromFile
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_LoadFromFile_System_String_
+  name: LoadFromFile
+  nameWithType: C3dFile.LoadFromFile
+  fullName: SHARP3D.C3dFile.LoadFromFile
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.C3dFile
+  commentId: T:SHARP3D.C3dFile
+  parent: SHARP3D
+  href: SHARP3D.C3dFile.html
+  name: C3dFile
+  nameWithType: C3dFile
+  fullName: SHARP3D.C3dFile
+- uid: SHARP3D.C3dFile.ToBinaries*
+  commentId: Overload:SHARP3D.C3dFile.ToBinaries
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries
+  name: ToBinaries
+  nameWithType: C3dFile.ToBinaries
+  fullName: SHARP3D.C3dFile.ToBinaries
+- uid: SHARP3D.C3dFile.SaveToFile*
+  commentId: Overload:SHARP3D.C3dFile.SaveToFile
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_System_String_
+  name: SaveToFile
+  nameWithType: C3dFile.SaveToFile
+  fullName: SHARP3D.C3dFile.SaveToFile
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

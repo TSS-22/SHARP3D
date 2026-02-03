@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.EventDisplayFlag
+  commentId: T:SHARP3D.EventDisplayFlag
+  id: EventDisplayFlag
+  parent: SHARP3D
+  children:
+  - SHARP3D.EventDisplayFlag.OFF
+  - SHARP3D.EventDisplayFlag.ON
+  langs:
+  - csharp
+  - vb
+  name: EventDisplayFlag
+  nameWithType: EventDisplayFlag
+  fullName: SHARP3D.EventDisplayFlag
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventDisplayFlag
+    path: SHARP3D/C3dHeaderEvent.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public enum EventDisplayFlag
+    content.vb: Public Enum EventDisplayFlag
+- uid: SHARP3D.EventDisplayFlag.ON
+  commentId: F:SHARP3D.EventDisplayFlag.ON
+  id: ON
+  parent: SHARP3D.EventDisplayFlag
+  langs:
+  - csharp
+  - vb
+  name: ON
+  nameWithType: EventDisplayFlag.ON
+  fullName: SHARP3D.EventDisplayFlag.ON
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ON
+    path: SHARP3D/C3dHeaderEvent.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: ON = 1
+    return:
+      type: SHARP3D.EventDisplayFlag
+- uid: SHARP3D.EventDisplayFlag.OFF
+  commentId: F:SHARP3D.EventDisplayFlag.OFF
+  id: OFF
+  parent: SHARP3D.EventDisplayFlag
+  langs:
+  - csharp
+  - vb
+  name: OFF
+  nameWithType: EventDisplayFlag.OFF
+  fullName: SHARP3D.EventDisplayFlag.OFF
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: OFF
+    path: SHARP3D/C3dHeaderEvent.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: OFF = 0
+    return:
+      type: SHARP3D.EventDisplayFlag
+references:
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+- uid: SHARP3D.EventDisplayFlag
+  commentId: T:SHARP3D.EventDisplayFlag
+  parent: SHARP3D
+  href: SHARP3D.EventDisplayFlag.html
+  name: EventDisplayFlag
+  nameWithType: EventDisplayFlag
+  fullName: SHARP3D.EventDisplayFlag

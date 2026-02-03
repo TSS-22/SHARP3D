@@ -1,13 +1,16 @@
-﻿// TODO: Implement methods to curate the eventLabel. Don't know where to put it.
-struct C3dHeaderEvent
+﻿namespace SHARP3D
 {
-    public float eventTime;
-    public eventDisplayFlag displayFlag;
-    public string eventLabel;
-}
+    // TODO: Implement methods to curate the eventLabel. Don't know where to put it.
+    public struct C3dHeaderEvent
+    {
+        public float EventTime;
+        public EventDisplayFlag DisplayFlag;
+        public string EventLabel;
+    }
 
-enum eventDisplayFlag : int
-{
-    ON = 1,
-    OFF = 0,
+    public enum EventDisplayFlag : int
+    {
+        ON = 1,
+        OFF = 0,
+    }
 }
