@@ -1,4 +1,6 @@
-﻿namespace SHARP3D
+﻿using System.Diagnostics;
+
+namespace SHARP3D
 {
     public static class C3dFileManager
     {
@@ -19,19 +21,16 @@
         public static int GetParameterSectionPointer(FileStream c3dStream)
         {
             byte[] pointerToParameter = new byte[1];
+            c3dStream.Seek(0, SeekOrigin.Begin);
             c3dStream.ReadExactly(pointerToParameter, 0, 1);
-            return BitConverter.ToInt16(new byte[] { pointerToParameter[0], 0 }, 0);
+            return BitConverter.ToInt16(new byte[] { 0, pointerToParameter[0]}, 0);
         }
 
-        public static byte ReadProcessorByte(FileStream c3dStream)
+        public static int ReadProcessorByte(FileStream c3dStream)
         {
-            byte[] processorByte = new byte[1];
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
-            c3dStream.ReadExactly(
-                processorByte,
-                parameterSectionPointer + 3,
-                4);
-            return processorByte[0];
+            c3dStream.Seek(parameterSectionPointer + 3, SeekOrigin.Begin);
+            return c3dStream.ReadByte();
         }
 
     }

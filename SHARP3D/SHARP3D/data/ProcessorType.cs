@@ -5,8 +5,8 @@ namespace SHARP3D
     /// </summary>
     public enum ProcessorType : byte
     {
-        INTEL = 0x54,
-        DEC = 0x55,
-        SIG_MIPS = 0x56,
+        INTEL = 84,
+        DEC = 85,
+        SIG_MIPS = 86,
     }
 }

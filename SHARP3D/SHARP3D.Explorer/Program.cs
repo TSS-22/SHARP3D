@@ -18,13 +18,9 @@ namespace SHARP3D.Explorer
             }
             try
             {
+                Console.WriteLine($"Opening C3D file: {path}");
                 FileStream fs = new FileStream(path, FileMode.Open);
-                byte[] header = C3dFileManager.ReadHeader(fs);
-                foreach (byte b in header)
-                {
-                    Console.Write($"{b:X2} ");
-                }
-
+                
                 return 0;
             }
             catch (Exception ex) 
