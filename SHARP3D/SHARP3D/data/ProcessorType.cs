@@ -8,5 +8,6 @@ namespace SHARP3D
         INTEL = 84,
         DEC = 85,
         SIG_MIPS = 86,
+        UNKOWN = 255,
     }
 }

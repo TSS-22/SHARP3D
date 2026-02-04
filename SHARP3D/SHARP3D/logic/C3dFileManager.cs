@@ -5,12 +5,6 @@ namespace SHARP3D
     public static class C3dFileManager
     {
 
-
-        public static void OpenFile(string path)
-        {
-            //Will manage C3D files opening here
-        }
-
         public static byte[] ReadHeader(FileStream c3dStream)
         {
             byte[] headers = new byte[512];
@@ -26,11 +20,12 @@ namespace SHARP3D
             return BitConverter.ToInt16(new byte[] { 0, pointerToParameter[0]}, 0);
         }
 
-        public static int ReadProcessorByte(FileStream c3dStream)
+
+        public static ProcessorType ReadProcessorByte(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
             c3dStream.Seek(parameterSectionPointer + 3, SeekOrigin.Begin);
-            return c3dStream.ReadByte();
+            return (ProcessorType)c3dStream.ReadByte();
         }
 
     }
