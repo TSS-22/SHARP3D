@@ -6,8 +6,10 @@ items:
   parent: SHARP3D
   children:
   - SHARP3D.C3dHeaderEvent.DisplayFlag
+  - SHARP3D.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Int32)
   - SHARP3D.C3dHeaderEvent.EventLabel
   - SHARP3D.C3dHeaderEvent.EventTime
+  - SHARP3D.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32)
   langs:
   - csharp
   - vb
@@ -17,11 +19,11 @@ items:
   type: Struct
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dHeaderEvent
-    path: SHARP3D/C3dHeaderEvent.cs
+    path: SHARP3D/data/C3dHeaderEvent.cs
     startLine: 3
   assemblies:
   - SHARP3D
@@ -49,11 +51,11 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventTime
-    path: SHARP3D/C3dHeaderEvent.cs
+    path: SHARP3D/data/C3dHeaderEvent.cs
     startLine: 5
   assemblies:
   - SHARP3D
@@ -76,11 +78,11 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: DisplayFlag
-    path: SHARP3D/C3dHeaderEvent.cs
+    path: SHARP3D/data/C3dHeaderEvent.cs
     startLine: 6
   assemblies:
   - SHARP3D
@@ -103,11 +105,11 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventLabel
-    path: SHARP3D/C3dHeaderEvent.cs
+    path: SHARP3D/data/C3dHeaderEvent.cs
     startLine: 7
   assemblies:
   - SHARP3D
@@ -117,6 +119,78 @@ items:
     return:
       type: System.String
     content.vb: Public EventLabel As String
+- uid: SHARP3D.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Int32)
+  commentId: M:SHARP3D.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Int32)
+  id: EventFromBinaries(System.Byte[],System.Int32)
+  parent: SHARP3D.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventFromBinaries(byte[], int)
+  nameWithType: C3dHeaderEvent.EventFromBinaries(byte[], int)
+  fullName: SHARP3D.C3dHeaderEvent.EventFromBinaries(byte[], int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventFromBinaries
+    path: SHARP3D/data/C3dHeaderEvent.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public static C3dHeaderEvent EventFromBinaries(byte[] binaries, int offset)
+    parameters:
+    - id: binaries
+      type: System.Byte[]
+    - id: offset
+      type: System.Int32
+    return:
+      type: SHARP3D.C3dHeaderEvent
+    content.vb: Public Shared Function EventFromBinaries(binaries As Byte(), offset As Integer) As C3dHeaderEvent
+  overload: SHARP3D.C3dHeaderEvent.EventFromBinaries*
+  nameWithType.vb: C3dHeaderEvent.EventFromBinaries(Byte(), Integer)
+  fullName.vb: SHARP3D.C3dHeaderEvent.EventFromBinaries(Byte(), Integer)
+  name.vb: EventFromBinaries(Byte(), Integer)
+- uid: SHARP3D.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32)
+  commentId: M:SHARP3D.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32)
+  id: EventsFromBinaries(System.Byte[],System.Int32)
+  parent: SHARP3D.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventsFromBinaries(byte[], int)
+  nameWithType: C3dHeaderEvent.EventsFromBinaries(byte[], int)
+  fullName: SHARP3D.C3dHeaderEvent.EventsFromBinaries(byte[], int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventsFromBinaries
+    path: SHARP3D/data/C3dHeaderEvent.cs
+    startLine: 21
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb)
+    parameters:
+    - id: binaries
+      type: System.Byte[]
+    - id: definedEventsNb
+      type: System.Int32
+    return:
+      type: SHARP3D.C3dHeaderEvent[]
+    content.vb: Public Shared Function EventsFromBinaries(binaries As Byte(), definedEventsNb As Integer) As C3dHeaderEvent()
+  overload: SHARP3D.C3dHeaderEvent.EventsFromBinaries*
+  nameWithType.vb: C3dHeaderEvent.EventsFromBinaries(Byte(), Integer)
+  fullName.vb: SHARP3D.C3dHeaderEvent.EventsFromBinaries(Byte(), Integer)
+  name.vb: EventsFromBinaries(Byte(), Integer)
 references:
 - uid: SHARP3D
   commentId: N:SHARP3D
@@ -370,3 +444,77 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: SHARP3D.C3dHeaderEvent.EventFromBinaries*
+  commentId: Overload:SHARP3D.C3dHeaderEvent.EventFromBinaries
+  href: SHARP3D.C3dHeaderEvent.html#SHARP3D_C3dHeaderEvent_EventFromBinaries_System_Byte___System_Int32_
+  name: EventFromBinaries
+  nameWithType: C3dHeaderEvent.EventFromBinaries
+  fullName: SHARP3D.C3dHeaderEvent.EventFromBinaries
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.C3dHeaderEvent
+  commentId: T:SHARP3D.C3dHeaderEvent
+  parent: SHARP3D
+  href: SHARP3D.C3dHeaderEvent.html
+  name: C3dHeaderEvent
+  nameWithType: C3dHeaderEvent
+  fullName: SHARP3D.C3dHeaderEvent
+- uid: SHARP3D.C3dHeaderEvent.EventsFromBinaries*
+  commentId: Overload:SHARP3D.C3dHeaderEvent.EventsFromBinaries
+  href: SHARP3D.C3dHeaderEvent.html#SHARP3D_C3dHeaderEvent_EventsFromBinaries_System_Byte___System_Int32_
+  name: EventsFromBinaries
+  nameWithType: C3dHeaderEvent.EventsFromBinaries
+  fullName: SHARP3D.C3dHeaderEvent.EventsFromBinaries
+- uid: SHARP3D.C3dHeaderEvent[]
+  isExternal: true
+  href: SHARP3D.C3dHeaderEvent.html
+  name: C3dHeaderEvent[]
+  nameWithType: C3dHeaderEvent[]
+  fullName: SHARP3D.C3dHeaderEvent[]
+  nameWithType.vb: C3dHeaderEvent()
+  fullName.vb: SHARP3D.C3dHeaderEvent()
+  name.vb: C3dHeaderEvent()
+  spec.csharp:
+  - uid: SHARP3D.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.C3dHeaderEvent.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.C3dHeaderEvent.html
+  - name: (
+  - name: )

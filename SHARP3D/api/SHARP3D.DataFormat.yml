@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.DataFormat
+  commentId: T:SHARP3D.DataFormat
+  id: DataFormat
+  parent: SHARP3D
+  children:
+  - SHARP3D.DataFormat.RIGHT
+  - SHARP3D.DataFormat.WRONG
+  langs:
+  - csharp
+  - vb
+  name: DataFormat
+  nameWithType: DataFormat
+  fullName: SHARP3D.DataFormat
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/DataFormat.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataFormat
+    path: SHARP3D/data/DataFormat.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: >-
+    This enum represent the data format flag found in the C3D header at byte 2. Without any confirmation from the C3D fundation, and that only the 0x50 value (80, "P") is viable and prelude a viable C3D file, we stick to the assumption that 0x50 means viabe C3D file and any other value means corrupted file.
+
+    Alternatively some future test on the many test files distributed by the C3D organisation might shed some light on other possible viable values.
+  example: []
+  syntax:
+    content: 'public enum DataFormat : byte'
+    content.vb: Public Enum DataFormat As Byte
+- uid: SHARP3D.DataFormat.RIGHT
+  commentId: F:SHARP3D.DataFormat.RIGHT
+  id: RIGHT
+  parent: SHARP3D.DataFormat
+  langs:
+  - csharp
+  - vb
+  name: RIGHT
+  nameWithType: DataFormat.RIGHT
+  fullName: SHARP3D.DataFormat.RIGHT
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/DataFormat.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: RIGHT
+    path: SHARP3D/data/DataFormat.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: RIGHT = 80
+    return:
+      type: SHARP3D.DataFormat
+- uid: SHARP3D.DataFormat.WRONG
+  commentId: F:SHARP3D.DataFormat.WRONG
+  id: WRONG
+  parent: SHARP3D.DataFormat
+  langs:
+  - csharp
+  - vb
+  name: WRONG
+  nameWithType: DataFormat.WRONG
+  fullName: SHARP3D.DataFormat.WRONG
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/DataFormat.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: WRONG
+    path: SHARP3D/data/DataFormat.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: WRONG = 0
+    return:
+      type: SHARP3D.DataFormat
+references:
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+- uid: SHARP3D.DataFormat
+  commentId: T:SHARP3D.DataFormat
+  parent: SHARP3D
+  href: SHARP3D.DataFormat.html
+  name: DataFormat
+  nameWithType: DataFormat
+  fullName: SHARP3D.DataFormat

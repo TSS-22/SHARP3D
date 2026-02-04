@@ -4,12 +4,15 @@ items:
   commentId: N:SHARP3D
   id: SHARP3D
   children:
+  - SHARP3D.C3dBytesConvertor
   - SHARP3D.C3dFile
   - SHARP3D.C3dFileManager
   - SHARP3D.C3dHeader
   - SHARP3D.C3dHeaderEvent
   - SHARP3D.C3dParameter
+  - SHARP3D.DataFormat
   - SHARP3D.EventDisplayFlag
+  - SHARP3D.ProcessorType
   langs:
   - csharp
   - vb
@@ -27,12 +30,6 @@ references:
   name: C3dFile
   nameWithType: C3dFile
   fullName: SHARP3D.C3dFile
-- uid: SHARP3D.C3dFileManager
-  commentId: T:SHARP3D.C3dFileManager
-  href: SHARP3D.C3dFileManager.html
-  name: C3dFileManager
-  nameWithType: C3dFileManager
-  fullName: SHARP3D.C3dFileManager
 - uid: SHARP3D.C3dHeader
   commentId: T:SHARP3D.C3dHeader
   parent: SHARP3D
@@ -42,6 +39,7 @@ references:
   fullName: SHARP3D.C3dHeader
 - uid: SHARP3D.C3dHeaderEvent
   commentId: T:SHARP3D.C3dHeaderEvent
+  parent: SHARP3D
   href: SHARP3D.C3dHeaderEvent.html
   name: C3dHeaderEvent
   nameWithType: C3dHeaderEvent
@@ -60,6 +58,32 @@ references:
   name: C3dParameter
   nameWithType: C3dParameter
   fullName: SHARP3D.C3dParameter
+- uid: SHARP3D.DataFormat
+  commentId: T:SHARP3D.DataFormat
+  parent: SHARP3D
+  href: SHARP3D.DataFormat.html
+  name: DataFormat
+  nameWithType: DataFormat
+  fullName: SHARP3D.DataFormat
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  parent: SHARP3D
+  href: SHARP3D.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType
+- uid: SHARP3D.C3dBytesConvertor
+  commentId: T:SHARP3D.C3dBytesConvertor
+  href: SHARP3D.C3dBytesConvertor.html
+  name: C3dBytesConvertor
+  nameWithType: C3dBytesConvertor
+  fullName: SHARP3D.C3dBytesConvertor
+- uid: SHARP3D.C3dFileManager
+  commentId: T:SHARP3D.C3dFileManager
+  href: SHARP3D.C3dFileManager.html
+  name: C3dFileManager
+  nameWithType: C3dFileManager
+  fullName: SHARP3D.C3dFileManager
 - uid: SHARP3D
   commentId: N:SHARP3D
   href: SHARP3D.html

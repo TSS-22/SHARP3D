@@ -4,6 +4,9 @@ items:
   name: SHARP3D
   type: Namespace
   items:
+  - uid: SHARP3D.C3dBytesConvertor
+    name: C3dBytesConvertor
+    type: Class
   - uid: SHARP3D.C3dFile
     name: C3dFile
     type: Class
@@ -19,8 +22,14 @@ items:
   - uid: SHARP3D.C3dParameter
     name: C3dParameter
     type: Struct
+  - uid: SHARP3D.DataFormat
+    name: DataFormat
+    type: Enum
   - uid: SHARP3D.EventDisplayFlag
     name: EventDisplayFlag
+    type: Enum
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
     type: Enum
 - uid: SHARP3D.Test
   name: SHARP3D.Test

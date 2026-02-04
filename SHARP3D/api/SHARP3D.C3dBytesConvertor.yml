@@ -1,33 +1,34 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.C3dFileManager
-  commentId: T:SHARP3D.C3dFileManager
-  id: C3dFileManager
+- uid: SHARP3D.C3dBytesConvertor
+  commentId: T:SHARP3D.C3dBytesConvertor
+  id: C3dBytesConvertor
   parent: SHARP3D
   children:
-  - SHARP3D.C3dFileManager.OpenFile(System.String)
-  - SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
+  - SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
   langs:
   - csharp
   - vb
-  name: C3dFileManager
-  nameWithType: C3dFileManager
-  fullName: SHARP3D.C3dFileManager
+  name: C3dBytesConvertor
+  nameWithType: C3dBytesConvertor
+  fullName: SHARP3D.C3dBytesConvertor
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: C3dFileManager
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 2
+    id: C3dBytesConvertor
+    path: SHARP3D/logic/C3dBytesConvertor.cs
+    startLine: 8
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: This helper class provide functions to process C3D bytes according to the file maker processor type for compatibility purposes.
+  example: []
   syntax:
-    content: public static class C3dFileManager
-    content.vb: Public Module C3dFileManager
+    content: public static class C3dBytesConvertor
+    content.vb: Public Module C3dBytesConvertor
   inheritance:
   - System.Object
   inheritedMembers:
@@ -38,69 +39,42 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dFileManager.OpenFile(System.String)
-  commentId: M:SHARP3D.C3dFileManager.OpenFile(System.String)
-  id: OpenFile(System.String)
-  parent: SHARP3D.C3dFileManager
+- uid: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
+  id: ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
+  parent: SHARP3D.C3dBytesConvertor
   langs:
   - csharp
   - vb
-  name: OpenFile(string)
-  nameWithType: C3dFileManager.OpenFile(string)
-  fullName: SHARP3D.C3dFileManager.OpenFile(string)
+  name: ConvertBytesToFloat(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ConvertBytesToFloat(byte[], ProcessorType)
+  fullName: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(byte[], SHARP3D.ProcessorType)
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: OpenFile
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 6
+    id: ConvertBytesToFloat
+    path: SHARP3D/logic/C3dBytesConvertor.cs
+    startLine: 10
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   syntax:
-    content: public static void OpenFile(string path)
+    content: public static float ConvertBytesToFloat(byte[] bytes, ProcessorType processorMakerType)
     parameters:
-    - id: path
-      type: System.String
-    content.vb: Public Shared Sub OpenFile(path As String)
-  overload: SHARP3D.C3dFileManager.OpenFile*
-  nameWithType.vb: C3dFileManager.OpenFile(String)
-  fullName.vb: SHARP3D.C3dFileManager.OpenFile(String)
-  name.vb: OpenFile(String)
-- uid: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  id: ReadHeader(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
-  langs:
-  - csharp
-  - vb
-  name: ReadHeader(FileStream)
-  nameWithType: C3dFileManager.ReadHeader(FileStream)
-  fullName: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
-      branch: main
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadHeader
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 11
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  syntax:
-    content: public static byte[] ReadHeader(FileStream c3dStream)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-    return:
+    - id: bytes
       type: System.Byte[]
-    content.vb: Public Shared Function ReadHeader(c3dStream As FileStream) As Byte()
-  overload: SHARP3D.C3dFileManager.ReadHeader*
+    - id: processorMakerType
+      type: SHARP3D.ProcessorType
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ConvertBytesToFloat(bytes As Byte(), processorMakerType As ProcessorType) As Single
+  overload: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat*
+  nameWithType.vb: C3dBytesConvertor.ConvertBytesToFloat(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(Byte(), SHARP3D.ProcessorType)
+  name.vb: ConvertBytesToFloat(Byte(), ProcessorType)
 references:
 - uid: SHARP3D
   commentId: N:SHARP3D
@@ -345,37 +319,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.C3dFileManager.OpenFile*
-  commentId: Overload:SHARP3D.C3dFileManager.OpenFile
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_OpenFile_System_String_
-  name: OpenFile
-  nameWithType: C3dFileManager.OpenFile
-  fullName: SHARP3D.C3dFileManager.OpenFile
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: SHARP3D.C3dFileManager.ReadHeader*
-  commentId: Overload:SHARP3D.C3dFileManager.ReadHeader
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_ReadHeader_System_IO_FileStream_
-  name: ReadHeader
-  nameWithType: C3dFileManager.ReadHeader
-  fullName: SHARP3D.C3dFileManager.ReadHeader
-- uid: System.IO.FileStream
-  commentId: T:System.IO.FileStream
-  parent: System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
-  name: FileStream
-  nameWithType: FileStream
-  fullName: System.IO.FileStream
+- uid: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat*
+  commentId: Overload:SHARP3D.C3dBytesConvertor.ConvertBytesToFloat
+  href: SHARP3D.C3dBytesConvertor.html#SHARP3D_C3dBytesConvertor_ConvertBytesToFloat_System_Byte___SHARP3D_ProcessorType_
+  name: ConvertBytesToFloat
+  nameWithType: C3dBytesConvertor.ConvertBytesToFloat
+  fullName: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -399,30 +348,21 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
-- uid: System.IO
-  commentId: N:System.IO
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  parent: SHARP3D
+  href: SHARP3D.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single

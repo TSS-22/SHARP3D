@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  id: ProcessorType
+  parent: SHARP3D
+  children:
+  - SHARP3D.ProcessorType.DEC
+  - SHARP3D.ProcessorType.INTEL
+  - SHARP3D.ProcessorType.SIG_MIPS
+  langs:
+  - csharp
+  - vb
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ProcessorType
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: >-
+    <p>This structure index the different processor types used to create C3D files.</p>
+
+    <p>Intel = 84</p>
+
+    <p>DEC = 85</p>
+
+    SIG/MIPS = 86
+  example: []
+  syntax:
+    content: public enum ProcessorType
+    content.vb: Public Enum ProcessorType
+- uid: SHARP3D.ProcessorType.INTEL
+  commentId: F:SHARP3D.ProcessorType.INTEL
+  id: INTEL
+  parent: SHARP3D.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: INTEL
+  nameWithType: ProcessorType.INTEL
+  fullName: SHARP3D.ProcessorType.INTEL
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: INTEL
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: INTEL = 84
+    return:
+      type: SHARP3D.ProcessorType
+- uid: SHARP3D.ProcessorType.DEC
+  commentId: F:SHARP3D.ProcessorType.DEC
+  id: DEC
+  parent: SHARP3D.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: DEC
+  nameWithType: ProcessorType.DEC
+  fullName: SHARP3D.ProcessorType.DEC
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DEC
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 11
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: DEC = 85
+    return:
+      type: SHARP3D.ProcessorType
+- uid: SHARP3D.ProcessorType.SIG_MIPS
+  commentId: F:SHARP3D.ProcessorType.SIG_MIPS
+  id: SIG_MIPS
+  parent: SHARP3D.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: SIG_MIPS
+  nameWithType: ProcessorType.SIG_MIPS
+  fullName: SHARP3D.ProcessorType.SIG_MIPS
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SIG_MIPS
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: SIG_MIPS = 86
+    return:
+      type: SHARP3D.ProcessorType
+references:
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  parent: SHARP3D
+  href: SHARP3D.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType

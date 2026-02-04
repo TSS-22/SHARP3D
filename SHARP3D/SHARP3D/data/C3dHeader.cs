@@ -10,117 +10,117 @@
     public struct C3dHeader
     {
         ///<summary>
+        ///<para>
+        /// Word: 1 (byte 1)
+        ///</para>
         /// A pointer to the first block of the parameter section.
         ///</summary>
-        ///<remarks>
-        /// Word: 1 (byte 1)
-        ///</remarks>
-        public byte PointerParameterSection;
+        public int PointerParameterSection;
 
         ///<summary>
+        ///<para>
+        /// Word: 1 (byte 2)
+        ///</para>
         /// A flag defininig the Data section storage format which depends on the system used to acquire the data.
         ///</summary>
-        ///<remarks>
-        /// Word: 1 (byte 2)
-        ///</remarks>
-        public byte FlagDataFormat;
+        public DataFormat FlagDataFormat;
 
         ///<summary>
+        ///<para>
+        /// Word: 2
+        ///</para>
         /// The number of 3D points(markers) stored in each 3D frame.
         ///</summary>
-        ///<remarks>
-        /// Word: 2
-        ///</remarks>
         public int MarkersPerFrame;
 
         ///<summary>
+        ///<para>
+        /// Word: 3
+        ///</para>
         /// The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.
         ///</summary>
-        ///<remarks>
-        /// Word: 3
-        ///</remarks>
         public int AnalogSamplesPerFrame;
 
         ///<summary>
+        ///<para>
+        /// Word: 4
+        ///</para>
         /// The id number of the first frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
         ///</summary>
-        ///<remarks>
-        /// Word: 4
-        ///</remarks>
         public int FirstFrameRawData;
 
         ///<summary>
+        ///<para>
+        /// Word: 5
+        ///</para>
         /// The id number of the last frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
         ///</summary>
-        ///<remarks>
-        /// Word: 5
-        ///</remarks>
         public int LastFrameRawData;
 
         ///<summary>
+        ///<para>
+        /// Word: 6
+        ///</para>
         /// The maximum 3D frame interpolation gap present in the C3D file.
         ///</summary>
-        ///<remarks>
-        /// Word: 6
-        ///</remarks>
         public int MaxFrameIntepolationGap;
 
         ///<summary>
+        ///<para>
+        /// Word: 7 - 8
+        ///</para>
         /// The floating-point factor that scales all 3D values into system measurement units. This transforms data stored as 16 bits signed integers to scale each of the stored 3D point and their residual values to floating point values, real world values. A positive scale value indicates that the data is stored as signed integers and a negative scale factor indicates that the data is stored as 32 bits floating point values. If the values are already in floating point, the scale factor doesn't need to be apllied to them. The Scale factor is computed by dividing the maximum absolute coordinate value by 32000.
         ///</summary>
-        ///<remarks>
-        /// Word: 7 - 8
-        ///</remarks>
-        public int ScaleFactor;
+        public float ScaleFactor;
 
         ///<summary>
+        ///<para>
+        /// Word: 9
+        ///</para>
         /// A pointer to the first block of the data storage section.
         ///</summary>
-        ///<remarks>
-        /// Word: 9
-        ///</remarks>
-        public byte PointerDataSection;
+        public int PointerDataSection;
 
         ///<summary>
+        ///<para>
+        /// Word: 10
+        ///</para>
         /// The analog sample rate per 3D frame.
         ///</summary>
-        ///<remarks>
-        /// Word: 10
-        ///</remarks>
         public int AnalogSampleRatePerFrame;
 
         ///<summary>
+        ///<para>
+        /// Word: 11 - 12
+        ///</para>
         /// The 3D frame rate in hertz (frames per second).
         ///</summary>
-        ///<remarks>
-        /// Word: 11 - 12
-        ///</remarks>
         public float Rate3dFrame;
 
         ///<summary>
-        /// A key value indicating whether the C3D file supports 4-character event labels.
-        ///</summary>
-        ///<remarks>
+        ///<para>
         /// Word: 150
-        ///</remarks>
+        ///</para>
+        /// A key value indicating whether the C3D file supports 4-character event labels. If value is 12345 (0x3039h), 4-character event labels are supported; otherwise, only 3-character labels are supported.
+        ///</summary>
         public bool Support4charEventLabels;
 
         ///<summary>
+        ///<para>
+        /// Word: 151
+        ///</para>
         /// Number of defined events in the C3D file.
         ///</summary>
-        ///<remarks>
-        /// Word: 151
-        ///</remarks>
         public int DefinedEventsNb;
 
         ///<summary>
-        /// Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
-        ///</summary>
-        ///<remarks>
+        ///<para>
         /// Word: 153 - 188 (Event times in seconds, up to 18 events)<br/>
         /// Word: 189 - 197 (Event display flags 0x00=ON, 0x01=OFF)<br/>
         /// Word: 199 - 234 (Event labels, up to 4 characters each if Support4charEventLabels is true)
-        ///</remarks>
+        ///</para>
+        /// Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
+        ///</summary>
         public C3dHeaderEvent[] Events;
 
 
@@ -130,7 +130,27 @@
         ///</summary>
         public static C3dHeader FromBinaries(byte[] binaries)
         {
-            return new C3dHeader();
+            byte[] tmp_PointerParameterSection = { binaries[0], 0 };
+            byte[] tmp_Events = binaries; // Wrong just made it so it compiles
+            Array.Copy(binaries, 298, tmp_Events, 0, 168);
+
+            return new C3dHeader
+            {
+                PointerParameterSection = BitConverter.ToInt16(tmp_PointerParameterSection, 0),
+                FlagDataFormat = Convert.ToChar(binaries) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
+                MarkersPerFrame = BitConverter.ToInt16(binaries, 2),
+                AnalogSamplesPerFrame = BitConverter.ToInt16(binaries, 4),
+                FirstFrameRawData = BitConverter.ToInt16(binaries, 6),
+                LastFrameRawData = BitConverter.ToInt16(binaries, 8),
+                MaxFrameIntepolationGap = BitConverter.ToInt16(binaries, 10),
+                ScaleFactor = BitConverter.ToSingle(binaries, 12),
+                PointerDataSection = BitConverter.ToInt16(binaries,16),
+                AnalogSampleRatePerFrame = BitConverter.ToInt16(binaries, 18),
+                Rate3dFrame = BitConverter.ToSingle(binaries, 20),
+                Support4charEventLabels = BitConverter.ToInt16(binaries, 298) == 12345 ? true : false,
+                DefinedEventsNb = BitConverter.ToInt16(binaries, 300),
+                Events = C3dHeaderEvent.EventsFromBinaries(tmp_Events,0), // Argument will need to be fixed
+            };
         }
 
         // TODO: Implement method to convert C3dHeader struct into binaries.
@@ -142,4 +162,6 @@
             return new byte[0];
         }
     }
+
+    
 }

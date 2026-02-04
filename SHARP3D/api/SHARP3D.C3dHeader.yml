@@ -30,11 +30,11 @@ items:
   type: Struct
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dHeader
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 9
   assemblies:
   - SHARP3D
@@ -67,23 +67,26 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerParameterSection
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 17
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: A pointer to the first block of the parameter section.
-  remarks: 'Word: 1 (byte 1)'
+  summary: >-
+    <p>
+     Word: 1 (byte 1)
+    </p>
+     A pointer to the first block of the parameter section.
   example: []
   syntax:
-    content: public byte PointerParameterSection
+    content: public int PointerParameterSection
     return:
-      type: System.Byte
-    content.vb: Public PointerParameterSection As Byte
+      type: System.Int32
+    content.vb: Public PointerParameterSection As Integer
 - uid: SHARP3D.C3dHeader.FlagDataFormat
   commentId: F:SHARP3D.C3dHeader.FlagDataFormat
   id: FlagDataFormat
@@ -97,23 +100,26 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: FlagDataFormat
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 25
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: A flag defininig the Data section storage format which depends on the system used to acquire the data.
-  remarks: 'Word: 1 (byte 2)'
+  summary: >-
+    <p>
+     Word: 1 (byte 2)
+    </p>
+     A flag defininig the Data section storage format which depends on the system used to acquire the data.
   example: []
   syntax:
-    content: public byte FlagDataFormat
+    content: public DataFormat FlagDataFormat
     return:
-      type: System.Byte
-    content.vb: Public FlagDataFormat As Byte
+      type: SHARP3D.DataFormat
+    content.vb: Public FlagDataFormat As DataFormat
 - uid: SHARP3D.C3dHeader.MarkersPerFrame
   commentId: F:SHARP3D.C3dHeader.MarkersPerFrame
   id: MarkersPerFrame
@@ -127,17 +133,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: MarkersPerFrame
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 33
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The number of 3D points(markers) stored in each 3D frame.
-  remarks: 'Word: 2'
+  summary: >-
+    <p>
+     Word: 2
+    </p>
+     The number of 3D points(markers) stored in each 3D frame.
   example: []
   syntax:
     content: public int MarkersPerFrame
@@ -157,17 +166,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: AnalogSamplesPerFrame
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 41
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.
-  remarks: 'Word: 3'
+  summary: >-
+    <p>
+     Word: 3
+    </p>
+     The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.
   example: []
   syntax:
     content: public int AnalogSamplesPerFrame
@@ -187,17 +199,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: FirstFrameRawData
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 49
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The id number of the first frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
-  remarks: 'Word: 4'
+  summary: >-
+    <p>
+     Word: 4
+    </p>
+     The id number of the first frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
   example: []
   syntax:
     content: public int FirstFrameRawData
@@ -217,17 +232,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: LastFrameRawData
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 57
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The id number of the last frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
-  remarks: 'Word: 5'
+  summary: >-
+    <p>
+     Word: 5
+    </p>
+     The id number of the last frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
   example: []
   syntax:
     content: public int LastFrameRawData
@@ -247,17 +265,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: MaxFrameIntepolationGap
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 65
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The maximum 3D frame interpolation gap present in the C3D file.
-  remarks: 'Word: 6'
+  summary: >-
+    <p>
+     Word: 6
+    </p>
+     The maximum 3D frame interpolation gap present in the C3D file.
   example: []
   syntax:
     content: public int MaxFrameIntepolationGap
@@ -277,23 +298,26 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ScaleFactor
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 73
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The floating-point factor that scales all 3D values into system measurement units. This transforms data stored as 16 bits signed integers to scale each of the stored 3D point and their residual values to floating point values, real world values. A positive scale value indicates that the data is stored as signed integers and a negative scale factor indicates that the data is stored as 32 bits floating point values. If the values are already in floating point, the scale factor doesn't need to be apllied to them. The Scale factor is computed by dividing the maximum absolute coordinate value by 32000.
-  remarks: 'Word: 7 - 8'
+  summary: >-
+    <p>
+     Word: 7 - 8
+    </p>
+     The floating-point factor that scales all 3D values into system measurement units. This transforms data stored as 16 bits signed integers to scale each of the stored 3D point and their residual values to floating point values, real world values. A positive scale value indicates that the data is stored as signed integers and a negative scale factor indicates that the data is stored as 32 bits floating point values. If the values are already in floating point, the scale factor doesn't need to be apllied to them. The Scale factor is computed by dividing the maximum absolute coordinate value by 32000.
   example: []
   syntax:
-    content: public int ScaleFactor
+    content: public float ScaleFactor
     return:
-      type: System.Int32
-    content.vb: Public ScaleFactor As Integer
+      type: System.Single
+    content.vb: Public ScaleFactor As Single
 - uid: SHARP3D.C3dHeader.PointerDataSection
   commentId: F:SHARP3D.C3dHeader.PointerDataSection
   id: PointerDataSection
@@ -307,23 +331,26 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerDataSection
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 81
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: A pointer to the first block of the data storage section.
-  remarks: 'Word: 9'
+  summary: >-
+    <p>
+     Word: 9
+    </p>
+     A pointer to the first block of the data storage section.
   example: []
   syntax:
-    content: public byte PointerDataSection
+    content: public int PointerDataSection
     return:
-      type: System.Byte
-    content.vb: Public PointerDataSection As Byte
+      type: System.Int32
+    content.vb: Public PointerDataSection As Integer
 - uid: SHARP3D.C3dHeader.AnalogSampleRatePerFrame
   commentId: F:SHARP3D.C3dHeader.AnalogSampleRatePerFrame
   id: AnalogSampleRatePerFrame
@@ -337,17 +364,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: AnalogSampleRatePerFrame
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 89
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The analog sample rate per 3D frame.
-  remarks: 'Word: 10'
+  summary: >-
+    <p>
+     Word: 10
+    </p>
+     The analog sample rate per 3D frame.
   example: []
   syntax:
     content: public int AnalogSampleRatePerFrame
@@ -367,17 +397,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Rate3dFrame
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 97
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: The 3D frame rate in hertz (frames per second).
-  remarks: 'Word: 11 - 12'
+  summary: >-
+    <p>
+     Word: 11 - 12
+    </p>
+     The 3D frame rate in hertz (frames per second).
   example: []
   syntax:
     content: public float Rate3dFrame
@@ -397,17 +430,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Support4charEventLabels
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 105
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: A key value indicating whether the C3D file supports 4-character event labels.
-  remarks: 'Word: 150'
+  summary: >-
+    <p>
+     Word: 150
+    </p>
+     A key value indicating whether the C3D file supports 4-character event labels. If value is 12345 (0x3039h), 4-character event labels are supported; otherwise, only 3-character labels are supported.
   example: []
   syntax:
     content: public bool Support4charEventLabels
@@ -427,17 +463,20 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: DefinedEventsNb
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 113
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Number of defined events in the C3D file.
-  remarks: 'Word: 151'
+  summary: >-
+    <p>
+     Word: 151
+    </p>
+     Number of defined events in the C3D file.
   example: []
   syntax:
     content: public int DefinedEventsNb
@@ -457,22 +496,22 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Events
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 123
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
-  remarks: >-
-    Word: 153 - 188 (Event times in seconds, up to 18 events)<br />
-
-    Word: 189 - 197 (Event display flags 0x00=ON, 0x01=OFF)<br />
-
-    Word: 199 - 234 (Event labels, up to 4 characters each if Support4charEventLabels is true)
+  summary: >-
+    <p>
+     Word: 153 - 188 (Event times in seconds, up to 18 events)<br />
+     Word: 189 - 197 (Event display flags 0x00=ON, 0x01=OFF)<br />
+     Word: 199 - 234 (Event labels, up to 4 characters each if Support4charEventLabels is true)
+    </p>
+     Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
   example: []
   syntax:
     content: public C3dHeaderEvent[] Events
@@ -492,11 +531,11 @@ items:
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: FromBinaries
-    path: SHARP3D/C3dHeader.cs
+    path: SHARP3D/data/C3dHeader.cs
     startLine: 130
   assemblies:
   - SHARP3D
@@ -528,12 +567,12 @@ items:
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeader.cs
+      path: SHARP3D/SHARP3D/data/C3dHeader.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToBinaries
-    path: SHARP3D/C3dHeader.cs
-    startLine: 139
+    path: SHARP3D/data/C3dHeader.cs
+    startLine: 159
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -769,17 +808,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Byte
-  commentId: T:System.Byte
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte
-  nameWithType: byte
-  fullName: byte
-  nameWithType.vb: Byte
-  fullName.vb: Byte
-  name.vb: Byte
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -791,6 +819,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: SHARP3D.DataFormat
+  commentId: T:SHARP3D.DataFormat
+  parent: SHARP3D
+  href: SHARP3D.DataFormat.html
+  name: DataFormat
+  nameWithType: DataFormat
+  fullName: SHARP3D.DataFormat
 - uid: System.Single
   commentId: T:System.Single
   parent: System

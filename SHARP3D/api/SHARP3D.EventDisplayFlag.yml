@@ -16,12 +16,12 @@ items:
   type: Enum
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventDisplayFlag
-    path: SHARP3D/C3dHeaderEvent.cs
-    startLine: 10
+    path: SHARP3D/data/C3dHeaderEvent.cs
+    startLine: 32
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -41,12 +41,12 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ON
-    path: SHARP3D/C3dHeaderEvent.cs
-    startLine: 12
+    path: SHARP3D/data/C3dHeaderEvent.cs
+    startLine: 34
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -67,12 +67,12 @@ items:
   type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/C3dHeaderEvent.cs
+      path: SHARP3D/SHARP3D/data/C3dHeaderEvent.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: OFF
-    path: SHARP3D/C3dHeaderEvent.cs
-    startLine: 13
+    path: SHARP3D/data/C3dHeaderEvent.cs
+    startLine: 35
   assemblies:
   - SHARP3D
   namespace: SHARP3D
