@@ -5,7 +5,7 @@ items:
   id: C3dFile
   parent: SHARP3D
   children:
-  - SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
+  - SHARP3D.C3dFile.#ctor(System.Byte[])
   - SHARP3D.C3dFile.LoadFromFile(System.String)
   - SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
   - SHARP3D.C3dFile.ProcessParameterBytes(System.Byte[])
@@ -25,10 +25,15 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dFile
     path: SHARP3D/C3dFile.cs
-    startLine: 3
+    startLine: 6
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: >-
+    Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary
+
+    conversion.
+  example: []
   syntax:
     content: public class C3dFile
     content.vb: Public Class C3dFile
@@ -42,16 +47,16 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
-  commentId: M:SHARP3D.C3dFile.#ctor(System.Byte[],System.Byte[])
-  id: '#ctor(System.Byte[],System.Byte[])'
+- uid: SHARP3D.C3dFile.#ctor(System.Byte[])
+  commentId: M:SHARP3D.C3dFile.#ctor(System.Byte[])
+  id: '#ctor(System.Byte[])'
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: C3dFile(byte[], byte[])
-  nameWithType: C3dFile.C3dFile(byte[], byte[])
-  fullName: SHARP3D.C3dFile.C3dFile(byte[], byte[])
+  name: C3dFile(byte[])
+  nameWithType: C3dFile.C3dFile(byte[])
+  fullName: SHARP3D.C3dFile.C3dFile(byte[])
   type: Constructor
   source:
     remote:
@@ -60,22 +65,20 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
     path: SHARP3D/C3dFile.cs
-    startLine: 9
+    startLine: 10
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   syntax:
-    content: public C3dFile(byte[] headerBytes, byte[] parameterBytes)
+    content: public C3dFile(byte[] c3dBinairies)
     parameters:
-    - id: headerBytes
+    - id: c3dBinairies
       type: System.Byte[]
-    - id: parameterBytes
-      type: System.Byte[]
-    content.vb: Public Sub New(headerBytes As Byte(), parameterBytes As Byte())
+    content.vb: Public Sub New(c3dBinairies As Byte())
   overload: SHARP3D.C3dFile.#ctor*
-  nameWithType.vb: C3dFile.New(Byte(), Byte())
-  fullName.vb: SHARP3D.C3dFile.New(Byte(), Byte())
-  name.vb: New(Byte(), Byte())
+  nameWithType.vb: C3dFile.New(Byte())
+  fullName.vb: SHARP3D.C3dFile.New(Byte())
+  name.vb: New(Byte())
 - uid: SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
   commentId: M:SHARP3D.C3dFile.ProcessHeaderBytes(System.Byte[])
   id: ProcessHeaderBytes(System.Byte[])
@@ -486,7 +489,7 @@ references:
   fullName: System
 - uid: SHARP3D.C3dFile.#ctor*
   commentId: Overload:SHARP3D.C3dFile.#ctor
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile__ctor_System_Byte___System_Byte___
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile__ctor_System_Byte___
   name: C3dFile
   nameWithType: C3dFile.C3dFile
   fullName: SHARP3D.C3dFile.C3dFile

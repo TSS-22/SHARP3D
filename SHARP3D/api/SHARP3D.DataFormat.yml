@@ -51,10 +51,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: RIGHT
     path: SHARP3D/data/DataFormat.cs
-    startLine: 8
+    startLine: 11
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Represents the RIGHT key with a value of 0x50.
+  example: []
   syntax:
     content: RIGHT = 80
     return:
@@ -77,10 +79,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: WRONG
     path: SHARP3D/data/DataFormat.cs
-    startLine: 9
+    startLine: 15
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Indicates an incorrect or invalid value. As of today, I have not found any indication of what should be expected for a viable C3D file other than the 0x50 value. Therefore, until further notice, any value other than 0x50 is considered as WRONG, meaning that the file is likely corrupted or not a valid C3D file.
+  example: []
   syntax:
     content: WRONG = 0
     return:

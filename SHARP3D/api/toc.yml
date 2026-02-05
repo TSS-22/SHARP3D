@@ -31,11 +31,30 @@ items:
   - uid: SHARP3D.ProcessorType
     name: ProcessorType
     type: Enum
+  - uid: SHARP3D.ProcessorTypeExtensions
+    name: ProcessorTypeExtensions
+    type: Class
 - uid: SHARP3D.Test
   name: SHARP3D.Test
   type: Namespace
   items:
-  - uid: SHARP3D.Test.UnitTest1
-    name: UnitTest1
+  - uid: SHARP3D.Test.C3dBytesConvertorTests
+    name: C3dBytesConvertorTests
+    type: Class
+  - uid: SHARP3D.Test.C3dFileManagerTests
+    name: C3dFileManagerTests
+    type: Class
+  - uid: SHARP3D.Test.C3dFileTests
+    name: C3dFileTests
+    type: Class
+  - uid: SHARP3D.Test.ProcessorTypeTests
+    name: ProcessorTypeTests
+    type: Class
+- uid: SHARP3D.exceptions
+  name: SHARP3D.exceptions
+  type: Namespace
+  items:
+  - uid: SHARP3D.exceptions.UnknownProcessorTypeException
+    name: UnknownProcessorTypeException
     type: Class
 memberLayout: SamePage

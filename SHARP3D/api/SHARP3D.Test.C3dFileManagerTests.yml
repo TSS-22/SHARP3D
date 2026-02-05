@@ -1,34 +1,32 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.C3dFileManager
-  commentId: T:SHARP3D.C3dFileManager
-  id: C3dFileManager
-  parent: SHARP3D
+- uid: SHARP3D.Test.C3dFileManagerTests
+  commentId: T:SHARP3D.Test.C3dFileManagerTests
+  id: C3dFileManagerTests
+  parent: SHARP3D.Test
   children:
-  - SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  - SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  - SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
+  - SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section(System.String,SHARP3D.ProcessorType)
   langs:
   - csharp
   - vb
-  name: C3dFileManager
-  nameWithType: C3dFileManager
-  fullName: SHARP3D.C3dFileManager
+  name: C3dFileManagerTests
+  nameWithType: C3dFileManagerTests
+  fullName: SHARP3D.Test.C3dFileManagerTests
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D.Test/C3dFileManagerTests.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: C3dFileManager
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 4
+    id: C3dFileManagerTests
+    path: SHARP3D.Test/C3dFileManagerTests.cs
+    startLine: 5
   assemblies:
-  - SHARP3D
-  namespace: SHARP3D
+  - SHARP3D.Test
+  namespace: SHARP3D.Test
   syntax:
-    content: public static class C3dFileManager
-    content.vb: Public Module C3dFileManager
+    content: public class C3dFileManagerTests
+    content.vb: Public Class C3dFileManagerTests
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,106 +37,97 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  id: ReadHeader(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
+- uid: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section(System.String,SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section(System.String,SHARP3D.ProcessorType)
+  id: Get_Pointer_To_Parameter_Section(System.String,SHARP3D.ProcessorType)
+  parent: SHARP3D.Test.C3dFileManagerTests
   langs:
   - csharp
   - vb
-  name: ReadHeader(FileStream)
-  nameWithType: C3dFileManager.ReadHeader(FileStream)
-  fullName: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
+  name: Get_Pointer_To_Parameter_Section(string, ProcessorType)
+  nameWithType: C3dFileManagerTests.Get_Pointer_To_Parameter_Section(string, ProcessorType)
+  fullName: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section(string, SHARP3D.ProcessorType)
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D.Test/C3dFileManagerTests.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadHeader
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 7
+    id: Get_Pointer_To_Parameter_Section
+    path: SHARP3D.Test/C3dFileManagerTests.cs
+    startLine: 8
   assemblies:
-  - SHARP3D
-  namespace: SHARP3D
+  - SHARP3D.Test
+  namespace: SHARP3D.Test
   syntax:
-    content: public static byte[] ReadHeader(FileStream c3dStream)
+    content: >-
+      [Theory]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015pi.c3d", ProcessorType.INTEL })]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015pr.c3d", ProcessorType.INTEL })]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015si.c3d", ProcessorType.SIG_MIPS })]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015sr.c3d", ProcessorType.SIG_MIPS })]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015vi.c3d", ProcessorType.DEC })]
+
+      [InlineData(new object[] { "..\\..\\..\\..\\..\\C3D_sample\\TestSuites\\01-test_suite\\Eb015vr.c3d", ProcessorType.DEC })]
+
+      public void Get_Pointer_To_Parameter_Section(string filePath, ProcessorType expectedProcessorType)
     parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-    return:
-      type: System.Byte[]
-    content.vb: Public Shared Function ReadHeader(c3dStream As FileStream) As Byte()
-  overload: SHARP3D.C3dFileManager.ReadHeader*
-- uid: SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  id: GetParameterSectionPointer(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
-  langs:
-  - csharp
-  - vb
-  name: GetParameterSectionPointer(FileStream)
-  nameWithType: C3dFileManager.GetParameterSectionPointer(FileStream)
-  fullName: SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
-      branch: main
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: GetParameterSectionPointer
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 14
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  syntax:
-    content: public static int GetParameterSectionPointer(FileStream c3dStream)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-    return:
-      type: System.Int32
-    content.vb: Public Shared Function GetParameterSectionPointer(c3dStream As FileStream) As Integer
-  overload: SHARP3D.C3dFileManager.GetParameterSectionPointer*
-- uid: SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  id: ReadProcessorByte(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
-  langs:
-  - csharp
-  - vb
-  name: ReadProcessorByte(FileStream)
-  nameWithType: C3dFileManager.ReadProcessorByte(FileStream)
-  fullName: SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
-      branch: main
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadProcessorByte
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 23
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  syntax:
-    content: public static ProcessorType ReadProcessorByte(FileStream c3dStream)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-    return:
+    - id: filePath
+      type: System.String
+    - id: expectedProcessorType
       type: SHARP3D.ProcessorType
-    content.vb: Public Shared Function ReadProcessorByte(c3dStream As FileStream) As ProcessorType
-  overload: SHARP3D.C3dFileManager.ReadProcessorByte*
+    content.vb: >-
+      <Theory>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pi.c3d", ProcessorType.INTEL })>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pr.c3d", ProcessorType.INTEL })>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015si.c3d", ProcessorType.SIG_MIPS })>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015sr.c3d", ProcessorType.SIG_MIPS })>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vi.c3d", ProcessorType.DEC })>
+
+      <InlineData(New Object() { "..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vr.c3d", ProcessorType.DEC })>
+
+      Public Sub Get_Pointer_To_Parameter_Section(filePath As String, expectedProcessorType As ProcessorType)
+  overload: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section*
+  attributes:
+  - type: Xunit.TheoryAttribute
+    ctor: Xunit.TheoryAttribute.#ctor
+    arguments: []
+  nameWithType.vb: C3dFileManagerTests.Get_Pointer_To_Parameter_Section(String, ProcessorType)
+  fullName.vb: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section(String, SHARP3D.ProcessorType)
+  name.vb: Get_Pointer_To_Parameter_Section(String, ProcessorType)
 references:
-- uid: SHARP3D
-  commentId: N:SHARP3D
+- uid: SHARP3D.Test
+  commentId: N:SHARP3D.Test
   href: SHARP3D.html
-  name: SHARP3D
-  nameWithType: SHARP3D
-  fullName: SHARP3D
+  name: SHARP3D.Test
+  nameWithType: SHARP3D.Test
+  fullName: SHARP3D.Test
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Test
+    name: Test
+    href: SHARP3D.Test.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Test
+    name: Test
+    href: SHARP3D.Test.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -376,93 +365,23 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.C3dFileManager.ReadHeader*
-  commentId: Overload:SHARP3D.C3dFileManager.ReadHeader
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_ReadHeader_System_IO_FileStream_
-  name: ReadHeader
-  nameWithType: C3dFileManager.ReadHeader
-  fullName: SHARP3D.C3dFileManager.ReadHeader
-- uid: System.IO.FileStream
-  commentId: T:System.IO.FileStream
-  parent: System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
-  name: FileStream
-  nameWithType: FileStream
-  fullName: System.IO.FileStream
-- uid: System.Byte[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte[]
-  nameWithType: byte[]
-  fullName: byte[]
-  nameWithType.vb: Byte()
-  fullName.vb: Byte()
-  name.vb: Byte()
-  spec.csharp:
-  - uid: System.Byte
-    name: byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.Byte
-    name: Byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: (
-  - name: )
-- uid: System.IO
-  commentId: N:System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-- uid: SHARP3D.C3dFileManager.GetParameterSectionPointer*
-  commentId: Overload:SHARP3D.C3dFileManager.GetParameterSectionPointer
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_GetParameterSectionPointer_System_IO_FileStream_
-  name: GetParameterSectionPointer
-  nameWithType: C3dFileManager.GetParameterSectionPointer
-  fullName: SHARP3D.C3dFileManager.GetParameterSectionPointer
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section*
+  commentId: Overload:SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section
+  href: SHARP3D.Test.C3dFileManagerTests.html#SHARP3D_Test_C3dFileManagerTests_Get_Pointer_To_Parameter_Section_System_String_SHARP3D_ProcessorType_
+  name: Get_Pointer_To_Parameter_Section
+  nameWithType: C3dFileManagerTests.Get_Pointer_To_Parameter_Section
+  fullName: SHARP3D.Test.C3dFileManagerTests.Get_Pointer_To_Parameter_Section
+- uid: System.String
+  commentId: T:System.String
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: SHARP3D.C3dFileManager.ReadProcessorByte*
-  commentId: Overload:SHARP3D.C3dFileManager.ReadProcessorByte
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_ReadProcessorByte_System_IO_FileStream_
-  name: ReadProcessorByte
-  nameWithType: C3dFileManager.ReadProcessorByte
-  fullName: SHARP3D.C3dFileManager.ReadProcessorByte
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: SHARP3D.ProcessorType
   commentId: T:SHARP3D.ProcessorType
   parent: SHARP3D
@@ -470,3 +389,9 @@ references:
   name: ProcessorType
   nameWithType: ProcessorType
   fullName: SHARP3D.ProcessorType
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D

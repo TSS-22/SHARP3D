@@ -13,6 +13,7 @@ items:
   - SHARP3D.DataFormat
   - SHARP3D.EventDisplayFlag
   - SHARP3D.ProcessorType
+  - SHARP3D.ProcessorTypeExtensions
   langs:
   - csharp
   - vb
@@ -72,6 +73,13 @@ references:
   name: ProcessorType
   nameWithType: ProcessorType
   fullName: SHARP3D.ProcessorType
+- uid: SHARP3D.ProcessorTypeExtensions
+  commentId: T:SHARP3D.ProcessorTypeExtensions
+  parent: SHARP3D
+  href: SHARP3D.ProcessorTypeExtensions.html
+  name: ProcessorTypeExtensions
+  nameWithType: ProcessorTypeExtensions
+  fullName: SHARP3D.ProcessorTypeExtensions
 - uid: SHARP3D.C3dBytesConvertor
   commentId: T:SHARP3D.C3dBytesConvertor
   href: SHARP3D.C3dBytesConvertor.html

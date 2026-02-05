@@ -5,7 +5,10 @@ items:
   id: C3dBytesConvertor
   parent: SHARP3D
   children:
-  - SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
+  - SHARP3D.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.ProcessorType)
+  - SHARP3D.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.ProcessorType)
+  - SHARP3D.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.ProcessorType)
+  - SHARP3D.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.ProcessorType)
   langs:
   - csharp
   - vb
@@ -20,11 +23,19 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dBytesConvertor
     path: SHARP3D/logic/C3dBytesConvertor.cs
-    startLine: 8
+    startLine: 25
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: This helper class provide functions to process C3D bytes according to the file maker processor type for compatibility purposes.
+  remarks: >-
+    The functions:
+
+    <ul><li><xref href="SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte%5b%5d)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte%5b%5d)" data-throw-if-not-resolved="false"></xref></li></ul>
+
+    are modifications of the code from [njuffa](https://stackoverflow.com/users/780717/njuffa) at the quesiton [Floating Point numbers on VAX machine](https://stackoverflow.com/questions/71689829/floating-point-numbers-on-vax-machine).
+
+    They are therefore licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). This project is nonetheless not endorsed by the original author and the code is used here under the terms of the license.
   example: []
   syntax:
     content: public static class C3dBytesConvertor
@@ -39,43 +50,310 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
-  commentId: M:SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
-  id: ConvertBytesToFloat(System.Byte[],SHARP3D.ProcessorType)
+- uid: SHARP3D.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.ProcessorType)
+  id: ToBytes(System.Int32,SHARP3D.ProcessorType)
   parent: SHARP3D.C3dBytesConvertor
   langs:
   - csharp
   - vb
-  name: ConvertBytesToFloat(byte[], ProcessorType)
-  nameWithType: C3dBytesConvertor.ConvertBytesToFloat(byte[], ProcessorType)
-  fullName: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(byte[], SHARP3D.ProcessorType)
+  name: ToBytes(int, ProcessorType)
+  nameWithType: C3dBytesConvertor.ToBytes(int, ProcessorType)
+  fullName: SHARP3D.C3dBytesConvertor.ToBytes(int, SHARP3D.ProcessorType)
   type: Method
   source:
     remote:
       path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ConvertBytesToFloat
+    id: ToBytes
     path: SHARP3D/logic/C3dBytesConvertor.cs
-    startLine: 10
+    startLine: 40
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Converts a 16-bit integer to a byte array with byte order determined by the specified processor type.
+  example: []
   syntax:
-    content: public static float ConvertBytesToFloat(byte[] bytes, ProcessorType processorMakerType)
+    content: public static byte[] ToBytes(int value, ProcessorType processorMakerType)
+    parameters:
+    - id: value
+      type: System.Int32
+      description: The 16-bit integer to convert.
+    - id: processorMakerType
+      type: SHARP3D.ProcessorType
+      description: The processor type that determines the byte order.
+    return:
+      type: System.Byte[]
+      description: A byte array representing the integer in the appropriate byte order.
+    content.vb: Public Shared Function ToBytes(value As Integer, processorMakerType As ProcessorType) As Byte()
+  overload: SHARP3D.C3dBytesConvertor.ToBytes*
+  exceptions:
+  - type: SHARP3D.exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+    description: Thrown when the specified processor type is not recognized.
+  nameWithType.vb: C3dBytesConvertor.ToBytes(Integer, ProcessorType)
+  fullName.vb: SHARP3D.C3dBytesConvertor.ToBytes(Integer, SHARP3D.ProcessorType)
+  name.vb: ToBytes(Integer, ProcessorType)
+- uid: SHARP3D.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.ProcessorType)
+  id: ToBytes(System.Single,SHARP3D.ProcessorType)
+  parent: SHARP3D.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(float, ProcessorType)
+  nameWithType: C3dBytesConvertor.ToBytes(float, ProcessorType)
+  fullName: SHARP3D.C3dBytesConvertor.ToBytes(float, SHARP3D.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToBytes
+    path: SHARP3D/logic/C3dBytesConvertor.cs
+    startLine: 85
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Converts a single-precision (32-bit) floating-point value to a byte array formatted for the specified processor type.
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(float value, ProcessorType processorMakerType)
+    parameters:
+    - id: value
+      type: System.Single
+      description: The floating-point value to convert.
+    - id: processorMakerType
+      type: SHARP3D.ProcessorType
+      description: The target processor type determining the byte order and format.
+    return:
+      type: System.Byte[]
+      description: A byte array representing the floating-point value in the format required by the specified processor type.
+    content.vb: Public Shared Function ToBytes(value As Single, processorMakerType As ProcessorType) As Byte()
+  overload: SHARP3D.C3dBytesConvertor.ToBytes*
+  exceptions:
+  - type: SHARP3D.exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+    description: Thrown when the specified processor type is not supported.
+  nameWithType.vb: C3dBytesConvertor.ToBytes(Single, ProcessorType)
+  fullName.vb: SHARP3D.C3dBytesConvertor.ToBytes(Single, SHARP3D.ProcessorType)
+  name.vb: ToBytes(Single, ProcessorType)
+- uid: SHARP3D.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.ProcessorType)
+  id: ToInt(System.Byte[],SHARP3D.ProcessorType)
+  parent: SHARP3D.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToInt(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ToInt(byte[], ProcessorType)
+  fullName: SHARP3D.C3dBytesConvertor.ToInt(byte[], SHARP3D.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToInt
+    path: SHARP3D/logic/C3dBytesConvertor.cs
+    startLine: 138
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Converts a byte array to a 16-bit integer using the specified processor type for endianness handling.
+  example: []
+  syntax:
+    content: public static int ToInt(byte[] bytes, ProcessorType processorMakerType)
     parameters:
     - id: bytes
       type: System.Byte[]
+      description: The byte array to convert.
     - id: processorMakerType
       type: SHARP3D.ProcessorType
+      description: The processor type indicating the expected byte order.
+    return:
+      type: System.Int32
+      description: The 32-bit integer representation of the byte array.
+    content.vb: Public Shared Function ToInt(bytes As Byte(), processorMakerType As ProcessorType) As Integer
+  overload: SHARP3D.C3dBytesConvertor.ToInt*
+  exceptions:
+  - type: SHARP3D.exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+    description: Thrown when the processor type is unknown or unsupported.
+  nameWithType.vb: C3dBytesConvertor.ToInt(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.C3dBytesConvertor.ToInt(Byte(), SHARP3D.ProcessorType)
+  name.vb: ToInt(Byte(), ProcessorType)
+- uid: SHARP3D.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.ProcessorType)
+  id: ToFloat(System.Byte[],SHARP3D.ProcessorType)
+  parent: SHARP3D.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToFloat(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ToFloat(byte[], ProcessorType)
+  fullName: SHARP3D.C3dBytesConvertor.ToFloat(byte[], SHARP3D.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/logic/C3dBytesConvertor.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToFloat
+    path: SHARP3D/logic/C3dBytesConvertor.cs
+    startLine: 182
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: >-
+    Converts a byte array to a single-precision floating-point value based on the specified processor type and
+
+    system endianness.
+  example: []
+  syntax:
+    content: public static float ToFloat(byte[] bytes, ProcessorType processorMakerType)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+      description: The byte array representing the floating-point value.
+    - id: processorMakerType
+      type: SHARP3D.ProcessorType
+      description: The processor type indicating the format of the floating-point value.
     return:
       type: System.Single
-    content.vb: Public Shared Function ConvertBytesToFloat(bytes As Byte(), processorMakerType As ProcessorType) As Single
-  overload: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat*
-  nameWithType.vb: C3dBytesConvertor.ConvertBytesToFloat(Byte(), ProcessorType)
-  fullName.vb: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat(Byte(), SHARP3D.ProcessorType)
-  name.vb: ConvertBytesToFloat(Byte(), ProcessorType)
+      description: A single-precision floating-point value converted from the byte array.
+    content.vb: Public Shared Function ToFloat(bytes As Byte(), processorMakerType As ProcessorType) As Single
+  overload: SHARP3D.C3dBytesConvertor.ToFloat*
+  exceptions:
+  - type: SHARP3D.exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+    description: Thrown when the processor type is unknown or unsupported.
+  nameWithType.vb: C3dBytesConvertor.ToFloat(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.C3dBytesConvertor.ToFloat(Byte(), SHARP3D.ProcessorType)
+  name.vb: ToFloat(Byte(), ProcessorType)
 references:
+- uid: SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  commentId: M:SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: LittleEndianFloatToVaxFloatByte(float)
+  nameWithType: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  fullName: SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  nameWithType.vb: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  fullName.vb: SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  name.vb: LittleEndianFloatToVaxFloatByte(Single)
+  spec.csharp:
+  - uid: SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+    name: LittleEndianFloatToVaxFloatByte
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+    name: LittleEndianFloatToVaxFloatByte
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  commentId: M:SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: BigEndianFloatToVaxF(float)
+  nameWithType: C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  fullName: SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  nameWithType.vb: C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  fullName.vb: SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  name.vb: BigEndianFloatToVaxF(Single)
+  spec.csharp:
+  - uid: SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+    name: BigEndianFloatToVaxF
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+    name: BigEndianFloatToVaxF
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: VaxFToLittleEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  fullName: SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  nameWithType.vb: C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  fullName.vb: SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  name.vb: VaxFToLittleEndianFloat(Byte())
+  spec.csharp:
+  - uid: SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+    name: VaxFToLittleEndianFloat
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+    name: VaxFToLittleEndianFloat
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: VaxFToBigEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  fullName: SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  nameWithType.vb: C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  fullName.vb: SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  name.vb: VaxFToBigEndianFloat(Byte())
+  spec.csharp:
+  - uid: SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+    name: VaxFToBigEndianFloat
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+    name: VaxFToBigEndianFloat
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
 - uid: SHARP3D
   commentId: N:SHARP3D
   href: SHARP3D.html
@@ -319,12 +597,36 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat*
-  commentId: Overload:SHARP3D.C3dBytesConvertor.ConvertBytesToFloat
-  href: SHARP3D.C3dBytesConvertor.html#SHARP3D_C3dBytesConvertor_ConvertBytesToFloat_System_Byte___SHARP3D_ProcessorType_
-  name: ConvertBytesToFloat
-  nameWithType: C3dBytesConvertor.ConvertBytesToFloat
-  fullName: SHARP3D.C3dBytesConvertor.ConvertBytesToFloat
+- uid: SHARP3D.exceptions.UnknownProcessorTypeException
+  commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+  href: SHARP3D.exceptions.UnknownProcessorTypeException.html
+  name: UnknownProcessorTypeException
+  nameWithType: UnknownProcessorTypeException
+  fullName: SHARP3D.exceptions.UnknownProcessorTypeException
+- uid: SHARP3D.C3dBytesConvertor.ToBytes*
+  commentId: Overload:SHARP3D.C3dBytesConvertor.ToBytes
+  href: SHARP3D.C3dBytesConvertor.html#SHARP3D_C3dBytesConvertor_ToBytes_System_Int32_SHARP3D_ProcessorType_
+  name: ToBytes
+  nameWithType: C3dBytesConvertor.ToBytes
+  fullName: SHARP3D.C3dBytesConvertor.ToBytes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  parent: SHARP3D
+  href: SHARP3D.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType
 - uid: System.Byte[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
@@ -348,13 +650,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
-- uid: SHARP3D.ProcessorType
-  commentId: T:SHARP3D.ProcessorType
-  parent: SHARP3D
-  href: SHARP3D.ProcessorType.html
-  name: ProcessorType
-  nameWithType: ProcessorType
-  fullName: SHARP3D.ProcessorType
 - uid: System.Single
   commentId: T:System.Single
   parent: System
@@ -366,3 +661,15 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: SHARP3D.C3dBytesConvertor.ToInt*
+  commentId: Overload:SHARP3D.C3dBytesConvertor.ToInt
+  href: SHARP3D.C3dBytesConvertor.html#SHARP3D_C3dBytesConvertor_ToInt_System_Byte___SHARP3D_ProcessorType_
+  name: ToInt
+  nameWithType: C3dBytesConvertor.ToInt
+  fullName: SHARP3D.C3dBytesConvertor.ToInt
+- uid: SHARP3D.C3dBytesConvertor.ToFloat*
+  commentId: Overload:SHARP3D.C3dBytesConvertor.ToFloat
+  href: SHARP3D.C3dBytesConvertor.html#SHARP3D_C3dBytesConvertor_ToFloat_System_Byte___SHARP3D_ProcessorType_
+  name: ToFloat
+  nameWithType: C3dBytesConvertor.ToFloat
+  fullName: SHARP3D.C3dBytesConvertor.ToFloat

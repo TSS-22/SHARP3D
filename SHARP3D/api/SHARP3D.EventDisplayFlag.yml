@@ -21,10 +21,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventDisplayFlag
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 32
+    startLine: 47
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Specifies display states for a header event, indicating whether it is ON or OFF.
+  example: []
   syntax:
     content: public enum EventDisplayFlag
     content.vb: Public Enum EventDisplayFlag
@@ -46,10 +48,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ON
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 34
+    startLine: 52
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Represents the 'on' state with a value of 1.
+  example: []
   syntax:
     content: ON = 1
     return:
@@ -72,10 +76,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: OFF
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 35
+    startLine: 56
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Indicates that the feature or setting is turned off.
+  example: []
   syntax:
     content: OFF = 0
     return:

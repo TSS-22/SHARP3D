@@ -8,6 +8,7 @@ items:
   - SHARP3D.ProcessorType.DEC
   - SHARP3D.ProcessorType.INTEL
   - SHARP3D.ProcessorType.SIG_MIPS
+  - SHARP3D.ProcessorType.UNKOWN
   langs:
   - csharp
   - vb
@@ -22,22 +23,18 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ProcessorType
     path: SHARP3D/data/ProcessorType.cs
-    startLine: 8
+    startLine: 7
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: >-
-    <p>This structure index the different processor types used to create C3D files.</p>
-
-    <p>Intel = 84</p>
-
-    <p>DEC = 85</p>
-
-    SIG/MIPS = 86
+  summary: <p>This structure index the different processor types used to create C3D files.</p>
   example: []
   syntax:
-    content: public enum ProcessorType
-    content.vb: Public Enum ProcessorType
+    content: 'public enum ProcessorType : byte'
+    content.vb: Public Enum ProcessorType As Byte
+  extensionMethods:
+  - SHARP3D.ProcessorType.SHARP3D.ProcessorTypeExtensions.ToByte
+  - SHARP3D.ProcessorType.SHARP3D.ProcessorTypeExtensions.ToInt
 - uid: SHARP3D.ProcessorType.INTEL
   commentId: F:SHARP3D.ProcessorType.INTEL
   id: INTEL
@@ -56,10 +53,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: INTEL
     path: SHARP3D/data/ProcessorType.cs
-    startLine: 10
+    startLine: 12
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Represents the INTEL vendor with an associated value of 84.
+  example: []
   syntax:
     content: INTEL = 84
     return:
@@ -82,10 +81,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: DEC
     path: SHARP3D/data/ProcessorType.cs
-    startLine: 11
+    startLine: 16
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Represents the DEC opcode with a value of 85.
+  example: []
   syntax:
     content: DEC = 85
     return:
@@ -108,12 +109,42 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: SIG_MIPS
     path: SHARP3D/data/ProcessorType.cs
-    startLine: 12
+    startLine: 20
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Specifies the signature type for MIPS architecture.
+  example: []
   syntax:
     content: SIG_MIPS = 86
+    return:
+      type: SHARP3D.ProcessorType
+- uid: SHARP3D.ProcessorType.UNKOWN
+  commentId: F:SHARP3D.ProcessorType.UNKOWN
+  id: UNKOWN
+  parent: SHARP3D.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: UNKOWN
+  nameWithType: ProcessorType.UNKOWN
+  fullName: SHARP3D.ProcessorType.UNKOWN
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNKOWN
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 24
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Represents an unknown value with a numeric value of 255.
+  example: []
+  syntax:
+    content: UNKOWN = 255
     return:
       type: SHARP3D.ProcessorType
 references:
@@ -123,6 +154,113 @@ references:
   name: SHARP3D
   nameWithType: SHARP3D
   fullName: SHARP3D
+- uid: SHARP3D.ProcessorType.SHARP3D.ProcessorTypeExtensions.ToByte
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  parent: SHARP3D.ProcessorTypeExtensions
+  definition: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  name: ToByte(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToByte(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+    name: ToByte
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+    name: ToByte
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+- uid: SHARP3D.ProcessorType.SHARP3D.ProcessorTypeExtensions.ToInt
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  parent: SHARP3D.ProcessorTypeExtensions
+  definition: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  name: ToInt(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToInt(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+    name: ToInt
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+    name: ToInt
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+- uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  name: ToByte(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToByte(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+    name: ToByte
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+    name: ToByte
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+- uid: SHARP3D.ProcessorTypeExtensions
+  commentId: T:SHARP3D.ProcessorTypeExtensions
+  parent: SHARP3D
+  href: SHARP3D.ProcessorTypeExtensions.html
+  name: ProcessorTypeExtensions
+  nameWithType: ProcessorTypeExtensions
+  fullName: SHARP3D.ProcessorTypeExtensions
+- uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  name: ToInt(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToInt(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+    name: ToInt
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+    name: ToInt
+    href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  - name: (
+  - uid: SHARP3D.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.ProcessorType.html
+  - name: )
 - uid: SHARP3D.ProcessorType
   commentId: T:SHARP3D.ProcessorType
   parent: SHARP3D

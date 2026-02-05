@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.exceptions
+  commentId: N:SHARP3D.exceptions
+  id: SHARP3D.exceptions
+  children:
+  - SHARP3D.exceptions.UnknownProcessorTypeException
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.exceptions
+  nameWithType: SHARP3D.exceptions
+  fullName: SHARP3D.exceptions
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.exceptions.UnknownProcessorTypeException
+  commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+  href: SHARP3D.exceptions.UnknownProcessorTypeException.html
+  name: UnknownProcessorTypeException
+  nameWithType: UnknownProcessorTypeException
+  fullName: SHARP3D.exceptions.UnknownProcessorTypeException

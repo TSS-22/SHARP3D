@@ -4,7 +4,10 @@ items:
   commentId: N:SHARP3D.Test
   id: SHARP3D.Test
   children:
-  - SHARP3D.Test.UnitTest1
+  - SHARP3D.Test.C3dBytesConvertorTests
+  - SHARP3D.Test.C3dFileManagerTests
+  - SHARP3D.Test.C3dFileTests
+  - SHARP3D.Test.ProcessorTypeTests
   langs:
   - csharp
   - vb
@@ -15,9 +18,27 @@ items:
   assemblies:
   - SHARP3D.Test
 references:
-- uid: SHARP3D.Test.UnitTest1
-  commentId: T:SHARP3D.Test.UnitTest1
-  href: SHARP3D.Test.UnitTest1.html
-  name: UnitTest1
-  nameWithType: UnitTest1
-  fullName: SHARP3D.Test.UnitTest1
+- uid: SHARP3D.Test.C3dBytesConvertorTests
+  commentId: T:SHARP3D.Test.C3dBytesConvertorTests
+  href: SHARP3D.Test.C3dBytesConvertorTests.html
+  name: C3dBytesConvertorTests
+  nameWithType: C3dBytesConvertorTests
+  fullName: SHARP3D.Test.C3dBytesConvertorTests
+- uid: SHARP3D.Test.C3dFileManagerTests
+  commentId: T:SHARP3D.Test.C3dFileManagerTests
+  href: SHARP3D.Test.C3dFileManagerTests.html
+  name: C3dFileManagerTests
+  nameWithType: C3dFileManagerTests
+  fullName: SHARP3D.Test.C3dFileManagerTests
+- uid: SHARP3D.Test.C3dFileTests
+  commentId: T:SHARP3D.Test.C3dFileTests
+  href: SHARP3D.Test.C3dFileTests.html
+  name: C3dFileTests
+  nameWithType: C3dFileTests
+  fullName: SHARP3D.Test.C3dFileTests
+- uid: SHARP3D.Test.ProcessorTypeTests
+  commentId: T:SHARP3D.Test.ProcessorTypeTests
+  href: SHARP3D.Test.ProcessorTypeTests.html
+  name: ProcessorTypeTests
+  nameWithType: ProcessorTypeTests
+  fullName: SHARP3D.Test.ProcessorTypeTests

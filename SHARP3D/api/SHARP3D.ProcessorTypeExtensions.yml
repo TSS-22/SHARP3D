@@ -1,34 +1,37 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.C3dFileManager
-  commentId: T:SHARP3D.C3dFileManager
-  id: C3dFileManager
+- uid: SHARP3D.ProcessorTypeExtensions
+  commentId: T:SHARP3D.ProcessorTypeExtensions
+  id: ProcessorTypeExtensions
   parent: SHARP3D
   children:
-  - SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  - SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  - SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
+  - SHARP3D.ProcessorTypeExtensions.FromByte(System.Byte)
+  - SHARP3D.ProcessorTypeExtensions.FromInt(System.Int32)
+  - SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  - SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
   langs:
   - csharp
   - vb
-  name: C3dFileManager
-  nameWithType: C3dFileManager
-  fullName: SHARP3D.C3dFileManager
+  name: ProcessorTypeExtensions
+  nameWithType: ProcessorTypeExtensions
+  fullName: SHARP3D.ProcessorTypeExtensions
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: C3dFileManager
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 4
+    id: ProcessorTypeExtensions
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 30
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Helper/conversion methods for <xref href="SHARP3D.ProcessorType" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
-    content: public static class C3dFileManager
-    content.vb: Public Module C3dFileManager
+    content: public static class ProcessorTypeExtensions
+    content.vb: Public Module ProcessorTypeExtensions
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,100 +42,158 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
-  id: ReadHeader(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
+- uid: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
+  id: ToByte(SHARP3D.ProcessorType)
+  isExtensionMethod: true
+  parent: SHARP3D.ProcessorTypeExtensions
   langs:
   - csharp
   - vb
-  name: ReadHeader(FileStream)
-  nameWithType: C3dFileManager.ReadHeader(FileStream)
-  fullName: SHARP3D.C3dFileManager.ReadHeader(System.IO.FileStream)
+  name: ToByte(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToByte(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToByte(SHARP3D.ProcessorType)
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadHeader
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 7
+    id: ToByte
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 35
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Converts a <xref href="SHARP3D.ProcessorType" data-throw-if-not-resolved="false"></xref> to its underlying <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> value.
+  example: []
   syntax:
-    content: public static byte[] ReadHeader(FileStream c3dStream)
+    content: public static byte ToByte(this ProcessorType processorType)
     parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
+    - id: processorType
+      type: SHARP3D.ProcessorType
     return:
-      type: System.Byte[]
-    content.vb: Public Shared Function ReadHeader(c3dStream As FileStream) As Byte()
-  overload: SHARP3D.C3dFileManager.ReadHeader*
-- uid: SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
-  id: GetParameterSectionPointer(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
+      type: System.Byte
+    content.vb: Public Shared Function ToByte(processorType As ProcessorType) As Byte
+  overload: SHARP3D.ProcessorTypeExtensions.ToByte*
+- uid: SHARP3D.ProcessorTypeExtensions.FromInt(System.Int32)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.FromInt(System.Int32)
+  id: FromInt(System.Int32)
+  parent: SHARP3D.ProcessorTypeExtensions
   langs:
   - csharp
   - vb
-  name: GetParameterSectionPointer(FileStream)
-  nameWithType: C3dFileManager.GetParameterSectionPointer(FileStream)
-  fullName: SHARP3D.C3dFileManager.GetParameterSectionPointer(System.IO.FileStream)
+  name: FromInt(int)
+  nameWithType: ProcessorTypeExtensions.FromInt(int)
+  fullName: SHARP3D.ProcessorTypeExtensions.FromInt(int)
   type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: GetParameterSectionPointer
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 14
+    id: FromInt
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 40
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Converts an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> to <xref href="SHARP3D.ProcessorType" data-throw-if-not-resolved="false"></xref>; if value is not linked to a recognized processor type, it is affected to <xref href="SHARP3D.ProcessorType.UNKOWN" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
-    content: public static int GetParameterSectionPointer(FileStream c3dStream)
+    content: public static ProcessorType FromInt(int value)
     parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-    return:
+    - id: value
       type: System.Int32
-    content.vb: Public Shared Function GetParameterSectionPointer(c3dStream As FileStream) As Integer
-  overload: SHARP3D.C3dFileManager.GetParameterSectionPointer*
-- uid: SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  id: ReadProcessorByte(System.IO.FileStream)
-  parent: SHARP3D.C3dFileManager
-  langs:
-  - csharp
-  - vb
-  name: ReadProcessorByte(FileStream)
-  nameWithType: C3dFileManager.ReadProcessorByte(FileStream)
-  fullName: SHARP3D.C3dFileManager.ReadProcessorByte(System.IO.FileStream)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/logic/C3dFileManager.cs
-      branch: main
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadProcessorByte
-    path: SHARP3D/logic/C3dFileManager.cs
-    startLine: 23
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  syntax:
-    content: public static ProcessorType ReadProcessorByte(FileStream c3dStream)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
     return:
       type: SHARP3D.ProcessorType
-    content.vb: Public Shared Function ReadProcessorByte(c3dStream As FileStream) As ProcessorType
-  overload: SHARP3D.C3dFileManager.ReadProcessorByte*
+    content.vb: Public Shared Function FromInt(value As Integer) As ProcessorType
+  overload: SHARP3D.ProcessorTypeExtensions.FromInt*
+  nameWithType.vb: ProcessorTypeExtensions.FromInt(Integer)
+  fullName.vb: SHARP3D.ProcessorTypeExtensions.FromInt(Integer)
+  name.vb: FromInt(Integer)
+- uid: SHARP3D.ProcessorTypeExtensions.FromByte(System.Byte)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.FromByte(System.Byte)
+  id: FromByte(System.Byte)
+  parent: SHARP3D.ProcessorTypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: FromByte(byte)
+  nameWithType: ProcessorTypeExtensions.FromByte(byte)
+  fullName: SHARP3D.ProcessorTypeExtensions.FromByte(byte)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FromByte
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 56
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Converts a <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> to <xref href="SHARP3D.ProcessorType" data-throw-if-not-resolved="false"></xref>; If CPU architecture is not linked to a recognized processor type, it is affected to <xref href="SHARP3D.ProcessorType.UNKOWN" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static ProcessorType FromByte(byte value)
+    parameters:
+    - id: value
+      type: System.Byte
+      description: The byte value to convert.
+    return:
+      type: SHARP3D.ProcessorType
+      description: A <xref href="SHARP3D.ProcessorType" data-throw-if-not-resolved="false"></xref> corresponding to the provided byte value, or <xref href="SHARP3D.ProcessorType.UNKOWN" data-throw-if-not-resolved="false"></xref> if the value does not match any known processor type.
+    content.vb: Public Shared Function FromByte(value As Byte) As ProcessorType
+  overload: SHARP3D.ProcessorTypeExtensions.FromByte*
+  nameWithType.vb: ProcessorTypeExtensions.FromByte(Byte)
+  fullName.vb: SHARP3D.ProcessorTypeExtensions.FromByte(Byte)
+  name.vb: FromByte(Byte)
+- uid: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  commentId: M:SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  id: ToInt(SHARP3D.ProcessorType)
+  isExtensionMethod: true
+  parent: SHARP3D.ProcessorTypeExtensions
+  langs:
+  - csharp
+  - vb
+  name: ToInt(ProcessorType)
+  nameWithType: ProcessorTypeExtensions.ToInt(ProcessorType)
+  fullName: SHARP3D.ProcessorTypeExtensions.ToInt(SHARP3D.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/data/ProcessorType.cs
+      branch: main
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToInt
+    path: SHARP3D/data/ProcessorType.cs
+    startLine: 72
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Converts a ProcessorType value to its underlying integer representation.
+  example: []
+  syntax:
+    content: public static int ToInt(this ProcessorType processorType)
+    parameters:
+    - id: processorType
+      type: SHARP3D.ProcessorType
+      description: The ProcessorType value to convert.
+    return:
+      type: System.Int32
+      description: The integer representation of the specified ProcessorType.
+    content.vb: Public Shared Function ToInt(processorType As ProcessorType) As Integer
+  overload: SHARP3D.ProcessorTypeExtensions.ToInt*
 references:
+- uid: SHARP3D.ProcessorType
+  commentId: T:SHARP3D.ProcessorType
+  parent: SHARP3D
+  href: SHARP3D.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.ProcessorType
 - uid: SHARP3D
   commentId: N:SHARP3D
   href: SHARP3D.html
@@ -376,76 +437,23 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.C3dFileManager.ReadHeader*
-  commentId: Overload:SHARP3D.C3dFileManager.ReadHeader
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_ReadHeader_System_IO_FileStream_
-  name: ReadHeader
-  nameWithType: C3dFileManager.ReadHeader
-  fullName: SHARP3D.C3dFileManager.ReadHeader
-- uid: System.IO.FileStream
-  commentId: T:System.IO.FileStream
-  parent: System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
-  name: FileStream
-  nameWithType: FileStream
-  fullName: System.IO.FileStream
-- uid: System.Byte[]
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.byte
-  name: byte[]
-  nameWithType: byte[]
-  fullName: byte[]
-  nameWithType.vb: Byte()
-  fullName.vb: Byte()
-  name.vb: Byte()
-  spec.csharp:
-  - uid: System.Byte
-    name: byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.Byte
-    name: Byte
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.byte
-  - name: (
-  - name: )
-- uid: System.IO
-  commentId: N:System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-- uid: SHARP3D.C3dFileManager.GetParameterSectionPointer*
-  commentId: Overload:SHARP3D.C3dFileManager.GetParameterSectionPointer
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_GetParameterSectionPointer_System_IO_FileStream_
-  name: GetParameterSectionPointer
-  nameWithType: C3dFileManager.GetParameterSectionPointer
-  fullName: SHARP3D.C3dFileManager.GetParameterSectionPointer
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: SHARP3D.ProcessorTypeExtensions.ToByte*
+  commentId: Overload:SHARP3D.ProcessorTypeExtensions.ToByte
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToByte_SHARP3D_ProcessorType_
+  name: ToByte
+  nameWithType: ProcessorTypeExtensions.ToByte
+  fullName: SHARP3D.ProcessorTypeExtensions.ToByte
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -457,16 +465,27 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SHARP3D.C3dFileManager.ReadProcessorByte*
-  commentId: Overload:SHARP3D.C3dFileManager.ReadProcessorByte
-  href: SHARP3D.C3dFileManager.html#SHARP3D_C3dFileManager_ReadProcessorByte_System_IO_FileStream_
-  name: ReadProcessorByte
-  nameWithType: C3dFileManager.ReadProcessorByte
-  fullName: SHARP3D.C3dFileManager.ReadProcessorByte
-- uid: SHARP3D.ProcessorType
-  commentId: T:SHARP3D.ProcessorType
-  parent: SHARP3D
-  href: SHARP3D.ProcessorType.html
-  name: ProcessorType
-  nameWithType: ProcessorType
-  fullName: SHARP3D.ProcessorType
+- uid: SHARP3D.ProcessorType.UNKOWN
+  commentId: F:SHARP3D.ProcessorType.UNKOWN
+  href: SHARP3D.ProcessorType.html#SHARP3D_ProcessorType_UNKOWN
+  name: UNKOWN
+  nameWithType: ProcessorType.UNKOWN
+  fullName: SHARP3D.ProcessorType.UNKOWN
+- uid: SHARP3D.ProcessorTypeExtensions.FromInt*
+  commentId: Overload:SHARP3D.ProcessorTypeExtensions.FromInt
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_FromInt_System_Int32_
+  name: FromInt
+  nameWithType: ProcessorTypeExtensions.FromInt
+  fullName: SHARP3D.ProcessorTypeExtensions.FromInt
+- uid: SHARP3D.ProcessorTypeExtensions.FromByte*
+  commentId: Overload:SHARP3D.ProcessorTypeExtensions.FromByte
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_FromByte_System_Byte_
+  name: FromByte
+  nameWithType: ProcessorTypeExtensions.FromByte
+  fullName: SHARP3D.ProcessorTypeExtensions.FromByte
+- uid: SHARP3D.ProcessorTypeExtensions.ToInt*
+  commentId: Overload:SHARP3D.ProcessorTypeExtensions.ToInt
+  href: SHARP3D.ProcessorTypeExtensions.html#SHARP3D_ProcessorTypeExtensions_ToInt_SHARP3D_ProcessorType_
+  name: ToInt
+  nameWithType: ProcessorTypeExtensions.ToInt
+  fullName: SHARP3D.ProcessorTypeExtensions.ToInt

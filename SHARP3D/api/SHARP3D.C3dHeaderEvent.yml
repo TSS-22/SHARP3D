@@ -24,10 +24,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dHeaderEvent
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 3
+    startLine: 6
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Represents an event in a C3D file header, including its time, display flag, and label.
+  example: []
   syntax:
     content: public struct C3dHeaderEvent
     content.vb: Public Structure C3dHeaderEvent
@@ -56,10 +58,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventTime
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 5
+    startLine: 11
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: The time at which the event occurs.
+  example: []
   syntax:
     content: public float EventTime
     return:
@@ -83,10 +87,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: DisplayFlag
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 6
+    startLine: 15
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Specifies the <xref href="SHARP3D.EventDisplayFlag" data-throw-if-not-resolved="false"></xref> for the event.
+  example: []
   syntax:
     content: public EventDisplayFlag DisplayFlag
     return:
@@ -110,10 +116,12 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventLabel
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 7
+    startLine: 19
   assemblies:
   - SHARP3D
   namespace: SHARP3D
+  summary: Specifies the label associated with the event. It is either a 2 or 4 character string of ASCII character depending on the C3D file version.
+  example: []
   syntax:
     content: public string EventLabel
     return:
@@ -137,7 +145,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventFromBinaries
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 10
+    startLine: 22
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -173,7 +181,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: EventsFromBinaries
     path: SHARP3D/data/C3dHeaderEvent.cs
-    startLine: 21
+    startLine: 33
   assemblies:
   - SHARP3D
   namespace: SHARP3D
