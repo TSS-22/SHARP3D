@@ -2,7 +2,7 @@ using Xunit;
 
 namespace SHARP3D.Test
 {
-    public class ProcessorTypeTest
+    public class ProcessorTypeTests
     {
 
 

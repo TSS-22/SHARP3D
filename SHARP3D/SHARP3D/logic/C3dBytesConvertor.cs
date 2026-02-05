@@ -2,6 +2,10 @@ using SHARP3D.exceptions;
 
 namespace SHARP3D
 {
+
+    // TODO: Handle unknown processor type. I think I need to handle it higher up the chain and refuse unkown processor type C3D files.
+    // TODO: Add the check about number of bytes and such.
+
     /// <summary>
     /// This helper class provide functions to process C3D bytes according to the file maker processor type for compatibility purposes.
     /// </summary>
@@ -9,7 +13,14 @@ namespace SHARP3D
     /// The Intel floating point format is little-endian IEEE 754.
     /// </para>
     /// <remarks>
-    /// The function <see cref ="LittleEndianFloatToVaxFloatByte"/> and <see cref ="BigEndianFloatToVaxF"/> are modifications of the code from [njuffa](https://stackoverflow.com/users/780717/njuffa) at the quesiton [Floating Point numbers on VAX machine](https://stackoverflow.com/questions/71689829/floating-point-numbers-on-vax-machine).
+    /// The functions:
+    /// <list type="bullet">
+    ///   <item><see cref ="LittleEndianFloatToVaxFloatByte"/></item>
+    ///   <item><see cref ="BigEndianFloatToVaxF"/></item>
+    ///   <item><see cref ="VaxFToLittleEndianFloat"/></item>
+    ///   <item><see cref ="VaxFToBigEndianFloat"/></item>
+    /// </list>
+    /// are modifications of the code from [njuffa](https://stackoverflow.com/users/780717/njuffa) at the quesiton [Floating Point numbers on VAX machine](https://stackoverflow.com/questions/71689829/floating-point-numbers-on-vax-machine).
     /// They are therefore licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). This project is nonetheless not endorsed by the original author and the code is used here under the terms of the license.
     /// </remarks>
     public static class C3dBytesConvertor
@@ -21,20 +32,157 @@ namespace SHARP3D
         private const float SCAL = 4; // factor between IEEE-754 'binary32' and VAX F-float
 
         /// <summary>
+        /// Converts a 16-bit integer to a byte array with byte order determined by the specified processor type.
+        /// </summary>
+        /// <param name="value">The 16-bit integer to convert.</param>
+        /// <param name="processorMakerType">The processor type that determines the byte order.</param>
+        /// <returns>A byte array representing the integer in the appropriate byte order.</returns>
+        /// <exception cref="UnknownProcessorTypeException">Thrown when the specified processor type is not recognized.</exception>
+        public static byte[] ToBytes(int value, ProcessorType processorMakerType)
+        {
+            if (BitConverter.IsLittleEndian)
+            {
+                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
+                {
+                    return BitConverter.GetBytes(value);
+                }
+                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    Array.Reverse(bytes);
+                    return bytes;
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert Int to bytes.");
+                }
+            }
+            else
+            {
+                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    Array.Reverse(bytes);
+                    return bytes;
+                }
+                else if (processorMakerType == ProcessorType.DEC)
+                {
+                    return BitConverter.GetBytes(value);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert Int to bytes.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Converts a single-precision (32-bit) floating-point value to a byte array formatted for the specified processor type.
+        /// </summary>
+        /// <param name="value">The floating-point value to convert.</param>
+        /// <param name="processorMakerType">The target processor type determining the byte order and format.</param>
+        /// <returns>A byte array representing the floating-point value in the format required by the specified processor type.</returns>
+        /// <exception cref="UnknownProcessorTypeException">Thrown when the specified processor type is not supported.</exception>
+        public static byte[] ToBytes(float value, ProcessorType processorMakerType)
+        {
+            if (BitConverter.IsLittleEndian)
+            {
+                if (processorMakerType == ProcessorType.INTEL)
+                {
+                    return BitConverter.GetBytes(value);
+                }
+                else if (processorMakerType == ProcessorType.DEC)
+                {
+                    return LittleEndianFloatToVaxFloatByte(value);
+                }
+                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    Array.Reverse(bytes);
+                    return bytes;
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert Float to bytes.");
+                }
+            }
+            else
+            {
+                if (processorMakerType == ProcessorType.INTEL)
+                {
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    Array.Reverse(bytes);
+                    return bytes;
+                }
+                else if (processorMakerType == ProcessorType.DEC)
+                {
+                    return BigEndianFloatToVaxF(value);
+                }
+                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    return BitConverter.GetBytes(value);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert Float to bytes.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Converts a byte array to a 16-bit integer using the specified processor type for endianness handling.
+        /// </summary>
+        /// <param name="bytes">The byte array to convert.</param>
+        /// <param name="processorMakerType">The processor type indicating the expected byte order.</param>
+        /// <returns>The 32-bit integer representation of the byte array.</returns>
+        /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
+        public static int ToInt(byte[] bytes, ProcessorType processorMakerType)
+        {
+            if (BitConverter.IsLittleEndian)
+            {
+                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
+                {
+                    return BitConverter.ToInt16(bytes, 0);
+                }
+                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    Array.Reverse(bytes);
+                    return BitConverter.ToInt16(bytes, 0);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert bytes to Int.");
+                }
+            }
+            else
+            {
+                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.SIG_MIPS)
+                {
+                    Array.Reverse(bytes);
+                    return BitConverter.ToInt16(bytes, 0);
+                }
+                else if (processorMakerType == ProcessorType.DEC)
+                {
+                    return BitConverter.ToInt16(bytes, 0);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert bytes to Int.");
+                }
+            }
+        }
+
+        /// <summary>
         /// Converts a byte array to a single-precision floating-point value based on the specified processor type and
         /// system endianness.
         /// </summary>
         /// <param name="bytes">The byte array representing the floating-point value.</param>
         /// <param name="processorMakerType">The processor type indicating the format of the floating-point value.</param>
         /// <returns>A single-precision floating-point value converted from the byte array.</returns>
+        /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
         public static float ToFloat(byte[] bytes, ProcessorType processorMakerType)
         {
-            // TODO: Handle unknown processor type. I think I need to handle it higher up the chain and refuse unkown processor type C3D files.
-            if (ProcessorType.UNKOWN == processorMakerType)
-            {
-                throw new UnknownProcessorTypeException("Cannot convert bytes to Float.");
-            }
-            // TODO: Add the check about number of bytes and such.
+            
             if (BitConverter.IsLittleEndian)
             {
                 if (processorMakerType == ProcessorType.INTEL)
