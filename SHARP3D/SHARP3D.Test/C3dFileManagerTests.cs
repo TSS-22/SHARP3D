@@ -22,7 +22,5 @@ namespace SHARP3D.Test
           }
         }
 
-
-
 	}
 }

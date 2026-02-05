@@ -19,8 +19,9 @@ namespace SHARP3D.Explorer
             try
             {
                 Console.WriteLine($"Opening C3D file: {path}");
-                //FileStream fs = new FileStream(path, FileMode.Open);
-                Console.WriteLine($"{(ProcessorType)84}");
+                FileStream fs = new FileStream(path, FileMode.Open);
+                ProcessorType test = C3dFileManager.ReadProcessorByte(fs);
+                Console.WriteLine($"Processor type: {test}");
                 return 0;
             }
             catch (Exception ex) 
