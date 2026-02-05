@@ -1,13 +1,16 @@
 ﻿namespace SHARP3D
 {
-    
+    /// <summary>
+    /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary
+    /// conversion.
+    /// </summary>
     public class C3dFile
     {
         ProcessorType processorType;
         // TODO: Implement constructor logic.
         public C3dFile(byte[] c3dBinairies)
         {
-            C3dFileManager.ReadProcessorByte(c3dBinairies);
+            //C3dFileManager.ReadProcessorByte(c3dBinairies);
 
         }
 

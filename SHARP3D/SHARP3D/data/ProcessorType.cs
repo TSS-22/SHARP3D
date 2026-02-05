@@ -7,9 +7,21 @@ namespace SHARP3D
     /// </summary>
     public enum ProcessorType : byte
     {
+        /// <summary>
+        /// Represents the INTEL vendor with an associated value of 84.
+        /// </summary>
         INTEL = 84,
+        /// <summary>
+        /// Represents the DEC opcode with a value of 85.
+        /// </summary>
         DEC = 85,
+        /// <summary>
+        /// Specifies the signature type for MIPS architecture.
+        /// </summary>
         SIG_MIPS = 86,
+        /// <summary>
+        /// Represents an unknown value with a numeric value of 255.
+        /// </summary>
         UNKOWN = 255,
     }
 
@@ -38,8 +50,10 @@ namespace SHARP3D
         }
 
         /// <summary>
-        /// Converts a <see cref="byte"/> to <see cref="ProcessorType"/>; throws when the value is not defined.
+        /// Converts a <see cref="byte"/> to <see cref="ProcessorType"/>; If CPU architecture is not linked to a recognized processor type, it is affected to <see cref="ProcessorType.UNKOWN"/>.
         /// </summary>
+        /// <param name="value">The byte value to convert.</param>
+        /// <returns>A <see cref="ProcessorType"/> corresponding to the provided byte value, or <see cref="ProcessorType.UNKOWN"/> if the value does not match any known processor type.</returns>
         public static ProcessorType FromByte(byte value)
         {
             switch (value)
@@ -51,8 +65,11 @@ namespace SHARP3D
             }
         }
 
-        public static byte ToByte(this int value) => (byte)value;
-
+        /// <summary>
+        /// Converts a ProcessorType value to its underlying integer representation.
+        /// </summary>
+        /// <param name="processorType">The ProcessorType value to convert.</param>
+        /// <returns>The integer representation of the specified ProcessorType.</returns>
         public static int ToInt(this ProcessorType processorType) => (int)processorType;
     }
 }

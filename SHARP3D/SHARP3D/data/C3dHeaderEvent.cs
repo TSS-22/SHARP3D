@@ -1,10 +1,22 @@
 ﻿namespace SHARP3D
 {
     // TODO: Implement methods to curate the eventLabel. Don't know where to put it.
+    /// <summary>
+    /// Represents an event in a C3D file header, including its time, display flag, and label.
+    /// </summary>
     public struct C3dHeaderEvent
     {
+        /// <summary>
+        /// The time at which the event occurs.
+        /// </summary>
         public float EventTime;
+        /// <summary>
+        /// Specifies the <see cref="EventDisplayFlag"/> for the event. 
+        /// </summary>
         public EventDisplayFlag DisplayFlag;
+        /// <summary>
+        /// Specifies the label associated with the event. It is either a 2 or 4 character string of ASCII character depending on the C3D file version.
+        /// </summary>
         public string EventLabel;
 
         // TODO: Entierity
@@ -30,9 +42,18 @@
         }
     }
 
+    /// <summary>
+    /// Specifies display states for a header event, indicating whether it is ON or OFF.
+    /// </summary>
     public enum EventDisplayFlag : int
     {
+        /// <summary>
+        /// Represents the 'on' state with a value of 1.
+        /// </summary>
         ON = 1,
+        /// <summary>
+        /// Indicates that the feature or setting is turned off.
+        /// </summary>
         OFF = 0,
     }
 }
