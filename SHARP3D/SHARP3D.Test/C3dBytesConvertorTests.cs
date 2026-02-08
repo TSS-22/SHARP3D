@@ -8,7 +8,7 @@ namespace SHARP3D.Test
         public static readonly byte[] TestBytesInt_SIGMIPS = { 0x01, 0xC2 };
         public static readonly byte[] TestBytesFloat_DEC = { 0x48, 0x43, 0x00, 0x00 };
         public static readonly byte[] TestBytesFloat_INTEL = { 0x00, 0x00, 0x48, 0x42 };
-        public static readonly byte[] TestBytesFloat_SIGMIPS = { 0x48, 0x42, 0x00, 0x00 };
+        public static readonly byte[] TestBytesFloat_SIGMIPS = { 0x42, 0x48, 0x00, 0x00 };
 
         public static IEnumerable<object[]> BytesToIntData =>
             new List<object[]>
@@ -18,6 +18,7 @@ namespace SHARP3D.Test
                 new object[] { 450, TestBytesInt_SIGMIPS, ProcessorType.SIG_MIPS },
             };
 
+       
         public static IEnumerable<object[]> IntToBytesData =>
             new List<object[]>
             {
@@ -51,6 +52,7 @@ namespace SHARP3D.Test
             Assert.Equal(expectedValue, calculatedValue);
         }
 
+        
         [Theory]
         [MemberData(nameof(IntToBytesData))]
         public void Int_To_Bytes(byte[] expectedValue, int testValue, ProcessorType processorType)
