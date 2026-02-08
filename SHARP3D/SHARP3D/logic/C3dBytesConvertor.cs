@@ -44,30 +44,33 @@ namespace SHARP3D
             {
                 if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
                 {
-                    return BitConverter.GetBytes(value);
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    return bytes.Take(2).ToArray();
                 }
                 else if (processorMakerType == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
-                    return bytes;
+                    return bytes.Skip(2).Take(2).ToArray();
                 }
                 else
                 {
                     throw new UnknownProcessorTypeException("Cannot convert Int to bytes.");
                 }
             }
+            // TODO: I need to test this.
             else
             {
                 if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
-                    return bytes;
+                    return bytes.Skip(2).Take(2).ToArray();
                 }
                 else if (processorMakerType == ProcessorType.DEC)
                 {
-                    return BitConverter.GetBytes(value);
+                    byte[] bytes = BitConverter.GetBytes(value);
+                    return bytes.Take(2).ToArray();
                 }
                 else
                 {
