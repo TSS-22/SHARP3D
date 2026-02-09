@@ -35,9 +35,10 @@ namespace SHARP3D.Test
             C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
             Assert.NotNull(c3dFile);
             Assert.True(c3dFile.IsFileStreamOpen());
-            Assert.Equal(expectedProcessorType, c3dFile.ProcessorFileType);
+            Assert.Equal(expectedProcessorType, c3dFile.ProcessorHostType);
             Assert.Equal(BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS, c3dFile.ProcessorFileType);
             Assert.Equal(expectedFlagDataFormat, c3dFile.C3DHeader.FlagDataFormat);
+            c3dFile.CloseFileStream();
         }
     }
 }

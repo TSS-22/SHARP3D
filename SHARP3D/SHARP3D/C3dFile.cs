@@ -13,18 +13,18 @@
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
-        public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
-        public ProcessorType ProcessorType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorHostType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
         public C3dHeader C3DHeader { get; set; } = new C3dHeader();
 
-        private C3dFile(){ }
+        private C3dFile() { }
 
         private C3dFile(FileStream fileStream, ProcessorType processorMakerType)
         {
             this.FileStream = fileStream;
             this.ProcessorFileType = processorMakerType;
-            
+
             this.FileStream.Seek(0, SeekOrigin.Begin);
             byte[] headerBinaries = ReadHeader(this.FileStream);
             this.C3DHeader = C3dHeader.FromBinaries(headerBinaries);
@@ -88,6 +88,15 @@
         public bool IsFileStreamOpen()
         {
             return FileStream != null;
+        }
+
+        public void CloseFileStream()
+        {
+            if (FileStream != null)
+            {
+                FileStream.Close();
+                FileStream = null;
+            }
         }
     }
 }
