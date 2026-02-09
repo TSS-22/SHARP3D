@@ -1,4 +1,6 @@
-﻿namespace SHARP3D
+﻿using System.Linq;
+
+namespace SHARP3D
 {
     // TODO: Implement methods to curate the eventLabel. Don't know where to put it.
     /// <summary>
@@ -19,24 +21,32 @@
         /// </summary>
         public string EventLabel;
 
-        // TODO: Entierity
-        public static C3dHeaderEvent EventFromBinaries(byte[] binaries, int offset)
+        public static C3dHeaderEvent EventFromBinaries(
+            byte[] binEventTime,
+            byte[] binEventDisplayFlag,
+            byte[] binEventLabel,
+            bool supported4CharLabels
+            )
         {
             C3dHeaderEvent headerEvent = new C3dHeaderEvent();
-            headerEvent.EventTime = BitConverter.ToSingle(binaries, offset);
-            headerEvent.DisplayFlag = (EventDisplayFlag)BitConverter.ToInt32(binaries, offset + 4);
+            headerEvent.EventTime = BitConverter.ToSingle(binEventTime, 0);
+            headerEvent.DisplayFlag = (EventDisplayFlag)BitConverter.ToInt32(binEventDisplayFlag, 0);
             // Assuming the label is a fixed length string of 16 bytes
-            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binaries, offset + 8, 16).TrimEnd('\0');
+            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?8:16).TrimEnd('\0');
             return headerEvent;
         }
 
-        // TODO: Entierity
-        public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb)
+        public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels)
         {
             C3dHeaderEvent[] events = new C3dHeaderEvent[definedEventsNb];
             for (int i = 0; i < definedEventsNb; i++)
             {
-                events[i] = EventFromBinaries(binaries, i * 24); // Each event takes 24 bytes
+                events[i] = EventFromBinaries(
+                    binaries.Skip(4*i).Take(4).ToArray(),
+                    binaries.Skip((1*i) + 72).Take(1).ToArray(),
+                    supported4CharLabels? binaries.Skip((i*4)+92).Take(4).ToArray() : binaries.Skip((i * 2) + 92).Take(2).ToArray(),
+                    supported4CharLabels
+                    );
             }
             return events;
         }

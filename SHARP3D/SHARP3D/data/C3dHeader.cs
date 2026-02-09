@@ -111,7 +111,7 @@
         ///</para>
         /// Number of defined events in the C3D file.
         ///</summary>
-        public int DefinedEventsNb;
+        public int EventsNb;
 
         ///<summary>
         ///<para>
@@ -130,14 +130,12 @@
         ///</summary>
         public static C3dHeader FromBinaries(byte[] binaries)
         {
-            byte[] tmp_PointerParameterSection = { binaries[0], 0 };
-            byte[] tmp_Events = binaries; // Wrong just made it so it compiles
-            Array.Copy(binaries, 298, tmp_Events, 0, 168);
+            byte[] pointerParameterSectionBinaries = { binaries[0], 0 };
 
             return new C3dHeader
             {
-                PointerParameterSection = BitConverter.ToInt16(tmp_PointerParameterSection, 0),
-                FlagDataFormat = Convert.ToChar(binaries) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
+                PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
+                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
                 MarkersPerFrame = BitConverter.ToInt16(binaries, 2),
                 AnalogSamplesPerFrame = BitConverter.ToInt16(binaries, 4),
                 FirstFrameRawData = BitConverter.ToInt16(binaries, 6),
@@ -148,8 +146,12 @@
                 AnalogSampleRatePerFrame = BitConverter.ToInt16(binaries, 18),
                 Rate3dFrame = BitConverter.ToSingle(binaries, 20),
                 Support4charEventLabels = BitConverter.ToInt16(binaries, 298) == 12345 ? true : false,
-                DefinedEventsNb = BitConverter.ToInt16(binaries, 300),
-                Events = C3dHeaderEvent.EventsFromBinaries(tmp_Events,0), // Argument will need to be fixed
+                EventsNb = BitConverter.ToInt16(binaries, 300),
+                Events = C3dHeaderEvent.EventsFromBinaries(
+                    binaries.Skip(304).Take(208).ToArray(),
+                    BitConverter.ToInt16(binaries, 300),
+                    BitConverter.ToInt16(binaries, 298) == 12345 ? true : false
+                    ), // Argument will need to be fixed
             };
         }
 

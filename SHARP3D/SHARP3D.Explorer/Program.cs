@@ -1,10 +1,4 @@
-﻿using System;
-using System.Buffers.Binary;
-using System.IO;
-using System.Runtime.InteropServices;
-using SHARP3D;
-
-namespace SHARP3D.Explorer
+﻿namespace SHARP3D.Explorer
 {
     internal static class Program
     {
@@ -20,8 +14,8 @@ namespace SHARP3D.Explorer
             {
                 Console.WriteLine($"Opening C3D file: {path}");
                 FileStream fs = new FileStream(path, FileMode.Open);
-                ProcessorType test = C3dFileManager.ReadProcessorByte(fs);
-                Console.WriteLine($"Processor type: {test}");
+                
+                //Console.WriteLine($"Processor type: {test}");
                 return 0;
             }
             catch (Exception ex) 
