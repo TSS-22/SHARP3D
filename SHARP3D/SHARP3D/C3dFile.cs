@@ -9,25 +9,25 @@
         /// <summary>
         /// Represents the file stream used to access the C3D file.
         /// </summary>
-        FileStream? fileStream { get; set; } = null;
+        FileStream? FileStream { get; set; } = null;
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
-        ProcessorType processorFileType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
-        ProcessorType processorType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
-        
-        C3dHeader c3DHeader { get; set; } = new C3dHeader();
+        public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorType { get; set; } = BitConverter.IsLittleEndian? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+
+        public C3dHeader C3DHeader { get; set; } = new C3dHeader();
 
         private C3dFile(){ }
 
         private C3dFile(FileStream fileStream, ProcessorType processorMakerType)
         {
-            this.fileStream = fileStream;
-            this.processorFileType = processorMakerType;
+            this.FileStream = fileStream;
+            this.ProcessorFileType = processorMakerType;
             
-            this.fileStream.Seek(0, SeekOrigin.Begin);
-            byte[] headerBinaries = ReadHeader(this.fileStream);
-            this.c3DHeader = C3dHeader.FromBinaries(headerBinaries);
+            this.FileStream.Seek(0, SeekOrigin.Begin);
+            byte[] headerBinaries = ReadHeader(this.FileStream);
+            this.C3DHeader = C3dHeader.FromBinaries(headerBinaries);
         }
 
         public C3dFile CreateEmpty()
@@ -83,6 +83,11 @@
         public static FileStream OpenC3dFile(string filepath)
         {
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
+        }
+
+        public bool IsFileStreamOpen()
+        {
+            return FileStream != null;
         }
     }
 }

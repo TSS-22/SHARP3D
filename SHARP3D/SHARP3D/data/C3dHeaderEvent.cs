@@ -30,9 +30,9 @@ namespace SHARP3D
         {
             C3dHeaderEvent headerEvent = new C3dHeaderEvent();
             headerEvent.EventTime = BitConverter.ToSingle(binEventTime, 0);
-            headerEvent.DisplayFlag = (EventDisplayFlag)BitConverter.ToInt32(binEventDisplayFlag, 0);
+            headerEvent.DisplayFlag = EventDisplayFlagExtensions.FromByte(binEventDisplayFlag[0]);
             // Assuming the label is a fixed length string of 16 bytes
-            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?8:16).TrimEnd('\0');
+            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?2:4).TrimEnd('\0');
             return headerEvent;
         }
 
@@ -52,18 +52,5 @@ namespace SHARP3D
         }
     }
 
-    /// <summary>
-    /// Specifies display states for a header event, indicating whether it is ON or OFF.
-    /// </summary>
-    public enum EventDisplayFlag : int
-    {
-        /// <summary>
-        /// Represents the 'on' state with a value of 1.
-        /// </summary>
-        ON = 1,
-        /// <summary>
-        /// Indicates that the feature or setting is turned off.
-        /// </summary>
-        OFF = 0,
-    }
+    
 }

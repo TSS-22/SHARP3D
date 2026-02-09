@@ -13,9 +13,9 @@
             try
             {
                 Console.WriteLine($"Opening C3D file: {path}");
-                FileStream fs = new FileStream(path, FileMode.Open);
-                
-                //Console.WriteLine($"Processor type: {test}");
+                //FileStream fs = new FileStream(path, FileMode.Open);
+                C3dFile c3dFile = C3dFile.LoadFromFile(path);
+                Console.WriteLine($"Processor type: {c3dFile}");
                 return 0;
             }
             catch (Exception ex) 
