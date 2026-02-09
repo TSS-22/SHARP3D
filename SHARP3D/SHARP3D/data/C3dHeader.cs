@@ -39,6 +39,9 @@
         ///</para>
         /// The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.
         ///</summary>
+        ///<remarks>
+        ///This parameter encompass the total analog sample recorded and can be confusing. For example if you have a force plate with 6 channels recording at 4 times the 3D marker acquisition rate, then the value of that variable should be: 4 * 6 = 24. But even this doesn't match the value from the test files.
+        /// </remarks>
         public int AnalogSamplesPerFrame;
 
         ///<summary>
@@ -71,6 +74,9 @@
         ///</para>
         /// The floating-point factor that scales all 3D values into system measurement units. This transforms data stored as 16 bits signed integers to scale each of the stored 3D point and their residual values to floating point values, real world values. A positive scale value indicates that the data is stored as signed integers and a negative scale factor indicates that the data is stored as 32 bits floating point values. If the values are already in floating point, the scale factor doesn't need to be apllied to them. The Scale factor is computed by dividing the maximum absolute coordinate value by 32000.
         ///</summary>
+        ///<remarks>
+        ///The value given in the test suite 01 spreadsheet doesn't match the hex value from the file.
+        /// </remarks>
         public float ScaleFactor;
 
         ///<summary>
@@ -128,29 +134,30 @@
         ///<summary>
         ///
         ///</summary>
-        public static C3dHeader FromBinaries(byte[] binaries)
+        public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorTypeMaker)
         {
-            byte[] pointerParameterSectionBinaries = { binaries[0], 0 };
+            byte[] pointerParameterSectionBinaries = { 0, binaries[0] };
 
             return new C3dHeader
             {
                 PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
                 FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
-                MarkersPerFrame = BitConverter.ToInt16(binaries, 2),
-                AnalogSamplesPerFrame = BitConverter.ToInt16(binaries, 4),
-                FirstFrameRawData = BitConverter.ToInt16(binaries, 6),
-                LastFrameRawData = BitConverter.ToInt16(binaries, 8),
-                MaxFrameIntepolationGap = BitConverter.ToInt16(binaries, 10),
-                ScaleFactor = BitConverter.ToSingle(binaries, 12),
-                PointerDataSection = BitConverter.ToInt16(binaries,16),
-                AnalogSampleRatePerFrame = BitConverter.ToInt16(binaries, 18),
-                Rate3dFrame = BitConverter.ToSingle(binaries, 20),
-                Support4charEventLabels = BitConverter.ToInt16(binaries, 298) == 12345 ? true : false,
-                EventsNb = BitConverter.ToInt16(binaries, 300),
+                MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorTypeMaker),
+                AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorTypeMaker),
+                FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorTypeMaker),
+                LastFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(8).Take(2).ToArray(), processorTypeMaker),
+                MaxFrameIntepolationGap = C3dBytesConvertor.ToInt(binaries.Skip(10).Take(2).ToArray(), processorTypeMaker),
+                ScaleFactor = C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorTypeMaker),
+                PointerDataSection = C3dBytesConvertor.ToInt(binaries.Skip(16).Take(2).ToArray(), processorTypeMaker),
+                AnalogSampleRatePerFrame = C3dBytesConvertor.ToInt(binaries.Skip(18).Take(2).ToArray(), processorTypeMaker),
+                Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorTypeMaker),
+                Support4charEventLabels = C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorTypeMaker) == 12345 ? true : false,
+                EventsNb = C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorTypeMaker),
                 Events = C3dHeaderEvent.EventsFromBinaries(
-                    binaries.Skip(304).Take(208).ToArray(),
-                    BitConverter.ToInt16(binaries, 300),
-                    BitConverter.ToInt16(binaries, 298) == 12345 ? true : false
+                    binaries.Skip(304).Take(208).ToArray(), // Event binaries
+                    C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorTypeMaker), // Nb of events
+                    C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorTypeMaker) == 12345 ? true : false, // Support 4 char event labels
+                    processorTypeMaker
                     ), // Argument will need to be fixed
             };
         }

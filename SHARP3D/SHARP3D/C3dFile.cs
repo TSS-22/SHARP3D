@@ -27,7 +27,7 @@
 
             this.FileStream.Seek(0, SeekOrigin.Begin);
             byte[] headerBinaries = ReadHeader(this.FileStream);
-            this.C3DHeader = C3dHeader.FromBinaries(headerBinaries);
+            this.C3DHeader = C3dHeader.FromBinaries(headerBinaries, processorMakerType);
         }
 
         public C3dFile CreateEmpty()

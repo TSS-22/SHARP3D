@@ -21,35 +21,39 @@ namespace SHARP3D
         /// </summary>
         public string EventLabel;
 
-        public static C3dHeaderEvent EventFromBinaries(
-            byte[] binEventTime,
-            byte[] binEventDisplayFlag,
-            byte[] binEventLabel,
-            bool supported4CharLabels
-            )
-        {
-            C3dHeaderEvent headerEvent = new C3dHeaderEvent();
-            headerEvent.EventTime = BitConverter.ToSingle(binEventTime, 0);
-            headerEvent.DisplayFlag = EventDisplayFlagExtensions.FromByte(binEventDisplayFlag[0]);
-            // Assuming the label is a fixed length string of 16 bytes
-            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?2:4).TrimEnd('\0');
-            return headerEvent;
-        }
-
-        public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels)
+        public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels, ProcessorType processorTypeMaker)
         {
             C3dHeaderEvent[] events = new C3dHeaderEvent[definedEventsNb];
             for (int i = 0; i < definedEventsNb; i++)
             {
                 events[i] = EventFromBinaries(
-                    binaries.Skip(4*i).Take(4).ToArray(),
-                    binaries.Skip((1*i) + 72).Take(1).ToArray(),
-                    supported4CharLabels? binaries.Skip((i*4)+92).Take(4).ToArray() : binaries.Skip((i * 2) + 92).Take(2).ToArray(),
-                    supported4CharLabels
+                    binaries.Skip(4 * i).Take(4).ToArray(),
+                    binaries.Skip((1 * i) + 72).Take(1).ToArray(),
+                    supported4CharLabels ? binaries.Skip((i * 4) + 92).Take(4).ToArray() : binaries.Skip((i * 2) + 92).Take(2).ToArray(),
+                    supported4CharLabels,
+                    processorTypeMaker
                     );
             }
             return events;
         }
+
+        public static C3dHeaderEvent EventFromBinaries(
+            byte[] binEventTime,
+            byte[] binEventDisplayFlag,
+            byte[] binEventLabel,
+            bool supported4CharLabels,
+            ProcessorType processorTypeMaker
+            )
+        {
+            C3dHeaderEvent headerEvent = new C3dHeaderEvent();
+            headerEvent.EventTime = C3dBytesConvertor.ToFloat(binEventTime, processorTypeMaker);
+            headerEvent.DisplayFlag = EventDisplayFlagExtensions.FromByte(binEventDisplayFlag[0]);
+            // Assuming the label is a fixed length string of 16 bytes
+            headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?4:2).TrimEnd('\0');
+            return headerEvent;
+        }
+
+        
     }
 
     
