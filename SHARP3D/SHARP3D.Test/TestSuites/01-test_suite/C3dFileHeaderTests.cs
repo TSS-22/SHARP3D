@@ -12,6 +12,7 @@ namespace SHARP3D.Test
         public static readonly byte[] ParameterSectionPointer = { 0x02, 0x00 };
         public static readonly int ParameterSectionPointerValue = 512;
 
+        public static readonly float[] EventTimes = { 2.720f, 5.400f, 7.320f};
         public static IEnumerable<object[]> FileStreamData =>
             new List<object[]>
             {
@@ -83,12 +84,12 @@ namespace SHARP3D.Test
         public static IEnumerable<object[]> PointScaleData =>
             new List<object[]>
             {
-                new object[] { PathEb015pi, 0.07762500f},
-                new object[] { PathEb015pr, 0.07762500f},
-                new object[] { PathEb015si, 0.07762500f},
-                new object[] { PathEb015sr, 0.07762500f},
-                new object[] { PathEb015vi, 0.07762500f},
-                new object[] { PathEb015vr, 0.07762500f},
+                new object[] { PathEb015pi, 0.077625f},
+                new object[] { PathEb015pr, 0.077625f},
+                new object[] { PathEb015si, 0.077625f},
+                new object[] { PathEb015sr, 0.077625f},
+                new object[] { PathEb015vi, 0.077625f},
+                new object[] { PathEb015vr, 0.077625f},
             };
 
         public static IEnumerable<object[]> AcquisitionRate3dData =>
@@ -102,6 +103,17 @@ namespace SHARP3D.Test
                 new object[] { PathEb015vr, 50.0f},
             };
 
+
+        public static IEnumerable<object[]> EventTimeData =>
+            new List<object[]>
+            {
+                new object[] { PathEb015pi, EventTimes},
+                new object[] { PathEb015pr, EventTimes},
+                new object[] { PathEb015si, EventTimes},
+                new object[] { PathEb015sr, EventTimes},
+                new object[] { PathEb015vi, EventTimes},
+                new object[] { PathEb015vr, EventTimes},
+            };
 
 
 
@@ -176,6 +188,19 @@ namespace SHARP3D.Test
             Assert.Equal(expectedAcquisitionRate, c3dFile.C3DHeader.Rate3dFrame);
             c3dFile.CloseFileStream();
         }
+
+        [Theory]
+        [MemberData(nameof(EventTimeData))]
+        public void EventTimeValue_Test(string filepath, float[] expectedEventTimes)
+        {
+            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            for(int i=0; i < c3dFile.C3DHeader.Events.Length;i++)
+            {
+                Assert.Equal(expectedEventTimes[i], c3dFile.C3DHeader.Events[i].EventTime);
+            }
+            c3dFile.CloseFileStream();
+        }
         
+
     }
 }
