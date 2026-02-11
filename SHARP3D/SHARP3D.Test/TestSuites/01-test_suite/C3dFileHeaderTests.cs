@@ -49,12 +49,12 @@ namespace SHARP3D.Test
         public static IEnumerable<object[]> DataFlagFormatData =>
             new List<object[]>
             {
-                new object[] { PathEb015pi, DataFormat.RIGHT},
-                new object[] { PathEb015pr, DataFormat.RIGHT},
-                new object[] { PathEb015si, DataFormat.RIGHT},
-                new object[] { PathEb015sr, DataFormat.RIGHT},
-                new object[] { PathEb015vi, DataFormat.RIGHT},
-                new object[] { PathEb015vr, DataFormat.RIGHT},
+                new object[] { PathEb015pi, FileDataFormat.RIGHT},
+                new object[] { PathEb015pr, FileDataFormat.RIGHT},
+                new object[] { PathEb015si, FileDataFormat.RIGHT},
+                new object[] { PathEb015sr, FileDataFormat.RIGHT},
+                new object[] { PathEb015vi, FileDataFormat.RIGHT},
+                new object[] { PathEb015vr, FileDataFormat.RIGHT},
             };
 
         public static IEnumerable<object[]> MarkerPerFrameData =>
@@ -155,7 +155,7 @@ namespace SHARP3D.Test
 
         [Theory]
         [MemberData(nameof(DataFlagFormatData))]
-        public void DataFlag_Test(string filepath, DataFormat expectedDataFormat)
+        public void DataFlag_Test(string filepath, FileDataFormat expectedDataFormat)
         {
             C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
             Assert.Equal(expectedDataFormat, c3dFile.C3DHeader.FlagDataFormat);

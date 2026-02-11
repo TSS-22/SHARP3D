@@ -23,7 +23,7 @@
         ///</para>
         /// A flag defininig the Data section storage format which depends on the system used to acquire the data.
         ///</summary>
-        public DataFormat FlagDataFormat;
+        public FileDataFormat FlagDataFormat;
 
         ///<summary>
         ///<para>
@@ -129,11 +129,8 @@
         ///</summary>
         public C3dHeaderEvent[] Events;
 
-
+        // TODO: Try to "reverse compute" the scale factor. Indeed if it is just found by dividing the max absolute value by 32000, mathematically I can find it back with the max value read by the int16 value.
         // TODO: Implement method to parse binaries into C3dHeader struct.
-        ///<summary>
-        ///
-        ///</summary>
         public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorTypeMaker)
         {
             byte[] pointerParameterSectionBinaries = { 0, binaries[0] };
@@ -141,7 +138,7 @@
             return new C3dHeader
             {
                 PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
-                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
+                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? FileDataFormat.RIGHT : FileDataFormat.WRONG,
                 MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorTypeMaker),
                 AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorTypeMaker),
                 FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorTypeMaker),
