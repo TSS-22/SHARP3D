@@ -6,23 +6,4 @@
         //public abstract T GetValue<T>();
     }
 
-
-    internal class CharParameterData : ParameterData
-    {
-
-    }
-    internal class ByteParameterData : ParameterData
-    {
-
-    }
-    internal class IntParameterData : ParameterData
-    {
-
-    }
-
-    internal class IntParameterData : ParameterData
-    {
-
-    }
-
 }

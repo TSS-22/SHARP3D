@@ -1,5 +1,5 @@
 ﻿using SHARP3D.Data.Enum;
-using SHARP3D.Data.Parameter;
+using SHARP3D.Data.Parameter.ParameterData;
 
 namespace SHARP3D.data.Parameter
 {
