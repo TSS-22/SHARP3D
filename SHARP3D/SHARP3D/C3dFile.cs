@@ -1,4 +1,6 @@
-﻿namespace SHARP3D
+﻿using SHARP3D.data.Parameter;
+
+namespace SHARP3D
 {
     /// <summary>
     /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary
@@ -18,7 +20,7 @@
 
         public C3dHeader C3DHeader { get; set; } = new C3dHeader();
 
-        public C3dParameterBlock C3DParameter { get; set; } = new C3dParameterBlock();
+        public List<C3dParameterGroup> Parameters { get; set; }
 
         private C3dFile() { }
 
@@ -32,7 +34,7 @@
             this.C3DHeader = C3dHeader.FromBinaries(headerBinaries, processorMakerType);
 
             byte[] parameterBinaries = ReadParameterBinaries(this.FileStream, GetParameterSectionPointer(this.FileStream), GetParameterBlockCount(this.FileStream));
-            this.C3DParameter = C3dParameterBlock.FromBinaries(parameterBinaries, processorMakerType);
+            this.Parameters = C3dParameterGroup.GroupsFromFileStream(FileStream, processorMakerType, C3DHeader.PointerParameterSection);
         }
 
         public C3dFile CreateEmpty()

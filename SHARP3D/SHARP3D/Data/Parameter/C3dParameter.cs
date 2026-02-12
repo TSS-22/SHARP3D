@@ -9,7 +9,7 @@ namespace SHARP3D.data.Parameter
         int Id;
         string Name;
         int PointerNextParameterStruct;
-        DataFormat DataType;
+        DataLength DataType;
         int NbOfDimensions;
         int[]? Dimensions; // Do int[1] for scalar so it is consistent qith multidimensionnal.
         ParameterData Data; // HOW THE FUCK AM I SUPPOSED TO REPRESENT THIS

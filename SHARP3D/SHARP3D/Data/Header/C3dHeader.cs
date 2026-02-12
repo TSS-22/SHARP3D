@@ -23,7 +23,7 @@
         ///</para>
         /// A flag defininig the Data section storage format which depends on the system used to acquire the data.
         ///</summary>
-        public FileDataFormat FlagDataFormat;
+        public DataFormat FlagDataFormat;
 
         ///<summary>
         ///<para>
@@ -138,7 +138,7 @@
             return new C3dHeader
             {
                 PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
-                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? FileDataFormat.RIGHT : FileDataFormat.WRONG,
+                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
                 MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorTypeMaker),
                 AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorTypeMaker),
                 FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorTypeMaker),
