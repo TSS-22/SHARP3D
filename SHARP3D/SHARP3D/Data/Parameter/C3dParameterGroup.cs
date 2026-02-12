@@ -1,4 +1,6 @@
 ﻿
+using SHARP3D.Data.Enum;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Xml.Linq;
 
@@ -15,7 +17,7 @@ namespace SHARP3D.data.Parameter
         public bool Locked; // For later and the correctors
 
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
-        public static C3dParameterGroup FromBinaries(byte[] binaries)
+        public static C3dParameterGroup FromBinaries(byte[] binaries, ProcessorType processorType)
         {
             sbyte nameLength = (sbyte)binaries[0];
             int absNameLengthMath = Math.Abs(nameLength);
@@ -77,14 +79,15 @@ namespace SHARP3D.data.Parameter
                 byte[] bufferPointerNextParameterStruct = new byte[2];
                 c3dStream.ReadExactly(bufferPointerNextParameterStruct, 0, 2);
 
-                int descriptionLength = c3dStream.ReadByte();
-
-                byte[] bufferDescription = new byte[descriptionLength];
-                c3dStream.ReadExactly(bufferDescription, 0, descriptionLength);
-
+                // Group
                 if (id < 0)
                 {
-                    // Group
+                    
+                    int descriptionLength = c3dStream.ReadByte();
+
+                    byte[] bufferDescription = new byte[descriptionLength];
+                    c3dStream.ReadExactly(bufferDescription, 0, descriptionLength);
+
                     groups.Add(C3dParameterGroup.FromBinaries(
                         nameLength,
                         id,
@@ -97,11 +100,59 @@ namespace SHARP3D.data.Parameter
                         );
                     pointerToNextStruct = groups.Last().PointerNextParameterStruct;
                 }
+                // Parameter
                 else
                 {
+                    DataLength dataType = c3dStream.ReadByte() switch
+                    {
+                        1 => DataLength.BYTE,
+                        2 => DataLength.INT16,
+                        4 => DataLength.INT32,
+                        -1 => DataLength.CHAR,
+                        _ => throw new Exception($"Unknown data type for parameter {Encoding.ASCII.GetString(bufferName).TrimEnd('\0')}")
+                    };
+                    int nbOfDimensions = c3dStream.ReadByte();
+                    int[]? dimensions = null;
+                    byte[] parameterDataByte;
+                    // Multi-dimensional parameter data
+                    if (nbOfDimensions > 0)
+                    {
+                        dimensions = new int[nbOfDimensions];
+                        for (int i = 0; i < nbOfDimensions; i++)
+                        { 
+                            dimensions[i] = c3dStream.ReadByte();
+                        }
+                        parameterDataByte = new byte[Math.Abs((int)dataType) * dimensions.Sum()];
+                    }
+                    // Scalar parameter data
+                    else
+                    {
+                        parameterDataByte = new byte[Math.Abs((int)dataType)];
+                    }
+
+                    c3dStream.ReadExactly(parameterDataByte, 0, parameterDataByte.Length);
+
+                    int descriptionLength = c3dStream.ReadByte();
+
+                    byte[] bufferDescription = new byte[descriptionLength];
+                    c3dStream.ReadExactly(bufferDescription, 0, descriptionLength);
+
                     // Parameter
-                    parameters.Add(C3dParameter.FromBinaries(binaries.Skip().Take().ToArray(), processorMakerType));
-                    pointerToNextStruct = groups.Last().PointerNextParameterStruct;
+                    parameters.Add(C3dParameter.FromBinaries(
+                        nameLength,
+                        id,
+                        name: Encoding.ASCII.GetString(bufferName).TrimEnd('\0'),
+                        pointerNextParameterStruct: C3dBytesConvertor.ToInt(bufferPointerNextParameterStruct, processorMakerType),
+                        descriptionLength,
+                        description: Encoding.UTF8.GetString(bufferDescription).TrimEnd('\0'),
+                        locked: nameLength < 0,
+                        dataType: dataType,
+                        nbOfDimensions: nbOfDimensions,
+                        dimensions: dimensions,
+                        dataBytes: parameterDataByte
+                            )
+                        );
+                    pointerToNextStruct = parameters.Last().PointerNextParameterStruct;
                 }
             } while (pointerToNextStruct != 0);
 

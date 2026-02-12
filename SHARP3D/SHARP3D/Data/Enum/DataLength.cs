@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Data.Enum
 {
-    enum DataLength : int
+    public enum DataLength : int
     {
         CHAR = -1,
         BYTE = 1,
