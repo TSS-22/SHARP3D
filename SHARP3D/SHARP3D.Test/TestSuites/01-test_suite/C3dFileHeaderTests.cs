@@ -1,3 +1,5 @@
+using SHARP3D.Utils.Enum;
+
 namespace SHARP3D.Test
 {
     public class C3dFileHeaderTests

@@ -1,4 +1,5 @@
 using SHARP3D.exceptions;
+using SHARP3D.Utils.Enum;
 
 namespace SHARP3D
 {

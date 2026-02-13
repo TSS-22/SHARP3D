@@ -1,4 +1,4 @@
-﻿using SHARP3D.data.Parameter;
+﻿using SHARP3D.Parameter;
 
 namespace SHARP3D
 {

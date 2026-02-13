@@ -1,4 +1,4 @@
-﻿namespace SHARP3D
+﻿namespace SHARP3D.Utils.Enum
 {
     /// <summary>
     /// Specifies display states for a header event, indicating whether it is ON or OFF.

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using SHARP3D.Utils.Enum;
+using Xunit;
 
 namespace SHARP3D.Test
 {

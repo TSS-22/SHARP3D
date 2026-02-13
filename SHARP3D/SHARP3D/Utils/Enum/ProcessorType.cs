@@ -1,4 +1,4 @@
-namespace SHARP3D
+namespace SHARP3D.Enum
 {
     /// <summary>
     /// <para>This structure index the different processor types used to create C3D files.</para>

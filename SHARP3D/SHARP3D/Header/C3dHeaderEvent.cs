@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using SHARP3D.Utils.Enum;
+using System.Linq;
 
-namespace SHARP3D
+namespace SHARP3D.Header
 {
     // TODO: Implement methods to curate the eventLabel. Don't know where to put it.
     /// <summary>
@@ -28,8 +29,8 @@ namespace SHARP3D
             {
                 events[i] = EventFromBinaries(
                     binaries.Skip(4 * i).Take(4).ToArray(),
-                    binaries.Skip((1 * i) + 72).Take(1).ToArray(),
-                    supported4CharLabels ? binaries.Skip((i * 4) + 92).Take(4).ToArray() : binaries.Skip((i * 2) + 92).Take(2).ToArray(),
+                    binaries.Skip(1 * i + 72).Take(1).ToArray(),
+                    supported4CharLabels ? binaries.Skip(i * 4 + 92).Take(4).ToArray() : binaries.Skip(i * 2 + 92).Take(2).ToArray(),
                     supported4CharLabels,
                     processorTypeMaker
                     );

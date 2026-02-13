@@ -1,7 +1,7 @@
-﻿using SHARP3D.data.Parameter;
+﻿using SHARP3D.Utils.Enum;
 using System.Linq;
 
-namespace SHARP3D
+namespace SHARP3D.Parameter
 {
     ///<summary>
     ///This structure regroup the C3D parameters from the file. They determine the endian format used. For some very logical reasons they need to be processed before the header could be processed.
@@ -13,7 +13,7 @@ namespace SHARP3D
         // TODO: Implement method to parse binaries into C3dParameter struct.
         public static C3dParameterBlock FromBinaries(byte[] binaries, ProcessorType processorMakerType)
         {
-            int parameterBlockCount = (int)binaries[2];
+            int parameterBlockCount = binaries[2];
             List<C3dParameterGroup> groups = new List<C3dParameterGroup> { };
             List<C3dParameter> parameters = new List<C3dParameter> { };
 

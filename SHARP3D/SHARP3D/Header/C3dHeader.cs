@@ -1,4 +1,6 @@
-﻿namespace SHARP3D
+﻿using SHARP3D.Utils.Enum;
+
+namespace SHARP3D.Header
 {
     ///<summary>
     /// Represents the header information of a C3D file format used in 3D motion capture data.
