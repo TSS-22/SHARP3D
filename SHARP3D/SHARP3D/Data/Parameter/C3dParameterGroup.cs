@@ -149,7 +149,8 @@ namespace SHARP3D.data.Parameter
                         dataType: dataType,
                         nbOfDimensions: nbOfDimensions,
                         dimensions: dimensions,
-                        dataBytes: parameterDataByte
+                        dataBytes: parameterDataByte,
+                        processor: processorMakerType
                             )
                         );
                     pointerToNextStruct = parameters.Last().PointerNextParameterStruct;
