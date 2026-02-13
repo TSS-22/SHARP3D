@@ -8,4 +8,8 @@
 	  <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Supported\" />
+  </ItemGroup>
+
 </Project>

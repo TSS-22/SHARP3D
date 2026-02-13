@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Data.Parameter.ParameterData
+﻿using SHARP3D.Utils.Enum;
+
+namespace SHARP3D.Parameter.ParameterData
 {
     // Single dimension data
 

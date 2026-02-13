@@ -1,4 +1,6 @@
-﻿using SHARP3D.Parameter;
+﻿using SHARP3D.Header;
+using SHARP3D.Parameter;
+using SHARP3D.Utils.Enum;
 
 namespace SHARP3D
 {

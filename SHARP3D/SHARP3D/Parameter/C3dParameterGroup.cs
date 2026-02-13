@@ -1,10 +1,9 @@
-﻿
-using SHARP3D.Data.Enum;
+﻿using SHARP3D.Utils.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Xml.Linq;
 
-namespace SHARP3D.data.Parameter
+namespace SHARP3D.Parameter
 {
     public struct C3dParameterGroup
     {
@@ -21,7 +20,7 @@ namespace SHARP3D.data.Parameter
         {
             sbyte nameLength = (sbyte)binaries[0];
             int absNameLengthMath = Math.Abs(nameLength);
-            int descriptionLength = (int)binaries[2 + absNameLengthMath + 2];
+            int descriptionLength = binaries[2 + absNameLengthMath + 2];
 
             return new C3dParameterGroup
             {
@@ -88,7 +87,7 @@ namespace SHARP3D.data.Parameter
                     byte[] bufferDescription = new byte[descriptionLength];
                     c3dStream.ReadExactly(bufferDescription, 0, descriptionLength);
 
-                    groups.Add(C3dParameterGroup.FromBinaries(
+                    groups.Add(FromBinaries(
                         nameLength,
                         id,
                         name: Encoding.ASCII.GetString(bufferName).TrimEnd('\0'),

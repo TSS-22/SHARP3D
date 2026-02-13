@@ -1,4 +1,4 @@
-namespace SHARP3D
+namespace SHARP3D.Utils.Enum
 {
     ///<summary>
     ///This enum represent the data format flag found in the C3D header at byte 2. Without any confirmation from the C3D fundation, and that only the 0x50 value (80, "P") is viable and prelude a viable C3D file, we stick to the assumption that 0x50 means viabe C3D file and any other value means corrupted file.

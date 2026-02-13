@@ -1,6 +1,7 @@
-﻿using System.Diagnostics;
+﻿using SHARP3D.Utils.Enum;
+using System.Diagnostics;
 
-namespace SHARP3D.Data.Parameter.ParameterData
+namespace SHARP3D.Parameter.ParameterData
 {
     // Single dimension data
 

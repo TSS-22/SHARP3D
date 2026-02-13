@@ -1,7 +1,7 @@
-﻿using SHARP3D.Data.Enum;
-using SHARP3D.Data.Parameter.ParameterData;
+﻿using SHARP3D.Data.Parameter.ParameterData;
+using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.data.Parameter
+namespace SHARP3D.Parameter
 {
     public struct C3dParameter
     {

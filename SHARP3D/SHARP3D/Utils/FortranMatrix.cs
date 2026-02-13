@@ -1,4 +1,4 @@
-﻿using SHARP3D.Data.Enum;
+﻿using SHARP3D.Utils.Enum;
 
 namespace SHARP3D.Utils
 {

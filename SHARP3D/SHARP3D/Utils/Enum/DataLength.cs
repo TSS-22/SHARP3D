@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.Data.Enum
+﻿namespace SHARP3D.Utils.Enum
 {
     public enum DataLength : int
     {
