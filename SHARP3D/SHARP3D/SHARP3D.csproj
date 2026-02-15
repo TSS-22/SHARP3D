@@ -10,6 +10,17 @@
 
   <ItemGroup>
     <Folder Include="Data\Supported\" />
+    <Folder Include="Parameter\Supported\Additional\Analog\" />
+    <Folder Include="Parameter\Supported\Additional\ForcePlateform\" />
+    <Folder Include="Parameter\Supported\Additional\Event\" />
+    <Folder Include="Parameter\Supported\Additional\EventContext\" />
+    <Folder Include="Parameter\Supported\Additional\Trial\" />
+    <Folder Include="Parameter\Supported\Additional\Point\" />
+    <Folder Include="Parameter\Supported\Extension\" />
+    <Folder Include="Parameter\Supported\Generics\2d\" />
+    <Folder Include="Parameter\Supported\Required\Analog\" />
+    <Folder Include="Parameter\Supported\Required\ForcePlateform\" />
+    <Folder Include="Parameter\Supported\Required\Point\" />
   </ItemGroup>
 
 </Project>

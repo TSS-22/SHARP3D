@@ -7,6 +7,7 @@ namespace SHARP3D.Parameter.ParameterData
 
     // TODO: How to do the doc for this (I think it will be straight forward once implemented
     // TODO: Do I need to implement a processing function to make it prettier the handling of that weird ass fortran matrix shit ? If so, It will be nice to put an interface to force the implementation of said function
+    // TODO: 
     internal class MultiCharParameterData : ParameterData<char[]>
     {
         public override MultiCharParameterData FromByte(byte[] data, int[]? dimension, ProcessorType? _ = null)
