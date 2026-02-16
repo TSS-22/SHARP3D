@@ -1,8 +1,6 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
-using System.Xml.Linq;
 
 namespace SHARP3D.Parameter
 {
@@ -107,7 +105,7 @@ namespace SHARP3D.Parameter
                     {
                         1 => DataLength.BYTE,
                         2 => DataLength.INT16,
-                        4 => DataLength.INT32,
+                        4 => DataLength.FLOAT32,
                         -1 => DataLength.CHAR,
                         _ => throw new Exception($"Unknown data type for parameter {Encoding.ASCII.GetString(bufferName).TrimEnd('\0')}")
                     };

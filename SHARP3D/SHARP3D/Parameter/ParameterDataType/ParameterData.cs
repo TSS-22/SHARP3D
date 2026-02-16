@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter.ParameterData
+namespace SHARP3D.Parameter.ParameterDataType
 {
     // TODO: The whole ParameterData class
     public abstract class ParameterData<T>

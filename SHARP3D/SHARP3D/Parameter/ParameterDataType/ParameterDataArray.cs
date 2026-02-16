@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter.ParameterData
+namespace SHARP3D.Parameter.ParameterDataType
 {
     // Single dimension data
 
@@ -21,10 +21,8 @@ namespace SHARP3D.Parameter.ParameterData
                 {
 
                 }
-                return new MultiCharParameterData
-                {
-                      
-                }
+                //return new MultiCharParameterData();
+                return new MultiCharParameterData();
             }
         }
     }
