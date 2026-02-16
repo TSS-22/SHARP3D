@@ -81,12 +81,16 @@ namespace SHARP3D.Utils
         { 
             int idx = 0;
             int[] multiplier = new int[dimensions.Length];
-            for (int i = 0; i <= idxArray.Length; i++)
+            for (int i = 0; i < idxArray.Length; i++)
             {
                 if (i == 0)
                 {
                     multiplier[i + 1] = dimensions[i] * (int)dataLength;
                     idx += idxArray[i];
+                }
+                else if (i == idxArray.Length)
+                {
+                    idx += idxArray[i] * multiplier[i];
                 }
                 else
                 {
