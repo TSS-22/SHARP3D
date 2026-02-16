@@ -1,8 +1,10 @@
-﻿using SHARP3D.Utils.Enum;
+﻿using SHARP3D.Parameter.ParameterDataType;
+using SHARP3D.Utils.Enum;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter
 {
-    public struct C3dParameter
+    public struct C3dParameter<T>
     {
         public sbyte NameLength;
         public int Id;
@@ -11,13 +13,13 @@ namespace SHARP3D.Parameter
         public DataLength DataType;
         public int NbOfDimensions;
         public int[]? Dimensions; // Do int[1] for scalar so it is consistent qith multidimensionnal.
-        public ParameterData Data;
+        public T Data; // Doing this because it gives me shit with the abstract class
         public int DescriptionLength;
         public string Description;
         public bool Locked;
     
 
-        public static C3dParameter FromBinaries(
+        public static C3dParameter<T> FromBinaries(
                 sbyte nameLength,
                 sbyte id,
                 string name,
@@ -32,29 +34,59 @@ namespace SHARP3D.Parameter
                 ProcessorType processor
                 )
             {
-            switch (nbOfDimensions) {
-                case 0:
-                    //TODO: Scalar case
-                    ParameterData data = DataFromBinaries(dataBytes, processor); //TODO: implement this;
-                    break;
-                default:
-                    //TODO: Multidimensionnal case
+            
+                switch (nbOfDimensions) {
+                    case 0:
+                        //TODO: Scalar case
+                        switch (dataType) 
+                        {
+                            case DataLength.CHAR:
+                                CharParameterData scalar_char = new CharParameterData(dataBytes);
+                                C3dParameter<char> test = new C3dParameter<char>();
+                                test.NameLength = nameLength;
+                                test.Id = id;
+                                test.Name = name;
+                                test.PointerNextParameterStruct = pointerNextParameterStruct;
+                                test.DataType = dataType;
+                                test.NbOfDimensions = nbOfDimensions;
+                                test.Dimensions = dimensions;
+                                test.Data = scalar_char.Data;
+                                test.DescriptionLength = descriptionLength;
+                                test.Description = description;
+                                test.Locked = locked;
+                                return test;
+                                break;
+                            case DataLength.BYTE:
+                                ByteParameterData scalar_byte = new ByteParameterData(dataBytes);
+                                break;
+                            case DataLength.INT16:
+                                IntParameterData scalar_int = new IntParameterData(dataBytes);
+                                break;
+                            case DataLength.FLOAT32:
+                                FloatParameterData scalar_float = new FloatParameterData(dataBytes);
+                                break;
+                            default:
+                                throw new Exception($"Unknown data type {dataType}");
+                        }
+                        break;
+                    default:
+                        break;
+                        //TODO: Multidimensionnal case
+                }            
             }
 
-            return new C3dParameter
-                {
-                    NameLength = nameLength,
-                    Id = id,
-                    Name = name,
-                    PointerNextParameterStruct = pointerNextParameterStruct,
-                    DataType = dataType,
-                    NbOfDimensions = nbOfDimensions,
-                    Dimensions = dimensions, // Do int[1] for scalar so it is consistent qith multidimensionnal.
-                    Data = data,
-                    DescriptionLength = descriptionLength,
-                    Description = description,
-                    Locked = locked,
-                };
+        private static T GetData(T test)
+        {
+            switch (test)
+            {
+                case int:
+                    return 10;
+                case float:
+                    return 10.0f;
+                // ...
+                default:
+                    throw new NotSupportedException();
             }
+        }
     }
 }

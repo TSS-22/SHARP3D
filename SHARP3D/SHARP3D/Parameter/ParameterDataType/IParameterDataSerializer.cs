@@ -1,13 +1,13 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter.ParameterData
+namespace SHARP3D.Parameter.ParameterDataType
 {
-    internal interface IParameterDataSerializer
+    public interface IParameterData
     {
-        internal DeserializeData(
-            byte[] data,
+        //internal DeserializeData(
+        //    byte[] data,
             
-            ProcessorType? processor = null
-            );
+        //    ProcessorType? processor = null
+        //    );
     }
 }

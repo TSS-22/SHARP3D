@@ -6,7 +6,7 @@ namespace SHARP3D.Parameter.ParameterDataType
     public abstract class ParameterData<T>
     {
         public T Data { set; get; }
-        public abstract ParameterData<T> FromByte(byte[] data, ProcessorType? processor = null, int[]? dimension = null);
+        public abstract T FromByte(byte[] data, int[]? dimensions = null, ProcessorType ? processor = null);
 
     }
 

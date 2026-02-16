@@ -1,4 +1,5 @@
-﻿using SHARP3D.Utils.Enum;
+﻿using SHARP3D.Utils;
+using SHARP3D.Utils.Enum;
 
 namespace SHARP3D.Parameter.ParameterDataType
 {
@@ -7,48 +8,45 @@ namespace SHARP3D.Parameter.ParameterDataType
     // TODO: How to do the doc for this (I think it will be straight forward once implemented
     // TODO: Do I need to implement a processing function to make it prettier the handling of that weird ass fortran matrix shit ? If so, It will be nice to put an interface to force the implementation of said function
     // TODO: 
-    internal class MultiCharParameterData : ParameterData<char[]>
+    internal class MultiCharParameterData : ParameterData<List<char>>
     {
-        public override MultiCharParameterData FromByte(byte[] data, int[]? dimension, ProcessorType? _ = null)
+        public override MultiCharParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? _ = null)
         {
-            if (dimension == null)
+            if (dimensions == null)
             {
-                throw new ArgumentNullException(nameof(dimension), "Dimensions must be provided for multi-dimensional char parameter data.");
+                throw new ArgumentNullException(nameof(dimensions), "Dimensions must be provided for multi-dimensional char parameter data.");
             }
             else
             {
-                for (int i = 0; i < dimension.Length; i++)
-                {
-
-                }
-                //return new MultiCharParameterData();
-                return new MultiCharParameterData();
+                MultiCharParameterData result = new MultiCharParameterData();
+                result.Data = FortranMatrix.FVectorToFMatrix<char>(data, dimensions, DataLength.CHAR);
+                return result;
             }
         }
     }
-    internal class MultiByteParameterData : ParameterData<byte[]>
+    internal class MultiByteParameterData : ParameterData<List<byte>>
     {
-        public override MultiByteParameterData FromByte(byte[] data, int[]? dimension, ProcessorType? _ = null)
+        public override MultiByteParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? _ = null)
         {
-            if (dimension == null)
+            if (dimensions == null)
             {
-                throw new ArgumentNullException(nameof(dimension), "Dimensions must be provided for multi-dimensional char parameter data.");
+                throw new ArgumentNullException(nameof(dimensions), "Dimensions must be provided for multi-dimensional char parameter data.");
             }
             else
             {
-                return new MultiByteParameterData
-                {
-                }
+                MultiByteParameterData result = new MultiByteParameterData();
+                result.Data = FortranMatrix.FVectorToFMatrix<byte>(data, dimensions, DataLength.BYTE);
+                return result;
             }
         }
     }
-    internal class MultiIntParameterData : ParameterData<int[]>
+    internal class MultiIntParameterData : ParameterData<List<int>>
     {
-        public override MultiIntParameterData FromByte(byte[] data, int[]? dimension, ProcessorType? processor = null)
+        public override MultiIntParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? processor = null)
         {
-            if (dimension == null)
+            if (dimensions == null)
             {
-                throw new ArgumentNullException(nameof(dimension), "Dimensions must be provided for multi-dimensional char parameter data.");
+                throw new ArgumentNullException(nameof(dimensions), "Dimensions must be provided for multi-dimensional char parameter data.");
             }
             else if (processor == null)
             {
@@ -56,20 +54,20 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else 
             {
-                return new MultiIntParameterData
-                {
-                }
+                MultiIntParameterData result = new MultiIntParameterData();
+                result.Data = FortranMatrix.FVectorToFMatrix<int>(data, dimensions, DataLength.INT16);
+                return result;
             }
         }
     }
 
-    internal class MultiFloatParameterData : ParameterData<float[]>
+    internal class MultiFloatParameterData : ParameterData<List<float>>
     {
-        public override MultiFloatParameterData FromByte(byte[] data, int[]? dimension, ProcessorType? processor = null)
+        public override MultiFloatParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? processor = null)
         {
-            if (dimension == null)
+            if (dimensions == null)
             {
-                throw new ArgumentNullException(nameof(dimension), "Dimensions must be provided for multi-dimensional char parameter data.");
+                throw new ArgumentNullException(nameof(dimensions), "Dimensions must be provided for multi-dimensional char parameter data.");
             }
             else if (processor == null)
             {
@@ -77,7 +75,9 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                return new MultiFloatParameterData
+                MultiFloatParameterData result = new MultiFloatParameterData();
+                result.Data = FortranMatrix.FVectorToFMatrix<float>(data, dimensions, DataLength.INT16);
+                return result;
             }
         }
     }

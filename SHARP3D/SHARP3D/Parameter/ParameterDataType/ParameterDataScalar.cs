@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter.ParameterDataType
 {
@@ -8,22 +9,45 @@ namespace SHARP3D.Parameter.ParameterDataType
     // TODO: How to do the doc for this
     internal class CharParameterData : ParameterData<char>
     {
-        public override CharParameterData FromByte(byte[] data, ProcessorType? _ = null, int[]? __ = null)
+        public CharParameterData() { }
+        public CharParameterData(byte[] data, int[]? _ = null, ProcessorType? __ = null) 
         {
-            return new CharParameterData { Data = (char)data[0] };
+            Data = FromByte(data);
+        }
+        
+        //public override CharParameterData FromByte(byte[] data, int[]? _ = null, ProcessorType ? __ = null)
+        public override char FromByte(byte[] data, int[]? _ = null, ProcessorType ? __ = null)
+        {
+            //CharParameterData result = new CharParameterData();
+            //return new CharParameterData { Data = (char)data[0] };
+            return (char)data[0];
         }
     }
 
     internal class ByteParameterData : ParameterData<byte>
     {
-        public override ByteParameterData FromByte(byte[] data, ProcessorType? _ = null, int[] ? __ = null)
+        public ByteParameterData() { }
+
+        public ByteParameterData(byte[] data, int[]? _ = null, ProcessorType? __ = null)
+        {
+            FromByte(data);
+        }
+
+        public override ByteParameterData FromByte(byte[] data, int[]? _ = null, ProcessorType ? __ = null)
         {
             return new ByteParameterData { Data = data[0] };
         }
     }
     internal class IntParameterData : ParameterData<int>
     {
-        public override IntParameterData FromByte(byte[] data, ProcessorType? processor = null, int[]? _ = null)
+        public IntParameterData() { }
+
+        public IntParameterData(byte[] data, int[]? _ = null, ProcessorType? processor = null)
+        {
+            FromByte(data, _, processor);
+        }
+
+        public override IntParameterData FromByte(byte[] data, int[]? _ = null, ProcessorType? processor = null)
         {
             if (processor == null)
             {
@@ -38,7 +62,14 @@ namespace SHARP3D.Parameter.ParameterDataType
 
     internal class FloatParameterData : ParameterData<float>
     {
-        public override FloatParameterData FromByte(byte[] data, ProcessorType? processor = null, int[]? _ = null)
+        public FloatParameterData() { }
+
+        public FloatParameterData(byte[] data, int[]? _ = null, ProcessorType? processor = null)
+        {
+            FromByte(data, _, processor);
+        }
+
+        public override FloatParameterData FromByte(byte[] data, int[]? _ = null, ProcessorType? processor = null)
         {
             if (processor == null)
             {

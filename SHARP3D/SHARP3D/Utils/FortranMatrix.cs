@@ -6,7 +6,7 @@ namespace SHARP3D.Utils
     {
         // TODO: FortranMatrix reader. So all the code is stored in one place and is easier to sort/debug.
         // TODO: Mention that it is not to be use with extremely large matrices.
-        public static List<T> FVectorToFMatrix<T>(byte[] vector, int[] dimensions, ProcessorType processor)
+        public static List<T> FVectorToFMatrix<T>(byte[] vector, int[] dimensions, DataLength dataLength, ProcessorType processor = ProcessorType.UNKOWN)
         {
             int totalData = dimensions.Aggregate((acc, val) => acc * val);
             List<T> data = new List<T> { };
@@ -24,7 +24,18 @@ namespace SHARP3D.Utils
             }
             Span<byte> span = vector.AsSpan();
             int[] idxArray = new int[dimensions.Length];
-            data = RecursiveFill<T>(vector, dimensions, idxArray, 0, DataLength.BYTE, processor);
+            if ((processor == ProcessorType.UNKOWN) && (Math.Abs((int)dataLength) == 1))
+            {
+                processor = ProcessorType.INTEL;
+                data = RecursiveFill<T>(vector, dimensions, idxArray, 0, dataLength);
+            } else if (processor == ProcessorType.UNKOWN && (Math.Abs((int)dataLength) > 1))
+            {
+                throw new ArgumentException("Processor type must be specified for data types other than BYTE and CHAR.");
+            }else if (processor != ProcessorType.UNKOWN)
+            {
+                data = RecursiveFill<T>(vector, dimensions, idxArray, 0, DataLength.BYTE, processor);
+            }
+                
             return data;
         }
 
@@ -34,7 +45,7 @@ namespace SHARP3D.Utils
             int[] idxArray,
             int idxDimension,
             DataLength dataLength,
-            ProcessorType processor)
+            ProcessorType processor = ProcessorType.UNKOWN)
         { 
             List<T> data = new List<T>();
             if (idxDimension == dimensions.Length)
