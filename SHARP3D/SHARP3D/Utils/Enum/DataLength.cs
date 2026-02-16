@@ -5,6 +5,6 @@
         CHAR = -1,
         BYTE = 1,
         INT16 = 2,
-        INT32 = 4,
+        FLOAT32 = 4,
     }
 }

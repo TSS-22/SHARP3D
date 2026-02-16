@@ -1,5 +1,4 @@
 ﻿using SHARP3D.Utils.Enum;
-using System.Diagnostics;
 
 namespace SHARP3D.Parameter.ParameterData
 {
@@ -18,9 +17,13 @@ namespace SHARP3D.Parameter.ParameterData
             }
             else
             {
-                return new MultiCharParameterData
+                for (int i = 0; i < dimension.Length; i++)
                 {
 
+                }
+                return new MultiCharParameterData
+                {
+                      
                 }
             }
         }

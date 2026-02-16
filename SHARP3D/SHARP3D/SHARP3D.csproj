@@ -16,8 +16,13 @@
     <Folder Include="Parameter\Supported\Additional\EventContext\" />
     <Folder Include="Parameter\Supported\Additional\Trial\" />
     <Folder Include="Parameter\Supported\Additional\Point\" />
+    <Folder Include="Parameter\Supported\Application\Analog\" />
+    <Folder Include="Parameter\Supported\Application\Analysis\" />
+    <Folder Include="Parameter\Supported\Application\Manufacturer\" />
+    <Folder Include="Parameter\Supported\Application\Subjects\" />
+    <Folder Include="Parameter\Supported\Application\Seg\" />
+    <Folder Include="Parameter\Supported\Application\Point\" />
     <Folder Include="Parameter\Supported\Extension\" />
-    <Folder Include="Parameter\Supported\Generics\2d\" />
     <Folder Include="Parameter\Supported\Required\Analog\" />
     <Folder Include="Parameter\Supported\Required\ForcePlateform\" />
     <Folder Include="Parameter\Supported\Required\Point\" />

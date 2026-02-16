@@ -1,4 +1,5 @@
-﻿using SHARP3D.Utils.Enum;
+﻿using SHARP3D.Utils;
+using SHARP3D.Utils.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Xml.Linq;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SHARP3D.Parameter.Supported.Generics
 {
-    internal class Scalar
+    internal class D7
     {
     }
 }

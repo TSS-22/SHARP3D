@@ -1,7 +1,7 @@
 using SHARP3D.exceptions;
 using SHARP3D.Utils.Enum;
 
-namespace SHARP3D
+namespace SHARP3D.Utils
 {
 
     // TODO: Handle unknown processor type. I think I need to handle it higher up the chain and refuse unkown processor type C3D files.
@@ -259,13 +259,13 @@ namespace SHARP3D
             // format overflow: clamp to maximum magnitude
             else if (Math.Abs(a) >= TWO_TO_127)
             {
-                t = (a < 0) ? 0xffffffff : 0x7fffffff;
+                t = a < 0 ? 0xffffffff : 0x7fffffff;
             }
             // large: scale by exponent manipulation to avoid overflow in intermediates
             else if (Math.Abs(a) >= TWO_TO_126)
             {
                 t = LittleEndianFloatAsUInt32(a);
-                t += (2u << 23); // increment exponent by 2; equivalent multiply by 4
+                t += 2u << 23; // increment exponent by 2; equivalent multiply by 4
             }
             // common case: scale by multiplication
             else
@@ -313,13 +313,13 @@ namespace SHARP3D
             // format overflow: clamp to maximum magnitude
             else if (Math.Abs(a) >= TWO_TO_127)
             {
-                t = (a < 0) ? 0xffffffff : 0x7fffffff;
+                t = a < 0 ? 0xffffffff : 0x7fffffff;
             }
             // large: scale by exponent manipulation to avoid overflow in intermediates
             else if (Math.Abs(a) >= TWO_TO_126)
             {
                 t = BigEndianFloatAsUInt32(a);
-                t += (2u << 23); // increment exponent by 2; equivalent multiply by 4
+                t += 2u << 23; // increment exponent by 2; equivalent multiply by 4
             }
             // common case: scale by multiplication
             else
@@ -362,10 +362,10 @@ namespace SHARP3D
 
             // Reconstruct the uint32_t from VAX F-float bytes
             uint t = (uint)(
-                (vaxBytes[0] << 16) |
-                (vaxBytes[1] << 24) |
-                (vaxBytes[2] << 0) |
-                (vaxBytes[3] << 8)
+                vaxBytes[0] << 16 |
+                vaxBytes[1] << 24 |
+                vaxBytes[2] << 0 |
+                vaxBytes[3] << 8
             );
 
             // Handle special cases
@@ -377,9 +377,9 @@ namespace SHARP3D
                 return float.MaxValue;
 
             // Reverse the scaling or exponent adjustment
-            if ((t & 0x7f800000) >= (126 + 127) << 23) // If exponent was incremented by 2
+            if ((t & 0x7f800000) >= 126 + 127 << 23) // If exponent was incremented by 2
             {
-                t -= (2u << 23); // Decrement exponent by 2; equivalent divide by 4
+                t -= 2u << 23; // Decrement exponent by 2; equivalent divide by 4
                 return UInt32AsLittleEndianFloat(t);
             }
             else
@@ -414,10 +414,10 @@ namespace SHARP3D
 
             // Reconstruct the uint32_t from VAX F-float bytes
             uint t = (uint)(
-                (vaxBytes[0] << 16) |
-                (vaxBytes[1] << 24) |
-                (vaxBytes[2] << 0) |
-                (vaxBytes[3] << 8)
+                vaxBytes[0] << 16 |
+                vaxBytes[1] << 24 |
+                vaxBytes[2] << 0 |
+                vaxBytes[3] << 8
             );
 
             // Handle special cases
@@ -429,9 +429,9 @@ namespace SHARP3D
                 return float.MaxValue;
 
             // Reverse the scaling or exponent adjustment
-            if ((t & 0x7f800000) >= (126 + 127) << 23) // If exponent was incremented by 2
+            if ((t & 0x7f800000) >= 126 + 127 << 23) // If exponent was incremented by 2
             {
-                t -= (2u << 23); // Decrement exponent by 2; equivalent divide by 4
+                t -= 2u << 23; // Decrement exponent by 2; equivalent divide by 4
                 return UInt32AsBigEndianFloat(t);
             }
             else
