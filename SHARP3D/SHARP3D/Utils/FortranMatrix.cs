@@ -6,7 +6,6 @@ namespace SHARP3D.Utils
     {
         // TODO: FortranMatrix reader. So all the code is stored in one place and is easier to sort/debug.
         // TODO: Mention that it is not to be use with extremely large matrices.
-        // TODO: Pretty sure I can generic that function.
         public static List<T> FVectorToFMatrix<T>(byte[] vector, int[] dimensions, ProcessorType processor)
         {
             int totalData = dimensions.Aggregate((acc, val) => acc * val);
@@ -44,7 +43,7 @@ namespace SHARP3D.Utils
                 for(int i=0; i<dimensions[idxDimension];i++)
                 {
                     idxArray[idxDimension] = i;
-                    int idx = ComputeIndex(dimensions, idxArray, dataLength);
+                    int idx = ComputeFortranIndex(dimensions, idxArray, dataLength);
                     switch (dataLength)
                     {
                         case DataLength.BYTE:
@@ -78,7 +77,7 @@ namespace SHARP3D.Utils
         }
 
         // TODO: Put the function it is based on in the doc.
-        private static int ComputeIndex(int[] dimensions, int[] idxArray, DataLength dataLength)
+        private static int ComputeFortranIndex(int[] dimensions, int[] idxArray, DataLength dataLength)
         { 
             int idx = 0;
             int[] multiplier = new int[dimensions.Length];
@@ -109,5 +108,7 @@ namespace SHARP3D.Utils
             //}
             return idx;
         }
+
+        
     }
 }
