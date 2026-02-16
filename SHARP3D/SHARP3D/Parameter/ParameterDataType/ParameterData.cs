@@ -3,10 +3,10 @@
 namespace SHARP3D.Parameter.ParameterDataType
 {
     // TODO: The whole ParameterData class
-    public abstract class ParameterData<T>
+    public abstract class ParameterData
     {
-        public T Data { set; get; }
-        public abstract T FromByte(byte[] data, int[]? dimensions = null, ProcessorType ? processor = null);
+        //public T Data { set; get; }
+        //public abstract T FromByte(byte[] data, int[]? dimensions = null, ProcessorType ? processor = null);
 
     }
 

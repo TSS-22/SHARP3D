@@ -7,10 +7,12 @@ namespace SHARP3D.Parameter.ParameterDataType
 
     // TODO: How to do the doc for this (I think it will be straight forward once implemented
     // TODO: Do I need to implement a processing function to make it prettier the handling of that weird ass fortran matrix shit ? If so, It will be nice to put an interface to force the implementation of said function
-    // TODO: 
-    internal class MultiCharParameterData : ParameterData<List<char>>
+    // TODO: Check if that works with List<List<T>> and so on. If not I am good to do another abstract class lol
+    internal class MultiCharParameterData : ParameterData
     {
-        public override MultiCharParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? _ = null)
+        List<char> Data { set; get; }
+         
+        public MultiCharParameterData(byte[] data, int[]? dimensions, ProcessorType? _ = null)
         {
             if (dimensions == null)
             {
@@ -18,15 +20,15 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                MultiCharParameterData result = new MultiCharParameterData();
-                result.Data = FortranMatrix.FVectorToFMatrix<char>(data, dimensions, DataLength.CHAR);
-                return result;
+                Data = FortranMatrix.FVectorToFMatrix<char>(data, dimensions, DataLength.CHAR);
+
             }
         }
     }
-    internal class MultiByteParameterData : ParameterData<List<byte>>
+    internal class MultiByteParameterData : ParameterData
     {
-        public override MultiByteParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? _ = null)
+        List<byte> Data { set; get; }
+        public MultiByteParameterData(byte[] data, int[]? dimensions, ProcessorType? _ = null)
         {
             if (dimensions == null)
             {
@@ -34,15 +36,15 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                MultiByteParameterData result = new MultiByteParameterData();
-                result.Data = FortranMatrix.FVectorToFMatrix<byte>(data, dimensions, DataLength.BYTE);
-                return result;
+                Data = FortranMatrix.FVectorToFMatrix<byte>(data, dimensions, DataLength.BYTE);
             }
         }
     }
-    internal class MultiIntParameterData : ParameterData<List<int>>
+    internal class MultiIntParameterData : ParameterData
     {
-        public override MultiIntParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? processor = null)
+        List<int> Data { set; get; }
+
+        public MultiIntParameterData(byte[] data, int[]? dimensions, ProcessorType? processor = null)
         {
             if (dimensions == null)
             {
@@ -54,16 +56,15 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else 
             {
-                MultiIntParameterData result = new MultiIntParameterData();
-                result.Data = FortranMatrix.FVectorToFMatrix<int>(data, dimensions, DataLength.INT16);
-                return result;
+                Data = FortranMatrix.FVectorToFMatrix<int>(data, dimensions, DataLength.INT16);
             }
         }
     }
 
-    internal class MultiFloatParameterData : ParameterData<List<float>>
+    internal class MultiFloatParameterData : ParameterData
     {
-        public override MultiFloatParameterData FromByte(byte[] data, int[]? dimensions, ProcessorType? processor = null)
+        List<float> Data { set; get; }
+        public MultiFloatParameterData(byte[] data, int[]? dimensions, ProcessorType? processor = null)
         {
             if (dimensions == null)
             {
@@ -75,9 +76,7 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                MultiFloatParameterData result = new MultiFloatParameterData();
-                result.Data = FortranMatrix.FVectorToFMatrix<float>(data, dimensions, DataLength.INT16);
-                return result;
+                Data = FortranMatrix.FVectorToFMatrix<float>(data, dimensions, DataLength.INT16);
             }
         }
     }

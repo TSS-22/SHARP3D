@@ -1,10 +1,11 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils.Enum;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter
 {
-    public struct C3dParameter<T>
+    public struct C3dParameter
     {
         public sbyte NameLength;
         public int Id;
@@ -13,13 +14,13 @@ namespace SHARP3D.Parameter
         public DataLength DataType;
         public int NbOfDimensions;
         public int[]? Dimensions; // Do int[1] for scalar so it is consistent qith multidimensionnal.
-        public T Data; // Doing this because it gives me shit with the abstract class
+        public ParameterData Data; // Doing this because it gives me shit with the abstract class
         public int DescriptionLength;
         public string Description;
         public bool Locked;
-    
 
-        public static C3dParameter<T> FromBinaries(
+
+        public static C3dParameter FromBinaries(
                 sbyte nameLength,
                 sbyte id,
                 string name,
@@ -33,60 +34,148 @@ namespace SHARP3D.Parameter
                 byte[] dataBytes,
                 ProcessorType processor
                 )
-            {
-            
-                switch (nbOfDimensions) {
-                    case 0:
-                        //TODO: Scalar case
-                        switch (dataType) 
-                        {
-                            case DataLength.CHAR:
-                                CharParameterData scalar_char = new CharParameterData(dataBytes);
-                                C3dParameter<char> test = new C3dParameter<char>();
-                                test.NameLength = nameLength;
-                                test.Id = id;
-                                test.Name = name;
-                                test.PointerNextParameterStruct = pointerNextParameterStruct;
-                                test.DataType = dataType;
-                                test.NbOfDimensions = nbOfDimensions;
-                                test.Dimensions = dimensions;
-                                test.Data = scalar_char.Data;
-                                test.DescriptionLength = descriptionLength;
-                                test.Description = description;
-                                test.Locked = locked;
-                                return test;
-                                break;
-                            case DataLength.BYTE:
-                                ByteParameterData scalar_byte = new ByteParameterData(dataBytes);
-                                break;
-                            case DataLength.INT16:
-                                IntParameterData scalar_int = new IntParameterData(dataBytes);
-                                break;
-                            case DataLength.FLOAT32:
-                                FloatParameterData scalar_float = new FloatParameterData(dataBytes);
-                                break;
-                            default:
-                                throw new Exception($"Unknown data type {dataType}");
-                        }
-                        break;
-                    default:
-                        break;
-                        //TODO: Multidimensionnal case
-                }            
-            }
-
-        private static T GetData(T test)
         {
-            switch (test)
-            {
-                case int:
-                    return 10;
-                case float:
-                    return 10.0f;
-                // ...
+
+            switch (nbOfDimensions) {
+                case 0:
+                    //TODO: Scalar case
+                    switch (dataType)
+                    {
+                        case DataLength.CHAR:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new CharParameterData(dataBytes),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+
+                        case DataLength.BYTE:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new ByteParameterData(dataBytes),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+
+                        case DataLength.INT16:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new IntParameterData(dataBytes),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+
+                        case DataLength.FLOAT32:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new FloatParameterData(dataBytes),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+                        default:
+                            throw new Exception($"Unknown data type {dataType}");
+                    }
                 default:
-                    throw new NotSupportedException();
+                    switch (dataType)
+                    {
+                        case DataLength.CHAR:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new MultiCharParameterData(dataBytes, dimensions),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+                        case DataLength.BYTE:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new MultiByteParameterData(dataBytes, dimensions),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+                        case DataLength.INT16:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new MultiIntParameterData(dataBytes, dimensions, processor),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+                        case DataLength.FLOAT32:
+                            return new C3dParameter
+                            {
+                                NameLength = nameLength,
+                                Id = id,
+                                Name = name,
+                                PointerNextParameterStruct = pointerNextParameterStruct,
+                                DataType = dataType,
+                                NbOfDimensions = nbOfDimensions,
+                                Dimensions = dimensions,
+                                Data = new MultiFloatParameterData(dataBytes, dimensions, processor),
+                                DescriptionLength = descriptionLength,
+                                Description = description,
+                                Locked = locked
+                            };
+                        default:
+                            throw new Exception($"Unknown data type {dataType}");
+                    }
+
             }
         }
     }
 }
+
