@@ -33,18 +33,23 @@ namespace SHARP3D
 
             this.FileStream.Seek(0, SeekOrigin.Begin);
             byte[] headerBinaries = ReadHeaderBinaries(this.FileStream);
-            this.C3DHeader = C3dHeader.FromBinaries(headerBinaries, processorMakerType);
+            this.C3DHeader = GetHeader(headerBinaries, processorMakerType);
 
-            byte[] parameterBinaries = ReadParameterBinaries(this.FileStream, GetParameterSectionPointer(this.FileStream), GetParameterBlockCount(this.FileStream));
-            this.Parameters = ProcessParameterBytes();
+            this.Parameters = GetParameters();
         }
+        
 
         public C3dFile CreateEmpty()
         {
             return new C3dFile();
         }
 
-        internal C3dParameterBlock ProcessParameterBytes()
+        internal C3dHeader GetHeader(byte[] headerBinaries, ProcessorType processorMakerType)
+        {
+            return C3dHeader.FromBinaries(headerBinaries, processorMakerType);
+        }
+
+        internal C3dParameterBlock GetParameters()
         {
             if (FileStream == null)
             {
