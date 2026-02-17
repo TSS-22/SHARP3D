@@ -1,7 +1,9 @@
 ﻿using SHARP3D.Header;
 using SHARP3D.Parameter;
 using SHARP3D.Utils.Enum;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("SHARP3D.Test")]
 namespace SHARP3D
 {
     /// <summary>
@@ -24,18 +26,16 @@ namespace SHARP3D
 
         public C3dParameterBlock Parameters { get; set; }
 
-        private C3dFile() { }
+        internal C3dFile() { }
 
-        private C3dFile(FileStream fileStream, ProcessorType processorMakerType)
+        internal C3dFile(FileStream fileStream, ProcessorType processorMakerType)
         {
-            this.FileStream = fileStream;
-            this.ProcessorFileType = processorMakerType;
+            FileStream = fileStream;
+            ProcessorFileType = processorMakerType;
 
-            this.FileStream.Seek(0, SeekOrigin.Begin);
-            byte[] headerBinaries = ReadHeaderBinaries(this.FileStream);
-            this.C3DHeader = GetHeader(headerBinaries, processorMakerType);
+            C3DHeader = GetHeader(FileStream, ProcessorFileType);
 
-            this.Parameters = GetParameters();
+            Parameters = GetParameters(FileStream, ProcessorFileType);
         }
         
 
@@ -44,18 +44,20 @@ namespace SHARP3D
             return new C3dFile();
         }
 
-        internal C3dHeader GetHeader(byte[] headerBinaries, ProcessorType processorMakerType)
+        internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorMakerType)
         {
+            fileStream.Seek(0, SeekOrigin.Begin);
+            byte[] headerBinaries = ReadHeaderBinaries(fileStream);
             return C3dHeader.FromBinaries(headerBinaries, processorMakerType);
         }
 
-        internal C3dParameterBlock GetParameters()
+        internal C3dParameterBlock GetParameters(FileStream fileStream, ProcessorType processorMakerType)
         {
             if (FileStream == null)
             {
                 throw new InvalidOperationException("File stream is not open.");
             }
-            return C3dParameterBlock.FromFileStream(FileStream, ProcessorFileType);
+            return C3dParameterBlock.FromFileStream(fileStream, processorMakerType);
         }
 
         public static C3dFile LoadFromFile(string filepath)
@@ -65,7 +67,7 @@ namespace SHARP3D
             return new C3dFile(fileStream, processorMakerType);
         }
 
-        public static int GetParameterSectionPointer(FileStream c3dStream)
+        internal static int GetParameterSectionPointer(FileStream c3dStream)
         {
             byte[] pointerToParameter = new byte[1];
             c3dStream.Seek(0, SeekOrigin.Begin);
@@ -73,13 +75,14 @@ namespace SHARP3D
             return BitConverter.ToInt16(new byte[] { 0, pointerToParameter[0] }, 0);
         }
 
-        public static int GetParameterBlockCount(FileStream c3dStream)
+        // Not usefull but here in case of
+        internal static int GetParameterBlockCount(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
             c3dStream.Seek(parameterSectionPointer + 2, SeekOrigin.Begin);
             return c3dStream.ReadByte();
         }
-        public static ProcessorType ReadProcessorByte(FileStream c3dStream)
+        internal static ProcessorType ReadProcessorByte(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
             c3dStream.Seek(parameterSectionPointer + 3, SeekOrigin.Begin);

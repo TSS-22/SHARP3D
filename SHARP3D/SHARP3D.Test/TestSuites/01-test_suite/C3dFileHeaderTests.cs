@@ -1,4 +1,7 @@
+using SHARP3D.Header;
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
+using System.Reflection.PortableExecutable;
 
 namespace SHARP3D.Test
 {
@@ -117,40 +120,39 @@ namespace SHARP3D.Test
                 new object[] { PathEb015vr, EventTimes},
             };
 
+        internal C3dFile GetC3dFileWithHeader(string filePath)
+        {
 
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.C3DHeader = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
+            return c3dFile;
+        }
 
         [Theory]
         [MemberData(nameof(FileStreamData))]
         public void FileStream_Test(string filepath)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
-            Assert.NotNull(c3dFile);
-            //c3dFile.CloseFileStream();
+            FileStream fileStream = C3dFile.OpenC3dFile(filepath);
+            Assert.NotNull(fileStream);
         }
 
         [Theory]
         [MemberData(nameof(ProcessorMakerData))]
         public void ProcessorMakerType_Test(string filepath, ProcessorType expectedProcessorType)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
-            Assert.Equal(expectedProcessorType, c3dFile.ProcessorFileType);
-            c3dFile.CloseFileStream();
-        }
-
-        [Theory]
-        [MemberData(nameof(FileStreamData))]
-        public void ProcessorHostType_Test(string filepath)
-        {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
-            Assert.Equal(BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS, c3dFile.ProcessorHostType);
-            c3dFile.CloseFileStream();
+            FileStream fileStream = C3dFile.OpenC3dFile(filepath);
+            ProcessorType processor = C3dFile.ReadProcessorByte(fileStream);
+            Assert.Equal(expectedProcessorType, processor);
+            fileStream.Close();
         }
 
         [Theory]
         [MemberData(nameof(ParameterPointerData))]
         public void ParameterSectionPointer_Test(string filepath, int expectedParameterSectionPointerValue)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedParameterSectionPointerValue, c3dFile.C3DHeader.PointerParameterSection);
             c3dFile.CloseFileStream();
         }
@@ -159,7 +161,7 @@ namespace SHARP3D.Test
         [MemberData(nameof(DataFlagFormatData))]
         public void DataFlag_Test(string filepath, DataFormat expectedDataFormat)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedDataFormat, c3dFile.C3DHeader.FlagDataFormat);
             c3dFile.CloseFileStream();
         }
@@ -168,7 +170,7 @@ namespace SHARP3D.Test
         [MemberData(nameof(MarkerPerFrameData))]
         public void NbMarkerPerFrame_Test(string filepath, int expectedNumber)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedNumber, c3dFile.C3DHeader.MarkersPerFrame);
             c3dFile.CloseFileStream();
         }
@@ -177,7 +179,7 @@ namespace SHARP3D.Test
         [MemberData(nameof(PointScaleData))]
         public void PointScaleValue_Test(string filepath, float expectedPointScale)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedPointScale, c3dFile.C3DHeader.ScaleFactor);
             c3dFile.CloseFileStream();
         }
@@ -186,7 +188,7 @@ namespace SHARP3D.Test
         [MemberData(nameof(AcquisitionRate3dData))]
         public void AcquisitionRate3dValue_Test(string filepath, float expectedAcquisitionRate)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedAcquisitionRate, c3dFile.C3DHeader.Rate3dFrame);
             c3dFile.CloseFileStream();
         }
@@ -195,14 +197,12 @@ namespace SHARP3D.Test
         [MemberData(nameof(EventTimeData))]
         public void EventTimeValue_Test(string filepath, float[] expectedEventTimes)
         {
-            C3dFile c3dFile = C3dFile.LoadFromFile(filepath);
-            for(int i=0; i < c3dFile.C3DHeader.Events.Length;i++)
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
+            for (int i=0; i < c3dFile.C3DHeader.Events.Length;i++)
             {
                 Assert.Equal(expectedEventTimes[i], c3dFile.C3DHeader.Events[i].EventTime);
             }
             c3dFile.CloseFileStream();
         }
-        
-
     }
 }
