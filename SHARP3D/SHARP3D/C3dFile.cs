@@ -4,6 +4,7 @@ using SHARP3D.Utils.Enum;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
+[assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
 namespace SHARP3D
 {
     /// <summary>
@@ -22,7 +23,7 @@ namespace SHARP3D
         public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
         public ProcessorType ProcessorHostType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
-        public C3dHeader C3DHeader { get; set; } = new C3dHeader();
+        public C3dHeader Header { get; set; } = new C3dHeader();
 
         public C3dParameterBlock Parameters { get; set; }
 
@@ -33,7 +34,7 @@ namespace SHARP3D
             FileStream = fileStream;
             ProcessorFileType = processorMakerType;
 
-            C3DHeader = GetHeader(FileStream, ProcessorFileType);
+            Header = GetHeader(FileStream, ProcessorFileType);
 
             Parameters = GetParameters(FileStream, ProcessorFileType);
         }
@@ -53,7 +54,7 @@ namespace SHARP3D
 
         internal C3dParameterBlock GetParameters(FileStream fileStream, ProcessorType processorMakerType)
         {
-            if (FileStream == null)
+            if (fileStream == null)
             {
                 throw new InvalidOperationException("File stream is not open.");
             }
@@ -89,14 +90,14 @@ namespace SHARP3D
             return (ProcessorType)c3dStream.ReadByte();
         }
 
-        public static byte[] ReadHeaderBinaries(FileStream c3dStream)
+        internal static byte[] ReadHeaderBinaries(FileStream c3dStream)
         {
             byte[] headers = new byte[512];
             c3dStream.ReadExactly(headers, 0, 512);
             return headers;
         }
 
-        public static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)
+        internal static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)
         {
             byte[] parameters = new byte[parameterBlockCount * 512];
             c3dStream.Seek(parameterSectionPointer, SeekOrigin.Begin);
@@ -116,7 +117,7 @@ namespace SHARP3D
             return 0;
         }
 
-        public static FileStream OpenC3dFile(string filepath)
+        internal static FileStream OpenC3dFile(string filepath)
         {
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
         }

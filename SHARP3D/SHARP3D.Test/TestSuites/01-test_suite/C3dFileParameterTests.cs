@@ -10,5 +10,32 @@
         public static readonly string PathEb015vi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vi.c3d";
         public static readonly string PathEb015vr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vr.c3d";
 
+        public static IEnumerable<object[]> FileStreamData =>
+            new List<object[]>
+            {
+                new object[] { PathEb015pi},
+                new object[] { PathEb015pr},
+                new object[] { PathEb015si},
+                new object[] { PathEb015sr},
+                new object[] { PathEb015vi},
+                new object[] { PathEb015vr},
+            };
+
+        internal C3dFile GetC3dFileWithparameter(string filePath)
+        {
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType);
+            return c3dFile;
+        }
+
+        [Theory]
+        [MemberData(nameof(FileStreamData))]
+        public void RunningParameter_Test(string filepath)
+        {
+            //GetC3dFileWithparameter(filepath);
+            //Assert.NotNull(fileStream);
+        }
     }
 }

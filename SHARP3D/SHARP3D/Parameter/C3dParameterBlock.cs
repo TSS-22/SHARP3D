@@ -1,6 +1,8 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.IO;
+using System.IO.Pipes;
 using System.Text;
 
 namespace SHARP3D.Parameter
@@ -14,7 +16,8 @@ namespace SHARP3D.Parameter
 
         public static C3dParameterBlock FromFileStream(FileStream c3dStream, ProcessorType processorMakerType, int pointerParameterSection = 512)
         {
-            c3dStream.Seek(pointerParameterSection, SeekOrigin.Begin);
+            
+            c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
             List<C3dParameterGroup> groups = new List<C3dParameterGroup> { };
             List<C3dParameter> parameters = new List<C3dParameter> { };
 
@@ -81,6 +84,7 @@ namespace SHARP3D.Parameter
                             Parameters = new List<C3dParameter> { }
                         }
                         );
+                    Console.WriteLine($"CanRead: {c3dStream.CanRead}, Position: {c3dStream.Position}, Length: {c3dStream.Length}");
                 }
                 else // Parameter
                 {
@@ -97,6 +101,7 @@ namespace SHARP3D.Parameter
                     
                     if (numberOfDimensions > 0) // Non scalar
                     {
+                        dimensions = new int[numberOfDimensions];
                         dimensionsBuffer = new byte[numberOfDimensions];
                         c3dStream.ReadExactly(dimensionsBuffer);
                         for (int i = 0; i < dimensionsBuffer.Length; i++)
@@ -210,6 +215,7 @@ namespace SHARP3D.Parameter
                             Locked = nameLength < 0 ? true : false
                         }
                     );
+                    Console.WriteLine($"CanRead: {c3dStream.CanRead}, Position: {c3dStream.Position}, Length: {c3dStream.Length}");
                 }
             } while (pointerToNextStruct != 0);
 

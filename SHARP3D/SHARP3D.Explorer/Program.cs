@@ -1,44 +1,44 @@
-﻿namespace SHARP3D.Explorer
+﻿using SHARP3D;
+
+namespace SHARP3D.Explorer
 {
-    internal static class Program
+    internal class Program
     {
+        public static readonly string PathEb015pi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pi.c3d";
+        public static readonly string PathEb015pr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pr.c3d";
+        public static readonly string PathEb015si = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015si.c3d";
+        public static readonly string PathEb015sr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015sr.c3d";
+        public static readonly string PathEb015vi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vi.c3d";
+        public static readonly string PathEb015vr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vr.c3d";
+
+
         private static int Main()
         {
-            //var path = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pi.c3d";
-            //if (!File.Exists(path))
-            //{
-            //    Console.Error.WriteLine($"File not found: {path}");
-            //    return 1;
-            //}
-            //try
-            //{
-            //    Console.WriteLine($"Opening C3D file: {path}");
-            //    C3dFile c3dFile = C3dFile.LoadFromFile(path);
-            //    Console.WriteLine($"Processor type: {c3dFile.ProcessorHostType}");
-            //    return 0;
-            //}
-            //catch (Exception ex) 
-            //{ 
-            //    Console.Error.WriteLine($"Error: {ex.Message}");
-            //    return 1;
-            //}
-            int[] dimensions =  { 3, 4, 2 };
-            int[,,] vector = new int[dimensions[0], dimensions[1], dimensions[2]];
-            int[] indices = new int[dimensions.Length];
-
-            for (int linearIndex = 0; linearIndex < vector.Length; linearIndex++)
-            {
-                int remaining = linearIndex;
-                for (int d = dimensions.Length - 1; d >= 0; d--)
-                {
-                    indices[d] = remaining % dimensions[d];
-                    remaining /= dimensions[d];
-                }
-                Console.WriteLine($"Linear index: {linearIndex}, Indices: [{string.Join(", ", indices)}]");
-            }
-
+            Program test = new Program();
+            C3dFile c3dFile = test.GetC3dFileWithparameter(PathEb015pi);
+            Console.WriteLine(c3dFile.Parameters.Groups.ToString());
             return 0;
-
         }
+
+        internal C3dFile GetC3dFileWithparameter(string filePath)
+        {
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType);
+            return c3dFile;
+        }
+
+        internal C3dFile GetC3dFileWithHeader(string filePath)
+        {
+
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
+            return c3dFile;
+        }
+
     }
 }
+
