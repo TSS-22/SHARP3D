@@ -50,7 +50,6 @@ namespace SHARP3D.Utils
             List<T> data = new List<T>();
             if (idxDimension == dimensions.Length)
             {
-                
                 for(int i=0; i<dimensions[idxDimension];i++)
                 {
                     idxArray[idxDimension] = i;

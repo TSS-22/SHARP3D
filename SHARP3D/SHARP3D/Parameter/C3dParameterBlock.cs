@@ -63,9 +63,9 @@ namespace SHARP3D.Parameter
                     }
                     else
                     {
-                        actualDescriptionLength = pointerToNextStruct - c3dStream.Position;
-                        descriptionBuffer = new byte[Math.Abs(actualDescriptionLength)];
+                        descriptionBuffer = new byte[pointerToNextStruct - 3];
                         c3dStream.ReadExactly(descriptionBuffer);
+                        actualDescriptionLength = descriptionBuffer.Length;
                     }
                     
                     description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
@@ -146,9 +146,9 @@ namespace SHARP3D.Parameter
                         }
                         else
                         {
-                            actualDescriptionLength = pointerToNextStruct - c3dStream.Position;
-                            descriptionBuffer = new byte[Math.Abs(actualDescriptionLength)];
+                            descriptionBuffer = new byte[pointerToNextStruct - 3];
                             c3dStream.ReadExactly(descriptionBuffer);
+                            actualDescriptionLength = descriptionBuffer.Length;
                         }
 
                         description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
@@ -192,9 +192,9 @@ namespace SHARP3D.Parameter
                         }
                         else
                         {
-                            actualDescriptionLength = pointerToNextStruct - c3dStream.Position;
-                            descriptionBuffer = new byte[Math.Abs(actualDescriptionLength)];
+                            descriptionBuffer = new byte[pointerToNextStruct - 3];
                             c3dStream.ReadExactly(descriptionBuffer);
+                            actualDescriptionLength = descriptionBuffer.Length;
                         }
 
                         description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
