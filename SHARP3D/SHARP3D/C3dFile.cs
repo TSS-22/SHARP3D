@@ -22,7 +22,7 @@ namespace SHARP3D
 
         public C3dHeader C3DHeader { get; set; } = new C3dHeader();
 
-        public List<C3dParameterGroup> Parameters { get; set; }
+        public C3dParameterBlock Parameters { get; set; }
 
         private C3dFile() { }
 
@@ -36,7 +36,7 @@ namespace SHARP3D
             this.C3DHeader = C3dHeader.FromBinaries(headerBinaries, processorMakerType);
 
             byte[] parameterBinaries = ReadParameterBinaries(this.FileStream, GetParameterSectionPointer(this.FileStream), GetParameterBlockCount(this.FileStream));
-            this.Parameters = C3dParameterGroup.GroupsFromFileStream(FileStream, processorMakerType, C3DHeader.PointerParameterSection);
+            this.Parameters = ProcessParameterBytes();
         }
 
         public C3dFile CreateEmpty()
@@ -44,9 +44,13 @@ namespace SHARP3D
             return new C3dFile();
         }
 
-        internal C3dParameterBlock ProcessParameterBytes(byte[] parameterBytes)
+        internal C3dParameterBlock ProcessParameterBytes()
         {
-            return C3dParameterBlock.FromBinaries(parameterBytes, ProcessorFileType);
+            if (FileStream == null)
+            {
+                throw new InvalidOperationException("File stream is not open.");
+            }
+            return C3dParameterBlock.FromFileStream(FileStream, ProcessorFileType);
         }
 
         public static C3dFile LoadFromFile(string filepath)
