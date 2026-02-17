@@ -1,13 +1,7 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net.Sockets;
 using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter
 {
@@ -83,7 +77,8 @@ namespace SHARP3D.Parameter
                             DescriptionLength = descriptionLength,
                             ActualDescriptionLength = actualDescriptionLength,
                             Description = description,
-                            Locked = nameLength < 0 ? true : false
+                            Locked = nameLength < 0 ? true : false,
+                            Parameters = new List<C3dParameter> { }
                         }
                         );
                 }
@@ -219,6 +214,12 @@ namespace SHARP3D.Parameter
             } while (pointerToNextStruct != 0);
 
             // Associate each parameter to its respective group
+            groups = groups.Select(group =>
+            {
+                group.Parameters = parameters.Where(parameter => parameter.Id == group.Id * -1).ToList();
+                return group;
+            }).ToList();
+
 
             return new C3dParameterBlock
             {
