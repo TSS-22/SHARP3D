@@ -1,7 +1,5 @@
-﻿using SHARP3D.Parameter.ParameterDataType;
-using SHARP3D.Utils;
+﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.IO;
 using System.Text;
 
 namespace SHARP3D.Parameter

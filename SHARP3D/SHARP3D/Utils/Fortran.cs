@@ -1,6 +1,4 @@
 ﻿using SHARP3D.Utils.Enum;
-using SHARP3D.Utils.Matrix;
-using System.Collections.Generic;
 namespace SHARP3D.Utils
 {
     internal class Fortran
