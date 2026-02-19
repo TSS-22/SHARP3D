@@ -106,7 +106,7 @@ namespace SHARP3D.Parameter
                             dimensions[i] = (int)dimensionsBuffer[i]; // Cast byte to int
                         }
 
-                        dataBuffer = new byte[Math.Abs((int)dataLength)* dimensions.Aggregate((acc, val) => acc * val)];
+                        dataBuffer = new byte[Math.Abs((int)dataLength) * dimensions.Aggregate((acc, val) => acc * val)];
                         switch (dataLength)
                         {
                             case DataLength.CHAR:
