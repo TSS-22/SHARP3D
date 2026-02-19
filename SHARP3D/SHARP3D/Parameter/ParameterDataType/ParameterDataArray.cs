@@ -20,8 +20,7 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                Data = FortranMatrix.FVectorToFMatrix<char>(data, dimensions, DataLength.CHAR);
-
+                //Data = FortranMatrix.FVectorToFMatrix<char>(data, dimensions, DataLength.CHAR);
             }
         }
     }
@@ -36,7 +35,7 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                Data = FortranMatrix.FVectorToFMatrix<byte>(data, dimensions, DataLength.BYTE);
+                //Data = FortranMatrix.FVectorToFMatrix<byte>(data, dimensions, DataLength.BYTE);
             }
         }
     }
@@ -56,7 +55,7 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else 
             {
-                Data = FortranMatrix.FVectorToFMatrix<int>(data, dimensions, DataLength.INT16);
+                //Data = FortranMatrix.FVectorToFMatrix<int>(data, dimensions, DataLength.INT16);
             }
         }
     }
@@ -76,7 +75,7 @@ namespace SHARP3D.Parameter.ParameterDataType
             }
             else
             {
-                Data = FortranMatrix.FVectorToFMatrix<float>(data, dimensions, DataLength.INT16);
+                //Data = FortranMatrix.FVectorToFMatrix<float>(data, dimensions, DataLength.INT16);
             }
         }
     }
