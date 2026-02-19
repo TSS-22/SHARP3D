@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Test.Utils
 {
@@ -89,14 +90,6 @@ namespace SHARP3D.Test.Utils
             0x15 , 0x53 , 0x50 , 0x3F
         };
 
-        
-
-        //public static IEnumerable<object[]> Data3D =>
-        //    new List<object[]>
-        //    {
-        //        new object[] { floatVector, floatVectorBytes},
-        //    };
-
         public static IEnumerable<object[]> Float3dTestData => 
             new List<object[]>
         {
@@ -112,14 +105,6 @@ namespace SHARP3D.Test.Utils
             }
         };
 
-
-        public static IEnumerable<object[]> IndexTestData =>
-            new List<Object[]>
-            {
-                new object[] {
-
-                }
-            };
         [Theory]
         [MemberData(nameof(Float3dTestData))]
         public static void float3d_Tests(
@@ -167,7 +152,7 @@ namespace SHARP3D.Test.Utils
             matrix[1, 3, 1] = 632.01184f;
             matrix[2, 3, 1] = 0.8137677f;
 
-            float[,,] result = (float[,,])FortranMatrix.FortranVectorToNDMatrix<float>(
+            float[,,] result = (float[,,])Fortran.VectorToMatrix<float>(
                 mat3d_vecFloat_bytes,
                 mat3d_dimensions,
                 dataLength,
@@ -185,29 +170,115 @@ namespace SHARP3D.Test.Utils
             }
         }
 
-        [Fact]
-        public static void Index3dTest()
+        public static IEnumerable<object[]> ScalarVecToMatTest =>
+            new List<object[]>
         {
-            int[] dimensions = { 3, 4, 2 };
-            DataLength[] dataLengths = { DataLength.CHAR, DataLength.BYTE, DataLength.INT16, DataLength.FLOAT32};
-            for (int h=0; h< dataLengths.Length; h++)
+            new object[] {new char[]{'@'}, new byte[] { 64 }, DataLength.CHAR},
+            new object[] { new byte[] { 80 }, new byte[] { 80 }, DataLength.BYTE},
+            new object[] { new int[]{ 12345 }, new byte[]{ 0x39, 0x30}, DataLength.INT16},
+            new object[] { new float[] { 55.040f }, new byte[] { 0xF6, 0x28, 0x5C, 0x42 }, DataLength.FLOAT32},
+        };
+        [Theory]
+        [MemberData(nameof(ScalarVecToMatTest))]
+        public void ScalarVecToMat_Test(Array expectedValue, byte[] byteValue, DataLength dataLength)
+        {
+            Array data;
+            int[] scalarDimension = { 1 };
+            ProcessorType processor = ProcessorType.INTEL;
+            switch (dataLength)
             {
-                int[] expectedVectorResult = Mat3d_vecByteChar_index.Select(x => x * Math.Abs((int)dataLengths[h])).ToArray();
-                int idExpected = 0;
-                for (int i = 0; i < dimensions[0]; i++)
-                {
-                    for (int j = 0; j < dimensions[1]; j++)
-                    {
-                        for (int k = 0; k < dimensions[2]; k++)
-                        {
-                            Assert.Equal(expectedVectorResult[idExpected], FortranMatrix.ComputeFortranIndex(dimensions, new int[] {i,j,k}, dataLengths[h]));
-                            idExpected++;
-                        }
-                    }
-                }
+                case DataLength.CHAR:
+                    data = Fortran.VectorToMatrix<char>(
+                            byteValue,
+                            scalarDimension,
+                            dataLength,
+                            processor
+                            );
+                    break;
+               case DataLength.BYTE:
+                    data = Fortran.VectorToMatrix<byte>(
+                             byteValue,
+                             scalarDimension,
+                             dataLength,
+                             processor
+                             );
+                    break;
+               case DataLength.INT16:
+                    data = Fortran.VectorToMatrix<int>(
+                            byteValue,
+                            scalarDimension,
+                            dataLength,
+                            processor
+                            );
+                    break;
+               case DataLength.FLOAT32:
+                    data = Fortran.VectorToMatrix<float>(
+                            byteValue,
+                            scalarDimension,
+                            dataLength,
+                            processor
+                            );
+                    break;
+               default:
+                    throw new ArgumentException("Bad type. What you gonna do when they come for you?");
             }
-            
+            Assert.Equal(expectedValue, data);
         }
 
+        
+        public static IEnumerable<object[]> Vec1DToMatData=>
+            new List<object[]>
+        {
+            new object[] {new char[]{'P', 'Q', 'R', 'S', 'T', 'U' }, new byte[] { 0x50,0x51,0x52,0x53,0x54,0x55 }, DataLength.CHAR},
+            new object[] { new byte[] { 128,129,130,131,132,133}, new byte[] { 0x80, 0x81, 0x82, 0x83, 0x84, 0x85 }, DataLength.BYTE},
+            new object[] { new int[]{ 123, 124, 125, 126, 127, 128 }, new byte[]{ 0x7B, 0x00, 0x7C, 0x00, 0x7D, 0x00, 0x7E, 0x00, 0x7F, 0x00, 0x80, 0x00, }, DataLength.INT16},
+            new object[] { new float[] { 123.5678f, 124.5678f, 125.5678f, 126.5678f, 127.5678f, 128.5678f }, new byte[] { 0xB7, 0x22, 0xF7, 0x42, 0xB7, 0x22, 0xF9, 0x42, 0xB7, 0x22, 0xFB, 0x42, 0xB7, 0x22, 0xFD, 0x42, 0xB7, 0x22, 0xFF, 0x42, 0x5B, 0x91, 0x00, 0x43, }, DataLength.FLOAT32},
+        };
+        [Theory]
+        [MemberData(nameof(Vec1DToMatData))]
+        public void Vec1DToMat_Test(Array expectedValue, byte[] byteValue, DataLength dataLength)
+        {
+            Array data;
+            int[] dimensions = { expectedValue.Length };
+            ProcessorType processor = ProcessorType.INTEL;
+            switch (dataLength)
+            {
+                case DataLength.CHAR:
+                    data = Fortran.VectorToMatrix<char>(
+                            byteValue,
+                            dimensions,
+                            dataLength,
+                            processor
+                            );
+                    break;
+                case DataLength.BYTE:
+                    data = Fortran.VectorToMatrix<byte>(
+                             byteValue,
+                             dimensions,
+                             dataLength,
+                             processor
+                             );
+                    break;
+                case DataLength.INT16:
+                    data = Fortran.VectorToMatrix<int>(
+                            byteValue,
+                            dimensions,
+                            dataLength,
+                            processor
+                            );
+                    break;
+                case DataLength.FLOAT32:
+                    data = Fortran.VectorToMatrix<float>(
+                            byteValue,
+                            dimensions,
+                            dataLength,
+                            processor
+                            );
+                    break;
+                default:
+                    throw new ArgumentException("Bad type. What you gonna do when they come for you?");
+            }
+            Assert.Equal(expectedValue, data);
+        }
     }
 }

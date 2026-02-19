@@ -1,7 +1,5 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils.Enum;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter
 {
@@ -14,7 +12,7 @@ namespace SHARP3D.Parameter
         public DataLength DataType;
         public int NbOfDimensions;
         public int[]? Dimensions; // Do int[1] for scalar so it is consistent qith multidimensionnal.
-        public ParameterData Data; // Doing this because it gives me shit with the abstract class
+        public Array Data; // Doing this because it gives me shit with the abstract class
         public int DescriptionLength;
         public string Description;
         public bool Locked;

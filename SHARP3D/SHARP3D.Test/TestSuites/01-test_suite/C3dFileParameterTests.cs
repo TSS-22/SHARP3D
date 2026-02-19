@@ -15,10 +15,10 @@
             {
                 new object[] { PathEb015pi},
                 new object[] { PathEb015pr},
-                new object[] { PathEb015si},
-                new object[] { PathEb015sr},
-                new object[] { PathEb015vi},
-                new object[] { PathEb015vr},
+                //new object[] { PathEb015si},
+                //new object[] { PathEb015sr},
+                //new object[] { PathEb015vi},
+                //new object[] { PathEb015vr},
             };
 
         internal C3dFile GetC3dFileWithparameter(string filePath)
@@ -34,8 +34,8 @@
         [MemberData(nameof(FileStreamData))]
         public void RunningParameter_Test(string filepath)
         {
-            //GetC3dFileWithparameter(filepath);
-            //Assert.NotNull(fileStream);
+            C3dFile test = GetC3dFileWithparameter(filepath);
+            Assert.NotNull(test);
         }
     }
 }

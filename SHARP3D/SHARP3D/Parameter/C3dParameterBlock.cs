@@ -1,8 +1,6 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.IO;
-using System.IO.Pipes;
 using System.Text;
 
 namespace SHARP3D.Parameter
@@ -16,7 +14,7 @@ namespace SHARP3D.Parameter
 
         public static C3dParameterBlock FromFileStream(FileStream c3dStream, ProcessorType processorMakerType, int pointerParameterSection = 512)
         {
-            
+            int[] scalarDimension = { 1 };
             c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
             List<C3dParameterGroup> groups = new List<C3dParameterGroup> { };
             List<C3dParameter> parameters = new List<C3dParameter> { };
@@ -84,7 +82,6 @@ namespace SHARP3D.Parameter
                             Parameters = new List<C3dParameter> { }
                         }
                         );
-                    Console.WriteLine($"CanRead: {c3dStream.CanRead}, Position: {c3dStream.Position}, Length: {c3dStream.Length}");
                 }
                 else // Parameter
                 {
@@ -94,7 +91,7 @@ namespace SHARP3D.Parameter
                     int[]? dimensions = null;
                     byte[] dimensionsBuffer;
                     byte[] dataBuffer;
-                    ParameterData data;
+                    Array data;
 
                     dataLength = (DataLength)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
                     numberOfDimensions = c3dStream.ReadByte();
@@ -114,23 +111,44 @@ namespace SHARP3D.Parameter
                         {
                             case DataLength.CHAR:
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new MultiCharParameterData(dataBuffer, dimensions, processorMakerType); // Does that work? crazy
+                                data = Fortran.VectorToMatrix<char>(
+                                    dataBuffer,
+                                    dimensions,
+                                    dataLength,
+                                    processorMakerType
+                                    ); // Does that work? crazy
                                 break;
                             case DataLength.BYTE:
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new MultiByteParameterData(dataBuffer, dimensions, processorMakerType);
+                                data = Fortran.VectorToMatrix<byte>(
+                                    dataBuffer,
+                                    dimensions,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             case DataLength.INT16:
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new MultiIntParameterData(dataBuffer, dimensions, processorMakerType);
+                                data = Fortran.VectorToMatrix<int>(
+                                    dataBuffer,
+                                    dimensions,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             case DataLength.FLOAT32:
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new MultiFloatParameterData(dataBuffer, dimensions, processorMakerType);
+                                data = Fortran.VectorToMatrix<float>(
+                                    dataBuffer,
+                                    dimensions,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             default:
                                 throw new Exception("Invalid data type length");
                         }
+                        
                         descriptionLength = c3dStream.ReadByte();
                         if (pointerToNextStruct == 0)
                         {
@@ -146,7 +164,7 @@ namespace SHARP3D.Parameter
                         }
                         else
                         {
-                            descriptionBuffer = new byte[pointerToNextStruct - 3];
+                            descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - dimensionsBuffer.Length - dataBuffer.Length ]; // Black magic yeah! Joke: we take out the byte already read, because the pointer to next struct, start at the first byte of the pointer.
                             c3dStream.ReadExactly(descriptionBuffer);
                             actualDescriptionLength = descriptionBuffer.Length;
                         }
@@ -159,20 +177,41 @@ namespace SHARP3D.Parameter
                         switch (dataLength)
                         {
                             case DataLength.CHAR:
-                            dataBuffer = new byte[] { (byte)c3dStream.ReadByte() };
-                                data = new CharParameterData(dataBuffer); // Does that work? crazy
+                                c3dStream.ReadExactly(dataBuffer);
+                                data = Fortran.VectorToMatrix<char>(
+                                    dataBuffer,
+                                    scalarDimension,
+                                    dataLength,
+                                    processorMakerType
+                                    ); // Does that work? crazy
                                 break;
                             case DataLength.BYTE:
-                                dataBuffer = new byte[] { (byte)c3dStream.ReadByte() };
-                                data = new ByteParameterData(dataBuffer);
+                                c3dStream.ReadExactly(dataBuffer);
+                                data = Fortran.VectorToMatrix<byte>(
+                                    dataBuffer,
+                                    scalarDimension,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             case DataLength.INT16:
+                                //int dim = scalarDimension * Math.Abs((int)dataLength);
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new IntParameterData(dataBuffer, null, processorMakerType);
+                                data = Fortran.VectorToMatrix<int>(
+                                    dataBuffer,
+                                    scalarDimension,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             case DataLength.FLOAT32:
                                 c3dStream.ReadExactly(dataBuffer);
-                                data = new FloatParameterData(dataBuffer, null, processorMakerType);
+                                data = Fortran.VectorToMatrix<float>(
+                                    dataBuffer,
+                                    scalarDimension,
+                                    dataLength,
+                                    processorMakerType
+                                    );
                                 break;
                             default:
                                 throw new Exception("Invalid data type length");
@@ -215,7 +254,6 @@ namespace SHARP3D.Parameter
                             Locked = nameLength < 0 ? true : false
                         }
                     );
-                    Console.WriteLine($"CanRead: {c3dStream.CanRead}, Position: {c3dStream.Position}, Length: {c3dStream.Length}");
                 }
             } while (pointerToNextStruct != 0);
 
