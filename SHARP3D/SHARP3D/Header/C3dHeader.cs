@@ -24,9 +24,9 @@ namespace SHARP3D.Header
         ///<para>
         /// Word: 1 (byte 2)
         ///</para>
-        /// A flag defininig the Data section storage format which depends on the system used to acquire the data.
+        /// A flag defininig the data storage format which depends on the system and the software used to acquire the data.
         ///</summary>
-        public DataFormat FlagDataFormat;
+        public StorageFormat FlagDataFormat;
 
         ///<summary>
         ///<para>
@@ -141,7 +141,7 @@ namespace SHARP3D.Header
             return new C3dHeader
             {
                 PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
-                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? DataFormat.RIGHT : DataFormat.WRONG,
+                FlagDataFormat = Convert.ToChar(binaries[1]) == 'P' ? StorageFormat.ORIGINAL : StorageFormat.UNKOWN,
                 MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorTypeMaker),
                 AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorTypeMaker),
                 FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorTypeMaker),
