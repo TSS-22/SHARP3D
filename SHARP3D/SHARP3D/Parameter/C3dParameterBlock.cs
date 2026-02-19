@@ -1,6 +1,7 @@
 ﻿using SHARP3D.Parameter.ParameterDataType;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.IO;
 using System.Text;
 
 namespace SHARP3D.Parameter
@@ -12,7 +13,7 @@ namespace SHARP3D.Parameter
 
         public List<C3dParameterGroup> Groups;
 
-        public static C3dParameterBlock FromFileStream(FileStream c3dStream, ProcessorType processorMakerType, int pointerParameterSection = 512)
+        public static C3dParameterBlock FromFileStream(FileStream c3dStream, ProcessorType processorMakerType, int pointerDataSection, int pointerParameterSection = 512)
         {
             int[] scalarDimension = { 1 };
             c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
@@ -21,12 +22,22 @@ namespace SHARP3D.Parameter
 
             // Get all the Groups and Parameters
             uint pointerToNextStruct = 0;
+            // TODO: WTF AM I SUPPOSE TO WITH THE PARAMETER AS THEY DON'T FOLLOW THE RULE FOR ENDING.
+            // WARNING: THE POINTER TO NEXT STRUCT IS NOT 0X00 0X00 FOR THE LAST PARAMETER BLOCK......
             do
             {
+                if (c3dStream.Position == ((pointerDataSection - 1) * 512)) {
+                    break;
+                }
                 // Not ready for the loop this typeBlock statement
                 sbyte nameLength = (sbyte)c3dStream.ReadByte();
+                if (nameLength == 0)
+                {
+                    c3dStream.Seek(-1, SeekOrigin.Current);
+                    break;
+                }
                 int id = (sbyte)c3dStream.ReadByte();
-                byte[] nameBuffer = new byte[nameLength];
+                byte[] nameBuffer = new byte[Math.Abs((int)nameLength)];
                 c3dStream.ReadExactly(nameBuffer);
                 string name = Encoding.ASCII.GetString(nameBuffer).TrimEnd('\0');
                 byte[] pointerBuffer = new byte[2];
@@ -231,7 +242,7 @@ namespace SHARP3D.Parameter
                         }
                         else
                         {
-                            descriptionBuffer = new byte[pointerToNextStruct - 3];
+                            descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - Math.Abs((int)dataLength)];
                             c3dStream.ReadExactly(descriptionBuffer);
                             actualDescriptionLength = descriptionBuffer.Length;
                         }

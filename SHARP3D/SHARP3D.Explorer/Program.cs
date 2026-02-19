@@ -48,71 +48,31 @@ namespace SHARP3D.Explorer
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         {
+            C3dFile c3dFile = GetC3dFileWithHeader(PathEb015pi);
 
-            int elementSize = Math.Abs((int)dataLength);
-            int totalElements = 1;
-            foreach (int dim in dimensions)
-                totalElements *= dim;
-            totalElements *= elementSize;
 
-            if (vector.Length != totalElements)
-                throw new ArgumentException("Vector length must match total elements in the matrix.");
-
-            Array matrix = Array.CreateInstance(typeof(float), dimensions);
-            int[] indices = new int[dimensions.Length];
-
-            for (int i = 0; i < vector.Length; i += elementSize)
-            {
-                int remaining = i/ elementSize;
-                // Reverse the order of dimensions for Fortran to C# conversion
-                for (int d = 0; d < dimensions.Length; d++)
-                {
-                    indices[d] = remaining % dimensions[d];
-                    remaining /= dimensions[d];
-                    Console.WriteLine(d);
-                    Console.WriteLine("[" + string.Join(", ", indices) + "]");
-                    Console.WriteLine("_________\n");
-                }
-                switch (dataLength)
-                {
-                    case DataLength.CHAR:
-                        matrix.SetValue((char)vector[i], indices);
-                        break;
-                    case DataLength.BYTE:
-                        matrix.SetValue(vector[i], indices);
-                        break;
-                    case DataLength.INT16:
-                        matrix.SetValue(C3dBytesConvertor.ToInt(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
-                        break;
-                    case DataLength.FLOAT32:
-                        matrix.SetValue(C3dBytesConvertor.ToFloat(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
-                        break;
-                    default:
-                        throw new ArgumentException("Unsupported datatype.");
-                }
-
-            }
             return 0;
         }
 
-        //internal C3dFile GetC3dFileWithparameter(string filePath)
-        //{
-        //    FileStream fileStream = C3dFile.OpenC3dFile(filePath);
-        //    C3dFile c3dFile = new C3dFile();
-        //    c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
-        //    c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType);
-        //    return c3dFile;
-        //}
+        internal static C3dFile GetC3dFileWithparameter(string filePath)
+        {
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
+            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType, c3dFile.Header.PointerDataSection);
+            return c3dFile;
+        }
 
-        //internal C3dFile GetC3dFileWithHeader(string filePath)
-        //{
+        internal static C3dFile GetC3dFileWithHeader(string filePath)
+        {
 
-        //    FileStream fileStream = C3dFile.OpenC3dFile(filePath);
-        //    C3dFile c3dFile = new C3dFile();
-        //    c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
-        //    c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
-        //    return c3dFile;
-        //}
+            FileStream fileStream = C3dFile.OpenC3dFile(filePath);
+            C3dFile c3dFile = new C3dFile();
+            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
+            return c3dFile;
+        }
 
     }
 }

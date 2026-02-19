@@ -1,4 +1,6 @@
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
+using System.IO;
 
 namespace SHARP3D.Test
 {
@@ -15,6 +17,8 @@ namespace SHARP3D.Test
         public static readonly int ParameterSectionPointerValue = 512;
 
         public static readonly float[] EventTimes = { 2.720f, 5.400f, 7.320f};
+
+        public static readonly float ScaleFactor = -0.0833333358f;
         public static IEnumerable<object[]> FileStreamData =>
             new List<object[]>
             {
@@ -86,12 +90,12 @@ namespace SHARP3D.Test
         public static IEnumerable<object[]> PointScaleData =>
             new List<object[]>
             {
-                new object[] { PathEb015pi, 0.077625f},
-                new object[] { PathEb015pr, 0.077625f},
-                new object[] { PathEb015si, 0.077625f},
-                new object[] { PathEb015sr, 0.077625f},
-                new object[] { PathEb015vi, 0.077625f},
-                new object[] { PathEb015vr, 0.077625f},
+                new object[] { PathEb015pi, ScaleFactor},
+                new object[] { PathEb015pr, ScaleFactor},
+                new object[] { PathEb015si, ScaleFactor},
+                new object[] { PathEb015sr, ScaleFactor},
+                new object[] { PathEb015vi, ScaleFactor},
+                new object[] { PathEb015vr, ScaleFactor},
             };
 
         public static IEnumerable<object[]> AcquisitionRate3dData =>
@@ -117,11 +121,23 @@ namespace SHARP3D.Test
                 new object[] { PathEb015vr, EventTimes},
             };
 
+        public static IEnumerable<object[]> DataPointerData =>
+            new List<object[]>
+            {
+                new object[] { PathEb015pi, 11},
+                new object[] { PathEb015pr, 11},
+                new object[] { PathEb015si, 11},
+                new object[] { PathEb015sr, 11},
+                new object[] { PathEb015vi, 11},
+                new object[] { PathEb015vr, 11},
+            };
+
         internal C3dFile GetC3dFileWithHeader(string filePath)
         {
 
             FileStream fileStream = C3dFile.OpenC3dFile(filePath);
             C3dFile c3dFile = new C3dFile();
+            c3dFile.C3dStream = fileStream;
             c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
             c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
             return c3dFile;
@@ -199,6 +215,18 @@ namespace SHARP3D.Test
             {
                 Assert.Equal(expectedEventTimes[i], c3dFile.Header.Events[i].EventTime);
             }
+            c3dFile.CloseFileStream();
+        }
+
+        [Theory]
+        [MemberData(nameof(DataPointerData))]
+        public void DataPointer_Tests(string filepath, int expectedValuePointer)
+        {
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
+            ProcessorType processor = C3dFile.ReadProcessorByte(c3dFile.C3dStream);
+            int pointerDataSection = C3dFile.GetDataSectionPointer(c3dFile.C3dStream, processor);
+            Assert.Equal(expectedValuePointer, c3dFile.Header.PointerDataSection);
+            c3dFile.CloseFileStream();
             c3dFile.CloseFileStream();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Header;
 using SHARP3D.Parameter;
+using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Runtime.CompilerServices;
 
@@ -16,12 +17,14 @@ namespace SHARP3D
         /// <summary>
         /// Represents the file stream used to access the C3D file.
         /// </summary>
-        FileStream? FileStream { get; set; } = null;
+        public FileStream? C3dStream { get; set; } = null;
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
         public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
         public ProcessorType ProcessorHostType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+
+        public int PointerDataSection { get; set; }
 
         public C3dHeader Header { get; set; } = new C3dHeader();
 
@@ -31,12 +34,12 @@ namespace SHARP3D
 
         internal C3dFile(FileStream fileStream, ProcessorType processorMakerType)
         {
-            FileStream = fileStream;
+            C3dStream = fileStream;
             ProcessorFileType = processorMakerType;
 
-            Header = GetHeader(FileStream, ProcessorFileType);
+            Header = GetHeader(C3dStream, ProcessorFileType);
 
-            Parameters = GetParameters(FileStream, ProcessorFileType);
+            Parameters = GetParameters(C3dStream, ProcessorFileType, Header.PointerDataSection);
         }
         
 
@@ -52,13 +55,13 @@ namespace SHARP3D
             return C3dHeader.FromBinaries(headerBinaries, processorMakerType);
         }
 
-        internal C3dParameterBlock GetParameters(FileStream fileStream, ProcessorType processorMakerType)
+        internal C3dParameterBlock GetParameters(FileStream fileStream, ProcessorType processorMakerType, int pointerDataSection)
         {
             if (fileStream == null)
             {
                 throw new InvalidOperationException("File stream is not open.");
             }
-            return C3dParameterBlock.FromFileStream(fileStream, processorMakerType);
+            return C3dParameterBlock.FromFileStream(fileStream, processorMakerType, pointerDataSection);
         }
 
         public static C3dFile LoadFromFile(string filepath)
@@ -72,8 +75,16 @@ namespace SHARP3D
         {
             byte[] pointerToParameter = new byte[1];
             c3dStream.Seek(0, SeekOrigin.Begin);
-            c3dStream.ReadExactly(pointerToParameter, 0, 1);
+            c3dStream.ReadExactly(pointerToParameter);
             return BitConverter.ToInt16(new byte[] { 0, pointerToParameter[0] }, 0);
+        }
+
+        internal static int GetDataSectionPointer(FileStream c3dStream, ProcessorType processor)
+        {
+            byte[] pointerToData = new byte[2];
+            c3dStream.Seek(16, SeekOrigin.Begin);
+            c3dStream.ReadExactly(pointerToData);
+            return C3dBytesConvertor.ToInt(pointerToData, processor);
         }
 
         // Not usefull but here in case of
@@ -124,15 +135,15 @@ namespace SHARP3D
 
         public bool IsFileStreamOpen()
         {
-            return FileStream != null;
+            return C3dStream != null;
         }
 
         public void CloseFileStream()
         {
-            if (FileStream != null)
+            if (C3dStream != null)
             {
-                FileStream.Close();
-                FileStream = null;
+                C3dStream.Close();
+                C3dStream = null;
             }
         }
     }

@@ -26,7 +26,7 @@
             FileStream fileStream = C3dFile.OpenC3dFile(filePath);
             C3dFile c3dFile = new C3dFile();
             c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
-            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType);
+            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFileType, 11);
             return c3dFile;
         }
 
