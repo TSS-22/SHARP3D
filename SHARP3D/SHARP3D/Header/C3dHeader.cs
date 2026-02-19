@@ -86,7 +86,7 @@ namespace SHARP3D.Header
         ///<para>
         /// Word: 9
         ///</para>
-        /// A pointer to the first block of the data storage section.
+        /// A pointer to the first block of the data storage section. The pointer is the number of 512 bytes block.
         ///</summary>
         public int PointerDataSection;
 
