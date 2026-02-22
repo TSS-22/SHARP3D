@@ -21,8 +21,8 @@ namespace SHARP3D
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
-        public ProcessorType ProcessorFileType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
-        public ProcessorType ProcessorHostType { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorFile { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorHost { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
         public int PointerDataSection { get; set; }
 
@@ -32,14 +32,14 @@ namespace SHARP3D
 
         internal C3dFile() { }
 
-        internal C3dFile(FileStream fileStream, ProcessorType processorMakerType)
+        internal C3dFile(FileStream fileStream, ProcessorType processorFile)
         {
             C3dStream = fileStream;
-            ProcessorFileType = processorMakerType;
+            ProcessorFile = processorFile;
 
-            Header = GetHeader(C3dStream, ProcessorFileType);
+            Header = GetHeader(C3dStream, ProcessorFile);
 
-            Parameters = GetParameters(C3dStream, ProcessorFileType, Header.PointerDataSection);
+            Parameters = GetParameters(C3dStream, ProcessorFile, Header.PointerDataSection);
         }
         
 
@@ -48,20 +48,20 @@ namespace SHARP3D
             return new C3dFile();
         }
 
-        internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorMakerType)
+        internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
         {
             fileStream.Seek(0, SeekOrigin.Begin);
             byte[] headerBinaries = ReadHeaderBinaries(fileStream);
-            return C3dHeader.FromBinaries(headerBinaries, processorMakerType);
+            return C3dHeader.FromBinaries(headerBinaries, processorFile);
         }
 
-        internal List<C3dParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorMakerType, int pointerDataSection)
+        internal List<C3dParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerDataSection)
         {
             if (fileStream == null)
             {
                 throw new InvalidOperationException("File stream is not open.");
             }
-            return C3dParameterGroup.ParametersFromFileStreams(fileStream, processorMakerType, pointerDataSection);
+            return C3dParameterGroup.ParametersFromFileStreams(fileStream, processorFile, pointerDataSection);
         }
 
         public static C3dFile LoadFromFile(string filepath)

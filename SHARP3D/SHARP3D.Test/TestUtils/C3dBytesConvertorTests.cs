@@ -44,6 +44,18 @@ namespace SHARP3D.Test.Utils
                 new object[] { TestBytesFloat_SIGMIPS, 50.0, ProcessorType.SIG_MIPS },
             };
 
+        public static readonly byte[] UnisgnedValueMax = { 0xFF, 0xFF };
+        public static readonly byte[] UnisgnedValueMin = { 0x00, 0x00 };
+        public static readonly byte[] UnisgnedValueMid = { 0x60, 0xEA };
+
+        public static IEnumerable<object[]> UnsignedToSignedIntData =>
+           new List<object[]>
+           {
+                new object[] { 65535, UnisgnedValueMax },
+                new object[] { 0, UnisgnedValueMin },
+                new object[] { 60000, UnisgnedValueMid },
+           };
+
         [Theory]
         [MemberData(nameof(BytesToIntData))]
         public void Bytes_To_Int(int expectedValue, byte[] testValue, ProcessorType processorType)
@@ -76,6 +88,13 @@ namespace SHARP3D.Test.Utils
         {
             byte[] calculatedValue = C3dBytesConvertor.ToBytes(testValue, processorType);
             Assert.Equal(expectedValue, calculatedValue);
+        }
+
+        [Theory]
+        [MemberData(nameof(UnsignedToSignedIntData))]
+        public void UnsignedToSignedInt_Tests(int expectedValue, byte[] unsignedBitValue)
+        {
+            Assert.Equal(expectedValue, C3dBytesConvertor.ToInt(unsignedBitValue, ProcessorType.INTEL));
         }
     }
 }

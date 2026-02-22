@@ -137,8 +137,8 @@ namespace SHARP3D.Test
             FileStream fileStream = C3dFile.OpenC3dFile(filePath);
             C3dFile c3dFile = new C3dFile();
             c3dFile.C3dStream = fileStream;
-            c3dFile.ProcessorFileType = C3dFile.ReadProcessorByte(fileStream);
-            c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFileType);
+            c3dFile.ProcessorFile = C3dFile.ReadProcessorByte(fileStream);
+            c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFile);
             return c3dFile;
         }
 

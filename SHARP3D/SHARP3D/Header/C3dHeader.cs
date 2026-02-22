@@ -134,7 +134,7 @@ namespace SHARP3D.Header
 
         // TODO: Try to "reverse compute" the scale factor. Indeed if it is just found by dividing the max absolute value by 32000, mathematically I can find it back with the max value read by the int16 value.
         // TODO: Implement method to parse binaries into C3dHeader struct.
-        public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorTypeMaker)
+        public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorFile)
         {
             byte[] pointerParameterSectionBinaries = { 0, binaries[0] };
 
@@ -142,22 +142,22 @@ namespace SHARP3D.Header
             {
                 PointerParameterSection = BitConverter.ToInt16(pointerParameterSectionBinaries, 0),
                 StorageFormat = Convert.ToChar(binaries[1]) == 'P' ? StorageFormat.ORIGINAL : StorageFormat.UNKOWN,
-                MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorTypeMaker),
-                AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorTypeMaker),
-                FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorTypeMaker),
-                LastFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(8).Take(2).ToArray(), processorTypeMaker),
-                MaxFrameIntepolationGap = C3dBytesConvertor.ToInt(binaries.Skip(10).Take(2).ToArray(), processorTypeMaker),
-                ScaleFactor = C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorTypeMaker),
-                PointerDataSection = C3dBytesConvertor.ToInt(binaries.Skip(16).Take(2).ToArray(), processorTypeMaker),
-                AnalogSampleRatePerFrame = C3dBytesConvertor.ToInt(binaries.Skip(18).Take(2).ToArray(), processorTypeMaker),
-                Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorTypeMaker),
-                Support4charEventLabels = C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorTypeMaker) == 12345 ? true : false,
-                EventsNb = C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorTypeMaker),
+                MarkersPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(2).Take(2).ToArray(), processorFile),
+                AnalogSamplesPerFrame = C3dBytesConvertor.ToInt(binaries.Skip(4).Take(2).ToArray(), processorFile),
+                FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorFile),
+                LastFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(8).Take(2).ToArray(), processorFile),
+                MaxFrameIntepolationGap = C3dBytesConvertor.ToInt(binaries.Skip(10).Take(2).ToArray(), processorFile),
+                ScaleFactor = C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorFile),
+                PointerDataSection = C3dBytesConvertor.ToInt(binaries.Skip(16).Take(2).ToArray(), processorFile),
+                AnalogSampleRatePerFrame = C3dBytesConvertor.ToInt(binaries.Skip(18).Take(2).ToArray(), processorFile),
+                Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorFile),
+                Support4charEventLabels = C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorFile) == 12345 ? true : false,
+                EventsNb = C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorFile),
                 Events = C3dHeaderEvent.EventsFromBinaries(
                     binaries.Skip(304).Take(208).ToArray(), // Event binaries
-                    C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorTypeMaker), // Nb of events
-                    C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorTypeMaker) == 12345 ? true : false, // Support 4 char event labels
-                    processorTypeMaker
+                    C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorFile), // Nb of events
+                    C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorFile) == 12345 ? true : false, // Support 4 char event labels
+                    processorFile
                     ), // Argument will need to be fixed
             };
         }

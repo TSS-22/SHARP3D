@@ -31,7 +31,7 @@ namespace SHARP3D.Utils.Enum
         /// <summary>
         /// Converts a <see cref="ProcessorType"/> to its underlying <see cref="byte"/> value.
         /// </summary>
-        public static byte ToByte(this ProcessorType processorType) => (byte)processorType;
+        public static byte ToByte(this ProcessorType processor) => (byte)processor;
 
         /// <summary>
         /// Converts an <see cref="int"/> to <see cref="ProcessorType"/>; if value is not linked to a recognized processor type, it is affected to <see cref="ProcessorType.UNKOWN"/>.
@@ -68,6 +68,6 @@ namespace SHARP3D.Utils.Enum
         /// </summary>
         /// <param name="processorType">The ProcessorType value to convert.</param>
         /// <returns>The integer representation of the specified ProcessorType.</returns>
-        public static int ToInt(this ProcessorType processorType) => (int)processorType;
+        public static int ToInt(this ProcessorType processor) => (int)processor;
     }
 }

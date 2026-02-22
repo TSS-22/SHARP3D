@@ -17,7 +17,7 @@ namespace SHARP3D.Parameter
         public List<C3dParameter> Parameters;
 
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
-        public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorMakerType, int pointerDataSection, int pointerParameterSection = 512)
+        public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerDataSection, int pointerParameterSection = 512)
         {
             int[] scalarDimension = { 1 };
             c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
@@ -48,7 +48,7 @@ namespace SHARP3D.Parameter
                 byte[] pointerBuffer = new byte[2];
                 c3dStream.ReadExactly(pointerBuffer);
                 // TODO: Check the cast, I might need to do a C3dBytesConvertorToUInt() function.
-                pointerToNextStruct = (uint)C3dBytesConvertor.ToInt(pointerBuffer, processorMakerType);
+                pointerToNextStruct = (uint)C3dBytesConvertor.ToInt(pointerBuffer, processorFile);
 
                 int descriptionLength;
                 long actualDescriptionLength;
@@ -131,7 +131,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     dimensions,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     ); // Does that work? crazy
                                 break;
                             case ParameterDataType.BYTE:
@@ -140,7 +140,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     dimensions,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             case ParameterDataType.INT16:
@@ -149,7 +149,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     dimensions,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             case ParameterDataType.FLOAT32:
@@ -158,7 +158,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     dimensions,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             default:
@@ -198,7 +198,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     scalarDimension,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     ); // Does that work? crazy
                                 break;
                             case ParameterDataType.BYTE:
@@ -207,17 +207,16 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     scalarDimension,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             case ParameterDataType.INT16:
-                                //int dim = scalarDimension * Math.Abs((int)dataLength);
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<int>(
                                     dataBuffer,
                                     scalarDimension,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             case ParameterDataType.FLOAT32:
@@ -226,7 +225,7 @@ namespace SHARP3D.Parameter
                                     dataBuffer,
                                     scalarDimension,
                                     dataLength,
-                                    processorMakerType
+                                    processorFile
                                     );
                                 break;
                             default:

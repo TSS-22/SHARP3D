@@ -39,16 +39,16 @@ namespace SHARP3D.Utils
         /// <param name="processorMakerType">The processor type that determines the byte order.</param>
         /// <returns>A byte array representing the integer in the appropriate byte order.</returns>
         /// <exception cref="UnknownProcessorTypeException">Thrown when the specified processor type is not recognized.</exception>
-        public static byte[] ToBytes(int value, ProcessorType processorMakerType)
+        public static byte[] ToBytes(int value, ProcessorType processor)
         {
             if (BitConverter.IsLittleEndian)
             {
-                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.DEC)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     return bytes.Take(2).ToArray();
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
@@ -62,13 +62,13 @@ namespace SHARP3D.Utils
             // TODO: I need to test this.
             else
             {
-                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.SIG_MIPS)
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
                     return bytes.Skip(2).Take(2).ToArray();
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     return bytes.Take(2).ToArray();
@@ -87,19 +87,19 @@ namespace SHARP3D.Utils
         /// <param name="processorMakerType">The target processor type determining the byte order and format.</param>
         /// <returns>A byte array representing the floating-point value in the format required by the specified processor type.</returns>
         /// <exception cref="UnknownProcessorTypeException">Thrown when the specified processor type is not supported.</exception>
-        public static byte[] ToBytes(float value, ProcessorType processorMakerType)
+        public static byte[] ToBytes(float value, ProcessorType processor)
         {
             if (BitConverter.IsLittleEndian)
             {
-                if (processorMakerType == ProcessorType.INTEL)
+                if (processor == ProcessorType.INTEL)
                 {
                     return BitConverter.GetBytes(value);
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     return LittleEndianFloatToVaxFloatByte(value);
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
@@ -112,17 +112,17 @@ namespace SHARP3D.Utils
             }
             else
             {
-                if (processorMakerType == ProcessorType.INTEL)
+                if (processor == ProcessorType.INTEL)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
                     Array.Reverse(bytes);
                     return bytes;
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     return BigEndianFloatToVaxF(value);
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     return BitConverter.GetBytes(value);
                 }
@@ -140,17 +140,17 @@ namespace SHARP3D.Utils
         /// <param name="processorMakerType">The processor type indicating the expected byte order.</param>
         /// <returns>The 32-bit integer representation of the byte array.</returns>
         /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
-        public static int ToInt(byte[] bytes, ProcessorType processorMakerType)
+        public static int ToInt(byte[] bytes, ProcessorType processor)
         {
             if (bytes == null) { throw new ArgumentNullException("bytes"); }
-            if (bytes.Length != 20) { throw new ArgumentException("Bytes array must have a length of 2.", "bytes"); }
+            if (bytes.Length != 2) { throw new ArgumentException("Bytes array must have a length of 2.", "bytes"); }
             if (BitConverter.IsLittleEndian)
             {
-                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.DEC)
                 {
                     return BitConverter.ToInt16(bytes, 0);
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     Array.Reverse(bytes);
                     return BitConverter.ToInt16(bytes, 0);
@@ -162,12 +162,12 @@ namespace SHARP3D.Utils
             }
             else
             {
-                if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.SIG_MIPS)
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
                 {
                     Array.Reverse(bytes);
                     return BitConverter.ToInt16(bytes, 0);
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     return BitConverter.ToInt16(bytes, 0);
                 }
@@ -186,21 +186,21 @@ namespace SHARP3D.Utils
         /// <param name="processorMakerType">The processor type indicating the format of the floating-point value.</param>
         /// <returns>A single-precision floating-point value converted from the byte array.</returns>
         /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
-        public static float ToFloat(byte[] bytes, ProcessorType processorMakerType)
+        public static float ToFloat(byte[] bytes, ProcessorType processor)
         {
             if (bytes == null) { throw new ArgumentNullException("bytes"); }
-            if (bytes.Length != 20) { throw new ArgumentException("Bytes array must have a length of 4.", "bytes"); }
+            if (bytes.Length != 4) { throw new ArgumentException("Bytes array must have a length of 4.", "bytes"); }
             if (BitConverter.IsLittleEndian)
             {
-                if (processorMakerType == ProcessorType.INTEL)
+                if (processor == ProcessorType.INTEL)
                 {
                     return BitConverter.ToSingle(bytes, 0);
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     return VaxFToLittleEndianFloat(bytes);
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     Array.Reverse(bytes);
                     return BitConverter.ToSingle(bytes, 0);
@@ -212,16 +212,16 @@ namespace SHARP3D.Utils
             }
             else
             {
-                if (processorMakerType == ProcessorType.INTEL)
+                if (processor == ProcessorType.INTEL)
                 {
                     Array.Reverse(bytes);
                     return BitConverter.ToSingle(bytes, 0);
                 }
-                else if (processorMakerType == ProcessorType.DEC)
+                else if (processor == ProcessorType.DEC)
                 {
                     return VaxFToBigEndianFloat(bytes);
                 }
-                else if (processorMakerType == ProcessorType.SIG_MIPS)
+                else if (processor == ProcessorType.SIG_MIPS)
                 {
                     return BitConverter.ToSingle(bytes, 0);
                 }
