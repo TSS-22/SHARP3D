@@ -3,7 +3,7 @@
     /// <summary>
     /// Specifies display states for a header event, indicating whether it is ON or OFF.
     /// </summary>
-    public enum EventDisplayFlag : int
+    public enum HeaderEventFlag : int
     {
         /// <summary>
         /// Represents the 'on' state with a value of 1.
@@ -15,18 +15,18 @@
         OFF = 0,
     }
 
-    public static class EventDisplayFlagHelper
+    public static class HeaderEventFlagHelper
     {
-        public static EventDisplayFlag FromByte(byte b)
+        public static HeaderEventFlag FromByte(byte b)
         {
             switch(b)
             {
                 case 1:
-                    return EventDisplayFlag.ON;
+                    return HeaderEventFlag.ON;
                 case 0:
-                    return EventDisplayFlag.OFF;
+                    return HeaderEventFlag.OFF;
                 default:
-                    throw new ArgumentException($"Invalid byte value for EventDisplayFlag: {b}");
+                    throw new ArgumentException($"Invalid byte value for HeaderEventFlag: {b}");
             }
         }
     }

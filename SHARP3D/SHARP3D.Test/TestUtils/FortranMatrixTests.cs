@@ -99,7 +99,7 @@ namespace SHARP3D.Test.Utils
                 Mat3d_vecFloat_index,
                 Mat3d_dimensions,
                 Mat3d_index,
-                DataLength.FLOAT32,
+                ParameterDataType.FLOAT32,
                 ProcessorType.INTEL
             }
         };
@@ -112,7 +112,7 @@ namespace SHARP3D.Test.Utils
             int[] mat3d_vecFloat_index,
             int[] mat3d_dimensions,
             int[][] mat3d_index,
-            DataLength dataLength,
+            ParameterDataType dataLength,
             ProcessorType processor
             )
         {
@@ -172,21 +172,21 @@ namespace SHARP3D.Test.Utils
         public static IEnumerable<object[]> ScalarVecToMatTest =>
             new List<object[]>
         {
-            new object[] {new char[]{'@'}, new byte[] { 64 }, DataLength.CHAR},
-            new object[] { new byte[] { 80 }, new byte[] { 80 }, DataLength.BYTE},
-            new object[] { new int[]{ 12345 }, new byte[]{ 0x39, 0x30}, DataLength.INT16},
-            new object[] { new float[] { 55.040f }, new byte[] { 0xF6, 0x28, 0x5C, 0x42 }, DataLength.FLOAT32},
+            new object[] {new char[]{'@'}, new byte[] { 64 }, ParameterDataType.CHAR},
+            new object[] { new byte[] { 80 }, new byte[] { 80 }, ParameterDataType.BYTE},
+            new object[] { new int[]{ 12345 }, new byte[]{ 0x39, 0x30}, ParameterDataType.INT16},
+            new object[] { new float[] { 55.040f }, new byte[] { 0xF6, 0x28, 0x5C, 0x42 }, ParameterDataType.FLOAT32},
         };
         [Theory]
         [MemberData(nameof(ScalarVecToMatTest))]
-        public void ScalarVecToMat_Test(Array expectedValue, byte[] byteValue, DataLength dataLength)
+        public void ScalarVecToMat_Test(Array expectedValue, byte[] byteValue, ParameterDataType dataLength)
         {
             Array data;
             int[] scalarDimension = { 1 };
             ProcessorType processor = ProcessorType.INTEL;
             switch (dataLength)
             {
-                case DataLength.CHAR:
+                case ParameterDataType.CHAR:
                     data = Fortran.VectorToMatrix<char>(
                             byteValue,
                             scalarDimension,
@@ -194,7 +194,7 @@ namespace SHARP3D.Test.Utils
                             processor
                             );
                     break;
-               case DataLength.BYTE:
+               case ParameterDataType.BYTE:
                     data = Fortran.VectorToMatrix<byte>(
                              byteValue,
                              scalarDimension,
@@ -202,7 +202,7 @@ namespace SHARP3D.Test.Utils
                              processor
                              );
                     break;
-               case DataLength.INT16:
+               case ParameterDataType.INT16:
                     data = Fortran.VectorToMatrix<int>(
                             byteValue,
                             scalarDimension,
@@ -210,7 +210,7 @@ namespace SHARP3D.Test.Utils
                             processor
                             );
                     break;
-               case DataLength.FLOAT32:
+               case ParameterDataType.FLOAT32:
                     data = Fortran.VectorToMatrix<float>(
                             byteValue,
                             scalarDimension,
@@ -228,21 +228,21 @@ namespace SHARP3D.Test.Utils
         public static IEnumerable<object[]> Vec1DToMatData=>
             new List<object[]>
         {
-            new object[] {new char[]{'P', 'Q', 'R', 'S', 'T', 'U' }, new byte[] { 0x50,0x51,0x52,0x53,0x54,0x55 }, DataLength.CHAR},
-            new object[] { new byte[] { 128,129,130,131,132,133}, new byte[] { 0x80, 0x81, 0x82, 0x83, 0x84, 0x85 }, DataLength.BYTE},
-            new object[] { new int[]{ 123, 124, 125, 126, 127, 128 }, new byte[]{ 0x7B, 0x00, 0x7C, 0x00, 0x7D, 0x00, 0x7E, 0x00, 0x7F, 0x00, 0x80, 0x00, }, DataLength.INT16},
-            new object[] { new float[] { 123.5678f, 124.5678f, 125.5678f, 126.5678f, 127.5678f, 128.5678f }, new byte[] { 0xB7, 0x22, 0xF7, 0x42, 0xB7, 0x22, 0xF9, 0x42, 0xB7, 0x22, 0xFB, 0x42, 0xB7, 0x22, 0xFD, 0x42, 0xB7, 0x22, 0xFF, 0x42, 0x5B, 0x91, 0x00, 0x43, }, DataLength.FLOAT32},
+            new object[] {new char[]{'P', 'Q', 'R', 'S', 'T', 'U' }, new byte[] { 0x50,0x51,0x52,0x53,0x54,0x55 }, ParameterDataType.CHAR},
+            new object[] { new byte[] { 128,129,130,131,132,133}, new byte[] { 0x80, 0x81, 0x82, 0x83, 0x84, 0x85 }, ParameterDataType.BYTE},
+            new object[] { new int[]{ 123, 124, 125, 126, 127, 128 }, new byte[]{ 0x7B, 0x00, 0x7C, 0x00, 0x7D, 0x00, 0x7E, 0x00, 0x7F, 0x00, 0x80, 0x00, }, ParameterDataType.INT16},
+            new object[] { new float[] { 123.5678f, 124.5678f, 125.5678f, 126.5678f, 127.5678f, 128.5678f }, new byte[] { 0xB7, 0x22, 0xF7, 0x42, 0xB7, 0x22, 0xF9, 0x42, 0xB7, 0x22, 0xFB, 0x42, 0xB7, 0x22, 0xFD, 0x42, 0xB7, 0x22, 0xFF, 0x42, 0x5B, 0x91, 0x00, 0x43, }, ParameterDataType.FLOAT32},
         };
         [Theory]
         [MemberData(nameof(Vec1DToMatData))]
-        public void Vec1DToMat_Test(Array expectedValue, byte[] byteValue, DataLength dataLength)
+        public void Vec1DToMat_Test(Array expectedValue, byte[] byteValue, ParameterDataType dataLength)
         {
             Array data;
             int[] dimensions = { expectedValue.Length };
             ProcessorType processor = ProcessorType.INTEL;
             switch (dataLength)
             {
-                case DataLength.CHAR:
+                case ParameterDataType.CHAR:
                     data = Fortran.VectorToMatrix<char>(
                             byteValue,
                             dimensions,
@@ -250,7 +250,7 @@ namespace SHARP3D.Test.Utils
                             processor
                             );
                     break;
-                case DataLength.BYTE:
+                case ParameterDataType.BYTE:
                     data = Fortran.VectorToMatrix<byte>(
                              byteValue,
                              dimensions,
@@ -258,7 +258,7 @@ namespace SHARP3D.Test.Utils
                              processor
                              );
                     break;
-                case DataLength.INT16:
+                case ParameterDataType.INT16:
                     data = Fortran.VectorToMatrix<int>(
                             byteValue,
                             dimensions,
@@ -266,7 +266,7 @@ namespace SHARP3D.Test.Utils
                             processor
                             );
                     break;
-                case DataLength.FLOAT32:
+                case ParameterDataType.FLOAT32:
                     data = Fortran.VectorToMatrix<float>(
                             byteValue,
                             dimensions,

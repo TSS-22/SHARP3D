@@ -14,9 +14,9 @@ namespace SHARP3D.Header
         /// </summary>
         public float EventTime;
         /// <summary>
-        /// Specifies the <see cref="EventDisplayFlag"/> for the event. 
+        /// Specifies the <see cref="HeaderEventFlag"/> for the event. 
         /// </summary>
-        public EventDisplayFlag DisplayFlag;
+        public HeaderEventFlag DisplayFlag;
         /// <summary>
         /// Specifies the label associated with the event. It is either a 2 or 4 character string of ASCII character depending on the C3D file version.
         /// </summary>
@@ -40,7 +40,7 @@ namespace SHARP3D.Header
 
         public static C3dHeaderEvent EventFromBinaries(
             byte[] binEventTime,
-            byte[] binEventDisplayFlag,
+            byte[] binHeaderEventFlag,
             byte[] binEventLabel,
             bool supported4CharLabels,
             ProcessorType processorTypeMaker
@@ -48,7 +48,7 @@ namespace SHARP3D.Header
         {
             C3dHeaderEvent headerEvent = new C3dHeaderEvent();
             headerEvent.EventTime = C3dBytesConvertor.ToFloat(binEventTime, processorTypeMaker);
-            headerEvent.DisplayFlag = EventDisplayFlagHelper.FromByte(binEventDisplayFlag[0]);
+            headerEvent.DisplayFlag = HeaderEventFlagHelper.FromByte(binHeaderEventFlag[0]);
             // Assuming the label is a fixed length string of 16 bytes
             headerEvent.EventLabel = System.Text.Encoding.ASCII.GetString(binEventLabel, 0, supported4CharLabels?4:2).TrimEnd('\0');
             return headerEvent;

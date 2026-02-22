@@ -174,7 +174,7 @@ namespace SHARP3D.Test
         public void DataFlag_Test(string filepath, StorageFormat expectedDataFormat)
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
-            Assert.Equal(expectedDataFormat, c3dFile.Header.FlagDataFormat);
+            Assert.Equal(expectedDataFormat, c3dFile.Header.StorageFormat);
             c3dFile.CloseFileStream();
         }
 

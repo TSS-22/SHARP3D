@@ -44,7 +44,7 @@ namespace SHARP3D.Explorer
             0xC2 , 0x00 , 0x1E , 0x44,
             0x15 , 0x53 , 0x50 , 0x3F
         };
-        public static DataLength dataLength = DataLength.FLOAT32;
+        public static ParameterDataType dataLength = ParameterDataType.FLOAT32;
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         {
