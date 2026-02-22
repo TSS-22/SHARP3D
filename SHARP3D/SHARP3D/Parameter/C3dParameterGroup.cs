@@ -9,7 +9,7 @@ namespace SHARP3D.Parameter
         public sbyte NameLength;
         public int Id;
         public string Name;
-        public uint PointerNextParameterStruct; // From the pointer position to the next data structure
+        public int PointerNextParameterStruct; // From the pointer position to the next data structure
         public int DescriptionLength;
         public long ActualDescriptionLength; // Because of UTF-8. TODO: Check if it is necessary to make the distinction.
         public string Description;
@@ -25,7 +25,7 @@ namespace SHARP3D.Parameter
             List<C3dParameter> parameters = new List<C3dParameter> { };
 
             // Get all the Groups and Parameters
-            uint pointerToNextStruct = 0;
+            int pointerToNextStruct = 0;
             // TODO: WTF AM I SUPPOSE TO WITH THE PARAMETER AS THEY DON'T FOLLOW THE RULE FOR ENDING.
             // WARNING: THE POINTER TO NEXT STRUCT IS NOT 0X00 0X00 FOR THE LAST PARAMETER BLOCK......
             do
@@ -48,7 +48,7 @@ namespace SHARP3D.Parameter
                 byte[] pointerBuffer = new byte[2];
                 c3dStream.ReadExactly(pointerBuffer);
                 // TODO: Check the cast, I might need to do a C3dBytesConvertorToUInt() function.
-                pointerToNextStruct = (uint)C3dBytesConvertor.ToInt(pointerBuffer, processorFile);
+                pointerToNextStruct = C3dBytesConvertor.ToUInt(pointerBuffer, processorFile);
 
                 int descriptionLength;
                 long actualDescriptionLength;

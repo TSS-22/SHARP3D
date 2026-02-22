@@ -94,7 +94,7 @@ namespace SHARP3D.Test.Utils
         [MemberData(nameof(UnsignedToSignedIntData))]
         public void UnsignedToSignedInt_Tests(int expectedValue, byte[] unsignedBitValue)
         {
-            Assert.Equal(expectedValue, C3dBytesConvertor.ToInt(unsignedBitValue, ProcessorType.INTEL));
+            Assert.Equal(expectedValue, C3dBytesConvertor.ToUInt(unsignedBitValue, ProcessorType.INTEL));
         }
     }
 }

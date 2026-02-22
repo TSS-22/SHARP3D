@@ -7,7 +7,7 @@ namespace SHARP3D.Parameter
         public sbyte NameLength;
         public int Id;
         public string Name;
-        public uint PointerNextParameterStruct;
+        public int PointerNextParameterStruct;
         public ParameterDataType DataType;
         public int NbOfDimensions;
         public int[]? Dimensions; // Do int[1] for scalar so it is consistent qith multidimensionnal.

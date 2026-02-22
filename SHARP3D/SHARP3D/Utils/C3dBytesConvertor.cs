@@ -178,6 +178,44 @@ namespace SHARP3D.Utils
             }
         }
 
+        public static int ToUInt(byte[] bytes, ProcessorType processor)
+        {
+            if (bytes == null) { throw new ArgumentNullException("bytes"); }
+            if (bytes.Length != 2) { throw new ArgumentException("Bytes array must have a length of 2.", "bytes"); }
+            if (BitConverter.IsLittleEndian)
+            {
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.DEC)
+                {
+                    return BitConverter.ToUInt16(bytes, 0);
+                }
+                else if (processor == ProcessorType.SIG_MIPS)
+                {
+                    Array.Reverse(bytes);
+                    return BitConverter.ToUInt16(bytes, 0);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert bytes to Int.");
+                }
+            }
+            else
+            {
+                if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
+                {
+                    Array.Reverse(bytes);
+                    return BitConverter.ToUInt16(bytes, 0);
+                }
+                else if (processor == ProcessorType.DEC)
+                {
+                    return BitConverter.ToUInt16(bytes, 0);
+                }
+                else
+                {
+                    throw new UnknownProcessorTypeException("Cannot convert bytes to Int.");
+                }
+            }
+        }
+
         /// <summary>
         /// Converts a byte array to a single-precision floating-point value based on the specified processor type and
         /// system endianness.
