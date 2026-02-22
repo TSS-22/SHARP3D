@@ -3,6 +3,7 @@
     internal abstract class SupportedParameter
     {
         // A name and description to display for the program in case it is needed.
+        string Group;
         string Name;
         string GeneralDescription;
 
@@ -20,14 +21,16 @@
         // TODO: Finish this
         // For scalar use dimension = { 0 }
         protected SupportedParameter(
+            string group,
             string name,
             string generalDescription = "",
             int[]? dimension = null,
             string[]? dimensionMeaning = null
-        ) { 
-           Name = name;
-           GeneralDescription = generalDescription;
-           Dimension = dimension == null? new int[] { 0 }:dimension;
+        ) {
+            Group = group;
+            Name = name;
+            GeneralDescription = generalDescription;
+            Dimension = dimension == null? new int[] { 0 }:dimension;
             DimensionMeaning = dimensionMeaning == null ? new string[] { "" } : dimensionMeaning;
         }
     }
