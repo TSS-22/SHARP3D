@@ -30,8 +30,8 @@
             Group = group;
             Name = name;
             GeneralDescription = generalDescription;
-            Dimension = dimension == null? new int[] { 0 }:dimension;
-            DimensionMeaning = dimensionMeaning == null ? new string[] { "" } : dimensionMeaning;
+            Dimension = dimension == null? new int[] { 0 } : (int[])dimension;
+            DimensionMeaning = dimensionMeaning == null ? new string[] { "" } : (string[])dimensionMeaning;
         }
     }
 }
