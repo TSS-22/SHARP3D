@@ -15,7 +15,7 @@
         OFF = 0,
     }
 
-    public static class EventDisplayFlagExtensions
+    public static class EventDisplayFlagHelper
     {
         public static EventDisplayFlag FromByte(byte b)
         {

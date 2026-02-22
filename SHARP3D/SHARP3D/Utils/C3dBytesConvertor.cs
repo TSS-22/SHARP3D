@@ -142,6 +142,8 @@ namespace SHARP3D.Utils
         /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
         public static int ToInt(byte[] bytes, ProcessorType processorMakerType)
         {
+            if (bytes == null) { throw new ArgumentNullException("bytes"); }
+            if (bytes.Length != 20) { throw new ArgumentException("Bytes array must have a length of 2.", "bytes"); }
             if (BitConverter.IsLittleEndian)
             {
                 if (processorMakerType == ProcessorType.INTEL || processorMakerType == ProcessorType.DEC)
@@ -186,7 +188,8 @@ namespace SHARP3D.Utils
         /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
         public static float ToFloat(byte[] bytes, ProcessorType processorMakerType)
         {
-            
+            if (bytes == null) { throw new ArgumentNullException("bytes"); }
+            if (bytes.Length != 20) { throw new ArgumentException("Bytes array must have a length of 4.", "bytes"); }
             if (BitConverter.IsLittleEndian)
             {
                 if (processorMakerType == ProcessorType.INTEL)

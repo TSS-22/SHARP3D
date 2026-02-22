@@ -15,7 +15,7 @@ namespace SHARP3D.Test.Utils
         [InlineData(-1, ProcessorType.UNKOWN)]
         public void FromInt_Returns_Correct_ProcessorType(int value, ProcessorType expected)
         {
-            ProcessorType result = ProcessorTypeExtensions.FromInt(value);
+            ProcessorType result = ProcessorTypeHelper.FromInt(value);
             Assert.Equal(expected, result);
         }
 
@@ -26,7 +26,7 @@ namespace SHARP3D.Test.Utils
         [InlineData(50, ProcessorType.UNKOWN)]
         public void FromByte_Returns_Correct_ProcessorType(byte value, ProcessorType expected)
         {
-            ProcessorType result = ProcessorTypeExtensions.FromByte(value);
+            ProcessorType result = ProcessorTypeHelper.FromByte(value);
             Assert.Equal(expected, result);
         }
 

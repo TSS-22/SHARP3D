@@ -26,7 +26,7 @@ namespace SHARP3D.Utils.Enum
     /// <summary>
     /// Helper/conversion methods for <see cref="ProcessorType"/>.
     /// </summary>
-    public static class ProcessorTypeExtensions
+    public static class ProcessorTypeHelper
     {
         /// <summary>
         /// Converts a <see cref="ProcessorType"/> to its underlying <see cref="byte"/> value.
