@@ -1,6 +1,5 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Linq;
 
 namespace SHARP3D.Header
 {

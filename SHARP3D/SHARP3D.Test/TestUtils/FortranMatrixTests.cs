@@ -1,6 +1,5 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Test.Utils
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SHARP3D.exceptions
+namespace SHARP3D.Exceptions
 {
     /// <summary>
     /// Exception thrown when an <see cref = "ProcessorType.UNKOWN"/> type is encountered.
