@@ -9,6 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UserDefinedParameter.json" />
+    <None Remove="Utils\SupportedParameter\AdditionalParameters.json" />
+    <None Remove="Utils\SupportedParameter\ApplicationParameters.json" />
+    <None Remove="Utils\SupportedParameter\RequiredParameters.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UserDefinedParameter.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\Supported\" />
     <Folder Include="Parameter\Supported\Additional\Analog\" />
     <Folder Include="Parameter\Supported\Additional\ForcePlateform\" />
@@ -26,6 +39,12 @@
     <Folder Include="Parameter\Supported\Required\Analog\" />
     <Folder Include="Parameter\Supported\Required\ForcePlateform\" />
     <Folder Include="Parameter\Supported\Required\Point\" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <EmbeddedResource Include="Utils\SupportedParameter\AdditionalParameters.json" />
+	  <EmbeddedResource Include="Utils\SupportedParameter\ApplicationParameters.json" />
+	  <EmbeddedResource Include="Utils\SupportedParameter\RequiredParameters.json" />
   </ItemGroup>
 
 </Project>

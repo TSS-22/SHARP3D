@@ -1,4 +1,5 @@
-﻿using SHARP3D.Utils.Enum;
+﻿using SHARP3D.Parameter.Supported;
+using SHARP3D.Utils.Enum;
 
 namespace SHARP3D.Parameter
 {
@@ -15,7 +16,7 @@ namespace SHARP3D.Parameter
         public int DescriptionLength;
         public string Description;
         public bool Locked;
-
+        public SupportedParameter Supported;
     }
 }
 

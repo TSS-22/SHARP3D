@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Parameter.Supported
 {
-    public class SupportedParameter
+    public class UnkownParameter: SupportedParameter
     {
         // A name and description to display for the program in case it is needed.
         string Group;
@@ -10,29 +10,22 @@
         // The dimensions are the index from the fortran matrix from the parameter data, as they would appear in a classic matrix.
         // For example: a matrix m*n. m-->Dimension0 and n-->Dimension1.
         // The user or us with pre-supported parameter format define which index from the fortran serialization of the c3d represent m and n.
-        //int[] Dimension;
-        // I don't think I need it
+        int[] Dimension;
 
         // This is the meaning of the associated dimension.
         // It is here for info, but is not really necessary,
         // as a quick description similar to this should be available in the description of the parameter in the C3D file.
-        string[] DimensionDescription;
+        string[] DimensionMeaning;
 
-
-        // TODO: Finish this
-        // For scalar use dimension = { 0 }
-        protected SupportedParameter(
-            string group,
-            string name,
-            string generalDescription = "",
-            int[]? dimension = null,
-            string[]? dimensionDescription = null
-        ) {
-            Group = group;
-            Name = name;
-            GeneralDescription = generalDescription;
-            //Dimension = dimension == null? new int[] { 0 } : (int[])dimension;
-            DimensionDescription = dimensionDescription == null ? new string[] { "" } : (string[])dimensionDescription;
+        public UnkownParameter(
+        string group,
+        string name,
+        string generalDescription = "",
+        int[]? dimension = null,
+        string[]? dimensionMeaning = null
+    ) : base(group, name, generalDescription, dimension, dimensionMeaning)
+        {
+            // Additional initialization for MyDerivedClass, if needed
         }
     }
 }
