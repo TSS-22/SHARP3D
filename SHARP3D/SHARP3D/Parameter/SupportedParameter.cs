@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.Parameter.Supported
+﻿namespace SHARP3D.Parameter
 {
     public class SupportedParameter
     {
@@ -32,7 +32,7 @@
             Name = name;
             GeneralDescription = generalDescription;
             //Dimension = dimension == null? new int[] { 0 } : (int[])dimension;
-            DimensionDescription = dimensionDescription == null ? new string[] { "" } : (string[])dimensionDescription;
+            DimensionDescription = dimensionDescription == null ? new string[] { "" } : dimensionDescription;
         }
     }
 }

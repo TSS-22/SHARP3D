@@ -10,41 +10,28 @@
 
   <ItemGroup>
     <None Remove="UserDefinedParameter.json" />
-    <None Remove="Utils\SupportedParameter\AdditionalParameters.json" />
-    <None Remove="Utils\SupportedParameter\ApplicationParameters.json" />
-    <None Remove="Utils\SupportedParameter\RequiredParameters.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="UserDefinedParameter.json">
+    <Content Include="SupportedParameterDefinition\UserDefinedParameter.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Data\Supported\" />
-    <Folder Include="Parameter\Supported\Additional\Analog\" />
-    <Folder Include="Parameter\Supported\Additional\ForcePlateform\" />
-    <Folder Include="Parameter\Supported\Additional\Event\" />
-    <Folder Include="Parameter\Supported\Additional\EventContext\" />
-    <Folder Include="Parameter\Supported\Additional\Trial\" />
-    <Folder Include="Parameter\Supported\Additional\Point\" />
-    <Folder Include="Parameter\Supported\Application\Analog\" />
-    <Folder Include="Parameter\Supported\Application\Analysis\" />
-    <Folder Include="Parameter\Supported\Application\Manufacturer\" />
-    <Folder Include="Parameter\Supported\Application\Subjects\" />
-    <Folder Include="Parameter\Supported\Application\Seg\" />
-    <Folder Include="Parameter\Supported\Application\Point\" />
-    <Folder Include="Parameter\Supported\Extension\" />
-    <Folder Include="Parameter\Supported\Required\Analog\" />
-    <Folder Include="Parameter\Supported\Required\ForcePlateform\" />
-    <Folder Include="Parameter\Supported\Required\Point\" />
   </ItemGroup>
 
   <ItemGroup>
-	  <EmbeddedResource Include="Utils\SupportedParameter\AdditionalParameters.json" />
-	  <EmbeddedResource Include="Utils\SupportedParameter\ApplicationParameters.json" />
-	  <EmbeddedResource Include="Utils\SupportedParameter\RequiredParameters.json" />
+	  <Content Include="SupportedParameterDefinition\AdditionalParameters.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="SupportedParameterDefinition\ApplicationParameters.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="SupportedParameterDefinition\RequiredParameters.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
   </ItemGroup>
 
 </Project>
