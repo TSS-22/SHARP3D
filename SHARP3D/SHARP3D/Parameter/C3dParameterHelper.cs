@@ -73,18 +73,20 @@ namespace SHARP3D.Parameter
             }
             string json = File.ReadAllText(filePath);
 
-            JsonSupportedParameter[] tempJsonSupportedParameter = JsonSerializer.Deserialize<JsonSupportedParameter[]>(json)
+            Dictionary<string, JsonSupportedParameter> tempDict = JsonSerializer.Deserialize<Dictionary<string, JsonSupportedParameter>>(json)
                 ?? throw new InvalidOperationException($"Failed to deserialize JSON from file: {filePath}");
-            return tempJsonSupportedParameter.Select(temp =>
-                new SupportedParameter(
-                    temp.Group,
-                    temp.Name,
-                    temp.ParameterType,
-                    temp.GeneralDescription,
-                    temp.DimensionDescription
-                )
-            ).ToArray();
-
+            SupportedParameter[] supportedParameter = tempDict.Select(temp =>
+            {
+                string[] keyParts = temp.Key.Split('-');
+                return new SupportedParameter(
+                    keyParts[0],
+                    keyParts[1],
+                    temp.Value.ParameterType,
+                    temp.Value.GeneralDescription,
+                    temp.Value.DimensionDescription
+                );
+            }).ToArray();
+            return supportedParameter;
         }
 
         public static SupportedParameter[] GetAllSupportedParameter() 

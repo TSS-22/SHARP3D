@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter
 {
-    public struct SupportedParameter
+    public record SupportedParameter
     {
         // A name and description to display for the program in case it is needed.
         public string Group { get; }

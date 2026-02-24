@@ -1,172 +1,123 @@
 {
   "POINT-USED": {
-    "group": "POINT",
-    "name": "USED",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-SCALE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-RATE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-DATA_START": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-FRAMES": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-LABELS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-DESCRIPTION": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-UNITS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
 
   "ANALOG-USED": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-LABELS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-DESCRIPTIONS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-GEN_SCALE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-OFFSET": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-UNITS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-SCALE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-RATE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-FORMAT": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-BITS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-
   "FORCE_PLATEFORM-USED": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "FORCE_PLATEFORM-TYPE": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "FORCE_PLATEFORM-ZERO": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "FORCE_PLATEFORM-CORNERS": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "FORCE_PLATEFORM-ORIGIN": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
   "FORCE_PLATEFORM-CHANNEL": {
-    "group": "",
-    "name": "",
     "type": 0,
     "general_description": "",
     "dimension_description": []
-  } 
+  }
 }

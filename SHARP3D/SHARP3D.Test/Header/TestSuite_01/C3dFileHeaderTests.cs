@@ -1,7 +1,7 @@
 using SHARP3D.Utils.Enum;
 
 
-namespace SHARP3D.Test
+namespace SHARP3D.Test.Header.TestSuite_01
 {
     public class C3dFileHeaderTests
     {

@@ -1,180 +1,130 @@
 {
   "POINT-LONG_FRAMES": {
-    "group": "POINT",
-    "name": "LONG_FRAMES",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-LABELS2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-DESCRIPTIONS2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
 
   "ANALOG-LABELS2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-DESCRIPTIONS2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-SCALE2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-OFFSET2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "ANALOG-UNITS2": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
 
   "FORCE_PLATEFORM-CAL_MATRIX": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
 
   "TRIAL-ACTUAL_START_FIELD": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "TRIAL-ACTUAL_END_FIELD": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "TRIAL-FRAME_CALCULATION": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   }, // check
   "TRIAL-CAMERA_RATE": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
 
   "EVENT-USED": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-CONTEXTS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-LABELS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-DESCRIPTIONS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-TIMES": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-SUBJECTS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-ICON_IDS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT-GENERIC_FLAGS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
 
   "EVENT_CONTEXT-USED": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT_CONTEXT-ICON_IDS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT_CONTEXT-LABELS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []
   },
   "EVENT_CONTEXT-COLOURS": {
-    "group": "",
-    "name": "",
     "type": 1,
     "general_description": "",
     "dimension_description": []

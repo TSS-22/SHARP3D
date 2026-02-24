@@ -1,110 +1,80 @@
 {
   "POINT-X_SCREEN": {
-    "group": "POINT",
-    "name": "X_SCREEN",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "POINT-Y_SCREEN": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
 
   "ANALOG-GAIN": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
 
   "ANALYSIS-": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   }, // check
 
   "MANUFACTURER-COMPANY": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "MANUFACTURER-SOFTWARE": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "MANUFACTURER-VERSION": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "MANUFACTURER-EDITED": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
 
   "SEG-MARKER_DIAMETER": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "SEG-DATA_LIMITS": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "SEG-ACC_FACTOR": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "SEG-NOISE_FACTOR": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "SEG-RESIDUAL_ERROR_FACTOR": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
   "SEG-INTERSECTION_LIMIT": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []
   },
 
   "SUBJECTS-": {
-    "group": "",
-    "name": "",
     "type": 2,
     "general_description": "",
     "dimension_description": []

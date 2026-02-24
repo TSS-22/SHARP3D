@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Ressources\UserDefinedParameter.json">
+    <Content Include="Resources\UserDefinedParameter.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -23,13 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Content Include="Ressources\AdditionalParameters.json">
+	  <Content Include="Resources\AdditionalParameters.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="Ressources\ApplicationParameters.json">
+	  <Content Include="Resources\ApplicationParameters.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
-	  <Content Include="Ressources\RequiredParameters.json">
+	  <Content Include="Resources\RequiredParameters.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
   </ItemGroup>
