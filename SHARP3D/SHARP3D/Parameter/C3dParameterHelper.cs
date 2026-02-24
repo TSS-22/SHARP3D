@@ -47,25 +47,30 @@ namespace SHARP3D.Parameter
             RequiredParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "RequiredParameters.json");
             AdditionalParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "AdditionalParameters.json");
             ApplicationParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ApplicationParameters.json");
-            UserParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "UserParameters.json");
+            UserParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "UserDefinedParameters.json");
 
             // Load Required
-            SupportedParameter[] requiredParameters = LoadJson(RequiredParameterPath);
+            SupportedParameter[]? requiredParameters = LoadJson(RequiredParameterPath);
             
             // Load Additional
-            SupportedParameter[] additionalParameters = LoadJson(AdditionalParameterPath);
+            SupportedParameter[]? additionalParameters = LoadJson(AdditionalParameterPath);
 
             // Load Application
-            SupportedParameter[] applicationParameters = LoadJson(ApplicationParameterPath);
+            SupportedParameter[]? applicationParameters = LoadJson(ApplicationParameterPath);
 
             // Load user
-            SupportedParameter[] userParameters = LoadJson(UserParameterPath);
+            SupportedParameter[]? userParameters = LoadJson(UserParameterPath);
 
             // Aggregate and refresh ListSupportedParameter
-            ArraySupportedParameter = requiredParameters.Concat(additionalParameters).Concat(applicationParameters).Concat(userParameters).ToArray();
+            ArraySupportedParameter =
+                (requiredParameters ?? Enumerable.Empty<SupportedParameter>())
+                .Concat(additionalParameters ?? Enumerable.Empty<SupportedParameter>())
+                .Concat(applicationParameters ?? Enumerable.Empty<SupportedParameter>())
+                .Concat(userParameters ?? Enumerable.Empty<SupportedParameter>())
+                .ToArray();
         }
 
-        public static SupportedParameter[] LoadJson(string filePath)
+        public static SupportedParameter[]? LoadJson(string filePath)
         {
             if (!File.Exists(filePath))
             {
@@ -388,7 +393,7 @@ namespace SHARP3D.Parameter
                     }
                 }    
             }
-            
+            // Create and return the list of group/parameter and their index. Return that as a tuple
             return groups.ToList();
         }
     }

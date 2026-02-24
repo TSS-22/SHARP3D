@@ -16,12 +16,6 @@
     "dimension_description": []
   },
 
-  "ANALYSIS-": {
-    "type": 2,
-    "general_description": "",
-    "dimension_description": []
-  }, // check
-
   "MANUFACTURER-COMPANY": {
     "type": 2,
     "general_description": "",
@@ -72,11 +66,5 @@
     "type": 2,
     "general_description": "",
     "dimension_description": []
-  },
-
-  "SUBJECTS-": {
-    "type": 2,
-    "general_description": "",
-    "dimension_description": []
-  } // check
+  }
 }

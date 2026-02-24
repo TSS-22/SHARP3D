@@ -1,6 +1,4 @@
 ﻿using SHARP3D.Utils.Enum;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter
 {
@@ -29,14 +27,14 @@ namespace SHARP3D.Parameter
         public SupportedParameter(
             string group,
             string name,
-            ParameterType parameterType,
+            int parameterType,
             string generalDescription,
             string[] dimensionDescription
         ) { 
             Group = group;
             Name = name;
             GeneralDescription = string.IsNullOrEmpty(generalDescription)? "" : generalDescription;
-            ParameterType = parameterType;
+            ParameterType = (ParameterType)parameterType;
             DimensionDescription = (dimensionDescription == null || dimensionDescription.Length == 0) ? new string[] { } : dimensionDescription;
         }
 
@@ -46,7 +44,7 @@ namespace SHARP3D.Parameter
             return new SupportedParameter(
                 "UNKOWN",
                 "UNKOWN",
-                ParameterType.UNKOWN,
+                -1,
                 "Unkown parameter. If you know this parameter, please add it in your user file following the documentation guidelines. Feel free to contact us to add it to the standard list of supported parameter.",
                 null
                 );

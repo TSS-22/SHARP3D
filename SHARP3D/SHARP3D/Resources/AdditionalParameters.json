@@ -57,11 +57,6 @@
     "general_description": "",
     "dimension_description": []
   },
-  "TRIAL-FRAME_CALCULATION": {
-    "type": 1,
-    "general_description": "",
-    "dimension_description": []
-  }, // check
   "TRIAL-CAMERA_RATE": {
     "type": 1,
     "general_description": "",

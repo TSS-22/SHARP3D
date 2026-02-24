@@ -6,14 +6,14 @@ namespace SHARP3D.Parameter
     public struct JsonSupportedParameter
     {
         [JsonPropertyName("group")]
-        public string Group;
+        public string Group { get; set; }
         [JsonPropertyName("name")]
-        public string Name;
+        public string Name { get; set; }
         [JsonPropertyName("type")]
-        public ParameterType ParameterType;
+        public int ParameterType { get; set; }
         [JsonPropertyName("general_description")]
-        public string GeneralDescription;
+        public string GeneralDescription { get; set; }
         [JsonPropertyName("dimension_description")]
-        public string[] DimensionDescription;
+        public string[] DimensionDescription { get; set; }
     }
 }
