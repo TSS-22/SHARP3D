@@ -1,11 +1,15 @@
-﻿namespace SHARP3D.Parameter
+﻿using SHARP3D.Utils.Enum;
+using System.Text.Json.Serialization;
+
+namespace SHARP3D.Parameter
 {
-    public class SupportedParameter
+    public struct SupportedParameter
     {
         // A name and description to display for the program in case it is needed.
-        string Group;
-        string Name;
-        string GeneralDescription;
+        public string Group { get; }
+        public string Name { get; }
+        public ParameterType ParameterType { get; }
+        public string GeneralDescription { get; }
 
         // The dimensions are the index from the fortran matrix from the parameter data, as they would appear in a classic matrix.
         // For example: a matrix m*n. m-->Dimension0 and n-->Dimension1.
@@ -16,23 +20,23 @@
         // This is the meaning of the associated dimension.
         // It is here for info, but is not really necessary,
         // as a quick description similar to this should be available in the description of the parameter in the C3D file.
-        string[] DimensionDescription;
+        public string[] DimensionDescription { get; }
 
 
         // TODO: Finish this
         // For scalar use dimension = { 0 }
-        protected SupportedParameter(
+        public SupportedParameter(
             string group,
             string name,
-            string generalDescription = "",
-            int[]? dimension = null,
-            string[]? dimensionDescription = null
-        ) {
+            ParameterType parameterType,
+            string generalDescription,
+            string[] dimensionDescription
+        ) { 
             Group = group;
             Name = name;
-            GeneralDescription = generalDescription;
-            //Dimension = dimension == null? new int[] { 0 } : (int[])dimension;
-            DimensionDescription = dimensionDescription == null ? new string[] { "" } : dimensionDescription;
+            GeneralDescription = string.IsNullOrEmpty(generalDescription)? "" : generalDescription;
+            ParameterType = parameterType;
+            DimensionDescription = (dimensionDescription == null || dimensionDescription.Length == 0) ? new string[] { } : dimensionDescription;
         }
     }
 }

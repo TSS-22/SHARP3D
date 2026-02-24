@@ -61,7 +61,7 @@ namespace SHARP3D
             {
                 throw new InvalidOperationException("File stream is not open.");
             }
-            return C3dParameterGroup.ParametersFromFileStreams(fileStream, processorFile, pointerDataSection);
+            return C3dParameterHelper.ParametersFromFileStreams(fileStream, processorFile, pointerDataSection);
         }
 
         public static C3dFile LoadFromFile(string filepath)

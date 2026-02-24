@@ -77,7 +77,7 @@
     "general_description": "",
     "dimension_description": []
   },
-  "ANALOG-GEN_SCALE" {
+  "ANALOG-GEN_SCALE": {
     "group": "",
     "name": "",
     "type": 0,
