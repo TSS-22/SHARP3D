@@ -354,7 +354,8 @@ namespace SHARP3D.Parameter
                             Data = data,
                             DescriptionLength = descriptionLength,
                             Description = description,
-                            Locked = nameLength < 0 ? true : false
+                            Locked = nameLength < 0 ? true : false,
+                            Supported = SupportedParameter.UnkownParameter()
                         }
                     );
                 }
@@ -367,6 +368,25 @@ namespace SHARP3D.Parameter
                 return group;
             }).ToList();
 
+            for (int i = 0; i < groups.Count; i++)
+            {
+                for(int j=0; j < groups[i].Parameters.Count; j++)
+                {
+                    try
+                    {
+                        C3dParameter tempParameter = groups[i].Parameters[j];
+                        tempParameter.Supported = C3dParameterHelper.FromString(
+                            groups[i].Name, groups[i].Parameters[j].Name
+                            );
+                        groups[i].Parameters[j] = tempParameter;
+                    }
+                    catch(InvalidOperationException ex)
+                    { 
+                        // Do nothing as the C3dParameter.Supported field is initialized as unkown by default.
+                    }
+                }    
+            }
+            
             return groups.ToList();
         }
     }
