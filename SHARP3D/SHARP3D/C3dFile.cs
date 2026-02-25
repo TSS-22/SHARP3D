@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Header;
 using SHARP3D.Parameter;
+using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Runtime.CompilerServices;
@@ -34,6 +35,8 @@ namespace SHARP3D
 
         public List<C3dParameterGroup> Parameters { get; set; }
 
+        public C3dParameterCollection ParameterCollection { get; set; }
+
         internal C3dFile() { }
 
         internal C3dFile(FileStream fileStream)
@@ -46,6 +49,9 @@ namespace SHARP3D
             Header = GetHeader(C3dStream, ProcessorFile);
 
             Parameters = GetParameters(C3dStream, ProcessorFile, Header.PointerDataSection);
+
+            ParameterCollection = new C3dParameterCollection(Parameters);
+
         }
         
 
@@ -114,6 +120,7 @@ namespace SHARP3D
             c3dStream.ReadExactly(valueBuffer);
             return C3dBytesConvertor.ToFloat(valueBuffer, processor);
         }
+
         internal static byte[] ReadHeaderBinaries(FileStream c3dStream)
         {
             byte[] headers = new byte[512];

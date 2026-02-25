@@ -2,7 +2,7 @@
 using SHARP3D.Utils.Enum;
 using System.Text;
 
-namespace SHARP3D.Parameter
+namespace SHARP3D.Parameter.Data
 {
     public struct C3dParameterGroup
     {

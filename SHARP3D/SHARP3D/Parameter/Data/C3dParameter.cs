@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter
+namespace SHARP3D.Parameter.Data
 {
     public struct C3dParameter
     {
