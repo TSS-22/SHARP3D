@@ -6,7 +6,7 @@ namespace SHARP3D.Utils
         public static Array VectorToMatrix<T>(
             byte[] vector,
             int[] dimensions,
-            ParameterDataType dataLength,
+            DataType dataLength,
             ProcessorType processor = ProcessorType.UNKOWN
             )
         {
@@ -23,7 +23,7 @@ namespace SHARP3D.Utils
             {
                 throw new ArgumentException("Dimensions must be greater than 0.");
             }
-            if ((processor == ProcessorType.UNKOWN) && ((dataLength == ParameterDataType.INT16) || (dataLength == ParameterDataType.FLOAT32)))
+            if ((processor == ProcessorType.UNKOWN) && ((dataLength == DataType.INT16) || (dataLength == DataType.FLOAT32)))
             {
                 throw new ArgumentException("Choose supported processor to convert C3D binaries to INT16 or FLOAT32.");
             }
@@ -53,16 +53,16 @@ namespace SHARP3D.Utils
                 //Array.Reverse(indices);
                 switch (dataLength)
                 {
-                    case ParameterDataType.CHAR:
+                    case DataType.CHAR:
                         matrix.SetValue((char)vector[i], indices);
                         break;
-                    case ParameterDataType.BYTE:
+                    case DataType.BYTE:
                         matrix.SetValue(vector[i], indices);
                         break;
-                    case ParameterDataType.INT16:
+                    case DataType.INT16:
                         matrix.SetValue(C3dBytesConvertor.ToInt(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
                         break;
-                    case ParameterDataType.FLOAT32:
+                    case DataType.FLOAT32:
                         matrix.SetValue(C3dBytesConvertor.ToFloat(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
                         break;
                     default:

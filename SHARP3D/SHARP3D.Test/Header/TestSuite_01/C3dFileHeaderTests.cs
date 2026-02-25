@@ -17,7 +17,7 @@ namespace SHARP3D.Test.Header.TestSuite_01
 
         public static readonly float[] EventTimes = { 2.720f, 5.400f, 7.320f};
 
-        public static readonly float ScaleFactor = -0.0833333358f;
+        public static readonly float ScaleFactor = 0.0833333358f;
         public static IEnumerable<object[]> FileStreamData =>
             new List<object[]>
             {

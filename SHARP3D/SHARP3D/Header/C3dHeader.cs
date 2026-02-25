@@ -147,7 +147,7 @@ namespace SHARP3D.Header
                 FirstFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(6).Take(2).ToArray(), processorFile),
                 LastFrameRawData = C3dBytesConvertor.ToInt(binaries.Skip(8).Take(2).ToArray(), processorFile),
                 MaxFrameIntepolationGap = C3dBytesConvertor.ToInt(binaries.Skip(10).Take(2).ToArray(), processorFile),
-                ScaleFactor = C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorFile),
+                ScaleFactor = Math.Abs(C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorFile)),
                 PointerDataSection = C3dBytesConvertor.ToInt(binaries.Skip(16).Take(2).ToArray(), processorFile),
                 AnalogSampleRatePerFrame = C3dBytesConvertor.ToInt(binaries.Skip(18).Take(2).ToArray(), processorFile),
                 Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorFile),

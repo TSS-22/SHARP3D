@@ -198,13 +198,13 @@ namespace SHARP3D.Parameter
                 {
                     // Parameter fields variables
                     int numberOfDimensions;
-                    ParameterDataType dataLength;
+                    DataType dataLength;
                     int[]? dimensions = null;
                     byte[] dimensionsBuffer;
                     byte[] dataBuffer;
                     Array data;
 
-                    dataLength = (ParameterDataType)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
+                    dataLength = (DataType)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
                     numberOfDimensions = c3dStream.ReadByte();
 
                     if (numberOfDimensions > 0) // Non scalar
@@ -220,7 +220,7 @@ namespace SHARP3D.Parameter
                         dataBuffer = new byte[Math.Abs((int)dataLength) * dimensions.Aggregate((acc, val) => acc * val)];
                         switch (dataLength)
                         {
-                            case ParameterDataType.CHAR:
+                            case DataType.CHAR:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<char>(
                                     dataBuffer,
@@ -229,7 +229,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     ); // Does that work? crazy
                                 break;
-                            case ParameterDataType.BYTE:
+                            case DataType.BYTE:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<byte>(
                                     dataBuffer,
@@ -238,7 +238,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     );
                                 break;
-                            case ParameterDataType.INT16:
+                            case DataType.INT16:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<int>(
                                     dataBuffer,
@@ -247,7 +247,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     );
                                 break;
-                            case ParameterDataType.FLOAT32:
+                            case DataType.FLOAT32:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<float>(
                                     dataBuffer,
@@ -287,7 +287,7 @@ namespace SHARP3D.Parameter
                         dataBuffer = new byte[Math.Abs((int)dataLength)];
                         switch (dataLength)
                         {
-                            case ParameterDataType.CHAR:
+                            case DataType.CHAR:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<char>(
                                     dataBuffer,
@@ -296,7 +296,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     ); // Does that work? crazy
                                 break;
-                            case ParameterDataType.BYTE:
+                            case DataType.BYTE:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<byte>(
                                     dataBuffer,
@@ -305,7 +305,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     );
                                 break;
-                            case ParameterDataType.INT16:
+                            case DataType.INT16:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<int>(
                                     dataBuffer,
@@ -314,7 +314,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     );
                                 break;
-                            case ParameterDataType.FLOAT32:
+                            case DataType.FLOAT32:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<float>(
                                     dataBuffer,

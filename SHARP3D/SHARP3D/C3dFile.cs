@@ -26,16 +26,22 @@ namespace SHARP3D
 
         public int PointerDataSection { get; set; }
 
+        public float ScaleFactor { get; set; }
+
+        public DataType DataType { get; set; }
+
         public C3dHeader Header { get; set; } = new C3dHeader();
 
         public List<C3dParameterGroup> Parameters { get; set; }
 
         internal C3dFile() { }
 
-        internal C3dFile(FileStream fileStream, ProcessorType processorFile)
+        internal C3dFile(FileStream fileStream)
         {
             C3dStream = fileStream;
-            ProcessorFile = processorFile;
+            ProcessorFile = ReadProcessorByte(fileStream); 
+            ScaleFactor = GetScaleFactor(fileStream, ProcessorFile);
+            DataType = ScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
 
             Header = GetHeader(C3dStream, ProcessorFile);
 
@@ -67,8 +73,8 @@ namespace SHARP3D
         public static C3dFile LoadFromFile(string filepath)
         {
             FileStream fileStream = OpenC3dFile(filepath);
-            ProcessorType processorMakerType = ReadProcessorByte(fileStream);
-            return new C3dFile(fileStream, processorMakerType);
+            
+            return new C3dFile(fileStream);
         }
 
         internal static int GetParameterSectionPointer(FileStream c3dStream)
@@ -101,6 +107,13 @@ namespace SHARP3D
             return (ProcessorType)c3dStream.ReadByte();
         }
 
+        internal float GetScaleFactor(FileStream c3dStream, ProcessorType processor)
+        {
+            byte[] valueBuffer = new byte[4];
+            c3dStream.Seek(12, SeekOrigin.Begin);
+            c3dStream.ReadExactly(valueBuffer);
+            return C3dBytesConvertor.ToFloat(valueBuffer, processor);
+        }
         internal static byte[] ReadHeaderBinaries(FileStream c3dStream)
         {
             byte[] headers = new byte[512];
