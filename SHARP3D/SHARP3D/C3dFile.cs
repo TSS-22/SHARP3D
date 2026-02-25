@@ -3,6 +3,7 @@ using SHARP3D.Parameter;
 using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
@@ -99,12 +100,20 @@ namespace SHARP3D
             return C3dBytesConvertor.ToInt(pointerToData, processor);
         }
 
-        // Not usefull but here in case of
         internal static int GetParameterBlockCount(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
             c3dStream.Seek(parameterSectionPointer + 2, SeekOrigin.Begin);
             return c3dStream.ReadByte();
+        }
+
+        // TODO
+        internal void GetData(FileStream c3dStream, ProcessorType processorFile, int pointerDataSection)
+        {
+            if (c3dStream == null)
+            {
+                throw new InvalidOperationException("File stream is not open.");
+            }
         }
         internal static ProcessorType ReadProcessorByte(FileStream c3dStream)
         {
@@ -134,6 +143,12 @@ namespace SHARP3D
             c3dStream.Seek(parameterSectionPointer, SeekOrigin.Begin);
             c3dStream.ReadExactly(parameters, 0, parameterBlockCount * 512);
             return parameters;
+        }
+
+        public C3dParameter GetParameter(string groupName, string parameterName)
+        {
+            (int,int) indexParameter = ParameterCollection.GetParameterIndex(groupName, parameterName);
+            return Parameters[indexParameter.Item1].Parameters[indexParameter.Item2];
         }
 
         // TODO: Implement actual binaries transformation logic.

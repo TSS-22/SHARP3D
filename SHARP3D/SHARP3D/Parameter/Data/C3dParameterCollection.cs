@@ -49,6 +49,8 @@ namespace SHARP3D.Parameter.Data
 
         public (int, int) GetParameterIndex(string groupName, string parameterName)
         {
+            groupName = groupName.ToUpper();
+            parameterName = parameterName.ToUpper();
             if (_groupValuesByName.TryGetValue(groupName, out (string, int)[] groupValues))
             {
                 if ((groupValues.Length == 0) || groupValues == null) 
@@ -72,6 +74,7 @@ namespace SHARP3D.Parameter.Data
 
         public (string, int)[] ListGroupParameters(string groupName) 
         {
+            groupName = groupName.ToUpper();
             if (_groupValuesByName.TryGetValue(groupName, out (string, int)[]? values))
             {
                 if ((values.Length == 0) || values == null) 
