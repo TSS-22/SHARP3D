@@ -1,4 +1,7 @@
-﻿using SHARP3D.Header;
+﻿using SHARP3D.Data;
+using SHARP3D.Data.Data;
+using SHARP3D.Exceptions;
+using SHARP3D.Header;
 using SHARP3D.Parameter;
 using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
@@ -30,13 +33,15 @@ namespace SHARP3D
 
         public float ScaleFactor { get; set; }
 
-        public DataType DataType { get; set; }
+        public DataType DataTypeFile { get; set; }
 
         public C3dHeader Header { get; set; } = new C3dHeader();
 
         public List<C3dParameterGroup> Parameters { get; set; }
 
         public C3dParameterCollection ParameterCollection { get; set; }
+
+        public C3dData Data { get; set; }
 
         internal C3dFile() { }
 
@@ -45,13 +50,15 @@ namespace SHARP3D
             C3dStream = fileStream;
             ProcessorFile = ReadProcessorByte(fileStream); 
             ScaleFactor = GetScaleFactor(fileStream, ProcessorFile);
-            DataType = ScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
+            DataTypeFile = ScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
 
             Header = GetHeader(C3dStream, ProcessorFile);
 
             Parameters = GetParameters(C3dStream, ProcessorFile, Header.PointerDataSection);
 
             ParameterCollection = new C3dParameterCollection(Parameters);
+
+            Data = GetData(C3dStream, ProcessorFile, DataTypeFile)
 
         }
         
@@ -108,13 +115,6 @@ namespace SHARP3D
         }
 
         // TODO
-        internal void GetData(FileStream c3dStream, ProcessorType processorFile, int pointerDataSection)
-        {
-            if (c3dStream == null)
-            {
-                throw new InvalidOperationException("File stream is not open.");
-            }
-        }
         internal static ProcessorType ReadProcessorByte(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
@@ -151,6 +151,27 @@ namespace SHARP3D
             return Parameters[indexParameter.Item1].Parameters[indexParameter.Item2];
         }
 
+        internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile)
+        {
+            int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
+            int framesNumber = (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
+            float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0;
+            int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
+            float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0; // Contradiction in the C3D documentation
+            int analogPerFrame = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0;
+
+            C3dDataContext dataContext = new C3dDataContext(
+                c3dStream,
+                processor,
+                dataTypeFile,
+                pointerDataSection,
+                framesNumber,
+                markersPerFrame,
+                pointRate,
+                analogRate,
+                analogPerFrame);
+            return C3dDataHelper.FromFileStream(dataContext);
+        }
         // TODO: Implement actual binaries transformation logic.
         public byte[] ToBinaries()
         {
