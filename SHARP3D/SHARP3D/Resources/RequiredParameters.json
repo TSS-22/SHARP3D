@@ -29,7 +29,7 @@
     "general_description": "",
     "dimension_description": []
   },
-  "POINT-DESCRIPTION": {
+  "POINT-DESCRIPTIONS": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
@@ -90,32 +90,32 @@
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-USED": {
+  "FORCE_PLATFORM-USED": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-TYPE": {
+  "FORCE_PLATFORM-TYPE": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-ZERO": {
+  "FORCE_PLATFORM-ZERO": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-CORNERS": {
+  "FORCE_PLATFORM-CORNERS": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-ORIGIN": {
+  "FORCE_PLATFORM-ORIGIN": {
     "type": 0,
     "general_description": "",
     "dimension_description": []
   },
-  "FORCE_PLATEFORM-CHANNEL": {
+  "FORCE_PLATFORM-CHANNEL": {
     "type": 0,
     "general_description": "",
     "dimension_description": []

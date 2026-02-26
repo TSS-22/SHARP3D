@@ -17,5 +17,10 @@ namespace SHARP3D.Parameter.Data
         public bool Locked;
         public SupportedParameter Supported;
     }
+
+    //public T GetValue(int[] indices)
+    //    {
+    //        return Data.GetValue(indices);
+    //    }
 }
 
