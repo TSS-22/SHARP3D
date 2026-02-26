@@ -15,9 +15,12 @@ namespace SHARP3D.Data.Data
         public int AnalogChannels { get; }
 
         public float PointScaleFactor { get; }
-        public float AnalogScaleFactor { get; }
+        public float AnalogGeneralScaleFactor { get; }
+        public float[] AnalogChannelScaleFactor { get; }
 
         public int AnalogSamplePerFrame { get; } 
+        
+        public int AnalogOffset {  get; }
 
 
         public C3dDataContext(
@@ -31,7 +34,9 @@ namespace SHARP3D.Data.Data
             float analogRate,
             int analogChannels,
             float pointScaleFactor,
-            float analogScaleFactor)
+            float analogGeneralScaleFactor,
+            float []analogChannelScaleFactor,
+            int analogOffset)
         {
             C3dStream = c3dStream;
             Processor = processor;
@@ -42,17 +47,19 @@ namespace SHARP3D.Data.Data
             PointRate = pointRate;
             AnalogRate = analogRate;
             AnalogChannels = analogChannels;
-            float tempAnalogSamplePerFrame = pointRate / analogRate;
+            float tempAnalogSamplePerFrame = analogRate / pointRate;
             if (Math.Abs(tempAnalogSamplePerFrame - (int) tempAnalogSamplePerFrame) > 0)
             {
                 throw new Exception("Rate incompatibility"); //TODO: make it cleaner
             }
             else
             {
-                AnalogSamplePerFrame = ((int) tempAnalogSamplePerFrame) * AnalogChannels;
+                AnalogSamplePerFrame = ((int) tempAnalogSamplePerFrame);
             }
             PointScaleFactor = pointScaleFactor;
-            AnalogScaleFactor = analogScaleFactor;
+            AnalogGeneralScaleFactor = analogGeneralScaleFactor;
+            AnalogChannelScaleFactor = analogChannelScaleFactor;
+            AnalogOffset = analogOffset;
         }
     }
 }

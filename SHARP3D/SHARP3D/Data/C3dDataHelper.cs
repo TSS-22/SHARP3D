@@ -29,24 +29,28 @@ namespace SHARP3D.Data
 
         public static C3dData ReadAllData(C3dDataContext context)
         {
-            List<C3dDataFramePoint> points = new List<C3dDataFramePoint>();
-            List<C3dDataFrameAnalog> analogs = new List<C3dDataFrameAnalog>();
+            List<C3dDataPoint[]> points = new List<C3dDataPoint[]>();
+            List<float[]> analogs = new List<float[]>();
             
             for (int i = 0; i < context.FramesNumber; i++)
             {
-                (C3dDataFramePoint, C3dDataFrameAnalog) frame = ReadDataFrame(context);
+                Console.WriteLine(i);
+                (C3dDataPoint[], float[]) frame = ReadDataFrame(context);
                 points.Add(frame.Item1);
                 analogs.Add(frame.Item2);
             }
             return ProcessPointsAndAnalogsList(points, analogs);
         }
 
-        internal static C3dData ProcessPointsAndAnalogsList(List<C3dDataFramePoint> points, List<C3dDataFrameAnalog> analogs)
+        internal static C3dData ProcessPointsAndAnalogsList(List<C3dDataPoint[]> points, List<float[]> analogs)
         {
-            return new C3dData();
+            return new C3dData {
+                Points = points,
+                Analogs = analogs
+            };
         }
 
-        internal static (C3dDataFramePoint, C3dDataFrameAnalog) ReadDataFrame(C3dDataContext context)
+        internal static (C3dDataPoint[], float[]) ReadDataFrame(C3dDataContext context)
         {
             switch(context.DataTypeFile)
             {
@@ -61,7 +65,7 @@ namespace SHARP3D.Data
             }
         }
 
-        internal static (C3dDataFramePoint, C3dDataFrameAnalog) ReadDataFrameInt16(C3dDataContext context) 
+        internal static (C3dDataPoint[], float[]) ReadDataFrameInt16(C3dDataContext context) 
         {
             // Get POINTS
             List<C3dDataPoint> points = new List<C3dDataPoint>();
@@ -96,12 +100,12 @@ namespace SHARP3D.Data
                 {
                     byte[] buffer = new byte[2];
                     context.C3dStream.ReadExactly(buffer);
-                    oneFullAnalogsSample[j] = C3dBytesConvertor.ToInt(buffer, context.Processor) * context.AnalogScaleFactor;
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
                 analogValues.Add(oneFullAnalogsSample);
             }
             // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
-            return (new C3dDataFramePoint(), new C3dDataFrameAnalog());
+            return (points.ToArray(), analogs.ToArray());
         }
         internal static (C3dDataFramePoint, C3dDataFrameAnalog) ReadDataFrameFloat32(C3dDataContext context) 
         {

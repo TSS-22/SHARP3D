@@ -60,7 +60,6 @@ namespace SHARP3D
             ParameterCollection = new C3dParameterCollection(Parameters);
 
             Data = GetData(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
-
         }
         
 
@@ -156,11 +155,18 @@ namespace SHARP3D
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
             int framesNumber = (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
-            float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0;
+            float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0f;
             int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
-            float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0; // Contradiction in the C3D documentation
+            float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0f; // Contradiction in the C3D documentation
             int analogChannels = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0;
-            float analogScaleFactor = (GetParameter("analog", "scale_factor").Data?.GetValue(0) as float?) ?? 0;
+            float analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f;
+            float[] tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[]  { 0f};
+            float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray(); ;
+            
+
+
+            int analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
+
             // TODO: actually sort the error that can come
             C3dDataContext dataContext = new C3dDataContext(
                 c3dStream: c3dStream,
@@ -173,7 +179,9 @@ namespace SHARP3D
                 analogRate: analogRate,
                 analogChannels:analogChannels,
                 pointScaleFactor: pointScaleFactor,
-                analogScaleFactor: analogScaleFactor);
+                analogGeneralScaleFactor: analogGeneralScaleFactor,
+                analogChannelScaleFactor: analogChannelScaleFactor,
+                analogOffset: analogOffset);
             return C3dDataHelper.FromFileStream(dataContext);
         }
         // TODO: Implement actual binaries transformation logic.

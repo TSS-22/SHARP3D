@@ -2,15 +2,14 @@
 {
     public struct C3dData
     {
-        // TODO
-        //C3dDataPointMarker[,] Points;
+        // TODO: Add resolutions of the points
+        #warning Temporary fix.
+        public List<C3dDataPoint[]> Points;
         //string[] PointLabels;
         //string PointsUnit;// Default: mm
 
-        //float[,] Analogs;
+        public List<float[]> Analogs;
         //string[] AnalogLabels;
         //string[] AnalogUnits;
-
-
     }
 }
