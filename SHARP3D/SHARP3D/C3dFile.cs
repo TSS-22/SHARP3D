@@ -6,6 +6,7 @@ using SHARP3D.Parameter;
 using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
 
@@ -49,7 +50,7 @@ namespace SHARP3D
         {
             C3dStream = fileStream;
             ProcessorFile = ReadProcessorByte(fileStream); 
-            ScaleFactor = GetScaleFactor(fileStream, ProcessorFile);
+            ScaleFactor = GetPointScaleFactor(fileStream, ProcessorFile);
             DataTypeFile = ScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
 
             Header = GetHeader(C3dStream, ProcessorFile);
@@ -58,7 +59,7 @@ namespace SHARP3D
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            Data = GetData(C3dStream, ProcessorFile, DataTypeFile)
+            Data = GetData(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
 
         }
         
@@ -122,7 +123,7 @@ namespace SHARP3D
             return (ProcessorType)c3dStream.ReadByte();
         }
 
-        internal float GetScaleFactor(FileStream c3dStream, ProcessorType processor)
+        internal float GetPointScaleFactor(FileStream c3dStream, ProcessorType processor)
         {
             byte[] valueBuffer = new byte[4];
             c3dStream.Seek(12, SeekOrigin.Begin);
@@ -151,25 +152,28 @@ namespace SHARP3D
             return Parameters[indexParameter.Item1].Parameters[indexParameter.Item2];
         }
 
-        internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile)
+        internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
             int framesNumber = (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
             float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0;
             int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
             float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0; // Contradiction in the C3D documentation
-            int analogPerFrame = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0;
-
+            int analogChannels = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0;
+            float analogScaleFactor = (GetParameter("analog", "scale_factor").Data?.GetValue(0) as float?) ?? 0;
+            // TODO: actually sort the error that can come
             C3dDataContext dataContext = new C3dDataContext(
-                c3dStream,
-                processor,
-                dataTypeFile,
-                pointerDataSection,
-                framesNumber,
-                markersPerFrame,
-                pointRate,
-                analogRate,
-                analogPerFrame);
+                c3dStream: c3dStream,
+                processor: processor,
+                dataTypeFile: dataTypeFile,
+                pointerDataSection: pointerDataSection,
+                framesNumber: framesNumber,
+                markersPerFrame:markersPerFrame,
+                pointRate: pointRate,
+                analogRate: analogRate,
+                analogChannels:analogChannels,
+                pointScaleFactor: pointScaleFactor,
+                analogScaleFactor: analogScaleFactor);
             return C3dDataHelper.FromFileStream(dataContext);
         }
         // TODO: Implement actual binaries transformation logic.
