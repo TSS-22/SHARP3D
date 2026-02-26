@@ -49,8 +49,11 @@ namespace SHARP3D.Explorer
         private static int Main()
         { 
             C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015pi);
-            //var labels = c3dFile.GetParameter("point", "labels").Data;
-            //var labelsDimensions = c3dFile.GetParameter("point", "labels").Dimensions;
+            var labels = c3dFile.GetParameter("point", "labels").Data;
+            var labelsDimensions = c3dFile.GetParameter("point", "labels").Dimensions;
+            var test1 = new int[] { 0, 0 };
+            var test2 = new int[] { 1, 1 };
+            var test3 = new int[] { 2,5 };
             //for (int i = 0; i < labelsDimensions[1]; i++) 
             //{
             //    for (int j = 0; j < labelsDimensions[0]; j++)

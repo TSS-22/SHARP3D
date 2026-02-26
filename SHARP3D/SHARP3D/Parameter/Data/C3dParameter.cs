@@ -18,5 +18,9 @@ namespace SHARP3D.Parameter.Data
         public SupportedParameter Supported;
     }
 
+    //public T GetValue(int[] indices)
+    //    {
+    //        return Data.GetValue(indices);
+    //    }
 }
 
