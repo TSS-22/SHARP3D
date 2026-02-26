@@ -17,5 +17,6 @@ namespace SHARP3D.Parameter.Data
         public bool Locked;
         public SupportedParameter Supported;
     }
+
 }
 

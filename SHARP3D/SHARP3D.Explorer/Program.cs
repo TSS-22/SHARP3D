@@ -47,9 +47,17 @@ namespace SHARP3D.Explorer
         public static DataType dataLength = DataType.FLOAT32;
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
-        {
-            C3dFile c3dFile = GetC3dFileWithHeader(PathEb015pi);
-
+        { 
+            C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015pi);
+            //var labels = c3dFile.GetParameter("point", "labels").Data;
+            //var labelsDimensions = c3dFile.GetParameter("point", "labels").Dimensions;
+            //for (int i = 0; i < labelsDimensions[1]; i++) 
+            //{
+            //    for (int j = 0; j < labelsDimensions[0]; j++)
+            //    {
+            //        //Console.Write(labels.GetValue([0,0]));
+            //    }
+            //}
 
             return 0;
         }
