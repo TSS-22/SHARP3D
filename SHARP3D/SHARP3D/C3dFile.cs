@@ -104,7 +104,7 @@ namespace SHARP3D
             byte[] pointerToData = new byte[2];
             c3dStream.Seek(16, SeekOrigin.Begin);
             c3dStream.ReadExactly(pointerToData);
-            return C3dBytesConvertor.ToInt(pointerToData, processor);
+            return ((C3dBytesConvertor.ToInt(pointerToData, processor) - 1) * 512); // I don't know why you have to substrack 1.
         }
 
         internal static int GetParameterBlockCount(FileStream c3dStream)

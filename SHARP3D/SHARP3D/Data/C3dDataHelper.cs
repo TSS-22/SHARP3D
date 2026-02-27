@@ -19,7 +19,7 @@ namespace SHARP3D.Data
             }
             // TODO: Add the check for AnalogSamplePerFrame, total number of analog sample must be a mutliple of this. In the way the c3d file is done there is a better way to check for that I think
 
-            context.C3dStream.Seek((context.PointerDataSection - 1) * 512, SeekOrigin.Begin);
+            context.C3dStream.Seek(context.PointerDataSection, SeekOrigin.Begin);
 
             return ReadAllData(context);
 
@@ -30,19 +30,19 @@ namespace SHARP3D.Data
         public static C3dData ReadAllData(C3dDataContext context)
         {
             List<C3dDataPoint[]> points = new List<C3dDataPoint[]>();
-            List<float[]> analogs = new List<float[]>();
+            List<float[][]> analogs = new List<float[][]>();
             
             for (int i = 0; i < context.FramesNumber; i++)
             {
                 Console.WriteLine(i);
-                (C3dDataPoint[], float[]) frame = ReadDataFrame(context);
+                (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
                 points.Add(frame.Item1);
                 analogs.Add(frame.Item2);
             }
             return ProcessPointsAndAnalogsList(points, analogs);
         }
 
-        internal static C3dData ProcessPointsAndAnalogsList(List<C3dDataPoint[]> points, List<float[]> analogs)
+        internal static C3dData ProcessPointsAndAnalogsList(List<C3dDataPoint[]> points, List<float[][]> analogs)
         {
             return new C3dData {
                 Points = points,
@@ -50,7 +50,7 @@ namespace SHARP3D.Data
             };
         }
 
-        internal static (C3dDataPoint[], float[]) ReadDataFrame(C3dDataContext context)
+        internal static (C3dDataPoint[], float[][]) ReadDataFrame(C3dDataContext context)
         {
             switch(context.DataTypeFile)
             {
@@ -65,11 +65,12 @@ namespace SHARP3D.Data
             }
         }
 
-        internal static (C3dDataPoint[], float[]) ReadDataFrameInt16(C3dDataContext context) 
+        internal static (C3dDataPoint[], float[][]) ReadDataFrameInt16(C3dDataContext context) 
         {
             // Get POINTS
             List<C3dDataPoint> points = new List<C3dDataPoint>();
-            List<float> analogs = new List<float>();
+            //List<float> analogs = new List<float>();
+            List<float[]> analogs = new List<float[]>();
 
             for (int i = 0; i < context.MarkersPerFrame; i++)
             {
@@ -92,7 +93,8 @@ namespace SHARP3D.Data
                     Valid = IsValid(camAndSign, residualInt, context)
                 });
             }
-            List<float[]> analogValues = new List<float[]>();
+            // Get Analogs
+            //List<float[]> analogValues = new List<float[]>();
             for (int i = 0; i < context.AnalogSamplePerFrame; i++)
             {
                 float[] oneFullAnalogsSample = new float[context.AnalogChannels];
@@ -102,14 +104,54 @@ namespace SHARP3D.Data
                     context.C3dStream.ReadExactly(buffer);
                     oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
-                analogValues.Add(oneFullAnalogsSample);
+                //analogValues.Add(oneFullAnalogsSample);
+                analogs.Add(oneFullAnalogsSample);
             }
             // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
             return (points.ToArray(), analogs.ToArray());
         }
-        internal static (C3dDataFramePoint, C3dDataFrameAnalog) ReadDataFrameFloat32(C3dDataContext context) 
+        internal static (C3dDataPoint[], float[]) ReadDataFrameFloat32(C3dDataContext context) 
         {
-            return (new C3dDataFramePoint(), new C3dDataFrameAnalog());
+            // Get POINTS
+            List<C3dDataPoint> points = new List<C3dDataPoint>();
+            List<float> analogs = new List<float>();
+
+            for (int i = 0; i < context.MarkersPerFrame; i++)
+            {
+                List<float> pointValues = new List<float>();
+                for (int j = 0; j < 3; j++)
+                {
+                    byte[] buffer = new byte[4];
+                    context.C3dStream.ReadExactly(buffer);
+                    pointValues.Add(C3dBytesConvertor.ToFloat(buffer, context.Processor));
+                }
+                byte camAndSign = (byte)context.C3dStream.ReadByte();
+                int residualInt = context.C3dStream.ReadByte();
+
+                points.Add(new C3dDataPoint
+                {
+                    Data = pointValues.ToArray(),
+                    AverageResidual = residualInt * context.PointScaleFactor,
+                    CameraMask = GetCameraMask(camAndSign),
+                    Raw = IsRaw(camAndSign, residualInt),
+                    Valid = IsValid(camAndSign, residualInt, context)
+                });
+            }
+            // Get Analogs
+            List<float[]> analogValues = new List<float[]>();
+            for (int i = 0; i < context.AnalogSamplePerFrame; i++)
+            {
+                float[] oneFullAnalogsSample = new float[context.AnalogChannels];
+                for (int j = 0; j < context.AnalogChannels; j++)
+                {
+                    byte[] buffer = new byte[4];
+                    context.C3dStream.ReadExactly(buffer);
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                }
+                analogValues.Add(oneFullAnalogsSample);
+            }
+            // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
+            return (points.ToArray(), analogs.ToArray());
         }
 
         internal static bool IsRaw(byte camAndSign, int residual)
@@ -128,7 +170,7 @@ namespace SHARP3D.Data
         {
             //byte[] buffer = new byte[] { camAndSign, (byte)residual };
             //return C3dBytesConvertor.ToInt(buffer, context.Processor) < 0? true:false;
-            return (camAndSign & 1) == 1 ? true : false;
+            return (camAndSign & 0b10000000) == 0 ? true : false;
         }
 
         internal static bool[] GetCameraMask(byte camAndSign) 

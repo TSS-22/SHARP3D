@@ -8,7 +8,7 @@
         //string[] PointLabels;
         //string PointsUnit;// Default: mm
 
-        public List<float[]> Analogs;
+        public List<float[][]> Analogs;
         //string[] AnalogLabels;
         //string[] AnalogUnits;
     }
