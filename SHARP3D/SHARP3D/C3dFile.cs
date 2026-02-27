@@ -50,8 +50,9 @@ namespace SHARP3D
         {
             C3dStream = fileStream;
             ProcessorFile = ReadProcessorByte(fileStream); 
-            ScaleFactor = GetPointScaleFactor(fileStream, ProcessorFile);
-            DataTypeFile = ScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
+            float tempScaleFactor = GetPointScaleFactor(fileStream, ProcessorFile);
+            ScaleFactor = Math.Abs(tempScaleFactor);
+            DataTypeFile = tempScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
 
             Header = GetHeader(C3dStream, ProcessorFile);
 
