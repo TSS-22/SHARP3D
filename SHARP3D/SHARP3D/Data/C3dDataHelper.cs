@@ -58,7 +58,7 @@ namespace SHARP3D.Data
                     return ReadDataFrameInt16(context);
 
                 case DataType.FLOAT32:
-                    return ReadDataFrameInt16(context);
+                    return ReadDataFrameFloat32(context);
 
                 default:
                     throw new NotSupportedException("The C3D file data is neither stored in a supported format: INT16 or FLOAT32.");
@@ -110,11 +110,12 @@ namespace SHARP3D.Data
             // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
             return (points.ToArray(), analogs.ToArray());
         }
-        internal static (C3dDataPoint[], float[]) ReadDataFrameFloat32(C3dDataContext context) 
+        internal static (C3dDataPoint[], float[][]) ReadDataFrameFloat32(C3dDataContext context) 
         {
             // Get POINTS
             List<C3dDataPoint> points = new List<C3dDataPoint>();
-            List<float> analogs = new List<float>();
+            //List<float> analogs = new List<float>();
+            List<float[]> analogs = new List<float[]>();
 
             for (int i = 0; i < context.MarkersPerFrame; i++)
             {
@@ -138,7 +139,7 @@ namespace SHARP3D.Data
                 });
             }
             // Get Analogs
-            List<float[]> analogValues = new List<float[]>();
+            //List<float[]> analogValues = new List<float[]>();
             for (int i = 0; i < context.AnalogSamplePerFrame; i++)
             {
                 float[] oneFullAnalogsSample = new float[context.AnalogChannels];
@@ -146,9 +147,10 @@ namespace SHARP3D.Data
                 {
                     byte[] buffer = new byte[4];
                     context.C3dStream.ReadExactly(buffer);
-                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToFloat(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
-                analogValues.Add(oneFullAnalogsSample);
+                //analogValues.Add(oneFullAnalogsSample);
+                analogs.Add(oneFullAnalogsSample);
             }
             // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
             return (points.ToArray(), analogs.ToArray());

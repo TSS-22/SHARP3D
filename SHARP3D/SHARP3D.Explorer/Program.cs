@@ -43,7 +43,7 @@ namespace SHARP3D.Explorer
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         { 
-            C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015vi);
+            C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015vr);
             
             //for (int i = 0; i < labelsDimensions[1]; i++) 
             //{
