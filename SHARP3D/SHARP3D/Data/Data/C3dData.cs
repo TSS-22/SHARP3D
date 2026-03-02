@@ -95,7 +95,7 @@
                         if (pointArray != null)
                         {
                             foreach (var point in pointArray)
-                                hash = hash * 23 + (point?.GetHashCode() ?? 0);
+                                hash = hash * 23 + (point.GetHashCode());
                         }
                     }
                 }

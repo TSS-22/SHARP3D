@@ -60,7 +60,7 @@
                 {
                     foreach (var parameter in Parameters)
                     {
-                        hash = hash * 23 + (parameter?.GetHashCode() ?? 0);
+                        hash = hash * 23 + (parameter.GetHashCode());
                     }
                 }
 

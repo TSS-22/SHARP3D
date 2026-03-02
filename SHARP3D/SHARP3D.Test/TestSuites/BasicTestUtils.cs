@@ -2,6 +2,6 @@
 {
     public static class BasicTestUtils
     {
-        float test = 0.0f;
+        
     }
 }

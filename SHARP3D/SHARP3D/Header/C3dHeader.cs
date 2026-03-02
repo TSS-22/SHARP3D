@@ -181,7 +181,7 @@ namespace SHARP3D.Header
                 if (Events != null)
                 {
                     foreach (var ev in Events)
-                        hash = hash * 23 + (ev?.GetHashCode() ?? 0);
+                        hash = hash * 23 + (ev.GetHashCode());
                 }
 
                 return hash;
