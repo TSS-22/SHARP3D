@@ -30,7 +30,7 @@ namespace SHARP3D.Utils
         private const float TWO_TO_M128 = 2.93873588e-39f; // 2**(-128)
         private const float TWO_TO_127 = 1.70141184e+38f; // 2**127
         private const float TWO_TO_126 = 8.50705917e+37f; // 2**126
-        private const float SCAL = 4; // factor between IEEE-754 'binary32' and VAX F-float
+        private const float SCAL = 4f; // factor between IEEE-754 'binary32' and VAX F-float
 
         /// <summary>
         /// Converts a 16-bit integer to a byte array with byte order determined by the specified processor type.

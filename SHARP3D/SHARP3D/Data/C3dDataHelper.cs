@@ -2,6 +2,7 @@
 using SHARP3D.Exceptions;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Drawing;
 
 namespace SHARP3D.Data
 {
@@ -126,8 +127,22 @@ namespace SHARP3D.Data
                     context.C3dStream.ReadExactly(buffer);
                     pointValues.Add(C3dBytesConvertor.ToFloat(buffer, context.Processor));
                 }
-                byte camAndSign = (byte)context.C3dStream.ReadByte();
-                int residualInt = context.C3dStream.ReadByte();
+                byte[] floatCamSignResidualBuffer = new byte[4];
+                context.C3dStream.ReadExactly(floatCamSignResidualBuffer);
+                // TODO: Handle out of range value but that shouldn't happen
+                Int32 floatCamSignResidual = (Int32)C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
+                byte[] intCamSignResidual = BitConverter.GetBytes(floatCamSignResidual);
+                byte camAndSign;
+                int residualInt;
+                if (BitConverter.IsLittleEndian)
+                {
+                    camAndSign = intCamSignResidual[0];  
+                    residualInt = intCamSignResidual[1];
+                } else
+                {
+                    camAndSign = intCamSignResidual[3];
+                    residualInt = intCamSignResidual[2];
+                }
 
                 points.Add(new C3dDataPoint
                 {
