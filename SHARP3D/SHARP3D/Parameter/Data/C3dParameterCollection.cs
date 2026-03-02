@@ -2,6 +2,9 @@
 
 namespace SHARP3D.Parameter.Data
 {
+    /// <summary>
+    /// Reference all the groups and parameters in a two-way dictionnary for convenience.
+    /// </summary>
     public class C3dParameterCollection
     {
         private readonly Dictionary<string, (string, int)[]> _groupValuesByName = new();

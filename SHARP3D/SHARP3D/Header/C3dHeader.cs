@@ -10,7 +10,7 @@ namespace SHARP3D.Header
     /// <para>
     /// The header are made of 512 bytes of information at the beginning of a C3D file.
     /// </para>
-    public struct C3dHeader
+    public struct C3dHeader : IEquatable<C3dHeader>
     {
         ///<summary>
         ///<para>
@@ -132,6 +132,72 @@ namespace SHARP3D.Header
         ///</summary>
         public C3dHeaderEvent[] Events;
 
+
+        public bool Equals(C3dHeader other)
+        {
+            return PointerParameterSection == other.PointerParameterSection &&
+                   StorageFormat == other.StorageFormat &&
+                   MarkersPerFrame == other.MarkersPerFrame &&
+                   AnalogSamplesPerFrame == other.AnalogSamplesPerFrame &&
+                   FirstFrameRawData == other.FirstFrameRawData &&
+                   LastFrameRawData == other.LastFrameRawData &&
+                   MaxFrameIntepolationGap == other.MaxFrameIntepolationGap &&
+                   ScaleFactor == other.ScaleFactor &&
+                   PointerDataSection == other.PointerDataSection &&
+                   AnalogSampleRatePerFrame == other.AnalogSampleRatePerFrame &&
+                   Rate3dFrame == other.Rate3dFrame &&
+                   Support4charEventLabels == other.Support4charEventLabels &&
+                   EventsNb == other.EventsNb &&
+                   ((Events == null && other.Events == null) ||
+                    (Events != null && other.Events != null &&
+                     Events.Length == other.Events.Length &&
+                     !Events.Where((t, i) => !t.Equals(other.Events[i])).Any()));
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is C3dHeader other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + PointerParameterSection.GetHashCode();
+                hash = hash * 23 + StorageFormat.GetHashCode();
+                hash = hash * 23 + MarkersPerFrame.GetHashCode();
+                hash = hash * 23 + AnalogSamplesPerFrame.GetHashCode();
+                hash = hash * 23 + FirstFrameRawData.GetHashCode();
+                hash = hash * 23 + LastFrameRawData.GetHashCode();
+                hash = hash * 23 + MaxFrameIntepolationGap.GetHashCode();
+                hash = hash * 23 + ScaleFactor.GetHashCode();
+                hash = hash * 23 + PointerDataSection.GetHashCode();
+                hash = hash * 23 + AnalogSampleRatePerFrame.GetHashCode();
+                hash = hash * 23 + Rate3dFrame.GetHashCode();
+                hash = hash * 23 + Support4charEventLabels.GetHashCode();
+                hash = hash * 23 + EventsNb.GetHashCode();
+
+                if (Events != null)
+                {
+                    foreach (var ev in Events)
+                        hash = hash * 23 + (ev?.GetHashCode() ?? 0);
+                }
+
+                return hash;
+            }
+        }
+
+        public static bool operator ==(C3dHeader left, C3dHeader right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(C3dHeader left, C3dHeader right)
+        {
+            return !left.Equals(right);
+        }
+
         // TODO: Try to "reverse compute" the scale factor. Indeed if it is just found by dividing the max absolute value by 32000, mathematically I can find it back with the max value read by the int16 value.
         // TODO: Implement method to parse binaries into C3dHeader struct.
         public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorFile)
@@ -162,14 +228,6 @@ namespace SHARP3D.Header
             };
         }
 
-        // TODO: Implement method to convert C3dHeader struct into binaries.
-        ///<summary>
-        ///
-        ///</summary>
-        public static byte[] ToBinaries()
-        {
-            return new byte[0];
-        }
     }
 
     
