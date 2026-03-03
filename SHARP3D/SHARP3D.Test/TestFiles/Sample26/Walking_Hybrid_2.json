@@ -1,0 +1,62 @@
+{
+    "groups_parameter": [
+        "POINT",
+        "ANALOG",
+        "SEG",
+        "FORCE_PLATFORM"
+    ],
+    "parameters": [
+        [
+            "USED",
+            "SCALE",
+            "RATE",
+            "DATA_START",
+            "FRAMES",
+            "LABELS",
+            "DESCRIPTIONS",
+            "UNITS"
+        ],
+        [
+            "USED",
+            "LABELS",
+            "DESCRIPTIONS",
+            "GEN_SCALE",
+            "SCALE",
+            "OFFSET",
+            "UNITS",
+            "RATE",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "PRED_ERROR",
+            "MAX_RESID",
+            "ACC_FACTOR",
+            "NOISE_FACTOR",
+            "DATA_LIMITS"
+        ],
+        [
+            "USED",
+            "TYPE",
+            "ZERO",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ]
+    ],
+    "point_first_0": [
+        -950.0123291015625,
+        39.047645568847656,
+        846.100830078125
+    ],
+    "point_last_0": [
+        1899.7264404296875,
+        -27.504457473754883,
+        822.344482421875
+    ],
+    "analog_first_0": -0.8933611920775064,
+    "analog_last_0": 0.7290651654412272,
+    "point_frames": 541,
+    "analog_frames": 541
+}

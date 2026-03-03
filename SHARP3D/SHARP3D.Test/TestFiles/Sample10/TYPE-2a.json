@@ -1,0 +1,64 @@
+{
+    "groups_parameter": [
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "MANUFACTURER"
+    ],
+    "parameters": [
+        [
+            "USED",
+            "FRAMES",
+            "DESCRIPTIONS",
+            "LABELS",
+            "INITIAL_COMMAND",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "LAB_ROT",
+            "RATE",
+            "UNITS",
+            "SCALE",
+            "DATA_START"
+        ],
+        [
+            "USED",
+            "DESCRIPTIONS",
+            "LABELS",
+            "RATE",
+            "GEN_SCALE",
+            "OFFSET",
+            "UNITS",
+            "SCALE",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "TYPE",
+            "ORIGIN",
+            "CORNERS",
+            "CAL_MATRIX",
+            "ZERO",
+            "CHANNEL"
+        ],
+        [
+            "Company",
+            "Software",
+            "Version"
+        ]
+    ],
+    "point_first_0": [
+        NaN,
+        NaN,
+        NaN
+    ],
+    "point_last_0": [
+        NaN,
+        NaN,
+        NaN
+    ],
+    "analog_first_0": -1.4936000108718872,
+    "analog_last_0": -1.867000013589859,
+    "point_frames": 360,
+    "analog_frames": 5760
+}

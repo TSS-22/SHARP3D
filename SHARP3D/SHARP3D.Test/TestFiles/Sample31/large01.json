@@ -1,0 +1,100 @@
+{
+    "groups_parameter": [
+        "TRIAL",
+        "SUBJECTS",
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "EVENT_CONTEXT",
+        "EVENT",
+        "MANUFACTURER"
+    ],
+    "parameters": [
+        [
+            "ACTUAL_START_FIELD",
+            "ACTUAL_END_FIELD",
+            "CAMERA_RATE",
+            "VIDEO_RATE_DIVIDER"
+        ],
+        [
+            "USED",
+            "IS_STATIC",
+            "USES_PREFIXES",
+            "NAMES",
+            "MARKER_SETS"
+        ],
+        [
+            "USED",
+            "FRAMES",
+            "DATA_START",
+            "SCALE",
+            "RATE",
+            "MOVIE_DELAY",
+            "MOVIE_ID",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS"
+        ],
+        [
+            "GEN_SCALE",
+            "RATE",
+            "USED",
+            "GAIN",
+            "SCALE",
+            "OFFSET",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "ZERO",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ],
+        [
+            "USED",
+            "ICON_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "COLOURS"
+        ],
+        [
+            "USED",
+            "CONTEXTS",
+            "ICON_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "TIMES",
+            "SUBJECTS",
+            "GENERIC_FLAGS"
+        ],
+        [
+            "COMPANY",
+            "SOFTWARE",
+            "VERSION_LABEL",
+            "VERSION"
+        ]
+    ],
+    "point_first_0": [
+        252.8880157470703,
+        549.5387573242188,
+        1692.509521484375
+    ],
+    "point_last_0": [
+        222.9026336669922,
+        512.7960815429688,
+        1700.79833984375
+    ],
+    "analog_first_0": 3.996825933456421,
+    "analog_last_0": 9.17609977722168,
+    "point_frames": 73285,
+    "analog_frames": 1099275
+}

@@ -1,0 +1,70 @@
+{
+    "groups_parameter": [
+        "MANUFACTURER",
+        "SUBJECT",
+        "FORCE_PLATFORM",
+        "ANALOG",
+        "POINT"
+    ],
+    "parameters": [
+        [
+            "COMPANY",
+            "SOFTWARE",
+            "VERSION"
+        ],
+        [
+            "NAME",
+            "NUMBER",
+            "WEIGHT",
+            "HEIGHT",
+            "GENDER",
+            "DATE_OF_BIRTH",
+            "DATE_OF_RECORD"
+        ],
+        [
+            "USED",
+            "TYPE",
+            "CHANNEL",
+            "ORIGIN",
+            "CORNERS",
+            "ZERO",
+            "CAL_MATRIX"
+        ],
+        [
+            "USED",
+            "GEN_SCALE",
+            "RATE",
+            "BITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "UNITS",
+            "SCALE",
+            "OFFSET",
+            "FORMAT"
+        ],
+        [
+            "RATE",
+            "FRAMES",
+            "USED",
+            "SCALE",
+            "LABELS",
+            "DESCRIPTIONS",
+            "UNITS",
+            "DATA_START"
+        ]
+    ],
+    "point_first_0": [
+        NaN,
+        NaN,
+        NaN
+    ],
+    "point_last_0": [
+        1981.18701171875,
+        -8.50042724609375,
+        62.25342559814453
+    ],
+    "analog_first_0": -0.0,
+    "analog_last_0": 1.9023945182561874,
+    "point_frames": 159,
+    "analog_frames": 159
+}

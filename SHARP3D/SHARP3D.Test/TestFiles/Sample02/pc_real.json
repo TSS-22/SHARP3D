@@ -1,0 +1,81 @@
+{
+    "groups_parameter": [
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "FPLOC",
+        "SUBJECT"
+    ],
+    "parameters": [
+        [
+            "DESCRIPTIONS",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "UNITS",
+            "USED",
+            "FRAMES",
+            "SCALE",
+            "RATE",
+            "LABELS",
+            "DATA_START"
+        ],
+        [
+            "DESCRIPTIONS",
+            "SCALE",
+            "GEN_SCALE",
+            "OFFSET",
+            "UNITS",
+            "USED",
+            "RATE",
+            "LABELS",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "ZERO",
+            "CAL_MATRIX"
+        ],
+        [
+            "OBJ",
+            "MAX",
+            "INT"
+        ],
+        [
+            "NAME",
+            "SEX",
+            "HEIGHT",
+            "NUMBER",
+            "PROJECT",
+            "DOB",
+            "SEG_NAME",
+            "DIST_RADIUS",
+            "PROX_RADIUS",
+            "WEIGHT",
+            "TARGET_RADIUS",
+            "TA_DEPTH",
+            "PV_DEPTH",
+            "SEG_LEN",
+            "DIM_OFF",
+            "REF_OFF"
+        ]
+    ],
+    "point_first_0": [
+        NaN,
+        NaN,
+        NaN
+    ],
+    "point_last_0": [
+        NaN,
+        NaN,
+        NaN
+    ],
+    "analog_first_0": -7.740000128746033,
+    "analog_last_0": -6.020000100135803,
+    "point_frames": 89,
+    "analog_frames": 356
+}

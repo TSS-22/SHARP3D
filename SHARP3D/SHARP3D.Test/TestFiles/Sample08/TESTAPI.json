@@ -1,0 +1,75 @@
+{
+    "groups_parameter": [
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "FPLOC",
+        "SUBJECT"
+    ],
+    "parameters": [
+        [
+            "DESCRIPTIONS",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "LABELS",
+            "UNITS",
+            "USED",
+            "FRAMES",
+            "SCALE",
+            "DATA_START",
+            "RATE"
+        ],
+        [
+            "LABELS",
+            "DESCRIPTIONS",
+            "SCALE",
+            "GEN_SCALE",
+            "OFFSET",
+            "UNITS",
+            "USED",
+            "RATE",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "ZERO",
+            "TRANSLATION",
+            "ROTATION",
+            "CAL_MATRIX"
+        ],
+        [
+            "OBJ",
+            "MAX",
+            "INT"
+        ],
+        [
+            "NAME",
+            "NUMBER",
+            "PROJECT",
+            "WEIGHT",
+            "HEIGHT",
+            "GENDER",
+            "DATE_OF_BIRTH",
+            "TARGET_RADIUS"
+        ]
+    ],
+    "point_first_0": [
+        248.58334074169397,
+        226.83334009349346,
+        37.41666778177023
+    ],
+    "point_last_0": [
+        324.5833430066705,
+        2248.0000669956207,
+        33.75000100582838
+    ],
+    "analog_first_0": -26.660000443458557,
+    "analog_last_0": -25.800000429153442,
+    "point_frames": 450,
+    "analog_frames": 1800
+}

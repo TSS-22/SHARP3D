@@ -1,0 +1,57 @@
+{
+    "groups_parameter": [
+        "",
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM"
+    ],
+    "parameters": [
+        [],
+        [
+            "USED",
+            "FRAMES",
+            "DATA_START",
+            "SCALE",
+            "RATE",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS"
+        ],
+        [
+            "GEN_SCALE",
+            "RATE",
+            "USED",
+            "GAIN",
+            "SCALE",
+            "OFFSET",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "ZERO",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ]
+    ],
+    "point_first_0": [
+        -244.70949484035373,
+        -1461.054816685617,
+        1319.739857569337
+    ],
+    "point_last_0": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "analog_first_0": -0.19914300739765167,
+    "analog_last_0": -407.645736142993,
+    "point_frames": 145,
+    "analog_frames": 145
+}

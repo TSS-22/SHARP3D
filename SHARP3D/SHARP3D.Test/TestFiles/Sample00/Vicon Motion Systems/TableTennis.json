@@ -1,0 +1,112 @@
+{
+    "groups_parameter": [
+        "TRIAL",
+        "SUBJECTS",
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "EVENT_CONTEXT",
+        "EVENT",
+        "MANUFACTURER",
+        "ANALYSIS"
+    ],
+    "parameters": [
+        [
+            "ACTUAL_START_FIELD",
+            "ACTUAL_END_FIELD",
+            "CAMERA_RATE",
+            "X_DIRECTION",
+            "Y_DIRECTION",
+            "Z_DIRECTION"
+        ],
+        [
+            "USED",
+            "IS_STATIC",
+            "USES_PREFIXES",
+            "NAMES",
+            "LABEL_PREFIXES",
+            "MARKER_SETS"
+        ],
+        [
+            "USED",
+            "FRAMES",
+            "DATA_START",
+            "SCALE",
+            "RATE",
+            "MOVIE_DELAY",
+            "MOVIE_ID",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "UNITS",
+            "ANGLE_UNITS",
+            "FORCE_UNITS",
+            "MOMENT_UNITS",
+            "POWER_UNITS",
+            "MODELED_MARKER_UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "LABELS2",
+            "DESCRIPTIONS2",
+            "ANGLES",
+            "FORCES",
+            "MOMENTS",
+            "POWERS",
+            "MODELED_MARKERS",
+            "TYPE_GROUPS"
+        ],
+        [
+            "GEN_SCALE",
+            "RATE",
+            "USED",
+            "GAIN",
+            "SCALE",
+            "OFFSET",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "ZERO",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ],
+        [
+            "USED",
+            "ICON_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "COLOURS"
+        ],
+        [
+            "USED"
+        ],
+        [
+            "COMPANY",
+            "SOFTWARE",
+            "VERSION_LABEL"
+        ],
+        [
+            "USED"
+        ]
+    ],
+    "point_first_0": [
+        789.2781372070312,
+        1357.8961181640625,
+        751.9893188476562
+    ],
+    "point_last_0": [
+        789.0234375,
+        1357.9549560546875,
+        751.7765502929688
+    ],
+    "analog_first_0": -11.86611557006836,
+    "analog_last_0": 0.05449497327208519,
+    "point_frames": 2760,
+    "analog_frames": 13800
+}

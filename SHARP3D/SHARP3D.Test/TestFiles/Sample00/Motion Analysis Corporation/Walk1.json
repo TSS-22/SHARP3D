@@ -1,0 +1,89 @@
+{
+    "groups_parameter": [
+        "SUBJECTS",
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "MANUFACTURER",
+        "EVENT_CONTEXT",
+        "EVENT"
+    ],
+    "parameters": [
+        [
+            "IS_STATIC",
+            "USES_PREFIXES",
+            "NAMES",
+            "LABEL_PREFIXES",
+            "USED"
+        ],
+        [
+            "USED",
+            "FRAMES",
+            "LABELS",
+            "DESCRIPTIONS",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "RATE",
+            "UNITS",
+            "SCALE",
+            "DATA_START"
+        ],
+        [
+            "USED",
+            "LABELS",
+            "DESCRIPTIONS",
+            "RATE",
+            "BITS",
+            "FORMAT",
+            "GEN_SCALE",
+            "OFFSET",
+            "SCALE",
+            "UNITS"
+        ],
+        [
+            "USED",
+            "ZERO",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ],
+        [
+            "Company",
+            "Software",
+            "Version"
+        ],
+        [
+            "USED",
+            "ICONS_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "COLOURS"
+        ],
+        [
+            "USED",
+            "CONTEXTS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "TIMES",
+            "SUBJECTS",
+            "ICONS_IDS",
+            "GENERIC_FLAGS"
+        ]
+    ],
+    "point_first_0": [
+        -892.6617431640625,
+        251.44940185546875,
+        1772.6583251953125
+    ],
+    "point_last_0": [
+        2262.67724609375,
+        218.4076385498047,
+        1799.33056640625
+    ],
+    "analog_first_0": -1.708984375,
+    "analog_last_0": -1.77764892578125,
+    "point_frames": 151,
+    "analog_frames": 2416
+}

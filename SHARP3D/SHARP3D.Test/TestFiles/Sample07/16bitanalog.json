@@ -1,0 +1,112 @@
+{
+    "groups_parameter": [
+        "TRIAL",
+        "SUBJECTS",
+        "POINT",
+        "ANALOG",
+        "FORCE_PLATFORM",
+        "SEG",
+        "EVENT_CONTEXT",
+        "EVENT"
+    ],
+    "parameters": [
+        [
+            "ACTUAL_START_FIELD",
+            "ACTUAL_END_FIELD",
+            "CAMERA_RATE",
+            "VIDEO_RATE_DIVIDER"
+        ],
+        [
+            "IS_STATIC",
+            "USES_PREFIXES",
+            "USED",
+            "NAMES",
+            "LABEL_PREFIXES",
+            "MARKER_SETS",
+            "DISPLAY_SETS",
+            "MODELS",
+            "MODEL_PARAMS"
+        ],
+        [
+            "USED",
+            "FRAMES",
+            "DATA_START",
+            "SCALE",
+            "RATE",
+            "MOVIE_DELAY",
+            "X_SCREEN",
+            "Y_SCREEN",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "ANGLE_UNITS",
+            "FORCE_UNITS",
+            "MOMENT_UNITS",
+            "POWER_UNITS",
+            "SCALAR_UNITS",
+            "TYPE_GROUPS"
+        ],
+        [
+            "GEN_SCALE",
+            "RATE",
+            "USED",
+            "GAIN",
+            "SCALE",
+            "OFFSET",
+            "UNITS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "FORMAT",
+            "BITS"
+        ],
+        [
+            "USED",
+            "ZERO",
+            "TYPE",
+            "CORNERS",
+            "ORIGIN",
+            "CHANNEL",
+            "CAL_MATRIX"
+        ],
+        [
+            "MARKER_DIAMETER",
+            "DATA_LIMITS",
+            "ACC_FACTOR",
+            "MAX_NOISE_FACTOR",
+            "INTERSECTION_LIMIT",
+            "RESIDUAL_ERROR_FACTOR",
+            "PREDICTION_ERROR"
+        ],
+        [
+            "USED",
+            "ICON_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "COLOURS"
+        ],
+        [
+            "USED",
+            "CONTEXTS",
+            "ICON_IDS",
+            "LABELS",
+            "DESCRIPTIONS",
+            "SUBJECTS",
+            "TIMES",
+            "GENERIC_FLAGS"
+        ]
+    ],
+    "point_first_0": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "point_last_0": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "analog_first_0": -0.25475999340415,
+    "analog_last_0": -0.25475999340415,
+    "point_frames": 237,
+    "analog_frames": 2370
+}
