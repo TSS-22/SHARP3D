@@ -27,4 +27,8 @@
 	<ProjectReference Include="..\SHARP3D\SHARP3D.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestFiles\" />
+  </ItemGroup>
+
 </Project>

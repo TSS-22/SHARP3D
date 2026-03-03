@@ -89,6 +89,19 @@ namespace SHARP3D.Parameter.Data
             else { throw new KeyNotFoundException($"The group \"{groupName}\" doesn't exist."); }
         }
 
+        public (string, int)[] ListGroupParameters(int groupIndex)
+        {
+            if (_groupValuesByIndex.TryGetValue(groupIndex, out (string, int)[]? values))
+            {
+                if ((values.Length == 0) || values == null)
+                {
+                    throw new EmptyParameterGroupException($"The group at index \"{groupIndex}\" does not contain any parameters.");
+                }
+                return (values);
+            }
+            else { throw new KeyNotFoundException($"The group at index \"{groupIndex}\" doesn't exist."); }
+        }
+
         public string[] ListGroups()
         {
             return _groupValuesByName.Keys.ToArray();

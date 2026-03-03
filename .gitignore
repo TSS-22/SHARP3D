@@ -17,7 +17,6 @@ SHARP3D/_site
 *.pdb
 *.dll
 
-SHARP3D/SHARP3D/SHARP3D.Test/TestFiles/Sample12/c24089 13.c3d
-SHARP3D/SHARP3D/SHARP3D.Test/TestFiles/Sample31/large02.c3d
+
 SHARP3D/SHARP3D.Test/TestFiles/Sample31/large02.c3d
 SHARP3D/SHARP3D.Test/TestFiles/Sample12/c24089 13.c3d

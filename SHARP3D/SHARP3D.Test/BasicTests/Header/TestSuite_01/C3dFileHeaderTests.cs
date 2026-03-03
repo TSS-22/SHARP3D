@@ -1,16 +1,16 @@
 using SHARP3D.Utils.Enum;
 
 
-namespace SHARP3D.Test.Header.TestSuite_01
+namespace SHARP3D.Test.BasicTests.Header.TestSuite_01
 {
     public class C3dFileHeaderTests
     {
-        public static readonly string PathEb015pi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pi.c3d";
-        public static readonly string PathEb015pr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pr.c3d";
-        public static readonly string PathEb015si = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015si.c3d";
-        public static readonly string PathEb015sr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015sr.c3d";
-        public static readonly string PathEb015vi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vi.c3d";
-        public static readonly string PathEb015vr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vr.c3d";
+        public static readonly string PathEb015pi = @"..\..\..\TestFiles\Sample01\Eb015pi.c3d";
+        public static readonly string PathEb015pr = @"..\..\..\TestFiles\Sample01\Eb015pr.c3d";
+        public static readonly string PathEb015si = @"..\..\..\TestFiles\Sample01\Eb015si.c3d";
+        public static readonly string PathEb015sr = @"..\..\..\TestFiles\Sample01\Eb015sr.c3d";
+        public static readonly string PathEb015vi = @"..\..\..\TestFiles\Sample01\Eb015vi.c3d";
+        public static readonly string PathEb015vr = @"..\..\..\TestFiles\Sample01\Eb015vr.c3d";
 
         public static readonly byte[] ParameterSectionPointer = { 0x02, 0x00 };
         public static readonly int ParameterSectionPointerValue = 512;

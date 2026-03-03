@@ -1,5 +1,4 @@
-﻿using SHARP3D.Utils.Enum;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace SHARP3D.Parameter
 {
