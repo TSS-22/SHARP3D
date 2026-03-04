@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Parameter;
 
-namespace SHARP3D.Test.BasicTests.Parameter.TestSuite_01
+namespace SHARP3D.Test.Tests.BuilderTests.Parameter.TestSuite_01
 {
     public class C3dParameterHelperTest
     {

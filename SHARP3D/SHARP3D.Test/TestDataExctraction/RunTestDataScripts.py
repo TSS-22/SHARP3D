@@ -5,10 +5,10 @@ import subprocess
 basic_data_script = "BasicTestData.py"  # Replace with your script name
 
 # Path to the parent folder
-parent_folder = "./TestFiles"  # Replace with your folder path
+parent_folder = "./../SampleFiles"  # Replace with your folder path
 
 # Create a file to store the exceptions and the reason
-with open("exceptions.txt", "w"):
+with open("basic_test_exceptions.txt", "w"):
     pass
 
 for root, dirs, files in os.walk(parent_folder):

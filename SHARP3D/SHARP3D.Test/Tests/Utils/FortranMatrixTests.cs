@@ -1,7 +1,7 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Test.Utils
+namespace SHARP3D.Test.Tests.TestUtils
 {
     public class FortranMatrixTests
     {

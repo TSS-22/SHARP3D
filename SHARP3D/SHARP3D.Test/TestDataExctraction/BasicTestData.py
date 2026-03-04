@@ -5,7 +5,7 @@ import json
 import sys
 
 # Just to have arguments for debug:
-# ./TestFiles/Sample01
+# ./../SampleFiles/Sample01
 
 c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 

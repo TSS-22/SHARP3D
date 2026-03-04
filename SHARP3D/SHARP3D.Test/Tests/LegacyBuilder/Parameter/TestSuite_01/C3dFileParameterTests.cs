@@ -1,14 +1,14 @@
-﻿namespace SHARP3D.Test.BasicTests.Parameter.TestSuite_01
+﻿namespace SHARP3D.Test.Tests.BuilderTests.Parameter.TestSuite_01
 {
     public class C3dFileParameterTests
     {
 
-        public static readonly string PathEb015pi = @"..\..\..\TestFiles\Sample01\Eb015pi.c3d";
-        public static readonly string PathEb015pr = @"..\..\..\TestFiles\Sample01\Eb015pr.c3d";
-        public static readonly string PathEb015si = @"..\..\..\TestFiles\Sample01\Eb015si.c3d";
-        public static readonly string PathEb015sr = @"..\..\..\TestFiles\Sample01\Eb015sr.c3d";
-        public static readonly string PathEb015vi = @"..\..\..\TestFiles\Sample01\Eb015vi.c3d";
-        public static readonly string PathEb015vr = @"..\..\..\TestFiles\Sample01\Eb015vr.c3d";
+        public static readonly string PathEb015pi = @"..\..\..\SampleFiles\Sample01\Eb015pi.c3d";
+        public static readonly string PathEb015pr = @"..\..\..\SampleFiles\Sample01\Eb015pr.c3d";
+        public static readonly string PathEb015si = @"..\..\..\SampleFiles\Sample01\Eb015si.c3d";
+        public static readonly string PathEb015sr = @"..\..\..\SampleFiles\Sample01\Eb015sr.c3d";
+        public static readonly string PathEb015vi = @"..\..\..\SampleFiles\Sample01\Eb015vi.c3d";
+        public static readonly string PathEb015vr = @"..\..\..\SampleFiles\Sample01\Eb015vr.c3d";
 
         public static IEnumerable<object[]> FileStreamData =>
             new List<object[]>
