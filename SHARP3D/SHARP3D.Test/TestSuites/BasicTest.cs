@@ -35,11 +35,77 @@ namespace SHARP3D.Test.TestSuites
     /// </summary>
     public class BasicTest
     {
-        private static string FolderPath = @"..\..\..\TestFiles\Sample01"; // Replace with your folder path
-        
-        public static IEnumerable<object[]> Sample01Test_Basic_Data => 
-            TestingTools.GetJsonAndC3dFileList(FolderPath)
-                .Select(pair => new object[] { pair.jsonFile, pair.c3dFile });
+        private static string FolderPath00_ARTG = @"..\..\..\TestFiles\Sample00\Advanced Realtime Tracking GmbH";
+        private static string FolderPath00_C = @"..\..\..\TestFiles\Sample00\Codamotion";
+        private static string FolderPath00_CS = @"..\..\..\TestFiles\Sample00\Cometa Systems";
+        private static string FolderPath00_IST = @"..\..\..\TestFiles\Sample00\Innovative Sports Training";
+        private static string FolderPath00_MAC = @"..\..\..\TestFiles\Sample00\Motion Analysis Corporation";
+        private static string FolderPath00_NE = @"..\..\..\TestFiles\Sample00\NexGen Ergonomics";
+        private static string FolderPath00_VMS = @"..\..\..\TestFiles\Sample00\Vicon Motion Systems";
+        private static string FolderPath01 = @"..\..\..\TestFiles\Sample01";
+        private static string FolderPath02 = @"..\..\..\TestFiles\Sample02";
+        private static string FolderPath03 = @"..\..\..\TestFiles\Sample03";
+        private static string FolderPath04 = @"..\..\..\TestFiles\Sample04";
+        private static string FolderPath05 = @"..\..\..\TestFiles\Sample05";
+        private static string FolderPath07 = @"..\..\..\TestFiles\Sample07";
+        private static string FolderPath08 = @"..\..\..\TestFiles\Sample08";
+        private static string FolderPath10 = @"..\..\..\TestFiles\Sample10";
+        private static string FolderPath12 = @"..\..\..\TestFiles\Sample12";
+        private static string FolderPath17 = @"..\..\..\TestFiles\Sample17";
+        private static string FolderPath19 = @"..\..\..\TestFiles\Sample19";
+        private static string FolderPath22 = @"..\..\..\TestFiles\Sample22";
+        private static string FolderPath23 = @"..\..\..\TestFiles\Sample23";
+        private static string FolderPath26 = @"..\..\..\TestFiles\Sample26";
+        private static string FolderPath27 = @"..\..\..\TestFiles\Sample27";
+        private static string FolderPath28 = @"..\..\..\TestFiles\Sample28";
+        private static string FolderPath29 = @"..\..\..\TestFiles\Sample29";
+        private static string FolderPath30 = @"..\..\..\TestFiles\Sample30";
+        private static string FolderPath31 = @"..\..\..\TestFiles\Sample31";
+        private static string FolderPath33 = @"..\..\..\TestFiles\Sample33";
+        private static string FolderPath34 = @"..\..\..\TestFiles\Sample34";
+        private static string FolderPath35 = @"..\..\..\TestFiles\Sample35";
+        private static string FolderPath36 = @"..\..\..\TestFiles\Sample36";
+        private static string FolderPath37 = @"..\..\..\TestFiles\Sample37";
+
+        public static IEnumerable<object[]> Sample01Test_Basic_Data =>
+            new[]
+            {
+                FolderPath00_ARTG,
+                FolderPath00_C,
+                FolderPath00_CS,
+                FolderPath00_IST,
+                FolderPath00_MAC,
+                FolderPath00_NE,
+                FolderPath00_VMS,
+                FolderPath01,
+                FolderPath02,
+                FolderPath03,
+                FolderPath04,
+                FolderPath05,
+                FolderPath07,
+                FolderPath08,
+                FolderPath10,
+                FolderPath12,
+                FolderPath17,
+                FolderPath19,
+                FolderPath22,
+                FolderPath23,
+                FolderPath26,
+                FolderPath27,
+                FolderPath28,
+                FolderPath29,
+                FolderPath30,
+                FolderPath31,
+                FolderPath33,
+                FolderPath34,
+                FolderPath35,
+                FolderPath36,
+                FolderPath37
+            }
+            .SelectMany(folder =>
+                TestingTools.GetJsonAndC3dFileList(folder)
+                    .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
+            );
 
 
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
@@ -64,21 +130,51 @@ namespace SHARP3D.Test.TestSuites
             }
         }
 
+        private static void AssertPointsDataMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
+        {
+            for (int i=0; i<3; i++)
+            {
+                Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+            }
+        }
+
         [Theory]
         [MemberData(nameof(Sample01Test_Basic_Data))]
-        public void BasicTest_Sample01(string jsonPath, string c3dPath)
+        public void Basics(string jsonPath, string c3dPath)
         {
 
             string jsonContent = File.ReadAllText(jsonPath);
             BasicTestExpectedResults expectedResults = JsonSerializer.Deserialize<BasicTestExpectedResults>(jsonContent);
             C3dFile c3dFile = C3dFile.LoadFromFile(c3dPath);
 
-            // Group
+            // Assert groups
             AssertParameterGroupsMatch(expectedResults, c3dFile);
+            // Assert parameters
             AssertParameterMatch(expectedResults, c3dFile);
+            // Assert first and last frame value of the first channel
+            // POINTS
+            AssertPointsDataMatch(expectedResults, c3dFile);
+            // ANALOGS
+            Assert.Equal(expectedResults.AnalogFirst0, c3dFile.Data.Analogs[0][0][0]);
+            Assert.Equal(expectedResults.AnalogFirst0, c3dFile.Data.Analogs[0][0][0]);
 
+            // Assert the Frames count
+            // POINTS
+            Assert.Equal(expectedResults.PointFrames, c3dFile.Data.Points.Count);
+            // ANALOGS
+            if (c3dFile.Data.Analogs.Count != 0)
+            {
+                Assert.Equal(expectedResults.AnalogFrames, c3dFile.Data.Analogs.Count * c3dFile.Data.Analogs[0].Length);
+            }
+            else
+            {
+                Assert.Equal(expectedResults.AnalogFrames, c3dFile.Data.Analogs.Count);
+            }
 
-            Assert.True(true);
         }
 
     }

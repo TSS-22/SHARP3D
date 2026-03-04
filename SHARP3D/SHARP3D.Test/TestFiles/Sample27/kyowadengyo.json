@@ -34,8 +34,7 @@
             "TYPE",
             "CORNERS",
             "ORIGIN",
-            "CHANNEL",
-            "CAL_MATRIX"
+            "CHANNEL"
         ]
     ],
     "point_first_0": [

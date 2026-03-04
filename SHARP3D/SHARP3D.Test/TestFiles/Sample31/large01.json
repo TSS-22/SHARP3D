@@ -54,8 +54,7 @@
             "TYPE",
             "CORNERS",
             "ORIGIN",
-            "CHANNEL",
-            "CAL_MATRIX"
+            "CHANNEL"
         ],
         [
             "USED",

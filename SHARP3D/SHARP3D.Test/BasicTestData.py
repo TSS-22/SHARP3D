@@ -5,7 +5,7 @@ import json
 import sys
 
 # Just to have arguments for debug:
-# ./TestFiles/Sample19
+# ./TestFiles/Sample01
 
 c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 
@@ -23,8 +23,15 @@ for path in c3d_files:
         for group in groups_parameter:
             if group == "__METADATA__":
                 continue
-            parameters.append([parameter for parameter in c['parameters'][group] if parameter not in {"__METADATA__","BITS","FORMAT"}])
-
+            # parameters.append([parameter for parameter in c['parameters'][group] if parameter not in {"__METADATA__","BITS","FORMAT"}])
+            temp = list()
+            for parameter in c['parameters'][group]:
+                if parameter not in {"__METADATA__","BITS","FORMAT"}:
+                    if (parameter == "CAL_MATRIX") and (c["parameters"]["FORCE_PLATFORM"]["CAL_MATRIX"]["value"]).size == 0:
+                       continue
+                    else:
+                        temp.append(parameter) 
+            parameters.append(temp)
         point_first_0 = c['data']['points'][:3,0,0].tolist()
         point_last_0 = c['data']['points'][:3,0,-1].tolist()
 

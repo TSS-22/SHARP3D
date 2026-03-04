@@ -38,8 +38,7 @@
             "TYPE",
             "CORNERS",
             "ORIGIN",
-            "CHANNEL",
-            "CAL_MATRIX"
+            "CHANNEL"
         ],
         [
             "MARKER_DIAMETER",

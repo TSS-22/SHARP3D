@@ -27,5 +27,6 @@ namespace SHARP3D.Test.Utils
 
             [JsonPropertyName("analog_frames")]
             public int AnalogFrames { get; set; }
-        }
+
+    }
 }

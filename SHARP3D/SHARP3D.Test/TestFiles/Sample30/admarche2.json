@@ -27,8 +27,7 @@
             "CHANNEL",
             "ORIGIN",
             "CORNERS",
-            "ZERO",
-            "CAL_MATRIX"
+            "ZERO"
         ],
         [
             "USED",

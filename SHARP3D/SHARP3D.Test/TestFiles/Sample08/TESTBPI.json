@@ -37,8 +37,7 @@
             "CHANNEL",
             "ZERO",
             "TRANSLATION",
-            "ROTATION",
-            "CAL_MATRIX"
+            "ROTATION"
         ],
         [
             "OBJ",
