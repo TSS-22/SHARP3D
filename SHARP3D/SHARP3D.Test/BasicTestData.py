@@ -21,7 +21,7 @@ for path in c3d_files:
         for group in groups_parameter:
             if group == "__METADATA__":
                 continue
-            parameters.append([parameter for parameter in c['parameters'][group] if parameter != "__METADATA__"])
+            parameters.append([parameter for parameter in c['parameters'][group] if parameter not in {"__METADATA__","BITS","FORMAT"}])
 
         point_first_0 = c['data']['points'][:3,0,0].tolist()
         point_last_0 = c['data']['points'][:3,0,-1].tolist()
@@ -32,6 +32,8 @@ for path in c3d_files:
         point_frames = c['data']['points'].shape[-1]
         analog_frames = c['data']['analogs'].shape[-1]
 
+        camera_mask_first_0 = c["data"]["meta_points"]["camera_masks"][:,0,0]
+        camera_mask_last_0 = c["data"]["meta_points"]["camera_masks"][:,0,-1]
 
         data ={
             "groups_parameter": groups_parameter,
@@ -41,7 +43,9 @@ for path in c3d_files:
             "analog_first_0": analog_first_0,
             "analog_last_0": analog_last_0,
             "point_frames": point_frames,
-            "analog_frames": analog_frames
+            "analog_frames": analog_frames,
+            "camera_mask_first_0": camera_mask_first_0,
+            "camera_mask_last_0": camera_mask_last_0
         }
 
 

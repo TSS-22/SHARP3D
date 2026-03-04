@@ -27,9 +27,7 @@
             "OFFSET",
             "UNITS",
             "USED",
-            "RATE",
-            "FORMAT",
-            "BITS"
+            "RATE"
         ],
         [
             "USED",
@@ -71,5 +69,5 @@
     "analog_first_0": -26.660000443458557,
     "analog_last_0": -25.800000429153442,
     "point_frames": 450,
-    "analog_frames": 1800
-}
+    "analog_frames": 1800,
+    "camera_mask_first_0": 

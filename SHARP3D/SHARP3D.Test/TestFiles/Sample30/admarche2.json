@@ -34,13 +34,11 @@
             "USED",
             "GEN_SCALE",
             "RATE",
-            "BITS",
             "LABELS",
             "DESCRIPTIONS",
             "UNITS",
             "SCALE",
-            "OFFSET",
-            "FORMAT"
+            "OFFSET"
         ],
         [
             "RATE",
@@ -66,5 +64,5 @@
     "analog_first_0": -0.0,
     "analog_last_0": 1.9023945182561874,
     "point_frames": 159,
-    "analog_frames": 159
-}
+    "analog_frames": 159,
+    "camera_mask_first_0": 

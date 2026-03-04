@@ -33,8 +33,6 @@
             "LABELS",
             "DESCRIPTIONS",
             "RATE",
-            "BITS",
-            "FORMAT",
             "GEN_SCALE",
             "OFFSET",
             "SCALE",
@@ -85,5 +83,5 @@
     "analog_first_0": 0.000457763671875,
     "analog_last_0": 0.000152587890625,
     "point_frames": 264,
-    "analog_frames": 1320
-}
+    "analog_frames": 1320,
+    "camera_mask_first_0": 

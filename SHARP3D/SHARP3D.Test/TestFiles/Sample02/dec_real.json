@@ -27,9 +27,7 @@
             "UNITS",
             "USED",
             "RATE",
-            "LABELS",
-            "FORMAT",
-            "BITS"
+            "LABELS"
         ],
         [
             "USED",
@@ -77,5 +75,5 @@
     "analog_first_0": -7.740000128746033,
     "analog_last_0": -6.020000100135803,
     "point_frames": 89,
-    "analog_frames": 356
-}
+    "analog_frames": 356,
+    "camera_mask_first_0": 

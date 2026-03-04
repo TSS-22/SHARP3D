@@ -25,9 +25,7 @@
             "UNITS",
             "SCALE",
             "OFFSET",
-            "ACQUISITION_RATE",
-            "FORMAT",
-            "BITS"
+            "ACQUISITION_RATE"
         ],
         [
             "USED",
@@ -61,5 +59,5 @@
     "analog_first_0": 0.0,
     "analog_last_0": -0.30517578125,
     "point_frames": 2001,
-    "analog_frames": 10005
-}
+    "analog_frames": 10005,
+    "camera_mask_first_0": 

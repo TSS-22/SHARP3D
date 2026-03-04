@@ -60,9 +60,7 @@
             "OFFSET",
             "UNITS",
             "LABELS",
-            "DESCRIPTIONS",
-            "FORMAT",
-            "BITS"
+            "DESCRIPTIONS"
         ],
         [
             "USED",
@@ -122,5 +120,5 @@
     "analog_first_0": -0.0,
     "analog_last_0": -0.0,
     "point_frames": 333,
-    "analog_frames": 6660
-}
+    "analog_frames": 6660,
+    "camera_mask_first_0": 

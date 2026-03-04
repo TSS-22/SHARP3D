@@ -46,9 +46,7 @@
             "OFFSET",
             "UNITS",
             "LABELS",
-            "DESCRIPTIONS",
-            "FORMAT",
-            "BITS"
+            "DESCRIPTIONS"
         ],
         [
             "USED",
@@ -96,5 +94,5 @@
     "analog_first_0": 3.996825933456421,
     "analog_last_0": 9.17609977722168,
     "point_frames": 73285,
-    "analog_frames": 1099275
-}
+    "analog_frames": 1099275,
+    "camera_mask_first_0": 

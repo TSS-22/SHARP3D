@@ -24,9 +24,7 @@
             "SCALE",
             "OFFSET",
             "UNITS",
-            "RATE",
-            "FORMAT",
-            "BITS"
+            "RATE"
         ],
         [
             "PRED_ERROR",
@@ -58,5 +56,5 @@
     "analog_first_0": -0.050829344705036306,
     "analog_last_0": 0.010781782795675099,
     "point_frames": 649,
-    "analog_frames": 649
-}
+    "analog_frames": 649,
+    "camera_mask_first_0": 
