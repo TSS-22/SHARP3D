@@ -1,78 +1,29 @@
 ./TestFiles/Sample19/sample19.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample10/TYPE-2a.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample10/TYPE-4a.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample10/TYPE-3.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Capture0004.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample26/Standing_Hybrid_1.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample26/Capture0003.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_1_2.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Standing_Hybrid_2.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_1_1.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_1_5.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Capture0002.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_2.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_1_4.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Walking_Hybrid_1_3.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample26/Capture0008_Standing.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample29/OptiTrack-IITSEC2007.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
 ./TestFiles/Sample29/Facial-Sing.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
-./TestFiles/Sample31/large02.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample31/large01.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample34/AlbertoREAL.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample34/AlbertoINT.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample34/Basketball.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample30/emgwl.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample30/marche281.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample30/admarche2.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample03/gait-pig.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample03/gait-raw.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample03/gait-pig-nz.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample02/dec_real.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample02/sgi_int.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
 ./TestFiles/Sample02/sgi_real.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./TestFiles/Sample02/dec_int.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample02/pc_real.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample02/pc_int.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample22/BKINtechnologies.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
 ./TestFiles/Sample12/c24089 13.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample07/16bitanalog.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample01/Eb015vr.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample01/Eb015pr.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample01/Eb015si.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./TestFiles/Sample01/Eb015vi.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample01/Eb015pi.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample01/Eb015sr.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./TestFiles/Sample33/bigparlove.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample27/kyowadengyo.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample36/72610framesf.c3d: FRAMES parameter is not an INT
 ./TestFiles/Sample36/72610framesi.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample36/36220framesf.c3d: FRAMES parameter is not an INT
 ./TestFiles/Sample36/18124framesf.c3d: FRAMES parameter is not an INT
 ./TestFiles/Sample36/18124framesi.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample36/36220framesi.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample04/bodybuilder.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample04/sub_labels.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample35/Mega Electronics Isokinetic EMG Angle Torque Sample File.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample17/128analogchannels.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample05/vicon512.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample08/TESTCPI.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample08/EB015PI.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample08/TESTDPI.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample08/TESTAPI.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample08/TESTBPI.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample23/Vicon_analysis.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample37/ART-Human_hands_real_no6dof.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample37/ART-Human_real.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample37/ART-Human_2persons_integer.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample37/ART-Human_tools_integer_6dofLimbs.c3d: index 0 is out of bounds for axis 1 with size 0
-./TestFiles/Sample00/Innovative Sports Training/Static Pose.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Innovative Sports Training/Gait with EMG.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Motion Analysis Corporation/Sample_Jump2.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Motion Analysis Corporation/Walk1.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Vicon Motion Systems/pyCGM2 lower limb CGM24 Walking01.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Vicon Motion Systems/TableTennis.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Codamotion/codamotion_gaitwands_20150204.c3d: Object of type ndarray is not JSON serializable
-./TestFiles/Sample00/Codamotion/codamotion_gaitwands_19970212.c3d: Object of type ndarray is not JSON serializable
 ./TestFiles/Sample00/Cometa Systems/EMG Data Cometa.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample.c3d: index 0 is out of bounds for axis 1 with size 0
 ./TestFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample-fingers.c3d: index 0 is out of bounds for axis 1 with size 0

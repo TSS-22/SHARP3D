@@ -4,6 +4,8 @@ from ezc3d import c3d
 import json
 import sys
 
+# Just to have arguments for debug:
+# ./TestFiles/Sample19
 
 c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 
@@ -32,9 +34,6 @@ for path in c3d_files:
         point_frames = c['data']['points'].shape[-1]
         analog_frames = c['data']['analogs'].shape[-1]
 
-        camera_mask_first_0 = c["data"]["meta_points"]["camera_masks"][:,0,0]
-        camera_mask_last_0 = c["data"]["meta_points"]["camera_masks"][:,0,-1]
-
         data ={
             "groups_parameter": groups_parameter,
             "parameters": parameters,
@@ -44,8 +43,6 @@ for path in c3d_files:
             "analog_last_0": analog_last_0,
             "point_frames": point_frames,
             "analog_frames": analog_frames,
-            "camera_mask_first_0": camera_mask_first_0,
-            "camera_mask_last_0": camera_mask_last_0
         }
 
 
