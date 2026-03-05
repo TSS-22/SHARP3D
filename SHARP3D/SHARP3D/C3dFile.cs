@@ -61,6 +61,8 @@ namespace SHARP3D
             ParameterCollection = new C3dParameterCollection(Parameters);
 
             Data = GetData(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
+
+            CloseFileStream();
         }
         
 
