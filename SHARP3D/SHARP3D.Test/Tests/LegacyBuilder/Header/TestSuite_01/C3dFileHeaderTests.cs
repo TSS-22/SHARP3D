@@ -123,12 +123,12 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         public static IEnumerable<object[]> DataPointerData =>
             new List<object[]>
             {
-                new object[] { PathEb015pi, 11},
-                new object[] { PathEb015pr, 11},
-                new object[] { PathEb015si, 11},
-                new object[] { PathEb015sr, 11},
-                new object[] { PathEb015vi, 11},
-                new object[] { PathEb015vr, 11},
+                new object[] { PathEb015pi, 5120},
+                new object[] { PathEb015pr, 5120},
+                new object[] { PathEb015si, 5120},
+                new object[] { PathEb015sr, 5120},
+                new object[] { PathEb015vi, 5120},
+                new object[] { PathEb015vr, 5120},
             };
 
         internal C3dFile GetC3dFileWithHeader(string filePath)
@@ -227,6 +227,16 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
             Assert.Equal(expectedValuePointer, c3dFile.Header.PointerDataSection);
             c3dFile.CloseFileStream();
             c3dFile.CloseFileStream();
+        }
+
+        [Theory]
+        [MemberData(nameof(FileStreamData))]
+        public void PointerValues_Test(string filepath)
+        {
+            C3dFile c3dFile = GetC3dFileWithHeader(filepath);
+            FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            Assert.Equal(C3dFile.GetParameterSectionPointer(fileStream), c3dFile.Header.PointerParameterSection);
+            Assert.Equal(C3dFile.GetDataSectionPointer(fileStream, c3dFile.ProcessorFile), c3dFile.Header.PointerDataSection);
         }
     }
 }

@@ -113,7 +113,7 @@ namespace SHARP3D.Parameter
         }
 
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
-        public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerDataSection, int pointerParameterSection = 512)
+        public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
         {
             int[] scalarDimension = { 1 };
             c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
@@ -126,7 +126,7 @@ namespace SHARP3D.Parameter
             // WARNING: THE POINTER TO NEXT STRUCT IS NOT 0X00 0X00 FOR THE LAST PARAMETER BLOCK......
             do
             {
-                if (c3dStream.Position == ((pointerDataSection - 1) * 512))
+                if (c3dStream.Position == pointerDataSection)
                 {
                     break;
                 }

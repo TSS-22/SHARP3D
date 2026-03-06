@@ -65,7 +65,7 @@ namespace SHARP3D.Explorer
             C3dFile c3dFile = new C3dFile();
             c3dFile.ProcessorFile = C3dFile.ReadProcessorByte(fileStream);
             c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFile);
-            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFile, c3dFile.Header.PointerDataSection);
+            c3dFile.Parameters = c3dFile.GetParameters(fileStream, c3dFile.ProcessorFile, c3dFile.Header.PointerParameterSection, c3dFile.Header.PointerDataSection);
             return c3dFile;
         }
 
