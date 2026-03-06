@@ -33,6 +33,7 @@
             "USED",
             "GEN_SCALE",
             "RATE",
+            "BITS",
             "LABELS",
             "DESCRIPTIONS",
             "UNITS",
@@ -51,9 +52,9 @@
         ]
     ],
     "point_first_0": [
-        NaN,
-        NaN,
-        NaN
+        null,
+        null,
+        null
     ],
     "point_last_0": [
         1981.18701171875,

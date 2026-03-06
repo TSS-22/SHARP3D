@@ -112,9 +112,9 @@
         454.2235276848078
     ],
     "point_last_0": [
-        NaN,
-        NaN,
-        NaN
+        null,
+        null,
+        null
     ],
     "analog_first_0": -0.07807999849319458,
     "analog_last_0": -0.3367199935019016,

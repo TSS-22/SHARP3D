@@ -23,7 +23,9 @@
             "SCALE",
             "OFFSET",
             "UNITS",
-            "RATE"
+            "RATE",
+            "FORMAT",
+            "BITS"
         ],
         [
             "USED",

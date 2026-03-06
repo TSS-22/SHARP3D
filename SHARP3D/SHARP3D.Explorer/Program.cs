@@ -4,12 +4,14 @@ namespace SHARP3D.Explorer
 {
     internal class Program
     {
-        public static readonly string PathEb015pi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pi.c3d";
-        public static readonly string PathEb015pr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015pr.c3d";
-        public static readonly string PathEb015si = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015si.c3d";
-        public static readonly string PathEb015sr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015sr.c3d";
-        public static readonly string PathEb015vi = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vi.c3d";
-        public static readonly string PathEb015vr = @"..\..\..\..\..\C3D_sample\TestSuites\01-test_suite\Eb015vr.c3d";
+        public static readonly string PathEb015pi = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015pi.c3d";
+        public static readonly string PathEb015pr = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015pr.c3d";
+        public static readonly string PathEb015si = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015si.c3d";
+        public static readonly string PathEb015sr = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015sr.c3d";
+        public static readonly string PathEb015vi = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015vi.c3d";
+        public static readonly string PathEb015vr = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015vr.c3d";
+
+        public static readonly string PathFileSample02 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample02\dec_int.c3d";
 
         public static readonly int[] dimensions = { 3, 4, 2 };
         public static readonly byte[] vector =
@@ -43,8 +45,9 @@ namespace SHARP3D.Explorer
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         { 
+            //C3dFile c3dFile = C3dFile.LoadFromFile(PathFileSample02);
             C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015pi);
-            
+
             //for (int i = 0; i < labelsDimensions[1]; i++) 
             //{
             //    for (int j = 0; j < labelsDimensions[0]; j++)

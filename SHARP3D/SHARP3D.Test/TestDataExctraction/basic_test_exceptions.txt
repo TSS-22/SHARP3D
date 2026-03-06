@@ -1,30 +1,30 @@
-./SampleFiles/Sample19/sample19.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample26/Standing_Hybrid_1.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample29/OptiTrack-IITSEC2007.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
-./SampleFiles/Sample29/Facial-Sing.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
-./SampleFiles/Sample34/AlbertoREAL.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample34/AlbertoINT.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample34/Basketball.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample30/emgwl.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample30/marche281.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample02/sgi_int.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./SampleFiles/Sample02/sgi_real.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./SampleFiles/Sample22/BKINtechnologies.c3d: The format is not standard. If you want to ignore this error, set ignoreBadFormatting to true
-./SampleFiles/Sample12/c24089 13.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample01/Eb015si.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./SampleFiles/Sample01/Eb015sr.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
-./SampleFiles/Sample36/72610framesf.c3d: FRAMES parameter is not an INT
-./SampleFiles/Sample36/72610framesi.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample36/36220framesf.c3d: FRAMES parameter is not an INT
-./SampleFiles/Sample36/18124framesf.c3d: FRAMES parameter is not an INT
-./SampleFiles/Sample36/18124framesi.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample36/36220framesi.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample35/Mega Electronics Isokinetic EMG Angle Torque Sample File.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample37/ART-Human_hands_real_no6dof.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample37/ART-Human_real.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample37/ART-Human_2persons_integer.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample37/ART-Human_tools_integer_6dofLimbs.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample00/Cometa Systems/EMG Data Cometa.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample-fingers.c3d: index 0 is out of bounds for axis 1 with size 0
-./SampleFiles/Sample00/NexGen Ergonomics/test1.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample01/Eb015si.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
+./../SampleFiles/Sample01/Eb015sr.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
+./../SampleFiles/Sample02/sgi_int.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
+./../SampleFiles/Sample02/sgi_real.c3d: MIPS processor type not supported yet, please open a GitHub issue to report that you want this feature!
+./../SampleFiles/Sample12/c24089 13.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample19/sample19.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample22/BKINtechnologies.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample26/Standing_Hybrid_1.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample29/Facial-Sing.c3d: Parameter type unrecognized
+./../SampleFiles/Sample29/OptiTrack-IITSEC2007.c3d: Parameter type unrecognized
+./../SampleFiles/Sample30/emgwl.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample30/marche281.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample34/AlbertoINT.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample34/AlbertoREAL.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample34/Basketball.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample35/Mega Electronics Isokinetic EMG Angle Torque Sample File.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample36/18124framesf.c3d: FRAMES parameter is not an INT
+./../SampleFiles/Sample36/18124framesi.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample36/36220framesf.c3d: FRAMES parameter is not an INT
+./../SampleFiles/Sample36/36220framesi.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample36/72610framesf.c3d: FRAMES parameter is not an INT
+./../SampleFiles/Sample36/72610framesi.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample37/ART-Human_2persons_integer.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample37/ART-Human_hands_real_no6dof.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample37/ART-Human_real.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample37/ART-Human_tools_integer_6dofLimbs.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample-fingers.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample00/Advanced Realtime Tracking GmbH/arthuman-sample.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample00/Cometa Systems/EMG Data Cometa.c3d: index 0 is out of bounds for axis 1 with size 0
+./../SampleFiles/Sample00/NexGen Ergonomics/test1.c3d: index 0 is out of bounds for axis 1 with size 0

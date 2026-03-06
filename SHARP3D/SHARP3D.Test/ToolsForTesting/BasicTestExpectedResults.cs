@@ -11,10 +11,10 @@ namespace SHARP3D.Test.Utils
             public string[][] Parameters { get; set; }
 
             [JsonPropertyName("point_first_0")]
-            public float[] PointFirst0 { get; set; }
+            public float?[] PointFirst0 { get; set; }
 
             [JsonPropertyName("point_last_0")]
-            public float[] PointLast0 { get; set; }
+            public float?[] PointLast0 { get; set; }
 
             [JsonPropertyName("analog_first_0")]
             public float AnalogFirst0 { get; set; }

@@ -48,6 +48,8 @@
             "DESCRIPTIONS"
         ],
         [
+            "FORMAT",
+            "BITS",
             "GEN_SCALE",
             "RATE",
             "USED",

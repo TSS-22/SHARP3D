@@ -23,7 +23,9 @@
             "SCALE",
             "OFFSET",
             "UNITS",
-            "RATE"
+            "RATE",
+            "FORMAT",
+            "BITS"
         ],
         [
             "USED",
@@ -36,9 +38,9 @@
         ]
     ],
     "point_first_0": [
-        NaN,
-        NaN,
-        NaN
+        null,
+        null,
+        null
     ],
     "point_last_0": [
         2.0767698287963867,

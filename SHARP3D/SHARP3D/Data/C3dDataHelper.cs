@@ -35,7 +35,6 @@ namespace SHARP3D.Data
             
             for (int i = 0; i < context.FramesNumber; i++)
             {
-                Console.WriteLine(i);
                 (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
                 points.Add(frame.Item1);
                 analogs.Add(frame.Item2);
@@ -84,14 +83,14 @@ namespace SHARP3D.Data
                 }
                 byte camAndSign = (byte)context.C3dStream.ReadByte();
                 int residualInt = context.C3dStream.ReadByte();
-
+                bool[] cameraMask = GetCameraMask(camAndSign);
                 points.Add(new C3dDataPoint 
                 {
                     Data = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
-                    CameraMask = GetCameraMask(camAndSign),
+                    CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(camAndSign, residualInt, context)
+                    Valid = IsValid(camAndSign, pointValues.ToArray(), cameraMask, context)
                 });
             }
             // Get Analogs
@@ -144,13 +143,15 @@ namespace SHARP3D.Data
                     residualInt = intCamSignResidual[2];
                 }
 
+                bool[] cameraMask = GetCameraMask(camAndSign);
+
                 points.Add(new C3dDataPoint
                 {
                     Data = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
-                    CameraMask = GetCameraMask(camAndSign),
+                    CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(camAndSign, residualInt, context)
+                    Valid = IsValid(camAndSign, pointValues.ToArray(), cameraMask, context)
                 });
             }
             // Get Analogs
@@ -183,11 +184,17 @@ namespace SHARP3D.Data
             }
         }
 
-        internal static bool IsValid(byte camAndSign, int residual, C3dDataContext context) 
+        internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dDataContext context) 
         {
             //byte[] buffer = new byte[] { camAndSign, (byte)residual };
             //return C3dBytesConvertor.ToInt(buffer, context.Processor) < 0? true:false;
-            return (camAndSign & 0b10000000) == 0 ? true : false;
+            //return ((camAndSign == 0b10000000) || (camAndSign == 0b00000000));
+            bool theSupposedTestFromDocumentation =  (camAndSign & 0b10000000) == 0 ? true : false;
+            bool apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement = !(pointValue.All(x => x == 0f) && cameraMask.Any(x => !x)); // If it True then that means the measurement is not valid, for some big brain companies.
+            return theSupposedTestFromDocumentation && apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement;
+            //bool signTest =  (camAndSign & 0b10000000) == 0 ? true : false;
+            //bool cameraTest = cameraMask.Any(x => x);
+            //return signTest && cameraTest; // Because some software don't save correctly the values correctly to tell if it is a valid or not measurement.
         }
 
         internal static bool[] GetCameraMask(byte camAndSign) 

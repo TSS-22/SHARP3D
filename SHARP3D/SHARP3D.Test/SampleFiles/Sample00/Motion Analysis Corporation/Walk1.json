@@ -33,6 +33,8 @@
             "LABELS",
             "DESCRIPTIONS",
             "RATE",
+            "BITS",
+            "FORMAT",
             "GEN_SCALE",
             "OFFSET",
             "SCALE",

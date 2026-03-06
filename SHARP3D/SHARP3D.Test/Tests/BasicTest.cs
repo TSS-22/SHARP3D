@@ -1,4 +1,5 @@
 ﻿using SHARP3D.Test.Utils;
+using System.Diagnostics;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -132,14 +133,38 @@ namespace SHARP3D.Test.TestSuites
 
         private static void AssertPointsDataMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
-            for (int i=0; i<3; i++)
+            // First frame point
+            if (c3dFile.Data.Points[0][0].Valid == true)
             {
-                Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+                for (int i = 0; i < 3; i++)
+                {
+                    Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+                }
             }
-            for (int i = 0; i < 3; i++)
+            else
             {
-                Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+                for (int i = 0; i < 3; i++)
+                {
+                    Assert.Null(expectedResults.PointFirst0[i]);
+                }
             }
+
+            // Last frame point
+            if (c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Valid == true)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+                }
+            }
+            else 
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Assert.Null(expectedResults.PointLast0[i]);
+                }
+            }
+            
         }
 
         [Theory]
@@ -150,6 +175,8 @@ namespace SHARP3D.Test.TestSuites
             string jsonContent = File.ReadAllText(jsonPath);
             BasicTestExpectedResults expectedResults = JsonSerializer.Deserialize<BasicTestExpectedResults>(jsonContent);
             C3dFile c3dFile = C3dFile.LoadFromFile(c3dPath);
+            
+            Debug.WriteLine(c3dPath);
 
             // Assert groups
             AssertParameterGroupsMatch(expectedResults, c3dFile);
