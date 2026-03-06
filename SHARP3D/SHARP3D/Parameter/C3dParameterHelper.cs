@@ -217,49 +217,76 @@ namespace SHARP3D.Parameter
                         {
                             dimensions[i] = (int)dimensionsBuffer[i]; // Cast byte to int
                         }
-
-                        dataBuffer = new byte[Math.Abs((int)dataLength) * dimensions.Aggregate((acc, val) => acc * val)];
-                        switch (dataLength)
+                        // Sometimes the C3D parameter is saved having multiple dimensions but in fact some of them are going to be zero. Which cause problems.
+                        // Because they dimmed that it was a good way to make optionnal parameters that depends on other parameters... That you don't know if you will see before this parameter coming....
+                        // Big brain time les gars! #ClapClapClap
+                        if ((dimensions.Aggregate((acc, val) => acc * val)) == 0)
                         {
-                            case DataType.CHAR:
-                                c3dStream.ReadExactly(dataBuffer);
-                                data = Fortran.VectorToMatrix<char>(
-                                    dataBuffer,
-                                    dimensions,
-                                    dataLength,
-                                    processorFile
-                                    ); // Does that work? crazy
-                                break;
-                            case DataType.BYTE:
-                                c3dStream.ReadExactly(dataBuffer);
-                                data = Fortran.VectorToMatrix<byte>(
-                                    dataBuffer,
-                                    dimensions,
-                                    dataLength,
-                                    processorFile
-                                    );
-                                break;
-                            case DataType.INT16:
-                                c3dStream.ReadExactly(dataBuffer);
-                                data = Fortran.VectorToMatrix<int>(
-                                    dataBuffer,
-                                    dimensions,
-                                    dataLength,
-                                    processorFile
-                                    );
-                                break;
-                            case DataType.FLOAT32:
-                                c3dStream.ReadExactly(dataBuffer);
-                                data = Fortran.VectorToMatrix<float>(
-                                    dataBuffer,
-                                    dimensions,
-                                    dataLength,
-                                    processorFile
-                                    );
-                                break;
-                            default:
-                                throw new Exception("Invalid data type length");
+                            dataBuffer = new byte[0];
+                            switch (dataLength)
+                            {
+                                case DataType.CHAR:
+                                    data = Array.CreateInstance(typeof(char), 0);
+                                    break;
+                                case DataType.BYTE:
+                                    data = Array.CreateInstance(typeof(byte), 0);
+                                    break;
+                                case DataType.INT16:
+                                    data = Array.CreateInstance(typeof(int), 0);
+                                    break;
+                                case DataType.FLOAT32:
+                                    data = Array.CreateInstance(typeof(float), 0);
+                                    break;
+                                default:
+                                    throw new Exception("Invalid data type length");
+                            }
                         }
+                        else
+                        {
+                            dataBuffer = new byte[Math.Abs((int)dataLength) * dimensions.Aggregate((acc, val) => acc * val)];
+                            switch (dataLength)
+                            {
+                                case DataType.CHAR:
+                                    c3dStream.ReadExactly(dataBuffer);
+                                    data = Fortran.VectorToMatrix<char>(
+                                        dataBuffer,
+                                        dimensions,
+                                        dataLength,
+                                        processorFile
+                                        ); // Does that work? crazy
+                                    break;
+                                case DataType.BYTE:
+                                    c3dStream.ReadExactly(dataBuffer);
+                                    data = Fortran.VectorToMatrix<byte>(
+                                        dataBuffer,
+                                        dimensions,
+                                        dataLength,
+                                        processorFile
+                                        );
+                                    break;
+                                case DataType.INT16:
+                                    c3dStream.ReadExactly(dataBuffer);
+                                    data = Fortran.VectorToMatrix<int>(
+                                        dataBuffer,
+                                        dimensions,
+                                        dataLength,
+                                        processorFile
+                                        );
+                                    break;
+                                case DataType.FLOAT32:
+                                    c3dStream.ReadExactly(dataBuffer);
+                                    data = Fortran.VectorToMatrix<float>(
+                                        dataBuffer,
+                                        dimensions,
+                                        dataLength,
+                                        processorFile
+                                        );
+                                    break;
+                                default:
+                                    throw new Exception("Invalid data type length");
+                            }
+                        }
+                        
 
                         descriptionLength = c3dStream.ReadByte();
                         if (pointerToNextStruct == 0)
