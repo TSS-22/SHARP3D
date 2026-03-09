@@ -2,12 +2,27 @@
 using SHARP3D.Exceptions;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Drawing;
+
 
 namespace SHARP3D.Data
 {
+    /// <summary>
+    /// Provides helper methods for reading, parsing, and processing C3D file data.
+    /// </summary>
+    /// <remarks>
+    /// This class contains utility methods to simplify common operations on C3D files,
+    /// such as reading data frames, processing points and analogs, and validating data integrity.
+    /// </remarks>
     public static class C3dDataHelper
     {
+        /// <summary>
+        /// Reads and parses C3D data from a file stream using the provided context.
+        /// </summary>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A <see cref="C3dData"/> object containing parsed points and analogs.</returns>
+        /// <exception cref="PointAndAnalogRateException">
+        /// Thrown if the point rate and analog rate are not compatible.
+        /// </exception>
         public static C3dData FromFileStream(C3dDataContext context) 
         {
             if ((context.AnalogRate % context.PointRate != 0) && (context.AnalogRate > context.PointRate))
@@ -27,7 +42,11 @@ namespace SHARP3D.Data
 
         }
 
-
+        /// <summary>
+        /// Reads all data frames from the C3D file and processes them into points and analogs.
+        /// </summary>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A <see cref="C3dData"/> object containing parsed points and analogs.</returns>
         public static C3dData ReadAllData(C3dDataContext context)
         {
             List<C3dDataPoint[]> points = new List<C3dDataPoint[]>();
@@ -42,6 +61,12 @@ namespace SHARP3D.Data
             return ProcessPointsAndAnalogsList(points, analogs);
         }
 
+        /// <summary>
+        /// Processes lists of points and analogs into a <see cref="C3dData"/> object.
+        /// </summary>
+        /// <param name="points">List of point arrays.</param>
+        /// <param name="analogs">List of analog arrays.</param>
+        /// <returns>A <see cref="C3dData"/> object containing the processed points and analogs.</returns>
         internal static C3dData ProcessPointsAndAnalogsList(List<C3dDataPoint[]> points, List<float[][]> analogs)
         {
             return new C3dData {
@@ -50,6 +75,14 @@ namespace SHARP3D.Data
             };
         }
 
+        /// <summary>
+        /// Reads a single data frame from the C3D file based on the data type.
+        /// </summary>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A tuple containing arrays of points and analogs for the frame.</returns>
+        /// <exception cref="NotSupportedException">
+        /// Thrown if the data type is not supported (neither INT16 nor FLOAT32).
+        /// </exception>
         internal static (C3dDataPoint[], float[][]) ReadDataFrame(C3dDataContext context)
         {
             switch(context.DataTypeFile)
@@ -65,6 +98,11 @@ namespace SHARP3D.Data
             }
         }
 
+        /// <summary>
+        /// Reads a data frame with INT16 data type.
+        /// </summary>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A tuple containing arrays of points and analogs for the frame.</returns>
         internal static (C3dDataPoint[], float[][]) ReadDataFrameInt16(C3dDataContext context) 
         {
             // Get POINTS
@@ -110,6 +148,12 @@ namespace SHARP3D.Data
             // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
             return (points.ToArray(), analogs.ToArray());
         }
+
+        /// <summary>
+        /// Reads a data frame with FLOAT32 data type.
+        /// </summary>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A tuple containing arrays of points and analogs for the frame.</returns>
         internal static (C3dDataPoint[], float[][]) ReadDataFrameFloat32(C3dDataContext context) 
         {
             // Get POINTS
@@ -172,6 +216,12 @@ namespace SHARP3D.Data
             return (points.ToArray(), analogs.ToArray());
         }
 
+        /// <summary>
+        /// Determines if a point is raw or interpolated based on camera/sign byte and residual.
+        /// </summary>
+        /// <param name="camAndSign">The camera and sign byte.</param>
+        /// <param name="residual">The residual value.</param>
+        /// <returns>True if the point is raw; otherwise, false.</returns>
         internal static bool IsRaw(byte camAndSign, int residual)
         {
             if ((camAndSign == 0b00000001) || (residual == 0))
@@ -184,6 +234,14 @@ namespace SHARP3D.Data
             }
         }
 
+        /// <summary>
+        /// Determines if a point is valid based on camera/sign byte, point values, and camera mask.
+        /// </summary>
+        /// <param name="camAndSign">The camera and sign byte.</param>
+        /// <param name="pointValue">The point values.</param>
+        /// <param name="cameraMask">The camera mask.</param>
+        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <returns>True if the point is valid; otherwise, false.</returns>
         internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dDataContext context) 
         {
             //byte[] buffer = new byte[] { camAndSign, (byte)residual };

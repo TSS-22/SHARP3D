@@ -15,38 +15,78 @@ using System.Runtime.CompilerServices;
 namespace SHARP3D
 {
     /// <summary>
-    /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary
-    /// conversion.
+    /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary conversion.
     /// </summary>
+    /// <remarks>
+    /// This class encapsulates all the functionality needed to read, parse, and manipulate C3D files,
+    /// including header information, parameters, and data frames.
+    /// </remarks>
     public class C3dFile
     {
         /// <summary>
         /// Represents the file stream used to access the C3D file.
         /// </summary>
         public FileStream? C3dStream { get; set; } = null;
+        
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
         public ProcessorType ProcessorFile { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+
+        /// <summary>
+        /// Gets or sets the type of processor used by the host system.
+        /// </summary>
         public ProcessorType ProcessorHost { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
+        /// <summary>
+        /// Gets or sets the pointer to the parameter section in the C3D file.
+        /// </summary>
         public int PointerParameterSection { get; set; }
+
+        /// <summary>
+        /// Gets or sets the pointer to the data section in the C3D file.
+        /// </summary>
         public int PointerDataSection { get; set; }
 
+        /// <summary>
+        /// Gets or sets the scale factor used for 3D point data in the C3D file.
+        /// </summary>
         public float ScaleFactor { get; set; }
 
+        /// <summary>
+        /// Gets or sets the data type used in the C3D file.
+        /// </summary>
         public DataType DataTypeFile { get; set; }
 
+        /// <summary>
+        /// Gets or sets the header information of the C3D file.
+        /// </summary>
         public C3dHeader Header { get; set; } = new C3dHeader();
 
+        /// <summary>
+        /// Gets or sets the list of parameter groups in the C3D file.
+        /// </summary>
         public List<C3dParameterGroup> Parameters { get; set; }
 
+        /// <summary>
+        /// Gets or sets the collection of parameters in the C3D file.
+        /// </summary>
         public C3dParameterCollection ParameterCollection { get; set; }
 
+        /// <summary>
+        /// Gets or sets the data contained in the C3D file.
+        /// </summary>
         public C3dData Data { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="C3dFile"/> class.
+        /// </summary>
         internal C3dFile() { }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="C3dFile"/> class with the specified file stream.
+        /// </summary>
+        /// <param name="fileStream">The file stream to read the C3D file from.</param>
         internal C3dFile(FileStream fileStream)
         {
             C3dStream = fileStream;
@@ -68,13 +108,22 @@ namespace SHARP3D
 
             CloseFileStream();
         }
-        
 
+        /// <summary>
+        /// Creates an empty instance of the <see cref="C3dFile"/> class.
+        /// </summary>
+        /// <returns>An empty <see cref="C3dFile"/> instance.</returns>
         public C3dFile CreateEmpty()
         {
             return new C3dFile();
         }
 
+        /// <summary>
+        /// Reads the header information from the C3D file.
+        /// </summary>
+        /// <param name="fileStream">The file stream to read from.</param>
+        /// <param name="processorFile">The processor type used to create the C3D file.</param>
+        /// <returns>A <see cref="C3dHeader"/> object containing the header information.</returns>
         internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
         {
             fileStream.Seek(0, SeekOrigin.Begin);
@@ -82,6 +131,15 @@ namespace SHARP3D
             return C3dHeader.FromBinaries(headerBinaries, processorFile);
         }
 
+        /// <summary>
+        /// Reads the parameters from the C3D file.
+        /// </summary>
+        /// <param name="fileStream">The file stream to read from.</param>
+        /// <param name="processorFile">The processor type used to create the C3D file.</param>
+        /// <param name="pointerParameterSection">The pointer to the parameter section.</param>
+        /// <param name="pointerDataSection">The pointer to the data section.</param>
+        /// <returns>A list of <see cref="C3dParameterGroup"/> objects containing the parameters.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the file stream is not open.</exception>
         internal List<C3dParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
         {
             if (fileStream == null)
@@ -91,6 +149,11 @@ namespace SHARP3D
             return C3dParameterHelper.ParametersFromFileStreams(fileStream, processorFile, pointerParameterSection, pointerDataSection);
         }
 
+        /// <summary>
+        /// Loads a C3D file from the specified file path.
+        /// </summary>
+        /// <param name="filepath">The path to the C3D file.</param>
+        /// <returns>A <see cref="C3dFile"/> object representing the loaded file.</returns>
         public static C3dFile LoadFromFile(string filepath)
         {
             FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
@@ -98,12 +161,23 @@ namespace SHARP3D
             return new C3dFile(fileStream);
         }
 
+        /// <summary>
+        /// Gets the pointer to the parameter section in the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <returns>The pointer to the parameter section.</returns>
         internal static int GetParameterSectionPointer(FileStream c3dStream)
         {
             c3dStream.Seek(0, SeekOrigin.Begin);
             return (c3dStream.ReadByte() - 1) * 512;
         }
 
+        /// <summary>
+        /// Gets the pointer to the data section in the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <param name="processor">The processor type used to create the C3D file.</param>
+        /// <returns>The pointer to the data section.</returns>
         internal static int GetDataSectionPointer(FileStream c3dStream, ProcessorType processor)
         {
             byte[] pointerToData = new byte[2];
@@ -112,6 +186,11 @@ namespace SHARP3D
             return ((C3dBytesConvertor.ToInt(pointerToData, processor) - 1) * 512); // I don't know why you have to substrack 1.
         }
 
+        /// <summary>
+        /// Gets the number of parameter blocks in the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <returns>The number of parameter blocks.</returns>
         internal static int GetParameterBlockCount(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
@@ -119,7 +198,11 @@ namespace SHARP3D
             return c3dStream.ReadByte();
         }
 
-        // TODO
+        /// <summary>
+        /// Reads the processor type byte from the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <returns>The processor type used to create the C3D file.</returns>
         internal static ProcessorType ReadProcessorByte(FileStream c3dStream)
         {
             int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
@@ -127,6 +210,12 @@ namespace SHARP3D
             return (ProcessorType)c3dStream.ReadByte();
         }
 
+        /// <summary>
+        /// Gets the point scale factor from the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <param name="processor">The processor type used to create the C3D file.</param>
+        /// <returns>The point scale factor.</returns>
         internal float GetPointScaleFactor(FileStream c3dStream, ProcessorType processor)
         {
             byte[] valueBuffer = new byte[4];
@@ -135,6 +224,11 @@ namespace SHARP3D
             return C3dBytesConvertor.ToFloat(valueBuffer, processor);
         }
 
+        /// <summary>
+        /// Reads the header binaries from the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <returns>A byte array containing the header binaries.</returns>
         internal static byte[] ReadHeaderBinaries(FileStream c3dStream)
         {
             byte[] headers = new byte[512];
@@ -142,6 +236,13 @@ namespace SHARP3D
             return headers;
         }
 
+        /// <summary>
+        /// Reads the parameter binaries from the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <param name="parameterSectionPointer">The pointer to the parameter section.</param>
+        /// <param name="parameterBlockCount">The number of parameter blocks.</param>
+        /// <returns>A byte array containing the parameter binaries.</returns>
         internal static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)
         {
             byte[] parameters = new byte[parameterBlockCount * 512];
@@ -150,12 +251,26 @@ namespace SHARP3D
             return parameters;
         }
 
+        /// <summary>
+        /// Gets a parameter from the C3D file by its group and parameter name.
+        /// </summary>
+        /// <param name="groupName">The name of the parameter group.</param>
+        /// <param name="parameterName">The name of the parameter.</param>
+        /// <returns>A <see cref="C3dParameter"/> object representing the requested parameter.</returns>
         public C3dParameter GetParameter(string groupName, string parameterName)
         {
             (int,int) indexParameter = ParameterCollection.GetParameterIndex(groupName, parameterName);
             return Parameters[indexParameter.Item1].Parameters[indexParameter.Item2];
         }
 
+        /// <summary>
+        /// Reads the data from the C3D file.
+        /// </summary>
+        /// <param name="c3dStream">The file stream to read from.</param>
+        /// <param name="processor">The processor type used to create the C3D file.</param>
+        /// <param name="dataTypeFile">The data type used in the C3D file.</param>
+        /// <param name="pointScaleFactor">The point scale factor.</param>
+        /// <returns>A <see cref="C3dData"/> object containing the data.</returns>
         internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
@@ -189,23 +304,44 @@ namespace SHARP3D
                 analogOffset: analogOffset);
             return C3dDataHelper.FromFileStream(dataContext);
         }
-        // TODO: Implement actual binaries transformation logic.
+
+        /// <summary>
+        /// Converts the C3D file to a byte array.
+        /// </summary>
+        /// <returns>A byte array representing the C3D file.</returns>
+        /// <remarks>
+        /// TODO: Implement actual binaries transformation logic.
+        /// </remarks>
         public byte[] ToBinaries()
         {
             return new byte[] { };
         }
 
-        // TODO: Implement actual file saving logic. Return 0 if success, else error code. Use the C3dFileManager for this
+        /// <summary>
+        /// Saves the C3D file to the specified file path.
+        /// </summary>
+        /// <param name="filepath">The path to save the C3D file to.</param>
+        /// <returns>An integer representing the result of the save operation (0 for success).</returns>
+        /// <remarks>
+        /// TODO: Implement actual file saving logic. Return 0 if success, else error code. Use the C3dFileManager for this.
+        /// </remarks>
         public int SaveToFile(string filepath)
         {
             return 0;
         }
 
+        /// <summary>
+        /// Checks if the file stream is open.
+        /// </summary>
+        /// <returns>True if the file stream is open; otherwise, false.</returns>
         public bool IsFileStreamOpen()
         {
             return C3dStream != null;
         }
 
+        /// <summary>
+        /// Closes the file stream.
+        /// </summary>
         public void CloseFileStream()
         {
             if (C3dStream != null)
@@ -215,7 +351,14 @@ namespace SHARP3D
             }
         }
 
-        // For legacy purpose for the tests. Need to discard this.
+        /// <summary>
+        /// Opens a C3D file for reading.
+        /// </summary>
+        /// <param name="filepath">The path to the C3D file.</param>
+        /// <returns>A file stream for the C3D file.</returns>
+        /// <remarks>
+        /// For legacy purposes for the tests. This method should be discarded for production.
+        /// </remarks>
         internal static FileStream OpenC3dFile(string filepath)
         {
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);

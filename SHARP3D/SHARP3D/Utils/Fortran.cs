@@ -1,8 +1,40 @@
 ﻿using SHARP3D.Utils.Enum;
 namespace SHARP3D.Utils
 {
+    /// <summary>
+    /// Provides utility methods for converting Fortran-style vectors to C# matrices.
+    /// </summary>
+    /// <remarks>
+    /// This class handles the conversion of Fortran-style column-major vectors to C# row-major matrices.
+    /// </remarks>
     internal class Fortran
     {
+        /// <summary>
+        /// Converts a Fortran-style vector to a C# multi-dimensional matrix.
+        /// </summary>
+        /// <typeparam name="T">The type of elements in the matrix.</typeparam>
+        /// <param name="vector">The byte array representing the Fortran-style vector.</param>
+        /// <param name="dimensions">The dimensions of the resulting matrix.</param>
+        /// <param name="dataLength">The data type of the elements in the vector.</param>
+        /// <param name="processor">The processor type used for data conversion (required for INT16 and FLOAT32 data types).</param>
+        /// <returns>A multi-dimensional array representing the matrix.</returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown when:
+        /// <list type="bullet">
+        ///   <item>The data vector is empty.</item>
+        ///   <item>The data vector length doesn't match the expected size based on dimensions and data type.</item>
+        ///   <item>The dimensions array is empty or invalid.</item>
+        ///   <item>An unsupported data type is provided.</item>
+        ///   <item>The processor type is unknown for INT16 or FLOAT32 data types.</item>
+        /// </list>
+        /// </exception>
+        /// <example>
+        /// <code>
+        /// byte[] vector = new byte[] { 1, 0, 2, 0, 3, 0, 4, 0 };
+        /// int[] dimensions = new int[] { 2, 2 };
+        /// Array matrix = Fortran.VectorToMatrix&lt;short&gt;(vector, dimensions, DataType.INT16, ProcessorType.INTEL);
+        /// </code>
+        /// </example>
         public static Array VectorToMatrix<T>(
             byte[] vector,
             int[] dimensions,

@@ -1,23 +1,44 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.exceptions
-  commentId: N:SHARP3D.exceptions
-  id: SHARP3D.exceptions
+- uid: SHARP3D.Exceptions
+  commentId: N:SHARP3D.Exceptions
+  id: SHARP3D.Exceptions
   children:
-  - SHARP3D.exceptions.UnknownProcessorTypeException
+  - SHARP3D.Exceptions.EmptyParameterGroupException
+  - SHARP3D.Exceptions.ParameterNotFoundException
+  - SHARP3D.Exceptions.PointAndAnalogRateException
+  - SHARP3D.Exceptions.UnknownProcessorTypeException
   langs:
   - csharp
   - vb
-  name: SHARP3D.exceptions
-  nameWithType: SHARP3D.exceptions
-  fullName: SHARP3D.exceptions
+  name: SHARP3D.Exceptions
+  nameWithType: SHARP3D.Exceptions
+  fullName: SHARP3D.Exceptions
   type: Namespace
   assemblies:
   - SHARP3D
 references:
-- uid: SHARP3D.exceptions.UnknownProcessorTypeException
-  commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
-  href: SHARP3D.exceptions.UnknownProcessorTypeException.html
+- uid: SHARP3D.Exceptions.EmptyParameterGroupException
+  commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
+  href: SHARP3D.Exceptions.EmptyParameterGroupException.html
+  name: EmptyParameterGroupException
+  nameWithType: EmptyParameterGroupException
+  fullName: SHARP3D.Exceptions.EmptyParameterGroupException
+- uid: SHARP3D.Exceptions.ParameterNotFoundException
+  commentId: T:SHARP3D.Exceptions.ParameterNotFoundException
+  href: SHARP3D.Exceptions.ParameterNotFoundException.html
+  name: ParameterNotFoundException
+  nameWithType: ParameterNotFoundException
+  fullName: SHARP3D.Exceptions.ParameterNotFoundException
+- uid: SHARP3D.Exceptions.PointAndAnalogRateException
+  commentId: T:SHARP3D.Exceptions.PointAndAnalogRateException
+  href: SHARP3D.Exceptions.PointAndAnalogRateException.html
+  name: PointAndAnalogRateException
+  nameWithType: PointAndAnalogRateException
+  fullName: SHARP3D.Exceptions.PointAndAnalogRateException
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException
+  commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+  href: SHARP3D.Exceptions.UnknownProcessorTypeException.html
   name: UnknownProcessorTypeException
   nameWithType: UnknownProcessorTypeException
-  fullName: SHARP3D.exceptions.UnknownProcessorTypeException
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException

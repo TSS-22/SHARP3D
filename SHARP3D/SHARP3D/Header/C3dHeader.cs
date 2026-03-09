@@ -154,11 +154,20 @@ namespace SHARP3D.Header
                      !Events.Where((t, i) => !t.Equals(other.Events[i])).Any()));
         }
 
+        ///<summary>
+        /// Determines whether the current <see cref="C3dHeader"/> instance is equal to a specified object.
+        ///</summary>
+        ///<param name="obj">The object to compare with the current instance.</param>
+        ///<returns>True if the current instance is equal to the <paramref name="obj"/> parameter; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
             return obj is C3dHeader other && Equals(other);
         }
 
+        ///<summary>
+        /// Returns the hash code for the current <see cref="C3dHeader"/> instance.
+        ///</summary>
+        ///<returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
         {
             unchecked
@@ -188,16 +197,34 @@ namespace SHARP3D.Header
             }
         }
 
+        ///<summary>
+        /// Determines whether two specified <see cref="C3dHeader"/> instances are equal.
+        ///</summary>
+        ///<param name="left">The first <see cref="C3dHeader"/> instance to compare.</param>
+        ///<param name="right">The second <see cref="C3dHeader"/> instance to compare.</param>
+        ///<returns>True if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, false.</returns>
         public static bool operator ==(C3dHeader left, C3dHeader right)
         {
             return left.Equals(right);
         }
 
+        ///<summary>
+        /// Determines whether two specified <see cref="C3dHeader"/> instances are not equal.
+        ///</summary>
+        ///<param name="left">The first <see cref="C3dHeader"/> instance to compare.</param>
+        ///<param name="right">The second <see cref="C3dHeader"/> instance to compare.</param>
+        ///<returns>True if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, false.</returns>
         public static bool operator !=(C3dHeader left, C3dHeader right)
         {
             return !left.Equals(right);
         }
 
+        ///<summary>
+        /// Parses a byte array into a <see cref="C3dHeader"/> struct.
+        ///</summary>
+        ///<param name="binaries">The byte array to parse.</param>
+        ///<param name="processorFile">The <see cref="ProcessorType"/> used to interpret the byte order of the binary data.</param>
+        ///<returns>A <see cref="C3dHeader"/> instance populated with the parsed data.</returns>
         // TODO: Try to "reverse compute" the scale factor. Indeed if it is just found by dividing the max absolute value by 32000, mathematically I can find it back with the max value read by the int16 value.
         // TODO: Implement method to parse binaries into C3dHeader struct.
         public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorFile)

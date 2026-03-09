@@ -1,31 +1,31 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.exceptions.UnknownProcessorTypeException
-  commentId: T:SHARP3D.exceptions.UnknownProcessorTypeException
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException
+  commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
   id: UnknownProcessorTypeException
-  parent: SHARP3D.exceptions
+  parent: SHARP3D.Exceptions
   children:
-  - SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String)
-  - SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
+  - SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String)
+  - SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
   langs:
   - csharp
   - vb
   name: UnknownProcessorTypeException
   nameWithType: UnknownProcessorTypeException
-  fullName: SHARP3D.exceptions.UnknownProcessorTypeException
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/exceptions/UnknownProcessorTypeException .cs
+      path: SHARP3D/SHARP3D/Exceptions/UnknownProcessorTypeException .cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: UnknownProcessorTypeException
-    path: SHARP3D/exceptions/UnknownProcessorTypeException .cs
-    startLine: 11
+    path: SHARP3D/Exceptions/UnknownProcessorTypeException .cs
+    startLine: 8
   assemblies:
   - SHARP3D
-  namespace: SHARP3D.exceptions
-  summary: Exception thrown when an <xref href="SHARP3D.ProcessorType.UNKOWN" data-throw-if-not-resolved="false"></xref> type is encountered.
+  namespace: SHARP3D.Exceptions
+  summary: Exception thrown when an <xref href="SHARP3D.Utils.Enum.ProcessorType.UNKOWN" data-throw-if-not-resolved="false"></xref> type is encountered.
   example: []
   syntax:
     content: 'public class UnknownProcessorTypeException : ArgumentException, ISerializable'
@@ -58,28 +58,28 @@ items:
   - System.Object.GetHashCode
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String)
-  commentId: M:SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String)
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String)
+  commentId: M:SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String)
   id: '#ctor(System.String)'
-  parent: SHARP3D.exceptions.UnknownProcessorTypeException
+  parent: SHARP3D.Exceptions.UnknownProcessorTypeException
   langs:
   - csharp
   - vb
   name: UnknownProcessorTypeException(string)
   nameWithType: UnknownProcessorTypeException.UnknownProcessorTypeException(string)
-  fullName: SHARP3D.exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException(string)
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException(string)
   type: Constructor
   source:
     remote:
-      path: SHARP3D/SHARP3D/exceptions/UnknownProcessorTypeException .cs
+      path: SHARP3D/SHARP3D/Exceptions/UnknownProcessorTypeException .cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
-    path: SHARP3D/exceptions/UnknownProcessorTypeException .cs
-    startLine: 18
+    path: SHARP3D/Exceptions/UnknownProcessorTypeException .cs
+    startLine: 15
   assemblies:
   - SHARP3D
-  namespace: SHARP3D.exceptions
+  namespace: SHARP3D.Exceptions
   summary: Initializes a new instance of the UnknownProcessorTypeException class with a specified error message.
   example: []
   syntax:
@@ -89,32 +89,32 @@ items:
       type: System.String
       description: A string that provide more deatils on where/why the Exception occured.
     content.vb: Public Sub New(message As String)
-  overload: SHARP3D.exceptions.UnknownProcessorTypeException.#ctor*
+  overload: SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor*
   nameWithType.vb: UnknownProcessorTypeException.New(String)
-  fullName.vb: SHARP3D.exceptions.UnknownProcessorTypeException.New(String)
+  fullName.vb: SHARP3D.Exceptions.UnknownProcessorTypeException.New(String)
   name.vb: New(String)
-- uid: SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
-  commentId: M:SHARP3D.exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
+  commentId: M:SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor(System.String,System.Exception)
   id: '#ctor(System.String,System.Exception)'
-  parent: SHARP3D.exceptions.UnknownProcessorTypeException
+  parent: SHARP3D.Exceptions.UnknownProcessorTypeException
   langs:
   - csharp
   - vb
   name: UnknownProcessorTypeException(string, Exception)
   nameWithType: UnknownProcessorTypeException.UnknownProcessorTypeException(string, Exception)
-  fullName: SHARP3D.exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException(string, System.Exception)
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException(string, System.Exception)
   type: Constructor
   source:
     remote:
-      path: SHARP3D/SHARP3D/exceptions/UnknownProcessorTypeException .cs
+      path: SHARP3D/SHARP3D/Exceptions/UnknownProcessorTypeException .cs
       branch: main
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
-    path: SHARP3D/exceptions/UnknownProcessorTypeException .cs
-    startLine: 30
+    path: SHARP3D/Exceptions/UnknownProcessorTypeException .cs
+    startLine: 27
   assemblies:
   - SHARP3D
-  namespace: SHARP3D.exceptions
+  namespace: SHARP3D.Exceptions
   summary: >-
     Initializes a new instance of the UnknownProcessorTypeException class with a specified error message and a
 
@@ -132,39 +132,39 @@ items:
         The exception that is the cause of the current exception, or a null reference if no inner exception is
             specified.
     content.vb: Public Sub New(message As String, innerException As Exception)
-  overload: SHARP3D.exceptions.UnknownProcessorTypeException.#ctor*
+  overload: SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor*
   nameWithType.vb: UnknownProcessorTypeException.New(String, Exception)
-  fullName.vb: SHARP3D.exceptions.UnknownProcessorTypeException.New(String, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.UnknownProcessorTypeException.New(String, System.Exception)
   name.vb: New(String, Exception)
 references:
-- uid: SHARP3D.ProcessorType.UNKOWN
-  commentId: F:SHARP3D.ProcessorType.UNKOWN
-  href: SHARP3D.ProcessorType.html#SHARP3D_ProcessorType_UNKOWN
+- uid: SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  href: SHARP3D.Utils.Enum.ProcessorType.html#SHARP3D_Utils_Enum_ProcessorType_UNKOWN
   name: UNKOWN
   nameWithType: ProcessorType.UNKOWN
-  fullName: SHARP3D.ProcessorType.UNKOWN
-- uid: SHARP3D.exceptions
-  commentId: N:SHARP3D.exceptions
+  fullName: SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+- uid: SHARP3D.Exceptions
+  commentId: N:SHARP3D.Exceptions
   href: SHARP3D.html
-  name: SHARP3D.exceptions
-  nameWithType: SHARP3D.exceptions
-  fullName: SHARP3D.exceptions
+  name: SHARP3D.Exceptions
+  nameWithType: SHARP3D.Exceptions
+  fullName: SHARP3D.Exceptions
   spec.csharp:
   - uid: SHARP3D
     name: SHARP3D
     href: SHARP3D.html
   - name: .
-  - uid: SHARP3D.exceptions
-    name: exceptions
-    href: SHARP3D.exceptions.html
+  - uid: SHARP3D.Exceptions
+    name: Exceptions
+    href: SHARP3D.Exceptions.html
   spec.vb:
   - uid: SHARP3D
     name: SHARP3D
     href: SHARP3D.html
   - name: .
-  - uid: SHARP3D.exceptions
-    name: exceptions
-    href: SHARP3D.exceptions.html
+  - uid: SHARP3D.Exceptions
+    name: Exceptions
+    href: SHARP3D.Exceptions.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -659,14 +659,14 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: SHARP3D.exceptions.UnknownProcessorTypeException.#ctor*
-  commentId: Overload:SHARP3D.exceptions.UnknownProcessorTypeException.#ctor
-  href: SHARP3D.exceptions.UnknownProcessorTypeException.html#SHARP3D_exceptions_UnknownProcessorTypeException__ctor_System_String_
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor*
+  commentId: Overload:SHARP3D.Exceptions.UnknownProcessorTypeException.#ctor
+  href: SHARP3D.Exceptions.UnknownProcessorTypeException.html#SHARP3D_Exceptions_UnknownProcessorTypeException__ctor_System_String_
   name: UnknownProcessorTypeException
   nameWithType: UnknownProcessorTypeException.UnknownProcessorTypeException
-  fullName: SHARP3D.exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException.UnknownProcessorTypeException
   nameWithType.vb: UnknownProcessorTypeException.New
-  fullName.vb: SHARP3D.exceptions.UnknownProcessorTypeException.New
+  fullName.vb: SHARP3D.Exceptions.UnknownProcessorTypeException.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String

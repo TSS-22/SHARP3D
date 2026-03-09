@@ -8,6 +8,9 @@ using System.Text.Json;
 
 namespace SHARP3D.Parameter
 {
+    /// <summary>
+    /// Provides helper methods for loading, parsing, and managing C3D file parameters and parameter groups.
+    /// </summary>
     public static class C3dParameterHelper
     {
         // TODO:
@@ -27,13 +30,39 @@ namespace SHARP3D.Parameter
 
 
         //};
+        /// <summary>
+        /// An array of all supported parameters loaded from JSON files.
+        /// </summary>
         private static SupportedParameter[] ArraySupportedParameter;
+
+        /// <summary>
+        /// The file path for required parameters JSON.
+        /// </summary>
         private static string RequiredParameterPath;
+
+        /// <summary>
+        /// The file path for additional parameters JSON.
+        /// </summary>
         private static string AdditionalParameterPath;
+
+        /// <summary>
+        /// The file path for application-specific parameters JSON.
+        /// </summary>
         private static string ApplicationParameterPath;
+
+        /// <summary>
+        /// The file path for user-defined parameters JSON.
+        /// </summary>
         private static string UserParameterPath;
+
+        /// <summary>
+        /// An object used for locking to ensure thread safety.
+        /// </summary>
         private static readonly object _lock = new object();
 
+        /// <summary>
+        /// Initializes the <see cref="C3dParameterHelper"/> class by loading all supported parameters.
+        /// </summary>
         static C3dParameterHelper()
         {
             lock (_lock)
@@ -42,6 +71,9 @@ namespace SHARP3D.Parameter
             }
         }
 
+        /// <summary>
+        /// Resets and reloads all supported parameters from their respective JSON files.
+        /// </summary>
         public static void Reset()
         {
             // Set json file path 
@@ -71,6 +103,13 @@ namespace SHARP3D.Parameter
                 .ToArray();
         }
 
+        /// <summary>
+        /// Loads supported parameters from a JSON file.
+        /// </summary>
+        /// <param name="filePath">The path to the JSON file.</param>
+        /// <returns>An array of <see cref="SupportedParameter"/> loaded from the JSON file.</returns>
+        /// <exception cref="ArgumentException">Thrown if the file path is invalid.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if the JSON deserialization fails.</exception>
         public static SupportedParameter[]? LoadJson(string filePath)
         {
             if (!File.Exists(filePath))
@@ -95,11 +134,22 @@ namespace SHARP3D.Parameter
             return supportedParameter;
         }
 
+        /// <summary>
+        /// Gets all supported parameters.
+        /// </summary>
+        /// <returns>An array of all <see cref="SupportedParameter"/>.</returns>
         public static SupportedParameter[] GetAllSupportedParameter() 
         {
             return ArraySupportedParameter;
         }
 
+        /// <summary>
+        /// Retrieves a <see cref="SupportedParameter"/> by its group and parameter name.
+        /// </summary>
+        /// <param name="groupName">The name of the group.</param>
+        /// <param name="parameterName">The name of the parameter.</param>
+        /// <returns>The <see cref="SupportedParameter"/> matching the group and parameter name.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the parameter is not supported.</exception>
         public static SupportedParameter FromString(string groupName, string parameterName)
         {
             foreach (SupportedParameter parameter in ArraySupportedParameter)
@@ -112,6 +162,17 @@ namespace SHARP3D.Parameter
             throw new InvalidOperationException($"The parameter {groupName.ToUpper()}:{parameterName.ToUpper()} is not supported yet.");
         }
 
+        /// <summary>
+        /// Parses C3D parameter groups and parameters from a file stream.
+        /// </summary>
+        /// <param name="c3dStream">The file stream of the C3D file.</param>
+        /// <param name="processorFile">The processor type used in the C3D file.</param>
+        /// <param name="pointerParameterSection">The pointer to the parameter section in the C3D file.</param>
+        /// <param name="pointerDataSection">The pointer to the data section in the C3D file.</param>
+        /// <returns>A list of <see cref="C3dParameterGroup"/> parsed from the file stream.</returns>
+        /// <remarks>
+        /// TODO: Handle UTF-8 error cases as per https://en.wikipedia.org/wiki/UTF-8#Error_handling
+        /// </remarks>
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
         public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
         {

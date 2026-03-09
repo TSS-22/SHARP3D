@@ -178,6 +178,15 @@ namespace SHARP3D.Utils
             }
         }
 
+        /// <summary>
+        /// Converts a byte array to a 16-bit unsigned integer using the specified processor type for endianness handling.
+        /// </summary>
+        /// <param name="bytes">The byte array to convert.</param>
+        /// <param name="processor">The processor type indicating the expected byte order.</param>
+        /// <returns>The 16-bit unsigned integer representation of the byte array.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the byte array is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when the byte array length is not 2.</exception>
+        /// <exception cref="UnknownProcessorTypeException">Thrown when the processor type is unknown or unsupported.</exception>
         public static int ToUInt(byte[] bytes, ProcessorType processor)
         {
             if (bytes == null) { throw new ArgumentNullException("bytes"); }

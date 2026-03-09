@@ -4,57 +4,111 @@ items:
   name: SHARP3D
   type: Namespace
   items:
-  - uid: SHARP3D.C3dBytesConvertor
-    name: C3dBytesConvertor
-    type: Class
   - uid: SHARP3D.C3dFile
     name: C3dFile
     type: Class
-  - uid: SHARP3D.C3dFileManager
-    name: C3dFileManager
-    type: Class
-  - uid: SHARP3D.C3dHeader
-    name: C3dHeader
-    type: Struct
-  - uid: SHARP3D.C3dHeaderEvent
-    name: C3dHeaderEvent
-    type: Struct
-  - uid: SHARP3D.C3dParameter
-    name: C3dParameter
-    type: Struct
-  - uid: SHARP3D.DataFormat
-    name: DataFormat
-    type: Enum
-  - uid: SHARP3D.EventDisplayFlag
-    name: EventDisplayFlag
-    type: Enum
-  - uid: SHARP3D.ProcessorType
-    name: ProcessorType
-    type: Enum
-  - uid: SHARP3D.ProcessorTypeExtensions
-    name: ProcessorTypeExtensions
-    type: Class
-- uid: SHARP3D.Test
-  name: SHARP3D.Test
+- uid: SHARP3D.Data
+  name: SHARP3D.Data
   type: Namespace
   items:
-  - uid: SHARP3D.Test.C3dBytesConvertorTests
-    name: C3dBytesConvertorTests
+  - uid: SHARP3D.Data.C3dDataHelper
+    name: C3dDataHelper
     type: Class
-  - uid: SHARP3D.Test.C3dFileManagerTests
-    name: C3dFileManagerTests
-    type: Class
-  - uid: SHARP3D.Test.C3dFileTests
-    name: C3dFileTests
-    type: Class
-  - uid: SHARP3D.Test.ProcessorTypeTests
-    name: ProcessorTypeTests
-    type: Class
-- uid: SHARP3D.exceptions
-  name: SHARP3D.exceptions
+- uid: SHARP3D.Data.Data
+  name: SHARP3D.Data.Data
   type: Namespace
   items:
-  - uid: SHARP3D.exceptions.UnknownProcessorTypeException
+  - uid: SHARP3D.Data.Data.C3dData
+    name: C3dData
+    type: Struct
+  - uid: SHARP3D.Data.Data.C3dDataContext
+    name: C3dDataContext
+    type: Class
+  - uid: SHARP3D.Data.Data.C3dDataPoint
+    name: C3dDataPoint
+    type: Struct
+- uid: SHARP3D.Exceptions
+  name: SHARP3D.Exceptions
+  type: Namespace
+  items:
+  - uid: SHARP3D.Exceptions.EmptyParameterGroupException
+    name: EmptyParameterGroupException
+    type: Class
+  - uid: SHARP3D.Exceptions.ParameterNotFoundException
+    name: ParameterNotFoundException
+    type: Class
+  - uid: SHARP3D.Exceptions.PointAndAnalogRateException
+    name: PointAndAnalogRateException
+    type: Class
+  - uid: SHARP3D.Exceptions.UnknownProcessorTypeException
     name: UnknownProcessorTypeException
     type: Class
+- uid: SHARP3D.Header
+  name: SHARP3D.Header
+  type: Namespace
+  items:
+  - uid: SHARP3D.Header.C3dHeader
+    name: C3dHeader
+    type: Struct
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    type: Struct
+- uid: SHARP3D.Parameter
+  name: SHARP3D.Parameter
+  type: Namespace
+  items:
+  - uid: SHARP3D.Parameter.C3dParameterHelper
+    name: C3dParameterHelper
+    type: Class
+  - uid: SHARP3D.Parameter.JsonSupportedParameter
+    name: JsonSupportedParameter
+    type: Struct
+  - uid: SHARP3D.Parameter.SupportedParameter
+    name: SupportedParameter
+    type: Class
+- uid: SHARP3D.Parameter.Data
+  name: SHARP3D.Parameter.Data
+  type: Namespace
+  items:
+  - uid: SHARP3D.Parameter.Data.C3dParameter
+    name: C3dParameter
+    type: Struct
+  - uid: SHARP3D.Parameter.Data.C3dParameterCollection
+    name: C3dParameterCollection
+    type: Class
+  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+    name: C3dParameterGroup
+    type: Struct
+- uid: SHARP3D.Utils
+  name: SHARP3D.Utils
+  type: Namespace
+  items:
+  - uid: SHARP3D.Utils.C3dBytesConvertor
+    name: C3dBytesConvertor
+    type: Class
+- uid: SHARP3D.Utils.Enum
+  name: SHARP3D.Utils.Enum
+  type: Namespace
+  items:
+  - uid: SHARP3D.Utils.Enum.DataType
+    name: DataType
+    type: Enum
+  - uid: SHARP3D.Utils.Enum.HeaderEventFlag
+    name: HeaderEventFlag
+    type: Enum
+  - uid: SHARP3D.Utils.Enum.HeaderEventFlagHelper
+    name: HeaderEventFlagHelper
+    type: Class
+  - uid: SHARP3D.Utils.Enum.ParameterType
+    name: ParameterType
+    type: Enum
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    type: Enum
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper
+    name: ProcessorTypeHelper
+    type: Class
+  - uid: SHARP3D.Utils.Enum.StorageFormat
+    name: StorageFormat
+    type: Enum
 memberLayout: SamePage
