@@ -1,0 +1,592 @@
+{
+  "source_base_path": "/home/runner/work/SHARP3D/SHARP3D/SHARP3D",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3dFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3dFile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3dFile",
+      "Summary": "<p sourcefile=\"api/SHARP3D.C3dFile.yml\" sourcestartlinenumber=\"1\">Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary conversion.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.C3dDataHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.C3dDataHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.C3dDataHelper",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Data.C3dDataHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for reading, parsing, and processing C3D file data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Data.C3dData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Data.C3dData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Data.C3dData",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Data.Data.C3dData.yml\" sourcestartlinenumber=\"1\">Represents 3D data in a C3D file, including points and analog data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Data.C3dDataContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Data.C3dDataContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Data.C3dDataContext",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Data.Data.C3dDataContext.yml\" sourcestartlinenumber=\"1\">Represents the context for reading and processing data from a C3D file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Data.C3dDataPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Data.C3dDataPoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Data.C3dDataPoint",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Data.Data.C3dDataPoint.yml\" sourcestartlinenumber=\"1\">Represents a single 3D data point in a C3D file, including its coordinates, residual, camera visibility, and validity.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.EmptyParameterGroupException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.EmptyParameterGroupException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.EmptyParameterGroupException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.ParameterNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.ParameterNotFoundException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.ParameterNotFoundException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.PointAndAnalogRateException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.PointAndAnalogRateException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.PointAndAnalogRateException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.UnknownProcessorTypeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.UnknownProcessorTypeException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.UnknownProcessorTypeException",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.UnknownProcessorTypeException.yml\" sourcestartlinenumber=\"1\">Exception thrown when an <xref href=\"SHARP3D.Utils.Enum.ProcessorType.UNKOWN\" data-throw-if-not-resolved=\"false\"></xref> type is encountered.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Header.C3dHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Header.C3dHeader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Header.C3dHeader",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Header.C3dHeader.yml\" sourcestartlinenumber=\"1\">Represents the header information of a C3D file format used in 3D motion capture data.\nIt contains helper functions to parse and serialize the header data, as well as fields that map to the C3D header specifications.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Header.C3dHeaderEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Header.C3dHeaderEvent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Header.C3dHeaderEvent",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Header.C3dHeaderEvent.yml\" sourcestartlinenumber=\"1\">Represents an event in a C3D file header, including its time, display flag, and label.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Header.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Header.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Header",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.C3dParameterHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.C3dParameterHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.C3dParameterHelper",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.C3dParameterHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for loading, parsing, and managing C3D file parameters and parameter groups.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.Data.C3dParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.Data.C3dParameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.Data.C3dParameter",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.Data.C3dParameter.yml\" sourcestartlinenumber=\"1\">Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.Data.C3dParameterCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.Data.C3dParameterCollection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.Data.C3dParameterCollection",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.Data.C3dParameterCollection.yml\" sourcestartlinenumber=\"1\">References all the groups and parameters in a two-way dictionary for convenience.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.Data.C3dParameterGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.Data.C3dParameterGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.Data.C3dParameterGroup",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.Data.C3dParameterGroup.yml\" sourcestartlinenumber=\"1\">Represents a group of parameters in a C3D file, including metadata and a list of parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.JsonSupportedParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.JsonSupportedParameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.JsonSupportedParameter",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.JsonSupportedParameter.yml\" sourcestartlinenumber=\"1\">Represents a supported parameter in JSON format, used for serialization and deserialization.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.SupportedParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.SupportedParameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.SupportedParameter",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.SupportedParameter.yml\" sourcestartlinenumber=\"1\">Represents a supported parameter in a C3D file, including its group, name, type, and descriptions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.C3dBytesConvertor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.C3dBytesConvertor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.C3dBytesConvertor",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.C3dBytesConvertor.yml\" sourcestartlinenumber=\"1\">This helper class provide functions to process C3D bytes according to the file maker processor type for compatibility purposes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.DataType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.DataType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.DataType",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.DataType.yml\" sourcestartlinenumber=\"1\">Specifies the data types used in C3D files for parameter and data storage.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.HeaderEventFlag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.HeaderEventFlag.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.HeaderEventFlag",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.HeaderEventFlag.yml\" sourcestartlinenumber=\"1\">Specifies display states for a header event, indicating whether it is ON or OFF.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.HeaderEventFlagHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.HeaderEventFlagHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.HeaderEventFlagHelper",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.HeaderEventFlagHelper.yml\" sourcestartlinenumber=\"1\">Provides helper methods for converting byte values to <xref href=\"SHARP3D.Utils.Enum.HeaderEventFlag\" data-throw-if-not-resolved=\"false\"></xref> enum values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.ParameterType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.ParameterType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.ParameterType",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.ParameterType.yml\" sourcestartlinenumber=\"1\">Specifies the types of parameters used in C3D files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.ProcessorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.ProcessorType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.ProcessorType",
+      "Summary": "<p>This structure index the different processor types used to create C3D files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.ProcessorTypeHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.ProcessorTypeHelper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.ProcessorTypeHelper",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.ProcessorTypeHelper.yml\" sourcestartlinenumber=\"1\">Helper/conversion methods for <xref href=\"SHARP3D.Utils.Enum.ProcessorType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.StorageFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.StorageFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.StorageFormat",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Enum.StorageFormat.yml\" sourcestartlinenumber=\"1\">This enum represent the data storage format flag found in the C3D header at byte 2.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.exceptions.UnknownProcessorTypeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.exceptions.UnknownProcessorTypeException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.UnknownProcessorTypeException",
+      "Summary": "<p sourcefile=\"api/SHARP3D.exceptions.UnknownProcessorTypeException.yml\" sourcestartlinenumber=\"1\">Exception thrown when an <xref href=\"SHARP3D.Utils.Enum.ProcessorType.UNKOWN\" data-throw-if-not-resolved=\"false\"></xref> type is encountered.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.exceptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
