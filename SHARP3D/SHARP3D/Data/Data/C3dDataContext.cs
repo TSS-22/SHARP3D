@@ -71,7 +71,7 @@ namespace SHARP3D.Data.Data
         /// <summary>
         /// Gets the scale factors applied to individual analog channels.
         /// </summary>
-        /// /// <remarks>
+        /// <remarks>
         /// Each element in the array corresponds to the scale factor for a specific analog channel.
         /// </remarks>
         public float[] AnalogChannelScaleFactor { get; }

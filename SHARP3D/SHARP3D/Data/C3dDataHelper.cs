@@ -119,6 +119,7 @@ namespace SHARP3D.Data
                     context.C3dStream.ReadExactly(buffer);
                     pointValues.Add(C3dBytesConvertor.ToInt(buffer, context.Processor) * context.PointScaleFactor);
                 }
+
                 byte camAndSign = (byte)context.C3dStream.ReadByte();
                 int residualInt = context.C3dStream.ReadByte();
                 bool[] cameraMask = GetCameraMask(camAndSign);
@@ -173,19 +174,10 @@ namespace SHARP3D.Data
                 byte[] floatCamSignResidualBuffer = new byte[4];
                 context.C3dStream.ReadExactly(floatCamSignResidualBuffer);
                 // TODO: Handle out of range value but that shouldn't happen
-                Int32 floatCamSignResidual = (Int32)C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
+                Int16 floatCamSignResidual = (Int16)C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
                 byte[] intCamSignResidual = BitConverter.GetBytes(floatCamSignResidual);
-                byte camAndSign;
-                int residualInt;
-                if (BitConverter.IsLittleEndian)
-                {
-                    camAndSign = intCamSignResidual[0];  
-                    residualInt = intCamSignResidual[1];
-                } else
-                {
-                    camAndSign = intCamSignResidual[3];
-                    residualInt = intCamSignResidual[2];
-                }
+                byte camAndSign = intCamSignResidual[0];
+                int residualInt = intCamSignResidual[1];
 
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
@@ -242,8 +234,12 @@ namespace SHARP3D.Data
         /// <param name="cameraMask">The camera mask.</param>
         /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
         /// <returns>True if the point is valid; otherwise, false.</returns>
+        /// <remarks>
+        /// This value can't be trusted. Some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.
+        /// </remarks>
         internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dDataContext context) 
         {
+            // TODO: Isn't this shit show just that I forgot to take into account the differences between the processor ? I guess not because they do specify, byte 1, byte 2. But did they badly explain their shit again?
             //byte[] buffer = new byte[] { camAndSign, (byte)residual };
             //return C3dBytesConvertor.ToInt(buffer, context.Processor) < 0? true:false;
             //return ((camAndSign == 0b10000000) || (camAndSign == 0b00000000));

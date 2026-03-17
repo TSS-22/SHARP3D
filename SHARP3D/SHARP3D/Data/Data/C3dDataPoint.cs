@@ -37,6 +37,9 @@
         /// <summary>
         /// Gets or sets a value indicating whether this point is valid.
         /// </summary>
+        /// <remarks>
+        /// This value can't be trusted, as some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.
+        /// </remarks>
         public bool Valid;
 
 

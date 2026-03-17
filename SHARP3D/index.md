@@ -2,10 +2,8 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+This is a work in progress. 
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+At the moment, SHARP3D can read a large array of C3D files as per the https://www.c3d.org/ guidelines.
 
-## Quick Start Notes:
-
-1. Add images to the *images* folder if the file is referencing an image.
+The API was last updated on 2026/03/09.

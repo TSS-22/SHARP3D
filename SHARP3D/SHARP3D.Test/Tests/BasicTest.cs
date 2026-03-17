@@ -145,7 +145,15 @@ namespace SHARP3D.Test.TestSuites
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Assert.Null(expectedResults.PointFirst0[i]);
+                    if (expectedResults.PointFirst0[i] == null)
+                    {
+                        Assert.Null(expectedResults.PointFirst0[i]);
+                    }
+                    else 
+                    {
+                        Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+                    }
+                        
                 }
             }
 
@@ -161,7 +169,14 @@ namespace SHARP3D.Test.TestSuites
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Assert.Null(expectedResults.PointLast0[i]);
+                    if (expectedResults.PointLast0[i] == null)
+                    {
+                        Assert.Null(expectedResults.PointLast0[i]);
+                    }
+                    else
+                    {
+                        Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+                    }
                 }
             }
             
