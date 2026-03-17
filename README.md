@@ -13,4 +13,4 @@ last updated on 2026/03/09
 
 # Read C3D files
 
-Working. Beta level: lot of testing needed to support "all" files. Need to add USEDX and such for longer file. Need to work out the FRAMESX files too.
+Working. Beta level: most file are read successfully, but there is still some testing needed to support "all" files (mainly incorrectly formatted files and long file that feature more than 255 marker/analog channel and/or more than 65535 frames). Need to add USEDX and such for longer file. Need to work out the FRAMESX files too.
