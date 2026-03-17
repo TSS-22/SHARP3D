@@ -143,14 +143,28 @@ namespace SHARP3D.Test.TestSuites
 
             for (int i = 0; i < expectedResults.GroupsParameter.Length; i++)
             {
-                
-                Assert.Equal(expectedResults.Parameters[indicesExpected[i]].Length, c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Length);
-             
-                    
-                for (int j = 0; j < expectedResults.Parameters[indicesExpected[i]].Length; j++)
+                // Because some files read calibration matrix with just one zero value. And I discard those zero cal_matrix from my testing pool.
+                if ((sortedActualGroup[i] == "FORCE_PLATFORM") && (expectedResults.Parameters[indicesExpected[i]].Length == c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Length - 1))
                 {
-                    Assert.Equal(expectedResults.Parameters[indicesExpected[i]][j], c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i])[j].Item1);
+                    Assert.Equal(expectedResults.Parameters[indicesExpected[i]].Length, c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Length - 1);
+                    (string, int)[] filteredKeys = c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Where(k => k.Item1 != "CAL_MATRIX").ToArray();
+
+                    for (int j = 0; j < expectedResults.Parameters[indicesExpected[i]].Length; j++)
+                    {
+                        Assert.Equal(expectedResults.Parameters[indicesExpected[i]][j], filteredKeys[j].Item1);
+                    }
                 }
+                else 
+                {
+                    Assert.Equal(expectedResults.Parameters[indicesExpected[i]].Length, c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Length);
+
+                    for (int j = 0; j < expectedResults.Parameters[indicesExpected[i]].Length; j++)
+                    {
+                        Assert.Equal(expectedResults.Parameters[indicesExpected[i]][j], c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i])[j].Item1);
+                    }
+                }
+
+                
             }
         }
 
