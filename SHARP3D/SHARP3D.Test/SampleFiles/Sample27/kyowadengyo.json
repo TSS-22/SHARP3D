@@ -1,12 +1,10 @@
 {
     "groups_parameter": [
-        "",
         "POINT",
         "ANALOG",
         "FORCE_PLATFORM"
     ],
     "parameters": [
-        [],
         [
             "USED",
             "FRAMES",

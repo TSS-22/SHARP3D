@@ -4,7 +4,6 @@
         "ANALOG",
         "FORCE_PLATFORM",
         "SEG",
-        "",
         "SUBJECTS"
     ],
     "parameters": [
@@ -49,7 +48,6 @@
             "RESIDUAL_ERROR_FACTOR",
             "PREDICTION_ERROR"
         ],
-        [],
         [
             "IS_STATIC",
             "USES_PREFIXES",

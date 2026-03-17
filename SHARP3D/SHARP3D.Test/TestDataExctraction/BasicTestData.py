@@ -6,7 +6,7 @@ import sys
 import simplejson
 
 # Just to have arguments for debug:
-# ../SampleFiles/Sample01/
+# ../SampleFiles/Sample03/
 
 c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 
@@ -17,17 +17,18 @@ for path in c3d_files:
     try:
         c = c3d(path, ignore_bad_formatting=True)
         
-        groups_parameter = list(c['parameters'].keys())
+        groups_parameter = [group for group in list(c['parameters'].keys()) if group not in {"__METADATA__", "", None}]
+        
 
         parameters = list()
 
         for group in groups_parameter:
-            if group == "__METADATA__":
+            if group in {"__METADATA__", "", None}:
                 continue
             # parameters.append([parameter for parameter in c['parameters'][group] if parameter not in {"__METADATA__","BITS","FORMAT"}])
             temp = list()
             for parameter in c['parameters'][group]:
-                if parameter not in {"__METADATA__"}:
+                if parameter not in {"__METADATA__", ""}:
                     if (parameter == "FORMAT") and len(c["parameters"]["ANALOG"]["FORMAT"]["value"]) == 0:
                         continue
                     if (parameter == "BITS") and len(c["parameters"]["ANALOG"]["BITS"]["value"]) == 0:

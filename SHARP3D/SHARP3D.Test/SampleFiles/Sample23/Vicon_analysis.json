@@ -5,7 +5,6 @@
         "POINT",
         "ANALOG",
         "FORCE_PLATFORM",
-        "",
         "EVENT_CONTEXT",
         "EVENT",
         "ANALYSIS",
@@ -72,7 +71,6 @@
             "ORIGIN",
             "CHANNEL"
         ],
-        [],
         [
             "USED",
             "ICON_IDS",

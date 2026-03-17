@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Test.Utils;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -112,21 +113,43 @@ namespace SHARP3D.Test.TestSuites
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
             Assert.Equal(expectedResults.GroupsParameter.Length, c3dFile.ParameterCollection.ListGroups().Length);
+            // Sort the group because with the empty group from EZC3D, the order is off when that happens.
+            string[] sortedExpectedGroupsParameter = expectedResults.GroupsParameter.OrderBy(group => group).ToArray();
+            string[] sortedActualGroupsParameter = c3dFile.ParameterCollection.ListGroups().OrderBy(group => group).ToArray();
+
             for (int i = 0; i < expectedResults.GroupsParameter.Length; i++)
             {
-                Assert.Equal(expectedResults.GroupsParameter[i], c3dFile.ParameterCollection.ListGroups()[i]);
+                Assert.Equal(sortedExpectedGroupsParameter[i], sortedActualGroupsParameter[i]);
             }
         }
 
         private static void AssertParameterMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
             Assert.Equal(expectedResults.GroupsParameter.Length, c3dFile.ParameterCollection.ListGroups().Length);
+            string[] sortedExpectedGroupsParameter = expectedResults.GroupsParameter.OrderBy(group => group).ToArray();
+            string[] sortedActualGroupsParameter = c3dFile.ParameterCollection.ListGroups().OrderBy(group => group).ToArray();
+
+            // Sort the group because with the empty group from EZC3D, the order is off when that happens.
+
+            // Sort Expected and get corresponding index shuffle
+            int[] indicesExpected = Enumerable.Range(0, expectedResults.GroupsParameter.Length).ToArray();
+            string[] sortedExpectedGroup = expectedResults.GroupsParameter;
+            Array.Sort(sortedExpectedGroup, indicesExpected);
+
+            // Sort Actual and get corresponding index shuffle
+            int[] indicesActual = Enumerable.Range(0, c3dFile.ParameterCollection.ListGroups().Length).ToArray();
+            string[] sortedActualGroup = c3dFile.ParameterCollection.ListGroups();
+            Array.Sort(sortedActualGroup, indicesActual);
+
             for (int i = 0; i < expectedResults.GroupsParameter.Length; i++)
             {
-                Assert.Equal(expectedResults.Parameters[i].Length, c3dFile.ParameterCollection.ListGroupParameters(i).Length);
-                for (int j = 0; j < expectedResults.Parameters[i].Length; j++)
+                
+                Assert.Equal(expectedResults.Parameters[indicesExpected[i]].Length, c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i]).Length);
+             
+                    
+                for (int j = 0; j < expectedResults.Parameters[indicesExpected[i]].Length; j++)
                 {
-                    Assert.Equal(expectedResults.Parameters[i][j], c3dFile.ParameterCollection.ListGroupParameters(i)[j].Item1);
+                    Assert.Equal(expectedResults.Parameters[indicesExpected[i]][j], c3dFile.ParameterCollection.ListGroupParameters(indicesActual[i])[j].Item1);
                 }
             }
         }
