@@ -397,15 +397,15 @@ references:
   commentId: T:SHARP3D.Data.Data.C3dDataContext
   fullName: SHARP3D.Data.Data.C3dDataContext
   nameWithType: C3dDataContext
-- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32)
-  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int)
-  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32_
-  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32)
-  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer)
-  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int)
-  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer)
-  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int)
-  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer)
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32,System.Int32)
+  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int, int)
+  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32_System_Int32_
+  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32,System.Int32)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int, int)
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
+  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int, int)
+  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
 - uid: SHARP3D.Data.Data.C3dDataContext.#ctor*
   name: C3dDataContext
   href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_
@@ -713,6 +713,74 @@ references:
   commentId: N:SHARP3D.Exceptions
   fullName: SHARP3D.Exceptions
   nameWithType: SHARP3D.Exceptions
+- uid: SHARP3D.Exceptions.C3dBadFormatingException
+  name: C3dBadFormatingException
+  href: api/SHARP3D.Exceptions.C3dBadFormatingException.html
+  commentId: T:SHARP3D.Exceptions.C3dBadFormatingException
+  fullName: SHARP3D.Exceptions.C3dBadFormatingException
+  nameWithType: C3dBadFormatingException
+- uid: SHARP3D.Exceptions.C3dBadFormatingException.#ctor(System.String)
+  name: C3dBadFormatingException(string)
+  href: api/SHARP3D.Exceptions.C3dBadFormatingException.html#SHARP3D_Exceptions_C3dBadFormatingException__ctor_System_String_
+  commentId: M:SHARP3D.Exceptions.C3dBadFormatingException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SHARP3D.Exceptions.C3dBadFormatingException.C3dBadFormatingException(string)
+  fullName.vb: SHARP3D.Exceptions.C3dBadFormatingException.New(String)
+  nameWithType: C3dBadFormatingException.C3dBadFormatingException(string)
+  nameWithType.vb: C3dBadFormatingException.New(String)
+- uid: SHARP3D.Exceptions.C3dBadFormatingException.#ctor(System.String,System.Exception)
+  name: C3dBadFormatingException(string, Exception)
+  href: api/SHARP3D.Exceptions.C3dBadFormatingException.html#SHARP3D_Exceptions_C3dBadFormatingException__ctor_System_String_System_Exception_
+  commentId: M:SHARP3D.Exceptions.C3dBadFormatingException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: SHARP3D.Exceptions.C3dBadFormatingException.C3dBadFormatingException(string, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.C3dBadFormatingException.New(String, System.Exception)
+  nameWithType: C3dBadFormatingException.C3dBadFormatingException(string, Exception)
+  nameWithType.vb: C3dBadFormatingException.New(String, Exception)
+- uid: SHARP3D.Exceptions.C3dBadFormatingException.#ctor*
+  name: C3dBadFormatingException
+  href: api/SHARP3D.Exceptions.C3dBadFormatingException.html#SHARP3D_Exceptions_C3dBadFormatingException__ctor_
+  commentId: Overload:SHARP3D.Exceptions.C3dBadFormatingException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Exceptions.C3dBadFormatingException.C3dBadFormatingException
+  fullName.vb: SHARP3D.Exceptions.C3dBadFormatingException.New
+  nameWithType: C3dBadFormatingException.C3dBadFormatingException
+  nameWithType.vb: C3dBadFormatingException.New
+- uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+  name: C3dIncompatiblePointUsedValuesException
+  href: api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html
+  commentId: T:SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+  fullName: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+  nameWithType: C3dIncompatiblePointUsedValuesException
+- uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String)
+  name: C3dIncompatiblePointUsedValuesException(string)
+  href: api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html#SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_System_String_
+  commentId: M:SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException(string)
+  fullName.vb: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.New(String)
+  nameWithType: C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException(string)
+  nameWithType.vb: C3dIncompatiblePointUsedValuesException.New(String)
+- uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String,System.Exception)
+  name: C3dIncompatiblePointUsedValuesException(string, Exception)
+  href: api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html#SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_System_String_System_Exception_
+  commentId: M:SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException(string, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.New(String, System.Exception)
+  nameWithType: C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException(string, Exception)
+  nameWithType.vb: C3dIncompatiblePointUsedValuesException.New(String, Exception)
+- uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor*
+  name: C3dIncompatiblePointUsedValuesException
+  href: api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html#SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_
+  commentId: Overload:SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException
+  fullName.vb: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.New
+  nameWithType: C3dIncompatiblePointUsedValuesException.C3dIncompatiblePointUsedValuesException
+  nameWithType.vb: C3dIncompatiblePointUsedValuesException.New
 - uid: SHARP3D.Exceptions.EmptyParameterGroupException
   name: EmptyParameterGroupException
   href: api/SHARP3D.Exceptions.EmptyParameterGroupException.html
@@ -747,6 +815,40 @@ references:
   fullName.vb: SHARP3D.Exceptions.EmptyParameterGroupException.New
   nameWithType: EmptyParameterGroupException.EmptyParameterGroupException
   nameWithType.vb: EmptyParameterGroupException.New
+- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  name: IncompatiblePointAndAnalogRate
+  href: api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html
+  commentId: T:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  nameWithType: IncompatiblePointAndAnalogRate
+- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor(System.String)
+  name: IncompatiblePointAndAnalogRate(string)
+  href: api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html#SHARP3D_Exceptions_IncompatiblePointAndAnalogRate__ctor_System_String_
+  commentId: M:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate(string)
+  fullName.vb: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.New(String)
+  nameWithType: IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate(string)
+  nameWithType.vb: IncompatiblePointAndAnalogRate.New(String)
+- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor(System.String,System.Exception)
+  name: IncompatiblePointAndAnalogRate(string, Exception)
+  href: api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html#SHARP3D_Exceptions_IncompatiblePointAndAnalogRate__ctor_System_String_System_Exception_
+  commentId: M:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate(string, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.New(String, System.Exception)
+  nameWithType: IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate(string, Exception)
+  nameWithType.vb: IncompatiblePointAndAnalogRate.New(String, Exception)
+- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor*
+  name: IncompatiblePointAndAnalogRate
+  href: api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html#SHARP3D_Exceptions_IncompatiblePointAndAnalogRate__ctor_
+  commentId: Overload:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate
+  fullName.vb: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.New
+  nameWithType: IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate
+  nameWithType.vb: IncompatiblePointAndAnalogRate.New
 - uid: SHARP3D.Exceptions.ParameterNotFoundException
   name: ParameterNotFoundException
   href: api/SHARP3D.Exceptions.ParameterNotFoundException.html

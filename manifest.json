@@ -110,6 +110,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.C3dBadFormatingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.C3dBadFormatingException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.C3dBadFormatingException",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.C3dBadFormatingException.yml\" sourcestartlinenumber=\"1\">Exception thrown when an C3D file is badly formatted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.yml\" sourcestartlinenumber=\"1\">Exception thrown when an C3D file is badly formatted.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Exceptions.EmptyParameterGroupException.yml",
       "output": {
         ".html": {
@@ -120,6 +148,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Exceptions.EmptyParameterGroupException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.IncompatiblePointAndAnalogRate",
       "Summary": null
     },
     {

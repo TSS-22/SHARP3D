@@ -90,10 +90,18 @@
 <h1 id="samples-and-tests">Samples and Tests</h1>
 <p>You can find C3D samples on the (C3D website)[https://www.c3d.org/sampledata.html].
 A large part of their set is used for testing this library and can befound in SHARP3D.Test.SampleFiles.</p>
+<p>The expected results where extracted from C3D files automatically using (<strong>ezc3d</strong>)[https://github.com/pyomeca/ezc3d], they can therefore be subject to some problems.
+The values that were obviously wrongly read using (<strong>ezc3d</strong>)[https://github.com/pyomeca/ezc3d] have been discarded or sanitized. When in doubt, binaries files where manually checked using (Ghidra)[https://github.com/NationalSecurityAgency/ghidra] and (Qualisys Track Manager)[https://www.qualisys.com/software/qualisys-track-manager/]
+You can extract the test values from the C3D samples via the RunTestDataScripts.py (SHARP3D.Test/TestDataExctraction/RunTestDataScripts.py).</p>
+<p>The following .JSON file have been corrected by hand due to (<strong>ezc3d</strong>)[https://github.com/pyomeca/ezc3d] encountering some issues (usually due to bad formatting from the files themselves):</p>
+<ul>
+<li>&quot;kyowadengyo.json&quot; (Expected path: &quot;SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json&quot;)</li>
+</ul>
+<p>The SHARP3D project is independant from and not endorssed by any of the aformentionned projects.</p>
 <p>Only two files are missing as they are above the 100 MB limit from Github:</p>
 <ul>
 <li>&quot;c24089 13.c3d&quot; (Expected path: &quot;SHARP3D.Test/SampleFiles/Sample12/c24089 13.c3d&quot;)</li>
-<li>&quot;large02.c3d&quot; (Expected path: &quot;SHARP3D/SHARP3D.Test/TestFiles/Sample31/large02.c3d&quot;)</li>
+<li>&quot;large02.c3d&quot; (Expected path: &quot;SHARP3D.Test/TestFiles/Sample31/large02.c3d&quot;)</li>
 </ul>
 <p>The corresponding .JSON files are still in the respective folders so you can simply add the missing .C3D back manually to be able to run all our test sets.</p>
 

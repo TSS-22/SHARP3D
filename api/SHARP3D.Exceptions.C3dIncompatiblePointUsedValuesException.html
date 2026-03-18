@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class EmptyParameterGroupException | SHARP3D Documentation </title>
+      <title>Class C3dIncompatiblePointUsedValuesException | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class EmptyParameterGroupException | SHARP3D Documentation ">
+      <meta name="title" content="Class C3dIncompatiblePointUsedValuesException | SHARP3D Documentation ">
       
-      
+      <meta name="description" content="Exception thrown when an C3D file is badly formatted.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Exceptions_EmptyParameterGroupException.md&amp;value=---%0Auid%3A%20SHARP3D.Exceptions.EmptyParameterGroupException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException.md&amp;value=---%0Auid%3A%20SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SHARP3D.Exceptions.EmptyParameterGroupException">
+        <article data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException">
 
 
 
-  <h1 id="SHARP3D_Exceptions_EmptyParameterGroupException" data-uid="SHARP3D.Exceptions.EmptyParameterGroupException" class="text-break">
-Class EmptyParameterGroupException  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/IncompatiblePointAndAnalogRate.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException" data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException" class="text-break">
+Class C3dIncompatiblePointUsedValuesException  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/C3dBadFormatingException.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,12 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Exception thrown when an C3D file is badly formatted.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EmptyParameterGroupException : ArgumentException, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class C3dIncompatiblePointUsedValuesException : C3dBadFormatingException, ISerializable</code></pre>
   </div>
 
 
@@ -112,9 +113,8 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.systemexception">SystemException</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></div>
-      <div><span class="xref">EmptyParameterGroupException</span></div>
+      <div><a class="xref" href="SHARP3D.Exceptions.C3dBadFormatingException.html">C3dBadFormatingException</a></div>
+      <div><span class="xref">C3dIncompatiblePointUsedValuesException</span></div>
     </dd>
   </dl>
 
@@ -129,18 +129,6 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception.throwifnullorempty">ArgumentException.ThrowIfNullOrEmpty(string, string)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception.throwifnullorwhitespace">ArgumentException.ThrowIfNullOrWhiteSpace(string, string)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception.message">ArgumentException.Message</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception.paramname">ArgumentException.ParamName</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception">Exception.GetBaseException()</a>
     </div>
@@ -161,6 +149,9 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception.innerexception">Exception.InnerException</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception.message">Exception.Message</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception.source">Exception.Source</a>
@@ -200,19 +191,19 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
 </h2>
 
 
-  <a id="SHARP3D_Exceptions_EmptyParameterGroupException__ctor_" data-uid="SHARP3D.Exceptions.EmptyParameterGroupException.#ctor*"></a>
+  <a id="SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_" data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor*"></a>
 
-  <h3 id="SHARP3D_Exceptions_EmptyParameterGroupException__ctor_System_String_" data-uid="SHARP3D.Exceptions.EmptyParameterGroupException.#ctor(System.String)">
-  EmptyParameterGroupException(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/IncompatiblePointAndAnalogRate.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_System_String_" data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String)">
+  C3dIncompatiblePointUsedValuesException(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/C3dBadFormatingException.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the EmptyParameterGroupException class with a specified error message.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the C3dIncompatiblePointUsedValuesException class with a specified error message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EmptyParameterGroupException(string message)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dIncompatiblePointUsedValuesException(string message)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -233,20 +224,20 @@ Class EmptyParameterGroupException  <a class="header-action link-secondary" titl
 
 
 
-  <a id="SHARP3D_Exceptions_EmptyParameterGroupException__ctor_" data-uid="SHARP3D.Exceptions.EmptyParameterGroupException.#ctor*"></a>
+  <a id="SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_" data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor*"></a>
 
-  <h3 id="SHARP3D_Exceptions_EmptyParameterGroupException__ctor_System_String_System_Exception_" data-uid="SHARP3D.Exceptions.EmptyParameterGroupException.#ctor(System.String,System.Exception)">
-  EmptyParameterGroupException(string, Exception)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/IncompatiblePointAndAnalogRate.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Exceptions_C3dIncompatiblePointUsedValuesException__ctor_System_String_System_Exception_" data-uid="SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.#ctor(System.String,System.Exception)">
+  C3dIncompatiblePointUsedValuesException(string, Exception)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/C3dBadFormatingException.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the EmptyParameterGroupException class with a specified error message and a
+  <div class="markdown level1 summary"><p>Initializes a new instance of the C3dIncompatiblePointUsedValuesException class with a specified error message and a
 reference to the inner exception that is the cause of this exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EmptyParameterGroupException(string message, Exception innerException)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dIncompatiblePointUsedValuesException(string message, Exception innerException)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -275,7 +266,7 @@ specified.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/IncompatiblePointAndAnalogRate.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Exceptions/C3dBadFormatingException.cs/#L37" class="edit-link">Edit this page</a>
         </div>
 
 
