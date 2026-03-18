@@ -171,6 +171,9 @@ namespace SHARP3D.Parameter
         /// <param name="pointerDataSection">The pointer to the data section in the C3D file.</param>
         /// <returns>A list of <see cref="C3dParameterGroup"/> parsed from the file stream.</returns>
         /// <remarks>
+        /// <para>
+        /// Empty groups (which have no parameters linked to them) are discarded. This is implemented due to Vicon potentially adding twice PROCESSING group, once empty and once with the actual parameters.
+        /// </para>
         /// TODO: Handle UTF-8 error cases as per https://en.wikipedia.org/wiki/UTF-8#Error_handling
         /// </remarks>
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
@@ -464,6 +467,26 @@ namespace SHARP3D.Parameter
                 return group;
             }).ToList();
 
+            // Discard empty groups
+            groups = groups.Where(g => g.Parameters.Count > 0).ToList();
+
+
+            // Discard duplicate parameter, because Vicon like to put some duplicate
+            foreach (var group in groups)
+            {
+                var uniqueParameters = group.Parameters
+                    .GroupBy(p => p.Name)
+                    .Select(g => g.First())
+                    .ToList();
+
+                group.Parameters.Clear();
+                foreach (var param in uniqueParameters)
+                {
+                    group.Parameters.Add(param);
+                }
+            }
+
+            // TODO: Change this as it is useless at the moment and detrimental for use of the end user .dll
             for (int i = 0; i < groups.Count; i++)
             {
                 for(int j=0; j < groups[i].Parameters.Count; j++)

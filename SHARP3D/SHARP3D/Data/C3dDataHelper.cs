@@ -55,7 +55,6 @@ namespace SHARP3D.Data
             for (int i = 0; i < context.FramesNumber; i++)
             {
                 (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
-                Console.WriteLine(context.C3dStream.Position);
                 points.Add(frame.Item1);
                 analogs.Add(frame.Item2);
             }
