@@ -9,7 +9,6 @@ Implementation of the C3D file format in C#, as per the definition and guideline
 
 https://tss-22.github.io/SHARP3D/index.html
 
-last updated on 2026/03/09
 
 # Read C3D files
 

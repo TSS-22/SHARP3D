@@ -2,6 +2,8 @@
 
 namespace SHARP3D.Data.Data
 {
+    // TODO: Check that all the values are actually used and therefore necessary.
+
     /// <summary>
     /// Represents the context for reading and processing data from a C3D file.
     /// </summary>
@@ -107,6 +109,7 @@ namespace SHARP3D.Data.Data
         /// </summary>
         /// <param name="analogChannelScaleFactor">The scale factors applied to individual analog channels.</param>
         /// <param name="analogOffset">The offset for analog data in the C3D file.</param>
+        /// <param name="analogSamplePerFrame">The number of analog sample in each frame.</param>
         /// <exception cref="Exception">
         /// Thrown if the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/> is not an integer.
         /// </exception>
@@ -123,7 +126,8 @@ namespace SHARP3D.Data.Data
             float pointScaleFactor,
             float analogGeneralScaleFactor,
             float []analogChannelScaleFactor,
-            int analogOffset)
+            int analogOffset,
+            int analogSamplePerFrame)
         {
             C3dStream = c3dStream;
             Processor = processor;
@@ -134,15 +138,7 @@ namespace SHARP3D.Data.Data
             PointRate = pointRate;
             AnalogRate = analogRate;
             AnalogChannels = analogChannels;
-            float tempAnalogSamplePerFrame = analogRate / pointRate;
-            if (Math.Abs(tempAnalogSamplePerFrame - (int) tempAnalogSamplePerFrame) > 0)
-            {
-                throw new Exception("Rate incompatibility"); //TODO: make it cleaner
-            }
-            else
-            {
-                AnalogSamplePerFrame = ((int) tempAnalogSamplePerFrame);
-            }
+            AnalogSamplePerFrame = analogSamplePerFrame;
             PointScaleFactor = pointScaleFactor;
             AnalogGeneralScaleFactor = analogGeneralScaleFactor;
             AnalogChannelScaleFactor = analogChannelScaleFactor;

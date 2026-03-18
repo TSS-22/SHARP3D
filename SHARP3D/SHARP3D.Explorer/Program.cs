@@ -10,6 +10,8 @@ namespace SHARP3D.Explorer
         public static readonly string PathEb015sr = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015sr.c3d";
         public static readonly string PathEb015vi = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015vi.c3d";
         public static readonly string PathEb015vr = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample01\Eb015vr.c3d";
+        
+        public static readonly string PathSample27 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample27\kyowadengyo.c3d";
 
         public static readonly string PathFileSample02 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample02\dec_int.c3d";
 
@@ -46,7 +48,7 @@ namespace SHARP3D.Explorer
         private static int Main()
         { 
             //C3dFile c3dFile = C3dFile.LoadFromFile(PathFileSample02);
-            C3dFile c3dFile = C3dFile.LoadFromFile(PathEb015pi);
+            C3dFile c3dFile = C3dFile.LoadFromFile(PathSample27);
 
             //for (int i = 0; i < labelsDimensions[1]; i++) 
             //{

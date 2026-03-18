@@ -239,7 +239,8 @@ namespace SHARP3D.Test.TestSuites
             AssertPointsDataMatch(expectedResults, c3dFile);
             // ANALOGS
             Assert.Equal(expectedResults.AnalogFirst0, c3dFile.Data.Analogs[0][0][0]);
-            Assert.Equal(expectedResults.AnalogFirst0, c3dFile.Data.Analogs[0][0][0]);
+            //c3dFile.Data.Points.Count - 1
+            Assert.Equal(expectedResults.AnalogLast0, c3dFile.Data.Analogs[c3dFile.Data.Analogs.Count - 1][c3dFile.Data.Analogs[c3dFile.Data.Analogs.Count - 1].Length - 1][0]);
 
             // Assert the Frames count
             // POINTS

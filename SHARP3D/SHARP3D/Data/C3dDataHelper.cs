@@ -55,6 +55,7 @@ namespace SHARP3D.Data
             for (int i = 0; i < context.FramesNumber; i++)
             {
                 (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
+                Console.WriteLine(context.C3dStream.Position);
                 points.Add(frame.Item1);
                 analogs.Add(frame.Item2);
             }
@@ -107,7 +108,6 @@ namespace SHARP3D.Data
         {
             // Get POINTS
             List<C3dDataPoint> points = new List<C3dDataPoint>();
-            //List<float> analogs = new List<float>();
             List<float[]> analogs = new List<float[]>();
 
             for (int i = 0; i < context.MarkersPerFrame; i++)
@@ -133,7 +133,6 @@ namespace SHARP3D.Data
                 });
             }
             // Get Analogs
-            //List<float[]> analogValues = new List<float[]>();
             for (int i = 0; i < context.AnalogSamplePerFrame; i++)
             {
                 float[] oneFullAnalogsSample = new float[context.AnalogChannels];
@@ -143,10 +142,8 @@ namespace SHARP3D.Data
                     context.C3dStream.ReadExactly(buffer);
                     oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
-                //analogValues.Add(oneFullAnalogsSample);
                 analogs.Add(oneFullAnalogsSample);
             }
-            // Then I think I can just return the list<float> as array for analog and the List<C3dDataPoint> and get going.
             return (points.ToArray(), analogs.ToArray());
         }
 

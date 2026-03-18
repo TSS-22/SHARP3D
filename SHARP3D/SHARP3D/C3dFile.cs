@@ -282,10 +282,9 @@ namespace SHARP3D
             float analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f;
             float[] tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[]  { 0f};
             float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray(); ;
-            
-
-
             int analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
+
+            
 
             // TODO: actually sort the error that can come
             C3dDataContext dataContext = new C3dDataContext(
@@ -294,15 +293,115 @@ namespace SHARP3D
                 dataTypeFile: dataTypeFile,
                 pointerDataSection: pointerDataSection,
                 framesNumber: framesNumber,
-                markersPerFrame:markersPerFrame,
+                markersPerFrame: GetRightAmountMarkerPerFrame(
+                framesNumber,
+                analogChannels,
+                GetAnalogSamplePerFrame(pointRate, analogRate),
+                    Header.MarkersPerFrame,
+                    markersPerFrame,
+                    pointerDataSection,
+                    c3dStream.Length,
+                    dataTypeFile
+                    ),
                 pointRate: pointRate,
                 analogRate: analogRate,
                 analogChannels:analogChannels,
                 pointScaleFactor: pointScaleFactor,
                 analogGeneralScaleFactor: analogGeneralScaleFactor,
                 analogChannelScaleFactor: analogChannelScaleFactor,
-                analogOffset: analogOffset);
+                analogOffset: analogOffset,
+                analogSamplePerFrame: GetAnalogSamplePerFrame(pointRate, analogRate)
+                );
+            
+            
+
             return C3dDataHelper.FromFileStream(dataContext);
+        }
+
+
+        /// <summary>
+        /// Calculates the number of analog samples per 3D frame.
+        /// </summary>
+        /// <param name="pointRate">
+        /// The acquisition rate of the 3D point data, in Hz.
+        /// </param>
+        /// <param name="analogRate">
+        /// The acquisition rate of the analog data, in Hz.
+        /// </param>
+        /// <returns>
+        /// The number of analog samples per 3D frame, as an integer.
+        /// </returns>
+        /// <exception cref="IncompatiblePointAndAnalogRate">
+        /// Thrown if the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/> is not an integer.
+        /// This indicates that the point and analog rates are incompatible.
+        /// </exception>
+        /// <remarks>
+        /// The result is calculated as the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/>.
+        /// If this ratio is not an integer, the function throws an exception, as the C3D file format requires this ratio to be an integer.
+        /// </remarks>
+        internal int GetAnalogSamplePerFrame(float pointRate, float analogRate)
+        {
+            float analogSamplePerFrame = analogRate / pointRate;
+            if (Math.Abs(analogSamplePerFrame - (int)analogSamplePerFrame) > 0)
+            {
+                throw new IncompatiblePointAndAnalogRate("");
+            }
+            else
+            {
+                return ((int)analogSamplePerFrame);
+            }
+        }
+
+        /// <summary>
+        /// Return the right amount of marker per frame.
+        /// </summary>
+        /// <param name="frameNumber">The number of frame in the C3D file.</param>
+        /// <param name="analogChannels">The number of analog channels.</param>
+        /// <param name="analogSamplePerFrame">The number of analog sample per Data Frame.</param>
+        /// <param name="headerPointUsed">The value of POINT:USED present from the Header section.</param>
+        /// <param name="parameterPointUsed">The value of POINT:USED present from the Parameter section.</param>
+        /// <param name="pointerDataSection">The value the pointer to the Data section.</param>
+        /// <param name="c3dStreamLength">The length in bytes of the C3D file.</param>
+        /// <param name="dataType">The <see cref="DataType"/> of the C3D file.</param>
+        /// <returns>The actual amount of marker per frame.</returns>
+        /// <remarks>
+        /// Some file have bad construction and features wrong value in either HEADER:POINT:USED or PARAMETER:POINT:USED. Reading them then comes down to luck.
+        /// Despite the fact that the creator of those file messed up, they might still be usable.
+        /// We assume the followin values to be always truthful:
+        /// <list type="bullet">
+        ///     <item>PARAMETER:POINT:FRAME</item>
+        ///     <item>PARAMETER:POINT:RATE</item>
+        ///     <item>PARAMETER:ANALOG:RATE</item>
+        /// </list>
+        /// And that at least either the HEADER or PARAMETER value of POINT:USED is truthful.
+        /// </remarks>
+        /// <exception cref="C3dBadFormatingException">
+        /// Thrown if no value of POINT:USED is valid for the amount of frame in the file.
+        /// </exception>
+        internal int GetRightAmountMarkerPerFrame(
+            int frameNumber,
+            int analogChannels,
+            int analogSamplePerFrame,
+            int headerPointUsed,
+            int parameterPointUsed,
+            int pointerDataSection,
+            long c3dStreamLength,
+            DataType dataType) 
+        {
+            long lengthFromHeader = frameNumber * ((headerPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataType) + pointerDataSection;
+            long lengthFromParameter = frameNumber * ((parameterPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataType) + pointerDataSection;
+            if ((lengthFromHeader == lengthFromParameter) || ((lengthFromHeader <= c3dStreamLength) && (lengthFromParameter > c3dStreamLength)))
+            {
+                return headerPointUsed;
+            }
+            else if ((lengthFromParameter <= c3dStreamLength) && (lengthFromHeader > c3dStreamLength))
+            {
+                return parameterPointUsed;
+            }
+            else
+            {
+                throw new C3dIncompatiblePointUsedValuesException("Incompatible values of HEADER:POINT:USED and PARAMETER:POINT:USED in regard to file length.");
+            }
         }
 
         /// <summary>

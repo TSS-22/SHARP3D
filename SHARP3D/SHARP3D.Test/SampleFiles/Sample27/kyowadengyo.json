@@ -41,12 +41,12 @@
         1319.739857569337
     ],
     "point_last_0": [
-        0.0,
-        0.0,
-        0.0
+        -161.23,
+        1560.08435,
+        1301.24341
     ],
-    "analog_first_0": -0.19914300739765167,
-    "analog_last_0": -407.645736142993,
-    "point_frames": 145,
-    "analog_frames": 145
+    "analog_first_0": 0.597429037,
+    "analog_last_0": 0.995715,
+    "point_frames": 152,
+    "analog_frames": 152
 }
