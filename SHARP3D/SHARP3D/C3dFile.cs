@@ -8,6 +8,7 @@ using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
@@ -400,11 +401,19 @@ namespace SHARP3D
         /// Thrown internally if a parameter is not found, but caught and ignored to allow fallback to other methods.
         /// </exception>
         internal int GetRightAmountOfFrames() {
-            
+
             // As per page 93 and 94 of the C3D User Guide
-            try 
+            try
             {
-                return (GetParameter("point", "long_frames").Data?.GetValue(0) as int?) ?? 0;
+                int frameNumber = GetPointFrameValue("long_frames");
+                if (frameNumber > 0)
+                {
+                    return frameNumber;
+                }
+                else
+                {
+                    throw new C3dBadFrameNumberFormatingException("");
+                }
             }
             catch (ParameterNotFoundException e)
             {
@@ -414,17 +423,30 @@ namespace SHARP3D
             {
                 // Do nothing and try the other parameters
             }
+            catch (C3dBadFrameNumberFormatingException e) 
+            { 
+            
+            }
 
             // As per page 99,100 and 101 of the C3D User Guide.
             try
             {
-                C3dParameter trialActualStartField = (GetParameter("trial", "actual_start_field"));
-                C3dParameter trialActualEndField = (GetParameter("trial", "actual_end_field"));
+                C3dParameter trialActualStartField = GetParameter("trial", "actual_start_field");
+                C3dParameter trialActualEndField = GetParameter("trial", "actual_end_field");
 
-                int firstFrame = ((trialActualStartField.Data.GetValue(0) as int?) ?? 0) + ((trialActualStartField.Data.GetValue(1) as int?) ?? 0) * 65535;
-                int lastFrame = ((trialActualEndField.Data.GetValue(0) as int?) ?? 0) + ((trialActualEndField.Data.GetValue(1) as int?) ?? 0) * 65535;
+                int firstFrame = GetFrameValue(trialActualStartField.Data.GetValue(0)) + GetFrameValue(trialActualStartField.Data.GetValue(1)) * 65535;
+                int lastFrame = GetFrameValue(trialActualEndField.Data.GetValue(0)) + GetFrameValue(trialActualEndField.Data.GetValue(1)) * 65535;
 
-                return lastFrame - firstFrame + 1;
+                // Some files have some values in BADC. Oh my fucking god.
+                if (lastFrame - firstFrame + 1 > 0)
+                {
+                    return lastFrame - firstFrame + 1;
+                }
+                else
+                {
+                    throw new C3dBadFrameNumberFormatingException("");
+                }
+                    
             }
             catch (ParameterNotFoundException e)
             {
@@ -434,10 +456,23 @@ namespace SHARP3D
             { 
                 // Do nothing and try the other parameters
             }
+            catch (C3dBadFrameNumberFormatingException) { }
 
             // As per page 66 of the C3D User Guide
-            object? frameNumber = GetParameter("point", "frames").Data?.GetValue(0);
-            return frameNumber switch
+            return GetPointFrameValue("frames");
+        }
+
+        /// <summary>
+        /// Extracts an integer value from a given object, handling multiple numeric types.
+        /// </summary>
+        /// <param name="value">The object to extract the integer value from. Can be an int, float, double, or null.</param>
+        /// <returns>
+        /// The integer value of the object if it is an int, float, or double.
+        /// If the object is null or of an unsupported type, returns 0.
+        /// </returns>
+        internal int GetFrameValue(object? value)
+        {
+            return value switch
             {
                 int i => i,
                 float f => (int)f,
@@ -445,14 +480,40 @@ namespace SHARP3D
                 _ => 0 // Default value if none of the above
             };
         }
-        
-        internal int GetSizeFrame(
-            int markerPerFrame,
-            DataType dataType
-            )
+
+        /// <summary>
+        /// Retrieves the frame value from a specified POINT parameter in a C3D file.
+        /// </summary>
+        /// <param name="parameter">
+        /// The name of the POINT parameter to retrieve the frame value from.
+        /// Valid values are "frames" and "long_frames".
+        /// </param>
+        /// <returns>
+        /// The integer frame value extracted from the specified parameter.
+        /// </returns>
+        /// <exception cref="ArgumentException">
+        /// Thrown if the provided parameter is not "frames" or "long_frames".
+        /// </exception>
+        /// <remarks>
+        /// This method internally uses <see cref="GetFrameValue(object?)"/> to handle the conversion of the parameter value to an integer.
+        /// </remarks>
+        internal int GetPointFrameValue(string parameter)
         {
-            return 0;
+            object? frameNumber;
+            switch (parameter.ToLower())
+            {
+                case "frames":
+                    frameNumber = GetParameter("point", "frames").Data?.GetValue(0);
+                    return GetFrameValue(frameNumber);
+
+                case "long_frames":
+                    frameNumber = GetParameter("point", "long_frames").Data?.GetValue(0);
+                    return GetFrameValue(frameNumber);
+                default:
+                    throw new ArgumentException("Wrong POINT:XXXX for retriving Frames number.");
+            }
         }
+
 
         /// <summary>
         /// Return the right amount of marker per frame.
