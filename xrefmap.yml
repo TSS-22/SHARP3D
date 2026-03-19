@@ -747,6 +747,40 @@ references:
   fullName.vb: SHARP3D.Exceptions.C3dBadFormatingException.New
   nameWithType: C3dBadFormatingException.C3dBadFormatingException
   nameWithType.vb: C3dBadFormatingException.New
+- uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  name: C3dBadFrameNumberFormatingException
+  href: api/SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.html
+  commentId: T:SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  nameWithType: C3dBadFrameNumberFormatingException
+- uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor(System.String)
+  name: C3dBadFrameNumberFormatingException(string)
+  href: api/SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.html#SHARP3D_Exceptions_C3dBadFrameNumberFormatingException__ctor_System_String_
+  commentId: M:SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException(string)
+  fullName.vb: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.New(String)
+  nameWithType: C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException(string)
+  nameWithType.vb: C3dBadFrameNumberFormatingException.New(String)
+- uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor(System.String,System.Exception)
+  name: C3dBadFrameNumberFormatingException(string, Exception)
+  href: api/SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.html#SHARP3D_Exceptions_C3dBadFrameNumberFormatingException__ctor_System_String_System_Exception_
+  commentId: M:SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException(string, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.New(String, System.Exception)
+  nameWithType: C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException(string, Exception)
+  nameWithType.vb: C3dBadFrameNumberFormatingException.New(String, Exception)
+- uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor*
+  name: C3dBadFrameNumberFormatingException
+  href: api/SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.html#SHARP3D_Exceptions_C3dBadFrameNumberFormatingException__ctor_
+  commentId: Overload:SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException
+  fullName.vb: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.New
+  nameWithType: C3dBadFrameNumberFormatingException.C3dBadFrameNumberFormatingException
+  nameWithType.vb: C3dBadFrameNumberFormatingException.New
 - uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
   name: C3dIncompatiblePointUsedValuesException
   href: api/SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html
@@ -2024,6 +2058,12 @@ references:
   commentId: F:SHARP3D.Utils.Enum.DataType.INT16
   fullName: SHARP3D.Utils.Enum.DataType.INT16
   nameWithType: DataType.INT16
+- uid: SHARP3D.Utils.Enum.DataType.UINT16
+  name: UINT16
+  href: api/SHARP3D.Utils.Enum.DataType.html#SHARP3D_Utils_Enum_DataType_UINT16
+  commentId: F:SHARP3D.Utils.Enum.DataType.UINT16
+  fullName: SHARP3D.Utils.Enum.DataType.UINT16
+  nameWithType: DataType.UINT16
 - uid: SHARP3D.Utils.Enum.HeaderEventFlag
   name: HeaderEventFlag
   href: api/SHARP3D.Utils.Enum.HeaderEventFlag.html
