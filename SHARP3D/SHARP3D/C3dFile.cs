@@ -282,7 +282,16 @@ namespace SHARP3D
             float analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f;
             float[] tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[]  { 0f};
             float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray(); ;
-            int analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
+            int analogOffset;
+            try
+            {
+                analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
+            }
+            catch (IndexOutOfRangeException)
+            {
+                analogOffset = 0;
+            }
+            
 
             
 
@@ -401,6 +410,10 @@ namespace SHARP3D
             {
                 // Do nothing and try the other parameters
             }
+            catch (KeyNotFoundException e)
+            {
+                // Do nothing and try the other parameters
+            }
 
             // As per page 99,100 and 101 of the C3D User Guide.
             try
@@ -417,9 +430,20 @@ namespace SHARP3D
             {
                 // Do nothing and try the other parameters
             }
+            catch (KeyNotFoundException e)
+            { 
+                // Do nothing and try the other parameters
+            }
 
             // As per page 66 of the C3D User Guide
-            return (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
+            object? frameNumber = GetParameter("point", "frames").Data?.GetValue(0);
+            return frameNumber switch
+            {
+                int i => i,
+                float f => (int)f,
+                double d => (int)d,
+                _ => 0 // Default value if none of the above
+            };
         }
         
         internal int GetSizeFrame(

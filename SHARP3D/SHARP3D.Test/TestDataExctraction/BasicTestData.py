@@ -6,7 +6,7 @@ import sys
 import simplejson
 
 # Just to have arguments for debug:
-# ../SampleFiles/Sample03/
+# ../SampleFiles/Sample31/
 
 c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 
@@ -14,6 +14,9 @@ c3d_files = glob.glob(f"{sys.argv[1]}/*.c3d")
 for path in c3d_files:
     filename = os.path.splitext(os.path.basename(path))[0]
     foldername = os.path.splitext(os.path.dirname(path))[0]
+
+    if filename in {"kyowadengyo", "large01", "large02"}:
+        continue
     try:
         c = c3d(path, ignore_bad_formatting=True)
         

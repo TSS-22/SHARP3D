@@ -2,14 +2,14 @@
 
 # Samples and Tests
 
-You can find C3D samples on the (C3D website)[https://www.c3d.org/sampledata.html].
+You can find C3D samples on the [C3D website](https://www.c3d.org/sampledata.html).
 A large part of their set is used for testing this library and can befound in SHARP3D.Test.SampleFiles.
 
-The expected results where extracted from C3D files automatically using (**ezc3d**)[https://github.com/pyomeca/ezc3d], they can therefore be subject to some problems.
-The values that were obviously wrongly read using (**ezc3d**)[https://github.com/pyomeca/ezc3d] have been discarded or sanitized. When in doubt, binaries files where manually checked using (Ghidra)[https://github.com/NationalSecurityAgency/ghidra], (ImHex)[https://imhex.werwolv.net/] and (Qualisys Track Manager)[https://www.qualisys.com/software/qualisys-track-manager/]
+The expected results where extracted from C3D files automatically using [**ezc3d**](https://github.com/pyomeca/ezc3d), they can therefore be subject to some problems.
+The values that were obviously wrongly read using [**ezc3d**](https://github.com/pyomeca/ezc3d) have been discarded or sanitized. When in doubt, binaries files where manually checked using [Ghidra](https://github.com/NationalSecurityAgency/ghidra), [ImHex](https://imhex.werwolv.net/) and [Qualisys Track Manager](https://www.qualisys.com/software/qualisys-track-manager/).
 You can extract the test values from the C3D samples via the RunTestDataScripts.py (SHARP3D.Test/TestDataExctraction/RunTestDataScripts.py).
 
-The following .JSON file have been corrected by hand due to (**ezc3d**)[https://github.com/pyomeca/ezc3d] encountering some issues.
+The following .JSON file have been corrected by hand due to [**ezc3d**](https://github.com/pyomeca/ezc3d) encountering some issues.
 Bad formatting:
 - "kyowadengyo.json" (Expected path: "SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json")  
 

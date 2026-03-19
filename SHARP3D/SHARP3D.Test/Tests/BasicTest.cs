@@ -37,6 +37,12 @@ namespace SHARP3D.Test.TestSuites
     /// </summary>
     public class BasicTest
     {
+        public static IEnumerable<object[]> GetC3dFilesData(string folderPath)
+        {
+            string[] fileList = Directory.GetFiles(folderPath, "*.c3d");
+            return fileList.Select(file => new object[] { file });
+        }
+
         private static string FolderPath00_ARTG = @"..\..\..\SampleFiles\Sample00\Advanced Realtime Tracking GmbH";
         private static string FolderPath00_C = @"..\..\..\SampleFiles\Sample00\Codamotion";
         private static string FolderPath00_CS = @"..\..\..\SampleFiles\Sample00\Cometa Systems";
@@ -69,7 +75,7 @@ namespace SHARP3D.Test.TestSuites
         private static string FolderPath36 = @"..\..\..\SampleFiles\Sample36";
         private static string FolderPath37 = @"..\..\..\SampleFiles\Sample37";
 
-        public static IEnumerable<object[]> Sample01Test_Basic_Data =>
+        public static IEnumerable<object[]> Test_Basic_Data =>
             new[]
             {
                 FolderPath00_ARTG,
@@ -109,6 +115,7 @@ namespace SHARP3D.Test.TestSuites
                     .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
             );
 
+        public static IEnumerable<object[]> Sample36C3dFilesData => GetC3dFilesData(FolderPath36);
 
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
@@ -220,7 +227,7 @@ namespace SHARP3D.Test.TestSuites
         }
 
         [Theory]
-        [MemberData(nameof(Sample01Test_Basic_Data))]
+        [MemberData(nameof(Test_Basic_Data))]
         public void Basics(string jsonPath, string c3dPath)
         {
 
@@ -257,5 +264,15 @@ namespace SHARP3D.Test.TestSuites
 
         }
 
+        [Theory]
+        [MemberData(nameof(Sample36C3dFilesData))]
+        public void ReadsFloatingFrameNumber(string filePath)
+        {
+  
+            C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
+
+            Assert.NotNull(c3dFile);
+            
+        }
     }
 }
