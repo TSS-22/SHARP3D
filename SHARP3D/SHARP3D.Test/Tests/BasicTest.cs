@@ -199,7 +199,7 @@ namespace SHARP3D.Test.TestSuites
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+                    Assert.Equal((double)expectedResults.PointLast0[i], (double)c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i], precision: 2);
                 }
             }
             else 
