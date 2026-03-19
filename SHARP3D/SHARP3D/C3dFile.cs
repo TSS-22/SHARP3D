@@ -274,7 +274,7 @@ namespace SHARP3D
         internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
-            int framesNumber = (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
+            int framesNumber = GetRightAmountOfFrames();
             float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0f;
             int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
             float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0f; // Contradiction in the C3D documentation
@@ -350,6 +350,84 @@ namespace SHARP3D
             {
                 return ((int)analogSamplePerFrame);
             }
+        }
+
+        /// <summary>
+        /// Determines the correct number of frames in a C3D file by attempting to retrieve the value
+        /// from multiple parameter sources, as specified in the C3D User Guide.
+        /// </summary>
+        /// <remarks>
+        /// The function follows the C3D User Guide's recommendations for determining the number of frames:
+        /// <list type="number">
+        ///   <item>
+        ///     <description>
+        ///       Attempts to retrieve the value from the "point/long_frames" parameter (pages 93-94).
+        ///       If successful, returns the value; otherwise, proceeds to the next method.
+        ///     </description>
+        ///   </item>
+        ///   <item>
+        ///     <description>
+        ///       Attempts to calculate the number of frames using the "trial/actual_start_field" and
+        ///       "trial/actual_end_field" parameters (pages 99-101). The number of frames is calculated as:
+        ///       <code>
+        ///         (lastFrame - firstFrame + 1)
+        ///       </code>
+        ///       where <c>firstFrame</c> and <c>lastFrame</c> are derived from the parameter values.
+        ///     </description>
+        ///   </item>
+        ///   <item>
+        ///     <description>
+        ///       Falls back to retrieving the value from the "point/frames" parameter (page 66).
+        ///       If all else fails, returns 0 as a default value.
+        ///     </description>
+        ///   </item>
+        /// </list>
+        /// </remarks>
+        /// <returns>
+        /// The number of frames in the C3D file, as determined by the first successfully retrieved or calculated value.
+        /// Returns 0 if no valid value can be determined.
+        /// </returns>
+        /// <exception cref="ParameterNotFoundException">
+        /// Thrown internally if a parameter is not found, but caught and ignored to allow fallback to other methods.
+        /// </exception>
+        internal int GetRightAmountOfFrames() {
+            
+            // As per page 93 and 94 of the C3D User Guide
+            try 
+            {
+                return (GetParameter("point", "long_frames").Data?.GetValue(0) as int?) ?? 0;
+            }
+            catch (ParameterNotFoundException e)
+            {
+                // Do nothing and try the other parameters
+            }
+
+            // As per page 99,100 and 101 of the C3D User Guide.
+            try
+            {
+                C3dParameter trialActualStartField = (GetParameter("trial", "actual_start_field"));
+                C3dParameter trialActualEndField = (GetParameter("trial", "actual_end_field"));
+
+                int firstFrame = ((trialActualStartField.Data.GetValue(0) as int?) ?? 0) + ((trialActualStartField.Data.GetValue(1) as int?) ?? 0) * 65535;
+                int lastFrame = ((trialActualEndField.Data.GetValue(0) as int?) ?? 0) + ((trialActualEndField.Data.GetValue(1) as int?) ?? 0) * 65535;
+
+                return lastFrame - firstFrame + 1;
+            }
+            catch (ParameterNotFoundException e)
+            {
+                // Do nothing and try the other parameters
+            }
+
+            // As per page 66 of the C3D User Guide
+            return (GetParameter("point", "frames").Data?.GetValue(0) as int?) ?? 0;
+        }
+        
+        internal int GetSizeFrame(
+            int markerPerFrame,
+            DataType dataType
+            )
+        {
+            return 0;
         }
 
         /// <summary>
