@@ -272,6 +272,16 @@ namespace SHARP3D.Parameter
                     dataLength = (DataType)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
                     numberOfDimensions = c3dStream.ReadByte();
 
+                    if((
+                        (name=="FRAMES")
+                        || (name=="LONG_FRAMES")
+                        || (name=="ACTUAL_START_FIELD")
+                        || (name=="ACTUAL_END_FIELD")
+                        ) && dataLength == DataType.INT16)
+                    {
+                        dataLength = DataType.UINT16;
+                    }
+
                     if (numberOfDimensions > 0) // Non scalar
                     {
                         dimensions = new int[numberOfDimensions];
@@ -295,6 +305,7 @@ namespace SHARP3D.Parameter
                                 case DataType.BYTE:
                                     data = Array.CreateInstance(typeof(byte), 0);
                                     break;
+                                case DataType.UINT16:
                                 case DataType.INT16:
                                     data = Array.CreateInstance(typeof(int), 0);
                                     break;
@@ -328,6 +339,7 @@ namespace SHARP3D.Parameter
                                         processorFile
                                         );
                                     break;
+                                case DataType.UINT16:
                                 case DataType.INT16:
                                     c3dStream.ReadExactly(dataBuffer);
                                     data = Fortran.VectorToMatrix<int>(
@@ -397,6 +409,7 @@ namespace SHARP3D.Parameter
                                     processorFile
                                     );
                                 break;
+                            case DataType.UINT16:
                             case DataType.INT16:
                                 c3dStream.ReadExactly(dataBuffer);
                                 data = Fortran.VectorToMatrix<int>(

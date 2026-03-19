@@ -25,5 +25,6 @@ Only two files are missing as they are above the 100 MB limit from Github:
 
 The corresponding .JSON files are still in the respective folders so you can simply add the missing .C3D back manually to be able to run all our test sets.
 
+The file 72610framesf.c3d (Expected path: "SHARP3D.Test/SampleFiles/Sample36/72610framesf.c3d") fail to open but this could be due to an incorrect file: the file is too short for the amount of data it is supposed to have by around 2 MB.
 
 

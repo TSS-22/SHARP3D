@@ -271,7 +271,7 @@ namespace SHARP3D.Test.TestSuites
   
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-            Assert.NotNull(c3dFile);
+            Assert.NotEqual(0, c3dFile.Data.Points.Count);
             
         }
     }

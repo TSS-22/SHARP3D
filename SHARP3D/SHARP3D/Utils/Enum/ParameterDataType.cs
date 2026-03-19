@@ -27,5 +27,10 @@
         /// 4-byte floating-point data type.
         /// </summary>
         FLOAT32 = 4,
+
+        /// <summary>
+        /// 2-byte unsigned integer data type.
+        /// </summary>
+        UINT16 = -2,
     }
 }

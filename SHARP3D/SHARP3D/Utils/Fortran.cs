@@ -97,6 +97,9 @@ namespace SHARP3D.Utils
                     case DataType.FLOAT32:
                         matrix.SetValue(C3dBytesConvertor.ToFloat(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
                         break;
+                    case DataType.UINT16:
+                        matrix.SetValue(C3dBytesConvertor.ToUInt(vector.Skip(i).Take(elementSize).ToArray(), processor), indices);
+                        break;
                     default:
                         throw new ArgumentException("Unsupported datatype.");
                 }
