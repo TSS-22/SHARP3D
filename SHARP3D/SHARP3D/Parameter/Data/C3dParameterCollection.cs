@@ -96,7 +96,7 @@ namespace SHARP3D.Parameter.Data
             }
             else 
             {
-                throw new KeyNotFoundException($"The combination \"{groupName}\":\"{parameterName}\" don't exist.");
+                throw new ParameterNotFoundException($"The combination \"{groupName}\":\"{parameterName}\" don't exist.");
             }
         }
 

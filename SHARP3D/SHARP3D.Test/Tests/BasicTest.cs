@@ -117,6 +117,8 @@ namespace SHARP3D.Test.TestSuites
 
         public static IEnumerable<object[]> Sample36C3dFilesData => GetC3dFilesData(FolderPath36);
 
+        public static IEnumerable<object[]> Sample29C3dFilesData => GetC3dFilesData(FolderPath29);
+
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
             Assert.Equal(expectedResults.GroupsParameter.Length, c3dFile.ParameterCollection.ListGroups().Length);
@@ -271,8 +273,17 @@ namespace SHARP3D.Test.TestSuites
   
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-            Assert.NotEqual(0, c3dFile.Data.Points.Count);
+            Assert.NotEmpty(c3dFile.Data.Points);
             
+        }
+
+        [Theory]
+        [MemberData(nameof(Sample29C3dFilesData))]
+        public void ReadsNoAnalogFiles(string filePath)
+        {
+            C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
+
+            Assert.NotEqual(0, c3dFile.Data.Points.Count);
         }
     }
 }

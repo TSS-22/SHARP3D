@@ -278,23 +278,34 @@ namespace SHARP3D
             int framesNumber = GetRightAmountOfFrames();
             float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0f;
             int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
-            float analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0f; // Contradiction in the C3D documentation
-            int analogChannels = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0;
-            float analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f;
-            float[] tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[]  { 0f};
-            float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray(); ;
-            int analogOffset;
+
+            // Some application don't give a fuck about the ANALOG mandatory parameters
+            // NaturalPoint as per Sample29 readme might be one one of those. Optitrack also.
+            float analogRate = 0;
+            try 
+            { 
+                analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0f; // Contradiction in the C3D documentation
+            }
+            catch (ParameterNotFoundException ex) { }
+
+            int analogChannels = 0;
+            try { analogChannels = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0; } catch (ParameterNotFoundException ex) { }
+
+            float analogGeneralScaleFactor = 0.0f;
+            try { analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f; } catch (ParameterNotFoundException ex) { }
+
+            float[] tempAnalogChannelScaleFactor = new float[] { 0f };
+            try { tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
+
+            float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray();
+
+            int analogOffset = 0;
             try
             {
                 analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
             }
-            catch (IndexOutOfRangeException)
-            {
-                analogOffset = 0;
-            }
-            
-
-            
+            catch (IndexOutOfRangeException) { }
+            catch (ParameterNotFoundException ex) { }
 
             // TODO: actually sort the error that can come
             C3dDataContext dataContext = new C3dDataContext(

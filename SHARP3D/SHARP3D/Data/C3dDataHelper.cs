@@ -25,11 +25,11 @@ namespace SHARP3D.Data
         /// </exception>
         public static C3dData FromFileStream(C3dDataContext context) 
         {
-            if ((context.AnalogRate % context.PointRate != 0) && (context.AnalogRate > context.PointRate))
+            if ((context.AnalogRate % context.PointRate != 0) && (context.AnalogRate > context.PointRate) && context.PointRate != 0)
             {
                 throw new PointAndAnalogRateException("POINT:RATE and ANALOG:RATE don't match.");
             }
-            if ((context.PointRate % context.AnalogRate != 0) && (context.PointRate > context.AnalogRate))
+            if ((context.PointRate % context.AnalogRate != 0) && (context.PointRate > context.AnalogRate) && context.AnalogRate != 0)
             {
                 throw new PointAndAnalogRateException("POINT:RATE and ANALOG:RATE don't match.");
             }
