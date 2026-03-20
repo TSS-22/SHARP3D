@@ -12,4 +12,4 @@ https://tss-22.github.io/SHARP3D/index.html
 
 # Read C3D files
 
-Working. Beta level: most file are read successfully, but there is still some testing needed to support "all" files (mainly incorrectly formatted files).
+Working. Beta level: most file are read successfully. Only a small subset of incorrectly formatted C3D files are not supported. The API will be worked to a higher standard once testing is to a satisfying stage, and the logic stable.

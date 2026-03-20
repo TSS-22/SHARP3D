@@ -50,18 +50,18 @@ namespace SHARP3D.Test.Tests
                 new object[] { Sample32 }
             };
 
-        //[Theory]
-        //[MemberData(nameof(OpenFileTest_Data))]
-        //public void OpenFileTest_Test(string folderPath)
-        //{
-        //    string[] filePaths = Directory.GetFiles(folderPath, "*.c3d");
-        //    foreach (string filePath in filePaths)
-        //    {
-        //        C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
+        [Theory]
+        [MemberData(nameof(OpenFileTest_Data))]
+        public void OpenFileTest_Test(string folderPath)
+        {
+            string[] filePaths = Directory.GetFiles(folderPath, "*.c3d");
+            foreach (string filePath in filePaths)
+            {
+                C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
 
-        //        Assert.NotNull(c3DFile);
-        //    }
-        //}
+                Assert.NotNull(c3DFile);
+            }
+        }
 
         [Theory]
         [MemberData(nameof(Sample06C3dFilesData))]
