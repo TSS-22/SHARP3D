@@ -1,7 +1,5 @@
-﻿using SHARP3D.Test.Utils;
+﻿using SHARP3D.Test.ToolKit;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Json;
 using System.Text.Json;
 
 namespace SHARP3D.Test.TestSuites
@@ -37,11 +35,7 @@ namespace SHARP3D.Test.TestSuites
     /// </summary>
     public class BasicTest
     {
-        public static IEnumerable<object[]> GetC3dFilesData(string folderPath)
-        {
-            string[] fileList = Directory.GetFiles(folderPath, "*.c3d");
-            return fileList.Select(file => new object[] { file });
-        }
+        
 
         private static string FolderPath00_ARTG = @"..\..\..\SampleFiles\Sample00\Advanced Realtime Tracking GmbH";
         private static string FolderPath00_C = @"..\..\..\SampleFiles\Sample00\Codamotion";
@@ -115,9 +109,9 @@ namespace SHARP3D.Test.TestSuites
                     .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
             );
 
-        public static IEnumerable<object[]> Sample36C3dFilesData => GetC3dFilesData(FolderPath36);
+        public static IEnumerable<object[]> Sample36C3dFilesData => TestingTools.GetC3dFilesData(FolderPath36);
 
-        public static IEnumerable<object[]> Sample29C3dFilesData => GetC3dFilesData(FolderPath29);
+        public static IEnumerable<object[]> Sample29C3dFilesData => TestingTools.GetC3dFilesData(FolderPath29);
 
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {

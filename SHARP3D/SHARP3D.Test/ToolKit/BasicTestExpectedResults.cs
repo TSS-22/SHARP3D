@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SHARP3D.Test.Utils
+namespace SHARP3D.Test.ToolKit
 {
     public record struct BasicTestExpectedResults
     {
