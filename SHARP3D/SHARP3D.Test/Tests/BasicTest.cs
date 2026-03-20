@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace SHARP3D.Test.TestSuites
+namespace SHARP3D.Test.Tests
 {
     /// <summary>
     /// Test for the following values for the files from Sample01:
@@ -109,9 +109,9 @@ namespace SHARP3D.Test.TestSuites
                     .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
             );
 
-        public static IEnumerable<object[]> Sample36C3dFilesData => TestingTools.GetC3dFilesData(FolderPath36);
+        public static IEnumerable<object[]> Sample36C3dFilesData => TestingTools.GetEnumerableC3dFilesData(FolderPath36);
 
-        public static IEnumerable<object[]> Sample29C3dFilesData => TestingTools.GetC3dFilesData(FolderPath29);
+        public static IEnumerable<object[]> Sample29C3dFilesData => TestingTools.GetEnumerableC3dFilesData(FolderPath29);
 
         private static void AssertParameterGroupsMatch(BasicTestExpectedResults expectedResults, C3dFile c3dFile)
         {
@@ -277,7 +277,7 @@ namespace SHARP3D.Test.TestSuites
         {
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-            Assert.NotEqual(0, c3dFile.Data.Points.Count);
+            Assert.NotEmpty(c3dFile.Data.Points);
         }
     }
 }

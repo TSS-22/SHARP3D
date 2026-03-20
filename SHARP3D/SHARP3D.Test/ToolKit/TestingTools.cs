@@ -47,7 +47,7 @@
         /// }
         /// </code>
         /// </example>
-        public static IEnumerable<object[]> GetC3dFilesData(string folderPath)
+        public static IEnumerable<object[]> GetEnumerableC3dFilesData(string folderPath)
         {
             string[] fileList = Directory.GetFiles(folderPath, "*.c3d");
             return fileList.Select(file => new object[] { file });
