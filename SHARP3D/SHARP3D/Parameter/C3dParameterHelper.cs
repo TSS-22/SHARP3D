@@ -207,13 +207,14 @@ namespace SHARP3D.Parameter
                 string name = Encoding.ASCII.GetString(nameBuffer).TrimEnd('\0');
                 byte[] pointerBuffer = new byte[2];
                 c3dStream.ReadExactly(pointerBuffer);
-                // TODO: Check the cast, I might need to do a C3dBytesConvertorToUInt() function.
                 pointerToNextStruct = C3dBytesConvertor.ToUInt(pointerBuffer, processorFile);
+                long positionAtPointer = c3dStream.Position - 2;
+                long expectedNextParameterPosition = positionAtPointer + pointerToNextStruct;
 
-                int descriptionLength;
-                long actualDescriptionLength;
+                int descriptionLength = 0;
+                long actualDescriptionLength = 0;
                 byte[] descriptionBuffer;
-                string description;
+                string description = "";
 
                 if (id < 0) // Group
                 {
@@ -272,6 +273,7 @@ namespace SHARP3D.Parameter
                     dataLength = (DataType)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
                     numberOfDimensions = c3dStream.ReadByte();
 
+                    // Because the frames parameters shoudl be read as unsigned INT16. Conversion to signed INT32, the C# default is not an issue. It just matter at the binary conversion level.
                     if((
                         (name=="FRAMES")
                         || (name=="LONG_FRAMES")
@@ -362,29 +364,34 @@ namespace SHARP3D.Parameter
                                     throw new Exception("Invalid data type length");
                             }
                         }
-                        
-
-                        descriptionLength = c3dStream.ReadByte();
-                        if (pointerToNextStruct == 0)
+                        // Some application just don't give a fuck about the way a parameter is supposed to be defined as per table page 39.
+                        // So we check if we got to the position that pointerToNextStructure told us the next parameter is...
+                        if (c3dStream.Position != expectedNextParameterPosition) 
                         {
-                            // Read until byte == 0x00
-                            List<byte> descriptionBytes = new List<byte> { };
-                            int nextByte;
-                            while ((nextByte = c3dStream.ReadByte()) != 0x00 && nextByte != -1)
+                            descriptionLength = c3dStream.ReadByte();
+                            if (pointerToNextStruct == 0)
                             {
-                                descriptionBytes.Add((byte)nextByte);
+                                // Read until byte == 0x00
+                                List<byte> descriptionBytes = new List<byte> { };
+                                int nextByte;
+                                while ((nextByte = c3dStream.ReadByte()) != 0x00 && nextByte != -1)
+                                {
+                                    descriptionBytes.Add((byte)nextByte);
+                                }
+                                actualDescriptionLength = descriptionBytes.Count;
+                                descriptionBuffer = descriptionBytes.ToArray();
                             }
-                            actualDescriptionLength = descriptionBytes.Count;
-                            descriptionBuffer = descriptionBytes.ToArray();
-                        }
-                        else
-                        {
-                            descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - dimensionsBuffer.Length - dataBuffer.Length]; // Black magic yeah! Joke: we take out the byte already read, because the pointer to next struct, start at the first byte of the pointer.
-                            c3dStream.ReadExactly(descriptionBuffer);
-                            actualDescriptionLength = descriptionBuffer.Length;
+                            else
+                            {
+                                descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - dimensionsBuffer.Length - dataBuffer.Length]; // Black magic yeah! Joke: we take out the byte already read, because the pointer to next struct, start at the first byte of the pointer.
+                                c3dStream.ReadExactly(descriptionBuffer);
+                                actualDescriptionLength = descriptionBuffer.Length;
+                            }
+
+                            description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
                         }
 
-                        description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
+                        
                     }
                     else // Scalar
                     {
@@ -431,27 +438,32 @@ namespace SHARP3D.Parameter
                             default:
                                 throw new Exception("Invalid data type length");
                         }
-                        descriptionLength = c3dStream.ReadByte();
-                        if (pointerToNextStruct == 0)
+                        // Some application just don't give a fuck about the way a parameter is supposed to be defined as per table page 39.
+                        // So we check if we got to the position that pointerToNextStructure told us the next parameter is...
+                        if (c3dStream.Position != expectedNextParameterPosition)
                         {
-                            // Read until byte == 0x00
-                            List<byte> descriptionBytes = new List<byte> { };
-                            int nextByte;
-                            while ((nextByte = c3dStream.ReadByte()) != 0x00 && nextByte != -1)
+                            descriptionLength = c3dStream.ReadByte();
+                            if (pointerToNextStruct == 0)
                             {
-                                descriptionBytes.Add((byte)nextByte);
+                                // Read until byte == 0x00
+                                List<byte> descriptionBytes = new List<byte> { };
+                                int nextByte;
+                                while ((nextByte = c3dStream.ReadByte()) != 0x00 && nextByte != -1)
+                                {
+                                    descriptionBytes.Add((byte)nextByte);
+                                }
+                                actualDescriptionLength = descriptionBytes.Count;
+                                descriptionBuffer = descriptionBytes.ToArray();
                             }
-                            actualDescriptionLength = descriptionBytes.Count;
-                            descriptionBuffer = descriptionBytes.ToArray();
-                        }
-                        else
-                        {
-                            descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - Math.Abs((int)dataLength)];
-                            c3dStream.ReadExactly(descriptionBuffer);
-                            actualDescriptionLength = descriptionBuffer.Length;
-                        }
+                            else
+                            {
+                                descriptionBuffer = new byte[pointerToNextStruct - 3 - 1 - 1 - Math.Abs((int)dataLength)];
+                                c3dStream.ReadExactly(descriptionBuffer);
+                                actualDescriptionLength = descriptionBuffer.Length;
+                            }
 
-                        description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
+                            description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
+                        }
                     }
                     parameters.Add(
                         new C3dParameter

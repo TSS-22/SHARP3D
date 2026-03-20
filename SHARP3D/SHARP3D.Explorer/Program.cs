@@ -16,7 +16,10 @@ namespace SHARP3D.Explorer
         public static readonly string PathSample33 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample33\bigparlove.c3d";
         
         public static readonly string PathSample31 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample31\large01.c3d";
-        
+
+        public static readonly string PathSample29facial = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample29\Facial-Sing.c3d";
+        public static readonly string PathSample29Opti = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample29\OptiTrack-IITSEC2007.c3d";
+
         public static readonly string PathFileSample02 = @"..\..\..\..\SHARP3D.Test\SampleFiles\Sample02\dec_int.c3d";
 
         public static readonly int[] dimensions = { 3, 4, 2 };
@@ -51,7 +54,7 @@ namespace SHARP3D.Explorer
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         { 
-            C3dFile c3dFile = C3dFile.LoadFromFile(PathSample31);
+            C3dFile c3dFile = C3dFile.LoadFromFile(PathSample29facial);
 
             return 0;
         }
