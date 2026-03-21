@@ -161,7 +161,7 @@ such as reading data frames, processing points and analogs, and validating data 
 
   <h3 id="SHARP3D_Data_C3dDataHelper_FromFileStream_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.FromFileStream(SHARP3D.Data.Data.C3dDataContext)">
   FromFileStream(C3dDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads and parses C3D data from a file stream using the provided context.</p>
@@ -195,8 +195,10 @@ such as reading data frames, processing points and analogs, and validating data 
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SHARP3D.Exceptions.PointAndAnalogRateException.html">PointAndAnalogRateException</a></dt>
-    <dd><p>Thrown if the point rate and analog rate are not compatible.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.endofstreamexception">EndOfStreamException</a></dt>
+    <dd><p>Many of the file given by the C3D organization as example to test any C3D app present too little data for the amount of frame advertised in regards to their parameters value.
+Due to the fact that they still showcase valid data till the cutoff, we decided to provide our library with a non punitive approach: this function will read frames from a C3D file till it either reach the number of frame advertised (best case, and what should be the norm) or reach the end of the stream (worst case).
+That said we do not approve of the practice of cutting off mid-frames.</p>
 </dd>
   </dl>
 
@@ -206,7 +208,7 @@ such as reading data frames, processing points and analogs, and validating data 
 
   <h3 id="SHARP3D_Data_C3dDataHelper_ReadAllData_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.ReadAllData(SHARP3D.Data.Data.C3dDataContext)">
   ReadAllData(C3dDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads all data frames from the C3D file and processes them into points and analogs.</p>

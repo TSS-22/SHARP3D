@@ -65,6 +65,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.Data
   nameWithType: C3dFile.Data
+- uid: SHARP3D.C3dFile.DataContext
+  name: DataContext
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataContext
+  commentId: P:SHARP3D.C3dFile.DataContext
+  fullName: SHARP3D.C3dFile.DataContext
+  nameWithType: C3dFile.DataContext
+- uid: SHARP3D.C3dFile.DataContext*
+  name: DataContext
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataContext_
+  commentId: Overload:SHARP3D.C3dFile.DataContext
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.DataContext
+  nameWithType: C3dFile.DataContext
 - uid: SHARP3D.C3dFile.DataTypeFile
   name: DataTypeFile
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataTypeFile
@@ -397,15 +410,15 @@ references:
   commentId: T:SHARP3D.Data.Data.C3dDataContext
   fullName: SHARP3D.Data.Data.C3dDataContext
   nameWithType: C3dDataContext
-- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32,System.Int32)
-  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int, int)
-  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32_System_Int32_
-  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32,System.Int32)
-  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
-  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int, int)
-  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
-  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int, int)
-  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer, Integer)
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_
+  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
 - uid: SHARP3D.Data.Data.C3dDataContext.#ctor*
   name: C3dDataContext
   href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_

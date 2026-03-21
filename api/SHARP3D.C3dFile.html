@@ -193,7 +193,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_Data" data-uid="SHARP3D.C3dFile.Data">
   Data
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the data contained in the C3D file.</p>
@@ -217,6 +217,41 @@ including header information, parameters, and data frames.</p>
 
 
 
+
+
+
+
+  <a id="SHARP3D_C3dFile_DataContext_" data-uid="SHARP3D.C3dFile.DataContext*"></a>
+
+  <h3 id="SHARP3D_C3dFile_DataContext" data-uid="SHARP3D.C3dFile.DataContext">
+  DataContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Centralize the values needed to extract the data from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public C3dDataContext DataContext { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_DataContext_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.</p>
+</div>
 
 
 
@@ -517,7 +552,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_CloseFileStream" data-uid="SHARP3D.C3dFile.CloseFileStream">
   CloseFileStream()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L618"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L661"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Closes the file stream.</p>
@@ -544,7 +579,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_CreateEmpty" data-uid="SHARP3D.C3dFile.CreateEmpty">
   CreateEmpty()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates an empty instance of the <a class="xref" href="SHARP3D.C3dFile.html">C3dFile</a> class.</p>
@@ -577,7 +612,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_GetParameter_System_String_System_String_" data-uid="SHARP3D.C3dFile.GetParameter(System.String,System.String)">
   GetParameter(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L273"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets a parameter from the C3D file by its group and parameter name.</p>
@@ -619,7 +654,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_IsFileStreamOpen" data-uid="SHARP3D.C3dFile.IsFileStreamOpen">
   IsFileStreamOpen()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L610"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L653"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Checks if the file stream is open.</p>
@@ -652,7 +687,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_LoadFromFile_System_String_" data-uid="SHARP3D.C3dFile.LoadFromFile(System.String)">
   LoadFromFile(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Loads a C3D file from the specified file path.</p>
@@ -691,7 +726,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_SaveToFile_System_String_" data-uid="SHARP3D.C3dFile.SaveToFile(System.String)">
   SaveToFile(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L601"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L644"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Saves the C3D file to the specified file path.</p>
@@ -733,7 +768,7 @@ including header information, parameters, and data frames.</p>
 
   <h3 id="SHARP3D_C3dFile_ToBinaries" data-uid="SHARP3D.C3dFile.ToBinaries">
   ToBinaries()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L588"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L631"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts the C3D file to a byte array.</p>
