@@ -26,6 +26,10 @@ namespace SHARP3D.Explorer
 
         public static readonly string PathFileSampleError11 = @"..\..\..\..\SHARP3D.Test\SampleErrorFiles\Sample11\evart.c3d";
 
+        public static readonly string PathFileSampleError18 = @"..\..\..\..\SHARP3D.Test\SampleErrorFiles\Sample18\bad_parameter_section.c3d";
+
+        public static readonly string PathFileSampleError20 = @"..\..\..\..\SHARP3D.Test\SampleErrorFiles\Sample20\phasespace_sample.c3d";
+
         public static readonly int[] dimensions = { 3, 4, 2 };
         public static readonly byte[] vector =
             {
@@ -58,7 +62,7 @@ namespace SHARP3D.Explorer
         public static ProcessorType processor = ProcessorType.INTEL;
         private static int Main()
         { 
-            C3dFile c3dFile = C3dFile.LoadFromFile(PathFileSampleError11);
+            C3dFile c3dFile = C3dFile.LoadFromFile(PathFileSampleError20);
 
             return 0;
         }
