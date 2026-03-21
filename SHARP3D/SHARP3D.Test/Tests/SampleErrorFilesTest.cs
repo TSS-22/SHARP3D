@@ -57,9 +57,14 @@ namespace SHARP3D.Test.Tests
             string[] filePaths = Directory.GetFiles(folderPath, "*.c3d");
             foreach (string filePath in filePaths)
             {
-                C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
+                C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-                Assert.NotNull(c3DFile);
+                Assert.NotNull(c3dFile);
+
+                bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+                bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+                Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
             }
         }
 
@@ -72,6 +77,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -83,6 +93,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -94,6 +109,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -101,10 +121,16 @@ namespace SHARP3D.Test.Tests
         public void Sample13Basic_Test(string filePath)
         {
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
+
             bool hasPoints = c3dFile.Data.Points.Count != 0;
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -116,6 +142,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -127,6 +158,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
         [Theory]
         [MemberData(nameof(Sample16C3dFilesData))]
@@ -137,6 +173,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -148,6 +189,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -159,6 +205,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -170,6 +221,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -181,6 +237,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -192,6 +253,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
 
         [Theory]
@@ -203,6 +269,11 @@ namespace SHARP3D.Test.Tests
             bool hasAnalogs = c3dFile.Data.Analogs.Count != 0;
 
             Assert.True(hasPoints || hasAnalogs);
+
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+
+            Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
     }
 }

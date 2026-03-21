@@ -75,14 +75,26 @@ namespace SHARP3D
         public C3dParameterCollection ParameterCollection { get; set; }
 
         /// <summary>
+        /// Centralize the values needed to extract the data from the C3D file.
+        /// </summary>
+        /// <remarks>
+        /// It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
+        /// </remarks>
+        public C3dDataContext DataContext { get; set; }
+
+        /// <summary>
         /// Gets or sets the data contained in the C3D file.
         /// </summary>
         public C3dData Data { get; set; }
+
+        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class.
         /// </summary>
         internal C3dFile() { }
+
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class with the specified file stream.
@@ -297,11 +309,31 @@ namespace SHARP3D
             float[] tempAnalogChannelScaleFactor = new float[] { 0f };
             try { tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
 
-            float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray();
+            float[] analogChannelScaleFactor;
+            if (tempAnalogChannelScaleFactor.Length >= analogChannels) 
+            {
+                analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray();
+            }
+            else // Some files don't have enough ANALOG:SCALE_CHANNEL. They seems to only have 1 as the scale factor, hence we just add 1 for the missing indexes.
+            {
+                
+                float[] paddedArray = new float[analogChannels];
 
-            // Some software have the analogoff set as a float.
-            //int analogOffset = 0;
-            int[] analogOffset = new int[analogChannels];
+                // Copy the original values
+                Array.Copy(tempAnalogChannelScaleFactor, paddedArray, tempAnalogChannelScaleFactor.Length);
+
+                // Fill the remaining positions with 1
+                for (int i = tempAnalogChannelScaleFactor.Length; i < analogChannels; i++)
+                {
+                    paddedArray[i] = 1f;
+                }
+                analogChannelScaleFactor = paddedArray;
+            }
+
+
+                // Some software have the analogoff set as a float.
+                //int analogOffset = 0;
+                int[] analogOffset = new int[analogChannels];
             try
             {
                 analogOffset = GetParameter("analog", "offset").Data?
@@ -314,7 +346,7 @@ namespace SHARP3D
             catch (ParameterNotFoundException ex) { }
 
             // TODO: actually sort the error that can come
-            C3dDataContext dataContext = new C3dDataContext(
+            DataContext = new C3dDataContext(
                 c3dStream: c3dStream,
                 processor: processor,
                 dataTypeFile: dataTypeFile,
@@ -342,7 +374,7 @@ namespace SHARP3D
             
             
 
-            return C3dDataHelper.FromFileStream(dataContext);
+            return C3dDataHelper.FromFileStream(DataContext);
         }
 
 
@@ -358,20 +390,25 @@ namespace SHARP3D
         /// <returns>
         /// The number of analog samples per 3D frame, as an integer.
         /// </returns>
-        /// <exception cref="IncompatiblePointAndAnalogRate">
-        /// Thrown if the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/> is not an integer.
-        /// This indicates that the point and analog rates are incompatible.
-        /// </exception>
         /// <remarks>
         /// The result is calculated as the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/>.
-        /// If this ratio is not an integer, the function throws an exception, as the C3D file format requires this ratio to be an integer.
+        /// If this ratio is not an integer, the function will try to recover this value from the word 10 of the header, according to the page 27 of the <see href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User guide</see>, as the C3D file format requires this ratio to be an integer.
+        /// We started using the division of the analog rate and the point rate due to the descriptions in the Data sectin of the guide and because some files don't have an actual valid value in WORD 10 of the C3D headers, but some badly formatted files require the use of WORD 10 of the C3D headers.
         /// </remarks>
         internal int GetAnalogSamplePerFrame(float pointRate, float analogRate)
         {
-            float analogSamplePerFrame = analogRate / pointRate;
+            float analogSamplePerFrame;
+            if (analogRate > pointRate) 
+            {
+                analogSamplePerFrame = analogRate / pointRate;
+            }
+            else
+            {
+                analogSamplePerFrame = pointRate / analogRate;
+            }
             if (Math.Abs(analogSamplePerFrame - (int)analogSamplePerFrame) > 0)
             {
-                throw new IncompatiblePointAndAnalogRate("");
+                return Header.AnalogSampleRatePerFrame;
             }
             else
             {

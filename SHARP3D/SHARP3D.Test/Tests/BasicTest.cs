@@ -267,8 +267,7 @@ namespace SHARP3D.Test.Tests
   
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-            Assert.NotEmpty(c3dFile.Data.Points);
-            
+            Assert.Equal(c3dFile.DataContext.FramesNumber, c3dFile.Data.Points.Count);
         }
 
         [Theory]
@@ -277,7 +276,7 @@ namespace SHARP3D.Test.Tests
         {
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
-            Assert.NotEmpty(c3dFile.Data.Points);
+            Assert.Equal(c3dFile.DataContext.FramesNumber, c3dFile.Data.Points.Count);
         }
     }
 }
