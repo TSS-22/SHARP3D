@@ -89,7 +89,7 @@ namespace SHARP3D.Data.Data
         /// <summary>
         /// Gets the offset for analog data in the C3D file.
         /// </summary>
-        public int AnalogOffset {  get; }
+        public int[] AnalogOffset {  get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dDataContext"/> class.
@@ -126,7 +126,7 @@ namespace SHARP3D.Data.Data
             float pointScaleFactor,
             float analogGeneralScaleFactor,
             float []analogChannelScaleFactor,
-            int analogOffset,
+            int[] analogOffset,
             int analogSamplePerFrame)
         {
             C3dStream = c3dStream;

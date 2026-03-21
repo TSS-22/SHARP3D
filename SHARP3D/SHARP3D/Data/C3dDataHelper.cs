@@ -20,26 +20,17 @@ namespace SHARP3D.Data
         /// </summary>
         /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
         /// <returns>A <see cref="C3dData"/> object containing parsed points and analogs.</returns>
-        /// <exception cref="PointAndAnalogRateException">
-        /// Thrown if the point rate and analog rate are not compatible.
+        /// <exception cref="EndOfStreamException">
+        /// Many of the file given by the C3D organization as example to test any C3D app present too little data for the amount of frame advertised in regards to their parameters value. 
+        /// Due to the fact that they still showcase valid data till the cutoff, we decided to provide our library with a non punitive approach: this function will read frames from a C3D file till it either reach the number of frame advertised (best case, and what should be the norm) or reach the end of the stream (worst case).
+        /// That said we do not approve of the practice of cutting off mid-frames.
         /// </exception>
         public static C3dData FromFileStream(C3dDataContext context) 
         {
-            if ((context.AnalogRate % context.PointRate != 0) && (context.AnalogRate > context.PointRate) && context.PointRate != 0)
-            {
-                throw new PointAndAnalogRateException("POINT:RATE and ANALOG:RATE don't match.");
-            }
-            if ((context.PointRate % context.AnalogRate != 0) && (context.PointRate > context.AnalogRate) && context.AnalogRate != 0)
-            {
-                throw new PointAndAnalogRateException("POINT:RATE and ANALOG:RATE don't match.");
-            }
             // TODO: Add the check for AnalogSamplePerFrame, total number of analog sample must be a mutliple of this. In the way the c3d file is done there is a better way to check for that I think
-
             context.C3dStream.Seek(context.PointerDataSection, SeekOrigin.Begin);
 
             return ReadAllData(context);
-
-
         }
 
         /// <summary>
@@ -54,9 +45,18 @@ namespace SHARP3D.Data
             
             for (int i = 0; i < context.FramesNumber; i++)
             {
-                (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
-                points.Add(frame.Item1);
-                analogs.Add(frame.Item2);
+                try 
+                {
+                    (C3dDataPoint[], float[][]) frame = ReadDataFrame(context);
+                    points.Add(frame.Item1);
+                    analogs.Add(frame.Item2);
+                }
+                catch(EndOfStreamException e)
+                {
+                    // Support file that are missing data compared to the advertised number of frame and parameter values.
+                    // There is just too many of those files in the examples to just discard them.
+                    Console.WriteLine($"WARNING: the file does not contains enough data for the expected frame number. It is missing {context.FramesNumber - i} frames.");
+                }
             }
             return ProcessPointsAndAnalogsList(points, analogs);
         }
@@ -139,7 +139,7 @@ namespace SHARP3D.Data
                 {
                     byte[] buffer = new byte[2];
                     context.C3dStream.ReadExactly(buffer);
-                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
                 analogs.Add(oneFullAnalogsSample);
             }
@@ -195,7 +195,7 @@ namespace SHARP3D.Data
                 {
                     byte[] buffer = new byte[4];
                     context.C3dStream.ReadExactly(buffer);
-                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToFloat(buffer, context.Processor) - context.AnalogOffset) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToFloat(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
                 //analogValues.Add(oneFullAnalogsSample);
                 analogs.Add(oneFullAnalogsSample);
