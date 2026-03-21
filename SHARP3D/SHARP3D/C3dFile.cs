@@ -299,10 +299,16 @@ namespace SHARP3D
 
             float[] analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray();
 
-            int analogOffset = 0;
+            // Some software have the analogoff set as a float.
+            //int analogOffset = 0;
+            int[] analogOffset = new int[analogChannels];
             try
             {
-                analogOffset = (GetParameter("analog", "offset").Data?.GetValue(0) as int?) ?? 0;
+                analogOffset = GetParameter("analog", "offset").Data?
+                    .OfType<object>()
+                    .Select(obj => Convert.ToInt32(obj))
+                    .ToArray() ?? Array.Empty<int>();
+
             }
             catch (IndexOutOfRangeException) { }
             catch (ParameterNotFoundException ex) { }
