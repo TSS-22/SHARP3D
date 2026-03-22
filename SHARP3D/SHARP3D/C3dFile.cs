@@ -579,7 +579,7 @@ namespace SHARP3D
         /// <param name="parameterPointUsed">The value of POINT:USED present from the Parameter section.</param>
         /// <param name="pointerDataSection">The value the pointer to the Data section.</param>
         /// <param name="c3dStreamLength">The length in bytes of the C3D file.</param>
-        /// <param name="dataType">The <see cref="DataType"/> of the C3D file.</param>
+        /// <param name="dataTypeFile">The <see cref="DataType"/> of the C3D file.</param>
         /// <returns>The actual amount of marker per frame.</returns>
         /// <remarks>
         /// Some file have bad construction and features wrong value in either HEADER:POINT:USED or PARAMETER:POINT:USED. Reading them then comes down to luck.
@@ -603,10 +603,10 @@ namespace SHARP3D
             int parameterPointUsed,
             int pointerDataSection,
             long c3dStreamLength,
-            DataType dataType) 
+            DataType dataTypeFile) 
         {
-            long lengthFromHeader = frameNumber * ((headerPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataType) + pointerDataSection;
-            long lengthFromParameter = frameNumber * ((parameterPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataType) + pointerDataSection;
+            long lengthFromHeader = frameNumber * ((headerPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile) + pointerDataSection;
+            long lengthFromParameter = frameNumber * ((parameterPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile) + pointerDataSection;
             if ((lengthFromHeader == lengthFromParameter) || ((lengthFromHeader <= c3dStreamLength) && (lengthFromParameter > c3dStreamLength)))
             {
                 return headerPointUsed;

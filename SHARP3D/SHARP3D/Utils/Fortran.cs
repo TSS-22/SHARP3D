@@ -15,7 +15,7 @@ namespace SHARP3D.Utils
         /// <typeparam name="T">The type of elements in the matrix.</typeparam>
         /// <param name="vector">The byte array representing the Fortran-style vector.</param>
         /// <param name="dimensions">The dimensions of the resulting matrix.</param>
-        /// <param name="dataLength">The data type of the elements in the vector.</param>
+        /// <param name="dataTypeFile">The data type of the elements in the vector.</param>
         /// <param name="processor">The processor type used for data conversion (required for INT16 and FLOAT32 data types).</param>
         /// <returns>A multi-dimensional array representing the matrix.</returns>
         /// <exception cref="ArgumentException">
@@ -38,11 +38,11 @@ namespace SHARP3D.Utils
         public static Array VectorToMatrix<T>(
             byte[] vector,
             int[] dimensions,
-            DataType dataLength,
+            DataType dataTypeFile,
             ProcessorType processor = ProcessorType.UNKOWN
             )
         {
-            int lengthData = dimensions.Aggregate((acc, val) => acc * val) * Math.Abs((int)dataLength);
+            int lengthData = dimensions.Aggregate((acc, val) => acc * val) * Math.Abs((int)dataTypeFile);
             if (vector.Length == 0)
             {
                 throw new ArgumentException("Data vector can't be empty.");
@@ -55,12 +55,12 @@ namespace SHARP3D.Utils
             {
                 throw new ArgumentException("Dimensions must be greater than 0.");
             }
-            if ((processor == ProcessorType.UNKOWN) && ((dataLength == DataType.INT16) || (dataLength == DataType.FLOAT32)))
+            if ((processor == ProcessorType.UNKOWN) && ((dataTypeFile == DataType.INT16) || (dataTypeFile == DataType.FLOAT32)))
             {
                 throw new ArgumentException("Choose supported processor to convert C3D binaries to INT16 or FLOAT32.");
             }
 
-            int elementSize = Math.Abs((int)dataLength);
+            int elementSize = Math.Abs((int)dataTypeFile);
             int totalElements = 1;
             foreach (int dim in dimensions)
                 totalElements *= dim;
@@ -83,7 +83,7 @@ namespace SHARP3D.Utils
                 }
                 // Reverse the indices array to match C# row-major order
                 //Array.Reverse(indices);
-                switch (dataLength)
+                switch (dataTypeFile)
                 {
                     case DataType.CHAR:
                         matrix.SetValue((char)vector[i], indices);

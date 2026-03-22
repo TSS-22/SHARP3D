@@ -84,7 +84,7 @@ namespace SHARP3D.Parameter.Data
         /// </para>
         /// The data type of the parameter.
         /// </summary>
-        public DataType DataType;
+        public DataType DataTypeFile;
 
         /// <summary>
         /// <para>
@@ -147,7 +147,7 @@ namespace SHARP3D.Parameter.Data
             if (NameLength != other.NameLength ||
                 Id != other.Id ||
                 PointerNextParameterStruct != other.PointerNextParameterStruct ||
-                DataType != other.DataType ||
+                DataTypeFile != other.DataTypeFile ||
                 NbOfDimensions != other.NbOfDimensions ||
                 DescriptionLength != other.DescriptionLength ||
                 Locked != other.Locked ||
@@ -203,7 +203,7 @@ namespace SHARP3D.Parameter.Data
                 hash = hash * 23 + Id.GetHashCode();
                 hash = hash * 23 + (Name?.GetHashCode() ?? 0);
                 hash = hash * 23 + PointerNextParameterStruct.GetHashCode();
-                hash = hash * 23 + DataType.GetHashCode();
+                hash = hash * 23 + DataTypeFile.GetHashCode();
                 hash = hash * 23 + NbOfDimensions.GetHashCode();
                 hash = hash * 23 + (Dimensions != null ? Dimensions.GetHashCode() : 0);
                 hash = hash * 23 + (Data != null ? Data.GetHashCode() : 0);

@@ -9,8 +9,8 @@ It has been tested and validated all [samples](https://www.c3d.org/sampledata.ht
  
 IMPORTANT:
  
-A lot of the sample files delivered by the C3D standard meant for testing are from real world applications. Nonetheless, a non negligeable amount of them provide files with inadequate amount of data for the number of frames they are supposed to contain. 
-We made the choice to deliver a non punitive experience: the files are read according to their parameters value up to where they can 
+A lot of the sample files delivered by the C3D standard meant for testing are from real world applications. Nonetheless, a non negligeable amount of them provide files with inadequate amount of data bytes in regards to the number of frames they are supposed to contain. 
+We made the choice to deliver a non punitive experience: the files are read according to their parameters values, up to where they can be read. This can create files with less frames than they actually advertise. 
  
 Writing C3D file will be implemented once Reading is complete.
 Modifying will be implemented after, as per needs.
