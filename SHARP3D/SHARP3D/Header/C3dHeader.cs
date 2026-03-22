@@ -151,7 +151,7 @@ namespace SHARP3D.Header
                    ((Events == null && other.Events == null) ||
                     (Events != null && other.Events != null &&
                      Events.Length == other.Events.Length &&
-                     !Events.Where((t, i) => !t.Equals(other.Events[i])).Any()));
+                     !Events.Where((t, i) => !object.Equals(t, other.Events[i])).Any()));
         }
 
         ///<summary>

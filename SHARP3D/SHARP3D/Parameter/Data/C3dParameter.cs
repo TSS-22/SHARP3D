@@ -174,14 +174,23 @@ namespace SHARP3D.Parameter.Data
                 // Both are null, continue
             }
             else if (Data == null || other.Data == null ||
-                     !Data.Equals(other.Data)) // Array.Equals checks reference, not contents
+                     Data.Length != other.Data.Length
+                    )
             {
-                // For Array, you need to compare contents element-wise if needed
-                // This is a simplified check; see note below
                 return false;
             }
-
-            return true;
+            else if (Data.Length == other.Data.Length)
+            {
+                for (int i = 0; i < Data.Length; i++)
+                {
+                    if (!object.Equals(Data.GetValue(i), other.Data.GetValue(i)))
+                    {
+                        return false;
+                    }
+                }
+                
+            }
+                return true;
         }
 
         /// <summary>
