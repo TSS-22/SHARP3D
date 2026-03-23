@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Test.ToolKit
+﻿using System.Text.RegularExpressions;
+
+namespace SHARP3D.Test.ToolKit
 {
     public static class TestingTools
     {
@@ -52,5 +54,44 @@
             string[] fileList = Directory.GetFiles(folderPath, "*.c3d");
             return fileList.Select(file => new object[] { file });
         }
+
+        public static bool AssertEqual(object x, object y)
+        {
+            bool test1 = x.Equals(y);
+            bool test2 = y.Equals(x);
+            bool test3 = x.Equals(x);
+            bool test4 = y.Equals(y);
+            return test1 && test2 && test3 && test4;
+        }
+
+        public static bool AssertInequal(object x, object y)
+        {
+            bool test1 = !x.Equals(y);
+            bool test2 = !y.Equals(x);
+            return test1 && test2;
+        }
+
+        // Helper method to create an Array of int
+        public static Array CreateIntArray(int length, int factor)
+        {
+            Array array = Array.CreateInstance(typeof(int), length);
+            for (int i = 0; i < length; i++)
+            {
+                array.SetValue(i * factor, i);
+            }
+            return array;
+        }
+
+        // Helper method to create an Array of float
+        public static Array CreateFloatArray(int length, float factor)
+        {
+            Array array = Array.CreateInstance(typeof(float), length);
+            for (int i = 0; i < length; i++)
+            {
+                array.SetValue((float)i * factor, i);
+            }
+            return array;
+        }
+
     }
 }

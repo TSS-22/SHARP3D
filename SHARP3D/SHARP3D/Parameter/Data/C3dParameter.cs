@@ -84,7 +84,7 @@ namespace SHARP3D.Parameter.Data
         /// </para>
         /// The data type of the parameter.
         /// </summary>
-        public DataType DataType;
+        public DataType DataTypeFile;
 
         /// <summary>
         /// <para>
@@ -147,7 +147,7 @@ namespace SHARP3D.Parameter.Data
             if (NameLength != other.NameLength ||
                 Id != other.Id ||
                 PointerNextParameterStruct != other.PointerNextParameterStruct ||
-                DataType != other.DataType ||
+                DataTypeFile != other.DataTypeFile ||
                 NbOfDimensions != other.NbOfDimensions ||
                 DescriptionLength != other.DescriptionLength ||
                 Locked != other.Locked ||
@@ -174,14 +174,23 @@ namespace SHARP3D.Parameter.Data
                 // Both are null, continue
             }
             else if (Data == null || other.Data == null ||
-                     !Data.Equals(other.Data)) // Array.Equals checks reference, not contents
+                     Data.Length != other.Data.Length
+                    )
             {
-                // For Array, you need to compare contents element-wise if needed
-                // This is a simplified check; see note below
                 return false;
             }
-
-            return true;
+            else if (Data.Length == other.Data.Length)
+            {
+                for (int i = 0; i < Data.Length; i++)
+                {
+                    if (!object.Equals(Data.GetValue(i), other.Data.GetValue(i)))
+                    {
+                        return false;
+                    }
+                }
+                
+            }
+                return true;
         }
 
         /// <summary>
@@ -203,7 +212,7 @@ namespace SHARP3D.Parameter.Data
                 hash = hash * 23 + Id.GetHashCode();
                 hash = hash * 23 + (Name?.GetHashCode() ?? 0);
                 hash = hash * 23 + PointerNextParameterStruct.GetHashCode();
-                hash = hash * 23 + DataType.GetHashCode();
+                hash = hash * 23 + DataTypeFile.GetHashCode();
                 hash = hash * 23 + NbOfDimensions.GetHashCode();
                 hash = hash * 23 + (Dimensions != null ? Dimensions.GetHashCode() : 0);
                 hash = hash * 23 + (Data != null ? Data.GetHashCode() : 0);

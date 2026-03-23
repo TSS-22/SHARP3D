@@ -5,6 +5,7 @@ SHARP3D/SHARP3D/obj/
 
 SHARP3D/SHARP3D.Explorer/bin/
 SHARP3D/SHARP3D.Explorer/obj/
+SHARP3D/SHARP3D.Explorer
 
 SHARP3D/SHARP3D.Test/bin/
 SHARP3D/SHARP3D.Test/obj/
@@ -23,4 +24,4 @@ SHARP3D/SHARP3D.Test/TestFiles/Sample12/c24089 13.c3d
 SHARP3D/SHARP3D.Test/SampleFiles/Sample31/large02.c3d
 SHARP3D/SHARP3D.Test/SampleFiles/Sample12/c24089 13.c3d
 /SHARP3D/api
-/SHARP3D/api
+
