@@ -9,6 +9,7 @@ items:
   - SHARP3D.C3dFile.CloseFileStream
   - SHARP3D.C3dFile.CreateEmpty
   - SHARP3D.C3dFile.Data
+  - SHARP3D.C3dFile.DataContext
   - SHARP3D.C3dFile.DataTypeFile
   - SHARP3D.C3dFile.GetParameter(System.String,System.String)
   - SHARP3D.C3dFile.Header
@@ -33,11 +34,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dFile
     path: SHARP3D/C3dFile.cs
-    startLine: 23
+    startLine: 24
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -74,11 +75,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dStream
     path: SHARP3D/C3dFile.cs
-    startLine: 28
+    startLine: 29
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -105,11 +106,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ProcessorFile
     path: SHARP3D/C3dFile.cs
-    startLine: 33
+    startLine: 34
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -136,11 +137,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ProcessorHost
     path: SHARP3D/C3dFile.cs
-    startLine: 38
+    startLine: 39
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -167,11 +168,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerParameterSection
     path: SHARP3D/C3dFile.cs
-    startLine: 43
+    startLine: 44
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -198,11 +199,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerDataSection
     path: SHARP3D/C3dFile.cs
-    startLine: 48
+    startLine: 49
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -229,11 +230,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ScaleFactor
     path: SHARP3D/C3dFile.cs
-    startLine: 53
+    startLine: 54
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -260,11 +261,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: DataTypeFile
     path: SHARP3D/C3dFile.cs
-    startLine: 58
+    startLine: 59
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -291,11 +292,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Header
     path: SHARP3D/C3dFile.cs
-    startLine: 63
+    startLine: 64
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -322,11 +323,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Parameters
     path: SHARP3D/C3dFile.cs
-    startLine: 68
+    startLine: 69
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -353,11 +354,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ParameterCollection
     path: SHARP3D/C3dFile.cs
-    startLine: 73
+    startLine: 74
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -370,6 +371,38 @@ items:
       type: SHARP3D.Parameter.Data.C3dParameterCollection
     content.vb: Public Property ParameterCollection As C3dParameterCollection
   overload: SHARP3D.C3dFile.ParameterCollection*
+- uid: SHARP3D.C3dFile.DataContext
+  commentId: P:SHARP3D.C3dFile.DataContext
+  id: DataContext
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: DataContext
+  nameWithType: C3dFile.DataContext
+  fullName: SHARP3D.C3dFile.DataContext
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataContext
+    path: SHARP3D/C3dFile.cs
+    startLine: 82
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Centralize the values needed to extract the data from the C3D file.
+  remarks: It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
+  example: []
+  syntax:
+    content: public C3dDataContext DataContext { get; set; }
+    parameters: []
+    return:
+      type: SHARP3D.Data.Data.C3dDataContext
+    content.vb: Public Property DataContext As C3dDataContext
+  overload: SHARP3D.C3dFile.DataContext*
 - uid: SHARP3D.C3dFile.Data
   commentId: P:SHARP3D.C3dFile.Data
   id: Data
@@ -384,11 +417,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Data
     path: SHARP3D/C3dFile.cs
-    startLine: 78
+    startLine: 87
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -415,11 +448,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: CreateEmpty
     path: SHARP3D/C3dFile.cs
-    startLine: 115
+    startLine: 128
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -446,11 +479,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: LoadFromFile
     path: SHARP3D/C3dFile.cs
-    startLine: 156
+    startLine: 169
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -484,11 +517,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetParameter
     path: SHARP3D/C3dFile.cs
-    startLine: 259
+    startLine: 272
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -525,11 +558,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToBinaries
     path: SHARP3D/C3dFile.cs
-    startLine: 314
+    startLine: 630
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -557,11 +590,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: SaveToFile
     path: SHARP3D/C3dFile.cs
-    startLine: 327
+    startLine: 643
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -596,11 +629,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: IsFileStreamOpen
     path: SHARP3D/C3dFile.cs
-    startLine: 336
+    startLine: 652
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -627,11 +660,11 @@ items:
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: main
+      branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: CloseFileStream
     path: SHARP3D/C3dFile.cs
-    startLine: 344
+    startLine: 660
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1210,19 +1243,19 @@ references:
   - uid: SHARP3D.Parameter.Data
     name: Data
     href: SHARP3D.Parameter.Data.html
-- uid: SHARP3D.C3dFile.Data*
-  commentId: Overload:SHARP3D.C3dFile.Data
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Data
-  name: Data
-  nameWithType: C3dFile.Data
-  fullName: SHARP3D.C3dFile.Data
-- uid: SHARP3D.Data.Data.C3dData
-  commentId: T:SHARP3D.Data.Data.C3dData
+- uid: SHARP3D.C3dFile.DataContext*
+  commentId: Overload:SHARP3D.C3dFile.DataContext
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataContext
+  name: DataContext
+  nameWithType: C3dFile.DataContext
+  fullName: SHARP3D.C3dFile.DataContext
+- uid: SHARP3D.Data.Data.C3dDataContext
+  commentId: T:SHARP3D.Data.Data.C3dDataContext
   parent: SHARP3D.Data.Data
-  href: SHARP3D.Data.Data.C3dData.html
-  name: C3dData
-  nameWithType: C3dData
-  fullName: SHARP3D.Data.Data.C3dData
+  href: SHARP3D.Data.Data.C3dDataContext.html
+  name: C3dDataContext
+  nameWithType: C3dDataContext
+  fullName: SHARP3D.Data.Data.C3dDataContext
 - uid: SHARP3D.Data.Data
   commentId: N:SHARP3D.Data.Data
   href: SHARP3D.html
@@ -1253,6 +1286,19 @@ references:
   - uid: SHARP3D.Data.Data
     name: Data
     href: SHARP3D.Data.Data.html
+- uid: SHARP3D.C3dFile.Data*
+  commentId: Overload:SHARP3D.C3dFile.Data
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Data
+  name: Data
+  nameWithType: C3dFile.Data
+  fullName: SHARP3D.C3dFile.Data
+- uid: SHARP3D.Data.Data.C3dData
+  commentId: T:SHARP3D.Data.Data.C3dData
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dData.html
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Data.C3dData
 - uid: SHARP3D.C3dFile
   commentId: T:SHARP3D.C3dFile
   parent: SHARP3D
