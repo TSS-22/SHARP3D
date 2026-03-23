@@ -1,6 +1,6 @@
 # Introduction
 
-# Samples and Tests
+## Samples and Tests
 
 You can find C3D samples on the [C3D website](https://www.c3d.org/sampledata.html).
 A large part of their set is used for testing this library and can be found in SHARP3D.Test/SampleFiles and SHARP3D.Test/SampleErrorFiles.

@@ -4,7 +4,11 @@ items:
   commentId: N:SHARP3D.Exceptions
   id: SHARP3D.Exceptions
   children:
+  - SHARP3D.Exceptions.C3dBadFormatingException
+  - SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  - SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
   - SHARP3D.Exceptions.EmptyParameterGroupException
+  - SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
   - SHARP3D.Exceptions.ParameterNotFoundException
   - SHARP3D.Exceptions.PointAndAnalogRateException
   - SHARP3D.Exceptions.UnknownProcessorTypeException
@@ -18,6 +22,31 @@ items:
   assemblies:
   - SHARP3D
 references:
+- uid: SHARP3D.Exceptions.C3dBadFormatingException
+  commentId: T:SHARP3D.Exceptions.C3dBadFormatingException
+  parent: SHARP3D.Exceptions
+  href: SHARP3D.Exceptions.C3dBadFormatingException.html
+  name: C3dBadFormatingException
+  nameWithType: C3dBadFormatingException
+  fullName: SHARP3D.Exceptions.C3dBadFormatingException
+- uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+  commentId: T:SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+  href: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException.html
+  name: C3dIncompatiblePointUsedValuesException
+  nameWithType: C3dIncompatiblePointUsedValuesException
+  fullName: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+- uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  commentId: T:SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+  href: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException.html
+  name: C3dBadFrameNumberFormatingException
+  nameWithType: C3dBadFrameNumberFormatingException
+  fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  commentId: T:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  href: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html
+  name: IncompatiblePointAndAnalogRate
+  nameWithType: IncompatiblePointAndAnalogRate
+  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
 - uid: SHARP3D.Exceptions.EmptyParameterGroupException
   commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
   href: SHARP3D.Exceptions.EmptyParameterGroupException.html
@@ -42,3 +71,25 @@ references:
   name: UnknownProcessorTypeException
   nameWithType: UnknownProcessorTypeException
   fullName: SHARP3D.Exceptions.UnknownProcessorTypeException
+- uid: SHARP3D.Exceptions
+  commentId: N:SHARP3D.Exceptions
+  href: SHARP3D.html
+  name: SHARP3D.Exceptions
+  nameWithType: SHARP3D.Exceptions
+  fullName: SHARP3D.Exceptions
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Exceptions
+    name: Exceptions
+    href: SHARP3D.Exceptions.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Exceptions
+    name: Exceptions
+    href: SHARP3D.Exceptions.html

@@ -31,8 +31,20 @@ items:
   name: SHARP3D.Exceptions
   type: Namespace
   items:
+  - uid: SHARP3D.Exceptions.C3dBadFormatingException
+    name: C3dBadFormatingException
+    type: Class
+  - uid: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
+    name: C3dBadFrameNumberFormatingException
+    type: Class
+  - uid: SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
+    name: C3dIncompatiblePointUsedValuesException
+    type: Class
   - uid: SHARP3D.Exceptions.EmptyParameterGroupException
     name: EmptyParameterGroupException
+    type: Class
+  - uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+    name: IncompatiblePointAndAnalogRate
     type: Class
   - uid: SHARP3D.Exceptions.ParameterNotFoundException
     name: ParameterNotFoundException
