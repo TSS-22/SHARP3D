@@ -1416,12 +1416,12 @@ references:
   commentId: F:SHARP3D.Parameter.Data.C3dParameter.Data
   fullName: SHARP3D.Parameter.Data.C3dParameter.Data
   nameWithType: C3dParameter.Data
-- uid: SHARP3D.Parameter.Data.C3dParameter.DataType
-  name: DataType
-  href: api/SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_DataType
-  commentId: F:SHARP3D.Parameter.Data.C3dParameter.DataType
-  fullName: SHARP3D.Parameter.Data.C3dParameter.DataType
-  nameWithType: C3dParameter.DataType
+- uid: SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  name: DataTypeFile
+  href: api/SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_DataTypeFile
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  fullName: SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  nameWithType: C3dParameter.DataTypeFile
 - uid: SHARP3D.Parameter.Data.C3dParameter.Description
   name: Description
   href: api/SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_Description
