@@ -585,6 +585,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/c3d-file-structure.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/c3d-file-structure.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/getting-started.md",
       "output": {
         ".html": {
