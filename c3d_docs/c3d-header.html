@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Header Section | SHARP3D Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Header Section | SHARP3D Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/c3d-header.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SHARP3D Documentation">
+            SHARP3D Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="header-section">Header Section</h1>
+
+<p>The first 512-bytes block at the beginning of every C3D file is referred as the Header. It is partially composed of copy of values from the Parameter section, in order for applications to be able to read C3D file 3D Point Data quickly.</p>
+<h2 id="structure">Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Word(s)</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Byte 1: uint8, Byte 2: char</td>
+<td>Byte 1: Number of 512-byte blocks to Parameter Section + 1.<br>Byte 2: Data storage format flag.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>uint16</td>
+<td>Number of markers stored in each Data Frame.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>uint16</td>
+<td>Total number of analog samples per Data Frame.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>uint16</td>
+<td>First frame number of raw data (not used/misleading).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>uint16</td>
+<td>Last frame number of raw data (not used/misleading).</td>
+</tr>
+<tr>
+<td>6</td>
+<td>uint16</td>
+<td>Maximum 3D frame interpolation gap.</td>
+</tr>
+<tr>
+<td>7-8</td>
+<td>float32</td>
+<td>Data Scale factor.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>uint16</td>
+<td>Number of 512-byte blocks to the Data Section + 1.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>uint16</td>
+<td>Analog Frames per Data Frame.</td>
+</tr>
+<tr>
+<td>11-12</td>
+<td>float32</td>
+<td>3D Point Data acquisition rate in Hertz.</td>
+</tr>
+<tr>
+<td>13-149</td>
+<td>—</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>150</td>
+<td>uint16</td>
+<td>Indicates support for 2 or 4-character Header Event labels.</td>
+</tr>
+<tr>
+<td>151</td>
+<td>uint16</td>
+<td>Number of Header Events (0-18).</td>
+</tr>
+<tr>
+<td>152</td>
+<td>—</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>153-188</td>
+<td>float32</td>
+<td>Header Event times in seconds.</td>
+</tr>
+<tr>
+<td>189-197</td>
+<td>uint8</td>
+<td>Header Event flag (0x00 = ON, 0x01 = OFF).</td>
+</tr>
+<tr>
+<td>198</td>
+<td>—</td>
+<td>Not used.</td>
+</tr>
+<tr>
+<td>199-234</td>
+<td>ASCII</td>
+<td>Header Event labels (2 or 4 characters, depending on Word 150).</td>
+</tr>
+<tr>
+<td>235-256</td>
+<td>—</td>
+<td>Not used.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="structure-details">Structure Details</h2>
+<blockquote>
+<p>All values, aside from the <a href="#word-1-pointer-to-parameter-section-and-file-format">Word 1</a> depends on the <a href="c3d-parameter-section.html">file endian format</a>. Its value need to be determined first, to allow for the interpretation of any Int16, Uint16 or Float32.</p>
+</blockquote>
+<p>the C3D header contains a number of areas that are marked as &quot;Currently not used&quot;. Any application that copies, or edits a C3D file, must preserve these areas to guarantee future compatibility while all applications creating new C3D files must set these values as zero (0x00h).</p>
+<h3 id="word-1-pointer-to-parameter-section-and-file-format">Word 1: Pointer to Parameter Section and File Format</h3>
+<p>The first word in the C3D file must be read as two bytes, so that the values are unaffected by the C3D file endian format.</p>
+<h4 id="first-byte">First byte</h4>
+<p>The first byte of the header gives the position of the First <a href="c3d-parameter-section.html">Parameter Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="c3d-parameter-section.html">Parameter Section</a> first block.</p>
+<h4 id="second-byte">Second byte</h4>
+<p>The second byte in the C3D file is an identification allowing applications to verify the <a href="c3d-data-section.html">Data Section</a> format. This byte is usually set as 0x50 (ASCII: ‘P’, decimal: 80) when a C3D file uses the standard Frame setup, with a Frame being composed of:</p>
+<ul>
+<li>3D Point Data</li>
+<li>Synchronized Analogs Data</li>
+</ul>
+<blockquote>
+<p>In practice, most if not all C3D files follow this standard. But this does not mean that this byte will be set as 0x50 nonetheless.</p>
+</blockquote>
+<h3 id="word-2-number-of-3d-markerstrajectories-per-data-frame">Word 2: Number of 3D Markers/Trajectories per Data Frame</h3>
+<p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="supported_parameters/required/point-used.html">POINT:USED parameter</a>.</p>
+<h3 id="word-3-total-number-of-analog-samples-per-data-frames">Word 3: Total Number of Analog Samples per Data Frames</h3>
+<p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples.</p>
+<p>If the C3D file does not contain any analog data then the value of Word 3 will be zero.</p>
+<h3 id="word-4-first-frame-number-of-the-raw-data">Word 4: First Frame Number of the Raw Data</h3>
+<p>It contains the number of the first frame of the raw data used to create the C3D file. It does not represent the number of the first frame of the C3D file, as not all the frames from the raw data might have been used to create the C3D file.</p>
+<blockquote>
+<p>This is a confusing field and is not used in practice due to this, and the fact that its usefulness is &quot;limited&quot;. It is not used to read C3D file.</p>
+</blockquote>
+<p>This parameter was originally included for reference only.</p>
+<p>Applications occasionally attempt to determine the number of frame in a C3D file by subtracting the Header First Frame number from the <a href="#word-5-end-frame-number-of-the-raw-data">End Frame Number</a>, so these values may need to be maintained when C3D files are created to maintain compatibility with older applications.</p>
+<h3 id="word-5-end-frame-number-of-the-raw-data">Word 5: End Frame Number of the Raw Data</h3>
+<p>It contains the number of the End frame of the raw data used to create the C3D file. It does not represent the number of the End frame of the C3D file, as not all the frames from the raw data might have been used to create the C3D file.</p>
+<blockquote>
+<p>This is a confusing field and is not used in practice due to this, and the fact that its usefulness is &quot;limited&quot;. It is not used to read C3D file.</p>
+</blockquote>
+<p>This parameter was originally included for reference only.</p>
+<p>Applications occasionally attempt to determine the number of frame in a C3D file by subtracting the Header <a href="#word-4-first-frame-number-of-the-raw-data">First Frame number</a> from the End Frame Number, so these values may need to be maintained when C3D files are created to maintain compatibility with older applications.</p>
+<h3 id="word-6-maximum-interpolation-gap">Word 6: Maximum Interpolation Gap</h3>
+<p>It stores the maximum interpolation gap length for 3D Point Data.</p>
+<p>The use of this item is not specified in the C3D file description although the maximum interpolation gap length value is usually set to indicate the maximum length of potentially invalid 3D point data samples (in frames) over which 3D point interpolation may be or have been performed.  This may be used by various applications to specify the length of gaps that can be interpolated or gap filled when reading or creating a C3D file.</p>
+<blockquote>
+<p>The interpretation of the maximum interpolation gap header word is application dependent and its value is normally set when the C3D file is created. Ask your vendor for their definition and use of this item.</p>
+</blockquote>
+<blockquote>
+<p>It does not indicate that any 3D data points have been interpolated.</p>
+</blockquote>
+<p>Any application reading the C3D file may override this value and interpolate gaps of any length if desired and record the maximum interpolation length by updating this value.</p>
+<h3 id="word-7-8-3d-sacle-factor">Word 7-8: 3D Sacle Factor</h3>
+<p>It contain the <a href="supported_parameters/required/point-scale_factor.html">3D Scale Factor</a> value.</p>
+<p>This parameter is required when 3D data values are stored using the standard signed integer format because it is used to scale each of the stored 3D point and residual values from signed integer values to physical world values.</p>
+<p>When 3D data is stored as scaled floating-point values, it is used to scale the 3D residuals which are recorded as integers.</p>
+<blockquote>
+<p>Always calculate a valid 3D scale factor.</p>
+</blockquote>
+<p>The sign of the <a href="supported_parameters/required/point-scale_factor.html">3D Scale Factor</a> is used to determine the 3D point and analog data storage format:</p>
+<ul>
+<li>Negative Scale Factor: Float32</li>
+<li>Positive Scale Factor: Int16</li>
+</ul>
+<h3 id="word-9-pointer-to-data-section">Word 9: Pointer to Data Section</h3>
+<p>It gives the position of the First <a href="c3d-data-section.html">Data Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="c3d-data-section.html">Data Section</a> first block.</p>
+<h3 id="word-10-number-of-analog-frame-per-data-frame">Word 10: Number of Analog Frame per Data Frame</h3>
+<p>It gives the number of Analog Frame per Data Frame. The C3D
+structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.</p>
+<p>While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.</p>
+<p>If the C3D file does not contain any analog data then the value of Word 10 will be zero.</p>
+<h3 id="word-11-12-3d-point-data-acquisition-rate">Word 11-12: 3D Point Data Acquisition Rate</h3>
+<p>It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  <a href="supported_parameters/required/point-rate.html">POINT:RATE Parameter</a>.</p>
+<p>The 3D frame rate parameter is a floating-point value, making it possible to accurately record the 3D frame rate for video based
+sampling systems</p>
+<h3 id="word-13-149-unused">Word 13-149: Unused</h3>
+<p>C3D file header words 13 – 149 are currently not used and may provide additional expansion features in the future. Applications that create new C3D files should fill these words with 0x00h, while applications that copy or edit C3D files must preserve the contents of these words.</p>
+<h3 id="word-150-supported-header-event-label-length">Word 150: Supported Header Event Label Length</h3>
+<p>Determine if the Header Event Labels are 2 or 4 ASCII characters long. A value of 0x3039 (decimal: 12345) indicate that the file store the Header Event Labels as 4 ASCII character. Any other value indicate that the file store the Header Event Labels as 2 ASCII character.</p>
+<blockquote>
+<p>The presence of the 0x3039 only indicates that the C3D file supports labels with four characters – it does not indicate that any events are actually stored</p>
+</blockquote>
+<h3 id="word-151-number-of-header-events">Word 151: Number of Header Events</h3>
+<p>The number of Header Events. The value needs to be in the range [0, 18].</p>
+<p>Value of 0 indicate that no Header Events are stored, value of 1 to 18 indicating that Header Events are present.</p>
+<h3 id="word-152-not-used">Word 152: Not used</h3>
+<p>C3D file header word 152 is currently not used and may provides additional expansion features in the future. Applications that create new C3D files should fill this word with 0x00h, while applications that copy or edit C3D files must preserve the contents of this words.</p>
+<h3 id="words-153-188-header-events-time">Words 153-188: Header Events Time</h3>
+<p>Store the value of the Header Events time at which they happens, in seconds. Each Header Event time is recorded as the number of seconds and fractions of a second that have elapsed since the first 3D Point Frame recorded, designated as 0.0s.</p>
+<h3 id="words-189-197">Words 189-197:</h3>
+<p>Store the Header Event Flag.</p>
+<blockquote>
+<p>0x00 = OFF, 0x01 = ON</p>
+</blockquote>
+<p>THERE ARE CONTRADICTING INFORMATIONS FROM THE <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D USER GUIDE</a>. THE VALUE ADVERTISED HERE ARE THE LOGICAL VALUE FROM HOW LOGIC IS BEING PROCESSED IN COMPUTER SCIENCE AND FROM SOME OF <a href="https://www.c3d.org/sampledata.html">SAMPLE FILES</a> PROVIDED BY THE C3D WEBSITE.</p>
+<p>The ON/OFF status of the event may be interpreted in any convenient way. There is no formal convention for the interpretation or use of the event status. Events are valid within the C3D file regardless of their actual status.</p>
+<p>The Header Event being valid whatever his Flag value is, we recommend to not think too hard about it unless you have very specific reasons for it.</p>
+<h3 id="word-198-not-used">Word 198: Not used</h3>
+<p>C3D file header word 198 is currently not used and may provides additional expansion features in the future. Applications that create new C3D files should fill this word with 0x00h, while applications that copy or edit C3D files must preserve the contents of this words.</p>
+<h3 id="word-199---234-header-event-labels">Word 199 - 234: Header Event Labels</h3>
+<p>Store the Header Event Labels. The labels are either 2 or 4 ASCII characters length, depending on the <a href="#word-150-supported-header-event-label-length">value of Word 150</a>.</p>
+<blockquote>
+<p>Event labels should always use 7-bit ASCII characters (a-Z, 0-9 and space)</p>
+</blockquote>
+<blockquote>
+<p>Header Event Labels each needs to be UNIQUE.</p>
+</blockquote>
+<p>In the occurence the Header Event Labels length is less than the maximum length allowed, it needs to be padded with a &quot;space&quot; character (hexadecimal: 0x20, decimal: 32).</p>
+<h3 id="word-235-256-unused">Word 235-256: Unused</h3>
+<p>C3D file header words 13 – 149 are currently not used and may provide additional expansion features in the future. Applications that create new C3D files should fill these words with 0x00h, while applications that copy or edit C3D files must preserve the contents of these words.</p>
+<h2 id="header-events">Header Events</h2>
+<p>Header events were added to the C3D format to allow applications to record timing information, relevant to the recorded data, for gait analysis – typically recording events like left/right heel-contact and toe-off information as the subject walked across one or more force plates. This feature ensures that gait analysis and other data processing programs perform their calculations in a repeatable manner using the event times to determine the gait cycle data analysis timing.</p>
+<p>A maximum of eighteen (18) of these events can be stored in the C3D header record, each header event has an on/off status flag that can be used by applications to control the display of the event position when the C3D file is processed.</p>
+<p>Most C3D files store large numbers of events in the parameter block, thus freeing up the header events for storing specific events that have special significance, e.g. recording the gait cycle that has been selected for analysis when a file contains multiple gait cycles.</p>
+<blockquote>
+<p>Events can also be independently stored in the EVENT group in the
+parameter section of the C3D file – parameter events and header events are independently recorded and there is no requirement that they duplicate each other.</p>
+</blockquote>
+<p>Modern C3D files tend to use the EVENT group but the header event storage feature continues to be valid and may contain unique or duplicate events. Applications should always interpret and process the header events as well as the optional EVENT Parameter Group if it exists.</p>
+<h3 id="stored-order">Stored order</h3>
+<p>The Header Events are stored as an unordered list that can be indexed directly by the event count stored in header word 151. Events are always added to the end of the list: if one or more events are deleted from the middle of the list then all higher index events (together with their labels and status flags) are moved down to fill the empty space.</p>
+<blockquote>
+<p>Events may be stored in the list in any order so long as the event time, label and status are indexed correctly by the event count in header Word 151.</p>
+</blockquote>
+<h2 id="notes">Notes</h2>
+<p>Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the <a href="c3d-parameter-section.html">Parameter Section</a>. A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/c3d-header.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

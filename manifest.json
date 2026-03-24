@@ -585,10 +585,123 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/c3d-file-structure.md",
+      "source_relative_path": "c3d_docs/c3d-data-section.md",
       "output": {
         ".html": {
-          "relative_path": "docs/c3d-file-structure.html"
+          "relative_path": "c3d_docs/c3d-data-section.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/c3d-file-structure.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/c3d-file-structure.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/c3d-general.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/c3d-general.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/c3d-header.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/c3d-header.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/c3d-parameter-section.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/c3d-parameter-section.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/additional.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/additional.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/application.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/application.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/required.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/required.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/required/point-rate.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/required/point-rate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/required/point-scale_factor.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/required/point-scale_factor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/required/point-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/required/point-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "c3d_docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "c3d_docs/toc.json"
         }
       },
       "version": ""
