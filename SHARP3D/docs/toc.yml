@@ -2,11 +2,3 @@
   href: introduction.md
 - name: Getting Started
   href: getting-started.md
-- name: C3D Documentation  
-  items:
-    - name: General Informations
-      href: c3d_doc/c3d-general.md
-    - name: C3D File Structure
-      href: c3d_doc/c3d-file-structure.md
-    - name: C3D Header
-      href: c3d_doc/c3d-header.md

@@ -1,0 +1,28 @@
+- name: General Informations
+  href: c3d-general.md
+- name: C3D File Structure
+  href: c3d-file-structure.md
+- name: C3D Header
+  href: c3d-header.md
+- name: C3D Parameter Section
+  href: c3d-parameter-section.md
+- name: C3D Data Section
+  href: c3d-data-section.md
+- name: Supported Parameters
+  items:
+    - name: Required Parameters
+      href: supported_parameters/required.md
+    - name: Additional Parameters
+      href: supported_parameters/additional.md
+    - name: Application Parameters
+      href: supported_parameters/application.md
+    - name: Point
+      items:
+        - name: POINT:USED
+          href: supported_parameters/required/point-used.md
+        - name: POINT:RATE
+          href: supported_parameters/required/point-rate.md
+        - name: POINT:SCALE_FACTOR
+          href: supported_parameters/required/point-scale_factor.md
+
+      
