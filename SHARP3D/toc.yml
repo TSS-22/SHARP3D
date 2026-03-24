@@ -1,4 +1,6 @@
-- name: Docs
+- name: C3D Docs
+  href: c3d_docs/
+- name: SHARP3D Docs
   href: docs/
 - name: API
   href: api/
