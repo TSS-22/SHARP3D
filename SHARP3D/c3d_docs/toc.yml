@@ -16,7 +16,7 @@
       href: supported_parameters/additional.md
     - name: Application Parameters
       href: supported_parameters/application.md
-    - name: Point
+    - name: POINT
       items:
         - name: POINT:USED
           href: supported_parameters/required/point-used.md

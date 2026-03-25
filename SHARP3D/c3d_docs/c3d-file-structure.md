@@ -28,7 +28,7 @@ The header are a 512-bytes block present at the beginning of each C3D Files.
 
 ## Parameter		
 
-All Parameter Section start with the following 4 bytes:
+All [Parameter Section](./c3d-parameter-section.md) start with the following 4 bytes:
 
 | Byte | Description                                                                                     |
 |------|-------------------------------------------------------------------------------------------------|
@@ -37,7 +37,7 @@ All Parameter Section start with the following 4 bytes:
 | 3    | Number of 512-byte blocks composing the Parameter Section.                                      |
 | 4    | Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)          |
 
-Then follows the Parameter Structures. They can be either Groups or Parameters. Groups regroup the Parameters inside them. The Parameter Structures are displayed in a random order.
+Then follows the Parameter Structures, listed in a random order. They can be either Groups or Parameters. Groups regroup the Parameters inside them.
 
 ### Group
 
