@@ -42,39 +42,38 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./suppor
 
 ### Header
 
-| Byte | Description                                                                                     |
-|------|-------------------------------------------------------------------------------------------------|
-| 1    | Reserved and unused.                                                                             |
-| 2    | Reserved and unused.                                                                             |
-| 3    | Number of 512-byte blocks composing the Parameter Section.                                      |
-| 4    | Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)          |
+| Name | Byte | Description                                                                                     |
+|------|------|-------------------------------------------------------------------------------------------------|
+| Unused/Ignored | 1    | Reserved and unused.                                                                             |
+| Unused/Ignored | 2    | Reserved and unused.                                                                             |
+| Length | 3    | Number of 512-byte blocks composing the Parameter Section.                                      |
+|Processor Type | 4    | Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)          |
 
 ### Group
 
-| Position (byte) | Length (bytes) | Type            | Description                                                                                     |
-|-----------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| 1               | 1              | Signed byte     | Number of characters in the Group name (1-127). If negative, the Group is advertised as locked.              |
-| 2               | 1              | Signed byte     | The Group Id (-1 to -127). Always negative.                                                      |
-| 3               | n              | ASCII           | Group name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
-| 3 + n           | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n + 2       | 1              | Unsigned byte   | Number of bytes in the Group description.                                                       |
-| 3 + n + 3       | m              | UTF-8           | Group description.                                                                              |
+| Name | Position (byte) | Length (bytes) | Type            | Description                                                                                     |
+|-----|-----------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
+| Name Length | 1               | 1              | Signed byte     | Number of characters in the Group name (1-127). If negative, the Group is advertised as locked.              |
+| ID | 2               | 1              | Signed byte     | The Group Id (-1 to -127). Always negative.                                                      |
+| Name | 3               | n              | ASCII           | Group name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
+|Pointer to next | 3 + n           | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
+| Description Length | 3 + n + 2       | 1              | Unsigned byte   | Number of bytes in the Group description.                                                       |
+| Description | 3 + n + 3       | m              | UTF-8           | Group description.                                                                              |
 
 ### Parameter
 
-| Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
-| 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
-| 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
-| 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
-| 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
-| 3 + n + 4             | d              | Unsigned byte   | Length of each Parameter Data dimension.                                                        |
-| 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
-| 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
-| 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description. 
+| Name | Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
+|-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
+| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
+| ID | 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
+| Name | 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
+| Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
+| Data Type | 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
+| Dimensions Number | 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
+| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Length of each Parameter Data dimension.                                                        |
+| Data | 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
+| Description Length | 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
+| Description | 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description.  
 
 ## Details
 
@@ -222,9 +221,11 @@ Byte can contain a one’s complement 8-bit signed integer in the range -127 to 
 
 Note that the interpretation of the data values is controlled by the [processor type](#byte-4-processor-type-and-file-endianness) which is usually determined by the hardware that originally generated the C3D file.
 
-##### Byte 3+n+3: Dimensions
+##### Byte 3+n+3: Dimensions Number
 
-It stores the Parameter's data dimensions. Its value can range from 0 to 7. The terminology "dimensions" is used here as its computing equivalent: it denotes the Rank of the Data: 0D, 1D, 2D, 3D, etc... The actual values of each dimensions of the Parameter's data (e.g. 2 by 3, 6 by 6 etc...) are stored in the next two bytes.
+It stores the Parameter's data dimensions number. Its value can range from 0 to 7 ([scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type), 1D, 2D, 3D, etc...). The actual values of each dimensions of the Parameter's data (e.g. 2 by 3, 6 by 6 etc...) are stored in the next two bytes.
+
+The terminology "dimensions" is used here as its computing equivalent: it denotes the Rank of the Data: 0D, 1D, 2D, 3D, etc... 
 
 A Parameter's data with 0 dimensions is a [scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type), for example a single number or a signle character.
 
@@ -232,13 +233,13 @@ If the Parameter's data as a value of 1, it is a vector.
 
 If the Parameter's data as a value of 2 or more, it is a matrix.
 
-##### Byte 3+n+4: Dimensions Values
+##### Byte 3+n+4: Dimensions Length
 
-The actual values of each dimensions of the Parameter's Data.
+The actual length of each dimensions of the Parameter's Data.
 
 ##### Byte 3+n+4+d: Data
 
-The Parameter's data as a vector of [data type](#byte-3n2-data-type). This data vector length is equal to the product of the Dimensions values or 1 if the Parameter's Data is a [scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type) and has 0 [dimensions](#byte-3n3-dimensions).
+The Parameter's data as a vector of [data type](#byte-3n2-data-type). This data vector length is equal to the product of the Dimensions values or 1 if the Parameter's Data is a [scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type) and has 0 [dimensions](#byte-3n3-dimensions-number).
 
 > The parameter section of the C3D file follows [FORTRAN convention](https://fortran-lang.org/learn/best_practices/multidim_arrays/) and stores array in column order.
 

@@ -30,42 +30,41 @@ The header are a 512-bytes block present at the beginning of each C3D Files.
 
 All [Parameter Section](./c3d-parameter-section.md) start with the following 4 bytes:
 
-| Byte | Description                                                                                     |
-|------|-------------------------------------------------------------------------------------------------|
-| 1    | Reserved and unused.                                                                             |
-| 2    | Reserved and unused.                                                                             |
-| 3    | Number of 512-byte blocks composing the Parameter Section.                                      |
-| 4    | Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)          |
+| Name | Byte | Description                                                                                     |
+|------|------|-------------------------------------------------------------------------------------------------|
+| Unused/Ignored | 1    | Reserved and unused.                                                                             |
+| Unused/Ignored | 2    | Reserved and unused.                                                                             |
+| Length | 3    | Number of 512-byte blocks composing the Parameter Section.                                      |
+|Processor Type | 4    | Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)          |
 
 Then follows the Parameter Structures, listed in a random order. They can be either Groups or Parameters. Groups regroup the Parameters inside them.
 
 ### Group
 
-| Position (byte) | Length (bytes) | Type            | Description                                                                                     |
-|-----------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| 1               | 1              | Signed byte     | Number of characters in the Group name (1-127). If negative, the Group is advertised as locked.              |
-| 2               | 1              | Signed byte     | The Group Id (-1 to -127). Always negative.                                                      |
-| 3               | n              | ASCII           | Group name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
-| 3 + n           | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n + 2       | 1              | Unsigned byte   | Number of bytes in the Group description.                                                       |
-| 3 + n + 3       | m              | UTF-8           | Group description.                                                                              |
+| Name | Position (byte) | Length (bytes) | Type            | Description                                                                                     |
+|-----|-----------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
+| Name Length | 1               | 1              | Signed byte     | Number of characters in the Group name (1-127). If negative, the Group is advertised as locked.              |
+| ID | 2               | 1              | Signed byte     | The Group Id (-1 to -127). Always negative.                                                      |
+| Name | 3               | n              | ASCII           | Group name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
+|Pointer to next | 3 + n           | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
+| Description Length | 3 + n + 2       | 1              | Unsigned byte   | Number of bytes in the Group description.                                                       |
+| Description | 3 + n + 3       | m              | UTF-8           | Group description.                                                                              |
 
 
 ### Parameter
 
-| Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
-| 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
-| 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
-| 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
-| 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
-| 3 + n + 4             | d              | Unsigned byte   | Length of each Parameter Data dimension.                                                        |
-| 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
-| 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
-| 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description.     
+| Name | Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
+|-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
+| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
+| ID | 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
+| Name | 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
+| Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
+| Data Type | 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
+| Dimensions Number | 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
+| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Length of each Parameter Data dimension.                                                        |
+| Data | 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
+| Description Length | 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
+| Description | 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description.     
 
 ## Data
 
@@ -80,22 +79,22 @@ The 3D Points values are either Signed Int16 or Float32 dependings on the Scale 
 
 #### Int16 Version
 
-| Length (bytes) | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| 2              | Signed Int16  | X value divided by SCALE:FACTOR.                                                                |
-| 2              | Signed Int16  | Y value divided by SCALE:FACTOR.                                                                |
-| 2              | Signed Int16  | Z value divided by SCALE:FACTOR.                                                                |
-| 2              | Signed Int16  | Byte 1: `abcd efgh`.<br>`a`: Residual sign.<br>`b-g`: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR. |
+| Name | Length (bytes) | Type   | Description                                                                                     |
+|-|----------------|--------|-------------------------------------------------------------------------------------------------|
+| X | 2              | Signed Int16  | X value divided by SCALE:FACTOR.                                                                |
+| Y | 2              | Signed Int16  | Y value divided by SCALE:FACTOR.                                                                |
+| Z | 2              | Signed Int16  | Z value divided by SCALE:FACTOR.                                                                |
+| Residual and Camera Mask | 2              | Signed Int16  | Byte 1: `abcd efgh`.<br>`a`: Residual sign.<br>`b-g`: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR. |
 
 
 #### Float32 Version
 
-| Length (bytes) | Type   | Description                                                                                     |
-|----------------|--------|-------------------------------------------------------------------------------------------------|
-| 4              | Float32| X value.                                                                |
-| 4              | Float32| Y value.                                                                |
-| 4              | Float32| Z value.                                                                |
-| 4              | Float32| After converting its value to Signed Int16. Byte 1: `abcd efgh`.<br>`a`: Residual sign.<br>`b-g`: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR. |
+| Name | Length (bytes) | Type   | Description                                                                                     |
+|-|----------------|--------|-------------------------------------------------------------------------------------------------|
+| X | 4              | Float32| X value.                                                                |
+| Y | 4              | Float32| Y value.                                                                |
+| Z | 4              | Float32| Z value.                                                                |
+| Residual and Camera Mask | 4              | Float32| After converting its value to Signed Int16. Byte 1: `abcd efgh`.<br>`a`: Residual sign.<br>`b-g`: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR. |
 
 ### Analogs
 
