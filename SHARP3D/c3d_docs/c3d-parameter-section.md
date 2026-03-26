@@ -103,7 +103,7 @@ by adding up the size of every individual Parameter within the C3D file.
 
 If the parameters are added, edited, or deleted then the parameter storage block count must be verified and updated when the file is closed.
 
-#### Byte 4: File Endianness
+#### Byte 4: Processor Type and File Endianness
 
 It enables any program accessing the parameter and data files to determine the endian format of the floating-point and integer numbers within the C3D file. 
 
@@ -132,6 +132,10 @@ The Groups and Parameters are stored starting at byte 5 of the Parameter Section
 ##### Byte 1: Name Length
 
 The number of character in the name of the Group/Parameter. A name can contains between 1 to 127 characters. If the value is set to a negative number, this means that the Group/Parameter is [Locked](#locked-groupparameter).
+
+> Always use the absolute value of Name Length to compute the actual Name Length.
+
+Although the capability exists, in practice parameter Groups are not locked. Locking is only used for individual Parameters within Groups to flag items that that contain critical values within the C3D file structure.
 
 ##### Byte 2: ID
 
@@ -165,6 +169,8 @@ For example POINT:MARKER_UNITS and POINT:MARKER_ID may cause problems because th
 
 Name length cannot exceed 127 character, and must have a bare minimum of 1 character, although 4 characters should generally be considered the actual a minimum.
 
+Always make sure that Group/Parameter Names are spelled correctly: a software application that expects to read data from a Parameter called OFFSET will probably fail to find it if the Parameter has been spelt incorrectly as OFFSETS. Although the original C3D specification stated that the first six characters must be unique, the specification does not require that applications treat similar Parameter Names in the same way
+
 ## Word 3+n: Pointer to next Group/Parameter
 
 A word pointer to the next parameter data structure follows the Group/Parameter name string. Its value is the number of bytes to the next structure.
@@ -187,45 +193,86 @@ In practice, it seems to be the length in bytes of the Description. Indeed Descr
 
 It stores the Description of the Group/Parameter. This field support ASCII and UTF-8 character formatting.
 
+While Group/Parameter Name must be stored as ASCII characters to guarantee universal file access the parameter description, stored as UTF-8 characters, enables the parameter to be presented to users in their local language and characters.
+
 While a Group description is not required, if you are creating a new group or parameter then it is recommended that you describe it so that other users who open the file will understand its function.
 
 >This field is optional as per C3D Standard. But in order to keep Group/Parameter consistent everywhere, we vividly recommend applications to implement it even if no Description is to be set for the parameter data structure. 
 
 #### Parameter fields
 
-##### Data type
+##### Byte 3+n+2: Data type
 
-A parameter’s type determines the data that may be stored in the parameter. Four
-parameter types are available; integer, floating-point, character, and byte. An integer
-is normally a one's complement 16-bit signed number with a range of -32767 to
-+32767 although when used as a pointer, 16-bit integers are normally unsigned with
-a range of 1 to 65535. 32-bit floating-point numbers are written in scientific
-exponential representation, characters are symbols such as a letter entered from the
-keyboard, and a byte can contain a one’s complement 8-bit signed integer in the
-range -127 to +127 or an unsigned integer with a range of 0 to +255.
+A parameter’s Data Type determines the type data that may be stored in the parameter. Four
+parameter types are available; Signed Int16, Float32, Char (8bits), and Byte.
 
-##### Dimensions
+An integer is normally a signed 16-bit Integer number with a range of -32767 to +32767 although some Parameters will store an Unsigned 16-bit Integer. In the present C3D Standard, there is no way to know if a Parameter's Data is supposed to be Signed or Unisged without knowing about the Parameter beforehand.
 
-The term dimension is a programming
-convention - if a parameter has no dimensions then it may only hold one value of its
-data type,
+> [SHARP3D integrate support for Unisgned Int16](https://tss-22.github.io/SHARP3D/api/SHARP3D.Utils.Enum.DataType.html). This way of doing might not be supported by other applications. 
+
+32-bit floating-point numbers are written in scientific exponential representation. 
+
+Characters are symbols such as a letter entered from the keyboard, they are mainly used as ASCII character for human readable parameters. 
+
+Byte can contain a one’s complement 8-bit signed integer in the range -127 to +127 or an unsigned integer with a range of 0 to +255. As for Int16, The C3D Standard doesn't offer any way to know how the Parameter is supposed to be read if you don't have prior knowledge. 
+
+> SHARP3D don't support Signed Byte as no such Parameter were found during testing but this could be implemented in the future if needed.
+
+> Int16 default: Signed (-32767; +32767). Byte default: Unsiged (0; +255) 
+
+Note that the interpretation of the data values is controlled by the [processor type](#byte-4-processor-type-and-file-endianness) which is usually determined by the hardware that originally generated the C3D file.
+
+##### Byte 3+n+3: Dimensions
+
+It stores the Parameter's data dimensions. Its value can range from 0 to 7. The terminology "dimensions" is used here as its computing equivalent: it denotes the Rank of the Data: 0D, 1D, 2D, 3D, etc... The actual values of each dimensions of the Parameter's data (e.g. 2 by 3, 6 by 6 etc...) are stored in the next two bytes.
+
+A Parameter's data with 0 dimensions is a [scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type), for example a single number or a signle character.
+
+If the Parameter's data as a value of 1, it is a vector.
+
+If the Parameter's data as a value of 2 or more, it is a matrix.
+
+##### Byte 3+n+4: Dimensions Values
+
+The actual values of each dimensions of the Parameter's Data.
+
+##### Byte 3+n+4+d: Data
+
+The Parameter's data as a vector of [data type](#byte-3n2-data-type). This data vector length is equal to the product of the Dimensions values or 1 if the Parameter's Data is a [scalar](https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type) and has 0 [dimensions](#byte-3n3-dimensions).
+
+> The parameter section of the C3D file follows [FORTRAN convention](https://fortran-lang.org/learn/best_practices/multidim_arrays/) and stores array in column order.
+
+The storage order of multi-dimensioned array parameters follows the FORTRAN convention. In this format, the dimension that changes more
+rapidly appears first.
+
+Software applications reading and processing data in C3D arrays must ensure that the elements in the array are used correctly. If care if not taken then confusion can arise in the way matrices are processed due to the differences between the default FORTRAN column order of the array and the row based order assumed by C or other C++ based languages.
+
+> SHARP3D takes care of this for you for the Parameters described in our C3D Documentation, see the Supported Parameter section of the documentation. If you would like other Parameter to be supported, [please contact us](https://github.com/TSS-22/SHARP3D/issues). Our goal is to be as exhaustive and easy to use as possible.
 
 ## Locked Group/Parameter
 
-A locking mechanism is implemented to provide a mechanism to limit the ability of casual users to change parameters using Parameter examination and editing programs that might cause data corruption. Any program that allows the user to modify Parameters must respect the locking mechanism. Editing may be permitted for applications that modify the C3D file structure but, for example, allowing a user to change the locked POINT:RATE parameter without resampling the data will corrupt the file. 
+A locking mechanism is implemented to provide a mechanism to limit the ability of casual users to change parameters using Parameter examination and editing programs that might cause data corruption. A locked parameter can be edited and changed if necessary, the locking feature is simply present to limit the chance of anyone accidentally changing a parameter that will affect the data interpretation, or the file integrity.
+
+This is accomplished by setting the first byte, [Name Length](#byte-1-name-length) of the Group/Parameter, to be negative (the absolute value remains unchanged). 
+
+Although the capability exists, in practice parameter Groups are not locked. Locking is only used for individual parameters within Groups to flag items that that contain critical values within the C3D file structure.
+
+> All parameters that have a negative [Name Length](#byte-1-name-length) are considered locked and should not be casually changed by the user. 
+
+Any program that allows the user to modify Parameters must respect the locking mechanism. Applications that allow the user to edit Parameters should respect the Locked Flag status and either refuse to change the locked parameters, or restrict this feature to prevent an inexperienced user from damaging the integrity of the C3D file data. Unless there are special circumstances, any application that accesses a C3D file should not modify locked parameters.
+
+For example an application that resamples the C3D point data will need to update the locked POINT:RATE parameter to record the new data rate but users occasionally think that they change the C3D file sample rate by simply editing the POINT:RATE parameter - a simple edit that would corrupt the C3D file.  
 
 The effectiveness of the locking mechanism depends on the degree to which locking is supported and the consistency with which applications that create C3D files apply the locking property. The fact that a parameter has been locked by one application does not prevent any other application from changing it. Locking simply provides a flag that may be utilized by other locking aware applications.
 
-For example an application that resamples the C3D point data will need to update the locked POINT:RATE parameter to record the new data rate but users occasionally think that they change the C3D file sample rate by simply editing the POINT:RATE parameter - a simple edit that would corrupt the C3D file. As a result it is strongly recommended that all applications do not normally allow users to change locked parameters. 
-
 >All locked C3D parameters (defined by the sign of the [Name Length](#byte-1-name-length)) should not be casually changed, as the stored values are normally critical to the integrity of
 the C3D file data.
-Applications that permit the editing or modification of locked parameters should include a method of restricting this feature to prevent the casual user from accidentally corrupting their C3D data files.
 
 While it is recommended that all C3D applications respect the Parameter Lock Flag and follow procedures to preserve C3D file contents from casual changes that might corrupt the contents, this is not a strict requirement in the C3D file format. Many modern applications set the Parameter Lock Flag incorrectly, either leaving every Parameter unlocked or occasionally locking every Parameter.
 
-
 ## Notes
+
+> Applications that modify C3D files must take care to preserve all groups and parameters from the original input file even if the application does not use or understand the parameters
 
 Unused bytes at the end of the parameter section
 are normally filled with 0x00.
@@ -234,3 +281,11 @@ Initially C3D files stored the number of Parameters in the third byte, a factor
 that was changed as users started creating additional Parameters. No sample file ever made it to us showcasing such structure.
 
 The Pointer to Next Structure is an important value as some applications have non standard behavior and discard the Description Length and Description all together from Group/Parameter definition. You therefore need to rely on it to know if you came to the end of the present Group/Parameter definition. 
+
+There is no count stored for the number of Parameters in each Group and all Group and Parameter records can appear in any order. This means that it is permissible for a Parameter to appear in the Parameter Section before the Group it belongs to. Software accessing a C3D file should be prepared to deal with this situation.
+
+It is good practice to not create Parameters that depends on another Parameters to be intepreted, due to the random order of appearance. Some applications do such thing so you must be prepared to encounter this behavior, but can not encourage such ways.
+
+Do not assume that just because a parameter exists and has the name that you expect, that it will contain the same type of data. The parameter
+structure provides a means to determine the type of the parameter (floating- point, signed integer, character etc.) before you read it. The consequences of reading an integer value by default, when the parameter data structure turns out to be floating-point may cause applications to fail. The C3D format was designed to be flexible and applications reading C3D files must always determine the parameter type before reading the data from the parameter.
+

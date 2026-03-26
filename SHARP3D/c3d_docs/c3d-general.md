@@ -6,7 +6,9 @@ This editing is the fruit of not just reorganisation of the original document, b
 
 We hope it will provide a better and more accessible experience for the reader interested in learning about the in and out of the C3D Standard.
 
-If you encounter errors, typo, inconsistencies, or simply foggy section, [please do let us know](https://github.com/TSS-22/SHARP3D/issues): the goal is to make this documentation as clear and straight forward as can be. 
+If you encounter errors, typo, inconsistencies, needs of examples, or simply foggy section: [please do let us know](https://github.com/TSS-22/SHARP3D/issues). Our goal is to make this documentation as clear and straight forward as can be. 
+
+> Some recommendations and judgments have been added. They should be interpreted as our view and the C3D organization can not be held responsible for them.
 
 ## Reading process of a C3D File
 
