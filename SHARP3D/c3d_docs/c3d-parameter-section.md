@@ -170,7 +170,7 @@ Name length cannot exceed 127 character, and must have a bare minimum of 1 chara
 
 Always make sure that Group/Parameter Names are spelled correctly: a software application that expects to read data from a Parameter called OFFSET will probably fail to find it if the Parameter has been spelt incorrectly as OFFSETS. Although the original C3D specification stated that the first six characters must be unique, the specification does not require that applications treat similar Parameter Names in the same way
 
-## Word 3+n: Pointer to next Group/Parameter
+##### Word 3+n: Pointer to next Group/Parameter
 
 A word pointer to the next parameter data structure follows the Group/Parameter name string. Its value is the number of bytes to the next structure.
 
@@ -250,7 +250,7 @@ Software applications reading and processing data in C3D arrays must ensure that
 
 > SHARP3D takes care of this for you for the Parameters described in our C3D Documentation, see the Supported Parameter section of the documentation. If you would like other Parameter to be supported, [please contact us](https://github.com/TSS-22/SHARP3D/issues). Our goal is to be as exhaustive and easy to use as possible.
 
-## Locked Group/Parameter
+## Locked Flag
 
 A locking mechanism is implemented to provide a mechanism to limit the ability of casual users to change parameters using Parameter examination and editing programs that might cause data corruption. A locked parameter can be edited and changed if necessary, the locking feature is simply present to limit the chance of anyone accidentally changing a parameter that will affect the data interpretation, or the file integrity.
 
