@@ -28,7 +28,7 @@ The first 512-bytes block at the beginning of every C3D file is referred as the 
 
 ## Structure Details
 
-> All values, aside from the [Word 1](#word-1-pointer-to-parameter-section-and-file-format) depends on the [file endian format](./c3d-parameter-section.md). Its value need to be determined first, to allow for the interpretation of any Int16, Uint16 or Float32.
+> All values, aside from the [Word 1](#word-1-pointer-to-parameter-section-and-file-format) depends on the [file endian format](./parameters/c3d-parameter-section.md). Its value need to be determined first, to allow for the interpretation of any Int16, Uint16 or Float32.
 
 the C3D header contains a number of areas that are marked as "Currently not used". Any application that copies, or edits a C3D file, must preserve these areas to guarantee future compatibility while all applications creating new C3D files must set these values as zero (0x00h).
 
@@ -38,11 +38,11 @@ The first word in the C3D file must be read as two bytes, so that the values are
 
 #### First byte
 
-The first byte of the header gives the position of the First [Parameter Section](./c3d-parameter-section.md) block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the [Parameter Section](./c3d-parameter-section.md) first block.
+The first byte of the header gives the position of the First [Parameter Section](./parameters/c3d-parameter-section.md) block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the [Parameter Section](./parameters/c3d-parameter-section.md) first block.
 
 #### Second byte
 
-The second byte in the C3D file is an identification allowing applications to verify the [Data Section](./c3d-data-section.md) format. This byte is usually set as 0x50 (ASCII: ‘P’, decimal: 80) when a C3D file uses the standard Frame setup, with a Frame being composed of:
+The second byte in the C3D file is an identification allowing applications to verify the [Data Section](./data/c3d-data-section.md) format. This byte is usually set as 0x50 (ASCII: ‘P’, decimal: 80) when a C3D file uses the standard Frame setup, with a Frame being composed of:
 - 3D Point Data
 - Synchronized Analogs Data
 
@@ -50,7 +50,7 @@ The second byte in the C3D file is an identification allowing applications to ve
 
 ### Word 2: Number of 3D Markers/Trajectories per Data Frame
 
-It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the [POINT:USED parameter](./supported_parameters/required/point-used.md). 
+It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the [POINT:USED parameter](./parameters/required/point-used.md). 
 
 ### Word 3: Total Number of Analog Samples per Data Frames
 
@@ -93,7 +93,7 @@ Any application reading the C3D file may override this value and interpolate gap
 
 ### Word 7-8: 3D Sacle Factor
 
-It contain the [3D Scale Factor](./supported_parameters/required/point-scale_factor.md) value.
+It contain the [3D Scale Factor](./parameters/required/point-scale_factor.md) value.
 
 This parameter is required when 3D data values are stored using the standard signed integer format because it is used to scale each of the stored 3D point and residual values from signed integer values to physical world values.
 
@@ -101,13 +101,13 @@ When 3D data is stored as scaled floating-point values, it is used to scale the 
 
 > Always calculate a valid 3D scale factor.
 
-The sign of the [3D Scale Factor](./supported_parameters/required/point-scale_factor.md) is used to determine the 3D point and analog data storage format: 
+The sign of the [3D Scale Factor](./parameters/required/point-scale_factor.md) is used to determine the 3D point and analog data storage format: 
 - Negative Scale Factor: Float32
 - Positive Scale Factor: Int16
 
 ### Word 9: Pointer to Data Section
 
-It gives the position of the First [Data Section](./c3d-data-section.md) block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the [Data Section](./c3d-data-section.md) first block.
+It gives the position of the First [Data Section](./data/c3d-data-section.md) block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the [Data Section](./data/c3d-data-section.md) first block.
 
 ### Word 10: Number of Analog Frame per Data Frame
 
@@ -120,7 +120,7 @@ If the C3D file does not contain any analog data then the value of Word 10 will 
 
 ### Word 11-12: 3D Point Data Acquisition Rate
 
-It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  [POINT:RATE Parameter](./supported_parameters/required/point-rate.md). 
+It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  [POINT:RATE Parameter](./parameters/required/point-rate.md). 
 
 The 3D frame rate parameter is a floating-point value, making it possible to accurately record the 3D frame rate for video based
 sampling systems
@@ -200,4 +200,4 @@ The Header Events are stored as an unordered list that can be indexed directly b
 
 ## Notes
 
-Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the [Parameter Section](./c3d-parameter-section.md). A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.
+Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the [Parameter Section](./parameters/c3d-parameter-section.md). A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.

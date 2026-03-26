@@ -28,7 +28,7 @@ The header are a 512-bytes block present at the beginning of each C3D Files.
 
 ## Parameter		
 
-All [Parameter Section](./c3d-parameter-section.md) start with the following 4 bytes:
+All [Parameter Section](./parameters/c3d-parameter-section.md) start with the following 4 bytes:
 
 | Name | Byte | Description                                                                                     |
 |------|------|-------------------------------------------------------------------------------------------------|
