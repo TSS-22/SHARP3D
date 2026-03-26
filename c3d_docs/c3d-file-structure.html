@@ -196,38 +196,44 @@
 </tbody>
 </table>
 <h2 id="parameter">Parameter</h2>
-<p>All Parameter Section start with the following 4 bytes:</p>
+<p>All <a href="c3d-parameter-section.html">Parameter Section</a> start with the following 4 bytes:</p>
 <table>
 <thead>
 <tr>
+<th>Name</th>
 <th>Byte</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>Unused/Ignored</td>
 <td>1</td>
 <td>Reserved and unused.</td>
 </tr>
 <tr>
+<td>Unused/Ignored</td>
 <td>2</td>
 <td>Reserved and unused.</td>
 </tr>
 <tr>
+<td>Length</td>
 <td>3</td>
 <td>Number of 512-byte blocks composing the Parameter Section.</td>
 </tr>
 <tr>
+<td>Processor Type</td>
 <td>4</td>
 <td>Processor type:<br>- 0x54: Intel<br>- 0x55: DEC (VAX, PDP-11)<br>- 0x56: MIPS (SGI/MIPS)</td>
 </tr>
 </tbody>
 </table>
-<p>Then follows the Parameter Structures. They can be either Groups or Parameters. Groups regroup the Parameters inside them. The Parameter Structures are displayed in a random order.</p>
+<p>Then follows the Parameter Structures, listed in a random order. They can be either Groups or Parameters. Groups regroup the Parameters inside them.</p>
 <h3 id="group">Group</h3>
 <table>
 <thead>
 <tr>
+<th>Name</th>
 <th>Position (byte)</th>
 <th>Length (bytes)</th>
 <th>Type</th>
@@ -236,36 +242,42 @@
 </thead>
 <tbody>
 <tr>
+<td>Name Length</td>
 <td>1</td>
 <td>1</td>
 <td>Signed byte</td>
 <td>Number of characters in the Group name (1-127). If negative, the Group is advertised as locked.</td>
 </tr>
 <tr>
+<td>ID</td>
 <td>2</td>
 <td>1</td>
 <td>Signed byte</td>
 <td>The Group Id (-1 to -127). Always negative.</td>
 </tr>
 <tr>
+<td>Name</td>
 <td>3</td>
 <td>n</td>
 <td>ASCII</td>
 <td>Group name. Only uppercase A-Z, 0-9, and &quot;_&quot; are supported.</td>
 </tr>
 <tr>
+<td>Pointer to next</td>
 <td>3 + n</td>
 <td>2</td>
 <td>Unsigned int</td>
 <td>Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).</td>
 </tr>
 <tr>
+<td>Description Length</td>
 <td>3 + n + 2</td>
 <td>1</td>
 <td>Unsigned byte</td>
 <td>Number of bytes in the Group description.</td>
 </tr>
 <tr>
+<td>Description</td>
 <td>3 + n + 3</td>
 <td>m</td>
 <td>UTF-8</td>
@@ -277,6 +289,7 @@
 <table>
 <thead>
 <tr>
+<th>Name</th>
 <th>Position (byte)</th>
 <th>Length (bytes)</th>
 <th>Type</th>
@@ -285,66 +298,70 @@
 </thead>
 <tbody>
 <tr>
+<td>Name Length</td>
 <td>1</td>
 <td>1</td>
 <td>Signed byte</td>
 <td>Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.</td>
 </tr>
 <tr>
+<td>ID</td>
 <td>2</td>
 <td>1</td>
 <td>Signed byte</td>
 <td>The Parameter Id (1 to 127). Always positive.</td>
 </tr>
 <tr>
+<td>Name</td>
 <td>3</td>
 <td>n</td>
 <td>ASCII</td>
 <td>Parameter name. Only uppercase A-Z, 0-9, and &quot;_&quot; are supported.</td>
 </tr>
 <tr>
+<td>Pointer to next</td>
 <td>3 + n</td>
 <td>2</td>
 <td>Unsigned int</td>
 <td>Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).</td>
 </tr>
 <tr>
-<td>3 + n</td>
-<td>2</td>
-<td>Unsigned int</td>
-<td>Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).</td>
-</tr>
-<tr>
+<td>Data Type</td>
 <td>3 + n + 2</td>
 <td>1</td>
 <td>Unsigned byte</td>
 <td>Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32</td>
 </tr>
 <tr>
+<td>Dimensions Number</td>
 <td>3 + n + 3</td>
 <td>1</td>
 <td>Unsigned byte</td>
 <td>Number of dimensions of the Parameter Data. 0 for scalar.</td>
 </tr>
 <tr>
+<td>Dimensions Length</td>
 <td>3 + n + 4</td>
 <td>d</td>
 <td>Unsigned byte</td>
 <td>Length of each Parameter Data dimension.</td>
 </tr>
 <tr>
+<td>Data</td>
 <td>3 + n + 4 + d</td>
 <td>t</td>
 <td>-</td>
 <td>Parameter Data.</td>
 </tr>
 <tr>
+<td>Description Length</td>
 <td>3 + n + 4 + d + t</td>
 <td>1</td>
 <td>Unsigned byte</td>
 <td>Number of bytes in the Parameter description.</td>
 </tr>
 <tr>
+<td>Description</td>
 <td>3 + n + 4 + d + t + 1</td>
 <td>m</td>
 <td>UTF-8</td>
@@ -363,6 +380,7 @@
 <table>
 <thead>
 <tr>
+<th>Name</th>
 <th>Length (bytes)</th>
 <th>Type</th>
 <th>Description</th>
@@ -370,21 +388,25 @@
 </thead>
 <tbody>
 <tr>
+<td>X</td>
 <td>2</td>
 <td>Signed Int16</td>
 <td>X value divided by SCALE:FACTOR.</td>
 </tr>
 <tr>
+<td>Y</td>
 <td>2</td>
 <td>Signed Int16</td>
 <td>Y value divided by SCALE:FACTOR.</td>
 </tr>
 <tr>
+<td>Z</td>
 <td>2</td>
 <td>Signed Int16</td>
 <td>Z value divided by SCALE:FACTOR.</td>
 </tr>
 <tr>
+<td>Residual and Camera Mask</td>
 <td>2</td>
 <td>Signed Int16</td>
 <td>Byte 1: <code>abcd efgh</code>.<br><code>a</code>: Residual sign.<br><code>b-g</code>: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR.</td>
@@ -395,6 +417,7 @@
 <table>
 <thead>
 <tr>
+<th>Name</th>
 <th>Length (bytes)</th>
 <th>Type</th>
 <th>Description</th>
@@ -402,21 +425,25 @@
 </thead>
 <tbody>
 <tr>
+<td>X</td>
 <td>4</td>
 <td>Float32</td>
 <td>X value.</td>
 </tr>
 <tr>
+<td>Y</td>
 <td>4</td>
 <td>Float32</td>
 <td>Y value.</td>
 </tr>
 <tr>
+<td>Z</td>
 <td>4</td>
 <td>Float32</td>
 <td>Z value.</td>
 </tr>
 <tr>
+<td>Residual and Camera Mask</td>
 <td>4</td>
 <td>Float32</td>
 <td>After converting its value to Signed Int16. Byte 1: <code>abcd efgh</code>.<br><code>a</code>: Residual sign.<br><code>b-g</code>: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR.</td>

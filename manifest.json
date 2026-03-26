@@ -665,6 +665,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/supported_parameters/required/analog-scale.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/supported_parameters/required/analog-scale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/supported_parameters/required/point-rate.md",
       "output": {
         ".html": {
