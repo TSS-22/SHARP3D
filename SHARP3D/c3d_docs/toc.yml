@@ -1,28 +1,44 @@
 - name: General Informations
   href: c3d-general.md
-- name: C3D File Structure
+- name: File Structure
   href: c3d-file-structure.md
-- name: C3D Header
+- name: Header Section
   href: c3d-header.md
-- name: C3D Parameter Section
-  href: c3d-parameter-section.md
-- name: C3D Data Section
-  href: c3d-data-section.md
-- name: Supported Parameters
+- name: Parameter Section
+  href: parameters/c3d-parameter-section.md
   items:
     - name: Required Parameters
-      href: supported_parameters/required.md
+      href: parameters/required.md
     - name: Additional Parameters
-      href: supported_parameters/additional.md
+      href: parameters/additional.md
     - name: Application Parameters
-      href: supported_parameters/application.md
-    - name: POINT
+      href: parameters/application.md
+    - name: Supported Parameters
       items:
-        - name: POINT:USED
-          href: supported_parameters/required/point-used.md
-        - name: POINT:RATE
-          href: supported_parameters/required/point-rate.md
-        - name: POINT:SCALE_FACTOR
-          href: supported_parameters/required/point-scale_factor.md
+        - name: POINT
+          items:
+            - name: POINT:USED
+              href: parameters/required/point-used.md
+            - name: POINT:RATE
+              href: parameters/required/point-rate.md
+            - name: POINT:SCALE_FACTOR
+              href: parameters/required/point-scale_factor.md
+        - name: ANALOG
+          items:
+            - name: ANALOG:SCALE
+              href: parameters/required/analog-scale.md
+- name: Data Section
+  href: data/c3d-data-section.md
+  items:
+    - name: 3D Point
+      href: data/3d-point.md
+    - name: Analog
+      href: data/analog.md
+    - name: Residuals
+      href: data/3d-points-residuals.md
+    - name: Data Resolution
+      href: data/resolution.md
+
+  
 
       

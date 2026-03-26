@@ -36,7 +36,7 @@ All information stored in the Parameter Section is organized into Groups even th
 
 Each Parameter is a member of a single Group thus allowing two Parameters to have the same name if they belong to different groups. For example, there may be two parameters called SCALE: one SCALE Parameter applies to 3D Point Data, while the other SCALE Parameter applies to
 Analog Data. The two Parameters are stored in separate Groups called POINT and
-ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./supported_parameters/required/point-scale_factor.md) while the analog value can be read from the [ANALOG:SCALE](./supported_parameters/required/analog-scale.md) Parameter.
+ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./required/point-scale_factor.md) while the analog value can be read from the [ANALOG:SCALE](./required/analog-scale.md) Parameter.
 
 ## Structure 
 
@@ -79,7 +79,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./suppor
 
 ### Parameter Section Header
 
-The Parameter Section Header is composed of 4 bytes and records the endian format that defines the storage method for all values stored in the C3D file: Int16 or Float32. So the Parameter Section must be located and read before most of the C3D file [Header](./c3d-header.md) values can be interpreted.
+The Parameter Section Header is composed of 4 bytes and records the endian format that defines the storage method for all values stored in the C3D file: Int16 or Float32. So the Parameter Section must be located and read before most of the C3D file [Header](../c3d-header.md) values can be interpreted.
 
 Then follows the Parameter Structures, listed in a random order. They can be either Groups or Parameters. Groups regroup the Parameters inside them.
 
@@ -130,7 +130,7 @@ The Groups and Parameters are stored starting at byte 5 of the Parameter Section
 
 ##### Byte 1: Name Length
 
-The number of character in the name of the Group/Parameter. A name can contains between 1 to 127 characters. If the value is set to a negative number, this means that the Group/Parameter is [Locked](#locked-groupparameter).
+The number of character in the name of the Group/Parameter. A name can contains between 1 to 127 characters. If the value is set to a negative number, this means that the Group/Parameter is [Locked](#locked-flag).
 
 > Always use the absolute value of Name Length to compute the actual Name Length.
 
@@ -157,7 +157,7 @@ When applications read Group/Parameter names, the case of the parameter or group
 
 >All Group/Parameter names must be stored in a C3D file as standard 7-bit ASCII values to comply with the C3D standard for universal compatibility ([A-Z, 0-9, _ ]).
 
-The same names may only be used for two Parameters if they occur in different groups. For example, both [POINT:SCALE](./supported_parameters/required/point-scale_factor.md) and [ANALOG:SCALE](./supported_parameters/required/analog-scale.md) parameters are permitted. 
+The same names may only be used for two Parameters if they occur in different groups. For example, both [POINT:SCALE](./required/point-scale_factor.md) and [ANALOG:SCALE](./required/analog-scale.md) parameters are permitted. 
 
 >It is essential that all Group names, and all Parameters names within each Group, are unique. 
 
