@@ -1,4 +1,4 @@
-# POINT: SCALE_FACTOR
+# POINT:SCALE_FACTOR
 
 If a signed integer C3D file is converted to floating-point format then the original 3D scale factor should be simply negated and stored – this allows transparent conversion between signed integer and floating-point data types.
 

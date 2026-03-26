@@ -9,7 +9,8 @@
           "exclude": ["**/bin/**", "**/obj/**"]
         }
       ],
-      "dest": "api"
+      "dest": "api",
+	  "includePrivateMembers": true,
     }
   ],
   "build": {
