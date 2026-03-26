@@ -70,8 +70,8 @@ Then follows the Parameter Structures, listed in a random order. They can be eit
 
 The Data Section is made of Frames that follow each other. Each Frame is made of two parts:
 
-	1. (3D) Points Frame
-	2. Analogs Frame
+1. (3D) Points Frame
+2. Analogs Frame
 
 ### 3D Points
 
