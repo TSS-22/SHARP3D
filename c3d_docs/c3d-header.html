@@ -197,15 +197,15 @@
 </table>
 <h2 id="structure-details">Structure Details</h2>
 <blockquote>
-<p>All values, aside from the <a href="#word-1-pointer-to-parameter-section-and-file-format">Word 1</a> depends on the <a href="c3d-parameter-section.html">file endian format</a>. Its value need to be determined first, to allow for the interpretation of any Int16, Uint16 or Float32.</p>
+<p>All values, aside from the <a href="#word-1-pointer-to-parameter-section-and-file-format">Word 1</a> depends on the <a href="parameters/c3d-parameter-section.html">file endian format</a>. Its value need to be determined first, to allow for the interpretation of any Int16, Uint16 or Float32.</p>
 </blockquote>
 <p>the C3D header contains a number of areas that are marked as &quot;Currently not used&quot;. Any application that copies, or edits a C3D file, must preserve these areas to guarantee future compatibility while all applications creating new C3D files must set these values as zero (0x00h).</p>
 <h3 id="word-1-pointer-to-parameter-section-and-file-format">Word 1: Pointer to Parameter Section and File Format</h3>
 <p>The first word in the C3D file must be read as two bytes, so that the values are unaffected by the C3D file endian format.</p>
 <h4 id="first-byte">First byte</h4>
-<p>The first byte of the header gives the position of the First <a href="c3d-parameter-section.html">Parameter Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="c3d-parameter-section.html">Parameter Section</a> first block.</p>
+<p>The first byte of the header gives the position of the First <a href="parameters/c3d-parameter-section.html">Parameter Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="parameters/c3d-parameter-section.html">Parameter Section</a> first block.</p>
 <h4 id="second-byte">Second byte</h4>
-<p>The second byte in the C3D file is an identification allowing applications to verify the <a href="c3d-data-section.html">Data Section</a> format. This byte is usually set as 0x50 (ASCII: ‘P’, decimal: 80) when a C3D file uses the standard Frame setup, with a Frame being composed of:</p>
+<p>The second byte in the C3D file is an identification allowing applications to verify the <a href="data/c3d-data-section.html">Data Section</a> format. This byte is usually set as 0x50 (ASCII: ‘P’, decimal: 80) when a C3D file uses the standard Frame setup, with a Frame being composed of:</p>
 <ul>
 <li>3D Point Data</li>
 <li>Synchronized Analogs Data</li>
@@ -214,7 +214,7 @@
 <p>In practice, most if not all C3D files follow this standard. But this does not mean that this byte will be set as 0x50 nonetheless.</p>
 </blockquote>
 <h3 id="word-2-number-of-3d-markerstrajectories-per-data-frame">Word 2: Number of 3D Markers/Trajectories per Data Frame</h3>
-<p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="supported_parameters/required/point-used.html">POINT:USED parameter</a>.</p>
+<p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="parameters/required/point-used.html">POINT:USED parameter</a>.</p>
 <h3 id="word-3-total-number-of-analog-samples-per-data-frames">Word 3: Total Number of Analog Samples per Data Frames</h3>
 <p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 3 will be zero.</p>
@@ -243,26 +243,26 @@
 </blockquote>
 <p>Any application reading the C3D file may override this value and interpolate gaps of any length if desired and record the maximum interpolation length by updating this value.</p>
 <h3 id="word-7-8-3d-sacle-factor">Word 7-8: 3D Sacle Factor</h3>
-<p>It contain the <a href="supported_parameters/required/point-scale_factor.html">3D Scale Factor</a> value.</p>
+<p>It contain the <a href="parameters/required/point-scale_factor.html">3D Scale Factor</a> value.</p>
 <p>This parameter is required when 3D data values are stored using the standard signed integer format because it is used to scale each of the stored 3D point and residual values from signed integer values to physical world values.</p>
 <p>When 3D data is stored as scaled floating-point values, it is used to scale the 3D residuals which are recorded as integers.</p>
 <blockquote>
 <p>Always calculate a valid 3D scale factor.</p>
 </blockquote>
-<p>The sign of the <a href="supported_parameters/required/point-scale_factor.html">3D Scale Factor</a> is used to determine the 3D point and analog data storage format:</p>
+<p>The sign of the <a href="parameters/required/point-scale_factor.html">3D Scale Factor</a> is used to determine the 3D point and analog data storage format:</p>
 <ul>
 <li>Negative Scale Factor: Float32</li>
 <li>Positive Scale Factor: Int16</li>
 </ul>
 <h3 id="word-9-pointer-to-data-section">Word 9: Pointer to Data Section</h3>
-<p>It gives the position of the First <a href="c3d-data-section.html">Data Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="c3d-data-section.html">Data Section</a> first block.</p>
+<p>It gives the position of the First <a href="data/c3d-data-section.html">Data Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="data/c3d-data-section.html">Data Section</a> first block.</p>
 <h3 id="word-10-number-of-analog-frame-per-data-frame">Word 10: Number of Analog Frame per Data Frame</h3>
 <p>It gives the number of Analog Frame per Data Frame. The C3D
 structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.</p>
 <p>While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 10 will be zero.</p>
 <h3 id="word-11-12-3d-point-data-acquisition-rate">Word 11-12: 3D Point Data Acquisition Rate</h3>
-<p>It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  <a href="supported_parameters/required/point-rate.html">POINT:RATE Parameter</a>.</p>
+<p>It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  <a href="parameters/required/point-rate.html">POINT:RATE Parameter</a>.</p>
 <p>The 3D frame rate parameter is a floating-point value, making it possible to accurately record the 3D frame rate for video based
 sampling systems</p>
 <h3 id="word-13-149-unused">Word 13-149: Unused</h3>
@@ -315,7 +315,7 @@ parameter section of the C3D file – parameter events and header events are ind
 <p>Events may be stored in the list in any order so long as the event time, label and status are indexed correctly by the event count in header Word 151.</p>
 </blockquote>
 <h2 id="notes">Notes</h2>
-<p>Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the <a href="c3d-parameter-section.html">Parameter Section</a>. A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.</p>
+<p>Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the <a href="parameters/c3d-parameter-section.html">Parameter Section</a>. A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.</p>
 
 </article>
 

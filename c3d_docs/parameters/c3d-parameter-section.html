@@ -7,16 +7,16 @@
       <meta name="title" content="C3D Parameter Section | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/c3d-parameter-section.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/c3d-parameter-section.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ be accessed.</p>
 <p>All information stored in the Parameter Section is organized into Groups even though related items may be stored in various areas of the Parameter Section. A Group is simply a collection of related Parameters.</p>
 <p>Each Parameter is a member of a single Group thus allowing two Parameters to have the same name if they belong to different groups. For example, there may be two parameters called SCALE: one SCALE Parameter applies to 3D Point Data, while the other SCALE Parameter applies to
 Analog Data. The two Parameters are stored in separate Groups called POINT and
-ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="supported_parameters/required/point-scale_factor.html">POINT:SCALE</a> while the analog value can be read from the <a href="supported_parameters/required/analog-scale.html">ANALOG:SCALE</a> Parameter.</p>
+ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/point-scale_factor.html">POINT:SCALE</a> while the analog value can be read from the <a href="required/analog-scale.html">ANALOG:SCALE</a> Parameter.</p>
 <h2 id="structure">Structure</h2>
 <h3 id="header">Header</h3>
 <table>
@@ -288,7 +288,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="supported_par
 </table>
 <h2 id="details">Details</h2>
 <h3 id="parameter-section-header">Parameter Section Header</h3>
-<p>The Parameter Section Header is composed of 4 bytes and records the endian format that defines the storage method for all values stored in the C3D file: Int16 or Float32. So the Parameter Section must be located and read before most of the C3D file <a href="c3d-header.html">Header</a> values can be interpreted.</p>
+<p>The Parameter Section Header is composed of 4 bytes and records the endian format that defines the storage method for all values stored in the C3D file: Int16 or Float32. So the Parameter Section must be located and read before most of the C3D file <a href="../c3d-header.html">Header</a> values can be interpreted.</p>
 <p>Then follows the Parameter Structures, listed in a random order. They can be either Groups or Parameters. Groups regroup the Parameters inside them.</p>
 <h4 id="byte-1-2-unusedignored">Byte 1-2: Unused/Ignored</h4>
 <p>The first two bytes of the Parameter Section Header are to be ignored in the C3D Standard.</p>
@@ -336,7 +336,7 @@ by adding up the size of every individual Parameter within the C3D file.</p>
 </blockquote>
 <h4 id="common-fields">Common fields</h4>
 <h5 id="byte-1-name-length">Byte 1: Name Length</h5>
-<p>The number of character in the name of the Group/Parameter. A name can contains between 1 to 127 characters. If the value is set to a negative number, this means that the Group/Parameter is <a href="#locked-groupparameter">Locked</a>.</p>
+<p>The number of character in the name of the Group/Parameter. A name can contains between 1 to 127 characters. If the value is set to a negative number, this means that the Group/Parameter is <a href="#locked-flag">Locked</a>.</p>
 <blockquote>
 <p>Always use the absolute value of Name Length to compute the actual Name Length.</p>
 </blockquote>
@@ -354,7 +354,7 @@ the numerals 0 through 9, and the underscore character “_”. All Group/Parame
 <blockquote>
 <p>All Group/Parameter names must be stored in a C3D file as standard 7-bit ASCII values to comply with the C3D standard for universal compatibility ([A-Z, 0-9, _ ]).</p>
 </blockquote>
-<p>The same names may only be used for two Parameters if they occur in different groups. For example, both <a href="supported_parameters/required/point-scale_factor.html">POINT:SCALE</a> and <a href="supported_parameters/required/analog-scale.html">ANALOG:SCALE</a> parameters are permitted.</p>
+<p>The same names may only be used for two Parameters if they occur in different groups. For example, both <a href="required/point-scale_factor.html">POINT:SCALE</a> and <a href="required/analog-scale.html">ANALOG:SCALE</a> parameters are permitted.</p>
 <blockquote>
 <p>It is essential that all Group names, and all Parameters names within each Group, are unique.</p>
 </blockquote>
@@ -456,7 +456,7 @@ structure provides a means to determine the type of the parameter (floating- poi
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/c3d-parameter-section.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/c3d-parameter-section.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
