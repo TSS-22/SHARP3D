@@ -21,7 +21,7 @@
     ],
     "resource": [
       {
-        "files": ["images/**"]
+        "files": ["docfx_assets/images/**"]
       }
     ],
     "output": "_site",
