@@ -87,8 +87,123 @@
         <article data-uid="">
 <h1 id="analog-data">Analog Data</h1>
 
+<blockquote>
 <p>A positive <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> Parameter value indicates
 that the 3D Point and Analog Data are stored using Signed Int16 format. A negative value indicate that the 3D Point and Analog Data are stored using Float32.</p>
+</blockquote>
+<p>Although the method of storing the analog sample values is different between the Signed Int16 and Float32 versions of the C3D file format, both versions organize the individual Analog Data samples in the same way within the Data Frames of the C3D file.</p>
+<p>The C3D file format is designed to store synchronized 3D data and analog data. Thus, when analog data is present in the C3D file, each 3D frame is followed by one or more analog samples for each analog channel. 3D measurements are recorded at fixed intervals (set by the <a href="../parameters/required/point-rate.html">POINT:RATE</a> parameter) and multiple analog samples, recorded at fixed intervals within each 3D frame. The Analog record for each Data Frames can contain one or more Analog Data samples where each Analog Data sample consists of one or more analog measurements (channels) during the 3D frame sample period. The parameter <a href="../parameters/required/analog-rate.html">ANALOG:RATE</a> stores the total number of analog data samples per 3D frame while the parameter <a href="../parameters/required/analog-used.html">ANALOG:USED</a> stores the number of analog measurements, or channels, within each Analog Data sample. All of this data is recorded at a 3D Point Data Frame rate whose value is recorded in the <a href="../parameters/required/point-rate.html">POINT:RATE</a> parameter. For example, if the 3D Point Data is sampled every 20ms (50Hz frame rate) and each 3D frame has 5
+Analog Data Frame samples then the Analog channels are sampled every 4ms within the 3D Data Frame.</p>
+<h2 id="structure">Structure</h2>
+<pre><code class="lang-mermaid">---
+title: Analog Frame Architecture
+---
+flowchart TB
+    subgraph Data[&quot;Analog Data Frame&quot;]
+       
+        subgraph Frame3[&quot;Analog Sample N&quot;]
+            
+            D@{ shape: process, label: &quot;Sample Channel 1&quot; }
+            E@{ shape: process, label: &quot;...&quot; }
+            F@{ shape: process, label: &quot;Sample Channel N&quot; }
+        end
+
+        subgraph Frame2[&quot;...&quot;]
+        
+        end
+
+        subgraph Frame1[&quot;Analog Sample 1&quot;]
+            
+            A@{ shape: process, label: &quot;Sample Channel 1&quot; }
+            B@{ shape: process, label: &quot;...&quot; }
+            C@{ shape: process, label: &quot;Sample Channel N&quot; }
+        end
+    end
+
+</code></pre>
+<p>For example, consider a C3D file that contains 3D Point Data that has been recorded at 60Hz, and contains 18 Analog channels that have each been sampled at a rate of 1200Hz. This information is stored in the C3D file in the following parameters:</p>
+<ul>
+<li><a href="../parameters/required/point-rate.html">POINT:RATE</a> = 60</li>
+<li><a href="../parameters/required/analog-used.html">ANALOG:USED</a> = 18</li>
+<li><a href="../parameters/required/analog-rate.html">ANALOG:RATE</a> = 1200</li>
+</ul>
+<p>Thus the Analog Data will be written with each individual Analog record containing 18 values: one value per analog channel recorded, as indicated in the <a href="../parameters/required/analog-used.html">ANALOG:USED</a> parameter. Each Analog channel is sampled 20 per 3D Point Data Frame.</p>
+<p>The number of channels sampled is not stored in the C3D Header directly but can be calculated as <a href="../c3d-header.html#word-3-total-number-of-analog-samples-per-data-frames">total analog samples per 3D frame</a> / <a href="../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">number of samples per analog channel</a> (<a href="../c3d-header.html#word-3-total-number-of-analog-samples-per-data-frames">Word 3</a> / <a href="../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">Word 10</a>) or read even be read from the Parameter <a href="../parameters/required/analog-used.html">ANALOG:USED</a>.</p>
+<p>The C3D file does not directly store the number of Total Analog Data samples per frame as
+a parameter. This value is calculated by dividing the <a href="../parameters/required/analog-rate.html">ANALOG:RATE</a> value by the
+<a href="../parameters/required/point-rate.html">POINT:RATE</a> value.</p>
+<p>The number of Analog Data Frame per Data Frame value is stored in <a href="../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">Word 10</a> of the <a href="../c3d-header.html">C3D Header section</a>, together with a count of the total number of Analog Data samples per Data Frame in <a href="../c3d-header.html#word-3-total-number-of-analog-samples-per-data-frames">Word 3</a>, so that the analog data can be quickly read by any application that opens a C3D file without having to read and interpret values from the <a href="../parameters/c3d-parameter-section.html">Parameter Section</a> of the C3D file.</p>
+<h2 id="synchronization">Synchronization</h2>
+<p>The synchronization, or timing accuracy between the 3D and Analog data, depends on the hardware data collection system and the signal latency of any devices connected to the analog sampling system. While the C3D format is capable of recording 3D and
+analog data with perfect synchronization, analog devices connected to a 3D data collection system by a USB interface, may have significant signal latencies that can result poor synchronization of the recorded data.</p>
+<p>It is the responsibility of the Motion Capture system to document the latencies of each of the sensors being sampled and remove any delays from the data when the C3D file is created. Any temporal processing of the data should be recorded in the file parameters, documenting the manipulation of the data so that any subsequent analysis of the data knows what has been done.</p>
+<p>Users can verify the system synchronization by applying a common input signal to each sensor simultaneously. For example, place a small loudspeaker or microphone, connected to an EMG input, on a force plate, and then drop a golf ball, covered in retro-reflective tape or attached to a marker onto the plate. The marker trajectory will change as it strikes the force plate, generating a small vertical force signal and the loudspeaker or microphone will record the impact via the EMG input at the same
+instant – resulting in a C3D file with one common stimulus recorded through each sensor as shown below:</p>
+<img src="../../docfx_assets/images/analog-sync.svg" alt="A synchronization test showing a 3D trajectory, force vector, and EMG input." width="600">
+<p>The synchronization test illustrated above was performed with a high 3D frame rate of 250 frames/second and 8 analog samples per frame. The high sample rates allow the data collection to measure the force plate signal latency of 4ms (one 3D frame) and the EMG signal latency of 3.75ms.</p>
+<p>This test allows the individual sensor latency to be determined, but the overall the data collection synchronization accuracy needs a second test, dropping the golf ball again after a typical trial period. If the data collection sampling rate is accurate then
+both tests, at the start of the data collection and the end of the data collection, will result in identical measurements.</p>
+<p>Any difference in the measurements at the start of the trial and the measurements at the end of the trial indicate that the 3D point sample rate and the analog sample rate were not accurately synchronized when the data was sampled and the file created.
+This may be a result of the recorded 3D sample rate data being set to 60Hz, with the 3D samples recording in synchronization with video data recorded at 59.94Hz which results in a 16us synchronization error in the second frame in the C3D file, an error of 0.5ms (16us<em>60) after one second, increasing to an error of 58ms (16us</em>60*60) at the end of a one minute trial.</p>
+<h2 id="int16">Int16</h2>
+<p>When storing analog data using the integer C3D format, each binary sample value generated by the ADC is stored as a 16-bit integer. By default these samples were originally stored as signed integer values although common ADC resolutions meant that all recorded values fell into the range of 0 to 32767 as positive values. Negative integer sample values normally do not exist (sic).</p>
+<p>While 12-bit resolution ADC samples are common, other resolutions (i.e.,14-bit or 16-bit) may be used to store analog data. The resolution of the data may be recorded by the <a href="../parameters/required/analog-bits.html">ANALOG:BITS</a> parameter. Both 12-bit and 16-bit analog sample resolutions are common although 16-bit samples may be interpreted incorrectly by applications written to read the ADC samples as signed integers.</p>
+<p>To convert the analog sample data into physical world units, regardless of the actual sample resolution:</p>
+<p><code>physical world value</code> = (<code>data value</code> - <code>offset</code>) * <code>channel scale</code> * <code>general scale</code></p>
+<p>Where:</p>
+<ul>
+<li><code>offset</code> is in the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> parameters (Int16[])</li>
+<li><code>channel scale</code> is in the <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> parameter (Float32[])</li>
+<li><code>general scale</code> is the <a href="../parameters/required/analog-gen_scale.html">ANALOG:GEN_SCALE</a> parameter (floating-point)</li>
+</ul>
+<h3 id="signedunsigned">Signed/Unsigned</h3>
+<p>Analog data samples are stored in a C3D file as signed integers by default although an analog to digital converter (ADC) normally generates unsigned binary values. When generated by an ADC with up to 14-bit resolution, the sampled data can be stored within the range of values supported by the signed integer format. In this case, the use of signed or unsigned integers to store the analog sample is immaterial as both values fall within the range of a signed integer. However, this is not the case when 16-bit ADC samples are stored. in this case the 16-bit data samples must be stored as signed integer numbers (the default) unless the optional parameter <a href="../parameters/required/analog-format.html">ANALOG:FORMAT</a> is set to <code>UNSIGNED</code>.</p>
+<p>For example a 12-bit ADC generates numbers in the range of 0 through 4095. These values may be written to the C3D file as –2048 through +2047 or simply recorded as 0 through 4095. The first range is signed (it contains both positive and negative numbers), while the second range is unsigned.</p>
+<p>In the absence of the <a href="../parameters/required/analog-format.html">ANALOG:FORMAT</a>, the format of the analog data can
+be determined by reading the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> parameter. 12-bit unsigned binary values require an OFFSET of 2047 (although many programs use 2048 because their author didn’t realize that 0 is a valid number), while signed binary data will have an OFFSET of 0000. 16-bit unsigned analog data will require an OFFSET of 32767 while 16-bit signed binary data will use an OFFSET of 0000.</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li><p>By default, all analog samples are stored as 16-bit integers with values from 0 to the maximum resolution of the ADC. The actual resolution and format of the data may be recorded by setting the optional <a href="../parameters/required/analog-format.html">ANALOG:FORMAT</a> parameter to the value UNSIGNED and the optional <a href="../parameters/required/analog-bits.html">ANALOG:BITS</a> parameter to the actual number of bits used, i.e., the value 12, 14, or 16.</p>
+</li>
+<li><p>If the <a href="../parameters/required/analog-format.html">ANALOG:FORMAT</a> parameter is <code>UNSIGNED</code> then the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> parameter must be interpreted as an Unsigned Int6.</p>
+</li>
+<li><p>If the <a href="../parameters/required/analog-format.html">ANALOG:FORMAT</a> parameter does not exists then assume that the Analog Data is stored as positive value as a signed 16-bit integer. This will be correct most of the time.</p>
+</li>
+<li><p>The possibility of 16-bit integer overflow exists when applying the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> Parameter to the sampled 16-bit analog data. It is recommended that all applications perform internal scaling calculations with more than 16-bits of resolution (either 32-bit or floating-point) and check the results to ensure that internal math overflow has not occurred.</p>
+</li>
+<li><p>Although it is not recommended, some software applications “auto-zero” analog data values by adjusting the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> Parameter. Thus, for example, 12-bit analog data could easily have varying <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> values that are close to 2047 but vary from channel to channel.</p>
+</li>
+<li><p>The analog scaling calculation converts the binary Analog sample data from the ADC into physical world measurement defined by the <a href="../parameters/required/analog-units.html">ANALOG:UNITS</a> Parameter. But note that the <a href="../parameters/required/analog-units.html">ANALOG:UNITS</a> value only documents the units of the calculated results, changing the parameter does not affect the scaling calculations.</p>
+</li>
+</ul>
+<h2 id="float32">Float32</h2>
+<p>Float32 Analog Data storage is organized in exactly the same way as with the Int16 format within the C3D file data section.</p>
+<blockquote>
+<p>The stored Analog Data values must never be stored as pre-scaled values as this effectively destroys vital information about the analog data sampling and processing.</p>
+</blockquote>
+<p>The parameters <a href="../parameters/required/analog-gen_scale.html">ANALOG:GEN_SCALE</a> and channel specific <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> and <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> values must be applied to the FLoat32 value to obtain the physical world units in exactly the same way as we scale the integer formatted data.</p>
+<p>Thus, a floating-point analog sample is calculated as:</p>
+<p><code>physical world value</code> = (<code>data value</code> - <code>offset</code>) * <code>channel scale</code> * <code>general scale</code></p>
+<p>Where:</p>
+<ul>
+<li><code>offset</code> is in the <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> parameters (Int16[])</li>
+<li><code>channel scale</code> is in the <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> parameter (Float32[])</li>
+<li><code>general scale</code> is the <a href="../parameters/required/analog-gen_scale.html">ANALOG:GEN_SCALE</a> parameter (floating-point)</li>
+</ul>
+<h3 id="notes-1">Notes</h3>
+<ul>
+<li><p>While data can be converted from Int16 to Float32 without any loss of resolution, the precision of the reverse operation from Float32 to
+Int16 conversion is not guaranteed if the analog data has been pre-scaled and the analog parameters have not been set correctly.</p>
+</li>
+<li><p>To avoid potential problems during conversion, applications must always create and store the correct values for the parameters <a href="../parameters/required/analog-gen_scale.html">ANALOG:GEN_SCALE</a>, <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> and <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> when storing analog data in Float32 C3D files. These parameters contain vital information about the original source of the analog samples and should contain values that would scale the analog data correctly if applied to the data when the storage format is Int16. In most cases, when the analog data is sampled from an ADC storing these values provided important information about the data collection environment</p>
+</li>
+<li><p>The resolution of each analog sample is determined by the ADC that performs the analog to digital conversion. Analog data samples from a 16-bit ADC are no more accurate when stored in Float32 format than Int16 format, providing that the analog scales are set correctly. If you do not set the <a href="../parameters/required/analog-gen_scale.html">ANALOG:GEN_SCALE</a>, <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> and <a href="../parameters/required/analog-offset.html">ANALOG:OFFSET</a> Parameter values accurately then there is no evidence that the analog data has been sampled and scaled accurately when stored as Float32 values. Storing data values that are scaled as millivolts must be performed by setting the appropriate <a href="../parameters/required/analog-scale.html">ANALOG:SCALE</a> parameter. Data that is written to the C3D file pre-scaled in millivolts (e.g. 0.008538) means that converting a C3D file from floating-point to integer format will return zero values for the pre-scaled channels unless the analog parameters have been set correctly.</p>
+</li>
+<li><p>The analog scaling calculation converts the binary analog sample data from the ADC into physical world measurement defined by the <a href="../parameters/required/analog-units.html">ANALOG:UNITS</a> Parameter, but note that the <a href="../parameters/required/analog-units.html">ANALOG:UNITS</a> value only documents the units of the calculated results, changing the parameter does not affect the scaling calculations.</p>
+</li>
+<li><p>C3D files written using a Float32 storage format are always twice the size of the same C3D file written using an Int16 storage format and, in most cases, will have exactly the same resolution.</p>
+</li>
+</ul>
 
 </article>
 

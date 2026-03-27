@@ -315,7 +315,9 @@ parameter section of the C3D file – parameter events and header events are ind
 <p>Events may be stored in the list in any order so long as the event time, label and status are indexed correctly by the event count in header Word 151.</p>
 </blockquote>
 <h2 id="notes">Notes</h2>
-<p>Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the <a href="parameters/c3d-parameter-section.html">Parameter Section</a>. A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.</p>
+<ul>
+<li>Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the <a href="parameters/c3d-parameter-section.html">Parameter Section</a>. A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.</li>
+</ul>
 
 </article>
 

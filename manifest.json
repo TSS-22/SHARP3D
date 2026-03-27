@@ -679,6 +679,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/data/scaling-resolution.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/data/scaling-resolution.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/additional.md",
       "output": {
         ".html": {
@@ -749,10 +759,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-bits.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-bits.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-format.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-format.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-gen_scale.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-gen_scale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/analog-labels.md",
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/analog-labels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-offset.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-offset.html"
         }
       },
       "version": ""
@@ -773,6 +823,16 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/analog-scale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-units.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-units.html"
         }
       },
       "version": ""
@@ -866,6 +926,16 @@
         },
         ".json": {
           "relative_path": "c3d_docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/analog-sync.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/analog-sync.svg"
         }
       },
       "version": ""
