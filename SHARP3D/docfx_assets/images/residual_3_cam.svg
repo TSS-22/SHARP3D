@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1012.37 861.94">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #0071bc;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 2.83px;
+      }
+
+      .cls-5 {
+        fill: #0071bc;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+      }
+
+      .cls-5, .cls-6 {
+        font-size: 34.02px;
+      }
+
+      .cls-7 {
+        font-size: 36.13px;
+      }
+
+      .cls-7, .cls-6 {
+        fill: #333;
+        font-family: LiberationSans, 'Liberation Sans';
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        stroke: #39b54a;
+        stroke-linecap: round;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        stroke: #ed1c24;
+      }
+
+      .cls-12 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        stroke: #333;
+      }
+    </style>
+  </defs>
+  <line class="cls-2" x1="506.6" y1="607.91" x2="492.47" y2="617.66"/>
+  <line class="cls-2" x1="506.91" y1="607.94" x2="516.65" y2="622.58"/>
+  <line class="cls-2" x1="303.89" y1="527.04" x2="310.27" y2="543.23"/>
+  <line class="cls-2" x1="310.29" y1="543.83" x2="293.95" y2="550.33"/>
+  <line class="cls-2" x1="437.87" y1="282.34" x2="442.54" y2="264.91"/>
+  <line class="cls-2" x1="438.1" y1="282.31" x2="455.1" y2="286.81"/>
+  <circle class="cls-1" cx="402.87" cy="486.6" r="57.3"/>
+  <line class="cls-3" x1="402.87" y1="486.6" x2="460.17" y2="269.09"/>
+  <line class="cls-3" x1="402.87" y1="486.6" x2="286.91" y2="533.44"/>
+  <line class="cls-3" x1="402.87" y1="486.6" x2="502.53" y2="632.37"/>
+  <text class="cls-6" transform="translate(928.34 445.41)"><tspan x="0" y="0">D2</tspan></text>
+  <text class="cls-7" transform="translate(431.52 850.99)"><tspan x="0" y="0">D3</tspan></text>
+  <text class="cls-7" transform="translate(0 214.22)"><tspan x="0" y="0">C2</tspan></text>
+  <text class="cls-7" transform="translate(108.18 30.49) scale(.98 1)"><tspan x="0" y="0">C3</tspan></text>
+  <text class="cls-7" transform="translate(180.6 806.07)"><tspan x="0" y="0">C1</tspan></text>
+  <text class="cls-7" transform="translate(928.34 284.77)"><tspan x="0" y="0">D1</tspan></text>
+  <line class="cls-4" x1="79.56" y1="4.79" x2="412.56" y2="853.79"/>
+  <line class="cls-4" x1="187.56" y1="849.79" x2="1011.56" y2="281.01"/>
+  <line class="cls-4" x1="12.63" y1="155.51" x2="1001.63" y2="406.51"/>
+  <text class="cls-5" transform="translate(521.28 583.94)"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-5" transform="translate(290.41 476.2)"><tspan x="0" y="0">c</tspan></text>
+  <text class="cls-5" transform="translate(388.66 312.12)"><tspan x="0" y="0">b</tspan></text>
+  <text class="cls-5" transform="translate(475.04 421.77)"><tspan class="cls-12" x="0" y="0">M</tspan><tspan x="27.55" y="0">a</tspan><tspan class="cls-10" x="43.95" y="0">r</tspan><tspan x="55.21" y="0">ker</tspan><tspan class="cls-9" x="0" y="40.82">C</tspan><tspan x="19.35" y="40.82">e</tspan><tspan class="cls-8" x="36.4" y="40.82">n</tspan><tspan class="cls-11" x="55.14" y="40.82">t</tspan><tspan x="66.19" y="40.82">er</tspan></text>
+</svg>

@@ -1,1 +1,1 @@
-# POINT: RATE
+# POINT:RATE
