@@ -36,8 +36,8 @@
       href: data/analog.md
     - name: Residuals
       href: data/3d-points-residuals.md
-    - name: Data Resolution
-      href: data/resolution.md
+    - name: Camera Mask
+      href: data/camera-mask.md
 
   
 

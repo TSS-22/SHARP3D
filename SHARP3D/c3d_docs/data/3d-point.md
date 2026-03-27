@@ -126,6 +126,8 @@ When the 3D Point Data is recorded as Float32, Word 7 - 8 represents the Camera 
 
 The Camera Mask is optional but the 3D Point Residual is a measurement that, if calculated and stored correctly, provides important information about the relative accuracy of each individual 3D measurement recorded in the C3D file. The convention is that a valid residual indicates that the 3D coordinate is a measurement; a negative residual value indicates that the [3D coordinates are invalid](#invalid-3d-point), while a residual set to zero indicates that the 3D coordinate has been processed and is not the original measured value. In practice, this convention is rarely used and cannot be relied upon.
 
+> While the C3D format defines the camera mask in an optical 3D environment, other sensor based data collection systems could use the camera mask to record the IMU sensor or markerless contributions to the 3D point location calculation.
+
 ### Byte 1
 
 Byte 1 of Word 4 has seven bits that indicate the contribution, or not, of Camera 1 to 7 in the position computation of the 3D Point. If Camera X contributed to the measurement of the 3D Point, the bit corresponding to Camera X is set to `1`. If Camera X didn't contribute to the measurement of the 3D Point, then the bit corresponding the Camera X is set to `0`. Bit 1 represents the Camera 1, bit 2 the Camera 2, etc. 
@@ -133,6 +135,8 @@ Byte 1 of Word 4 has seven bits that indicate the contribution, or not, of Camer
 By convention, all camera bits will be set to 0 if the point value has been interpolated, filtered or otherwise modified in any way. In practice, this convention is not applied strictly and this information cannot be deemed truthful. Note that the camera bits are in the high byte of word 4 of the integer record: the most significant bit of this word is the Residual
 sign bit. Therefore, there are only seven bits available for the cameras, so the camera mask only
 supports seven cameras.
+
+> When 3D data collection systems have more than 7 cameras the camera mask is still valid and can record the camera contributions from the first 7 cameras, or from specific cameras that are defined by parameter values to aid in debugging 3D observational issues.
 
 Setting the 8th bit produces a negative signed integer, and any point with a negative residual is [interpreted as invalid](#invalid-3d-point), in theory. But this convention cannot be trusted in practice. 
 
