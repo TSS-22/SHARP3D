@@ -4,11 +4,13 @@ All 3D Points recorded in the C3D file have the capability of recording a residu
 
 The illustration below demonstrates the optical situation when two observers see a single point in 3D space. Observer C1 measures the point to be in the direction C1 to D1, and observer C2 determines the point to be in the direction C2 to D2. Thus, we know that the point lies somewhere on the line C1-D1, and that it must also lie on the line C2-D2. This is possible only if the point lies at the virtual intersection of the two rays; thus the 3D reconstruction process calculates the locations of the virtual intersections of rays from each observer to generate a 3D location.
 
-Insert image 1.
+<img src="../../docfx_assets/images/residual_2_cam.svg" alt="Point residual determination with two cameras." width="600"/>
 
 However, due to limits in the measurement precision of all data collection systems, the measured rays from the two observers to any single point will normally pass very close but may not perfectly intersect. This invariably results in the measurement software making a decision about the most probable location for the point under observation when the rays fail to intersect perfectly. For the two rays shown above, with the C2-D2 ray passing slightly above the C1-D1 ray in 3D space, the point location is set at the mid-point of the line forming the shortest distance between them.
 
 The distances from the calculated point location to each ray are related to the uncertainty of the point calculated location, and are termed the residuals for the measurement. Generally, inaccurate measurements or bad calibration will produce large residuals. Although in the case of two-observer measurements, small residuals do not necessarily mean that the measurements were of high accuracy. If the errors happen to be in the plane containing the two rays (containing C1-D1 and C2-D2), then small residuals will result no matter how large the actual errors are. For this reason, three or more observer measurements are usually more reliable. A three-observer measurement involves a third ray (C3-D3) which will normally pass in the vicinity of the intersection of the other two rays and as a result, the problem of determining the point’s most probable position becomes somewhat more complicated.
+
+<img src="../../docfx_assets/images/residual_3_cam.svg" alt="Point residual determination with three cameras." width="550"/>
 
 A least-squares technique should be used to calculate the location of a point in space such that the sum of the squares of the shortest distances from that point to each ray is a minimum. This calculated point then represents the best estimate of the observed 3D location. The individual residual components are the shortest distances (perpendiculars) from the calculated point to each ray.
 
