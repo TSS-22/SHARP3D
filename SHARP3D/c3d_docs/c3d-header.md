@@ -200,4 +200,4 @@ The Header Events are stored as an unordered list that can be indexed directly b
 
 ## Notes
 
-Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the [Parameter Section](./parameters/c3d-parameter-section.md). A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.
+- Applications that create or modify C3D files must always ensure that the C3D header section contains the identical copies of the values stored in the [Parameter Section](./parameters/c3d-parameter-section.md). A C3D file is corrupted if there is a discrepancy between Header Section values and Parameter Section values for the same items.
