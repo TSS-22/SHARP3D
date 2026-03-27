@@ -275,18 +275,15 @@ While it is recommended that all C3D applications respect the Parameter Lock Fla
 
 > Applications that modify C3D files must take care to preserve all groups and parameters from the original input file even if the application does not use or understand the parameters
 
-Unused bytes at the end of the parameter section
-are normally filled with 0x00.
+- Unused bytes at the end of the parameter section are normally filled with 0x00.
 
-Initially C3D files stored the number of Parameters in the third byte, a factor
-that was changed as users started creating additional Parameters. No sample file ever made it to us showcasing such structure.
+- Initially C3D files stored the number of Parameters in the third byte, a factor that was changed as users started creating additional Parameters. No sample file ever made it to us showcasing such structure.
 
-The Pointer to Next Structure is an important value as some applications have non standard behavior and discard the Description Length and Description all together from Group/Parameter definition. You therefore need to rely on it to know if you came to the end of the present Group/Parameter definition. 
+- The Pointer to Next Structure is an important value as some applications have non standard behavior and discard the Description Length and Description all together from Group/Parameter definition. You therefore need to rely on it to know if you came to the end of the present Group/Parameter definition. 
 
-There is no count stored for the number of Parameters in each Group and all Group and Parameter records can appear in any order. This means that it is permissible for a Parameter to appear in the Parameter Section before the Group it belongs to. Software accessing a C3D file should be prepared to deal with this situation.
+- There is no count stored for the number of Parameters in each Group and all Group and Parameter records can appear in any order. This means that it is permissible for a Parameter to appear in the Parameter Section before the Group it belongs to. Software accessing a C3D file should be prepared to deal with this situation.
 
-It is good practice to not create Parameters that depends on another Parameters to be intepreted, due to the random order of appearance. Some applications do such thing so you must be prepared to encounter this behavior, but can not encourage such ways.
+- It is good practice to not create Parameters that depends on another Parameters to be intepreted, due to the random order of appearance. Some applications do such thing so you must be prepared to encounter this behavior, but can not encourage such ways.
 
-Do not assume that just because a parameter exists and has the name that you expect, that it will contain the same type of data. The parameter
-structure provides a means to determine the type of the parameter (floating- point, signed integer, character etc.) before you read it. The consequences of reading an integer value by default, when the parameter data structure turns out to be floating-point may cause applications to fail. The C3D format was designed to be flexible and applications reading C3D files must always determine the parameter type before reading the data from the parameter.
+- Do not assume that just because a parameter exists and has the name that you expect, that it will contain the same type of data. The parameter structure provides a means to determine the type of the parameter (floating- point, signed integer, character etc.) before you read it. The consequences of reading an integer value by default, when the parameter data structure turns out to be floating-point may cause applications to fail. The C3D format was designed to be flexible and applications reading C3D files must always determine the parameter type before reading the data from the parameter.
 

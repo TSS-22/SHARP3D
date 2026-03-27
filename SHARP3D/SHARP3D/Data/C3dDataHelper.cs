@@ -139,7 +139,8 @@ namespace SHARP3D.Data
                 {
                     byte[] buffer = new byte[2];
                     context.C3dStream.ReadExactly(buffer);
-                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    // As per page 58 of the C3D User Guide
+                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToUInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
                 }
                 analogs.Add(oneFullAnalogsSample);
             }
