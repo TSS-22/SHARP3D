@@ -87,6 +87,190 @@
         <article data-uid="">
 <h1 id="3d-point-data">3D Point Data</h1>
 
+<p>A positive <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> Parameter value indicates
+that the 3D Point and Analog Data are stored using Signed Int16 format. A negative value indicate that the 3D Point and Analog Data are stored using Float32.</p>
+<p>When a C3D file contains signed integer 3D data then any corresponding
+analog data values must also be stored in signed integer format.</p>
+<p>Within each Data Frame, the 3D Points are stored in the order that they are listed in the parameter <a href="../parameters/required/point-labels.html">POINT:LABELS</a>, followed by the Analog Data Frame if any Analog Data is present.</p>
+<h2 id="structure">Structure</h2>
+<pre><code class="lang-mermaid">---
+title: 3D Point Data Frame Architecture
+---
+flowchart TB
+    subgraph Data[&quot;3D Point Data Frame&quot;]
+       
+        subgraph Frame3[&quot;3D Point N&quot;]
+            F@{ shape: process, label: &quot;X&quot; }
+            G@{ shape: process, label: &quot;Y&quot; }
+            H@{ shape: process, label: &quot;Z&quot; }
+            I@{ shape: card, label: &quot;Byte 1: Camera Mask&quot; }
+            J@{ shape: card, label: &quot;Byte 2: Residual&quot; }
+        end
+
+        subgraph Frame2[&quot;...&quot;]
+        
+        end
+
+        subgraph Frame1[&quot;3D Point 1&quot;]
+            A@{ shape: process, label: &quot;X&quot; }
+            B@{ shape: process, label: &quot;Y&quot; }
+            C@{ shape: process, label: &quot;Z&quot; }
+            D@{ shape: card, label: &quot;Byte 1: Camera Mask&quot; }
+            E@{ shape: card, label: &quot;Byte 2: Residual&quot; }
+        end
+    end
+
+</code></pre>
+<h3 id="signed-int16">Signed Int16</h3>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Length (bytes)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>Signed Int16</td>
+<td>X value divided by SCALE:FACTOR.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>Signed Int16</td>
+<td>Y value divided by SCALE:FACTOR.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>Signed Int16</td>
+<td>Z value divided by SCALE:FACTOR.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>Signed Int16</td>
+<td>Byte 1: <code>abcd efgh</code>.<br><code>a</code>: Residual sign.<br><code>b-g</code>: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="float32">Float32</h3>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Length (bytes)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 - 2</td>
+<td>4</td>
+<td>Float32</td>
+<td>X value.</td>
+</tr>
+<tr>
+<td>3 - 4</td>
+<td>4</td>
+<td>Float32</td>
+<td>Y value.</td>
+</tr>
+<tr>
+<td>5 - 6</td>
+<td>4</td>
+<td>Float32</td>
+<td>Z value.</td>
+</tr>
+<tr>
+<td>7 - 8</td>
+<td>4</td>
+<td>Float32</td>
+<td>After converting its value to Signed Int16. Byte 1: <code>abcd efgh</code>.<br><code>a</code>: Residual sign.<br><code>b-g</code>: Camera Mask.<br>Byte 2: Average residual divided by SCALE:FACTOR.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="int16">Int16</h2>
+<p>The first three Signed Int16 words record the X, Y, and Z coordinate values of the 3D Point, each divided by the Float32 <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter value. Word 4 of the 3D Point record is comprised of two bytes in the order determined by the endian format used by the C3D file.</p>
+<p>The first byte stores which Camera provided information used in calculating the 3D Point. The second byte contains the average residual for the 3D Point measurement. The residual value, in <a href="../parameters/required/point-units.html">POINT:UNITS</a>, is a measurement of the accuracy of each point. The calculation of the residual is performed by the photogrammetry
+software and depends on the software that generates the value.</p>
+<h2 id="float32-1">Float32</h2>
+<p>This format provides increased precision and, since the data is stored as scaled values, the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter is not used to apply a scaling factor to the data. However, please note that a valid scaling factor is still required, as the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter is still used to calculate the 3D Point Residual value. Also, but less likely, the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> can also be used to convert a Float32 file into a Int16 file. Therefore, it is still important to calculate a valid <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> factor when 3D Points are stored as Float32 values.</p>
+<p>Since the Float32 format require eight 16-bit words to store a single 3D Point, it will result in C3D files that are double the size of integer format C3D files.</p>
+<blockquote>
+<p>If the 3D data points are stored in floating-point format, the X, Y, and Z
+coordinates have been already multiplied by the scale factor.</p>
+</blockquote>
+<blockquote>
+<p>A valid <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> should still be calculated, based on the maximum coordinate value and not just set to -1.</p>
+</blockquote>
+<h2 id="camera-mask-and-residual">Camera Mask and Residual</h2>
+<table style="width:100%; text-align:center;">
+  <thead>
+    <tr>
+        <th colspan="8">Byte 1</th>
+        <th colspan="8" style="border-left: 3px #5C5C5C;">Byte 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>B8</td>
+        <td>B7</td>
+        <td>B6</td>
+        <td>B5</td>
+        <td>B4</td>
+        <td>B3</td>
+        <td>B2</td>
+        <td>B1</td>
+        <td style="border-left: 3px #5C5C5C;">B8</td>
+        <td>B7</td>
+        <td>B6</td>
+        <td>B5</td>
+        <td>B4</td>
+        <td>B3</td>
+        <td>B2</td>
+        <td>B1</td>
+    </tr>
+    <tr>
+        <td>+/-</td>
+        <td>Camera 7</td>
+        <td>Camera 6</td>
+        <td>Camera 5</td>
+        <td>Camera 4</td>
+        <td>Camera 3</td>
+        <td>Camera 2</td>
+        <td>Camera 1</td>
+        <td colspan="8" style="border-left: 3px #5C5C5C;">3D Point Residual value</td>
+    </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>The Byte 1 and Byte 2 position, for the Camera Mask and Residual values, are determined by the endianness of the processor of the machine creating the file.</p>
+</blockquote>
+<p>The 3D Point Residual is a measurement that provides information about the relative accuracy of the 3D measurement and must be multiplied by the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter to obtain a physical world scaled value.</p>
+<p>When the 3D Point Data is recorded as Float32, Word 7 - 8 represents the Camera Mask and Residual value. It is a Float32 value that must be converted to a Signed Int16 and then interpreted as two bytes. A simple cast will do as the value will be of the format: &quot;XYZ.0000&quot;. Once the conversion happened, the interpretation of the two bytes are the same as when the 3D Point Data is recorded as Signed Int16.</p>
+<p>The Camera Mask is optional but the 3D Point Residual is a measurement that, if calculated and stored correctly, provides important information about the relative accuracy of each individual 3D measurement recorded in the C3D file. The convention is that a valid residual indicates that the 3D coordinate is a measurement; a negative residual value indicates that the <a href="#invalid-3d-point">3D coordinates are invalid</a>, while a residual set to zero indicates that the 3D coordinate has been processed and is not the original measured value. In practice, this convention is rarely used and cannot be relied upon.</p>
+<blockquote>
+<p>While the C3D format defines the camera mask in an optical 3D environment, other sensor based data collection systems could use the camera mask to record the IMU sensor or markerless contributions to the 3D point location calculation.</p>
+</blockquote>
+<h3 id="byte-1">Byte 1</h3>
+<p>Byte 1 of Word 4 has seven bits that indicate the contribution, or not, of Camera 1 to 7 in the position computation of the 3D Point. If Camera X contributed to the measurement of the 3D Point, the bit corresponding to Camera X is set to <code>1</code>. If Camera X didn't contribute to the measurement of the 3D Point, then the bit corresponding the Camera X is set to <code>0</code>. Bit 1 represents the Camera 1, bit 2 the Camera 2, etc.</p>
+<p>By convention, all camera bits will be set to 0 if the point value has been interpolated, filtered or otherwise modified in any way. In practice, this convention is not applied strictly and this information cannot be deemed truthful. Note that the camera bits are in the high byte of word 4 of the integer record: the most significant bit of this word is the Residual
+sign bit. Therefore, there are only seven bits available for the cameras, so the camera mask only
+supports seven cameras.</p>
+<blockquote>
+<p>When 3D data collection systems have more than 7 cameras the camera mask is still valid and can record the camera contributions from the first 7 cameras, or from specific cameras that are defined by parameter values to aid in debugging 3D observational issues.</p>
+</blockquote>
+<p>Setting the 8th bit produces a negative signed integer, and any point with a negative residual is <a href="#invalid-3d-point">interpreted as invalid</a>, in theory. But this convention cannot be trusted in practice.</p>
+<h3 id="byte-2">Byte 2</h3>
+<p>Byte 2 of Word 4 represents the average of the residuals for the measurement of the 3D Point. The value from Byte 2 needs to be multiplied by the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter to be interpreted. If byte 2 is zero then the 3D point is recorded as having been filtered, interpolated, or otherwise modified and is not a measured point. This convention is not always implemented in practice, be it when reading or writting a C3D file and should therefor not relied upon for every sources.</p>
+<h2 id="invalid-3d-point">Invalid 3D Point</h2>
+<p>In theory, if a point is invalid then the fourth word (camera mask and residual) will be negative and the X, Y and Z coordinate values will be ignored because the residual of -1 indicates that the point is invalid. In practice, this is seldom respected by any applications, either when reading or writing a file. The validity of a 3D Point cannot be considered truthful and the default behavior is to believe any 3D Point is valid.</p>
 
 </article>
 

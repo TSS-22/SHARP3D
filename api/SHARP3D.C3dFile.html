@@ -153,6 +153,70 @@ including header information, parameters, and data frames.</p>
 </div>
 
 
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SHARP3D_C3dFile__ctor_" data-uid="SHARP3D.C3dFile.#ctor*"></a>
+
+  <h3 id="SHARP3D_C3dFile__ctor" data-uid="SHARP3D.C3dFile.#ctor">
+  C3dFile()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SHARP3D.C3dFile.html">C3dFile</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal C3dFile()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile__ctor_" data-uid="SHARP3D.C3dFile.#ctor*"></a>
+
+  <h3 id="SHARP3D_C3dFile__ctor_System_IO_FileStream_" data-uid="SHARP3D.C3dFile.#ctor(System.IO.FileStream)">
+  C3dFile(FileStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SHARP3D.C3dFile.html">C3dFile</a> class with the specified file stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal C3dFile(FileStream fileStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read the C3D file from.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="properties">Properties
 </h2>
 
@@ -608,6 +672,225 @@ including header information, parameters, and data frames.</p>
 
 
 
+  <a id="SHARP3D_C3dFile_GetAnalogSamplePerFrame_" data-uid="SHARP3D.C3dFile.GetAnalogSamplePerFrame*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetAnalogSamplePerFrame_System_Single_System_Single_" data-uid="SHARP3D.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)">
+  GetAnalogSamplePerFrame(float, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L398"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calculates the number of analog samples per 3D frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal int GetAnalogSamplePerFrame(float pointRate, float analogRate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pointRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The acquisition rate of the 3D point data, in Hz.</p>
+</dd>
+    <dt><code>analogRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The acquisition rate of the analog data, in Hz.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of analog samples per 3D frame, as an integer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_GetAnalogSamplePerFrame_System_Single_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The result is calculated as the ratio of <code class="paramref">analogRate</code> to <code class="paramref">pointRate</code>.
+If this ratio is not an integer, the function will try to recover this value from the word 10 of the header, according to the page 27 of the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User guide</a>, as the C3D file format requires this ratio to be an integer.
+We started using the division of the analog rate and the point rate due to the descriptions in the Data sectin of the guide and because some files don't have an actual valid value in WORD 10 of the C3D headers, but some badly formatted files require the use of WORD 10 of the C3D headers.</p>
+</div>
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetData_" data-uid="SHARP3D.C3dFile.GetData*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetData_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_" data-uid="SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)">
+  GetData(FileStream, ProcessorType, DataType, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the data from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>processor</code> <a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
+</dd>
+    <dt><code>dataTypeFile</code> <a class="xref" href="SHARP3D.Utils.Enum.DataType.html">DataType</a></dt>
+    <dd><p>The data type used in the C3D file.</p>
+</dd>
+    <dt><code>pointScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The point scale factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
+    <dd><p>A <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> object containing the data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetDataSectionPointer_" data-uid="SHARP3D.C3dFile.GetDataSectionPointer*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetDataSectionPointer_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_" data-uid="SHARP3D.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)">
+  GetDataSectionPointer(FileStream, ProcessorType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pointer to the data section in the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static int GetDataSectionPointer(FileStream c3dStream, ProcessorType processor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>processor</code> <a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer to the data section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetFrameValue_" data-uid="SHARP3D.C3dFile.GetFrameValue*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetFrameValue_System_Object_" data-uid="SHARP3D.C3dFile.GetFrameValue(System.Object)">
+  GetFrameValue(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L527"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Extracts an integer value from a given object, handling multiple numeric types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal int GetFrameValue(object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to extract the integer value from. Can be an int, float, double, or null.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integer value of the object if it is an int, float, or double.
+If the object is null or of an unsupported type, returns 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetHeader_" data-uid="SHARP3D.C3dFile.GetHeader*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetHeader_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_" data-uid="SHARP3D.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)">
+  GetHeader(FileStream, ProcessorType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the header information from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorFile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>processorFile</code> <a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Header.C3dHeader.html">C3dHeader</a></dt>
+    <dd><p>A <a class="xref" href="SHARP3D.Header.C3dHeader.html">C3dHeader</a> object containing the header information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SHARP3D_C3dFile_GetParameter_" data-uid="SHARP3D.C3dFile.GetParameter*"></a>
 
   <h3 id="SHARP3D_C3dFile_GetParameter_System_String_System_String_" data-uid="SHARP3D.C3dFile.GetParameter(System.String,System.String)">
@@ -647,6 +930,360 @@ including header information, parameters, and data frames.</p>
 
 
 
+
+
+
+  <a id="SHARP3D_C3dFile_GetParameterBlockCount_" data-uid="SHARP3D.C3dFile.GetParameterBlockCount*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetParameterBlockCount_System_IO_FileStream_" data-uid="SHARP3D.C3dFile.GetParameterBlockCount(System.IO.FileStream)">
+  GetParameterBlockCount(FileStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of parameter blocks in the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static int GetParameterBlockCount(FileStream c3dStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of parameter blocks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetParameterSectionPointer_" data-uid="SHARP3D.C3dFile.GetParameterSectionPointer*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetParameterSectionPointer_System_IO_FileStream_" data-uid="SHARP3D.C3dFile.GetParameterSectionPointer(System.IO.FileStream)">
+  GetParameterSectionPointer(FileStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the pointer to the parameter section in the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static int GetParameterSectionPointer(FileStream c3dStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer to the parameter section.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetParameters_" data-uid="SHARP3D.C3dFile.GetParameters*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetParameters_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_System_Int32_System_Int32_" data-uid="SHARP3D.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)">
+  GetParameters(FileStream, ProcessorType, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the parameters from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal List&lt;C3dParameterGroup&gt; GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>processorFile</code> <a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
+</dd>
+    <dt><code>pointerParameterSection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer to the parameter section.</p>
+</dd>
+    <dt><code>pointerDataSection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer to the data section.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Parameter.Data.C3dParameterGroup.html">C3dParameterGroup</a>&gt;</dt>
+    <dd><p>A list of <a class="xref" href="SHARP3D.Parameter.Data.C3dParameterGroup.html">C3dParameterGroup</a> objects containing the parameters.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>Thrown if the file stream is not open.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SHARP3D_C3dFile_GetPointFrameValue_" data-uid="SHARP3D.C3dFile.GetPointFrameValue*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetPointFrameValue_System_String_" data-uid="SHARP3D.C3dFile.GetPointFrameValue(System.String)">
+  GetPointFrameValue(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L554"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the frame value from a specified POINT parameter in a C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal int GetPointFrameValue(string parameter)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parameter</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the POINT parameter to retrieve the frame value from.
+Valid values are &quot;frames&quot; and &quot;long_frames&quot;.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The integer frame value extracted from the specified parameter.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_GetPointFrameValue_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method internally uses <a class="xref" href="SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetFrameValue_System_Object_">GetFrameValue(object?)</a> to handle the conversion of the parameter value to an integer.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown if the provided parameter is not &quot;frames&quot; or &quot;long_frames&quot;.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SHARP3D_C3dFile_GetPointScaleFactor_" data-uid="SHARP3D.C3dFile.GetPointScaleFactor*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetPointScaleFactor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_" data-uid="SHARP3D.C3dFile.GetPointScaleFactor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)">
+  GetPointScaleFactor(FileStream, ProcessorType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the point scale factor from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal float GetPointScaleFactor(FileStream c3dStream, ProcessorType processor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>processor</code> <a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The point scale factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_GetRightAmountMarkerPerFrame_" data-uid="SHARP3D.C3dFile.GetRightAmountMarkerPerFrame*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetRightAmountMarkerPerFrame_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int64_SHARP3D_Utils_Enum_DataType_" data-uid="SHARP3D.C3dFile.GetRightAmountMarkerPerFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int64,SHARP3D.Utils.Enum.DataType)">
+  GetRightAmountMarkerPerFrame(int, int, int, int, int, int, long, DataType)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L598"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return the right amount of marker per frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal int GetRightAmountMarkerPerFrame(int frameNumber, int analogChannels, int analogSamplePerFrame, int headerPointUsed, int parameterPointUsed, int pointerDataSection, long c3dStreamLength, DataType dataTypeFile)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frameNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of frame in the C3D file.</p>
+</dd>
+    <dt><code>analogChannels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of analog channels.</p>
+</dd>
+    <dt><code>analogSamplePerFrame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of analog sample per Data Frame.</p>
+</dd>
+    <dt><code>headerPointUsed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of POINT:USED present from the Header section.</p>
+</dd>
+    <dt><code>parameterPointUsed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value of POINT:USED present from the Parameter section.</p>
+</dd>
+    <dt><code>pointerDataSection</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The value the pointer to the Data section.</p>
+</dd>
+    <dt><code>c3dStreamLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The length in bytes of the C3D file.</p>
+</dd>
+    <dt><code>dataTypeFile</code> <a class="xref" href="SHARP3D.Utils.Enum.DataType.html">DataType</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Utils.Enum.DataType.html">DataType</a> of the C3D file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The actual amount of marker per frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_GetRightAmountMarkerPerFrame_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int64_SHARP3D_Utils_Enum_DataType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Some file have bad construction and features wrong value in either HEADER:POINT:USED or PARAMETER:POINT:USED. Reading them then comes down to luck.
+Despite the fact that the creator of those file messed up, they might still be usable.
+We assume the followin values to be always truthful:</p>
+<ul><li>PARAMETER:POINT:FRAME</li><li>PARAMETER:POINT:RATE</li><li>PARAMETER:ANALOG:RATE</li></ul>
+<p>And that at least either the HEADER or PARAMETER value of POINT:USED is truthful.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Exceptions.C3dBadFormatingException.html">C3dBadFormatingException</a></dt>
+    <dd><p>Thrown if no value of POINT:USED is valid for the amount of frame in the file.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SHARP3D_C3dFile_GetRightAmountOfFrames_" data-uid="SHARP3D.C3dFile.GetRightAmountOfFrames*"></a>
+
+  <h3 id="SHARP3D_C3dFile_GetRightAmountOfFrames" data-uid="SHARP3D.C3dFile.GetRightAmountOfFrames">
+  GetRightAmountOfFrames()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L457"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines the correct number of frames in a C3D file by attempting to retrieve the value
+from multiple parameter sources, as specified in the C3D User Guide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal int GetRightAmountOfFrames()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of frames in the C3D file, as determined by the first successfully retrieved or calculated value.
+Returns 0 if no valid value can be determined.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_GetRightAmountOfFrames_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function follows the C3D User Guide's recommendations for determining the number of frames:</p>
+<ol><li>
+      Attempts to retrieve the value from the "point/long_frames" parameter (pages 93-94).
+      If successful, returns the value; otherwise, proceeds to the next method.
+    </li><li>
+      Attempts to calculate the number of frames using the "trial/actual_start_field" and
+      "trial/actual_end_field" parameters (pages 99-101). The number of frames is calculated as:
+<pre><code>  &lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;(lastFrame - firstFrame + 1)&lt;/code&gt;&lt;/pre&gt;
+
+  where &lt;code&gt;firstFrame&lt;/code&gt; and &lt;code&gt;lastFrame&lt;/code&gt; are derived from the parameter values.
+&lt;/li&gt;&lt;li&gt;
+  Falls back to retrieving the value from the &quot;point/frames&quot; parameter (page 66).
+  If all else fails, returns 0 as a default value.
+&lt;/li&gt;&lt;/ol&gt;
+</code></pre>
+</li></ol></div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Exceptions.ParameterNotFoundException.html">ParameterNotFoundException</a></dt>
+    <dd><p>Thrown internally if a parameter is not found, but caught and ignored to allow fallback to other methods.</p>
+</dd>
+  </dl>
 
 
 
@@ -709,6 +1346,171 @@ including header information, parameters, and data frames.</p>
   <dl class="parameters">
     <dt><a class="xref" href="SHARP3D.C3dFile.html">C3dFile</a></dt>
     <dd><p>A <a class="xref" href="SHARP3D.C3dFile.html">C3dFile</a> object representing the loaded file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_OpenC3dFile_" data-uid="SHARP3D.C3dFile.OpenC3dFile*"></a>
+
+  <h3 id="SHARP3D_C3dFile_OpenC3dFile_System_String_" data-uid="SHARP3D.C3dFile.OpenC3dFile(System.String)">
+  OpenC3dFile(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L678"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a C3D file for reading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static FileStream OpenC3dFile(string filepath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filepath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path to the C3D file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>A file stream for the C3D file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_C3dFile_OpenC3dFile_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>For legacy purposes for the tests. This method should be discarded for production.</p>
+</div>
+
+
+
+
+  <a id="SHARP3D_C3dFile_ReadHeaderBinaries_" data-uid="SHARP3D.C3dFile.ReadHeaderBinaries*"></a>
+
+  <h3 id="SHARP3D_C3dFile_ReadHeaderBinaries_System_IO_FileStream_" data-uid="SHARP3D.C3dFile.ReadHeaderBinaries(System.IO.FileStream)">
+  ReadHeaderBinaries(FileStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the header binaries from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static byte[] ReadHeaderBinaries(FileStream c3dStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>A byte array containing the header binaries.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_ReadParameterBinaries_" data-uid="SHARP3D.C3dFile.ReadParameterBinaries*"></a>
+
+  <h3 id="SHARP3D_C3dFile_ReadParameterBinaries_System_IO_FileStream_System_Int32_System_Int32_" data-uid="SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)">
+  ReadParameterBinaries(FileStream, int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the parameter binaries from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+    <dt><code>parameterSectionPointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer to the parameter section.</p>
+</dd>
+    <dt><code>parameterBlockCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of parameter blocks.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>A byte array containing the parameter binaries.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3dFile_ReadProcessorByte_" data-uid="SHARP3D.C3dFile.ReadProcessorByte*"></a>
+
+  <h3 id="SHARP3D_C3dFile_ReadProcessorByte_System_IO_FileStream_" data-uid="SHARP3D.C3dFile.ReadProcessorByte(System.IO.FileStream)">
+  ReadProcessorByte(FileStream)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3dFile.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads the processor type byte from the C3D file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static ProcessorType ReadProcessorByte(FileStream c3dStream)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c3dStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filestream">FileStream</a></dt>
+    <dd><p>The file stream to read from.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Utils.Enum.ProcessorType.html">ProcessorType</a></dt>
+    <dd><p>The processor type used to create the C3D file.</p>
 </dd>
   </dl>
 

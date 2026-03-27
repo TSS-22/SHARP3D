@@ -204,6 +204,177 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
 
 
+  <a id="SHARP3D_Data_C3dDataHelper_GetCameraMask_" data-uid="SHARP3D.Data.C3dDataHelper.GetCameraMask*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_GetCameraMask_System_Byte_" data-uid="SHARP3D.Data.C3dDataHelper.GetCameraMask(System.Byte)">
+  GetCameraMask(byte)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static bool[] GetCameraMask(byte camAndSign)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camAndSign</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_IsRaw_" data-uid="SHARP3D.Data.C3dDataHelper.IsRaw*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_IsRaw_System_Byte_System_Int32_" data-uid="SHARP3D.Data.C3dDataHelper.IsRaw(System.Byte,System.Int32)">
+  IsRaw(byte, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L213"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a point is raw or interpolated based on camera/sign byte and residual.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static bool IsRaw(byte camAndSign, int residual)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camAndSign</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The camera and sign byte.</p>
+</dd>
+    <dt><code>residual</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The residual value.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the point is raw; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_IsValid_" data-uid="SHARP3D.Data.C3dDataHelper.IsValid*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_IsValid_System_Byte_System_Single___System_Boolean___SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.IsValid(System.Byte,System.Single[],System.Boolean[],SHARP3D.Data.Data.C3dDataContext)">
+  IsValid(byte, float[], bool[], C3dDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Determines if a point is valid based on camera/sign byte, point values, and camera mask.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camAndSign</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
+    <dd><p>The camera and sign byte.</p>
+</dd>
+    <dt><code>pointValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd><p>The point values.</p>
+</dd>
+    <dt><code>cameraMask</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[]</dt>
+    <dd><p>The camera mask.</p>
+</dd>
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> containing file stream and metadata.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True if the point is valid; otherwise, false.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_Data_C3dDataHelper_IsValid_System_Byte_System_Single___System_Boolean___SHARP3D_Data_Data_C3dDataContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value can't be trusted. Some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.</p>
+</div>
+
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_ProcessPointsAndAnalogsList_" data-uid="SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_ProcessPointsAndAnalogsList_System_Collections_Generic_List_SHARP3D_Data_Data_C3dDataPoint____System_Collections_Generic_List_System_Single______" data-uid="SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList(System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]},System.Collections.Generic.List{System.Single[][]})">
+  ProcessPointsAndAnalogsList(List&lt;C3dDataPoint[]&gt;, List&lt;float[][]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Processes lists of points and analogs into a <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static C3dData ProcessPointsAndAnalogsList(List&lt;C3dDataPoint[]&gt; points, List&lt;float[][]&gt; analogs)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>points</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a>[]&gt;</dt>
+    <dd><p>List of point arrays.</p>
+</dd>
+    <dt><code>analogs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[][]&gt;</dt>
+    <dd><p>List of analog arrays.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
+    <dd><p>A <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> object containing the processed points and analogs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SHARP3D_Data_C3dDataHelper_ReadAllData_" data-uid="SHARP3D.Data.C3dDataHelper.ReadAllData*"></a>
 
   <h3 id="SHARP3D_Data_C3dDataHelper_ReadAllData_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.ReadAllData(SHARP3D.Data.Data.C3dDataContext)">
@@ -230,6 +401,129 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
   <dl class="parameters">
     <dt><a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
     <dd><p>A <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> object containing parsed points and analogs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_ReadDataFrame_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrame*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_ReadDataFrame_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrame(SHARP3D.Data.Data.C3dDataContext)">
+  ReadDataFrame(C3dDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a single data frame from the C3D file based on the data type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static (C3dDataPoint[], float[][]) ReadDataFrame(C3dDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> containing file stream and metadata.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[][])</dt>
+    <dd><p>A tuple containing arrays of points and analogs for the frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>Thrown if the data type is not supported (neither INT16 nor FLOAT32).</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_ReadDataFrameFloat32_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrameFloat32*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_ReadDataFrameFloat32_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrameFloat32(SHARP3D.Data.Data.C3dDataContext)">
+  ReadDataFrameFloat32(C3dDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a data frame with FLOAT32 data type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static (C3dDataPoint[], float[][]) ReadDataFrameFloat32(C3dDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> containing file stream and metadata.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[][])</dt>
+    <dd><p>A tuple containing arrays of points and analogs for the frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_C3dDataHelper_ReadDataFrameInt16_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrameInt16*"></a>
+
+  <h3 id="SHARP3D_Data_C3dDataHelper_ReadDataFrameInt16_SHARP3D_Data_Data_C3dDataContext_" data-uid="SHARP3D.Data.C3dDataHelper.ReadDataFrameInt16(SHARP3D.Data.Data.C3dDataContext)">
+  ReadDataFrameInt16(C3dDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dDataHelper.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads a data frame with INT16 data type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static (C3dDataPoint[], float[][]) ReadDataFrameInt16(C3dDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> containing file stream and metadata.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[][])</dt>
+    <dd><p>A tuple containing arrays of points and analogs for the frame.</p>
 </dd>
   </dl>
 

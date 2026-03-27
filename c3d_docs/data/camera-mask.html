@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Camera Mask | SHARP3D Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Camera Mask | SHARP3D Documentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/data/camera-mask.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SHARP3D Documentation">
+            SHARP3D Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="camera-mask">Camera Mask</h1>
+
+<p>In addition to a 3D residual value, the 3D coordinate format can also provide information about which observers provided the information used to calculate the associated 3D point location. This information is called the “camera contribution” or “camera mask” and is stored, together with the 3D residual, in the fourth word of the <a href="3d-point.html#camera-mask-and-residual">3D Point record</a>.</p>
+<blockquote>
+<p>Residual values are not limited to optical motion capture systems.</p>
+</blockquote>
+<p>The camera mask can be very useful, particularly when used in conjunction with the residual data as it provided information that can allow the user to evaluate the data quality. Since the camera mask tells us which cameras, or observers, were used to
+construct any given 3D point, is can be quite easy to identify a poor, or poorly calibrated, observer simply by noticing that the residuals increase when a particular camera is used to calculate the 3D point. Typically, this shows up as a sudden jump in the point trajectory data when the offending observer contributes faulty positional information. Careful observation of noise levels of individual trajectories within the data collection volume can lead to improvements in the overall system accuracy by enabling the photogrammetry software to eliminate cameras or observation sources that are not performing well.</p>
+<p>Improvements in the automation of data collection, together with an increase in the number of cameras in motion capture systems make the routine evaluation of the camera mask an essential part of quality control. In addition, engineers configuring an automated motion capture environment for the first time or changing an existing laboratory configuration can directly assess the entire data collection process (data collection, trajectory identification and generation) by careful evaluation of the camera mask and residual values within a C3D file.</p>
+<table>
+<thead>
+<tr>
+<th>Bit-8</th>
+<th>Bit-7</th>
+<th>Bit-6</th>
+<th>Bit-5</th>
+<th>Bit-4</th>
+<th>Bit-3</th>
+<th>Bit-2</th>
+<th>Bit-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Residual Sign</td>
+<td>Camera #7</td>
+<td>Camera #6</td>
+<td>Camera #5</td>
+<td>Camera #4</td>
+<td>Camera #3</td>
+<td>Camera #2</td>
+<td>Camera #1</td>
+</tr>
+</tbody>
+</table>
+<p>The camera contribution mask example shown above is found in Word 4 of the <a href="3d-point.html">3D Point record</a>. In the camera contribution mask, byte 1 of word 4 contains eight bits, seven of which are set corresponding to the observers that contributed to the points measurement. Bit-1 refers to the first camera, bit-2 to the
+second etc.</p>
+<blockquote>
+<p>When 3D data collection systems have more than 7 cameras the camera mask is still valid and can record the camera contributions from the first 7 cameras, or from specific cameras that are defined by parameter values to aid in debugging 3D observational issues.</p>
+</blockquote>
+<p>The camera contribution byte is <a href="3d-point.html#camera-mask-and-residual">part of the 16-bit signed integer used to store the 3D residual</a> and as a result, bit-8 is not available to store camera mask information as it stores the sign of the 16-bit signed integer. Note that, for compatibility, and to simplify data access functions, the same signed-integer format is retained internally even when the <a href="3d-point.html#camera-mask-and-residual">3D points are stored using the floating-point format</a>.</p>
+<blockquote>
+<p>While the C3D format defines the camera mask in an optical 3D environment, other sensor based data collection systems could use the camera mask to record the IMU sensor or markerless contributions to the 3D point location calculation.</p>
+</blockquote>
+<p>In the original C3D format there was no provision for recording the contribution of more than seven observers or the requirement that these bits are actually used when a C3D file is created. As a result, as the number of cameras used to record motion has
+increased, many manufacturers have abandoned recording any camera contribution data even for systems with less than eight cameras. This is unfortunate because documenting the observer (or potentially sensor) contribution to each calculated 3D location is very helpful when setting up a 3D motion capture environment or debugging problems with any camera or sensor configuration.</p>
+<p>The camera mask enables users to determine which cameras failed to contribute data to the calculated 3D location, frame by frame throughout the entire data collection so that if a marker always disappears when the subject walks through the data collection
+volume it is very easy to identify which cameras that are failing to record the marker on a frame by frame basis while documenting that other cameras always record the marker. Knowing the camera contributions means that marker visibility problems can usually be solved by moving a camera location a few inches, or replacing a faulty camera instead of buying more cameras. Reviewing the camera contributions in a typical operating environment make it easy to demonstrate which cameras are ideally located and which camera locations should be moved.</p>
+<p>The camera contribution bits are usually cleared if the associated 3D point has been modeled, interpolated, filtered, or otherwise modified. As a result, the presence of an active camera contribution mask will normally indicate that the associated 3D data point is a raw measurement and has not been filtered or modified in any way. In practice, this convention is not strictly observed and cannot be counted on.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/data/camera-mask.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -87,9 +87,120 @@
         <article data-uid="">
 <h1 id="data-section">Data Section</h1>
 
-<p>The C3D
-structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled.</p>
+<p>The C3D file format is designed to store 3D point and analog information so that the stored 3D locations (stored as XYZ coordinates, with <a href="3d-points-residuals.html">Residual</a> and Camera Mask) can be synchronized with any number of analog measurements.</p>
+<p>Information to interpret the 3D Point and Analog data is stored as <a href="../parameters/c3d-parameter-section.html">Parameters</a>. For example the <a href="../parameters/required/point-rate.html">3D sample rates</a>, <a href="../parameters/required/analog-rate.html">analog sample rates</a>, and the number of <a href="../parameters/required/point-used.html">sampled 3D markers</a> and <a href="../parameters/required/analog-used.html">analog channels</a>. As well as the information documenting the data in each channel, allowing users to determine the structure and contents of the stored data each time that a new C3D file is read.</p>
+<h2 id="data-frame-structure">Data Frame Structure</h2>
+<p>The C3D structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled.</p>
+<p>To allow data collection systems to maintain synchronization when simultaneously recording 3D and Analog samples, all data samples are interleaved frame-by-frame throughout the C3D data section. While files normally contain both 3D and analog samples, files may contain only 3D point or analog data samples.</p>
+<pre><code class="lang-mermaid">---
+title: Data Frame Architecture
+---
+flowchart TB
+    subgraph Data[&quot;Data&quot;]
+       subgraph DataFrame4[&quot;Data Frame N&quot;]
+            
+            E@{ shape: process, label: &quot;3D Point&quot; }
+            F@{ shape: processes, label: &quot;Analog Samples&quot; }
+        end
+        subgraph DataFrame3[&quot;...&quot;]
+        
+        end
+        subgraph DataFrame2[&quot;Data Frame 2&quot;]
+            
+            C@{ shape: process, label: &quot;3D Point&quot; }
+            D@{ shape: processes, label: &quot;Analog Samples&quot; }
+        end
+        subgraph DataFrame1[&quot;Data Frame&quot;]
+            
+            A@{ shape: process, label: &quot;3D Point&quot; }
+            B@{ shape: processes, label: &quot;Analog Samples&quot; }
+        end
+    end
+</code></pre>
 <p>While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.</p>
+<p>The size of the 3D/analog data section is not stored in the C3D file, but it can be calculated using the Parameters information.</p>
+<h2 id="description">Description</h2>
+<p>All related 3D point and analog data samples are written as sequential frames starting in the 512-byte block in the C3D file specified by the <a href="../parameters/required/point-data_start.html">POINT:DATA_START parameter</a>.</p>
+<p>If each frame contains both 3D Point and Analog Data, then the 3D Point Data is written first, starting with the first frame of acquired data, followed by multiple Analog Data samples associated with the 3D frame. The number or Analog Data samples is dictated by the number of <a href="../parameters/required/analog-used.html">analog channel</a> and the <a href="../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">analog acquisition rate</a>. If there is only a single type of data (either 3D point data, or only analog data) then the data section will simply consist of sequential frames of the only type of data samples.</p>
+<p>Both analog channels and 3D points stored within the C3D file format are indexed and counted from base “one” – this can occasionally lead to confusion when sampling data from an analog data collection system that counts channel “zero” as
+the first analog channel. There is no “Frame 0” or “Analog Channel 0” in a C3D file, the first frame of 3D data is always counted as Frame 1 and the analog channel count always starts with Channel 1.</p>
+<h2 id="3d-point-data">3D Point Data</h2>
+<p>The C3D file format requires that 3D Point Data values, which counts is defined by the <a href="../parameters/required/point-used.html">POINT:USED</a> parameter, will be written to the each frame within the 3D data section in the order
+that they are listed in the <a href="../parameters/required/point-labels.html">POINT:LABELS</a> parameter section. As a result, applications
+that access the 3D Point Data must determine the storage order and identity of the 3D Points by reading the order of the point labels stored in the parameter section each C3D file.</p>
+<pre><code class="lang-mermaid">---
+title: 3D Point Data Frame Architecture
+---
+flowchart TB
+    subgraph Data[&quot;3D Point Data Frame&quot;]
+       
+        subgraph Frame3[&quot;3D Point N&quot;]
+            F@{ shape: process, label: &quot;X&quot; }
+            G@{ shape: process, label: &quot;Y&quot; }
+            H@{ shape: process, label: &quot;Z&quot; }
+            I@{ shape: card, label: &quot;Byte 1: Camera Mask&quot; }
+            J@{ shape: card, label: &quot;Byte 2: Residual&quot; }
+        end
+
+        subgraph Frame2[&quot;...&quot;]
+        
+        end
+
+        subgraph Frame1[&quot;3D Point 1&quot;]
+            A@{ shape: process, label: &quot;X&quot; }
+            B@{ shape: process, label: &quot;Y&quot; }
+            C@{ shape: process, label: &quot;Z&quot; }
+            D@{ shape: card, label: &quot;Byte 1: Camera Mask&quot; }
+            E@{ shape: card, label: &quot;Byte 2: Residual&quot; }
+        end
+    end
+
+</code></pre>
+<p>The existence of a single point of 3D data in only one frame of a C3D file requires that storage space for this point be allocated in every single frame of the C3D file. This can result in files with a large amount of wasted space if unused, short
+trajectories are preserved unnecessarily.</p>
+<h2 id="analog-data">Analog Data</h2>
+<p>The Analog samples in each 3D frame are recorded sequentially, as listed
+by the <a href="../parameters/required/analog-labels.html">ANALOG:LABELS</a> parameter section and defined by the <a href="../parameters/required/analog-used.html">ANALOG:USED</a> and <a href="../parameters/required/analog-rate.html">ANALOG:RATE</a> counts.</p>
+<p>Analog channels are stored in sequence, starting with the first sampled analog channel, which is always channel one. If ten analog channels are sampled once per 3D frame, then the ten analog values are written in sequence after the 3D point data, starting with channel one and ending with channel ten. If there are three samples of analog data per 3D frame then the first ten analog samples will written in sequence, followed by the second set of analog samples and finally the third set of ten analog samples. This will be followed by the next frame of 3D data which will be followed by the next three sets of analog samples associated with the 3D data frame.</p>
+<pre><code class="lang-mermaid">---
+title: Analog Frame Architecture
+---
+flowchart TB
+    subgraph Data[&quot;Analog Data Frame&quot;]
+       
+        subgraph Frame3[&quot;Analog Sample N&quot;]
+            
+            D@{ shape: process, label: &quot;Sample Channel 1&quot; }
+            E@{ shape: process, label: &quot;...&quot; }
+            F@{ shape: process, label: &quot;Sample Channel N&quot; }
+        end
+
+        subgraph Frame2[&quot;...&quot;]
+        
+        end
+
+        subgraph Frame1[&quot;Analog Sample 1&quot;]
+            
+            A@{ shape: process, label: &quot;Sample Channel 1&quot; }
+            B@{ shape: process, label: &quot;...&quot; }
+            C@{ shape: process, label: &quot;Sample Channel N&quot; }
+        end
+    end
+
+</code></pre>
+<p>It is worth observing here that analog channels are usually stored in sequence starting with the channel one. There is no provision, in the C3D format, to store only ADC channels 2, 8, and 10 and identify them as such. In order to store channel 10, all the channels between 1 and 10 have to be stored. However, since analog channels can be referred to by their <a href="../parameters/required/analog-labels.html">ANALOG:LABELS</a> assignments, there is no need to store unused analog channels if applications use the <a href="../parameters/required/analog-labels.html">ANALOG:LABELS</a> parameter to identify channels instead of the physical channel number to identify the individual analog channels. Thus a C3D file could store only the three channels, each identified by a
+unique LABELS parameter as C3D analog channels 1, 2, and 3. Applications would then reference each channel by its LABELS, not its original physical channel number.</p>
+<blockquote>
+<p>There is no provision to store analog channels out of sequence, but there is no need to sample every ADC analog channel.</p>
+</blockquote>
+<h2 id="number-of-data-frames">Number of Data Frames</h2>
+<p>Since the <a href="https://tss-22.github.io/SHARP3D/api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetRightAmountOfFrames">number of frames</a> within each C3D file is stored in the C3D file <a href="../parameters/c3d-parameter-section.html">Parameter Section</a> either as <a href="../parameters/required/point-frames.html">POINT:FRAMES</a>, <a href="../parameters/additional/point-long_frames.html">POINT:LONG_FRAMES</a> or calculated from <a href="../parameters/application/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and <a href="../parameters/application/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a>, there is no “end-of-data” marker. Data is simply written from the first frame to the last frame. It is recommended that any unused storage in the final 512-byte block of the C3D file should be filled with 0x00.</p>
+<h2 id="data-type-int16-or-float32">Data Type: Int16 or Float32</h2>
+<p>3D point locations and analog data samples may be stored in either signed 16-bit integers or 32-bit floating-point format. Whichever method is selected applies to both the 3D point and the analog data records within the C3D file. If the 3D point
+data is stored in floating-point format, then the analog data must also be stored in floating-point format. It is not possible to mix data storage types within a C3D file, as there is only a single flag (the sign of the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter) that indicates which storage method is used.</p>
+<blockquote>
+<p>The data type, Int16 or Float32, is set by the <a href="../parameters/required/point-scale_factor.html">POINT:SCALE</a> parameter sign. A positive sign indicates integer, a negative sign indicates floating-point.</p>
+</blockquote>
 
 </article>
 

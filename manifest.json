@@ -516,6 +516,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Fortran.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Fortran.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Fortran",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Utils.Fortran.yml\" sourcestartlinenumber=\"1\">Provides utility methods for converting Fortran-style vectors to C# matrices.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Utils.yml",
       "output": {
         ".html": {
@@ -655,10 +669,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/data/resolution.md",
+      "source_relative_path": "c3d_docs/data/camera-mask.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/data/resolution.html"
+          "relative_path": "c3d_docs/data/camera-mask.html"
         }
       },
       "version": ""
@@ -675,10 +689,40 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/point-long_frames.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/point-long_frames.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/application.md",
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/application.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/application/trial-actual_end_field.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/application/trial-actual_end_field.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/application/trial-actual_start_field.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/application/trial-actual_start_field.html"
         }
       },
       "version": ""
@@ -705,10 +749,70 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-labels.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-labels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-rate.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-rate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/analog-scale.md",
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/analog-scale.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/point-data_start.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/point-data_start.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/point-frames.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/point-frames.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/point-labels.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/point-labels.html"
         }
       },
       "version": ""
@@ -735,6 +839,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/point-units.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/point-units.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/point-used.md",
       "output": {
         ".html": {
@@ -752,6 +866,26 @@
         },
         ".json": {
           "relative_path": "c3d_docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/residual_2_cam.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/residual_2_cam.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/residual_3_cam.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/residual_3_cam.svg"
         }
       },
       "version": ""
