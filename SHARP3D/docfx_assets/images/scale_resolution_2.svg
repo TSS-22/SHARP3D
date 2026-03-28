@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1263.68 369.97">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #4d4d4d;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 100 5;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+        stroke: #4d4d4d;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+        stroke-width: 2.83px;
+      }
+
+      .cls-2 {
+        font-family: LiberationSans, 'Liberation Sans';
+        font-size: 28.35px;
+      }
+
+      .cls-5 {
+        fill: #b3b3b3;
+        stroke: #999;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.07em;
+      }
+    </style>
+  </defs>
+  <line class="cls-5" x1="191.78" y1="58.32" x2="191.78" y2="312.27"/>
+  <line class="cls-5" x1="291.12" y1="58.32" x2="1229.28" y2="312.27"/>
+  <g>
+    <line class="cls-3" x1="192.44" y1="58.32" x2="1224.66" y2="58.32"/>
+    <rect class="cls-1" x="183.55" y="48.96" width="18.71" height="18.71"/>
+    <rect class="cls-1" x="1214.84" y="48.96" width="18.71" height="18.71"/>
+  </g>
+  <text class="cls-2" transform="translate(155.51 30.5)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-2" transform="translate(155.51 97)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-2" transform="translate(1236.1 97)"><tspan x="0" y="0">8</tspan></text>
+  <text class="cls-2" transform="translate(1236.1 23.92)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-2" transform="translate(0 97)"><tspan x="0" y="0">Step</tspan></text>
+  <text class="cls-2" transform="translate(0 23.92)"><tspan class="cls-7" x="0" y="0">V</tspan><tspan class="cls-6" x="16.8" y="0">alue</tspan></text>
+  <g>
+    <line class="cls-4" x1="192.44" y1="312.27" x2="1220.39" y2="312.27"/>
+    <rect class="cls-1" x="183.55" y="302.91" width="18.71" height="18.71"/>
+    <rect class="cls-1" x="1210.56" y="302.91" width="18.71" height="18.71"/>
+  </g>
+  <text class="cls-2" transform="translate(155.51 292.3)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-2" transform="translate(1224.28 285.72)"><tspan x="0" y="0">0.1</tspan></text>
+  <text class="cls-2" transform="translate(0 285.72)"><tspan class="cls-7" x="0" y="0">V</tspan><tspan class="cls-6" x="16.8" y="0">alue</tspan></text>
+  <text class="cls-2" transform="translate(155.51 361.38)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-2" transform="translate(1236.1 361.38)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-2" transform="translate(0 361.38)"><tspan x="0" y="0">Step</tspan></text>
+</svg>
