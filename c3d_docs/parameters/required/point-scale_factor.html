@@ -105,6 +105,7 @@ point format, while the magnitude is used to scale the residual values and
 should be set to an appropriate value (maximum coordinate/32000) in case the C3D file is converted to integer format. Failure to calculate and store a
 valid POINT:SCALE parameter will cause corruption if the file data is format
 is changed to an integer format for any reason.</p>
+<p>The scaling factor is dependent upon the calibration volume and is calculated when the data is stored such that the greatest precision is allowed over the entire volume of interest.</p>
 
 </article>
 

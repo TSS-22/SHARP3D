@@ -769,6 +769,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/analog-descriptions.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/analog-descriptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/analog-format.md",
       "output": {
         ".html": {
@@ -843,6 +853,16 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/analog-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform-type.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform-type.html"
         }
       },
       "version": ""
@@ -956,6 +976,26 @@
       "output": {
         "resource": {
           "relative_path": "docfx_assets/images/residual_3_cam.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/scale_resolution_1.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/scale_resolution_1.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/scale_resolution_2.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/scale_resolution_2.svg"
         }
       },
       "version": ""

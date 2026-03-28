@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1202.91 302.05">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #666;
+        stroke-miterlimit: 10;
+        stroke-width: 2.83px;
+      }
+
+      .cls-2 {
+        stroke-dasharray: 12.16 12.16;
+      }
+
+      .cls-3 {
+        fill: #4d4d4d;
+        font-family: LiberationSans, 'Liberation Sans';
+        font-size: 34.02px;
+      }
+
+      .cls-4 {
+        fill: #666;
+      }
+    </style>
+  </defs>
+  <g>
+    <line class="cls-1" x1="8.89" y1="205.3" x2="1194.02" y2="205.3"/>
+    <rect class="cls-4" y="195.94" width="18.71" height="18.71"/>
+    <rect class="cls-4" x="1184.2" y="195.94" width="18.71" height="18.71"/>
+  </g>
+  <text class="cls-3" transform="translate(22.37 250.92)"><tspan x="0" y="0">-32767</tspan></text>
+  <text class="cls-3" transform="translate(1068.77 250.92)"><tspan x="0" y="0">+32767</tspan></text>
+  <text class="cls-3" transform="translate(1060.94 28.71)"><tspan x="0" y="0">4000mm</tspan></text>
+  <text class="cls-3" transform="translate(592.28 278.52)"><tspan x="0" y="0">0</tspan></text>
+  <text class="cls-3" transform="translate(592.28 28.71)"><tspan x="0" y="0">0</tspan></text>
+  <line class="cls-1" x1="601.45" y1="177.34" x2="601.45" y2="233.26"/>
+  <g>
+    <line class="cls-1" x1="610.4" y1="84.05" x2="616.4" y2="84.05"/>
+    <line class="cls-2" x1="628.56" y1="84.05" x2="1181.88" y2="84.05"/>
+    <line class="cls-1" x1="1187.97" y1="84.05" x2="1193.97" y2="84.05"/>
+    <polygon class="cls-4" points="611.78 73.71 611.78 94.38 601.45 84.05 611.78 73.71"/>
+    <polygon class="cls-4" points="1192.58 73.71 1192.58 94.38 1202.91 84.05 1192.58 73.71"/>
+  </g>
+</svg>
