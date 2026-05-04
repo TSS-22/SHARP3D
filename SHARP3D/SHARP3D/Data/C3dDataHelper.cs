@@ -182,7 +182,7 @@ namespace SHARP3D.Data
                 {
                     Console.WriteLine("WARNING: Camera mask and Residual Float32 value overflowed the Int16 format.");
                 }
-                    byte[] intCamSignResidual = BitConverter.GetBytes((Int16)floatCamSignResidual);
+                byte[] intCamSignResidual = BitConverter.GetBytes((Int16)floatCamSignResidual);
                 byte camAndSign = intCamSignResidual[0];
                 int residualInt = intCamSignResidual[1];
 
