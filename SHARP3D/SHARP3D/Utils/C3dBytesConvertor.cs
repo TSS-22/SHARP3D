@@ -51,8 +51,7 @@ namespace SHARP3D.Utils
                 else if (processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
-                    Array.Reverse(bytes);
-                    return bytes.Skip(2).Take(2).ToArray();
+                    return bytes.Reverse().ToArray().Skip(2).Take(2).ToArray();
                 }
                 else
                 {
@@ -65,8 +64,7 @@ namespace SHARP3D.Utils
                 if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
-                    Array.Reverse(bytes);
-                    return bytes.Skip(2).Take(2).ToArray();
+                    return bytes.Reverse().ToArray().Skip(2).Take(2).ToArray();
                 }
                 else if (processor == ProcessorType.DEC)
                 {
@@ -102,8 +100,7 @@ namespace SHARP3D.Utils
                 else if (processor == ProcessorType.SIG_MIPS)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
-                    Array.Reverse(bytes);
-                    return bytes;
+                    return bytes.Reverse().ToArray();
                 }
                 else
                 {
@@ -115,8 +112,7 @@ namespace SHARP3D.Utils
                 if (processor == ProcessorType.INTEL)
                 {
                     byte[] bytes = BitConverter.GetBytes(value);
-                    Array.Reverse(bytes);
-                    return bytes;
+                    return bytes.Reverse().ToArray();
                 }
                 else if (processor == ProcessorType.DEC)
                 {
@@ -152,8 +148,7 @@ namespace SHARP3D.Utils
                 }
                 else if (processor == ProcessorType.SIG_MIPS)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToInt16(bytes, 0);
+                    return BitConverter.ToInt16(bytes.Reverse().ToArray(), 0);
                 }
                 else
                 {
@@ -164,8 +159,7 @@ namespace SHARP3D.Utils
             {
                 if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToInt16(bytes, 0);
+                    return BitConverter.ToInt16(bytes.Reverse().ToArray(), 0);
                 }
                 else if (processor == ProcessorType.DEC)
                 {
@@ -199,8 +193,7 @@ namespace SHARP3D.Utils
                 }
                 else if (processor == ProcessorType.SIG_MIPS)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToUInt16(bytes, 0);
+                    return BitConverter.ToUInt16(bytes.Reverse().ToArray(), 0);
                 }
                 else
                 {
@@ -211,8 +204,7 @@ namespace SHARP3D.Utils
             {
                 if (processor == ProcessorType.INTEL || processor == ProcessorType.SIG_MIPS)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToUInt16(bytes, 0);
+                    return BitConverter.ToUInt16(bytes.Reverse().ToArray(), 0);
                 }
                 else if (processor == ProcessorType.DEC)
                 {
@@ -249,8 +241,7 @@ namespace SHARP3D.Utils
                 }
                 else if (processor == ProcessorType.SIG_MIPS)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToSingle(bytes, 0);
+                    return BitConverter.ToSingle(bytes.Reverse().ToArray(), 0);
                 }
                 else
                 {
@@ -261,8 +252,7 @@ namespace SHARP3D.Utils
             {
                 if (processor == ProcessorType.INTEL)
                 {
-                    Array.Reverse(bytes);
-                    return BitConverter.ToSingle(bytes, 0);
+                    return BitConverter.ToSingle(bytes.Reverse().ToArray(), 0);
                 }
                 else if (processor == ProcessorType.DEC)
                 {
@@ -341,8 +331,7 @@ namespace SHARP3D.Utils
         private static uint BigEndianFloatAsUInt32(float f)
         {
             byte[] bytes = BitConverter.GetBytes(f);
-            Array.Reverse(bytes); // Convert to big-endian
-            return BitConverter.ToUInt32(bytes, 0);
+            return BitConverter.ToUInt32(bytes.Reverse().ToArray(), 0); // Convert to big-endian
         }
 
         /// <summary>
@@ -447,8 +436,7 @@ namespace SHARP3D.Utils
         private static float UInt32AsBigEndianFloat(uint u)
         {
             byte[] bytes = BitConverter.GetBytes(u);
-            Array.Reverse(bytes); // Convert to big-endian
-            return BitConverter.ToSingle(bytes, 0);
+            return BitConverter.ToSingle(bytes.Reverse().ToArray(), 0); // Convert to big-endian
         }
 
         /// <summary>
