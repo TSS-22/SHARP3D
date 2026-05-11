@@ -1700,69 +1700,6 @@ references:
   commentId: T:SHARP3D.Parameter.C3dParameterHelper
   fullName: SHARP3D.Parameter.C3dParameterHelper
   nameWithType: C3dParameterHelper
-- uid: SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
-  name: AdditionalParameterPath
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_AdditionalParameterPath
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
-  fullName: SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
-  nameWithType: C3dParameterHelper.AdditionalParameterPath
-- uid: SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
-  name: ApplicationParameterPath
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_ApplicationParameterPath
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
-  fullName: SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
-  nameWithType: C3dParameterHelper.ApplicationParameterPath
-- uid: SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
-  name: ArraySupportedParameter
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_ArraySupportedParameter
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
-  fullName: SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
-  nameWithType: C3dParameterHelper.ArraySupportedParameter
-- uid: SHARP3D.Parameter.C3dParameterHelper.FromString(System.String,System.String)
-  name: FromString(string, string)
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_FromString_System_String_System_String_
-  commentId: M:SHARP3D.Parameter.C3dParameterHelper.FromString(System.String,System.String)
-  name.vb: FromString(String, String)
-  fullName: SHARP3D.Parameter.C3dParameterHelper.FromString(string, string)
-  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.FromString(String, String)
-  nameWithType: C3dParameterHelper.FromString(string, string)
-  nameWithType.vb: C3dParameterHelper.FromString(String, String)
-- uid: SHARP3D.Parameter.C3dParameterHelper.FromString*
-  name: FromString
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_FromString_
-  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.FromString
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.C3dParameterHelper.FromString
-  nameWithType: C3dParameterHelper.FromString
-- uid: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
-  name: GetAllSupportedParameter()
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_GetAllSupportedParameter
-  commentId: M:SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
-  fullName: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter()
-  nameWithType: C3dParameterHelper.GetAllSupportedParameter()
-- uid: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter*
-  name: GetAllSupportedParameter
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_GetAllSupportedParameter_
-  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
-  nameWithType: C3dParameterHelper.GetAllSupportedParameter
-- uid: SHARP3D.Parameter.C3dParameterHelper.LoadJson(System.String)
-  name: LoadJson(string)
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_LoadJson_System_String_
-  commentId: M:SHARP3D.Parameter.C3dParameterHelper.LoadJson(System.String)
-  name.vb: LoadJson(String)
-  fullName: SHARP3D.Parameter.C3dParameterHelper.LoadJson(string)
-  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.LoadJson(String)
-  nameWithType: C3dParameterHelper.LoadJson(string)
-  nameWithType.vb: C3dParameterHelper.LoadJson(String)
-- uid: SHARP3D.Parameter.C3dParameterHelper.LoadJson*
-  name: LoadJson
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_LoadJson_
-  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.LoadJson
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.C3dParameterHelper.LoadJson
-  nameWithType: C3dParameterHelper.LoadJson
 - uid: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
   name: ParametersFromFileStreams(FileStream, ProcessorType, int, int)
   href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_ParametersFromFileStreams_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_System_Int32_System_Int32_
@@ -1779,37 +1716,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams
   nameWithType: C3dParameterHelper.ParametersFromFileStreams
-- uid: SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
-  name: RequiredParameterPath
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_RequiredParameterPath
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
-  fullName: SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
-  nameWithType: C3dParameterHelper.RequiredParameterPath
-- uid: SHARP3D.Parameter.C3dParameterHelper.Reset
-  name: Reset()
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_Reset
-  commentId: M:SHARP3D.Parameter.C3dParameterHelper.Reset
-  fullName: SHARP3D.Parameter.C3dParameterHelper.Reset()
-  nameWithType: C3dParameterHelper.Reset()
-- uid: SHARP3D.Parameter.C3dParameterHelper.Reset*
-  name: Reset
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_Reset_
-  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.Reset
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.C3dParameterHelper.Reset
-  nameWithType: C3dParameterHelper.Reset
-- uid: SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
-  name: UserParameterPath
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_UserParameterPath
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
-  fullName: SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
-  nameWithType: C3dParameterHelper.UserParameterPath
-- uid: SHARP3D.Parameter.C3dParameterHelper._lock
-  name: _lock
-  href: api/SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper__lock
-  commentId: F:SHARP3D.Parameter.C3dParameterHelper._lock
-  fullName: SHARP3D.Parameter.C3dParameterHelper._lock
-  nameWithType: C3dParameterHelper._lock
 - uid: SHARP3D.Parameter.Data
   name: SHARP3D.Parameter.Data
   href: api/SHARP3D.Parameter.Data.html
@@ -1923,12 +1829,6 @@ references:
   commentId: F:SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
   fullName: SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
   nameWithType: C3dParameter.PointerNextParameterStruct
-- uid: SHARP3D.Parameter.Data.C3dParameter.Supported
-  name: Supported
-  href: api/SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_Supported
-  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Supported
-  fullName: SHARP3D.Parameter.Data.C3dParameter.Supported
-  nameWithType: C3dParameter.Supported
 - uid: SHARP3D.Parameter.Data.C3dParameter.op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
   name: operator ==(C3dParameter, C3dParameter)
   href: api/SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_op_Equality_SHARP3D_Parameter_Data_C3dParameter_SHARP3D_Parameter_Data_C3dParameter_
