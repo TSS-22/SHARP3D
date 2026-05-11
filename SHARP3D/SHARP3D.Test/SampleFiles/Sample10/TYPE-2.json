@@ -3,33 +3,31 @@
         "POINT",
         "ANALOG",
         "FORCE_PLATFORM",
-        "SEG",
-        "SUBJECTS"
+        "SEG"
     ],
     "parameters": [
         [
-            "USED",
-            "FRAMES",
-            "DATA_START",
-            "SCALE",
-            "RATE",
-            "MOVIE_DELAY",
             "X_SCREEN",
             "Y_SCREEN",
             "UNITS",
             "LABELS",
-            "DESCRIPTIONS"
+            "DESCRIPTIONS",
+            "USED",
+            "SCALE",
+            "RATE",
+            "DATA_START",
+            "FRAMES"
         ],
         [
             "GEN_SCALE",
-            "RATE",
-            "USED",
             "GAIN",
             "SCALE",
             "OFFSET",
             "UNITS",
             "LABELS",
             "DESCRIPTIONS",
+            "USED",
+            "RATE",
             "FORMAT"
         ],
         [
@@ -38,7 +36,8 @@
             "TYPE",
             "CORNERS",
             "ORIGIN",
-            "CHANNEL"
+            "CHANNEL",
+            "CAL_MATRIX"
         ],
         [
             "MARKER_DIAMETER",
@@ -48,31 +47,20 @@
             "INTERSECTION_LIMIT",
             "RESIDUAL_ERROR_FACTOR",
             "PREDICTION_ERROR"
-        ],
-        [
-            "IS_STATIC",
-            "USES_PREFIXES",
-            "USED",
-            "NAMES",
-            "LABEL_PREFIXES",
-            "MARKER_SETS",
-            "DISPLAY_SETS",
-            "MODELS",
-            "MODEL_PARAMS"
         ]
     ],
     "point_first_0": [
-        -479.80120372772217,
-        525.8461036682129,
-        953.9302096366882
+        null,
+        null,
+        null
     ],
     "point_last_0": [
-        3215.468845844269,
-        709.0247273445129,
-        967.7770454883575
+        null,
+        null,
+        null
     ],
-    "analog_first_0": -0.07807999849319458,
-    "analog_last_0": -0.3367199935019016,
-    "point_frames": 142,
-    "analog_frames": 2272
+    "analog_first_0": -0.0,
+    "analog_last_0": 0.0884300023317337,
+    "point_frames": 199,
+    "analog_frames": 3980
 }

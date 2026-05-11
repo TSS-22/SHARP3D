@@ -38,7 +38,8 @@
             "DESCRIPTIONS",
             "UNITS",
             "SCALE",
-            "OFFSET"
+            "OFFSET",
+            "FORMAT"
         ],
         [
             "RATE",

@@ -24,7 +24,8 @@
             "SCALE",
             "OFFSET",
             "UNITS",
-            "RATE"
+            "RATE",
+            "FORMAT"
         ],
         [
             "PRED_ERROR",

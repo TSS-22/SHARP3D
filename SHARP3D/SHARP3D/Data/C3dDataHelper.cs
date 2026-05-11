@@ -140,7 +140,16 @@ namespace SHARP3D.Data
                     byte[] buffer = new byte[2];
                     context.C3dStream.ReadExactly(buffer);
                     // As per page 58 of the C3D User Guide
-                    oneFullAnalogsSample[j] = (C3dBytesConvertor.ToUInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    switch(context.AnalogFormat)
+                    {
+                        case AnalogFormatFlag.UNSIGNED:
+                            oneFullAnalogsSample[j] = (C3dBytesConvertor.ToUInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                            break;
+                        default:
+                            oneFullAnalogsSample[j] = (C3dBytesConvertor.ToInt(buffer, context.Processor) - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                            break;
+                    }
+                    
                 }
                 analogs.Add(oneFullAnalogsSample);
             }
@@ -171,8 +180,18 @@ namespace SHARP3D.Data
                 byte[] floatCamSignResidualBuffer = new byte[4];
                 context.C3dStream.ReadExactly(floatCamSignResidualBuffer);
                 // TODO: Handle out of range value but that shouldn't happen
-                Int16 floatCamSignResidual = (Int16)C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
-                byte[] intCamSignResidual = BitConverter.GetBytes(floatCamSignResidual);
+                // According to page 51 of th C3D User Guide, you have to convert the float32 to a signed int16. 
+                // We therefore don't expect any value out of bond, but just in case we will put a warning
+                float floatCamSignResidual = C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
+                if (floatCamSignResidual > 32768)
+                {
+                    Console.WriteLine("WARNING: Camera mask and Residual Float32 value was above the signed limit of Int16 format.");
+                }
+                if (floatCamSignResidual > 65536)
+                {
+                    Console.WriteLine("WARNING: Camera mask and Residual Float32 value overflowed the Int16 format.");
+                }
+                byte[] intCamSignResidual = BitConverter.GetBytes((Int16)floatCamSignResidual);
                 byte camAndSign = intCamSignResidual[0];
                 int residualInt = intCamSignResidual[1];
 

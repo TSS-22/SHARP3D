@@ -27,7 +27,8 @@
             "OFFSET",
             "UNITS",
             "USED",
-            "RATE"
+            "RATE",
+            "FORMAT"
         ],
         [
             "USED",

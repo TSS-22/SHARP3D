@@ -345,6 +345,15 @@ namespace SHARP3D
             catch (IndexOutOfRangeException) { }
             catch (ParameterNotFoundException ex) { }
 
+            // That's the default so we don't care if it is anything else than unsigned. If we can find better strategy than the one from C3D User guide, we will implement it here.
+            AnalogFormatFlag analogFormat = AnalogFormatFlag.SIGNED;
+            Array analogFormatValue = GetParameter("analog", "format").Data;
+
+            if ( analogFormatValue == Sharp3dConstants.UnsignedArrayString)
+            {
+                analogFormat = AnalogFormatFlag.UNSIGNED;
+            }
+
             // TODO: actually sort the error that can come
             DataContext = new C3dDataContext(
                 c3dStream: c3dStream,
@@ -369,7 +378,8 @@ namespace SHARP3D
                 analogGeneralScaleFactor: analogGeneralScaleFactor,
                 analogChannelScaleFactor: analogChannelScaleFactor,
                 analogOffset: analogOffset,
-                analogSamplePerFrame: GetAnalogSamplePerFrame(pointRate, analogRate)
+                analogSamplePerFrame: GetAnalogSamplePerFrame(pointRate, analogRate),
+                analogFormat: analogFormat
                 );
             
             

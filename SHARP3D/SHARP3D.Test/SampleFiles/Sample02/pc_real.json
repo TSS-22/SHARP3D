@@ -27,7 +27,8 @@
             "UNITS",
             "USED",
             "RATE",
-            "LABELS"
+            "LABELS",
+            "FORMAT"
         ],
         [
             "USED",

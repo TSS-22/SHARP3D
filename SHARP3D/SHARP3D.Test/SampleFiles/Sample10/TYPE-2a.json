@@ -28,7 +28,8 @@
             "GEN_SCALE",
             "OFFSET",
             "UNITS",
-            "SCALE"
+            "SCALE",
+            "FORMAT"
         ],
         [
             "USED",
