@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  id: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.DataType
+  - SHARP3D.Utils.Enum.HeaderEventFlag
+  - SHARP3D.Utils.Enum.HeaderEventFlagHelper
+  - SHARP3D.Utils.Enum.ParameterType
+  - SHARP3D.Utils.Enum.ProcessorType
+  - SHARP3D.Utils.Enum.ProcessorTypeHelper
+  - SHARP3D.Utils.Enum.StorageFormat
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag
+  commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.HeaderEventFlag.html
+  name: HeaderEventFlag
+  nameWithType: HeaderEventFlag
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag
+- uid: SHARP3D.Utils.Enum.HeaderEventFlagHelper
+  commentId: T:SHARP3D.Utils.Enum.HeaderEventFlagHelper
+  href: SHARP3D.Utils.Enum.HeaderEventFlagHelper.html
+  name: HeaderEventFlagHelper
+  nameWithType: HeaderEventFlagHelper
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlagHelper
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum.ParameterType
+  commentId: T:SHARP3D.Utils.Enum.ParameterType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ParameterType.html
+  name: ParameterType
+  nameWithType: ParameterType
+  fullName: SHARP3D.Utils.Enum.ParameterType
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Utils.Enum.ProcessorTypeHelper
+  commentId: T:SHARP3D.Utils.Enum.ProcessorTypeHelper
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html
+  name: ProcessorTypeHelper
+  nameWithType: ProcessorTypeHelper
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper
+- uid: SHARP3D.Utils.Enum.StorageFormat
+  commentId: T:SHARP3D.Utils.Enum.StorageFormat
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.StorageFormat.html
+  name: StorageFormat
+  nameWithType: StorageFormat
+  fullName: SHARP3D.Utils.Enum.StorageFormat
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html

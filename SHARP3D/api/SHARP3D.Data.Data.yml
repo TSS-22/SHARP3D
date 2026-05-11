@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.Data
+  commentId: N:SHARP3D.Data.Data
+  id: SHARP3D.Data.Data
+  children:
+  - SHARP3D.Data.Data.C3dData
+  - SHARP3D.Data.Data.C3dDataContext
+  - SHARP3D.Data.Data.C3dDataPoint
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Data.Data
+  nameWithType: SHARP3D.Data.Data
+  fullName: SHARP3D.Data.Data
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Data.Data.C3dData
+  commentId: T:SHARP3D.Data.Data.C3dData
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dData.html
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Data.C3dData
+- uid: SHARP3D.Data.Data.C3dDataContext
+  commentId: T:SHARP3D.Data.Data.C3dDataContext
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dDataContext.html
+  name: C3dDataContext
+  nameWithType: C3dDataContext
+  fullName: SHARP3D.Data.Data.C3dDataContext
+- uid: SHARP3D.Data.Data.C3dDataPoint
+  commentId: T:SHARP3D.Data.Data.C3dDataPoint
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dDataPoint.html
+  name: C3dDataPoint
+  nameWithType: C3dDataPoint
+  fullName: SHARP3D.Data.Data.C3dDataPoint
+- uid: SHARP3D.Data.Data
+  commentId: N:SHARP3D.Data.Data
+  href: SHARP3D.html
+  name: SHARP3D.Data.Data
+  nameWithType: SHARP3D.Data.Data
+  fullName: SHARP3D.Data.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html

@@ -1,0 +1,1225 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterCollection
+  id: C3dParameterCollection
+  parent: SHARP3D.Parameter.Data
+  children:
+  - SHARP3D.Parameter.Data.C3dParameterCollection.#ctor
+  - SHARP3D.Parameter.Data.C3dParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup})
+  - SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex(System.String,System.String)
+  - SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.Int32)
+  - SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.String)
+  - SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups
+  - SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByIndex
+  - SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByName
+  - SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupIndexToString
+  - SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupStringToIndex
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterCollection
+  nameWithType: C3dParameterCollection
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dParameterCollection
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: References all the groups and parameters in a two-way dictionary for convenience.
+  remarks: This class provides methods to retrieve parameter indices, list group parameters, and list all groups.
+  example: []
+  syntax:
+    content: public class C3dParameterCollection
+    content.vb: Public Class C3dParameterCollection
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByName
+  commentId: F:SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByName
+  id: _groupValuesByName
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: _groupValuesByName
+  nameWithType: C3dParameterCollection._groupValuesByName
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByName
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: _groupValuesByName
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  syntax:
+    content: private readonly Dictionary<string, (string, int)[]> _groupValuesByName
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.String,System.Int32}[]}
+    content.vb: Private ReadOnly _groupValuesByName As Dictionary(Of String, (String, Integer)())
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByIndex
+  commentId: F:SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByIndex
+  id: _groupValuesByIndex
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: _groupValuesByIndex
+  nameWithType: C3dParameterCollection._groupValuesByIndex
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection._groupValuesByIndex
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: _groupValuesByIndex
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  syntax:
+    content: private readonly Dictionary<int, (string, int)[]> _groupValuesByIndex
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,System.ValueTuple{System.String,System.Int32}[]}
+    content.vb: Private ReadOnly _groupValuesByIndex As Dictionary(Of Integer, (String, Integer)())
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupIndexToString
+  commentId: F:SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupIndexToString
+  id: _mapGroupIndexToString
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: _mapGroupIndexToString
+  nameWithType: C3dParameterCollection._mapGroupIndexToString
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupIndexToString
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: _mapGroupIndexToString
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 14
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  syntax:
+    content: private readonly Dictionary<int, string> _mapGroupIndexToString
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,System.String}
+    content.vb: Private ReadOnly _mapGroupIndexToString As Dictionary(Of Integer, String)
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupStringToIndex
+  commentId: F:SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupStringToIndex
+  id: _mapGroupStringToIndex
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: _mapGroupStringToIndex
+  nameWithType: C3dParameterCollection._mapGroupStringToIndex
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection._mapGroupStringToIndex
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: _mapGroupStringToIndex
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 15
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  syntax:
+    content: private readonly Dictionary<string, int> _mapGroupStringToIndex
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Int32}
+    content.vb: Private ReadOnly _mapGroupStringToIndex As Dictionary(Of String, Integer)
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.#ctor
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.#ctor
+  id: '#ctor'
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterCollection()
+  nameWithType: C3dParameterCollection.C3dParameterCollection()
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.C3dParameterCollection()
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 20
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Initializes a new instance of the <xref href="SHARP3D.Parameter.Data.C3dParameterCollection" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public C3dParameterCollection()
+    content.vb: Public Sub New()
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.#ctor*
+  nameWithType.vb: C3dParameterCollection.New()
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.New()
+  name.vb: New()
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup})
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup})
+  id: '#ctor(System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup})'
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterCollection(List<C3dParameterGroup>)
+  nameWithType: C3dParameterCollection.C3dParameterCollection(List<C3dParameterGroup>)
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.C3dParameterCollection(System.Collections.Generic.List<SHARP3D.Parameter.Data.C3dParameterGroup>)
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 26
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Initializes a new instance of the <xref href="SHARP3D.Parameter.Data.C3dParameterCollection" data-throw-if-not-resolved="false"></xref> class using a list of <xref href="SHARP3D.Parameter.Data.C3dParameterGroup" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public C3dParameterCollection(List<C3dParameterGroup> c3dFileParameters)
+    parameters:
+    - id: c3dFileParameters
+      type: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+      description: The list of <xref href="SHARP3D.Parameter.Data.C3dParameterGroup" data-throw-if-not-resolved="false"></xref> to populate the collection.
+    content.vb: Public Sub New(c3dFileParameters As List(Of C3dParameterGroup))
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.#ctor*
+  nameWithType.vb: C3dParameterCollection.New(List(Of C3dParameterGroup))
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.Data.C3dParameterGroup))
+  name.vb: New(List(Of C3dParameterGroup))
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex(System.String,System.String)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex(System.String,System.String)
+  id: GetParameterIndex(System.String,System.String)
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: GetParameterIndex(string, string)
+  nameWithType: C3dParameterCollection.GetParameterIndex(string, string)
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex(string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetParameterIndex
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 77
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Gets the index of a parameter within a specified group.
+  example: []
+  syntax:
+    content: public (int, int) GetParameterIndex(string groupName, string parameterName)
+    parameters:
+    - id: groupName
+      type: System.String
+      description: The name of the group to search in.
+    - id: parameterName
+      type: System.String
+      description: The name of the parameter to find.
+    return:
+      type: System.ValueTuple{System.Int32,System.Int32}
+      description: A tuple containing the group index and the parameter index.
+    content.vb: Public Function GetParameterIndex(groupName As String, parameterName As String) As (Integer, Integer)
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex*
+  exceptions:
+  - type: SHARP3D.Exceptions.EmptyParameterGroupException
+    commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
+    description: Thrown if the specified group does not contain any parameters.
+  - type: SHARP3D.Exceptions.ParameterNotFoundException
+    commentId: T:SHARP3D.Exceptions.ParameterNotFoundException
+    description: Thrown if the specified parameter is not found in the group.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: Thrown if the specified group does not exist.
+  nameWithType.vb: C3dParameterCollection.GetParameterIndex(String, String)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex(String, String)
+  name.vb: GetParameterIndex(String, String)
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.String)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.String)
+  id: ListGroupParameters(System.String)
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: ListGroupParameters(string)
+  nameWithType: C3dParameterCollection.ListGroupParameters(string)
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ListGroupParameters
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 113
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Lists all parameters in a specified group by group name.
+  example: []
+  syntax:
+    content: public (string, int)[] ListGroupParameters(string groupName)
+    parameters:
+    - id: groupName
+      type: System.String
+      description: The name of the group.
+    return:
+      type: System.ValueTuple{System.String,System.Int32}[]
+      description: An array of tuples containing parameter names and their indices.
+    content.vb: Public Function ListGroupParameters(groupName As String) As (String, Integer)()
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters*
+  exceptions:
+  - type: SHARP3D.Exceptions.EmptyParameterGroupException
+    commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
+    description: Thrown if the specified group does not contain any parameters.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: Thrown if the specified group does not exist.
+  nameWithType.vb: C3dParameterCollection.ListGroupParameters(String)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(String)
+  name.vb: ListGroupParameters(String)
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.Int32)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(System.Int32)
+  id: ListGroupParameters(System.Int32)
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: ListGroupParameters(int)
+  nameWithType: C3dParameterCollection.ListGroupParameters(int)
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ListGroupParameters
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 138
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Lists all parameters in a specified group by group index.
+  example: []
+  syntax:
+    content: public (string, int)[] ListGroupParameters(int groupIndex)
+    parameters:
+    - id: groupIndex
+      type: System.Int32
+      description: The index of the group.
+    return:
+      type: System.ValueTuple{System.String,System.Int32}[]
+      description: An array of tuples containing parameter names and their indices.
+    content.vb: Public Function ListGroupParameters(groupIndex As Integer) As (String, Integer)()
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters*
+  exceptions:
+  - type: SHARP3D.Exceptions.EmptyParameterGroupException
+    commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
+    description: Thrown if the specified group does not contain any parameters.
+  - type: System.Collections.Generic.KeyNotFoundException
+    commentId: T:System.Collections.Generic.KeyNotFoundException
+    description: Thrown if the specified group does not exist.
+  nameWithType.vb: C3dParameterCollection.ListGroupParameters(Integer)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters(Integer)
+  name.vb: ListGroupParameters(Integer)
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups
+  commentId: M:SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups
+  id: ListGroups
+  parent: SHARP3D.Parameter.Data.C3dParameterCollection
+  langs:
+  - csharp
+  - vb
+  name: ListGroups()
+  nameWithType: C3dParameterCollection.ListGroups()
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameterCollection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ListGroups
+    path: SHARP3D/Parameter/Data/C3dParameterCollection.cs
+    startLine: 155
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Lists all group names in the collection.
+  example: []
+  syntax:
+    content: public string[] ListGroups()
+    return:
+      type: System.String[]
+      description: An array of group names.
+    content.vb: Public Function ListGroups() As String()
+  overload: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups*
+references:
+- uid: SHARP3D.Parameter.Data
+  commentId: N:SHARP3D.Parameter.Data
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.Data
+  nameWithType: SHARP3D.Parameter.Data
+  fullName: SHARP3D.Parameter.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.String,System.Int32}[]}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.String,System.Int32}[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, (string, int)[]>
+  nameWithType: Dictionary<string, (string, int)[]>
+  fullName: System.Collections.Generic.Dictionary<string, (string, int)[]>
+  nameWithType.vb: Dictionary(Of String, (String, Integer)())
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, (String, Integer)())
+  name.vb: Dictionary(Of String, (String, Integer)())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.ValueTuple{System.String,System.Int32}[]}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.ValueTuple{System.String,System.Int32}[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, (string, int)[]>
+  nameWithType: Dictionary<int, (string, int)[]>
+  fullName: System.Collections.Generic.Dictionary<int, (string, int)[]>
+  nameWithType.vb: Dictionary(Of Integer, (String, Integer)())
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, (String, Integer)())
+  name.vb: Dictionary(Of Integer, (String, Integer)())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary{System.Int32,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, string>
+  nameWithType: Dictionary<int, string>
+  fullName: System.Collections.Generic.Dictionary<int, string>
+  nameWithType.vb: Dictionary(Of Integer, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, String)
+  name.vb: Dictionary(Of Integer, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.Dictionary{System.String,System.Int32}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, int>
+  nameWithType: Dictionary<string, int>
+  fullName: System.Collections.Generic.Dictionary<string, int>
+  nameWithType.vb: Dictionary(Of String, Integer)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Integer)
+  name.vb: Dictionary(Of String, Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterCollection
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html
+  name: C3dParameterCollection
+  nameWithType: C3dParameterCollection
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.#ctor*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameterCollection.#ctor
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html#SHARP3D_Parameter_Data_C3dParameterCollection__ctor
+  name: C3dParameterCollection
+  nameWithType: C3dParameterCollection.C3dParameterCollection
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.C3dParameterCollection
+  nameWithType.vb: C3dParameterCollection.New
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameterCollection.New
+  name.vb: New
+- uid: SHARP3D.Parameter.Data.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterGroup
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  name: C3dParameterGroup
+  nameWithType: C3dParameterGroup
+  fullName: SHARP3D.Parameter.Data.C3dParameterGroup
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dParameterGroup>
+  nameWithType: List<C3dParameterGroup>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.Data.C3dParameterGroup>
+  nameWithType.vb: List(Of C3dParameterGroup)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.Data.C3dParameterGroup)
+  name.vb: List(Of C3dParameterGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SHARP3D.Exceptions.EmptyParameterGroupException
+  commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
+  href: SHARP3D.Exceptions.EmptyParameterGroupException.html
+  name: EmptyParameterGroupException
+  nameWithType: EmptyParameterGroupException
+  fullName: SHARP3D.Exceptions.EmptyParameterGroupException
+- uid: SHARP3D.Exceptions.ParameterNotFoundException
+  commentId: T:SHARP3D.Exceptions.ParameterNotFoundException
+  href: SHARP3D.Exceptions.ParameterNotFoundException.html
+  name: ParameterNotFoundException
+  nameWithType: ParameterNotFoundException
+  fullName: SHARP3D.Exceptions.ParameterNotFoundException
+- uid: System.Collections.Generic.KeyNotFoundException
+  commentId: T:System.Collections.Generic.KeyNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keynotfoundexception
+  name: KeyNotFoundException
+  nameWithType: KeyNotFoundException
+  fullName: System.Collections.Generic.KeyNotFoundException
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html#SHARP3D_Parameter_Data_C3dParameterCollection_GetParameterIndex_System_String_System_String_
+  name: GetParameterIndex
+  nameWithType: C3dParameterCollection.GetParameterIndex
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.GetParameterIndex
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueTuple{System.Int32,System.Int32}
+  commentId: T:System.ValueTuple{System.Int32,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int, int)
+  nameWithType: (int, int)
+  fullName: (int, int)
+  nameWithType.vb: (Integer, Integer)
+  fullName.vb: (Integer, Integer)
+  name.vb: (Integer, Integer)
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html#SHARP3D_Parameter_Data_C3dParameterCollection_ListGroupParameters_System_String_
+  name: ListGroupParameters
+  nameWithType: C3dParameterCollection.ListGroupParameters
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroupParameters
+- uid: System.ValueTuple{System.String,System.Int32}[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: (string, int)[]
+  nameWithType: (string, int)[]
+  fullName: (string, int)[]
+  nameWithType.vb: (String, Integer)()
+  fullName.vb: (String, Integer)()
+  name.vb: (String, Integer)()
+  spec.csharp:
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html#SHARP3D_Parameter_Data_C3dParameterCollection_ListGroups
+  name: ListGroups
+  nameWithType: C3dParameterCollection.ListGroups
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection.ListGroups
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )

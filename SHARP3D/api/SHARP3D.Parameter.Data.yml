@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.Data
+  commentId: N:SHARP3D.Parameter.Data
+  id: SHARP3D.Parameter.Data
+  children:
+  - SHARP3D.Parameter.Data.C3dParameter
+  - SHARP3D.Parameter.Data.C3dParameterCollection
+  - SHARP3D.Parameter.Data.C3dParameterGroup
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Parameter.Data
+  nameWithType: SHARP3D.Parameter.Data
+  fullName: SHARP3D.Parameter.Data
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Parameter.Data.C3dParameter
+  commentId: T:SHARP3D.Parameter.Data.C3dParameter
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.Data.C3dParameter
+- uid: SHARP3D.Parameter.Data.C3dParameterCollection
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterCollection
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameterCollection.html
+  name: C3dParameterCollection
+  nameWithType: C3dParameterCollection
+  fullName: SHARP3D.Parameter.Data.C3dParameterCollection
+- uid: SHARP3D.Parameter.Data.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterGroup
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  name: C3dParameterGroup
+  nameWithType: C3dParameterGroup
+  fullName: SHARP3D.Parameter.Data.C3dParameterGroup
+- uid: SHARP3D.Parameter.Data
+  commentId: N:SHARP3D.Parameter.Data
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.Data
+  nameWithType: SHARP3D.Parameter.Data
+  fullName: SHARP3D.Parameter.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html

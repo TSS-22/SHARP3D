@@ -1,0 +1,1111 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.Data.C3dDataContext
+  commentId: T:SHARP3D.Data.Data.C3dDataContext
+  id: C3dDataContext
+  parent: SHARP3D.Data.Data
+  children:
+  - SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  - SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+  - SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  - SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+  - SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+  - SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  - SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+  - SHARP3D.Data.Data.C3dDataContext.C3dStream
+  - SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+  - SHARP3D.Data.Data.C3dDataContext.FramesNumber
+  - SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+  - SHARP3D.Data.Data.C3dDataContext.PointRate
+  - SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+  - SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+  - SHARP3D.Data.Data.C3dDataContext.Processor
+  langs:
+  - csharp
+  - vb
+  name: C3dDataContext
+  nameWithType: C3dDataContext
+  fullName: SHARP3D.Data.Data.C3dDataContext
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dDataContext
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 15
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Represents the context for reading and processing data from a C3D file.
+  remarks: >-
+    <p>
+
+    This class encapsulates all necessary information and parameters required to read and interpret
+
+    the data section of a C3D file, including file stream, processor type, data type, and scaling factors.
+
+    </p>
+  example: []
+  syntax:
+    content: public class C3dDataContext
+    content.vb: Public Class C3dDataContext
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Data.Data.C3dDataContext.C3dStream
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.C3dStream
+  id: C3dStream
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: C3dStream
+  nameWithType: C3dDataContext.C3dStream
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dStream
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dStream
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 20
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the file stream used to access the C3D file.
+  example: []
+  syntax:
+    content: public FileStream C3dStream { get; }
+    parameters: []
+    return:
+      type: System.IO.FileStream
+    content.vb: Public ReadOnly Property C3dStream As FileStream
+  overload: SHARP3D.Data.Data.C3dDataContext.C3dStream*
+- uid: SHARP3D.Data.Data.C3dDataContext.Processor
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.Processor
+  id: Processor
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: Processor
+  nameWithType: C3dDataContext.Processor
+  fullName: SHARP3D.Data.Data.C3dDataContext.Processor
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Processor
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 25
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the processor type used to create the C3D file.
+  example: []
+  syntax:
+    content: public ProcessorType Processor { get; }
+    parameters: []
+    return:
+      type: SHARP3D.Utils.Enum.ProcessorType
+    content.vb: Public ReadOnly Property Processor As ProcessorType
+  overload: SHARP3D.Data.Data.C3dDataContext.Processor*
+- uid: SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+  id: DataTypeFile
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: DataTypeFile
+  nameWithType: C3dDataContext.DataTypeFile
+  fullName: SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataTypeFile
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 30
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the data type of the values stored in the C3D file.
+  example: []
+  syntax:
+    content: public DataType DataTypeFile { get; }
+    parameters: []
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+    content.vb: Public ReadOnly Property DataTypeFile As DataType
+  overload: SHARP3D.Data.Data.C3dDataContext.DataTypeFile*
+- uid: SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+  id: PointerDataSection
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: PointerDataSection
+  nameWithType: C3dDataContext.PointerDataSection
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointerDataSection
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 35
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the pointer to the start of the data section in the C3D file.
+  example: []
+  syntax:
+    content: public int PointerDataSection { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property PointerDataSection As Integer
+  overload: SHARP3D.Data.Data.C3dDataContext.PointerDataSection*
+- uid: SHARP3D.Data.Data.C3dDataContext.FramesNumber
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.FramesNumber
+  id: FramesNumber
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: FramesNumber
+  nameWithType: C3dDataContext.FramesNumber
+  fullName: SHARP3D.Data.Data.C3dDataContext.FramesNumber
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FramesNumber
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 40
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the total number of frames in the C3D file.
+  example: []
+  syntax:
+    content: public int FramesNumber { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property FramesNumber As Integer
+  overload: SHARP3D.Data.Data.C3dDataContext.FramesNumber*
+- uid: SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+  id: MarkersPerFrame
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: MarkersPerFrame
+  nameWithType: C3dDataContext.MarkersPerFrame
+  fullName: SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: MarkersPerFrame
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 45
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the number of markers per frame in the C3D file.
+  example: []
+  syntax:
+    content: public int MarkersPerFrame { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MarkersPerFrame As Integer
+  overload: SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame*
+- uid: SHARP3D.Data.Data.C3dDataContext.PointRate
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.PointRate
+  id: PointRate
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: PointRate
+  nameWithType: C3dDataContext.PointRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointRate
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointRate
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 50
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the acquisition rate of the 3D point data, in Hz.
+  example: []
+  syntax:
+    content: public float PointRate { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property PointRate As Single
+  overload: SHARP3D.Data.Data.C3dDataContext.PointRate*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  id: AnalogRate
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogRate
+  nameWithType: C3dDataContext.AnalogRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogRate
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 55
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the acquisition rate of the analog data, in Hz.
+  example: []
+  syntax:
+    content: public float AnalogRate { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property AnalogRate As Single
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogRate*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  id: AnalogChannels
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogChannels
+  nameWithType: C3dDataContext.AnalogChannels
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogChannels
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 60
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the number of analog channels in the C3D file.
+  example: []
+  syntax:
+    content: public int AnalogChannels { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property AnalogChannels As Integer
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogChannels*
+- uid: SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+  id: PointScaleFactor
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: PointScaleFactor
+  nameWithType: C3dDataContext.PointScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointScaleFactor
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 65
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the scale factor applied to 3D point coordinates.
+  example: []
+  syntax:
+    content: public float PointScaleFactor { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property PointScaleFactor As Single
+  overload: SHARP3D.Data.Data.C3dDataContext.PointScaleFactor*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+  id: AnalogGeneralScaleFactor
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogGeneralScaleFactor
+  nameWithType: C3dDataContext.AnalogGeneralScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogGeneralScaleFactor
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 70
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the general scale factor applied to all analog data.
+  example: []
+  syntax:
+    content: public float AnalogGeneralScaleFactor { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property AnalogGeneralScaleFactor As Single
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+  id: AnalogChannelScaleFactor
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogChannelScaleFactor
+  nameWithType: C3dDataContext.AnalogChannelScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogChannelScaleFactor
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 78
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the scale factors applied to individual analog channels.
+  remarks: Each element in the array corresponds to the scale factor for a specific analog channel.
+  example: []
+  syntax:
+    content: public float[] AnalogChannelScaleFactor { get; }
+    parameters: []
+    return:
+      type: System.Single[]
+    content.vb: Public ReadOnly Property AnalogChannelScaleFactor As Single()
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+  id: AnalogSamplePerFrame
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogSamplePerFrame
+  nameWithType: C3dDataContext.AnalogSamplePerFrame
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogSamplePerFrame
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 86
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the number of analog samples per 3D frame.
+  remarks: This value is calculated as the ratio of <xref href="SHARP3D.Data.Data.C3dDataContext.AnalogRate" data-throw-if-not-resolved="false"></xref> to <xref href="SHARP3D.Data.Data.C3dDataContext.PointRate" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int AnalogSamplePerFrame { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property AnalogSamplePerFrame As Integer
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame*
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+  id: AnalogOffset
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: AnalogOffset
+  nameWithType: C3dDataContext.AnalogOffset
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogOffset
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 91
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the offset for analog data in the C3D file.
+  example: []
+  syntax:
+    content: public int[] AnalogOffset { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property AnalogOffset As Integer()
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogOffset*
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  id: '#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)'
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 115
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Initializes a new instance of the <xref href="SHARP3D.Data.Data.C3dDataContext" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame)
+    parameters:
+    - id: c3dStream
+      type: System.IO.FileStream
+      description: The file stream used to access the C3D file.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The processor type used to create the C3D file.
+    - id: dataTypeFile
+      type: SHARP3D.Utils.Enum.DataType
+      description: The data type of the values stored in the C3D file.
+    - id: pointerDataSection
+      type: System.Int32
+      description: The pointer to the start of the data section in the C3D file.
+    - id: framesNumber
+      type: System.Int32
+      description: The total number of frames in the C3D file.
+    - id: markersPerFrame
+      type: System.Int32
+      description: The number of markers per frame in the C3D file.
+    - id: pointRate
+      type: System.Single
+      description: The acquisition rate of the 3D point data, in Hz.
+    - id: analogRate
+      type: System.Single
+      description: The acquisition rate of the analog data, in Hz.
+    - id: analogChannels
+      type: System.Int32
+      description: The number of analog channels in the C3D file.
+    - id: pointScaleFactor
+      type: System.Single
+      description: The scale factor applied to 3D point coordinates.
+    - id: analogGeneralScaleFactor
+      type: System.Single
+    - id: analogChannelScaleFactor
+      type: System.Single[]
+      description: The scale factors applied to individual analog channels.
+    - id: analogOffset
+      type: System.Int32[]
+      description: The offset for analog data in the C3D file.
+    - id: analogSamplePerFrame
+      type: System.Int32
+      description: The number of analog sample in each frame.
+    content.vb: Public Sub New(c3dStream As FileStream, processor As ProcessorType, dataTypeFile As DataType, pointerDataSection As Integer, framesNumber As Integer, markersPerFrame As Integer, pointRate As Single, analogRate As Single, analogChannels As Integer, pointScaleFactor As Single, analogGeneralScaleFactor As Single, analogChannelScaleFactor As Single(), analogOffset As Integer(), analogSamplePerFrame As Integer)
+  overload: SHARP3D.Data.Data.C3dDataContext.#ctor*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown if the ratio of <code class="paramref">analogRate</code> to <code class="paramref">pointRate</code> is not an integer.
+  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+references:
+- uid: SHARP3D.Data.Data
+  commentId: N:SHARP3D.Data.Data
+  href: SHARP3D.html
+  name: SHARP3D.Data.Data
+  nameWithType: SHARP3D.Data.Data
+  fullName: SHARP3D.Data.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.Data.Data.C3dDataContext.C3dStream*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.C3dStream
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_C3dStream
+  name: C3dStream
+  nameWithType: C3dDataContext.C3dStream
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dStream
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: SHARP3D.Data.Data.C3dDataContext.Processor*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.Processor
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_Processor
+  name: Processor
+  nameWithType: C3dDataContext.Processor
+  fullName: SHARP3D.Data.Data.C3dDataContext.Processor
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Data.Data.C3dDataContext.DataTypeFile*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_DataTypeFile
+  name: DataTypeFile
+  nameWithType: C3dDataContext.DataTypeFile
+  fullName: SHARP3D.Data.Data.C3dDataContext.DataTypeFile
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Data.Data.C3dDataContext.PointerDataSection*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_PointerDataSection
+  name: PointerDataSection
+  nameWithType: C3dDataContext.PointerDataSection
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointerDataSection
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Data.Data.C3dDataContext.FramesNumber*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.FramesNumber
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_FramesNumber
+  name: FramesNumber
+  nameWithType: C3dDataContext.FramesNumber
+  fullName: SHARP3D.Data.Data.C3dDataContext.FramesNumber
+- uid: SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_MarkersPerFrame
+  name: MarkersPerFrame
+  nameWithType: C3dDataContext.MarkersPerFrame
+  fullName: SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame
+- uid: SHARP3D.Data.Data.C3dDataContext.PointRate*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.PointRate
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_PointRate
+  name: PointRate
+  nameWithType: C3dDataContext.PointRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointRate
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogRate*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogRate
+  name: AnalogRate
+  nameWithType: C3dDataContext.AnalogRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogRate
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogChannels*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogChannels
+  name: AnalogChannels
+  nameWithType: C3dDataContext.AnalogChannels
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+- uid: SHARP3D.Data.Data.C3dDataContext.PointScaleFactor*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_PointScaleFactor
+  name: PointScaleFactor
+  nameWithType: C3dDataContext.PointScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointScaleFactor
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogGeneralScaleFactor
+  name: AnalogGeneralScaleFactor
+  nameWithType: C3dDataContext.AnalogGeneralScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogChannelScaleFactor
+  name: AnalogChannelScaleFactor
+  nameWithType: C3dDataContext.AnalogChannelScaleFactor
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogRate
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogRate
+  name: AnalogRate
+  nameWithType: C3dDataContext.AnalogRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogRate
+- uid: SHARP3D.Data.Data.C3dDataContext.PointRate
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.PointRate
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_PointRate
+  name: PointRate
+  nameWithType: C3dDataContext.PointRate
+  fullName: SHARP3D.Data.Data.C3dDataContext.PointRate
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogSamplePerFrame
+  name: AnalogSamplePerFrame
+  nameWithType: C3dDataContext.AnalogSamplePerFrame
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogOffset*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogOffset
+  name: AnalogOffset
+  nameWithType: C3dDataContext.AnalogOffset
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogOffset
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Data.C3dDataContext
+  commentId: T:SHARP3D.Data.Data.C3dDataContext
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dDataContext.html
+  name: C3dDataContext
+  nameWithType: C3dDataContext
+  fullName: SHARP3D.Data.Data.C3dDataContext
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.#ctor
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_
+  name: C3dDataContext
+  nameWithType: C3dDataContext.C3dDataContext
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext
+  nameWithType.vb: C3dDataContext.New
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New
+  name.vb: New
