@@ -25,7 +25,8 @@
             "UNITS",
             "SCALE",
             "OFFSET",
-            "ACQUISITION_RATE"
+            "ACQUISITION_RATE",
+            "FORMAT"
         ],
         [
             "USED",

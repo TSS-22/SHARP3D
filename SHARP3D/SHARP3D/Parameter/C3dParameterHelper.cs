@@ -511,10 +511,93 @@ namespace SHARP3D.Parameter
                 }
             }
 
+            // Check for ANALOG:FORMAT
+            // If it doesn't exit, create it and give it the value SIGNED. 
+            // Will need to update the test
+            Array? analogFormatValue = groups
+                .FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
+                .Parameters?
+                .FirstOrDefault(p => p.Name?.Equals("format", StringComparison.OrdinalIgnoreCase) == true)
+                .Data ?? null; // Fallback to null if Name is null
+
+            // Create place holder value for SIGNED and UNSIGNED
+            Array signedArrayString = Sharp3dConstants.SignedArrayString;
+            Array unsignedArrayString = Sharp3dConstants.UnsignedArrayString;
+ 
+            if (analogFormatValue == null)
+            {
+                // Create ANALOG:FORMAT Parameter
+                Array dataAnalogFormat = Array.CreateInstance(typeof(char), "SIGNED".Length);
+                string analogFormatName = "FORMAT";
+                string analogFormatDescription = "Determine if Analog data and parameter are signed or unsigned integers.";
+
+                groups.FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Parameters.Add(
+                    new C3dParameter
+                    {
+                        NameLength = (sbyte)analogFormatName.Length,
+                        Id = Math.Abs(groups.FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Id),
+                        Name = analogFormatName,
+                        PointerNextParameterStruct = 0, // Is that gonna be a problem later on?
+                        DataTypeFile = DataType.CHAR,
+                        NbOfDimensions = 1,
+                        Dimensions = new int[] { "SIGNED".Length },
+                        Data = dataAnalogFormat,
+                        DescriptionLength = analogFormatDescription.Length,
+                        Description = analogFormatDescription,
+                        Locked = true
+                    });
+
+                analogFormatValue = signedArrayString;
+            }
+
+            
+
+            // Read the value of ANALOG:FORMAT
+            // Act accordingly
+            // If signed, do nothing.
+            // If unsigned, do stuff
+            if (analogFormatValue == signedArrayString)
+            {
+                  // Do nothing as it is the default behavior.                   
+            }
+            else if (analogFormatValue == unsignedArrayString) 
+            {
+                // Convert all the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
+                for (int g = 0; g < groups.Count; g++)
+                {
+                    if (groups[g].Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
+                    {
+                        for (int i = 0; i < groups[g].Parameters.Count; i++)
+                        {
+                            if (groups[g].Parameters[i].DataTypeFile == DataType.INT16)
+                            {
+                                // Convert the data from signed to unsigned
+                                int[] signedData = (int[])groups[g].Parameters[i].Data;
+                                int[] unsignedData = new int[signedData.Length];
+                                for (int j = 0; j < signedData.Length; j++)
+                                {
+                                    unsignedData[j] = signedData[j] & 0xFFFF; // Masking to get the unsigned value
+                                }
+                                // Fix: Copy struct, modify, then assign back
+                                C3dParameter tempParameter = groups[g].Parameters[i];
+                                tempParameter.Data = unsignedData;
+                                tempParameter.DataTypeFile = DataType.UINT16;
+                                groups[g].Parameters[i] = tempParameter;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");   
+            }
+
+
             // TODO: Change this as it is useless at the moment and detrimental for use of the end user .dll
             for (int i = 0; i < groups.Count; i++)
             {
-                for(int j=0; j < groups[i].Parameters.Count; j++)
+                for (int j = 0; j < groups[i].Parameters.Count; j++)
                 {
                     try
                     {
@@ -524,12 +607,14 @@ namespace SHARP3D.Parameter
                             );
                         groups[i].Parameters[j] = tempParameter;
                     }
-                    catch(InvalidOperationException ex)
-                    { 
+                    catch (InvalidOperationException ex)
+                    {
                         // Do nothing as the C3dParameter.Supported field is initialized as unkown by default.
                     }
-                }    
+                }
             }
+            // End of the useless part
+
             // Create and return the list of group/parameter and their index. Return that as a tuple
             return groups.ToList();
         }

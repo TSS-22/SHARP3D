@@ -60,7 +60,8 @@
             "OFFSET",
             "UNITS",
             "LABELS",
-            "DESCRIPTIONS"
+            "DESCRIPTIONS",
+            "FORMAT"
         ],
         [
             "USED",

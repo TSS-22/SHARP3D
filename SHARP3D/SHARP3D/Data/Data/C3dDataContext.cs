@@ -91,6 +91,11 @@ namespace SHARP3D.Data.Data
         /// </summary>
         public int[] AnalogOffset {  get; }
 
+        ///<summary>
+        /// Gets the analog the <see href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT Parameter</see> value.
+        /// </summary>
+        public AnalogFormatFlag AnalogFormat { get; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dDataContext"/> class.
         /// </summary>
@@ -110,6 +115,7 @@ namespace SHARP3D.Data.Data
         /// <param name="analogChannelScaleFactor">The scale factors applied to individual analog channels.</param>
         /// <param name="analogOffset">The offset for analog data in the C3D file.</param>
         /// <param name="analogSamplePerFrame">The number of analog sample in each frame.</param>
+        /// <param name="analogFormat">The analog flag format</param>
         /// <exception cref="Exception">
         /// Thrown if the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/> is not an integer.
         /// </exception>
@@ -127,7 +133,8 @@ namespace SHARP3D.Data.Data
             float analogGeneralScaleFactor,
             float []analogChannelScaleFactor,
             int[] analogOffset,
-            int analogSamplePerFrame)
+            int analogSamplePerFrame,
+            AnalogFormatFlag analogFormat)
         {
             C3dStream = c3dStream;
             Processor = processor;
@@ -143,6 +150,7 @@ namespace SHARP3D.Data.Data
             AnalogGeneralScaleFactor = analogGeneralScaleFactor;
             AnalogChannelScaleFactor = analogChannelScaleFactor;
             AnalogOffset = analogOffset;
+            AnalogFormat = analogFormat;
         }
     }
 }
