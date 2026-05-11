@@ -161,9 +161,9 @@ the data section of a C3D file, including file stream, processor type, data type
 
   <a id="SHARP3D_Data_Data_C3dDataContext__ctor_" data-uid="SHARP3D.Data.Data.C3dDataContext.#ctor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_" data-uid="SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)">
-  C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_" data-uid="SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)">
+  C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> class.</p>
@@ -171,7 +171,7 @@ the data section of a C3D file, including file stream, processor type, data type
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -216,6 +216,9 @@ the data section of a C3D file, including file stream, processor type, data type
 </dd>
     <dt><code>analogSamplePerFrame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The number of analog sample in each frame.</p>
+</dd>
+    <dt><code>analogFormat</code> <a class="xref" href="SHARP3D.Utils.Enum.AnalogFormatFlag.html">AnalogFormatFlag</a></dt>
+    <dd><p>The analog flag format</p>
 </dd>
   </dl>
 
@@ -297,6 +300,38 @@ the data section of a C3D file, including file stream, processor type, data type
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogFormat_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogFormat*"></a>
+
+  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogFormat" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogFormat">
+  AnalogFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the analog the <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT Parameter</a> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AnalogFormatFlag AnalogFormat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Utils.Enum.AnalogFormatFlag.html">AnalogFormatFlag</a></dt>
     <dd></dd>
   </dl>
 

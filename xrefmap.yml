@@ -773,15 +773,15 @@ references:
   commentId: T:SHARP3D.Data.Data.C3dDataContext
   fullName: SHARP3D.Data.Data.C3dDataContext
   nameWithType: C3dDataContext
-- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
-  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_
-  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
-  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
-  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
-  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_
+  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
 - uid: SHARP3D.Data.Data.C3dDataContext.#ctor*
   name: C3dDataContext
   href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_
@@ -818,6 +818,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.Data.C3dDataContext.AnalogChannels
   nameWithType: C3dDataContext.AnalogChannels
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  name: AnalogFormat
+  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogFormat
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  nameWithType: C3dDataContext.AnalogFormat
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogFormat*
+  name: AnalogFormat
+  href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogFormat_
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  isSpec: "True"
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  nameWithType: C3dDataContext.AnalogFormat
 - uid: SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
   name: AnalogGeneralScaleFactor
   href: api/SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogGeneralScaleFactor
@@ -2616,6 +2629,30 @@ references:
   commentId: N:SHARP3D.Utils.Enum
   fullName: SHARP3D.Utils.Enum
   nameWithType: SHARP3D.Utils.Enum
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  name: AnalogFormatFlag
+  href: api/SHARP3D.Utils.Enum.AnalogFormatFlag.html
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  name: SIGNED
+  href: api/SHARP3D.Utils.Enum.AnalogFormatFlag.html#SHARP3D_Utils_Enum_AnalogFormatFlag_SIGNED
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  nameWithType: AnalogFormatFlag.SIGNED
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  name: UNKOWN
+  href: api/SHARP3D.Utils.Enum.AnalogFormatFlag.html#SHARP3D_Utils_Enum_AnalogFormatFlag_UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  nameWithType: AnalogFormatFlag.UNKOWN
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  name: UNSIGNED
+  href: api/SHARP3D.Utils.Enum.AnalogFormatFlag.html#SHARP3D_Utils_Enum_AnalogFormatFlag_UNSIGNED
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  nameWithType: AnalogFormatFlag.UNSIGNED
 - uid: SHARP3D.Utils.Enum.DataType
   name: DataType
   href: api/SHARP3D.Utils.Enum.DataType.html
@@ -2862,3 +2899,21 @@ references:
   fullName.vb: SHARP3D.Utils.Fortran.VectorToMatrix(Of T)(Byte(), Integer(), SHARP3D.Utils.Enum.DataType, SHARP3D.Utils.Enum.ProcessorType)
   nameWithType: Fortran.VectorToMatrix<T>(byte[], int[], DataType, ProcessorType)
   nameWithType.vb: Fortran.VectorToMatrix(Of T)(Byte(), Integer(), DataType, ProcessorType)
+- uid: SHARP3D.Utils.Sharp3dConstants
+  name: Sharp3dConstants
+  href: api/SHARP3D.Utils.Sharp3dConstants.html
+  commentId: T:SHARP3D.Utils.Sharp3dConstants
+  fullName: SHARP3D.Utils.Sharp3dConstants
+  nameWithType: Sharp3dConstants
+- uid: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
+  name: SignedArrayString
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_SignedArrayString
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.SignedArrayString
+  fullName: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
+  nameWithType: Sharp3dConstants.SignedArrayString
+- uid: SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
+  name: UnsignedArrayString
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_UnsignedArrayString
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
+  fullName: SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
+  nameWithType: Sharp3dConstants.UnsignedArrayString
