@@ -132,11 +132,6 @@ namespace SHARP3D.Parameter.Data
         public bool Locked;
 
         /// <summary>
-        /// Indicates whether the parameter is supported.
-        /// </summary>
-        public SupportedParameter Supported;
-
-        /// <summary>
         /// Determines whether the current <see cref="C3dParameter"/> instance is equal to another <see cref="C3dParameter"/> instance.
         /// </summary>
         /// <param name="other">The <see cref="C3dParameter"/> instance to compare with the current instance.</param>
@@ -150,8 +145,7 @@ namespace SHARP3D.Parameter.Data
                 DataTypeFile != other.DataTypeFile ||
                 NbOfDimensions != other.NbOfDimensions ||
                 DescriptionLength != other.DescriptionLength ||
-                Locked != other.Locked ||
-                Supported != other.Supported)
+                Locked != other.Locked)
                 return false;
 
             // Compare string fields (handle null)
@@ -219,7 +213,6 @@ namespace SHARP3D.Parameter.Data
                 hash = hash * 23 + DescriptionLength.GetHashCode();
                 hash = hash * 23 + (Description?.GetHashCode() ?? 0);
                 hash = hash * 23 + Locked.GetHashCode();
-                hash = hash * 23 + Supported.GetHashCode();
                 return hash;
             }
         }

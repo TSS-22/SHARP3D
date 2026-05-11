@@ -347,7 +347,16 @@ namespace SHARP3D
 
             // That's the default so we don't care if it is anything else than unsigned. If we can find better strategy than the one from C3D User guide, we will implement it here.
             AnalogFormatFlag analogFormat = AnalogFormatFlag.SIGNED;
-            Array analogFormatValue = GetParameter("analog", "format").Data;
+
+            Array analogFormatValue = Sharp3dConstants.SignedArrayString;
+            try
+            {
+                analogFormatValue = GetParameter("analog", "format").Data;
+            }
+            catch(ParameterNotFoundException ex)
+            {
+                Console.WriteLine("No ANALOG:FORMAT parameter found. Defaulting to SIGNED format for analog data.");
+            }
 
             if ( analogFormatValue == Sharp3dConstants.UnsignedArrayString)
             {

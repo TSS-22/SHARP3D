@@ -9,23 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\UserDefinedParameters.json" />
     <None Remove="UserDefinedParameter.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-	  <Content Include="Resources\AdditionalParameters.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Resources\ApplicationParameters.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Resources\RequiredParameters.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Resources\UserDefinedParameters.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </Content>
   </ItemGroup>
 
 </Project>
