@@ -1,9 +1,7 @@
 ﻿using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Linq;
 using System.Text;
-using System.Text.Json;
 
 
 namespace SHARP3D.Parameter
@@ -13,155 +11,6 @@ namespace SHARP3D.Parameter
     /// </summary>
     public static class C3dParameterHelper
     {
-        // TODO:
-        // Create that at run time? is it possible ?
-        // Have a function that gather the json values and return them as a list to be used by other function
-        // Create a function to assign the parameter to their supported type
-        // Put the ParametersFromFile from the ParameterGroup struct in there.
-
-        // Keeping this a ref if needed
-        //private static readonly Dictionary<string, SupportedParameter> Map = new Dictionary<string, SupportedParameter>
-        //{
-        //    // REQUIRED PARAMETERS
-        //    // POINT
-        //    // Required
-        //    { "POINT:USED", SupportedParameterType.Force },
-        //    { "POINT:SCALE", SupportedParameterType.Force },
-
-
-        //};
-        /// <summary>
-        /// An array of all supported parameters loaded from JSON files.
-        /// </summary>
-        private static SupportedParameter[] ArraySupportedParameter;
-
-        /// <summary>
-        /// The file path for required parameters JSON.
-        /// </summary>
-        private static string RequiredParameterPath;
-
-        /// <summary>
-        /// The file path for additional parameters JSON.
-        /// </summary>
-        private static string AdditionalParameterPath;
-
-        /// <summary>
-        /// The file path for application-specific parameters JSON.
-        /// </summary>
-        private static string ApplicationParameterPath;
-
-        /// <summary>
-        /// The file path for user-defined parameters JSON.
-        /// </summary>
-        private static string UserParameterPath;
-
-        /// <summary>
-        /// An object used for locking to ensure thread safety.
-        /// </summary>
-        private static readonly object _lock = new object();
-
-        /// <summary>
-        /// Initializes the <see cref="C3dParameterHelper"/> class by loading all supported parameters.
-        /// </summary>
-        static C3dParameterHelper()
-        {
-            lock (_lock)
-            {
-                Reset();
-            }
-        }
-
-        /// <summary>
-        /// Resets and reloads all supported parameters from their respective JSON files.
-        /// </summary>
-        public static void Reset()
-        {
-            // Set json file path 
-            RequiredParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "RequiredParameters.json");
-            AdditionalParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "AdditionalParameters.json");
-            ApplicationParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ApplicationParameters.json");
-            UserParameterPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "UserDefinedParameters.json");
-
-            // Load Required
-            SupportedParameter[]? requiredParameters = LoadJson(RequiredParameterPath);
-            
-            // Load Additional
-            SupportedParameter[]? additionalParameters = LoadJson(AdditionalParameterPath);
-
-            // Load Application
-            SupportedParameter[]? applicationParameters = LoadJson(ApplicationParameterPath);
-
-            // Load user
-            SupportedParameter[]? userParameters = LoadJson(UserParameterPath);
-
-            // Aggregate and refresh ListSupportedParameter
-            ArraySupportedParameter =
-                (requiredParameters ?? Enumerable.Empty<SupportedParameter>())
-                .Concat(additionalParameters ?? Enumerable.Empty<SupportedParameter>())
-                .Concat(applicationParameters ?? Enumerable.Empty<SupportedParameter>())
-                .Concat(userParameters ?? Enumerable.Empty<SupportedParameter>())
-                .ToArray();
-        }
-
-        /// <summary>
-        /// Loads supported parameters from a JSON file.
-        /// </summary>
-        /// <param name="filePath">The path to the JSON file.</param>
-        /// <returns>An array of <see cref="SupportedParameter"/> loaded from the JSON file.</returns>
-        /// <exception cref="ArgumentException">Thrown if the file path is invalid.</exception>
-        /// <exception cref="InvalidOperationException">Thrown if the JSON deserialization fails.</exception>
-        public static SupportedParameter[]? LoadJson(string filePath)
-        {
-            if (!File.Exists(filePath))
-            {
-                throw new ArgumentException($"File path is invalid: {filePath}");
-            }
-            string json = File.ReadAllText(filePath);
-
-            Dictionary<string, JsonSupportedParameter> tempDict = JsonSerializer.Deserialize<Dictionary<string, JsonSupportedParameter>>(json)
-                ?? throw new InvalidOperationException($"Failed to deserialize JSON from file: {filePath}");
-            SupportedParameter[] supportedParameter = tempDict.Select(temp =>
-            {
-                string[] keyParts = temp.Key.Split('-');
-                return new SupportedParameter(
-                    keyParts[0],
-                    keyParts[1],
-                    temp.Value.ParameterType,
-                    temp.Value.GeneralDescription,
-                    temp.Value.DimensionDescription
-                );
-            }).ToArray();
-            return supportedParameter;
-        }
-
-        /// <summary>
-        /// Gets all supported parameters.
-        /// </summary>
-        /// <returns>An array of all <see cref="SupportedParameter"/>.</returns>
-        public static SupportedParameter[] GetAllSupportedParameter() 
-        {
-            return ArraySupportedParameter;
-        }
-
-        /// <summary>
-        /// Retrieves a <see cref="SupportedParameter"/> by its group and parameter name.
-        /// </summary>
-        /// <param name="groupName">The name of the group.</param>
-        /// <param name="parameterName">The name of the parameter.</param>
-        /// <returns>The <see cref="SupportedParameter"/> matching the group and parameter name.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if the parameter is not supported.</exception>
-        public static SupportedParameter FromString(string groupName, string parameterName)
-        {
-            foreach (SupportedParameter parameter in ArraySupportedParameter)
-            {
-                if ((parameter.Group == groupName.ToUpper()) && (parameter.Name == parameterName.ToUpper())) 
-                {
-                    return parameter;    
-                }
-            }
-            throw new InvalidOperationException($"The parameter {groupName.ToUpper()}:{parameterName.ToUpper()} is not supported yet.");
-        }
-
         /// <summary>
         /// Parses C3D parameter groups and parameters from a file stream.
         /// </summary>
@@ -479,7 +328,6 @@ namespace SHARP3D.Parameter
                             DescriptionLength = descriptionLength,
                             Description = description,
                             Locked = nameLength < 0 ? true : false,
-                            Supported = SupportedParameter.UnkownParameter()
                         }
                     );
                 }
@@ -511,27 +359,41 @@ namespace SHARP3D.Parameter
                 }
             }
 
-            // Check for ANALOG:FORMAT
-            // If it doesn't exit, create it and give it the value SIGNED. 
-            // Will need to update the test
-            Array? analogFormatValue = groups
-                .FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
-                .Parameters?
-                .FirstOrDefault(p => p.Name?.Equals("format", StringComparison.OrdinalIgnoreCase) == true)
-                .Data ?? null; // Fallback to null if Name is null
-
-            // Create place holder value for SIGNED and UNSIGNED
-            Array signedArrayString = Sharp3dConstants.SignedArrayString;
-            Array unsignedArrayString = Sharp3dConstants.UnsignedArrayString;
- 
-            if (analogFormatValue == null)
+            // Check if Analog exist:
+            bool doesAnalogExist = true;
+            try
             {
-                // Create ANALOG:FORMAT Parameter
-                Array dataAnalogFormat = Array.CreateInstance(typeof(char), "SIGNED".Length);
-                string analogFormatName = "FORMAT";
-                string analogFormatDescription = "Determine if Analog data and parameter are signed or unsigned integers.";
+                groups.First(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine("Group ANALOG not found. Cannot create ANALOG:FORMAT parameter. Defaulting to \"SIGNED\" behavior.\nException details: " + ex.Message);
+                doesAnalogExist = false;
+            }
 
-                groups.FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Parameters.Add(
+            if (doesAnalogExist)
+            {
+                // Check for ANALOG:FORMAT
+                // If it doesn't exit, create it and give it the value SIGNED. 
+                // Will need to update the test
+                Array? analogFormatValue = groups
+                    .FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
+                    .Parameters?
+                    .FirstOrDefault(p => p.Name?.Equals("format", StringComparison.OrdinalIgnoreCase) == true)
+                    .Data ?? null; // Fallback to null if Name is null
+
+                // Create place holder value for SIGNED and UNSIGNED
+                Array signedArrayString = Sharp3dConstants.SignedArrayString;
+                Array unsignedArrayString = Sharp3dConstants.UnsignedArrayString;
+
+                if (analogFormatValue == null)
+                {
+                    // Create ANALOG:FORMAT Parameter
+                    Array dataAnalogFormat = Array.CreateInstance(typeof(char), "SIGNED".Length);
+                    string analogFormatName = "FORMAT";
+                    string analogFormatDescription = "Determine if Analog data and parameter are signed or unsigned integers.";
+
+                    groups.First(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Parameters.Add(
                     new C3dParameter
                     {
                         NameLength = (sbyte)analogFormatName.Length,
@@ -547,73 +409,50 @@ namespace SHARP3D.Parameter
                         Locked = true
                     });
 
-                analogFormatValue = signedArrayString;
-            }
+                    analogFormatValue = signedArrayString;
+                }
 
-            
-
-            // Read the value of ANALOG:FORMAT
-            // Act accordingly
-            // If signed, do nothing.
-            // If unsigned, do stuff
-            if (analogFormatValue == signedArrayString)
-            {
-                  // Do nothing as it is the default behavior.                   
-            }
-            else if (analogFormatValue == unsignedArrayString) 
-            {
-                // Convert all the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
-                for (int g = 0; g < groups.Count; g++)
+                // Read the value of ANALOG:FORMAT
+                // Act accordingly
+                // If signed, do nothing.
+                // If unsigned, do stuff
+                if (analogFormatValue == signedArrayString)
                 {
-                    if (groups[g].Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
+                    // Do nothing as it is the default behavior.                   
+                }
+                else if (analogFormatValue == unsignedArrayString)
+                {
+                    // Convert all the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
+                    for (int g = 0; g < groups.Count; g++)
                     {
-                        for (int i = 0; i < groups[g].Parameters.Count; i++)
+                        if (groups[g].Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)
                         {
-                            if (groups[g].Parameters[i].DataTypeFile == DataType.INT16)
+                            for (int i = 0; i < groups[g].Parameters.Count; i++)
                             {
-                                // Convert the data from signed to unsigned
-                                int[] signedData = (int[])groups[g].Parameters[i].Data;
-                                int[] unsignedData = new int[signedData.Length];
-                                for (int j = 0; j < signedData.Length; j++)
+                                if (groups[g].Parameters[i].DataTypeFile == DataType.INT16)
                                 {
-                                    unsignedData[j] = signedData[j] & 0xFFFF; // Masking to get the unsigned value
+                                    // Convert the data from signed to unsigned
+                                    int[] signedData = (int[])groups[g].Parameters[i].Data;
+                                    int[] unsignedData = new int[signedData.Length];
+                                    for (int j = 0; j < signedData.Length; j++)
+                                    {
+                                        unsignedData[j] = signedData[j] & 0xFFFF; // Masking to get the unsigned value
+                                    }
+                                    // Fix: Copy struct, modify, then assign back
+                                    C3dParameter tempParameter = groups[g].Parameters[i];
+                                    tempParameter.Data = unsignedData;
+                                    tempParameter.DataTypeFile = DataType.UINT16;
+                                    groups[g].Parameters[i] = tempParameter;
                                 }
-                                // Fix: Copy struct, modify, then assign back
-                                C3dParameter tempParameter = groups[g].Parameters[i];
-                                tempParameter.Data = unsignedData;
-                                tempParameter.DataTypeFile = DataType.UINT16;
-                                groups[g].Parameters[i] = tempParameter;
                             }
                         }
                     }
                 }
-            }
-            else
-            {
-                Console.WriteLine("Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");   
-            }
-
-
-            // TODO: Change this as it is useless at the moment and detrimental for use of the end user .dll
-            for (int i = 0; i < groups.Count; i++)
-            {
-                for (int j = 0; j < groups[i].Parameters.Count; j++)
+                else
                 {
-                    try
-                    {
-                        C3dParameter tempParameter = groups[i].Parameters[j];
-                        tempParameter.Supported = C3dParameterHelper.FromString(
-                            groups[i].Name, groups[i].Parameters[j].Name
-                            );
-                        groups[i].Parameters[j] = tempParameter;
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        // Do nothing as the C3dParameter.Supported field is initialized as unkown by default.
-                    }
+                    Console.WriteLine("Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");
                 }
             }
-            // End of the useless part
 
             // Create and return the list of group/parameter and their index. Return that as a tuple
             return groups.ToList();

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data
+  commentId: N:SHARP3D.Data
+  id: SHARP3D.Data
+  children:
+  - SHARP3D.Data.C3dDataHelper
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Data
+  nameWithType: SHARP3D.Data
+  fullName: SHARP3D.Data
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Data.C3dDataHelper
+  commentId: T:SHARP3D.Data.C3dDataHelper
+  href: SHARP3D.Data.C3dDataHelper.html
+  name: C3dDataHelper
+  nameWithType: C3dDataHelper
+  fullName: SHARP3D.Data.C3dDataHelper

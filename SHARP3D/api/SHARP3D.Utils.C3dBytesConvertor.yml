@@ -1,0 +1,1297 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.C3dBytesConvertor
+  commentId: T:SHARP3D.Utils.C3dBytesConvertor
+  id: C3dBytesConvertor
+  parent: SHARP3D.Utils
+  children:
+  - SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32(System.Single)
+  - SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  - SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32(System.Single)
+  - SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  - SHARP3D.Utils.C3dBytesConvertor.SCAL
+  - SHARP3D.Utils.C3dBytesConvertor.TWO_TO_126
+  - SHARP3D.Utils.C3dBytesConvertor.TWO_TO_127
+  - SHARP3D.Utils.C3dBytesConvertor.TWO_TO_M128
+  - SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Utils.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Utils.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Utils.C3dBytesConvertor.ToUInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat(System.UInt32)
+  - SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat(System.UInt32)
+  - SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  - SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  langs:
+  - csharp
+  - vb
+  name: C3dBytesConvertor
+  nameWithType: C3dBytesConvertor
+  fullName: SHARP3D.Utils.C3dBytesConvertor
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dBytesConvertor
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 26
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: This helper class provide functions to process C3D bytes according to the file maker processor type for compatibility purposes.
+  remarks: >-
+    The functions:
+
+
+    <ul><li><xref href="SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte%5b%5d)" data-throw-if-not-resolved="false"></xref></li><li><xref href="SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte%5b%5d)" data-throw-if-not-resolved="false"></xref></li></ul>
+
+
+    are modifications of the code from [njuffa](https://stackoverflow.com/users/780717/njuffa) at the quesiton [Floating Point numbers on VAX machine](https://stackoverflow.com/questions/71689829/floating-point-numbers-on-vax-machine).
+
+    They are therefore licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). This project is nonetheless not endorsed by the original author and the code is used here under the terms of the license.
+  example: []
+  syntax:
+    content: public static class C3dBytesConvertor
+    content.vb: Public Module C3dBytesConvertor
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_M128
+  commentId: F:SHARP3D.Utils.C3dBytesConvertor.TWO_TO_M128
+  id: TWO_TO_M128
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: TWO_TO_M128
+  nameWithType: C3dBytesConvertor.TWO_TO_M128
+  fullName: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_M128
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TWO_TO_M128
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 29
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  syntax:
+    content: private const float TWO_TO_M128 = 2.938736E-39
+    return:
+      type: System.Single
+    content.vb: Private Const TWO_TO_M128 As Single = 2.938736E-39
+- uid: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_127
+  commentId: F:SHARP3D.Utils.C3dBytesConvertor.TWO_TO_127
+  id: TWO_TO_127
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: TWO_TO_127
+  nameWithType: C3dBytesConvertor.TWO_TO_127
+  fullName: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_127
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TWO_TO_127
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 30
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  syntax:
+    content: private const float TWO_TO_127 = 1.7014118E+38
+    return:
+      type: System.Single
+    content.vb: Private Const TWO_TO_127 As Single = 1.7014118E+38
+- uid: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_126
+  commentId: F:SHARP3D.Utils.C3dBytesConvertor.TWO_TO_126
+  id: TWO_TO_126
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: TWO_TO_126
+  nameWithType: C3dBytesConvertor.TWO_TO_126
+  fullName: SHARP3D.Utils.C3dBytesConvertor.TWO_TO_126
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TWO_TO_126
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 31
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  syntax:
+    content: private const float TWO_TO_126 = 8.507059E+37
+    return:
+      type: System.Single
+    content.vb: Private Const TWO_TO_126 As Single = 8.507059E+37
+- uid: SHARP3D.Utils.C3dBytesConvertor.SCAL
+  commentId: F:SHARP3D.Utils.C3dBytesConvertor.SCAL
+  id: SCAL
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: SCAL
+  nameWithType: C3dBytesConvertor.SCAL
+  fullName: SHARP3D.Utils.C3dBytesConvertor.SCAL
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SCAL
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 32
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  syntax:
+    content: private const float SCAL = 4
+    return:
+      type: System.Single
+    content.vb: Private Const SCAL As Single = 4
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Int32,SHARP3D.Utils.Enum.ProcessorType)
+  id: ToBytes(System.Int32,SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(int, ProcessorType)
+  nameWithType: C3dBytesConvertor.ToBytes(int, ProcessorType)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToBytes(int, SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToBytes
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 41
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a 16-bit integer to a byte array with byte order determined by the specified processor type.
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(int value, ProcessorType processor)
+    parameters:
+    - id: value
+      type: System.Int32
+      description: The 16-bit integer to convert.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+    return:
+      type: System.Byte[]
+      description: A byte array representing the integer in the appropriate byte order.
+    content.vb: Public Shared Function ToBytes(value As Integer, processor As ProcessorType) As Byte()
+  overload: SHARP3D.Utils.C3dBytesConvertor.ToBytes*
+  exceptions:
+  - type: SHARP3D.Exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+    description: Thrown when the specified processor type is not recognized.
+  nameWithType.vb: C3dBytesConvertor.ToBytes(Integer, ProcessorType)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.ToBytes(Integer, SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: ToBytes(Integer, ProcessorType)
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.ToBytes(System.Single,SHARP3D.Utils.Enum.ProcessorType)
+  id: ToBytes(System.Single,SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(float, ProcessorType)
+  nameWithType: C3dBytesConvertor.ToBytes(float, ProcessorType)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToBytes(float, SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToBytes
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 89
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a single-precision (32-bit) floating-point value to a byte array formatted for the specified processor type.
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(float value, ProcessorType processor)
+    parameters:
+    - id: value
+      type: System.Single
+      description: The floating-point value to convert.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+    return:
+      type: System.Byte[]
+      description: A byte array representing the floating-point value in the format required by the specified processor type.
+    content.vb: Public Shared Function ToBytes(value As Single, processor As ProcessorType) As Byte()
+  overload: SHARP3D.Utils.C3dBytesConvertor.ToBytes*
+  exceptions:
+  - type: SHARP3D.Exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+    description: Thrown when the specified processor type is not supported.
+  nameWithType.vb: C3dBytesConvertor.ToBytes(Single, ProcessorType)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.ToBytes(Single, SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: ToBytes(Single, ProcessorType)
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.ToInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  id: ToInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToInt(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ToInt(byte[], ProcessorType)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToInt(byte[], SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToInt
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 142
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a byte array to a 16-bit integer using the specified processor type for endianness handling.
+  example: []
+  syntax:
+    content: public static int ToInt(byte[] bytes, ProcessorType processor)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+      description: The byte array to convert.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+    return:
+      type: System.Int32
+      description: The 32-bit integer representation of the byte array.
+    content.vb: Public Shared Function ToInt(bytes As Byte(), processor As ProcessorType) As Integer
+  overload: SHARP3D.Utils.C3dBytesConvertor.ToInt*
+  exceptions:
+  - type: SHARP3D.Exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+    description: Thrown when the processor type is unknown or unsupported.
+  nameWithType.vb: C3dBytesConvertor.ToInt(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.ToInt(Byte(), SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: ToInt(Byte(), ProcessorType)
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToUInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.ToUInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  id: ToUInt(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToUInt(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ToUInt(byte[], ProcessorType)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToUInt(byte[], SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToUInt
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 189
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a byte array to a 16-bit unsigned integer using the specified processor type for endianness handling.
+  example: []
+  syntax:
+    content: public static int ToUInt(byte[] bytes, ProcessorType processor)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+      description: The byte array to convert.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The processor type indicating the expected byte order.
+    return:
+      type: System.Int32
+      description: The 16-bit unsigned integer representation of the byte array.
+    content.vb: Public Shared Function ToUInt(bytes As Byte(), processor As ProcessorType) As Integer
+  overload: SHARP3D.Utils.C3dBytesConvertor.ToUInt*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when the byte array is null.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when the byte array length is not 2.
+  - type: SHARP3D.Exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+    description: Thrown when the processor type is unknown or unsupported.
+  nameWithType.vb: C3dBytesConvertor.ToUInt(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.ToUInt(Byte(), SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: ToUInt(Byte(), ProcessorType)
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.ToFloat(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  id: ToFloat(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: ToFloat(byte[], ProcessorType)
+  nameWithType: C3dBytesConvertor.ToFloat(byte[], ProcessorType)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToFloat(byte[], SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToFloat
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 235
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: >-
+    Converts a byte array to a single-precision floating-point value based on the specified processor type and
+
+    system endianness.
+  example: []
+  syntax:
+    content: public static float ToFloat(byte[] bytes, ProcessorType processor)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+      description: The byte array representing the floating-point value.
+    - id: processor
+      type: SHARP3D.Utils.Enum.ProcessorType
+    return:
+      type: System.Single
+      description: A single-precision floating-point value converted from the byte array.
+    content.vb: Public Shared Function ToFloat(bytes As Byte(), processor As ProcessorType) As Single
+  overload: SHARP3D.Utils.C3dBytesConvertor.ToFloat*
+  exceptions:
+  - type: SHARP3D.Exceptions.UnknownProcessorTypeException
+    commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+    description: Thrown when the processor type is unknown or unsupported.
+  nameWithType.vb: C3dBytesConvertor.ToFloat(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.ToFloat(Byte(), SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: ToFloat(Byte(), ProcessorType)
+- uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32(System.Single)
+  id: LittleEndianFloatAsUInt32(System.Single)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: LittleEndianFloatAsUInt32(float)
+  nameWithType: C3dBytesConvertor.LittleEndianFloatAsUInt32(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32(float)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: LittleEndianFloatAsUInt32
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 287
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: >-
+    Converts a single-precision floating-point value to its 32-bit unsigned integer representation in
+
+    little-endian format.
+  example: []
+  syntax:
+    content: private static uint LittleEndianFloatAsUInt32(float f)
+    parameters:
+    - id: f
+      type: System.Single
+      description: The float value to convert.
+    return:
+      type: System.UInt32
+      description: The 32-bit unsigned integer representation of the float in little-endian format.
+    content.vb: Private Shared Function LittleEndianFloatAsUInt32(f As Single) As UInteger
+  overload: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32*
+  nameWithType.vb: C3dBytesConvertor.LittleEndianFloatAsUInt32(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32(Single)
+  name.vb: LittleEndianFloatAsUInt32(Single)
+- uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  id: LittleEndianFloatToVaxFloatByte(System.Single)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: LittleEndianFloatToVaxFloatByte(float)
+  nameWithType: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: LittleEndianFloatToVaxFloatByte
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 298
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a little-endian IEEE 754 float to a VAX F-float byte array.
+  example: []
+  syntax:
+    content: private static byte[] LittleEndianFloatToVaxFloatByte(float a)
+    parameters:
+    - id: a
+      type: System.Single
+      description: The float value to convert.
+    return:
+      type: System.Byte[]
+      description: A 4-byte array representing the VAX F-float equivalent.
+    content.vb: Private Shared Function LittleEndianFloatToVaxFloatByte(a As Single) As Byte()
+  overload: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte*
+  nameWithType.vb: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  name.vb: LittleEndianFloatToVaxFloatByte(Single)
+- uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32(System.Single)
+  id: BigEndianFloatAsUInt32(System.Single)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: BigEndianFloatAsUInt32(float)
+  nameWithType: C3dBytesConvertor.BigEndianFloatAsUInt32(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32(float)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: BigEndianFloatAsUInt32
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 340
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a float value to its big-endian 32-bit unsigned integer representation.
+  example: []
+  syntax:
+    content: private static uint BigEndianFloatAsUInt32(float f)
+    parameters:
+    - id: f
+      type: System.Single
+      description: The float value to convert.
+    return:
+      type: System.UInt32
+      description: The big-endian 32-bit unsigned integer representation of the float.
+    content.vb: Private Shared Function BigEndianFloatAsUInt32(f As Single) As UInteger
+  overload: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32*
+  nameWithType.vb: C3dBytesConvertor.BigEndianFloatAsUInt32(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32(Single)
+  name.vb: BigEndianFloatAsUInt32(Single)
+- uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  id: BigEndianFloatToVaxF(System.Single)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: BigEndianFloatToVaxF(float)
+  nameWithType: C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: BigEndianFloatToVaxF
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 352
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a big-endian IEEE 754 float to a VAX F-float byte array representation.
+  example: []
+  syntax:
+    content: private static byte[] BigEndianFloatToVaxF(float a)
+    parameters:
+    - id: a
+      type: System.Single
+      description: The big-endian IEEE 754 float value to convert.
+    return:
+      type: System.Byte[]
+      description: A 4-byte array containing the VAX F-float representation.
+    content.vb: Private Shared Function BigEndianFloatToVaxF(a As Single) As Byte()
+  overload: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF*
+  nameWithType.vb: C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  name.vb: BigEndianFloatToVaxF(Single)
+- uid: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat(System.UInt32)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat(System.UInt32)
+  id: UInt32AsLittleEndianFloat(System.UInt32)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: UInt32AsLittleEndianFloat(uint)
+  nameWithType: C3dBytesConvertor.UInt32AsLittleEndianFloat(uint)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat(uint)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UInt32AsLittleEndianFloat
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 395
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: >-
+    Converts a 32-bit unsigned integer to a single-precision floating-point value using little-endian byte
+
+    order.
+  example: []
+  syntax:
+    content: private static float UInt32AsLittleEndianFloat(uint u)
+    parameters:
+    - id: u
+      type: System.UInt32
+      description: The 32-bit unsigned integer to convert.
+    return:
+      type: System.Single
+      description: The single-precision floating-point value represented by the specified unsigned integer.
+    content.vb: Private Shared Function UInt32AsLittleEndianFloat(u As UInteger) As Single
+  overload: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat*
+  nameWithType.vb: C3dBytesConvertor.UInt32AsLittleEndianFloat(UInteger)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat(UInteger)
+  name.vb: UInt32AsLittleEndianFloat(UInteger)
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  id: VaxFToLittleEndianFloat(System.Byte[])
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: VaxFToLittleEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: VaxFToLittleEndianFloat
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 407
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a 4-byte VAX F-float value to a little-endian IEEE 754 float.
+  example: []
+  syntax:
+    content: private static float VaxFToLittleEndianFloat(byte[] vaxBytes)
+    parameters:
+    - id: vaxBytes
+      type: System.Byte[]
+      description: A byte array containing the VAX F-float value to convert.
+    return:
+      type: System.Single
+      description: The converted little-endian float value.
+    content.vb: Private Shared Function VaxFToLittleEndianFloat(vaxBytes As Byte()) As Single
+  overload: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when the input buffer is null or less than 4 bytes long.
+  nameWithType.vb: C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  name.vb: VaxFToLittleEndianFloat(Byte())
+- uid: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat(System.UInt32)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat(System.UInt32)
+  id: UInt32AsBigEndianFloat(System.UInt32)
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: UInt32AsBigEndianFloat(uint)
+  nameWithType: C3dBytesConvertor.UInt32AsBigEndianFloat(uint)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat(uint)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UInt32AsBigEndianFloat
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 446
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a 32-bit unsigned integer to a single-precision floating-point value using big-endian byte order.
+  example: []
+  syntax:
+    content: private static float UInt32AsBigEndianFloat(uint u)
+    parameters:
+    - id: u
+      type: System.UInt32
+      description: The 32-bit unsigned integer to convert.
+    return:
+      type: System.Single
+      description: The resulting single-precision floating-point value.
+    content.vb: Private Shared Function UInt32AsBigEndianFloat(u As UInteger) As Single
+  overload: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat*
+  nameWithType.vb: C3dBytesConvertor.UInt32AsBigEndianFloat(UInteger)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat(UInteger)
+  name.vb: UInt32AsBigEndianFloat(UInteger)
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  id: VaxFToBigEndianFloat(System.Byte[])
+  parent: SHARP3D.Utils.C3dBytesConvertor
+  langs:
+  - csharp
+  - vb
+  name: VaxFToBigEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/C3dBytesConvertor.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: VaxFToBigEndianFloat
+    path: SHARP3D/Utils/C3dBytesConvertor.cs
+    startLine: 459
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a 4-byte VAX F-float value to a big-endian IEEE 754 float.
+  example: []
+  syntax:
+    content: private static float VaxFToBigEndianFloat(byte[] vaxBytes)
+    parameters:
+    - id: vaxBytes
+      type: System.Byte[]
+      description: A byte array containing the VAX F-float value to convert.
+    return:
+      type: System.Single
+      description: The converted big-endian IEEE 754 float value.
+    content.vb: Private Shared Function VaxFToBigEndianFloat(vaxBytes As Byte()) As Single
+  overload: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown when the input buffer is null or less than 4 bytes long.
+  nameWithType.vb: C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  name.vb: VaxFToBigEndianFloat(Byte())
+references:
+- uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+  isExternal: true
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_LittleEndianFloatToVaxFloatByte_System_Single_
+  name: LittleEndianFloatToVaxFloatByte(float)
+  nameWithType: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(float)
+  nameWithType.vb: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(Single)
+  name.vb: LittleEndianFloatToVaxFloatByte(Single)
+  spec.csharp:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+    name: LittleEndianFloatToVaxFloatByte
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_LittleEndianFloatToVaxFloatByte_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte(System.Single)
+    name: LittleEndianFloatToVaxFloatByte
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_LittleEndianFloatToVaxFloatByte_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+  isExternal: true
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_BigEndianFloatToVaxF_System_Single_
+  name: BigEndianFloatToVaxF(float)
+  nameWithType: C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  fullName: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(float)
+  nameWithType.vb: C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(Single)
+  name.vb: BigEndianFloatToVaxF(Single)
+  spec.csharp:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+    name: BigEndianFloatToVaxF
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_BigEndianFloatToVaxF_System_Single_
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF(System.Single)
+    name: BigEndianFloatToVaxF
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_BigEndianFloatToVaxF_System_Single_
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+  isExternal: true
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToLittleEndianFloat_System_Byte___
+  name: VaxFToLittleEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(byte[])
+  nameWithType.vb: C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(Byte())
+  name.vb: VaxFToLittleEndianFloat(Byte())
+  spec.csharp:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+    name: VaxFToLittleEndianFloat
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToLittleEndianFloat_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat(System.Byte[])
+    name: VaxFToLittleEndianFloat
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToLittleEndianFloat_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  commentId: M:SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+  isExternal: true
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToBigEndianFloat_System_Byte___
+  name: VaxFToBigEndianFloat(byte[])
+  nameWithType: C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(byte[])
+  nameWithType.vb: C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  fullName.vb: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(Byte())
+  name.vb: VaxFToBigEndianFloat(Byte())
+  spec.csharp:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+    name: VaxFToBigEndianFloat
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToBigEndianFloat_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat(System.Byte[])
+    name: VaxFToBigEndianFloat
+    href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToBigEndianFloat_System_Byte___
+  - name: (
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.Utils
+  commentId: N:SHARP3D.Utils
+  href: SHARP3D.html
+  name: SHARP3D.Utils
+  nameWithType: SHARP3D.Utils
+  fullName: SHARP3D.Utils
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: SHARP3D.Exceptions.UnknownProcessorTypeException
+  commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
+  href: SHARP3D.Exceptions.UnknownProcessorTypeException.html
+  name: UnknownProcessorTypeException
+  nameWithType: UnknownProcessorTypeException
+  fullName: SHARP3D.Exceptions.UnknownProcessorTypeException
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToBytes*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.ToBytes
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_ToBytes_System_Int32_SHARP3D_Utils_Enum_ProcessorType_
+  name: ToBytes
+  nameWithType: C3dBytesConvertor.ToBytes
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToBytes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToInt*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.ToInt
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_ToInt_System_Byte___SHARP3D_Utils_Enum_ProcessorType_
+  name: ToInt
+  nameWithType: C3dBytesConvertor.ToInt
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToInt
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToUInt*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.ToUInt
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_ToUInt_System_Byte___SHARP3D_Utils_Enum_ProcessorType_
+  name: ToUInt
+  nameWithType: C3dBytesConvertor.ToUInt
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToUInt
+- uid: SHARP3D.Utils.C3dBytesConvertor.ToFloat*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.ToFloat
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_ToFloat_System_Byte___SHARP3D_Utils_Enum_ProcessorType_
+  name: ToFloat
+  nameWithType: C3dBytesConvertor.ToFloat
+  fullName: SHARP3D.Utils.C3dBytesConvertor.ToFloat
+- uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_LittleEndianFloatAsUInt32_System_Single_
+  name: LittleEndianFloatAsUInt32
+  nameWithType: C3dBytesConvertor.LittleEndianFloatAsUInt32
+  fullName: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatAsUInt32
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_LittleEndianFloatToVaxFloatByte_System_Single_
+  name: LittleEndianFloatToVaxFloatByte
+  nameWithType: C3dBytesConvertor.LittleEndianFloatToVaxFloatByte
+  fullName: SHARP3D.Utils.C3dBytesConvertor.LittleEndianFloatToVaxFloatByte
+- uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_BigEndianFloatAsUInt32_System_Single_
+  name: BigEndianFloatAsUInt32
+  nameWithType: C3dBytesConvertor.BigEndianFloatAsUInt32
+  fullName: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatAsUInt32
+- uid: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_BigEndianFloatToVaxF_System_Single_
+  name: BigEndianFloatToVaxF
+  nameWithType: C3dBytesConvertor.BigEndianFloatToVaxF
+  fullName: SHARP3D.Utils.C3dBytesConvertor.BigEndianFloatToVaxF
+- uid: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_UInt32AsLittleEndianFloat_System_UInt32_
+  name: UInt32AsLittleEndianFloat
+  nameWithType: C3dBytesConvertor.UInt32AsLittleEndianFloat
+  fullName: SHARP3D.Utils.C3dBytesConvertor.UInt32AsLittleEndianFloat
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToLittleEndianFloat_System_Byte___
+  name: VaxFToLittleEndianFloat
+  nameWithType: C3dBytesConvertor.VaxFToLittleEndianFloat
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToLittleEndianFloat
+- uid: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_UInt32AsBigEndianFloat_System_UInt32_
+  name: UInt32AsBigEndianFloat
+  nameWithType: C3dBytesConvertor.UInt32AsBigEndianFloat
+  fullName: SHARP3D.Utils.C3dBytesConvertor.UInt32AsBigEndianFloat
+- uid: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat*
+  commentId: Overload:SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat
+  href: SHARP3D.Utils.C3dBytesConvertor.html#SHARP3D_Utils_C3dBytesConvertor_VaxFToBigEndianFloat_System_Byte___
+  name: VaxFToBigEndianFloat
+  nameWithType: C3dBytesConvertor.VaxFToBigEndianFloat
+  fullName: SHARP3D.Utils.C3dBytesConvertor.VaxFToBigEndianFloat

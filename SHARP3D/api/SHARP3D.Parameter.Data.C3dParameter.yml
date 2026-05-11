@@ -1,0 +1,1273 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.Data.C3dParameter
+  commentId: T:SHARP3D.Parameter.Data.C3dParameter
+  id: C3dParameter
+  parent: SHARP3D.Parameter.Data
+  children:
+  - SHARP3D.Parameter.Data.C3dParameter.Data
+  - SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  - SHARP3D.Parameter.Data.C3dParameter.Description
+  - SHARP3D.Parameter.Data.C3dParameter.DescriptionLength
+  - SHARP3D.Parameter.Data.C3dParameter.Dimensions
+  - SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  - SHARP3D.Parameter.Data.C3dParameter.Equals(System.Object)
+  - SHARP3D.Parameter.Data.C3dParameter.GetHashCode
+  - SHARP3D.Parameter.Data.C3dParameter.Id
+  - SHARP3D.Parameter.Data.C3dParameter.Locked
+  - SHARP3D.Parameter.Data.C3dParameter.Name
+  - SHARP3D.Parameter.Data.C3dParameter.NameLength
+  - SHARP3D.Parameter.Data.C3dParameter.NbOfDimensions
+  - SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
+  - SHARP3D.Parameter.Data.C3dParameter.Supported
+  - SHARP3D.Parameter.Data.C3dParameter.op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  - SHARP3D.Parameter.Data.C3dParameter.op_Inequality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  langs:
+  - csharp
+  - vb
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.Data.C3dParameter
+  type: Struct
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dParameter
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 46
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.
+  remarks: >-
+    <p>
+
+    Byte: 1
+
+    Reserved for parameter file use.
+
+    </p>
+
+    <p>
+
+    Byte: 2
+
+    Reserved for parameter file use.
+
+    </p>
+
+    <p>
+
+    Byte: 3
+
+    Parameter section size in 512 byte blocks.
+
+    </p>
+
+    <p>
+
+    Byte: 4
+
+    Processor type.
+
+
+    <p>
+
+    Value = 0x53 + processor type
+
+    </p>
+
+    <p>
+
+    Value (in decimal) = 83 + processor type
+
+    </p>
+
+    <table><tbody><tr><td class="term">0x54</td><td class="description">Processor type 1: INTEL</td></tr><tr><td class="term">0x55</td><td class="description">Processor type 2: DEC (VAX,PDP-11)</td></tr><tr><td class="term">0x56</td><td class="description">Processor type 3: MIPS (SGI/MIPS)</td></tr></tbody></table>
+
+    </p>
+  example: []
+  syntax:
+    content: 'public struct C3dParameter : IEquatable<C3dParameter>'
+    content.vb: Public Structure C3dParameter Implements IEquatable(Of C3dParameter)
+  implements:
+  - System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SHARP3D.Parameter.Data.C3dParameter.NameLength
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.NameLength
+  id: NameLength
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: NameLength
+  nameWithType: C3dParameter.NameLength
+  fullName: SHARP3D.Parameter.Data.C3dParameter.NameLength
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: NameLength
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 54
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 1. Length: 1
+
+    </p>
+
+
+    The length of the parameter's name.
+  example: []
+  syntax:
+    content: public sbyte NameLength
+    return:
+      type: System.SByte
+    content.vb: Public NameLength As SByte
+- uid: SHARP3D.Parameter.Data.C3dParameter.Id
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Id
+  id: Id
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: C3dParameter.Id
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Id
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Id
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 62
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 2. Length: 1
+
+    </p>
+
+
+    The unique identifier of the parameter.
+  example: []
+  syntax:
+    content: public int Id
+    return:
+      type: System.Int32
+    content.vb: Public Id As Integer
+- uid: SHARP3D.Parameter.Data.C3dParameter.Name
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Name
+  id: Name
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: C3dParameter.Name
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Name
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Name
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 70
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3. Length: n
+
+    </p>
+
+
+    The name of the parameter, in ASCII character).
+  example: []
+  syntax:
+    content: public string Name
+    return:
+      type: System.String
+    content.vb: Public Name As String
+- uid: SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
+  id: PointerNextParameterStruct
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: PointerNextParameterStruct
+  nameWithType: C3dParameter.PointerNextParameterStruct
+  fullName: SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointerNextParameterStruct
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 78
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n. Length: 2
+
+    </p>
+
+
+    An unsigned integer pointer to the next parameter structure in the C3D file.
+  example: []
+  syntax:
+    content: public int PointerNextParameterStruct
+    return:
+      type: System.Int32
+    content.vb: Public PointerNextParameterStruct As Integer
+- uid: SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  id: DataTypeFile
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: DataTypeFile
+  nameWithType: C3dParameter.DataTypeFile
+  fullName: SHARP3D.Parameter.Data.C3dParameter.DataTypeFile
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataTypeFile
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 86
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 2. Length: 1
+
+    </p>
+
+
+    The data type of the parameter.
+  example: []
+  syntax:
+    content: public DataType DataTypeFile
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+    content.vb: Public DataTypeFile As DataType
+- uid: SHARP3D.Parameter.Data.C3dParameter.NbOfDimensions
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.NbOfDimensions
+  id: NbOfDimensions
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: NbOfDimensions
+  nameWithType: C3dParameter.NbOfDimensions
+  fullName: SHARP3D.Parameter.Data.C3dParameter.NbOfDimensions
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: NbOfDimensions
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 94
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 3. Length: 1
+
+    </p>
+
+
+    The number of dimensions of the parameter's data.
+  example: []
+  syntax:
+    content: public int NbOfDimensions
+    return:
+      type: System.Int32
+    content.vb: Public NbOfDimensions As Integer
+- uid: SHARP3D.Parameter.Data.C3dParameter.Dimensions
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Dimensions
+  id: Dimensions
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Dimensions
+  nameWithType: C3dParameter.Dimensions
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Dimensions
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Dimensions
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 102
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 4. Length: d
+
+    </p>
+
+
+    The dimensions of the parameter's data. This can be null if the parameter has no dimensions.
+  example: []
+  syntax:
+    content: public int[]? Dimensions
+    return:
+      type: System.Int32[]
+    content.vb: Public Dimensions As Integer()
+- uid: SHARP3D.Parameter.Data.C3dParameter.Data
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Data
+  id: Data
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: C3dParameter.Data
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Data
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Data
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 110
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 4 + d. Length: t
+
+    </p>
+
+
+    The data associated with the parameter.
+  example: []
+  syntax:
+    content: public Array Data
+    return:
+      type: System.Array
+    content.vb: Public Data As Array
+- uid: SHARP3D.Parameter.Data.C3dParameter.DescriptionLength
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.DescriptionLength
+  id: DescriptionLength
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: DescriptionLength
+  nameWithType: C3dParameter.DescriptionLength
+  fullName: SHARP3D.Parameter.Data.C3dParameter.DescriptionLength
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DescriptionLength
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 118
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 4 + d + t. Length: 1
+
+    </p>
+
+
+    The length of the parameter's description.
+  example: []
+  syntax:
+    content: public int DescriptionLength
+    return:
+      type: System.Int32
+    content.vb: Public DescriptionLength As Integer
+- uid: SHARP3D.Parameter.Data.C3dParameter.Description
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Description
+  id: Description
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: C3dParameter.Description
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Description
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Description
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 126
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: >-
+    <p>
+
+    Byte position: 3 + n + 4 + d + t + 1. Length: m
+
+    </p>
+
+
+    The description of the parameter.
+  example: []
+  syntax:
+    content: public string Description
+    return:
+      type: System.String
+    content.vb: Public Description As String
+- uid: SHARP3D.Parameter.Data.C3dParameter.Locked
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Locked
+  id: Locked
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Locked
+  nameWithType: C3dParameter.Locked
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Locked
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Locked
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 131
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Indicates whether the parameter is locked.
+  example: []
+  syntax:
+    content: public bool Locked
+    return:
+      type: System.Boolean
+    content.vb: Public Locked As Boolean
+- uid: SHARP3D.Parameter.Data.C3dParameter.Supported
+  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Supported
+  id: Supported
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Supported
+  nameWithType: C3dParameter.Supported
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Supported
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Supported
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 136
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Indicates whether the parameter is supported.
+  example: []
+  syntax:
+    content: public SupportedParameter Supported
+    return:
+      type: SHARP3D.Parameter.SupportedParameter
+    content.vb: Public Supported As SupportedParameter
+- uid: SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  id: Equals(SHARP3D.Parameter.Data.C3dParameter)
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Equals(C3dParameter)
+  nameWithType: C3dParameter.Equals(C3dParameter)
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 143
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Determines whether the current <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance is equal to another <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public bool Equals(C3dParameter other)
+    parameters:
+    - id: other
+      type: SHARP3D.Parameter.Data.C3dParameter
+      description: The <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current instance is equal to the <code class="paramref">other</code> parameter; otherwise, <code>false</code>.
+    content.vb: Public Function Equals(other As C3dParameter) As Boolean
+  overload: SHARP3D.Parameter.Data.C3dParameter.Equals*
+  implements:
+  - System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}.Equals(SHARP3D.Parameter.Data.C3dParameter)
+- uid: SHARP3D.Parameter.Data.C3dParameter.Equals(System.Object)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameter.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: C3dParameter.Equals(object)
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 200
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Determines whether the current <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance is equal to a specified object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current instance is equal to the <code class="paramref">obj</code> parameter; otherwise, <code>false</code>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: SHARP3D.Parameter.Data.C3dParameter.Equals*
+  nameWithType.vb: C3dParameter.Equals(Object)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameter.Equals(Object)
+  name.vb: Equals(Object)
+- uid: SHARP3D.Parameter.Data.C3dParameter.GetHashCode
+  commentId: M:SHARP3D.Parameter.Data.C3dParameter.GetHashCode
+  id: GetHashCode
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: C3dParameter.GetHashCode()
+  fullName: SHARP3D.Parameter.Data.C3dParameter.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetHashCode
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 205
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: SHARP3D.Parameter.Data.C3dParameter.GetHashCode*
+- uid: SHARP3D.Parameter.Data.C3dParameter.op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameter.op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  id: op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: operator ==(C3dParameter, C3dParameter)
+  nameWithType: C3dParameter.operator ==(C3dParameter, C3dParameter)
+  fullName: SHARP3D.Parameter.Data.C3dParameter.operator ==(SHARP3D.Parameter.Data.C3dParameter, SHARP3D.Parameter.Data.C3dParameter)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Equality
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 232
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Determines whether two specified <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(C3dParameter left, C3dParameter right)
+    parameters:
+    - id: left
+      type: SHARP3D.Parameter.Data.C3dParameter
+      description: The first <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Parameter.Data.C3dParameter
+      description: The second <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are equal; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator =(left As C3dParameter, right As C3dParameter) As Boolean
+  overload: SHARP3D.Parameter.Data.C3dParameter.op_Equality*
+  nameWithType.vb: C3dParameter.=(C3dParameter, C3dParameter)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameter.=(SHARP3D.Parameter.Data.C3dParameter, SHARP3D.Parameter.Data.C3dParameter)
+  name.vb: =(C3dParameter, C3dParameter)
+- uid: SHARP3D.Parameter.Data.C3dParameter.op_Inequality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  commentId: M:SHARP3D.Parameter.Data.C3dParameter.op_Inequality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  id: op_Inequality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
+  parent: SHARP3D.Parameter.Data.C3dParameter
+  langs:
+  - csharp
+  - vb
+  name: operator !=(C3dParameter, C3dParameter)
+  nameWithType: C3dParameter.operator !=(C3dParameter, C3dParameter)
+  fullName: SHARP3D.Parameter.Data.C3dParameter.operator !=(SHARP3D.Parameter.Data.C3dParameter, SHARP3D.Parameter.Data.C3dParameter)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Inequality
+    path: SHARP3D/Parameter/Data/C3dParameter.cs
+    startLine: 243
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.Data
+  summary: Determines whether two specified <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(C3dParameter left, C3dParameter right)
+    parameters:
+    - id: left
+      type: SHARP3D.Parameter.Data.C3dParameter
+      description: The first <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Parameter.Data.C3dParameter
+      description: The second <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are not equal; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator <>(left As C3dParameter, right As C3dParameter) As Boolean
+  overload: SHARP3D.Parameter.Data.C3dParameter.op_Inequality*
+  nameWithType.vb: C3dParameter.<>(C3dParameter, C3dParameter)
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameter.<>(SHARP3D.Parameter.Data.C3dParameter, SHARP3D.Parameter.Data.C3dParameter)
+  name.vb: <>(C3dParameter, C3dParameter)
+references:
+- uid: SHARP3D.Parameter.Data
+  commentId: N:SHARP3D.Parameter.Data
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.Data
+  nameWithType: SHARP3D.Parameter.Data
+  fullName: SHARP3D.Parameter.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+- uid: System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}
+  commentId: T:System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<C3dParameter>
+  nameWithType: IEquatable<C3dParameter>
+  fullName: System.IEquatable<SHARP3D.Parameter.Data.C3dParameter>
+  nameWithType.vb: IEquatable(Of C3dParameter)
+  fullName.vb: System.IEquatable(Of SHARP3D.Parameter.Data.C3dParameter)
+  name.vb: IEquatable(Of C3dParameter)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SHARP3D.Parameter.Data.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.Data.C3dParameter.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.Data.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.Data.C3dParameter.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.SByte
+  commentId: T:System.SByte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.sbyte
+  name: sbyte
+  nameWithType: sbyte
+  fullName: sbyte
+  nameWithType.vb: SByte
+  fullName.vb: SByte
+  name.vb: SByte
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: System.Array
+  commentId: T:System.Array
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.array
+  name: Array
+  nameWithType: Array
+  fullName: System.Array
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SHARP3D.Parameter.SupportedParameter
+  commentId: T:SHARP3D.Parameter.SupportedParameter
+  parent: SHARP3D.Parameter
+  href: SHARP3D.Parameter.SupportedParameter.html
+  name: SupportedParameter
+  nameWithType: SupportedParameter
+  fullName: SHARP3D.Parameter.SupportedParameter
+- uid: SHARP3D.Parameter
+  commentId: N:SHARP3D.Parameter
+  href: SHARP3D.html
+  name: SHARP3D.Parameter
+  nameWithType: SHARP3D.Parameter
+  fullName: SHARP3D.Parameter
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+- uid: SHARP3D.Parameter.Data.C3dParameter
+  commentId: T:SHARP3D.Parameter.Data.C3dParameter
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.Data.C3dParameter
+- uid: SHARP3D.Parameter.Data.C3dParameter.Equals*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameter.Equals
+  href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_Equals_SHARP3D_Parameter_Data_C3dParameter_
+  name: Equals
+  nameWithType: C3dParameter.Equals
+  fullName: SHARP3D.Parameter.Data.C3dParameter.Equals
+- uid: System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  commentId: M:System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  parent: System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(C3dParameter)
+  nameWithType: IEquatable<C3dParameter>.Equals(C3dParameter)
+  fullName: System.IEquatable<SHARP3D.Parameter.Data.C3dParameter>.Equals(SHARP3D.Parameter.Data.C3dParameter)
+  nameWithType.vb: IEquatable(Of C3dParameter).Equals(C3dParameter)
+  fullName.vb: System.IEquatable(Of SHARP3D.Parameter.Data.C3dParameter).Equals(SHARP3D.Parameter.Data.C3dParameter)
+  spec.csharp:
+  - uid: System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}.Equals(SHARP3D.Parameter.Data.C3dParameter)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Parameter.Data.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.Data.C3dParameter.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{SHARP3D.Parameter.Data.C3dParameter}.Equals(SHARP3D.Parameter.Data.C3dParameter)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Parameter.Data.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.Data.C3dParameter.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: SHARP3D.Parameter.Data.C3dParameter.GetHashCode*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameter.GetHashCode
+  href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_GetHashCode
+  name: GetHashCode
+  nameWithType: C3dParameter.GetHashCode
+  fullName: SHARP3D.Parameter.Data.C3dParameter.GetHashCode
+- uid: SHARP3D.Parameter.Data.C3dParameter.op_Equality*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameter.op_Equality
+  href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_op_Equality_SHARP3D_Parameter_Data_C3dParameter_SHARP3D_Parameter_Data_C3dParameter_
+  name: operator ==
+  nameWithType: C3dParameter.operator ==
+  fullName: SHARP3D.Parameter.Data.C3dParameter.operator ==
+  nameWithType.vb: C3dParameter.=
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameter.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Parameter.Data.C3dParameter.op_Equality*
+    name: ==
+    href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_op_Equality_SHARP3D_Parameter_Data_C3dParameter_SHARP3D_Parameter_Data_C3dParameter_
+- uid: SHARP3D.Parameter.Data.C3dParameter.op_Inequality*
+  commentId: Overload:SHARP3D.Parameter.Data.C3dParameter.op_Inequality
+  href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_op_Inequality_SHARP3D_Parameter_Data_C3dParameter_SHARP3D_Parameter_Data_C3dParameter_
+  name: operator !=
+  nameWithType: C3dParameter.operator !=
+  fullName: SHARP3D.Parameter.Data.C3dParameter.operator !=
+  nameWithType.vb: C3dParameter.<>
+  fullName.vb: SHARP3D.Parameter.Data.C3dParameter.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Parameter.Data.C3dParameter.op_Inequality*
+    name: '!='
+    href: SHARP3D.Parameter.Data.C3dParameter.html#SHARP3D_Parameter_Data_C3dParameter_op_Inequality_SHARP3D_Parameter_Data_C3dParameter_SHARP3D_Parameter_Data_C3dParameter_

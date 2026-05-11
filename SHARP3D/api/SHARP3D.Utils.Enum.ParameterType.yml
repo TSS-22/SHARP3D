@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.ParameterType
+  commentId: T:SHARP3D.Utils.Enum.ParameterType
+  id: ParameterType
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.ParameterType.ADDITIONAL
+  - SHARP3D.Utils.Enum.ParameterType.APPLICATION
+  - SHARP3D.Utils.Enum.ParameterType.REQUIRED
+  - SHARP3D.Utils.Enum.ParameterType.UNKOWN
+  - SHARP3D.Utils.Enum.ParameterType.USER
+  langs:
+  - csharp
+  - vb
+  name: ParameterType
+  nameWithType: ParameterType
+  fullName: SHARP3D.Utils.Enum.ParameterType
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ParameterType
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Specifies the types of parameters used in C3D files.
+  remarks: These types categorize parameters based on their origin and purpose within the C3D file structure.
+  example: []
+  syntax:
+    content: public enum ParameterType
+    content.vb: Public Enum ParameterType
+- uid: SHARP3D.Utils.Enum.ParameterType.UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.ParameterType.UNKOWN
+  id: UNKOWN
+  parent: SHARP3D.Utils.Enum.ParameterType
+  langs:
+  - csharp
+  - vb
+  name: UNKOWN
+  nameWithType: ParameterType.UNKOWN
+  fullName: SHARP3D.Utils.Enum.ParameterType.UNKOWN
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNKOWN
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents an unknown or unsupported parameter type.
+  example: []
+  syntax:
+    content: UNKOWN = -1
+    return:
+      type: SHARP3D.Utils.Enum.ParameterType
+- uid: SHARP3D.Utils.Enum.ParameterType.REQUIRED
+  commentId: F:SHARP3D.Utils.Enum.ParameterType.REQUIRED
+  id: REQUIRED
+  parent: SHARP3D.Utils.Enum.ParameterType
+  langs:
+  - csharp
+  - vb
+  name: REQUIRED
+  nameWithType: ParameterType.REQUIRED
+  fullName: SHARP3D.Utils.Enum.ParameterType.REQUIRED
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: REQUIRED
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 18
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents a required parameter that must be present in the C3D file.
+  example: []
+  syntax:
+    content: REQUIRED = 0
+    return:
+      type: SHARP3D.Utils.Enum.ParameterType
+- uid: SHARP3D.Utils.Enum.ParameterType.ADDITIONAL
+  commentId: F:SHARP3D.Utils.Enum.ParameterType.ADDITIONAL
+  id: ADDITIONAL
+  parent: SHARP3D.Utils.Enum.ParameterType
+  langs:
+  - csharp
+  - vb
+  name: ADDITIONAL
+  nameWithType: ParameterType.ADDITIONAL
+  fullName: SHARP3D.Utils.Enum.ParameterType.ADDITIONAL
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ADDITIONAL
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 23
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents an additional parameter that extends the standard C3D file format.
+  example: []
+  syntax:
+    content: ADDITIONAL = 1
+    return:
+      type: SHARP3D.Utils.Enum.ParameterType
+- uid: SHARP3D.Utils.Enum.ParameterType.APPLICATION
+  commentId: F:SHARP3D.Utils.Enum.ParameterType.APPLICATION
+  id: APPLICATION
+  parent: SHARP3D.Utils.Enum.ParameterType
+  langs:
+  - csharp
+  - vb
+  name: APPLICATION
+  nameWithType: ParameterType.APPLICATION
+  fullName: SHARP3D.Utils.Enum.ParameterType.APPLICATION
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: APPLICATION
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 28
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents an application-specific parameter defined by the software application.
+  example: []
+  syntax:
+    content: APPLICATION = 2
+    return:
+      type: SHARP3D.Utils.Enum.ParameterType
+- uid: SHARP3D.Utils.Enum.ParameterType.USER
+  commentId: F:SHARP3D.Utils.Enum.ParameterType.USER
+  id: USER
+  parent: SHARP3D.Utils.Enum.ParameterType
+  langs:
+  - csharp
+  - vb
+  name: USER
+  nameWithType: ParameterType.USER
+  fullName: SHARP3D.Utils.Enum.ParameterType.USER
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: USER
+    path: SHARP3D/Utils/Enum/ParameterType.cs
+    startLine: 33
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents a user-defined parameter added by the end user.
+  example: []
+  syntax:
+    content: USER = 3
+    return:
+      type: SHARP3D.Utils.Enum.ParameterType
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.ParameterType
+  commentId: T:SHARP3D.Utils.Enum.ParameterType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ParameterType.html
+  name: ParameterType
+  nameWithType: ParameterType
+  fullName: SHARP3D.Utils.Enum.ParameterType

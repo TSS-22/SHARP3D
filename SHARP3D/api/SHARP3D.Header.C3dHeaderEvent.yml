@@ -1,0 +1,970 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Header.C3dHeaderEvent
+  commentId: T:SHARP3D.Header.C3dHeaderEvent
+  id: C3dHeaderEvent
+  parent: SHARP3D.Header
+  children:
+  - SHARP3D.Header.C3dHeaderEvent.DisplayFlag
+  - SHARP3D.Header.C3dHeaderEvent.Equals(SHARP3D.Header.C3dHeaderEvent)
+  - SHARP3D.Header.C3dHeaderEvent.Equals(System.Object)
+  - SHARP3D.Header.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Byte[],System.Byte[],System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Header.C3dHeaderEvent.EventLabel
+  - SHARP3D.Header.C3dHeaderEvent.EventTime
+  - SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32,System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Header.C3dHeaderEvent.GetHashCode
+  - SHARP3D.Header.C3dHeaderEvent.op_Equality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  - SHARP3D.Header.C3dHeaderEvent.op_Inequality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  langs:
+  - csharp
+  - vb
+  name: C3dHeaderEvent
+  nameWithType: C3dHeaderEvent
+  fullName: SHARP3D.Header.C3dHeaderEvent
+  type: Struct
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dHeaderEvent
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Represents an event in a C3D file header, including its time, display flag, and label.
+  example: []
+  syntax:
+    content: 'public struct C3dHeaderEvent : IEquatable<C3dHeaderEvent>'
+    content.vb: Public Structure C3dHeaderEvent Implements IEquatable(Of C3dHeaderEvent)
+  implements:
+  - System.IEquatable{SHARP3D.Header.C3dHeaderEvent}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SHARP3D.Header.C3dHeaderEvent.EventTime
+  commentId: F:SHARP3D.Header.C3dHeaderEvent.EventTime
+  id: EventTime
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventTime
+  nameWithType: C3dHeaderEvent.EventTime
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventTime
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventTime
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 14
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: The time at which the event occurs.
+  example: []
+  syntax:
+    content: public float EventTime
+    return:
+      type: System.Single
+    content.vb: Public EventTime As Single
+- uid: SHARP3D.Header.C3dHeaderEvent.DisplayFlag
+  commentId: F:SHARP3D.Header.C3dHeaderEvent.DisplayFlag
+  id: DisplayFlag
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: DisplayFlag
+  nameWithType: C3dHeaderEvent.DisplayFlag
+  fullName: SHARP3D.Header.C3dHeaderEvent.DisplayFlag
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DisplayFlag
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 18
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Specifies the <xref href="SHARP3D.Utils.Enum.HeaderEventFlag" data-throw-if-not-resolved="false"></xref> for the event.
+  example: []
+  syntax:
+    content: public HeaderEventFlag DisplayFlag
+    return:
+      type: SHARP3D.Utils.Enum.HeaderEventFlag
+    content.vb: Public DisplayFlag As HeaderEventFlag
+- uid: SHARP3D.Header.C3dHeaderEvent.EventLabel
+  commentId: F:SHARP3D.Header.C3dHeaderEvent.EventLabel
+  id: EventLabel
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventLabel
+  nameWithType: C3dHeaderEvent.EventLabel
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventLabel
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventLabel
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 22
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Specifies the label associated with the event. It is either a 2 or 4 character string of ASCII character depending on the C3D file version.
+  example: []
+  syntax:
+    content: public string EventLabel
+    return:
+      type: System.String
+    content.vb: Public EventLabel As String
+- uid: SHARP3D.Header.C3dHeaderEvent.Equals(SHARP3D.Header.C3dHeaderEvent)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.Equals(SHARP3D.Header.C3dHeaderEvent)
+  id: Equals(SHARP3D.Header.C3dHeaderEvent)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: Equals(C3dHeaderEvent)
+  nameWithType: C3dHeaderEvent.Equals(C3dHeaderEvent)
+  fullName: SHARP3D.Header.C3dHeaderEvent.Equals(SHARP3D.Header.C3dHeaderEvent)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 29
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Determines whether the current <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance is equal to another <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public bool Equals(C3dHeaderEvent other)
+    parameters:
+    - id: other
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: The <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: True if the current instance is equal to the <code class="paramref">other</code> parameter; otherwise, false.
+    content.vb: Public Function Equals(other As C3dHeaderEvent) As Boolean
+  overload: SHARP3D.Header.C3dHeaderEvent.Equals*
+  implements:
+  - System.IEquatable{SHARP3D.Header.C3dHeaderEvent}.Equals(SHARP3D.Header.C3dHeaderEvent)
+- uid: SHARP3D.Header.C3dHeaderEvent.Equals(System.Object)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: C3dHeaderEvent.Equals(object)
+  fullName: SHARP3D.Header.C3dHeaderEvent.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 41
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Determines whether the current <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance is equal to a specified object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: True if the current instance is equal to the <code class="paramref">obj</code> parameter; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: SHARP3D.Header.C3dHeaderEvent.Equals*
+  nameWithType.vb: C3dHeaderEvent.Equals(Object)
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.Equals(Object)
+  name.vb: Equals(Object)
+- uid: SHARP3D.Header.C3dHeaderEvent.GetHashCode
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.GetHashCode
+  id: GetHashCode
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: C3dHeaderEvent.GetHashCode()
+  fullName: SHARP3D.Header.C3dHeaderEvent.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetHashCode
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 50
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Returns the hash code for the current <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer hash code.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: SHARP3D.Header.C3dHeaderEvent.GetHashCode*
+- uid: SHARP3D.Header.C3dHeaderEvent.op_Equality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.op_Equality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  id: op_Equality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: operator ==(C3dHeaderEvent, C3dHeaderEvent)
+  nameWithType: C3dHeaderEvent.operator ==(C3dHeaderEvent, C3dHeaderEvent)
+  fullName: SHARP3D.Header.C3dHeaderEvent.operator ==(SHARP3D.Header.C3dHeaderEvent, SHARP3D.Header.C3dHeaderEvent)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Equality
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 68
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Determines whether two specified <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(C3dHeaderEvent left, C3dHeaderEvent right)
+    parameters:
+    - id: left
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: The first <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: The second <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: True if <code class="paramref">left</code> and <code class="paramref">right</code> are equal; otherwise, false.
+    content.vb: Public Shared Operator =(left As C3dHeaderEvent, right As C3dHeaderEvent) As Boolean
+  overload: SHARP3D.Header.C3dHeaderEvent.op_Equality*
+  nameWithType.vb: C3dHeaderEvent.=(C3dHeaderEvent, C3dHeaderEvent)
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.=(SHARP3D.Header.C3dHeaderEvent, SHARP3D.Header.C3dHeaderEvent)
+  name.vb: =(C3dHeaderEvent, C3dHeaderEvent)
+- uid: SHARP3D.Header.C3dHeaderEvent.op_Inequality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.op_Inequality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  id: op_Inequality(SHARP3D.Header.C3dHeaderEvent,SHARP3D.Header.C3dHeaderEvent)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: operator !=(C3dHeaderEvent, C3dHeaderEvent)
+  nameWithType: C3dHeaderEvent.operator !=(C3dHeaderEvent, C3dHeaderEvent)
+  fullName: SHARP3D.Header.C3dHeaderEvent.operator !=(SHARP3D.Header.C3dHeaderEvent, SHARP3D.Header.C3dHeaderEvent)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Inequality
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 79
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Determines whether two specified <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(C3dHeaderEvent left, C3dHeaderEvent right)
+    parameters:
+    - id: left
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: The first <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: The second <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: True if <code class="paramref">left</code> and <code class="paramref">right</code> are not equal; otherwise, false.
+    content.vb: Public Shared Operator <>(left As C3dHeaderEvent, right As C3dHeaderEvent) As Boolean
+  overload: SHARP3D.Header.C3dHeaderEvent.op_Inequality*
+  nameWithType.vb: C3dHeaderEvent.<>(C3dHeaderEvent, C3dHeaderEvent)
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.<>(SHARP3D.Header.C3dHeaderEvent, SHARP3D.Header.C3dHeaderEvent)
+  name.vb: <>(C3dHeaderEvent, C3dHeaderEvent)
+- uid: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32,System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries(System.Byte[],System.Int32,System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  id: EventsFromBinaries(System.Byte[],System.Int32,System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventsFromBinaries(byte[], int, bool, ProcessorType)
+  nameWithType: C3dHeaderEvent.EventsFromBinaries(byte[], int, bool, ProcessorType)
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries(byte[], int, bool, SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventsFromBinaries
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 92
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Parses a byte array into an array of <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instances.
+  example: []
+  syntax:
+    content: public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels, ProcessorType processorFile)
+    parameters:
+    - id: binaries
+      type: System.Byte[]
+      description: The byte array to parse.
+    - id: definedEventsNb
+      type: System.Int32
+      description: The number of events defined in the byte array.
+    - id: supported4CharLabels
+      type: System.Boolean
+      description: Indicates whether the C3D file supports 4-character event labels.
+    - id: processorFile
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The <xref href="SHARP3D.Utils.Enum.ProcessorType" data-throw-if-not-resolved="false"></xref> used to interpret the byte order of the binary data.
+    return:
+      type: SHARP3D.Header.C3dHeaderEvent[]
+      description: An array of <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instances populated with the parsed data.
+    content.vb: Public Shared Function EventsFromBinaries(binaries As Byte(), definedEventsNb As Integer, supported4CharLabels As Boolean, processorFile As ProcessorType) As C3dHeaderEvent()
+  overload: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries*
+  nameWithType.vb: C3dHeaderEvent.EventsFromBinaries(Byte(), Integer, Boolean, ProcessorType)
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries(Byte(), Integer, Boolean, SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: EventsFromBinaries(Byte(), Integer, Boolean, ProcessorType)
+- uid: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Byte[],System.Byte[],System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Header.C3dHeaderEvent.EventFromBinaries(System.Byte[],System.Byte[],System.Byte[],System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  id: EventFromBinaries(System.Byte[],System.Byte[],System.Byte[],System.Boolean,SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: EventFromBinaries(byte[], byte[], byte[], bool, ProcessorType)
+  nameWithType: C3dHeaderEvent.EventFromBinaries(byte[], byte[], byte[], bool, ProcessorType)
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries(byte[], byte[], byte[], bool, SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/C3dHeaderEvent.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventFromBinaries
+    path: SHARP3D/Header/C3dHeaderEvent.cs
+    startLine: 117
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header
+  summary: Parses a byte array into a single <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public static C3dHeaderEvent EventFromBinaries(byte[] binEventTime, byte[] binHeaderEventFlag, byte[] binEventLabel, bool supported4CharLabels, ProcessorType processorFile)
+    parameters:
+    - id: binEventTime
+      type: System.Byte[]
+      description: The byte array representing the event time.
+    - id: binHeaderEventFlag
+      type: System.Byte[]
+      description: The byte array representing the event display flag.
+    - id: binEventLabel
+      type: System.Byte[]
+      description: The byte array representing the event label.
+    - id: supported4CharLabels
+      type: System.Boolean
+      description: Indicates whether the C3D file supports 4-character event labels.
+    - id: processorFile
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The <xref href="SHARP3D.Utils.Enum.ProcessorType" data-throw-if-not-resolved="false"></xref> used to interpret the byte order of the binary data.
+    return:
+      type: SHARP3D.Header.C3dHeaderEvent
+      description: A <xref href="SHARP3D.Header.C3dHeaderEvent" data-throw-if-not-resolved="false"></xref> instance populated with the parsed data.
+    content.vb: Public Shared Function EventFromBinaries(binEventTime As Byte(), binHeaderEventFlag As Byte(), binEventLabel As Byte(), supported4CharLabels As Boolean, processorFile As ProcessorType) As C3dHeaderEvent
+  overload: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries*
+  nameWithType.vb: C3dHeaderEvent.EventFromBinaries(Byte(), Byte(), Byte(), Boolean, ProcessorType)
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries(Byte(), Byte(), Byte(), Boolean, SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: EventFromBinaries(Byte(), Byte(), Byte(), Boolean, ProcessorType)
+references:
+- uid: SHARP3D.Header
+  commentId: N:SHARP3D.Header
+  href: SHARP3D.html
+  name: SHARP3D.Header
+  nameWithType: SHARP3D.Header
+  fullName: SHARP3D.Header
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html
+- uid: System.IEquatable{SHARP3D.Header.C3dHeaderEvent}
+  commentId: T:System.IEquatable{SHARP3D.Header.C3dHeaderEvent}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<C3dHeaderEvent>
+  nameWithType: IEquatable<C3dHeaderEvent>
+  fullName: System.IEquatable<SHARP3D.Header.C3dHeaderEvent>
+  nameWithType.vb: IEquatable(Of C3dHeaderEvent)
+  fullName.vb: System.IEquatable(Of SHARP3D.Header.C3dHeaderEvent)
+  name.vb: IEquatable(Of C3dHeaderEvent)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag
+  commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.HeaderEventFlag.html
+  name: HeaderEventFlag
+  nameWithType: HeaderEventFlag
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.Header.C3dHeaderEvent
+  commentId: T:SHARP3D.Header.C3dHeaderEvent
+  parent: SHARP3D.Header
+  href: SHARP3D.Header.C3dHeaderEvent.html
+  name: C3dHeaderEvent
+  nameWithType: C3dHeaderEvent
+  fullName: SHARP3D.Header.C3dHeaderEvent
+- uid: SHARP3D.Header.C3dHeaderEvent.Equals*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.Equals
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_Equals_SHARP3D_Header_C3dHeaderEvent_
+  name: Equals
+  nameWithType: C3dHeaderEvent.Equals
+  fullName: SHARP3D.Header.C3dHeaderEvent.Equals
+- uid: System.IEquatable{SHARP3D.Header.C3dHeaderEvent}.Equals(SHARP3D.Header.C3dHeaderEvent)
+  commentId: M:System.IEquatable{SHARP3D.Header.C3dHeaderEvent}.Equals(SHARP3D.Header.C3dHeaderEvent)
+  parent: System.IEquatable{SHARP3D.Header.C3dHeaderEvent}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(C3dHeaderEvent)
+  nameWithType: IEquatable<C3dHeaderEvent>.Equals(C3dHeaderEvent)
+  fullName: System.IEquatable<SHARP3D.Header.C3dHeaderEvent>.Equals(SHARP3D.Header.C3dHeaderEvent)
+  nameWithType.vb: IEquatable(Of C3dHeaderEvent).Equals(C3dHeaderEvent)
+  fullName.vb: System.IEquatable(Of SHARP3D.Header.C3dHeaderEvent).Equals(SHARP3D.Header.C3dHeaderEvent)
+  spec.csharp:
+  - uid: System.IEquatable{SHARP3D.Header.C3dHeaderEvent}.Equals(SHARP3D.Header.C3dHeaderEvent)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{SHARP3D.Header.C3dHeaderEvent}.Equals(SHARP3D.Header.C3dHeaderEvent)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: SHARP3D.Header.C3dHeaderEvent.GetHashCode*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.GetHashCode
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_GetHashCode
+  name: GetHashCode
+  nameWithType: C3dHeaderEvent.GetHashCode
+  fullName: SHARP3D.Header.C3dHeaderEvent.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Header.C3dHeaderEvent.op_Equality*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.op_Equality
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_op_Equality_SHARP3D_Header_C3dHeaderEvent_SHARP3D_Header_C3dHeaderEvent_
+  name: operator ==
+  nameWithType: C3dHeaderEvent.operator ==
+  fullName: SHARP3D.Header.C3dHeaderEvent.operator ==
+  nameWithType.vb: C3dHeaderEvent.=
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Header.C3dHeaderEvent.op_Equality*
+    name: ==
+    href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_op_Equality_SHARP3D_Header_C3dHeaderEvent_SHARP3D_Header_C3dHeaderEvent_
+- uid: SHARP3D.Header.C3dHeaderEvent.op_Inequality*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.op_Inequality
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_op_Inequality_SHARP3D_Header_C3dHeaderEvent_SHARP3D_Header_C3dHeaderEvent_
+  name: operator !=
+  nameWithType: C3dHeaderEvent.operator !=
+  fullName: SHARP3D.Header.C3dHeaderEvent.operator !=
+  nameWithType.vb: C3dHeaderEvent.<>
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Header.C3dHeaderEvent.op_Inequality*
+    name: '!='
+    href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_op_Inequality_SHARP3D_Header_C3dHeaderEvent_SHARP3D_Header_C3dHeaderEvent_
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_EventsFromBinaries_System_Byte___System_Int32_System_Boolean_SHARP3D_Utils_Enum_ProcessorType_
+  name: EventsFromBinaries
+  nameWithType: C3dHeaderEvent.EventsFromBinaries
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventsFromBinaries
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: SHARP3D.Header.C3dHeaderEvent[]
+  isExternal: true
+  href: SHARP3D.Header.C3dHeaderEvent.html
+  name: C3dHeaderEvent[]
+  nameWithType: C3dHeaderEvent[]
+  fullName: SHARP3D.Header.C3dHeaderEvent[]
+  nameWithType.vb: C3dHeaderEvent()
+  fullName.vb: SHARP3D.Header.C3dHeaderEvent()
+  name.vb: C3dHeaderEvent()
+  spec.csharp:
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Header.C3dHeaderEvent
+    name: C3dHeaderEvent
+    href: SHARP3D.Header.C3dHeaderEvent.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries*
+  commentId: Overload:SHARP3D.Header.C3dHeaderEvent.EventFromBinaries
+  href: SHARP3D.Header.C3dHeaderEvent.html#SHARP3D_Header_C3dHeaderEvent_EventFromBinaries_System_Byte___System_Byte___System_Byte___System_Boolean_SHARP3D_Utils_Enum_ProcessorType_
+  name: EventFromBinaries
+  nameWithType: C3dHeaderEvent.EventFromBinaries
+  fullName: SHARP3D.Header.C3dHeaderEvent.EventFromBinaries

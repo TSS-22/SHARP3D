@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag
+  commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
+  id: HeaderEventFlag
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.HeaderEventFlag.OFF
+  - SHARP3D.Utils.Enum.HeaderEventFlag.ON
+  langs:
+  - csharp
+  - vb
+  name: HeaderEventFlag
+  nameWithType: HeaderEventFlag
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/HeaderEventFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: HeaderEventFlag
+    path: SHARP3D/Utils/Enum/HeaderEventFlag.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Specifies display states for a header event, indicating whether it is ON or OFF.
+  example: []
+  syntax:
+    content: public enum HeaderEventFlag
+    content.vb: Public Enum HeaderEventFlag
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag.ON
+  commentId: F:SHARP3D.Utils.Enum.HeaderEventFlag.ON
+  id: ON
+  parent: SHARP3D.Utils.Enum.HeaderEventFlag
+  langs:
+  - csharp
+  - vb
+  name: ON
+  nameWithType: HeaderEventFlag.ON
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag.ON
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/HeaderEventFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ON
+    path: SHARP3D/Utils/Enum/HeaderEventFlag.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents the 'on' state with a value of 1.
+  example: []
+  syntax:
+    content: ON = 1
+    return:
+      type: SHARP3D.Utils.Enum.HeaderEventFlag
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag.OFF
+  commentId: F:SHARP3D.Utils.Enum.HeaderEventFlag.OFF
+  id: OFF
+  parent: SHARP3D.Utils.Enum.HeaderEventFlag
+  langs:
+  - csharp
+  - vb
+  name: OFF
+  nameWithType: HeaderEventFlag.OFF
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag.OFF
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/HeaderEventFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: OFF
+    path: SHARP3D/Utils/Enum/HeaderEventFlag.cs
+    startLine: 14
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Indicates that the feature or setting is turned off.
+  example: []
+  syntax:
+    content: OFF = 0
+    return:
+      type: SHARP3D.Utils.Enum.HeaderEventFlag
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.HeaderEventFlag
+  commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.HeaderEventFlag.html
+  name: HeaderEventFlag
+  nameWithType: HeaderEventFlag
+  fullName: SHARP3D.Utils.Enum.HeaderEventFlag

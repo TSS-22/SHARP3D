@@ -1,0 +1,993 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.C3dParameterHelper
+  commentId: T:SHARP3D.Parameter.C3dParameterHelper
+  id: C3dParameterHelper
+  parent: SHARP3D.Parameter
+  children:
+  - SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
+  - SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
+  - SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
+  - SHARP3D.Parameter.C3dParameterHelper.FromString(System.String,System.String)
+  - SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
+  - SHARP3D.Parameter.C3dParameterHelper.LoadJson(System.String)
+  - SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  - SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
+  - SHARP3D.Parameter.C3dParameterHelper.Reset
+  - SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
+  - SHARP3D.Parameter.C3dParameterHelper._lock
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterHelper
+  nameWithType: C3dParameterHelper
+  fullName: SHARP3D.Parameter.C3dParameterHelper
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dParameterHelper
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Provides helper methods for loading, parsing, and managing C3D file parameters and parameter groups.
+  example: []
+  syntax:
+    content: public static class C3dParameterHelper
+    content.vb: Public Module C3dParameterHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
+  id: ArraySupportedParameter
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: ArraySupportedParameter
+  nameWithType: C3dParameterHelper.ArraySupportedParameter
+  fullName: SHARP3D.Parameter.C3dParameterHelper.ArraySupportedParameter
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ArraySupportedParameter
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 35
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: An array of all supported parameters loaded from JSON files.
+  example: []
+  syntax:
+    content: private static SupportedParameter[] ArraySupportedParameter
+    return:
+      type: SHARP3D.Parameter.SupportedParameter[]
+    content.vb: Private Shared ArraySupportedParameter As SupportedParameter()
+- uid: SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
+  id: RequiredParameterPath
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: RequiredParameterPath
+  nameWithType: C3dParameterHelper.RequiredParameterPath
+  fullName: SHARP3D.Parameter.C3dParameterHelper.RequiredParameterPath
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: RequiredParameterPath
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 40
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: The file path for required parameters JSON.
+  example: []
+  syntax:
+    content: private static string RequiredParameterPath
+    return:
+      type: System.String
+    content.vb: Private Shared RequiredParameterPath As String
+- uid: SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
+  id: AdditionalParameterPath
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: AdditionalParameterPath
+  nameWithType: C3dParameterHelper.AdditionalParameterPath
+  fullName: SHARP3D.Parameter.C3dParameterHelper.AdditionalParameterPath
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AdditionalParameterPath
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 45
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: The file path for additional parameters JSON.
+  example: []
+  syntax:
+    content: private static string AdditionalParameterPath
+    return:
+      type: System.String
+    content.vb: Private Shared AdditionalParameterPath As String
+- uid: SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
+  id: ApplicationParameterPath
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: ApplicationParameterPath
+  nameWithType: C3dParameterHelper.ApplicationParameterPath
+  fullName: SHARP3D.Parameter.C3dParameterHelper.ApplicationParameterPath
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ApplicationParameterPath
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 50
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: The file path for application-specific parameters JSON.
+  example: []
+  syntax:
+    content: private static string ApplicationParameterPath
+    return:
+      type: System.String
+    content.vb: Private Shared ApplicationParameterPath As String
+- uid: SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
+  id: UserParameterPath
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: UserParameterPath
+  nameWithType: C3dParameterHelper.UserParameterPath
+  fullName: SHARP3D.Parameter.C3dParameterHelper.UserParameterPath
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UserParameterPath
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 55
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: The file path for user-defined parameters JSON.
+  example: []
+  syntax:
+    content: private static string UserParameterPath
+    return:
+      type: System.String
+    content.vb: Private Shared UserParameterPath As String
+- uid: SHARP3D.Parameter.C3dParameterHelper._lock
+  commentId: F:SHARP3D.Parameter.C3dParameterHelper._lock
+  id: _lock
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: _lock
+  nameWithType: C3dParameterHelper._lock
+  fullName: SHARP3D.Parameter.C3dParameterHelper._lock
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: _lock
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 60
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: An object used for locking to ensure thread safety.
+  example: []
+  syntax:
+    content: private static readonly object _lock
+    return:
+      type: System.Object
+    content.vb: Private Shared ReadOnly _lock As Object
+- uid: SHARP3D.Parameter.C3dParameterHelper.Reset
+  commentId: M:SHARP3D.Parameter.C3dParameterHelper.Reset
+  id: Reset
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: C3dParameterHelper.Reset()
+  fullName: SHARP3D.Parameter.C3dParameterHelper.Reset()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Reset
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 76
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Resets and reloads all supported parameters from their respective JSON files.
+  example: []
+  syntax:
+    content: public static void Reset()
+    content.vb: Public Shared Sub Reset()
+  overload: SHARP3D.Parameter.C3dParameterHelper.Reset*
+- uid: SHARP3D.Parameter.C3dParameterHelper.LoadJson(System.String)
+  commentId: M:SHARP3D.Parameter.C3dParameterHelper.LoadJson(System.String)
+  id: LoadJson(System.String)
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: LoadJson(string)
+  nameWithType: C3dParameterHelper.LoadJson(string)
+  fullName: SHARP3D.Parameter.C3dParameterHelper.LoadJson(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: LoadJson
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 112
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Loads supported parameters from a JSON file.
+  example: []
+  syntax:
+    content: public static SupportedParameter[]? LoadJson(string filePath)
+    parameters:
+    - id: filePath
+      type: System.String
+      description: The path to the JSON file.
+    return:
+      type: SHARP3D.Parameter.SupportedParameter[]
+      description: An array of <xref href="SHARP3D.Parameter.SupportedParameter" data-throw-if-not-resolved="false"></xref> loaded from the JSON file.
+    content.vb: Public Shared Function LoadJson(filePath As String) As SupportedParameter()
+  overload: SHARP3D.Parameter.C3dParameterHelper.LoadJson*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if the file path is invalid.
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the JSON deserialization fails.
+  nameWithType.vb: C3dParameterHelper.LoadJson(String)
+  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.LoadJson(String)
+  name.vb: LoadJson(String)
+- uid: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
+  commentId: M:SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
+  id: GetAllSupportedParameter
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: GetAllSupportedParameter()
+  nameWithType: C3dParameterHelper.GetAllSupportedParameter()
+  fullName: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAllSupportedParameter
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 140
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Gets all supported parameters.
+  example: []
+  syntax:
+    content: public static SupportedParameter[] GetAllSupportedParameter()
+    return:
+      type: SHARP3D.Parameter.SupportedParameter[]
+      description: An array of all <xref href="SHARP3D.Parameter.SupportedParameter" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function GetAllSupportedParameter() As SupportedParameter()
+  overload: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter*
+- uid: SHARP3D.Parameter.C3dParameterHelper.FromString(System.String,System.String)
+  commentId: M:SHARP3D.Parameter.C3dParameterHelper.FromString(System.String,System.String)
+  id: FromString(System.String,System.String)
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: FromString(string, string)
+  nameWithType: C3dParameterHelper.FromString(string, string)
+  fullName: SHARP3D.Parameter.C3dParameterHelper.FromString(string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FromString
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 152
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Retrieves a <xref href="SHARP3D.Parameter.SupportedParameter" data-throw-if-not-resolved="false"></xref> by its group and parameter name.
+  example: []
+  syntax:
+    content: public static SupportedParameter FromString(string groupName, string parameterName)
+    parameters:
+    - id: groupName
+      type: System.String
+      description: The name of the group.
+    - id: parameterName
+      type: System.String
+      description: The name of the parameter.
+    return:
+      type: SHARP3D.Parameter.SupportedParameter
+      description: The <xref href="SHARP3D.Parameter.SupportedParameter" data-throw-if-not-resolved="false"></xref> matching the group and parameter name.
+    content.vb: Public Shared Function FromString(groupName As String, parameterName As String) As SupportedParameter
+  overload: SHARP3D.Parameter.C3dParameterHelper.FromString*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if the parameter is not supported.
+  nameWithType.vb: C3dParameterHelper.FromString(String, String)
+  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.FromString(String, String)
+  name.vb: FromString(String, String)
+- uid: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  commentId: M:SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  id: ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  parent: SHARP3D.Parameter.C3dParameterHelper
+  langs:
+  - csharp
+  - vb
+  name: ParametersFromFileStreams(FileStream, ProcessorType, int, int)
+  nameWithType: C3dParameterHelper.ParametersFromFileStreams(FileStream, ProcessorType, int, int)
+  fullName: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, int, int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ParametersFromFileStreams
+    path: SHARP3D/Parameter/C3dParameterHelper.cs
+    startLine: 179
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter
+  summary: Parses C3D parameter groups and parameters from a file stream.
+  remarks: >-
+    <p>
+
+    Empty groups (which have no parameters linked to them) are discarded. This is implemented due to Vicon potentially adding twice PROCESSING group, once empty and once with the actual parameters.
+
+    </p>
+
+
+    TODO: Handle UTF-8 error cases as per https://en.wikipedia.org/wiki/UTF-8#Error_handling
+  example: []
+  syntax:
+    content: public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
+    parameters:
+    - id: c3dStream
+      type: System.IO.FileStream
+      description: The file stream of the C3D file.
+    - id: processorFile
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The processor type used in the C3D file.
+    - id: pointerParameterSection
+      type: System.Int32
+      description: The pointer to the parameter section in the C3D file.
+    - id: pointerDataSection
+      type: System.Int32
+      description: The pointer to the data section in the C3D file.
+    return:
+      type: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+      description: A list of <xref href="SHARP3D.Parameter.Data.C3dParameterGroup" data-throw-if-not-resolved="false"></xref> parsed from the file stream.
+    content.vb: Public Shared Function ParametersFromFileStreams(c3dStream As FileStream, processorFile As ProcessorType, pointerParameterSection As Integer, pointerDataSection As Integer) As List(Of C3dParameterGroup)
+  overload: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams*
+  nameWithType.vb: C3dParameterHelper.ParametersFromFileStreams(FileStream, ProcessorType, Integer, Integer)
+  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, Integer, Integer)
+  name.vb: ParametersFromFileStreams(FileStream, ProcessorType, Integer, Integer)
+references:
+- uid: SHARP3D.Parameter
+  commentId: N:SHARP3D.Parameter
+  href: SHARP3D.html
+  name: SHARP3D.Parameter
+  nameWithType: SHARP3D.Parameter
+  fullName: SHARP3D.Parameter
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.Parameter.SupportedParameter[]
+  isExternal: true
+  href: SHARP3D.Parameter.SupportedParameter.html
+  name: SupportedParameter[]
+  nameWithType: SupportedParameter[]
+  fullName: SHARP3D.Parameter.SupportedParameter[]
+  nameWithType.vb: SupportedParameter()
+  fullName.vb: SHARP3D.Parameter.SupportedParameter()
+  name.vb: SupportedParameter()
+  spec.csharp:
+  - uid: SHARP3D.Parameter.SupportedParameter
+    name: SupportedParameter
+    href: SHARP3D.Parameter.SupportedParameter.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Parameter.SupportedParameter
+    name: SupportedParameter
+    href: SHARP3D.Parameter.SupportedParameter.html
+  - name: (
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.Parameter.C3dParameterHelper.Reset*
+  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.Reset
+  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_Reset
+  name: Reset
+  nameWithType: C3dParameterHelper.Reset
+  fullName: SHARP3D.Parameter.C3dParameterHelper.Reset
+- uid: SHARP3D.Parameter.SupportedParameter
+  commentId: T:SHARP3D.Parameter.SupportedParameter
+  parent: SHARP3D.Parameter
+  href: SHARP3D.Parameter.SupportedParameter.html
+  name: SupportedParameter
+  nameWithType: SupportedParameter
+  fullName: SHARP3D.Parameter.SupportedParameter
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: SHARP3D.Parameter.C3dParameterHelper.LoadJson*
+  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.LoadJson
+  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_LoadJson_System_String_
+  name: LoadJson
+  nameWithType: C3dParameterHelper.LoadJson
+  fullName: SHARP3D.Parameter.C3dParameterHelper.LoadJson
+- uid: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter*
+  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
+  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_GetAllSupportedParameter
+  name: GetAllSupportedParameter
+  nameWithType: C3dParameterHelper.GetAllSupportedParameter
+  fullName: SHARP3D.Parameter.C3dParameterHelper.GetAllSupportedParameter
+- uid: SHARP3D.Parameter.C3dParameterHelper.FromString*
+  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.FromString
+  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_FromString_System_String_System_String_
+  name: FromString
+  nameWithType: C3dParameterHelper.FromString
+  fullName: SHARP3D.Parameter.C3dParameterHelper.FromString
+- uid: SHARP3D.Parameter.Data.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.Data.C3dParameterGroup
+  parent: SHARP3D.Parameter.Data
+  href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  name: C3dParameterGroup
+  nameWithType: C3dParameterGroup
+  fullName: SHARP3D.Parameter.Data.C3dParameterGroup
+- uid: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams*
+  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams
+  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_ParametersFromFileStreams_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_System_Int32_System_Int32_
+  name: ParametersFromFileStreams
+  nameWithType: C3dParameterHelper.ParametersFromFileStreams
+  fullName: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dParameterGroup>
+  nameWithType: List<C3dParameterGroup>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.Data.C3dParameterGroup>
+  nameWithType.vb: List(Of C3dParameterGroup)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.Data.C3dParameterGroup)
+  name.vb: List(Of C3dParameterGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - name: )
+- uid: SHARP3D.Parameter.Data
+  commentId: N:SHARP3D.Parameter.Data
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.Data
+  nameWithType: SHARP3D.Parameter.Data
+  fullName: SHARP3D.Parameter.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.Data
+    name: Data
+    href: SHARP3D.Parameter.Data.html
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

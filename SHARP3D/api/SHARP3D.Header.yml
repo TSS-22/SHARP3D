@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Header
+  commentId: N:SHARP3D.Header
+  id: SHARP3D.Header
+  children:
+  - SHARP3D.Header.C3dHeader
+  - SHARP3D.Header.C3dHeaderEvent
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Header
+  nameWithType: SHARP3D.Header
+  fullName: SHARP3D.Header
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Header.C3dHeader
+  commentId: T:SHARP3D.Header.C3dHeader
+  parent: SHARP3D.Header
+  href: SHARP3D.Header.C3dHeader.html
+  name: C3dHeader
+  nameWithType: C3dHeader
+  fullName: SHARP3D.Header.C3dHeader
+- uid: SHARP3D.Header.C3dHeaderEvent
+  commentId: T:SHARP3D.Header.C3dHeaderEvent
+  parent: SHARP3D.Header
+  href: SHARP3D.Header.C3dHeaderEvent.html
+  name: C3dHeaderEvent
+  nameWithType: C3dHeaderEvent
+  fullName: SHARP3D.Header.C3dHeaderEvent
+- uid: SHARP3D.Header
+  commentId: N:SHARP3D.Header
+  href: SHARP3D.html
+  name: SHARP3D.Header
+  nameWithType: SHARP3D.Header
+  fullName: SHARP3D.Header
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html

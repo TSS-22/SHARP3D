@@ -1,0 +1,294 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  id: ProcessorType
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.ProcessorType.DEC
+  - SHARP3D.Utils.Enum.ProcessorType.INTEL
+  - SHARP3D.Utils.Enum.ProcessorType.SIG_MIPS
+  - SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  langs:
+  - csharp
+  - vb
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ProcessorType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ProcessorType
+    path: SHARP3D/Utils/Enum/ProcessorType.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: <p>This structure index the different processor types used to create C3D files.</p>
+  example: []
+  syntax:
+    content: 'public enum ProcessorType : byte'
+    content.vb: Public Enum ProcessorType As Byte
+  extensionMethods:
+  - SHARP3D.Utils.Enum.ProcessorType.SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte
+  - SHARP3D.Utils.Enum.ProcessorType.SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt
+- uid: SHARP3D.Utils.Enum.ProcessorType.INTEL
+  commentId: F:SHARP3D.Utils.Enum.ProcessorType.INTEL
+  id: INTEL
+  parent: SHARP3D.Utils.Enum.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: INTEL
+  nameWithType: ProcessorType.INTEL
+  fullName: SHARP3D.Utils.Enum.ProcessorType.INTEL
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ProcessorType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: INTEL
+    path: SHARP3D/Utils/Enum/ProcessorType.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents the INTEL vendor with an associated value of 84.
+  example: []
+  syntax:
+    content: INTEL = 84
+    return:
+      type: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Utils.Enum.ProcessorType.DEC
+  commentId: F:SHARP3D.Utils.Enum.ProcessorType.DEC
+  id: DEC
+  parent: SHARP3D.Utils.Enum.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: DEC
+  nameWithType: ProcessorType.DEC
+  fullName: SHARP3D.Utils.Enum.ProcessorType.DEC
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ProcessorType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DEC
+    path: SHARP3D/Utils/Enum/ProcessorType.cs
+    startLine: 14
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents the DEC opcode with a value of 85.
+  example: []
+  syntax:
+    content: DEC = 85
+    return:
+      type: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Utils.Enum.ProcessorType.SIG_MIPS
+  commentId: F:SHARP3D.Utils.Enum.ProcessorType.SIG_MIPS
+  id: SIG_MIPS
+  parent: SHARP3D.Utils.Enum.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: SIG_MIPS
+  nameWithType: ProcessorType.SIG_MIPS
+  fullName: SHARP3D.Utils.Enum.ProcessorType.SIG_MIPS
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ProcessorType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SIG_MIPS
+    path: SHARP3D/Utils/Enum/ProcessorType.cs
+    startLine: 18
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Specifies the signature type for MIPS architecture.
+  example: []
+  syntax:
+    content: SIG_MIPS = 86
+    return:
+      type: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  id: UNKOWN
+  parent: SHARP3D.Utils.Enum.ProcessorType
+  langs:
+  - csharp
+  - vb
+  name: UNKOWN
+  nameWithType: ProcessorType.UNKOWN
+  fullName: SHARP3D.Utils.Enum.ProcessorType.UNKOWN
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ProcessorType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNKOWN
+    path: SHARP3D/Utils/Enum/ProcessorType.cs
+    startLine: 22
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Represents an unknown value with a numeric value of 255.
+  example: []
+  syntax:
+    content: UNKOWN = 255
+    return:
+      type: SHARP3D.Utils.Enum.ProcessorType
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.ProcessorType.SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte
+  commentId: M:SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.Enum.ProcessorTypeHelper
+  definition: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  name: ToByte(ProcessorType)
+  nameWithType: ProcessorTypeHelper.ToByte(ProcessorType)
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToByte
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToByte
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+- uid: SHARP3D.Utils.Enum.ProcessorType.SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt
+  commentId: M:SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Utils.Enum.ProcessorTypeHelper
+  definition: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  name: ToInt(ProcessorType)
+  nameWithType: ProcessorTypeHelper.ToInt(ProcessorType)
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToInt
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToInt
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+- uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  name: ToByte(ProcessorType)
+  nameWithType: ProcessorTypeHelper.ToByte(ProcessorType)
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToByte
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToByte(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToByte
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToByte_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+- uid: SHARP3D.Utils.Enum.ProcessorTypeHelper
+  commentId: T:SHARP3D.Utils.Enum.ProcessorTypeHelper
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html
+  name: ProcessorTypeHelper
+  nameWithType: ProcessorTypeHelper
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper
+- uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  name: ToInt(ProcessorType)
+  nameWithType: ProcessorTypeHelper.ToInt(ProcessorType)
+  fullName: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+  spec.csharp:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToInt
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+  spec.vb:
+  - uid: SHARP3D.Utils.Enum.ProcessorTypeHelper.ToInt(SHARP3D.Utils.Enum.ProcessorType)
+    name: ToInt
+    href: SHARP3D.Utils.Enum.ProcessorTypeHelper.html#SHARP3D_Utils_Enum_ProcessorTypeHelper_ToInt_SHARP3D_Utils_Enum_ProcessorType_
+  - name: (
+  - uid: SHARP3D.Utils.Enum.ProcessorType
+    name: ProcessorType
+    href: SHARP3D.Utils.Enum.ProcessorType.html
+  - name: )
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType

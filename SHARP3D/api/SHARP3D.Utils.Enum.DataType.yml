@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  id: DataType
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.DataType.BYTE
+  - SHARP3D.Utils.Enum.DataType.CHAR
+  - SHARP3D.Utils.Enum.DataType.FLOAT32
+  - SHARP3D.Utils.Enum.DataType.INT16
+  - SHARP3D.Utils.Enum.DataType.UINT16
+  langs:
+  - csharp
+  - vb
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataType
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Specifies the data types used in C3D files for parameter and data storage.
+  remarks: The integer values correspond to the byte size of each data type, with CHAR being a special case.
+  example: []
+  syntax:
+    content: public enum DataType
+    content.vb: Public Enum DataType
+- uid: SHARP3D.Utils.Enum.DataType.CHAR
+  commentId: F:SHARP3D.Utils.Enum.DataType.CHAR
+  id: CHAR
+  parent: SHARP3D.Utils.Enum.DataType
+  langs:
+  - csharp
+  - vb
+  name: CHAR
+  nameWithType: DataType.CHAR
+  fullName: SHARP3D.Utils.Enum.DataType.CHAR
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: CHAR
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Character data type, represented as a special case with value -1.
+  example: []
+  syntax:
+    content: CHAR = -1
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum.DataType.BYTE
+  commentId: F:SHARP3D.Utils.Enum.DataType.BYTE
+  id: BYTE
+  parent: SHARP3D.Utils.Enum.DataType
+  langs:
+  - csharp
+  - vb
+  name: BYTE
+  nameWithType: DataType.BYTE
+  fullName: SHARP3D.Utils.Enum.DataType.BYTE
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: BYTE
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 18
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: 1-byte unsigned integer data type.
+  example: []
+  syntax:
+    content: BYTE = 1
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum.DataType.INT16
+  commentId: F:SHARP3D.Utils.Enum.DataType.INT16
+  id: INT16
+  parent: SHARP3D.Utils.Enum.DataType
+  langs:
+  - csharp
+  - vb
+  name: INT16
+  nameWithType: DataType.INT16
+  fullName: SHARP3D.Utils.Enum.DataType.INT16
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: INT16
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 23
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: 2-byte signed integer data type.
+  example: []
+  syntax:
+    content: INT16 = 2
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum.DataType.FLOAT32
+  commentId: F:SHARP3D.Utils.Enum.DataType.FLOAT32
+  id: FLOAT32
+  parent: SHARP3D.Utils.Enum.DataType
+  langs:
+  - csharp
+  - vb
+  name: FLOAT32
+  nameWithType: DataType.FLOAT32
+  fullName: SHARP3D.Utils.Enum.DataType.FLOAT32
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FLOAT32
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 28
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: 4-byte floating-point data type.
+  example: []
+  syntax:
+    content: FLOAT32 = 4
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+- uid: SHARP3D.Utils.Enum.DataType.UINT16
+  commentId: F:SHARP3D.Utils.Enum.DataType.UINT16
+  id: UINT16
+  parent: SHARP3D.Utils.Enum.DataType
+  langs:
+  - csharp
+  - vb
+  name: UINT16
+  nameWithType: DataType.UINT16
+  fullName: SHARP3D.Utils.Enum.DataType.UINT16
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ParameterDataType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UINT16
+    path: SHARP3D/Utils/Enum/ParameterDataType.cs
+    startLine: 33
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: 2-byte unsigned integer data type.
+  example: []
+  syntax:
+    content: UINT16 = -2
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType

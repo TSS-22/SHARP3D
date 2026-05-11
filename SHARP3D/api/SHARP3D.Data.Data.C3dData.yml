@@ -1,0 +1,916 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.Data.C3dData
+  commentId: T:SHARP3D.Data.Data.C3dData
+  id: C3dData
+  parent: SHARP3D.Data.Data
+  children:
+  - SHARP3D.Data.Data.C3dData.Analogs
+  - SHARP3D.Data.Data.C3dData.Equals(SHARP3D.Data.Data.C3dData)
+  - SHARP3D.Data.Data.C3dData.Equals(System.Object)
+  - SHARP3D.Data.Data.C3dData.GetHashCode
+  - SHARP3D.Data.Data.C3dData.Points
+  - SHARP3D.Data.Data.C3dData.op_Equality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  - SHARP3D.Data.Data.C3dData.op_Inequality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  langs:
+  - csharp
+  - vb
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Data.C3dData
+  type: Struct
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dData
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 19
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Represents 3D data in a C3D file, including points and analog data.
+  remarks: >-
+    <p>
+
+    This struct stores 3D point data and analog data as lists of arrays.
+
+    </p>
+
+    <p>
+
+    <strong>Points:</strong> A list of <xref href="SHARP3D.Data.Data.C3dDataPoint" data-throw-if-not-resolved="false"></xref> arrays, where each array represents a frame of 3D points.
+
+    </p>
+
+    <p>
+
+    <strong>Analogs:</strong> A list of 2D float arrays, where each array represents a frame of analog data.
+
+    </p>
+
+    <p>
+
+    <strong>Equality:</strong> Two <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instances are considered equal if their <xref href="SHARP3D.Data.Data.C3dData.Points" data-throw-if-not-resolved="false"></xref> and <xref href="SHARP3D.Data.Data.C3dData.Analogs" data-throw-if-not-resolved="false"></xref> fields are equal.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public struct C3dData : IEquatable<C3dData>'
+    content.vb: Public Structure C3dData Implements IEquatable(Of C3dData)
+  implements:
+  - System.IEquatable{SHARP3D.Data.Data.C3dData}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SHARP3D.Data.Data.C3dData.Points
+  commentId: F:SHARP3D.Data.Data.C3dData.Points
+  id: Points
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: C3dData.Points
+  fullName: SHARP3D.Data.Data.C3dData.Points
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Points
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 29
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets or sets a list of 3D point arrays, where each array represents a frame of 3D points.
+  remarks: 'TODO: Add resolutions of the points.'
+  example: []
+  syntax:
+    content: public List<C3dDataPoint[]> Points
+    return:
+      type: System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]}
+    content.vb: Public Points As List(Of C3dDataPoint())
+- uid: SHARP3D.Data.Data.C3dData.Analogs
+  commentId: F:SHARP3D.Data.Data.C3dData.Analogs
+  id: Analogs
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Analogs
+  nameWithType: C3dData.Analogs
+  fullName: SHARP3D.Data.Data.C3dData.Analogs
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Analogs
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 36
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets or sets a list of 2D float arrays, where each array represents a frame of analog data.
+  example: []
+  syntax:
+    content: public List<float[][]> Analogs
+    return:
+      type: System.Collections.Generic.List{System.Single[][]}
+    content.vb: Public Analogs As List(Of Single()())
+- uid: SHARP3D.Data.Data.C3dData.Equals(SHARP3D.Data.Data.C3dData)
+  commentId: M:SHARP3D.Data.Data.C3dData.Equals(SHARP3D.Data.Data.C3dData)
+  id: Equals(SHARP3D.Data.Data.C3dData)
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Equals(C3dData)
+  nameWithType: C3dData.Equals(C3dData)
+  fullName: SHARP3D.Data.Data.C3dData.Equals(SHARP3D.Data.Data.C3dData)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 47
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Determines whether the current <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance is equal to another <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public bool Equals(C3dData other)
+    parameters:
+    - id: other
+      type: SHARP3D.Data.Data.C3dData
+      description: The <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current instance is equal to the <code class="paramref">other</code> parameter; otherwise, <code>false</code>.
+    content.vb: Public Function Equals(other As C3dData) As Boolean
+  overload: SHARP3D.Data.Data.C3dData.Equals*
+  implements:
+  - System.IEquatable{SHARP3D.Data.Data.C3dData}.Equals(SHARP3D.Data.Data.C3dData)
+- uid: SHARP3D.Data.Data.C3dData.Equals(System.Object)
+  commentId: M:SHARP3D.Data.Data.C3dData.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: C3dData.Equals(object)
+  fullName: SHARP3D.Data.Data.C3dData.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 118
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Determines whether the current <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance is equal to a specified object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current instance is equal to the <code class="paramref">obj</code> parameter; otherwise, <code>false</code>.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: SHARP3D.Data.Data.C3dData.Equals*
+  nameWithType.vb: C3dData.Equals(Object)
+  fullName.vb: SHARP3D.Data.Data.C3dData.Equals(Object)
+  name.vb: Equals(Object)
+- uid: SHARP3D.Data.Data.C3dData.GetHashCode
+  commentId: M:SHARP3D.Data.Data.C3dData.GetHashCode
+  id: GetHashCode
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: C3dData.GetHashCode()
+  fullName: SHARP3D.Data.Data.C3dData.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetHashCode
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 127
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Returns the hash code for this instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer that is the hash code for this instance.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: SHARP3D.Data.Data.C3dData.GetHashCode*
+- uid: SHARP3D.Data.Data.C3dData.op_Equality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  commentId: M:SHARP3D.Data.Data.C3dData.op_Equality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  id: op_Equality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: operator ==(C3dData, C3dData)
+  nameWithType: C3dData.operator ==(C3dData, C3dData)
+  fullName: SHARP3D.Data.Data.C3dData.operator ==(SHARP3D.Data.Data.C3dData, SHARP3D.Data.Data.C3dData)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Equality
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 177
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Determines whether two specified <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(C3dData left, C3dData right)
+    parameters:
+    - id: left
+      type: SHARP3D.Data.Data.C3dData
+      description: The first <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Data.Data.C3dData
+      description: The second <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are equal; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator =(left As C3dData, right As C3dData) As Boolean
+  overload: SHARP3D.Data.Data.C3dData.op_Equality*
+  nameWithType.vb: C3dData.=(C3dData, C3dData)
+  fullName.vb: SHARP3D.Data.Data.C3dData.=(SHARP3D.Data.Data.C3dData, SHARP3D.Data.Data.C3dData)
+  name.vb: =(C3dData, C3dData)
+- uid: SHARP3D.Data.Data.C3dData.op_Inequality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  commentId: M:SHARP3D.Data.Data.C3dData.op_Inequality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  id: op_Inequality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)
+  parent: SHARP3D.Data.Data.C3dData
+  langs:
+  - csharp
+  - vb
+  name: operator !=(C3dData, C3dData)
+  nameWithType: C3dData.operator !=(C3dData, C3dData)
+  fullName: SHARP3D.Data.Data.C3dData.operator !=(SHARP3D.Data.Data.C3dData, SHARP3D.Data.Data.C3dData)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Inequality
+    path: SHARP3D/Data/Data/C3dData.cs
+    startLine: 190
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Determines whether two specified <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(C3dData left, C3dData right)
+    parameters:
+    - id: left
+      type: SHARP3D.Data.Data.C3dData
+      description: The first <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Data.Data.C3dData
+      description: The second <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are not equal; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator <>(left As C3dData, right As C3dData) As Boolean
+  overload: SHARP3D.Data.Data.C3dData.op_Inequality*
+  nameWithType.vb: C3dData.<>(C3dData, C3dData)
+  fullName.vb: SHARP3D.Data.Data.C3dData.<>(SHARP3D.Data.Data.C3dData, SHARP3D.Data.Data.C3dData)
+  name.vb: <>(C3dData, C3dData)
+references:
+- uid: SHARP3D.Data.Data.C3dDataPoint
+  commentId: T:SHARP3D.Data.Data.C3dDataPoint
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dDataPoint.html
+  name: C3dDataPoint
+  nameWithType: C3dDataPoint
+  fullName: SHARP3D.Data.Data.C3dDataPoint
+- uid: SHARP3D.Data.Data.C3dData
+  commentId: T:SHARP3D.Data.Data.C3dData
+  parent: SHARP3D.Data.Data
+  href: SHARP3D.Data.Data.C3dData.html
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Data.C3dData
+- uid: SHARP3D.Data.Data.C3dData.Points
+  commentId: F:SHARP3D.Data.Data.C3dData.Points
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_Points
+  name: Points
+  nameWithType: C3dData.Points
+  fullName: SHARP3D.Data.Data.C3dData.Points
+- uid: SHARP3D.Data.Data.C3dData.Analogs
+  commentId: F:SHARP3D.Data.Data.C3dData.Analogs
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_Analogs
+  name: Analogs
+  nameWithType: C3dData.Analogs
+  fullName: SHARP3D.Data.Data.C3dData.Analogs
+- uid: SHARP3D.Data.Data
+  commentId: N:SHARP3D.Data.Data
+  href: SHARP3D.html
+  name: SHARP3D.Data.Data
+  nameWithType: SHARP3D.Data.Data
+  fullName: SHARP3D.Data.Data
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Data
+    name: Data
+    href: SHARP3D.Data.Data.html
+- uid: System.IEquatable{SHARP3D.Data.Data.C3dData}
+  commentId: T:System.IEquatable{SHARP3D.Data.Data.C3dData}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<C3dData>
+  nameWithType: IEquatable<C3dData>
+  fullName: System.IEquatable<SHARP3D.Data.Data.C3dData>
+  nameWithType.vb: IEquatable(Of C3dData)
+  fullName.vb: System.IEquatable(Of SHARP3D.Data.Data.C3dData)
+  name.vb: IEquatable(Of C3dData)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SHARP3D.Data.Data.C3dData
+    name: C3dData
+    href: SHARP3D.Data.Data.C3dData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Data.Data.C3dData
+    name: C3dData
+    href: SHARP3D.Data.Data.C3dData.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dDataPoint[]>
+  nameWithType: List<C3dDataPoint[]>
+  fullName: System.Collections.Generic.List<SHARP3D.Data.Data.C3dDataPoint[]>
+  nameWithType.vb: List(Of C3dDataPoint())
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Data.Data.C3dDataPoint())
+  name.vb: List(Of C3dDataPoint())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Data.Data.C3dDataPoint
+    name: C3dDataPoint
+    href: SHARP3D.Data.Data.C3dDataPoint.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Data.Data.C3dDataPoint
+    name: C3dDataPoint
+    href: SHARP3D.Data.Data.C3dDataPoint.html
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.List{System.Single[][]}
+  commentId: T:System.Collections.Generic.List{System.Single[][]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<float[][]>
+  nameWithType: List<float[][]>
+  fullName: System.Collections.Generic.List<float[][]>
+  nameWithType.vb: List(Of Single()())
+  fullName.vb: System.Collections.Generic.List(Of Single()())
+  name.vb: List(Of Single()())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.Data.Data.C3dData.Equals*
+  commentId: Overload:SHARP3D.Data.Data.C3dData.Equals
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_Equals_SHARP3D_Data_Data_C3dData_
+  name: Equals
+  nameWithType: C3dData.Equals
+  fullName: SHARP3D.Data.Data.C3dData.Equals
+- uid: System.IEquatable{SHARP3D.Data.Data.C3dData}.Equals(SHARP3D.Data.Data.C3dData)
+  commentId: M:System.IEquatable{SHARP3D.Data.Data.C3dData}.Equals(SHARP3D.Data.Data.C3dData)
+  parent: System.IEquatable{SHARP3D.Data.Data.C3dData}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(C3dData)
+  nameWithType: IEquatable<C3dData>.Equals(C3dData)
+  fullName: System.IEquatable<SHARP3D.Data.Data.C3dData>.Equals(SHARP3D.Data.Data.C3dData)
+  nameWithType.vb: IEquatable(Of C3dData).Equals(C3dData)
+  fullName.vb: System.IEquatable(Of SHARP3D.Data.Data.C3dData).Equals(SHARP3D.Data.Data.C3dData)
+  spec.csharp:
+  - uid: System.IEquatable{SHARP3D.Data.Data.C3dData}.Equals(SHARP3D.Data.Data.C3dData)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Data.Data.C3dData
+    name: C3dData
+    href: SHARP3D.Data.Data.C3dData.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{SHARP3D.Data.Data.C3dData}.Equals(SHARP3D.Data.Data.C3dData)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Data.Data.C3dData
+    name: C3dData
+    href: SHARP3D.Data.Data.C3dData.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Data.C3dData.GetHashCode*
+  commentId: Overload:SHARP3D.Data.Data.C3dData.GetHashCode
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_GetHashCode
+  name: GetHashCode
+  nameWithType: C3dData.GetHashCode
+  fullName: SHARP3D.Data.Data.C3dData.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Data.Data.C3dData.op_Equality*
+  commentId: Overload:SHARP3D.Data.Data.C3dData.op_Equality
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_op_Equality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_
+  name: operator ==
+  nameWithType: C3dData.operator ==
+  fullName: SHARP3D.Data.Data.C3dData.operator ==
+  nameWithType.vb: C3dData.=
+  fullName.vb: SHARP3D.Data.Data.C3dData.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Data.Data.C3dData.op_Equality*
+    name: ==
+    href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_op_Equality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_
+- uid: SHARP3D.Data.Data.C3dData.op_Inequality*
+  commentId: Overload:SHARP3D.Data.Data.C3dData.op_Inequality
+  href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_op_Inequality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_
+  name: operator !=
+  nameWithType: C3dData.operator !=
+  fullName: SHARP3D.Data.Data.C3dData.operator !=
+  nameWithType.vb: C3dData.<>
+  fullName.vb: SHARP3D.Data.Data.C3dData.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Data.Data.C3dData.op_Inequality*
+    name: '!='
+    href: SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_op_Inequality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_

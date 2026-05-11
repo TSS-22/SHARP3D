@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils
+  commentId: N:SHARP3D.Utils
+  id: SHARP3D.Utils
+  children:
+  - SHARP3D.Utils.C3dBytesConvertor
+  - SHARP3D.Utils.Fortran
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Utils
+  nameWithType: SHARP3D.Utils
+  fullName: SHARP3D.Utils
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Utils.C3dBytesConvertor
+  commentId: T:SHARP3D.Utils.C3dBytesConvertor
+  href: SHARP3D.Utils.C3dBytesConvertor.html
+  name: C3dBytesConvertor
+  nameWithType: C3dBytesConvertor
+  fullName: SHARP3D.Utils.C3dBytesConvertor
+- uid: SHARP3D.Utils.Fortran
+  commentId: T:SHARP3D.Utils.Fortran
+  href: SHARP3D.Utils.Fortran.html
+  name: Fortran
+  nameWithType: Fortran
+  fullName: SHARP3D.Utils.Fortran
