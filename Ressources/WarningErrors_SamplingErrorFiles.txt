@@ -1,0 +1,12 @@
+WARNING: the file does not contains enough data for the expected frame number. It is missing 1 frames.
+WARNING: the file does not contains enough data for the expected frame number. It is missing 1 frames.
+WARNING: the file does not contains enough data for the expected frame number. It is missing 1 frames.
+WARNING: the file does not contains enough data for the expected frame number. It is missing 1 frames.
+Error reading file: C:\Users\hfm\Documents\GitHub\SHARP3D\SHARP3D\SHARP3D.Test\SampleErrorFiles\Sample18\bad_parameter_section.c3d. Exception: Arithmetic operation resulted in an overflow.
+Group ANALOG not found. Cannot create ANALOG:FORMAT parameter. Defaulting to "SIGNED" behavior.
+Exception details: Sequence contains no matching element
+Error reading file: C:\Users\hfm\Documents\GitHub\SHARP3D\SHARP3D\SHARP3D.Test\SampleErrorFiles\Sample20\phasespace_sample.c3d. Exception: The combination "POINT":"FRAMES" don't exist.
+Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to "SIGNED" behavior.
+
+C:\Users\hfm\Documents\GitHub\SHARP3D\SHARP3D\SHARP3D.Explorer\bin\Debug\net8.0\SHARP3D.Explorer.exe (process 14896) exited with code 0 (0x0).
+Press any key to close this window . . .

@@ -185,11 +185,11 @@ namespace SHARP3D.Data
                 float floatCamSignResidual = C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
                 if (floatCamSignResidual > 32768)
                 {
-                    Console.WriteLine("WARNING: Camera mask and Residual Float32 value was above the signed limit of Int16 format.");
+                    // Console.WriteLine("WARNING: Camera mask and Residual Float32 value was above the signed limit of Int16 format.");
                 }
                 if (floatCamSignResidual > 65536)
                 {
-                    Console.WriteLine("WARNING: Camera mask and Residual Float32 value overflowed the Int16 format.");
+                    // Console.WriteLine("WARNING: Camera mask and Residual Float32 value overflowed the Int16 format.");
                 }
                 byte[] intCamSignResidual = BitConverter.GetBytes((Int16)floatCamSignResidual);
                 byte camAndSign = intCamSignResidual[0];
