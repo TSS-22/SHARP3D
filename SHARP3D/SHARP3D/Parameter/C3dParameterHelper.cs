@@ -33,6 +33,9 @@ namespace SHARP3D.Parameter
             List<C3dParameterGroup> groups = new List<C3dParameterGroup> { };
             List<C3dParameter> parameters = new List<C3dParameter> { };
 
+            // TO CLEAN
+            //string filePathParameterSave = @"C:\Users\hfm\Documents\GitHub\SHARP3D\Ressources\parameters.csv";
+
             // Get all the Groups and Parameters
             int pointerToNextStruct = 0;
             // TODO: WTF AM I SUPPOSE TO WITH THE PARAMETER AS THEY DON'T FOLLOW THE RULE FOR ENDING.
@@ -54,6 +57,10 @@ namespace SHARP3D.Parameter
                 byte[] nameBuffer = new byte[Math.Abs((int)nameLength)];
                 c3dStream.ReadExactly(nameBuffer);
                 string name = Encoding.ASCII.GetString(nameBuffer).TrimEnd('\0');
+
+                // TO CLEAN
+                //File.AppendAllText(filePathParameterSave, name + Environment.NewLine);
+
                 byte[] pointerBuffer = new byte[2];
                 c3dStream.ReadExactly(pointerBuffer);
                 pointerToNextStruct = C3dBytesConvertor.ToUInt(pointerBuffer, processorFile);
