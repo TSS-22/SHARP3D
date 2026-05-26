@@ -18,17 +18,17 @@
         - name: POINT
           items:
             - name: POINT:USED
-              href: parameters/required/point-used.md
+              href: parameters/required/point/point-used.md
             - name: POINT:RATE
-              href: parameters/required/point-rate.md
+              href: parameters/required/point/point-rate.md
             - name: POINT:SCALE_FACTOR
-              href: parameters/required/point-scale_factor.md
+              href: parameters/required/point/point-scale_factor.md
         - name: ANALOG
           items:
             - name: ANALOG:SCALE
-              href: parameters/required/analog-scale.md
+              href: parameters/required/analog/analog-scale.md
             - name: ANALOG:FORMAT
-              href: parameters/required/analog-format.md
+              href: parameters/required/analog/analog-format.md
 - name: Data Section
   href: data/c3d-data-section.md
   items:

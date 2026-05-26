@@ -50,7 +50,7 @@ The second byte in the C3D file is an identification allowing applications to ve
 
 ### Word 2: Number of 3D Markers/Trajectories per Data Frame
 
-It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the [POINT:USED parameter](./parameters/required/point-used.md). 
+It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the [POINT:USED parameter](./parameters/required/point/point-used.md). 
 
 ### Word 3: Total Number of Analog Samples per Data Frames
 
@@ -93,7 +93,7 @@ Any application reading the C3D file may override this value and interpolate gap
 
 ### Word 7-8: 3D Sacle Factor
 
-It contain the [3D Scale Factor](./parameters/required/point-scale_factor.md) value.
+It contain the [3D Scale Factor](./parameters/required/point/point-scale_factor.md) value.
 
 This parameter is required when 3D data values are stored using the standard signed integer format because it is used to scale each of the stored 3D point and residual values from signed integer values to physical world values.
 
@@ -101,7 +101,7 @@ When 3D data is stored as scaled floating-point values, it is used to scale the 
 
 > Always calculate a valid 3D scale factor.
 
-The sign of the [3D Scale Factor](./parameters/required/point-scale_factor.md) is used to determine the 3D point and analog data storage format: 
+The sign of the [3D Scale Factor](./parameters/required/point/point-scale_factor.md) is used to determine the 3D point and analog data storage format: 
 - Negative Scale Factor: Float32
 - Positive Scale Factor: Int16
 
@@ -120,7 +120,7 @@ If the C3D file does not contain any analog data then the value of Word 10 will 
 
 ### Word 11-12: 3D Point Data Acquisition Rate
 
-It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  [POINT:RATE Parameter](./parameters/required/point-rate.md). 
+It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  [POINT:RATE Parameter](./parameters/required/point/point-rate.md). 
 
 The 3D frame rate parameter is a floating-point value, making it possible to accurately record the 3D frame rate for video based
 sampling systems
