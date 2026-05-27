@@ -1,6 +1,6 @@
 # ANALOG:FORMAT
 
-- **Type**: Required ([see disclaimer](#disclaimer))
+- **Type**: [Required](../../required.md) ([see disclaimer](#disclaimer))
 
 - **Locked**: True
 

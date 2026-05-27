@@ -1,6 +1,6 @@
 # POINT:DATA_START
 
-- **Type**: Required
+- **Type**: [Required](../../required.md)
 
 - **Locked**: True
 

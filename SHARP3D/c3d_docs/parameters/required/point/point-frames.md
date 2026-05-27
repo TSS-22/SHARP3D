@@ -1,6 +1,6 @@
 # POINT:FRAMES
 
-- **Type**: Required
+- **Type**: [Required](../../required.md)
 
 - **Locked**: True
 

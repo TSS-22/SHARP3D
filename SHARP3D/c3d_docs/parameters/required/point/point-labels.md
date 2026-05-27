@@ -1,6 +1,6 @@
 # POINT:LABELS
 
-- **Type**: Required
+- **Type**: [Required](../../required.md)
 
 - **Locked**: False
 
@@ -22,7 +22,7 @@ Individual labels must always be unique to identify each point in the file but t
 
 > Labels must descriptive but not a description.
 
-Note that a C3D file may contain more or less than the number of trajectories described by this parameter.  The parameter [POINT:USED](./point-used.md) determine the actual number of trajectories stored in the 3D Point data section. If the C3D file contains more trajectories than are described by POINT:LABELS parameters, then the additional trajectories must be either referenced by number or can be defined by creating additional POINT:LABELS. Those additional POINT:LABELS parameters must be named POINT:LABELSX, X being an integer from 2 onward. For example POINT:LABELS2 and POINT:LABELS3, each supporting up to an additional 255 labels. These new POINT:LABELS parameters must still name trajectories in regard to their index in the [POINT:USED](./point-used.md) parameter.
+Note that a C3D file may contain more or less than the number of trajectories described by this parameter.  The parameter [POINT:USED](./point-used.md) determine the actual number of trajectories stored in the 3D Point data section. If the C3D file contains more trajectories than are described by POINT:LABELS parameters, then the additional trajectories must be either referenced by number or can be defined by creating additional POINT:LABELS. Those additional POINT:LABELS parameters must be named POINT:LABELSX, X being an integer from 2 to 255. For example POINT:LABELS2 and POINT:LABELS3, up to POINT:LABELS255. These new POINT:LABELS parameters must still name trajectories in regard to their index in the [POINT:USED](./point-used.md) parameter.
 
 > 3D data points are stored in the [3D Point data section](../../../data/3d-point.md) in the same order recorded in the POINT:LABELS parameter.
 
