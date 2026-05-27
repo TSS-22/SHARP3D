@@ -4,6 +4,7 @@ items:
   commentId: N:SHARP3D.Utils.Enum
   id: SHARP3D.Utils.Enum
   children:
+  - SHARP3D.Utils.Enum.AnalogFormatFlag
   - SHARP3D.Utils.Enum.DataType
   - SHARP3D.Utils.Enum.HeaderEventFlag
   - SHARP3D.Utils.Enum.HeaderEventFlagHelper
@@ -21,6 +22,13 @@ items:
   assemblies:
   - SHARP3D
 references:
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.AnalogFormatFlag.html
+  name: AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
 - uid: SHARP3D.Utils.Enum.HeaderEventFlag
   commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
   parent: SHARP3D.Utils.Enum

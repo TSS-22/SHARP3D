@@ -235,7 +235,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToBytes
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 89
+    startLine: 87
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -279,7 +279,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToInt
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 142
+    startLine: 138
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -323,7 +323,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToUInt
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 189
+    startLine: 183
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -374,7 +374,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToFloat
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 235
+    startLine: 227
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -421,7 +421,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: LittleEndianFloatAsUInt32
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 287
+    startLine: 277
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -462,7 +462,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: LittleEndianFloatToVaxFloatByte
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 298
+    startLine: 288
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -500,7 +500,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: BigEndianFloatAsUInt32
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 340
+    startLine: 330
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -538,7 +538,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: BigEndianFloatToVaxF
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 352
+    startLine: 341
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -576,7 +576,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: UInt32AsLittleEndianFloat
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 395
+    startLine: 384
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -617,7 +617,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: VaxFToLittleEndianFloat
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 407
+    startLine: 396
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -659,7 +659,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: UInt32AsBigEndianFloat
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 446
+    startLine: 435
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
@@ -697,7 +697,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: VaxFToBigEndianFloat
     path: SHARP3D/Utils/C3dBytesConvertor.cs
-    startLine: 459
+    startLine: 447
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils

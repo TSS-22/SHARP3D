@@ -263,7 +263,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ReadDataFrameFloat32
     path: SHARP3D/Data/C3dDataHelper.cs
-    startLine: 154
+    startLine: 163
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Data
@@ -298,7 +298,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: IsRaw
     path: SHARP3D/Data/C3dDataHelper.cs
-    startLine: 213
+    startLine: 232
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Data
@@ -339,7 +339,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: IsValid
     path: SHARP3D/Data/C3dDataHelper.cs
-    startLine: 236
+    startLine: 255
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Data
@@ -387,7 +387,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetCameraMask
     path: SHARP3D/Data/C3dDataHelper.cs
-    startLine: 250
+    startLine: 269
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Data

@@ -19,7 +19,6 @@ items:
   - SHARP3D.Parameter.Data.C3dParameter.NameLength
   - SHARP3D.Parameter.Data.C3dParameter.NbOfDimensions
   - SHARP3D.Parameter.Data.C3dParameter.PointerNextParameterStruct
-  - SHARP3D.Parameter.Data.C3dParameter.Supported
   - SHARP3D.Parameter.Data.C3dParameter.op_Equality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
   - SHARP3D.Parameter.Data.C3dParameter.op_Inequality(SHARP3D.Parameter.Data.C3dParameter,SHARP3D.Parameter.Data.C3dParameter)
   langs:
@@ -498,35 +497,6 @@ items:
     return:
       type: System.Boolean
     content.vb: Public Locked As Boolean
-- uid: SHARP3D.Parameter.Data.C3dParameter.Supported
-  commentId: F:SHARP3D.Parameter.Data.C3dParameter.Supported
-  id: Supported
-  parent: SHARP3D.Parameter.Data.C3dParameter
-  langs:
-  - csharp
-  - vb
-  name: Supported
-  nameWithType: C3dParameter.Supported
-  fullName: SHARP3D.Parameter.Data.C3dParameter.Supported
-  type: Field
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/Parameter/Data/C3dParameter.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: Supported
-    path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 136
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D.Parameter.Data
-  summary: Indicates whether the parameter is supported.
-  example: []
-  syntax:
-    content: public SupportedParameter Supported
-    return:
-      type: SHARP3D.Parameter.SupportedParameter
-    content.vb: Public Supported As SupportedParameter
 - uid: SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
   commentId: M:SHARP3D.Parameter.Data.C3dParameter.Equals(SHARP3D.Parameter.Data.C3dParameter)
   id: Equals(SHARP3D.Parameter.Data.C3dParameter)
@@ -545,7 +515,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Equals
     path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 143
+    startLine: 138
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Parameter.Data
@@ -582,7 +552,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Equals
     path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 200
+    startLine: 194
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Parameter.Data
@@ -621,7 +591,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetHashCode
     path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 205
+    startLine: 199
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Parameter.Data
@@ -653,7 +623,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: op_Equality
     path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 232
+    startLine: 225
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Parameter.Data
@@ -694,7 +664,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: op_Inequality
     path: SHARP3D/Parameter/Data/C3dParameter.cs
-    startLine: 243
+    startLine: 236
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Parameter.Data
@@ -1083,35 +1053,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: SHARP3D.Parameter.SupportedParameter
-  commentId: T:SHARP3D.Parameter.SupportedParameter
-  parent: SHARP3D.Parameter
-  href: SHARP3D.Parameter.SupportedParameter.html
-  name: SupportedParameter
-  nameWithType: SupportedParameter
-  fullName: SHARP3D.Parameter.SupportedParameter
-- uid: SHARP3D.Parameter
-  commentId: N:SHARP3D.Parameter
-  href: SHARP3D.html
-  name: SHARP3D.Parameter
-  nameWithType: SHARP3D.Parameter
-  fullName: SHARP3D.Parameter
-  spec.csharp:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Parameter
-    name: Parameter
-    href: SHARP3D.Parameter.html
-  spec.vb:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Parameter
-    name: Parameter
-    href: SHARP3D.Parameter.html
 - uid: SHARP3D.Parameter.Data.C3dParameter
   commentId: T:SHARP3D.Parameter.Data.C3dParameter
   parent: SHARP3D.Parameter.Data

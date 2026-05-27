@@ -79,7 +79,7 @@ be used to provide some basic information about each group and parameter
 ### POINT
 
 - [POINT:USED](./required/point/point-used.md)
-- [POINT:SCALE](./required/point/point-scale.md)
+- [POINT:SCALE](./required/point/point-scale_factor.md)
 - [POINT:RATE](./required/point/point-rate.md)
 - [POINT:DATA_START](./required/point/point-data_start.md)
 - [POINT:FRAMES](./required/point/point-frames.md)
@@ -102,10 +102,10 @@ be used to provide some basic information about each group and parameter
 
 ### FORCE_PLATFORM
 
-- [FORCE_PLATFORM:USED](./required/force_platform/.md)
-- [FORCE_PLATFORM:TYPE](./required/force_platform/.md)
-- [FORCE_PLATFORM:ZERO](./required/force_platform/.md)
-- [FORCE_PLATFORM:CORNERS](./required/force_platform/.md)
-- [FORCE_PLATFORM:ORIGIN](./required/force_platform/.md)
-- [FORCE_PLATFORM:CHANNEL](./required/force_platform/.md)
+- [FORCE_PLATFORM:USED](./required/force_platform/force_plateform-used.md)
+- [FORCE_PLATFORM:TYPE](./required/force_platform/force_platform-type.md)
+- [FORCE_PLATFORM:ZERO](./required/force_platform/force_plateform-zero.md)
+- [FORCE_PLATFORM:CORNERS](./required/force_platform/force_platform-corners.md)
+- [FORCE_PLATFORM:ORIGIN](./required/force_platform/force_platform-origin.md)
+- [FORCE_PLATFORM:CHANNEL](./required/force_platform/force_plateform-channel.md)
 

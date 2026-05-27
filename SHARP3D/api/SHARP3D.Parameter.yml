@@ -5,8 +5,6 @@ items:
   id: SHARP3D.Parameter
   children:
   - SHARP3D.Parameter.C3dParameterHelper
-  - SHARP3D.Parameter.JsonSupportedParameter
-  - SHARP3D.Parameter.SupportedParameter
   langs:
   - csharp
   - vb
@@ -23,38 +21,3 @@ references:
   name: C3dParameterHelper
   nameWithType: C3dParameterHelper
   fullName: SHARP3D.Parameter.C3dParameterHelper
-- uid: SHARP3D.Parameter.JsonSupportedParameter
-  commentId: T:SHARP3D.Parameter.JsonSupportedParameter
-  href: SHARP3D.Parameter.JsonSupportedParameter.html
-  name: JsonSupportedParameter
-  nameWithType: JsonSupportedParameter
-  fullName: SHARP3D.Parameter.JsonSupportedParameter
-- uid: SHARP3D.Parameter.SupportedParameter
-  commentId: T:SHARP3D.Parameter.SupportedParameter
-  parent: SHARP3D.Parameter
-  href: SHARP3D.Parameter.SupportedParameter.html
-  name: SupportedParameter
-  nameWithType: SupportedParameter
-  fullName: SHARP3D.Parameter.SupportedParameter
-- uid: SHARP3D.Parameter
-  commentId: N:SHARP3D.Parameter
-  href: SHARP3D.html
-  name: SHARP3D.Parameter
-  nameWithType: SHARP3D.Parameter
-  fullName: SHARP3D.Parameter
-  spec.csharp:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Parameter
-    name: Parameter
-    href: SHARP3D.Parameter.html
-  spec.vb:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Parameter
-    name: Parameter
-    href: SHARP3D.Parameter.html

@@ -6,6 +6,7 @@ items:
   children:
   - SHARP3D.Utils.C3dBytesConvertor
   - SHARP3D.Utils.Fortran
+  - SHARP3D.Utils.Sharp3dConstants
   langs:
   - csharp
   - vb
@@ -28,3 +29,9 @@ references:
   name: Fortran
   nameWithType: Fortran
   fullName: SHARP3D.Utils.Fortran
+- uid: SHARP3D.Utils.Sharp3dConstants
+  commentId: T:SHARP3D.Utils.Sharp3dConstants
+  href: SHARP3D.Utils.Sharp3dConstants.html
+  name: Sharp3dConstants
+  nameWithType: Sharp3dConstants
+  fullName: SHARP3D.Utils.Sharp3dConstants
