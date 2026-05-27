@@ -7,16 +7,16 @@
       <meta name="title" content="ANALOG:FORMAT | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../favicon.ico">
-      <link rel="stylesheet" href="../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../toc.html">
-      <meta name="docfx:tocrel" content="../../toc.html">
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
       
-      <meta name="docfx:rel" content="../../../">
+      <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog-format.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-format.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../index.html">
-            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,11 +96,11 @@
 <blockquote>
 <p>This part of the documentation in the C3D User Guide is unclear, <a href="#disclaimer">see disclaimer</a>.</p>
 </blockquote>
-<p>The ANALOG:FORMAT parameter is a character data array that consists of a single 7-bit ASCII (A-Z, 0-9) string that documents the <a href="../../data/analog.html">Analog Data</a> format used within the C3D file. The parameter has two possible values: <code>SIGNED</code> or <code>UNSIGNED</code>. This
-specifies whether the integer <a href="../../data/analog.html">Analog Data</a> and associated integer values <a href="../c3d-parameter-section.html">Parameters</a> are stored as <strong>signed</strong> or <strong>unsigned</strong> 16-bit integer. It should normally be “locked”.</p>
+<p>The ANALOG:FORMAT parameter is a character data array that consists of a single 7-bit ASCII (A-Z, 0-9) string that documents the <a href="../../../data/analog.html">Analog Data</a> format used within the C3D file. The parameter has two possible values: <code>SIGNED</code> or <code>UNSIGNED</code>. This
+specifies whether the integer <a href="../../../data/analog.html">Analog Data</a> and associated integer values <a href="../../c3d-parameter-section.html">Parameters</a> are stored as <strong>signed</strong> or <strong>unsigned</strong> 16-bit integer. It should normally be “locked”.</p>
 <p>The original C3D file format defaulted to storing all data and parameters as Signed 16-bit integer values, with a range of -32767 to +32767. This is described as a <strong>signed C3D file</strong>.</p>
-<p>The parameter was invented originally because a manufacturer started storing <a href="../../data/analog.html">Analog Data</a> as Unsigned 16-bit integer values
-when 32-bit Floating-point became the default C3D file format. C3D files storing <a href="../../data/analog.html">Analog Data</a> and <a href="analog-offset.html">Offset</a> as Unsigned 16-bit integer (and probably other integer Analog Parameters, <a href="#disclaimer">see disclaimer</a>) values are called <strong>unsigned C3D file</strong>. Storing <a href="../../data/analog.html">Analog Data</a> and other Analog Parameters extends the range of possible values, as they can't feature negative values (e.g. point and analog channel counts). So even if the C3D format is floating-point, the C3D parameter integers will be read as unsigned integers resulting in the C3D file being described as unsigned.</p>
+<p>The parameter was invented originally because a manufacturer started storing <a href="../../../data/analog.html">Analog Data</a> as Unsigned 16-bit integer values
+when 32-bit Floating-point became the default C3D file format. C3D files storing <a href="../../../data/analog.html">Analog Data</a> and <a href="analog-offset.html">Offset</a> as Unsigned 16-bit integer (and probably other integer Analog Parameters, <a href="#disclaimer">see disclaimer</a>) values are called <strong>unsigned C3D file</strong>. Storing <a href="../../../data/analog.html">Analog Data</a> and other Analog Parameters extends the range of possible values, as they can't feature negative values (e.g. point and analog channel counts). So even if the C3D format is floating-point, the C3D parameter integers will be read as unsigned integers resulting in the C3D file being described as unsigned.</p>
 <blockquote>
 <p>The parameter describes the analog data storage format, not the C3D file format.</p>
 </blockquote>
@@ -113,14 +113,14 @@ applications created prior to that time will not read it.</p>
 <p>If the ANALOG:FORMAT parameter contains the string <code>SIGNED</code> then the C3D 'storage' format for both the data samples and the ANALOG:OFFSET parameters must also be <code>SIGNED</code>. This is the default storage method for all analog data values, irrespective of resolution and allows data to be stored using signed integer values from -32767 to +32767 representing both positive and negative input signal excursions.</p>
 <p>If the ANALOG:FORMAT parameter contains the string <code>UNSIGNED</code> then the <a href="analog-offset.html">ANALOG:OFFSET</a> parameters must also be treated as <code>UNSIGNED</code> values. If the ANALOG:FORMAT parameter does not exist it should be assumed that its value is <code>SIGNED</code> unless the analog data contains 16-bit values, in which case <code>UNSIGNED</code> is a possibility.</p>
 <h2 id="disclaimer">DISCLAIMER</h2>
-<p>This section is unclear in the C3D User Guide. It is not known if <a href="analog-format.html">ANALOG:FORMAT</a> concern all integer parameters, all integer parameters pertaining to analog data, or only the <a href="analog-offset.html">ANALOG:OFFSET</a>. The only sure part is that <a href="../../data/analog.html">Analog Data</a> are affected by it.</p>
+<p>This section is unclear in the C3D User Guide. It is not known if <a href="analog-format.html">ANALOG:FORMAT</a> concern all integer parameters, all integer parameters pertaining to analog data, or only the <a href="analog-offset.html">ANALOG:OFFSET</a>. The only sure part is that <a href="../../../data/analog.html">Analog Data</a> are affected by it.</p>
 <p>As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by <a href="analog-format.html">ANALOG:FORMAT</a> values in SHARP3D, unless specified otherwise.</p>
 <p>If <a href="analog-format.html">ANALOG:FORMAT</a> does not exist, nothing tells you that its value is <code>SIGNED</code> with 100% certainty but that is your best bet, and the one that SHARP3D is doing.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog-format.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-format.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

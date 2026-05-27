@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Samples and Tests | SHARP3D Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Samples and Tests | SHARP3D Documentation ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/docs/samples-and-tests.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SHARP3D Documentation">
+            SHARP3D Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="samples-and-tests">Samples and Tests</h1>
+
+<h2 id="samples">Samples</h2>
+<p>You can find C3D samples on the <a href="https://www.c3d.org/sampledata.html">C3D website</a>.
+A large part of their set is used for testing this library and can be found in SHARP3D.Test/SampleFiles and SHARP3D.Test/SampleErrorFiles.</p>
+<p>The expected results where extracted from C3D files automatically using <a href="https://github.com/pyomeca/ezc3d">ezc3d</a>, they can therefore be subject to some problems.
+The values that were obviously wrongly read using <a href="https://github.com/pyomeca/ezc3d">ezc3d</a> have been discarded or sanitized. When in doubt, binaries files where manually checked using <a href="https://github.com/NationalSecurityAgency/ghidra">Ghidra</a>, <a href="https://imhex.werwolv.net/">ImHex</a> and <a href="https://www.qualisys.com/software/qualisys-track-manager/">Qualisys Track Manager</a>. The SHARP3D project is independant and not endorsed by any of them.
+You can extract the test values from the C3D samples via the RunTestDataScripts.py (SHARP3D.Test/TestDataExctraction/RunTestDataScripts.py).</p>
+<p>The following .JSON file have been corrected by hand due to <a href="https://github.com/pyomeca/ezc3d">ezc3d</a> encountering some issues.
+Bad formatting:</p>
+<ul>
+<li>&quot;kyowadengyo.json&quot; (Expected path: &quot;SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json&quot;)</li>
+</ul>
+<p>Bin to Float Conversion disagreement on the last frame (off by around +/- 0.5:</p>
+<ul>
+<li>&quot;large01.json&quot; (Expected path: &quot;SHARP3D.Test/TestFiles/Sample31/large01.c3d&quot;)</li>
+<li>&quot;large02.json&quot; (Expected path: &quot;SHARP3D.Test/TestFiles/Sample31/large02.c3d&quot;)</li>
+</ul>
+<p>The SHARP3D project is independant from and not endorssed by any of the aformentionned projects.</p>
+<p>Only two files are missing as they are above the 100 MB limit from Github:</p>
+<ul>
+<li>&quot;c24089 13.c3d&quot; (Expected path: &quot;SHARP3D.Test/SampleFiles/Sample12/c24089 13.c3d&quot;)</li>
+<li>&quot;large02.c3d&quot; (Expected path: &quot;SHARP3D.Test/TestFiles/Sample31/large02.c3d&quot;)</li>
+</ul>
+<p>The corresponding .JSON files are still in the respective folders so you can simply add the missing .C3D back manually to be able to run all our test sets.</p>
+<h2 id="tests">Tests</h2>
+<p>Some tests are bound to fail due to problems in the file that can't be recovered or circumvented.</p>
+<h3 id="expected-failing-test">Expected failing test</h3>
+<p>At the moment 12 tests are failing:</p>
+<ol>
+<li><p><a href="#sharp3dtesttestsbasictestbasics">SHARP3D.Test.Tests.BasicTest.Basics</a></p>
+<ol>
+<li>Sample31\large01.c3d</li>
+<li>Sample31\large02.c3d</li>
+</ol>
+</li>
+<li><p><a href="#sharp3dtesttestsbasictestreadsfloatingframenumber">SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber</a></p>
+<ol>
+<li>SampleFiles\Sample36\72610framesf.c3</li>
+</ol>
+</li>
+<li><p><a href="#sharp3dtesttestssampleerrorfilestestopenfiletest_test">SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test</a></p>
+<ol>
+<li>SampleErrorFiles\Sample13</li>
+<li>SampleErrorFiles\Sample18</li>
+<li>SampleErrorFiles\Sample20</li>
+</ol>
+</li>
+<li><p><a href="#sharp3dtesttestssampleerrorfilestestsample13basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test</a></p>
+<ol>
+<li>SampleErrorFiles\Sample13\Dance.c3d</li>
+<li>SampleErrorFiles\Sample13\Dance1.c3d</li>
+<li>SampleErrorFiles\Sample13\golfswing.c3d</li>
+<li>SampleErrorFiles\Sample13\golfswing1.c3d</li>
+</ol>
+</li>
+<li><p><a href="#sharp3dtesttestssampleerrorfilestestsample18basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test</a></p>
+<ol>
+<li>SampleErrorFiles\Sample18\bad_parameter_section.c3d</li>
+</ol>
+</li>
+<li><p><a href="#sharp3dtesttestssampleerrorfilestestsample20basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test</a></p>
+<ol>
+<li>SampleErrorFiles\Sample20\phasespace_sample</li>
+</ol>
+</li>
+</ol>
+<h3 id="explanation">Explanation</h3>
+<h4 id="sharp3dtesttestsbasictestbasics">SHARP3D.Test.Tests.BasicTest.Basics</h4>
+<p><strong>Status</strong>: Under investigation</p>
+<p>This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. EZC3D and Qualisys both have similar error, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.</p>
+<h4 id="sharp3dtesttestsbasictestreadsfloatingframenumber">SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber</h4>
+<p><strong>Status</strong>: Solved</p>
+<p>The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and Qualisys.</p>
+<h4 id="sharp3dtesttestssampleerrorfilestestopenfiletest_test">SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test</h4>
+<p><strong>Status</strong>: Under investigation</p>
+<h4 id="sharp3dtesttestssampleerrorfilestestsample13basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test</h4>
+<p><strong>Status</strong>: Under investigation</p>
+<h4 id="sharp3dtesttestssampleerrorfilestestsample18basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test</h4>
+<p><strong>Status</strong>: Under investigation</p>
+<h4 id="sharp3dtesttestssampleerrorfilestestsample20basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test</h4>
+<p><strong>Status</strong>: Under investigation</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/docs/samples-and-tests.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

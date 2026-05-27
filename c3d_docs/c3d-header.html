@@ -214,7 +214,7 @@
 <p>In practice, most if not all C3D files follow this standard. But this does not mean that this byte will be set as 0x50 nonetheless.</p>
 </blockquote>
 <h3 id="word-2-number-of-3d-markerstrajectories-per-data-frame">Word 2: Number of 3D Markers/Trajectories per Data Frame</h3>
-<p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="parameters/required/point-used.html">POINT:USED parameter</a>.</p>
+<p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="parameters/required/point/point-used.html">POINT:USED parameter</a>.</p>
 <h3 id="word-3-total-number-of-analog-samples-per-data-frames">Word 3: Total Number of Analog Samples per Data Frames</h3>
 <p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 3 will be zero.</p>
@@ -243,13 +243,13 @@
 </blockquote>
 <p>Any application reading the C3D file may override this value and interpolate gaps of any length if desired and record the maximum interpolation length by updating this value.</p>
 <h3 id="word-7-8-3d-sacle-factor">Word 7-8: 3D Sacle Factor</h3>
-<p>It contain the <a href="parameters/required/point-scale_factor.html">3D Scale Factor</a> value.</p>
+<p>It contain the <a href="parameters/required/point/point-scale_factor.html">3D Scale Factor</a> value.</p>
 <p>This parameter is required when 3D data values are stored using the standard signed integer format because it is used to scale each of the stored 3D point and residual values from signed integer values to physical world values.</p>
 <p>When 3D data is stored as scaled floating-point values, it is used to scale the 3D residuals which are recorded as integers.</p>
 <blockquote>
 <p>Always calculate a valid 3D scale factor.</p>
 </blockquote>
-<p>The sign of the <a href="parameters/required/point-scale_factor.html">3D Scale Factor</a> is used to determine the 3D point and analog data storage format:</p>
+<p>The sign of the <a href="parameters/required/point/point-scale_factor.html">3D Scale Factor</a> is used to determine the 3D point and analog data storage format:</p>
 <ul>
 <li>Negative Scale Factor: Float32</li>
 <li>Positive Scale Factor: Int16</li>
@@ -262,7 +262,7 @@ structure for 3D Point and Analog Data assumes that each Data Frame can have one
 <p>While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 10 will be zero.</p>
 <h3 id="word-11-12-3d-point-data-acquisition-rate">Word 11-12: 3D Point Data Acquisition Rate</h3>
-<p>It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  <a href="parameters/required/point-rate.html">POINT:RATE Parameter</a>.</p>
+<p>It is the acquisition rate used to acquire the 3D Point Data, in Hertz. This is a copy of the  <a href="parameters/required/point/point-rate.html">POINT:RATE Parameter</a>.</p>
 <p>The 3D frame rate parameter is a floating-point value, making it possible to accurately record the 3D frame rate for video based
 sampling systems</p>
 <h3 id="word-13-149-unused">Word 13-149: Unused</h3>

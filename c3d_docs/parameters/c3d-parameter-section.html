@@ -112,7 +112,7 @@ be accessed.</p>
 <p>All information stored in the Parameter Section is organized into Groups even though related items may be stored in various areas of the Parameter Section. A Group is simply a collection of related Parameters.</p>
 <p>Each Parameter is a member of a single Group thus allowing two Parameters to have the same name if they belong to different groups. For example, there may be two parameters called SCALE: one SCALE Parameter applies to 3D Point Data, while the other SCALE Parameter applies to
 Analog Data. The two Parameters are stored in separate Groups called POINT and
-ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/point-scale_factor.html">POINT:SCALE</a> while the analog value can be read from the <a href="required/analog-scale.html">ANALOG:SCALE</a> Parameter.</p>
+ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/point/point-scale_factor.html">POINT:SCALE</a> while the analog value can be read from the <a href="required/analog/analog-scale.html">ANALOG:SCALE</a> Parameter.</p>
 <h2 id="structure">Structure</h2>
 <h3 id="header">Header</h3>
 <table>
@@ -354,7 +354,7 @@ the numerals 0 through 9, and the underscore character “_”. All Group/Parame
 <blockquote>
 <p>All Group/Parameter names must be stored in a C3D file as standard 7-bit ASCII values to comply with the C3D standard for universal compatibility ([A-Z, 0-9, _ ]).</p>
 </blockquote>
-<p>The same names may only be used for two Parameters if they occur in different groups. For example, both <a href="required/point-scale_factor.html">POINT:SCALE</a> and <a href="required/analog-scale.html">ANALOG:SCALE</a> parameters are permitted.</p>
+<p>The same names may only be used for two Parameters if they occur in different groups. For example, both <a href="required/point/point-scale_factor.html">POINT:SCALE</a> and <a href="required/analog/analog-scale.html">ANALOG:SCALE</a> parameters are permitted.</p>
 <blockquote>
 <p>It is essential that all Group names, and all Parameters names within each Group, are unique.</p>
 </blockquote>

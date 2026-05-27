@@ -616,11 +616,11 @@
       "type": "Toc",
       "source_relative_path": "api/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -727,10 +727,30 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/additional/point-long_frames.md",
+      "source_relative_path": "c3d_docs/parameters/additional/point/point-long_frames.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/additional/point-long_frames.html"
+          "relative_path": "c3d_docs/parameters/additional/point/point-long_frames.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/trial/trial-actual_end_field.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/trial/trial-actual_end_field.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/trial/trial-actual_start_field.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/trial/trial-actual_start_field.html"
         }
       },
       "version": ""
@@ -741,26 +761,6 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/application.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/application/trial-actual_end_field.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/application/trial-actual_end_field.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/application/trial-actual_start_field.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/application/trial-actual_start_field.html"
         }
       },
       "version": ""
@@ -787,180 +787,180 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-bits.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-bits.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-bits.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-bits.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-descriptions.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-descriptions.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-descriptions.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-descriptions.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-format.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-format.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-format.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-format.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-gen_scale.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-gen_scale.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-gen_scale.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-gen_scale.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-labels.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-labels.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-labels.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-labels.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-offset.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-offset.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-offset.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-offset.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-rate.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-rate.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-rate.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-rate.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-scale.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-scale.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-scale.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-scale.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-units.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-units.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-units.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-units.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/analog-used.md",
+      "source_relative_path": "c3d_docs/parameters/required/analog/analog-used.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/analog-used.html"
+          "relative_path": "c3d_docs/parameters/required/analog/analog-used.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/force_platform-type.md",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-type.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/force_platform-type.html"
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-type.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-data_start.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-data_start.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-data_start.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-data_start.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-frames.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-frames.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-frames.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-frames.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-labels.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-labels.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-labels.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-labels.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-rate.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-rate.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-rate.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-rate.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-scale_factor.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-scale_factor.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-scale_factor.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-scale_factor.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-units.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-units.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-units.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-units.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/point-used.md",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-used.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/point-used.html"
+          "relative_path": "c3d_docs/parameters/required/point/point-used.html"
         }
       },
       "version": ""
@@ -969,11 +969,11 @@
       "type": "Toc",
       "source_relative_path": "c3d_docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "c3d_docs/toc.html"
-        },
         ".json": {
           "relative_path": "c3d_docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "c3d_docs/toc.html"
         }
       },
       "version": ""
@@ -1049,14 +1049,24 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "docs/samples-and-tests.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/samples-and-tests.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "docs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "docs/toc.html"
-        },
         ".json": {
           "relative_path": "docs/toc.json"
+        },
+        ".html": {
+          "relative_path": "docs/toc.html"
         }
       },
       "version": ""
@@ -1075,11 +1085,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

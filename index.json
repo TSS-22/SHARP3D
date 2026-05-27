@@ -264,8 +264,18 @@
     "title": "Additional Parameters | SHARP3D Documentation",
     "summary": "Additional Parameters"
   },
-  "c3d_docs/parameters/additional/point-long_frames.html": {
-    "href": "c3d_docs/parameters/additional/point-long_frames.html",
+  "c3d_docs/parameters/additional/point/point-long_frames.html": {
+    "href": "c3d_docs/parameters/additional/point/point-long_frames.html",
+    "title": "| SHARP3D Documentation",
+    "summary": ""
+  },
+  "c3d_docs/parameters/additional/trial/trial-actual_end_field.html": {
+    "href": "c3d_docs/parameters/additional/trial/trial-actual_end_field.html",
+    "title": "| SHARP3D Documentation",
+    "summary": ""
+  },
+  "c3d_docs/parameters/additional/trial/trial-actual_start_field.html": {
+    "href": "c3d_docs/parameters/additional/trial/trial-actual_start_field.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
@@ -273,16 +283,6 @@
     "href": "c3d_docs/parameters/application.html",
     "title": "Application Parameters | SHARP3D Documentation",
     "summary": "Application Parameters"
-  },
-  "c3d_docs/parameters/application/trial-actual_end_field.html": {
-    "href": "c3d_docs/parameters/application/trial-actual_end_field.html",
-    "title": "| SHARP3D Documentation",
-    "summary": ""
-  },
-  "c3d_docs/parameters/application/trial-actual_start_field.html": {
-    "href": "c3d_docs/parameters/application/trial-actual_start_field.html",
-    "title": "| SHARP3D Documentation",
-    "summary": ""
   },
   "c3d_docs/parameters/c3d-parameter-section.html": {
     "href": "c3d_docs/parameters/c3d-parameter-section.html",
@@ -294,93 +294,93 @@
     "title": "Required Parameters | SHARP3D Documentation",
     "summary": "Required Parameters"
   },
-  "c3d_docs/parameters/required/analog-bits.html": {
-    "href": "c3d_docs/parameters/required/analog-bits.html",
+  "c3d_docs/parameters/required/analog/analog-bits.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-bits.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/analog-descriptions.html": {
-    "href": "c3d_docs/parameters/required/analog-descriptions.html",
+  "c3d_docs/parameters/required/analog/analog-descriptions.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-descriptions.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/analog-format.html": {
-    "href": "c3d_docs/parameters/required/analog-format.html",
+  "c3d_docs/parameters/required/analog/analog-format.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-format.html",
     "title": "ANALOG:FORMAT | SHARP3D Documentation",
     "summary": "ANALOG:FORMAT Type: Required (see disclaimer) Locked: True This part of the documentation in the C3D User Guide is unclear, see disclaimer. The ANALOG:FORMAT parameter is a character data array that consists of a single 7-bit ASCII (A-Z, 0-9) string that documents the Analog Data format used within the C3D file. The parameter has two possible values: SIGNED or UNSIGNED. This specifies whether the integer Analog Data and associated integer values Parameters are stored as signed or unsigned 16-bit integer. It should normally be “locked”. The original C3D file format defaulted to storing all data and parameters as Signed 16-bit integer values, with a range of -32767 to +32767. This is described as a signed C3D file. The parameter was invented originally because a manufacturer started storing Analog Data as Unsigned 16-bit integer values when 32-bit Floating-point became the default C3D file format. C3D files storing Analog Data and Offset as Unsigned 16-bit integer (and probably other integer Analog Parameters, see disclaimer) values are called unsigned C3D file. Storing Analog Data and other Analog Parameters extends the range of possible values, as they can't feature negative values (e.g. point and analog channel counts). So even if the C3D format is floating-point, the C3D parameter integers will be read as unsigned integers resulting in the C3D file being described as unsigned. The parameter describes the analog data storage format, not the C3D file format. The ANALOG:FORMAT parameter was first described about 2005, as a result software applications created prior to that time will not read it. If the ANALOG:FORMAT parameter is UNSIGNED then the ANALOG:OFFSET parameter, and other non-negative (all?) Analog Parameters must be interpreted as an Unsigned Int6. If the ANALOG:FORMAT parameter does not exists then assume that its value is SIGNED. This will be correct most of the time. If the ANALOG:FORMAT parameter contains the string SIGNED then the C3D 'storage' format for both the data samples and the ANALOG:OFFSET parameters must also be SIGNED. This is the default storage method for all analog data values, irrespective of resolution and allows data to be stored using signed integer values from -32767 to +32767 representing both positive and negative input signal excursions. If the ANALOG:FORMAT parameter contains the string UNSIGNED then the ANALOG:OFFSET parameters must also be treated as UNSIGNED values. If the ANALOG:FORMAT parameter does not exist it should be assumed that its value is SIGNED unless the analog data contains 16-bit values, in which case UNSIGNED is a possibility. DISCLAIMER This section is unclear in the C3D User Guide. It is not known if ANALOG:FORMAT concern all integer parameters, all integer parameters pertaining to analog data, or only the ANALOG:OFFSET. The only sure part is that Analog Data are affected by it. As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by ANALOG:FORMAT values in SHARP3D, unless specified otherwise. If ANALOG:FORMAT does not exist, nothing tells you that its value is SIGNED with 100% certainty but that is your best bet, and the one that SHARP3D is doing."
   },
-  "c3d_docs/parameters/required/analog-gen_scale.html": {
-    "href": "c3d_docs/parameters/required/analog-gen_scale.html",
+  "c3d_docs/parameters/required/analog/analog-gen_scale.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-gen_scale.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/analog-labels.html": {
-    "href": "c3d_docs/parameters/required/analog-labels.html",
+  "c3d_docs/parameters/required/analog/analog-labels.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-labels.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/analog-offset.html": {
-    "href": "c3d_docs/parameters/required/analog-offset.html",
+  "c3d_docs/parameters/required/analog/analog-offset.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-offset.html",
     "title": "ANALOG:OFFSET | SHARP3D Documentation",
     "summary": "ANALOG:OFFSET The possibility of 16-bit integer overflow exists when applying the ANALOG:OFFSET Parameter to the sampled 16-bit analog data. It is recommended that all applications perform internal scaling calculations with more than 16-bits of resolution (either 32-bit or floating-point) and check the results to ensure that internal math overflow has not occurred."
   },
-  "c3d_docs/parameters/required/analog-rate.html": {
-    "href": "c3d_docs/parameters/required/analog-rate.html",
+  "c3d_docs/parameters/required/analog/analog-rate.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-rate.html",
     "title": "ANALOG:RATE | SHARP3D Documentation",
     "summary": "ANALOG:RATE"
   },
-  "c3d_docs/parameters/required/analog-scale.html": {
-    "href": "c3d_docs/parameters/required/analog-scale.html",
+  "c3d_docs/parameters/required/analog/analog-scale.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-scale.html",
     "title": "ANALOG:SCALE | SHARP3D Documentation",
     "summary": "ANALOG:SCALE"
   },
-  "c3d_docs/parameters/required/analog-units.html": {
-    "href": "c3d_docs/parameters/required/analog-units.html",
+  "c3d_docs/parameters/required/analog/analog-units.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-units.html",
     "title": "ANALOG:UNITS | SHARP3D Documentation",
     "summary": "ANALOG:UNITS"
   },
-  "c3d_docs/parameters/required/analog-used.html": {
-    "href": "c3d_docs/parameters/required/analog-used.html",
+  "c3d_docs/parameters/required/analog/analog-used.html": {
+    "href": "c3d_docs/parameters/required/analog/analog-used.html",
     "title": "ANALOG:USED | SHARP3D Documentation",
     "summary": "ANALOG:USED"
   },
-  "c3d_docs/parameters/required/force_platform-type.html": {
-    "href": "c3d_docs/parameters/required/force_platform-type.html",
+  "c3d_docs/parameters/required/force_platform/force_platform-type.html": {
+    "href": "c3d_docs/parameters/required/force_platform/force_platform-type.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/point-data_start.html": {
-    "href": "c3d_docs/parameters/required/point-data_start.html",
+  "c3d_docs/parameters/required/point/point-data_start.html": {
+    "href": "c3d_docs/parameters/required/point/point-data_start.html",
     "title": "POINT:DATA_START | SHARP3D Documentation",
     "summary": "POINT:DATA_START The POINT:DATA_START parameter is an unsigned 16-bit integer that points to the location of the start of the 3D/analog data section within the C3D file, allowing the 3D/analog section to start anywhere within the first 32Mb (65535*512/1024) of the C3D file."
   },
-  "c3d_docs/parameters/required/point-frames.html": {
-    "href": "c3d_docs/parameters/required/point-frames.html",
+  "c3d_docs/parameters/required/point/point-frames.html": {
+    "href": "c3d_docs/parameters/required/point/point-frames.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/point-labels.html": {
-    "href": "c3d_docs/parameters/required/point-labels.html",
+  "c3d_docs/parameters/required/point/point-labels.html": {
+    "href": "c3d_docs/parameters/required/point/point-labels.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/point-rate.html": {
-    "href": "c3d_docs/parameters/required/point-rate.html",
+  "c3d_docs/parameters/required/point/point-rate.html": {
+    "href": "c3d_docs/parameters/required/point/point-rate.html",
     "title": "POINT:RATE | SHARP3D Documentation",
     "summary": "POINT:RATE"
   },
-  "c3d_docs/parameters/required/point-scale_factor.html": {
-    "href": "c3d_docs/parameters/required/point-scale_factor.html",
+  "c3d_docs/parameters/required/point/point-scale_factor.html": {
+    "href": "c3d_docs/parameters/required/point/point-scale_factor.html",
     "title": "POINT:SCALE_FACTOR | SHARP3D Documentation",
     "summary": "POINT:SCALE_FACTOR If a signed integer C3D file is converted to floating-point format then the original 3D scale factor should be simply negated and stored – this allows transparent conversion between signed integer and floating-point data types. To retain the maximum resolution for signed integer data, the 3D scale factor is computed by dividing the maximum absolute coordinate value stored in the file, by 32000. This allow all of the 3D point coordinates to be safely stored within the range of a signed 16-bit integer value with maximum accuracy. Note that the POINT:SCALE parameter is one of the parameter section values that is copied to the C3D file header (words 7- 8) and can be quickly located and read by software applications without requiring a detailed search of the parameter section. Note that adding any additional data to the stored 3D data will require that the POINT:SCALE factor is recalculated and all existing data points stored as signed integers are rescaled if any new data values exceed the existing maximum coordinate value. It is important to realize that the sign of the POINT:SCALE parameter and the magnitude of the parameter are treated as two independent factors in floating-point data files. The sign simply indicates that the file is a floating- point format, while the magnitude is used to scale the residual values and should be set to an appropriate value (maximum coordinate/32000) in case the C3D file is converted to integer format. Failure to calculate and store a valid POINT:SCALE parameter will cause corruption if the file data is format is changed to an integer format for any reason. The scaling factor is dependent upon the calibration volume and is calculated when the data is stored such that the greatest precision is allowed over the entire volume of interest."
   },
-  "c3d_docs/parameters/required/point-units.html": {
-    "href": "c3d_docs/parameters/required/point-units.html",
+  "c3d_docs/parameters/required/point/point-units.html": {
+    "href": "c3d_docs/parameters/required/point/point-units.html",
     "title": "| SHARP3D Documentation",
     "summary": ""
   },
-  "c3d_docs/parameters/required/point-used.html": {
-    "href": "c3d_docs/parameters/required/point-used.html",
+  "c3d_docs/parameters/required/point/point-used.html": {
+    "href": "c3d_docs/parameters/required/point/point-used.html",
     "title": "POINT:USED | SHARP3D Documentation",
     "summary": "POINT:USED"
   },
@@ -392,7 +392,12 @@
   "docs/introduction.html": {
     "href": "docs/introduction.html",
     "title": "Introduction | SHARP3D Documentation",
-    "summary": "Introduction Samples and Tests You can find C3D samples on the C3D website. A large part of their set is used for testing this library and can be found in SHARP3D.Test/SampleFiles and SHARP3D.Test/SampleErrorFiles. The expected results where extracted from C3D files automatically using ezc3d, they can therefore be subject to some problems. The values that were obviously wrongly read using ezc3d have been discarded or sanitized. When in doubt, binaries files where manually checked using Ghidra, ImHex and Qualisys Track Manager. The SHARP3D project is independant and not endorsed by any of them. You can extract the test values from the C3D samples via the RunTestDataScripts.py (SHARP3D.Test/TestDataExctraction/RunTestDataScripts.py). The following .JSON file have been corrected by hand due to ezc3d encountering some issues. Bad formatting: \"kyowadengyo.json\" (Expected path: \"SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json\") Bin to Float Conversion disagreement on the last frame (off by around +/- 0.5: \"large01.json\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large01.c3d\") \"large02.json\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large02.c3d\") The SHARP3D project is independant from and not endorssed by any of the aformentionned projects. Only two files are missing as they are above the 100 MB limit from Github: \"c24089 13.c3d\" (Expected path: \"SHARP3D.Test/SampleFiles/Sample12/c24089 13.c3d\") \"large02.c3d\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large02.c3d\") The corresponding .JSON files are still in the respective folders so you can simply add the missing .C3D back manually to be able to run all our test sets."
+    "summary": "Introduction"
+  },
+  "docs/samples-and-tests.html": {
+    "href": "docs/samples-and-tests.html",
+    "title": "Samples and Tests | SHARP3D Documentation",
+    "summary": "Samples and Tests Samples You can find C3D samples on the C3D website. A large part of their set is used for testing this library and can be found in SHARP3D.Test/SampleFiles and SHARP3D.Test/SampleErrorFiles. The expected results where extracted from C3D files automatically using ezc3d, they can therefore be subject to some problems. The values that were obviously wrongly read using ezc3d have been discarded or sanitized. When in doubt, binaries files where manually checked using Ghidra, ImHex and Qualisys Track Manager. The SHARP3D project is independant and not endorsed by any of them. You can extract the test values from the C3D samples via the RunTestDataScripts.py (SHARP3D.Test/TestDataExctraction/RunTestDataScripts.py). The following .JSON file have been corrected by hand due to ezc3d encountering some issues. Bad formatting: \"kyowadengyo.json\" (Expected path: \"SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json\") Bin to Float Conversion disagreement on the last frame (off by around +/- 0.5: \"large01.json\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large01.c3d\") \"large02.json\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large02.c3d\") The SHARP3D project is independant from and not endorssed by any of the aformentionned projects. Only two files are missing as they are above the 100 MB limit from Github: \"c24089 13.c3d\" (Expected path: \"SHARP3D.Test/SampleFiles/Sample12/c24089 13.c3d\") \"large02.c3d\" (Expected path: \"SHARP3D.Test/TestFiles/Sample31/large02.c3d\") The corresponding .JSON files are still in the respective folders so you can simply add the missing .C3D back manually to be able to run all our test sets. Tests Some tests are bound to fail due to problems in the file that can't be recovered or circumvented. Expected failing test At the moment 12 tests are failing: SHARP3D.Test.Tests.BasicTest.Basics Sample31\\large01.c3d Sample31\\large02.c3d SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber SampleFiles\\Sample36\\72610framesf.c3 SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test SampleErrorFiles\\Sample13 SampleErrorFiles\\Sample18 SampleErrorFiles\\Sample20 SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test SampleErrorFiles\\Sample13\\Dance.c3d SampleErrorFiles\\Sample13\\Dance1.c3d SampleErrorFiles\\Sample13\\golfswing.c3d SampleErrorFiles\\Sample13\\golfswing1.c3d SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test SampleErrorFiles\\Sample18\\bad_parameter_section.c3d SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test SampleErrorFiles\\Sample20\\phasespace_sample Explanation SHARP3D.Test.Tests.BasicTest.Basics Status: Under investigation This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. EZC3D and Qualisys both have similar error, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong. SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber Status: Solved The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and Qualisys. SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test Status: Under investigation SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test Status: Under investigation SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test Status: Under investigation SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test Status: Under investigation"
   },
   "index.html": {
     "href": "index.html",
