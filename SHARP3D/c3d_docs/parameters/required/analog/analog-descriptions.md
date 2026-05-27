@@ -1,5 +1,9 @@
 # ANALOG:DESCRIPTIONS
 
+- **Type**: [Required](../../required.md)
+
+- **Locked**: False
+
 The ANALOG:DESCRIPTIONS parameter is a character data array that usually consists of a short description of each analog channel referenced by the [ANALOG:LABELS](./analog-labels.md) parameter. There should always be a one to one relationship between the number of [LABELS](./analog-labels.md) and the number of DESCRIPTIONS although users occasionally create files with different numbers of [LABELS](./analog-labels.md) and DESCRIPTIONS parameters.
 
 This parameter exists to provide documentation about each of the individual analog channels. The [ANALOG:LABELS](./analog-labels.md) parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these [LABELS](./analog-labels.md) generally has a longer ANALOG:DESCRIPTIONS such as Fx channel, FP1 sn 628301 and Left Extensor Hallucis Longus etc.

@@ -2,7 +2,7 @@
 
 - **Type**: [Required](../../required.md)
 
-- **Locked**: True
+- **Locked**: False
 
 The C3D file format defines the ANALOG:LABELS parameter as a character data array that consists of a unique four-character ASCII (A-Z, 0-9) string for each analog channel contained within the C3D file. This is referred to as the analog channel label and is used to reference each channel of data contained within the C3D file data section in the order in which the channels are stored. Labels are typically 4-16 characters long (4 upper case characters is the default).
 
