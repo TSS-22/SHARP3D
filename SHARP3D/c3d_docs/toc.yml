@@ -16,6 +16,7 @@
     - name: Supported Parameters
       items:
         - name: POINT
+        - href: parameters/required/group-point.md
           items:
             - name: POINT:USED
               href: parameters/required/point/point-used.md
@@ -34,6 +35,7 @@
             - name: POINT:UNITS
               href: parameters/required/point/point-units.md    
         - name: ANALOG
+        - href: parameters/required/group-analog.md
           items:
             - name: ANALOG:SCALE
               href: parameters/required/analog/analog-scale.md
