@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  id: AnalogFormatFlag
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  - SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  - SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  langs:
+  - csharp
+  - vb
+  name: AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogFormatFlag
+    path: SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Specifies the <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT Parameter</a> value.
+  example: []
+  syntax:
+    content: public enum AnalogFormatFlag
+    content.vb: Public Enum AnalogFormatFlag
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  id: SIGNED
+  parent: SHARP3D.Utils.Enum.AnalogFormatFlag
+  langs:
+  - csharp
+  - vb
+  name: SIGNED
+  nameWithType: AnalogFormatFlag.SIGNED
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.SIGNED
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SIGNED
+    path: SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: Default <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT</a>.
+  example: []
+  syntax:
+    content: SIGNED = 0
+    return:
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  id: UNSIGNED
+  parent: SHARP3D.Utils.Enum.AnalogFormatFlag
+  langs:
+  - csharp
+  - vb
+  name: UNSIGNED
+  nameWithType: AnalogFormatFlag.UNSIGNED
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNSIGNED
+    path: SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+    startLine: 16
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: >-
+    If <a href="https://tss-22.github.io/SHARP3D/c3d_docs/data/analog.html">Analog Data</a> 
+
+    and associated <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/c3d-parameter-section.html">Parameters</a> are stored as unisgned 16-bit integers.
+  example: []
+  syntax:
+    content: UNSIGNED = 1
+    return:
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  id: UNKOWN
+  parent: SHARP3D.Utils.Enum.AnalogFormatFlag
+  langs:
+  - csharp
+  - vb
+  name: UNKOWN
+  nameWithType: AnalogFormatFlag.UNKOWN
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.UNKOWN
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNKOWN
+    path: SHARP3D/Utils/Enum/AnalogFormatFlag.cs
+    startLine: 21
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  summary: If <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT</a> wasn't set.
+  example: []
+  syntax:
+    content: UNKOWN = -1
+    return:
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.AnalogFormatFlag.html
+  name: AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag

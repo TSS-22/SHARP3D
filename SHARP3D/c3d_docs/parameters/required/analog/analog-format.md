@@ -1,8 +1,8 @@
 # ANALOG:FORMAT
 
-- Type: Required ([see disclaimer](#disclaimer))
+- **Type**: [Required](../../required.md) ([see disclaimer](#disclaimer))
 
-- Locked: True
+- **Locked**: True
 
 > This part of the documentation in the C3D User Guide is unclear, [see disclaimer](#disclaimer). 
 

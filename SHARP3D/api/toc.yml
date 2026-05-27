@@ -72,12 +72,6 @@ items:
   - uid: SHARP3D.Parameter.C3dParameterHelper
     name: C3dParameterHelper
     type: Class
-  - uid: SHARP3D.Parameter.JsonSupportedParameter
-    name: JsonSupportedParameter
-    type: Struct
-  - uid: SHARP3D.Parameter.SupportedParameter
-    name: SupportedParameter
-    type: Class
 - uid: SHARP3D.Parameter.Data
   name: SHARP3D.Parameter.Data
   type: Namespace
@@ -101,10 +95,16 @@ items:
   - uid: SHARP3D.Utils.Fortran
     name: Fortran
     type: Class
+  - uid: SHARP3D.Utils.Sharp3dConstants
+    name: Sharp3dConstants
+    type: Class
 - uid: SHARP3D.Utils.Enum
   name: SHARP3D.Utils.Enum
   type: Namespace
   items:
+  - uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+    name: AnalogFormatFlag
+    type: Enum
   - uid: SHARP3D.Utils.Enum.DataType
     name: DataType
     type: Enum

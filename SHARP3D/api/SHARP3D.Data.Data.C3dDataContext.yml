@@ -5,9 +5,10 @@ items:
   id: C3dDataContext
   parent: SHARP3D.Data.Data
   children:
-  - SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
+  - SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
   - SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor
   - SHARP3D.Data.Data.C3dDataContext.AnalogChannels
+  - SHARP3D.Data.Data.C3dDataContext.AnalogFormat
   - SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor
   - SHARP3D.Data.Data.C3dDataContext.AnalogOffset
   - SHARP3D.Data.Data.C3dDataContext.AnalogRate
@@ -497,16 +498,47 @@ items:
       type: System.Int32[]
     content.vb: Public ReadOnly Property AnalogOffset As Integer()
   overload: SHARP3D.Data.Data.C3dDataContext.AnalogOffset*
-- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
-  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)
-  id: '#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32)'
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  commentId: P:SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  id: AnalogFormat
   parent: SHARP3D.Data.Data.C3dDataContext
   langs:
   - csharp
   - vb
-  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int)
-  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int)
+  name: AnalogFormat
+  nameWithType: C3dDataContext.AnalogFormat
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogFormat
+    path: SHARP3D/Data/Data/C3dDataContext.cs
+    startLine: 96
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Data
+  summary: Gets the analog the <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT Parameter</a> value.
+  example: []
+  syntax:
+    content: public AnalogFormatFlag AnalogFormat { get; }
+    parameters: []
+    return:
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+    content.vb: Public ReadOnly Property AnalogFormat As AnalogFormatFlag
+  overload: SHARP3D.Data.Data.C3dDataContext.AnalogFormat*
+- uid: SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  commentId: M:SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  id: '#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)'
+  parent: SHARP3D.Data.Data.C3dDataContext
+  langs:
+  - csharp
+  - vb
+  name: C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  nameWithType: C3dDataContext.C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int, SHARP3D.Utils.Enum.AnalogFormatFlag)
   type: Constructor
   source:
     remote:
@@ -515,14 +547,14 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
     path: SHARP3D/Data/Data/C3dDataContext.cs
-    startLine: 115
+    startLine: 121
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Data.Data
   summary: Initializes a new instance of the <xref href="SHARP3D.Data.Data.C3dDataContext" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame)
+    content: public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)
     parameters:
     - id: c3dStream
       type: System.IO.FileStream
@@ -565,15 +597,18 @@ items:
     - id: analogSamplePerFrame
       type: System.Int32
       description: The number of analog sample in each frame.
-    content.vb: Public Sub New(c3dStream As FileStream, processor As ProcessorType, dataTypeFile As DataType, pointerDataSection As Integer, framesNumber As Integer, markersPerFrame As Integer, pointRate As Single, analogRate As Single, analogChannels As Integer, pointScaleFactor As Single, analogGeneralScaleFactor As Single, analogChannelScaleFactor As Single(), analogOffset As Integer(), analogSamplePerFrame As Integer)
+    - id: analogFormat
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+      description: The analog flag format
+    content.vb: Public Sub New(c3dStream As FileStream, processor As ProcessorType, dataTypeFile As DataType, pointerDataSection As Integer, framesNumber As Integer, markersPerFrame As Integer, pointRate As Single, analogRate As Single, analogChannels As Integer, pointScaleFactor As Single, analogGeneralScaleFactor As Single, analogChannelScaleFactor As Single(), analogOffset As Integer(), analogSamplePerFrame As Integer, analogFormat As AnalogFormatFlag)
   overload: SHARP3D.Data.Data.C3dDataContext.#ctor*
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
     description: Thrown if the ratio of <code class="paramref">analogRate</code> to <code class="paramref">pointRate</code> is not an integer.
-  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
-  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
-  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer)
+  nameWithType.vb: C3dDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
+  fullName.vb: SHARP3D.Data.Data.C3dDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
 references:
 - uid: SHARP3D.Data.Data
   commentId: N:SHARP3D.Data.Data
@@ -1085,6 +1120,19 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: (
   - name: )
+- uid: SHARP3D.Data.Data.C3dDataContext.AnalogFormat*
+  commentId: Overload:SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogFormat
+  name: AnalogFormat
+  nameWithType: C3dDataContext.AnalogFormat
+  fullName: SHARP3D.Data.Data.C3dDataContext.AnalogFormat
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.AnalogFormatFlag.html
+  name: AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
 - uid: SHARP3D.Data.Data.C3dDataContext
   commentId: T:SHARP3D.Data.Data.C3dDataContext
   parent: SHARP3D.Data.Data
@@ -1102,7 +1150,7 @@ references:
   fullName: System.Exception
 - uid: SHARP3D.Data.Data.C3dDataContext.#ctor*
   commentId: Overload:SHARP3D.Data.Data.C3dDataContext.#ctor
-  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_
+  href: SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_
   name: C3dDataContext
   nameWithType: C3dDataContext.C3dDataContext
   fullName: SHARP3D.Data.Data.C3dDataContext.C3dDataContext

@@ -1042,7 +1042,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetAnalogSamplePerFrame
     path: SHARP3D/C3dFile.cs
-    startLine: 397
+    startLine: 416
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1089,7 +1089,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetRightAmountOfFrames
     path: SHARP3D/C3dFile.cs
-    startLine: 456
+    startLine: 475
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1148,7 +1148,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetFrameValue
     path: SHARP3D/C3dFile.cs
-    startLine: 526
+    startLine: 545
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1189,7 +1189,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetPointFrameValue
     path: SHARP3D/C3dFile.cs
-    startLine: 553
+    startLine: 572
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1235,7 +1235,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetRightAmountMarkerPerFrame
     path: SHARP3D/C3dFile.cs
-    startLine: 597
+    startLine: 616
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1310,7 +1310,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ToBinaries
     path: SHARP3D/C3dFile.cs
-    startLine: 630
+    startLine: 649
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1342,7 +1342,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: SaveToFile
     path: SHARP3D/C3dFile.cs
-    startLine: 643
+    startLine: 662
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1381,7 +1381,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: IsFileStreamOpen
     path: SHARP3D/C3dFile.cs
-    startLine: 652
+    startLine: 671
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1412,7 +1412,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: CloseFileStream
     path: SHARP3D/C3dFile.cs
-    startLine: 660
+    startLine: 679
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1440,7 +1440,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: OpenC3dFile
     path: SHARP3D/C3dFile.cs
-    startLine: 677
+    startLine: 696
   assemblies:
   - SHARP3D
   namespace: SHARP3D
