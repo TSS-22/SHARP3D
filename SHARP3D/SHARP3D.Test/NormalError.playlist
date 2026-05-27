@@ -1,0 +1,71 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Rule Match="All">
+          <Property Name="Project" Value="SHARP3D.Test" />
+          <Rule Match="Any">
+            <Rule Match="All">
+              <Property Name="Namespace" Value="SHARP3D.Test.Tests" />
+              <Rule Match="Any">
+                <Rule Match="All">
+                  <Property Name="Class" Value="BasicTest" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.BasicTest.Basics" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.BasicTest.Basics(jsonPath: &quot;..\\..\\..\\SampleFiles\\Sample31\\large01.json&quot;, c3dPath: &quot;..\\..\\..\\SampleFiles\\Sample31\\large01.c3d&quot;)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.BasicTest.Basics(jsonPath: &quot;..\\..\\..\\SampleFiles\\Sample31\\large02.json&quot;, c3dPath: &quot;..\\..\\..\\SampleFiles\\Sample31\\large02.c3d&quot;)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber(filePath: &quot;..\\..\\..\\SampleFiles\\Sample36\\72610framesf.c3&quot;...)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+                <Rule Match="All">
+                  <Property Name="Class" Value="SampleErrorFilesTest" />
+                  <Rule Match="Any">
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test(folderPath: &quot;..\\..\\..\\SampleErrorFiles\\Sample13&quot;)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test(folderPath: &quot;..\\..\\..\\SampleErrorFiles\\Sample18&quot;)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test(folderPath: &quot;..\\..\\..\\SampleErrorFiles\\Sample20&quot;)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample13\\Dance.c3d&quot;)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample13\\Dance1.c3d&quot;)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample13\\golfswing.&quot;...)" />
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample13\\golfswing1&quot;...)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample18\\bad_parame&quot;...)" />
+                      </Rule>
+                    </Rule>
+                    <Rule Match="All">
+                      <Property Name="TestWithNormalizedFullyQualifiedName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test" />
+                      <Rule Match="Any">
+                        <Property Name="DisplayName" Value="SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test(filePath: &quot;..\\..\\..\\SampleErrorFiles\\Sample20\\phasespace&quot;...)" />
+                      </Rule>
+                    </Rule>
+                  </Rule>
+                </Rule>
+              </Rule>
+            </Rule>
+          </Rule>
+        </Rule>
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>

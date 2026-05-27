@@ -36,7 +36,7 @@ All information stored in the Parameter Section is organized into Groups even th
 
 Each Parameter is a member of a single Group thus allowing two Parameters to have the same name if they belong to different groups. For example, there may be two parameters called SCALE: one SCALE Parameter applies to 3D Point Data, while the other SCALE Parameter applies to
 Analog Data. The two Parameters are stored in separate Groups called POINT and
-ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./required/point-scale_factor.md) while the analog value can be read from the [ANALOG:SCALE](./required/analog-scale.md) Parameter.
+ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./required/point/point-scale_factor.md) while the analog value can be read from the [ANALOG:SCALE](./required/analog/analog-scale.md) Parameter.
 
 ## Structure 
 
@@ -157,7 +157,7 @@ When applications read Group/Parameter names, the case of the parameter or group
 
 >All Group/Parameter names must be stored in a C3D file as standard 7-bit ASCII values to comply with the C3D standard for universal compatibility ([A-Z, 0-9, _ ]).
 
-The same names may only be used for two Parameters if they occur in different groups. For example, both [POINT:SCALE](./required/point-scale_factor.md) and [ANALOG:SCALE](./required/analog-scale.md) parameters are permitted. 
+The same names may only be used for two Parameters if they occur in different groups. For example, both [POINT:SCALE](./required/point/point-scale_factor.md) and [ANALOG:SCALE](./required/analog/analog-scale.md) parameters are permitted. 
 
 >It is essential that all Group names, and all Parameters names within each Group, are unique. 
 
