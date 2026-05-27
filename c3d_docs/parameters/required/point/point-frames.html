@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>POINT:FRAMES | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="POINT:FRAMES | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,21 @@
         </div>
 
         <article data-uid="">
+<h1 id="pointframes">POINT:FRAMES</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: True</p>
+</li>
+</ul>
+<blockquote>
+<p>This parameter is locked. Extreme caution should be exercised when editing the value of this parameter.</p>
+</blockquote>
+<p>The POINT:FRAMES parameter is single value that stores the number of 3D data frames that are recorded in the C3D file. Note that when the 3D data has been derived from a video based system this value does not necessarily correspond to the number of video frames in the recording that was used to create the C3D file.</p>
+<p>While the POINT:FRAMES parameter can be stored as a floating-point value, it has been traditionally written and interpreted as an unsigned integer with a range of 1 to 65535 (there is no “frame zero”).</p>
+<p>When stored as an integer, if the POINT:FRAMES value is 65535 then applications must check for the existence of the additional parameters <a href="../../additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> and the TRIAL group <a href="../../additional/trial/trial-actual_start_field.html">ACTUAL_START_FIELD</a> and <a href="../../additional/trial/trial-actual_end_field.html">ACTUAL_END_FIELD</a> parameters which may describe a total frame count greater than 65535 frames.</p>
+<p>Note that the C3D file does not treat 3D data as interleaved, there are no odd or even fields; data is only stored as individual frames so the TRIAL group parameters must be read as describing C3D frames, not fields.</p>
 
 </article>
 

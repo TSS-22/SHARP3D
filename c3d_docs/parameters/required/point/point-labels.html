@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>POINT:LABELS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="POINT:LABELS | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,36 @@
         </div>
 
         <article data-uid="">
+<h1 id="pointlabels">POINT:LABELS</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<blockquote>
+<p>The POINT:LABELS name must be 7-bit ASCII. UTF-8 encoding is only permitted in the stored array values. (sic. This is unclear.)</p>
+</blockquote>
+<p>By convention, the LABELS array values are usually four characters of upper-case ASCII text (A-Z, underscore, and 0-9) although longer labels and UTF-8 encoding are permitted. The original C3D file format defined the POINT:LABELS parameter as a character data array that consisted of one unique four-character ASCII value for each 3D data point contained within the C3D file.</p>
+<p>Each label is referred to as the point label and is used to provide a unique reference each 3D point contained within the C3D file data section. This allows software applications to identify and process data based on the unique label identification.</p>
+<blockquote>
+<p>Unless the C3D file contains several hundred valid points in each frame of data <strong>the POINT:LABELS strings should not normally exceed 16 characters</strong>, <strong>its function is to provide a unique point identification, not a description</strong>.</p>
+</blockquote>
+<p>The purpose of the LABELS parameter is to allow applications reading data from the C3D file to search for a specific 3D point or trajectory by referencing its LABELS value instead of looking for a specific trajectory number in a fixed list of trajectories. This allows applications to be written in a general manner so that they can process data by reference. For example, calculate the mouvement of a participant pelvis, by assessing the direction of progression from the 3D points identified as the defining standard biomechanical landmarksuch of the pelvis: LASI, RASI and SACR. An application written in this way will work in any environment, as it does not require that the 3D data is stored in any specific order within the C3D file.</p>
+<p>Note that while the labels stored in POINT:LABELS are typically four upper case characters, many applications may create labels with more characters. When longer labels are used <strong>it is recommended that the first six characters of each label are unique</strong>.</p>
+<blockquote>
+<p>Always create labels that are unique and easy to read, e.g. LASI and RASI. Do not create labels with names like MARKER0001, MARKER0002 etc.</p>
+</blockquote>
+<p>Individual labels must always be unique to identify each point in the file but there is no need to make them excessively descriptive as the <a href="point-descriptions.html">POINT:DESCRIPTIONS</a> parameter is provided for human intelligible descriptions. It is recommended that POINT:LABELS are always no more than 16 characters in length.</p>
+<blockquote>
+<p>Labels must descriptive but not a description.</p>
+</blockquote>
+<p>Note that a C3D file may contain more or less than the number of trajectories described by this parameter.  The parameter <a href="point-used.html">POINT:USED</a> determine the actual number of trajectories stored in the 3D Point data section. If the C3D file contains more trajectories than are described by POINT:LABELS parameters, then the additional trajectories must be either referenced by number or can be defined by creating additional POINT:LABELS. Those additional POINT:LABELS parameters must be named POINT:LABELSX, X being an integer from 2 to 255. For example POINT:LABELS2 and POINT:LABELS3, up to POINT:LABELS255. These new POINT:LABELS parameters must still name trajectories in regard to their index in the <a href="point-used.html">POINT:USED</a> parameter.</p>
+<blockquote>
+<p>3D data points are stored in the <a href="../../../data/3d-point.html">3D Point data section</a> in the same order recorded in the POINT:LABELS parameter.</p>
+</blockquote>
+<p>It is strongly recommended that the POINT:LABELS used are consistent within any set of data files collected for a specific analysis environment to ease subsequent data analysis and processing. This parameter is not normally locked and may be edited if necessary. Editing any of the labels only changes the ASCII reference that identifies a specific trajectory and does not affect the C3D file structure.</p>
 
 </article>
 

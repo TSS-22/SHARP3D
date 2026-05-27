@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT:DATA_START | SHARP3D Documentation </title>
+      <title>POINT:LABELS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT:DATA_START | SHARP3D Documentation ">
+      <meta name="title" content="POINT:LABELS | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-descriptions.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,27 +85,31 @@
         </div>
 
         <article data-uid="">
-<h1 id="pointdata_start">POINT:DATA_START</h1>
+<h1 id="pointlabels">POINT:LABELS</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
 </li>
-<li><p><strong>Locked</strong>: True</p>
+<li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
+<p>The POINT:DESCRIPTIONS parameter is a character data array provided to store a description of each 3D data point referenced by the POINT:LABELS parameter.</p>
+<p>By convention, these entries usually contain upper and lower case ASCII characters and are typically 32 characters in length. The original C3D format supported entries up to 127 characters long and, while this is now 255 characters and may use UTF-8 encoding to support localized character sets, it is recommended that the parameter size is always kept to a minimum to avoid wasting the C3D file parameter section storage space. Descriptions should always be concise because creating very long verbose or empty descriptions is a waste of space.</p>
 <blockquote>
-<p>This parameter is locked and should not be changed. Extreme caution should be exercised when editing the value of this parameter.</p>
+<p>C3D files containing more than 127 DESCRIPTIONS may not be readable by some older software applications.</p>
 </blockquote>
-<p>The POINT:DATA_START parameter is an unsigned 16-bit integer value used as a pointer that points to the first block of the 3D/analog data section, the start of the data section, within the C3D file. The POINT:DATA_START value must always be used to determine location of the data section. The first block in the C3D file is block number one and contains data structures that document the contents of the C3D file. Although located in the POINT group, this parameter is must exist even when the C3D file only contains analog data, as analog data is stored in the 3D data section.</p>
-<blockquote>
-<p>A C3D file block is always 512 bytes long (256 sixteen-bit words).</p>
-</blockquote>
-<p>A copy of the DATA_START parameter value can also be found stored in <a href="../../../c3d-header.html#word-9-pointer-to-data-section">word 9 of the C3D file header</a> to enable software applications to quickly locate the start of 3D data without reading the parameter section of the C3D file. The copy of the POINT:DATA_START value stored in the C3D file header value must always be identical to the parameter value. As a result of this parameter being stored as an integer in the C3D file header it must always be written as an integer value in the parameter section.</p>
+<p>This parameter exists to provide human readable documentation about each of the individual 3D POINT:LABELS, which are generally short abbreviations of anatomical
+or other “landmarks” such as LASI, RKNE etc. These names generally have longer
+POINT:DESCRIPTIONS such as Left ASIS Marker and Right Knee Marker. The
+parameter is not locked and may be edited without affecting the C3D file structure.</p>
+<p><a href="#disclaimer">Although it is not strictly required</a>, it is good practice to include a DESCRIPTIONS parameter for each point with a LABELS entry. Since this is an array of character strings, the comments in the LABELS parameter description regarding the maximum number of array entries also apply to this parameter. C3D files may contain up to 255 DESCRIPTIONS parameters, with additional descriptions stored in the additional POINT:DESCRIPTIONSX parameters when necessary, X being an integer from 2 to 255.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Users occasionally create files with different numbers of LABELS and DESCRIPTIONS parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. SHARP3D consider this a <strong>malpractice</strong>. There should always be a one to one relationship between the number of <a href="point-labels.html">LABELS</a> and the number of DESCRIPTIONS.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-descriptions.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

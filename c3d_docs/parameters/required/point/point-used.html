@@ -87,6 +87,24 @@
         <article data-uid="">
 <h1 id="pointused">POINT:USED</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: True</p>
+</li>
+</ul>
+<blockquote>
+<p>This parameter is locked and should not be changed unless an application has added or deleted 3D points as value of this parameter affects the interpretation of the 3D/analog data storage records.</p>
+</blockquote>
+<p>The POINT:USED parameter is normally an unsigned integer that contains the number of 3D point coordinates that are written to each frame of data in the C3D file data section. This parameter describes the number of points that are stored in every frame of data in the C3D file and is used to enable the 3D data section of the file to be interpreted. Every point in the C3D file should normally have an associated entry in the <a href="point-labels.html">POINT:LABELS</a> and <a href="point-descriptions.html">POINT:DESCRIPTIONS</a> parameters.</p>
+<p>For example: if it is wished to store coordinates for ten 3D points, then POINT:USED should be set to 10, and every <a href="../../../data/3d-point.html">3D Point Frame</a> will have space for POINT:USED number of 3D points.</p>
+<p>The importance of the POINT:USED parameter lies in the fact that an application reading the 3D data section directly uses this value to determine the number of 3D coordinate points stored in each frame.</p>
+<blockquote>
+<p>The points do not have to be valid, they just have to have storage allocated.</p>
+</blockquote>
+<p>Invalid points should be stored with a <a href="../../../data/3d-point.html#camera-mask-and-residual">negative residual</a> if no valid trajectory data exists. When an application has read <em>POINT:USED number</em> of 3D coordinate points then it has read the entire frame of 3D data.</p>
+<p>A copy of the USED parameter value can also be found <a href="../../../c3d-header.html#word-2-number-of-3d-markerstrajectories-per-data-frame">in word 2 of the C3D file header</a>. The POINT:USED header value must always be identical to the parameter value.</p>
+<p>While the use of an unsigned integer to store the number of points in a C3D file means that a maximum of 65535 points can be stored, the associated <a href="point-labels.html">POINT:LABELS</a> and <a href="point-descriptions.html">POINT:DESCRIPTIONS</a> parameters are limited to a maximum of 255 entries. This limit can be bypassed by creating additional LABELS2 and DESCRIPTIONS2 parameters.</p>
 
 </article>
 

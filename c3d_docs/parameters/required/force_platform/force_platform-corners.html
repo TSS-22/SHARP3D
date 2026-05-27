@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT:DATA_START | SHARP3D Documentation </title>
+      <title> | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT:DATA_START | SHARP3D Documentation ">
+      <meta name="title" content=" | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-corners.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,27 +85,12 @@
         </div>
 
         <article data-uid="">
-<h1 id="pointdata_start">POINT:DATA_START</h1>
 
-<ul>
-<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
-</li>
-<li><p><strong>Locked</strong>: True</p>
-</li>
-</ul>
-<blockquote>
-<p>This parameter is locked and should not be changed. Extreme caution should be exercised when editing the value of this parameter.</p>
-</blockquote>
-<p>The POINT:DATA_START parameter is an unsigned 16-bit integer value used as a pointer that points to the first block of the 3D/analog data section, the start of the data section, within the C3D file. The POINT:DATA_START value must always be used to determine location of the data section. The first block in the C3D file is block number one and contains data structures that document the contents of the C3D file. Although located in the POINT group, this parameter is must exist even when the C3D file only contains analog data, as analog data is stored in the 3D data section.</p>
-<blockquote>
-<p>A C3D file block is always 512 bytes long (256 sixteen-bit words).</p>
-</blockquote>
-<p>A copy of the DATA_START parameter value can also be found stored in <a href="../../../c3d-header.html#word-9-pointer-to-data-section">word 9 of the C3D file header</a> to enable software applications to quickly locate the start of 3D data without reading the parameter section of the C3D file. The copy of the POINT:DATA_START value stored in the C3D file header value must always be identical to the parameter value. As a result of this parameter being stored as an integer in the C3D file header it must always be written as an integer value in the parameter section.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-corners.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

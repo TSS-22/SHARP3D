@@ -727,6 +727,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/force_platform/force_platform-cal_matrix.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/force_platform/force_platform-cal_matrix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/additional/point/point-long_frames.md",
       "output": {
         ".html": {
@@ -887,6 +897,56 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-channel.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-channel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-zero.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-zero.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-corners.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-corners.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-origin.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-origin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-type.md",
       "output": {
         ".html": {
@@ -901,6 +961,16 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/point/point-data_start.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/point/point-descriptions.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/point/point-descriptions.html"
         }
       },
       "version": ""
