@@ -37,9 +37,25 @@
         - name: ANALOG
         - href: parameters/required/group-analog.md
           items:
+            - name: ANALOG:USED
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:LABELS
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:DESCRIPTIONS
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:GEN_SCALE
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:OFFSET
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:UNITS
+              href: parameters/required/analog/analog-scale.md
             - name: ANALOG:SCALE
               href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:RATE
+              href: parameters/required/analog/analog-scale.md
             - name: ANALOG:FORMAT
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:BITS
               href: parameters/required/analog/analog-format.md
 - name: Data Section
   href: data/c3d-data-section.md
