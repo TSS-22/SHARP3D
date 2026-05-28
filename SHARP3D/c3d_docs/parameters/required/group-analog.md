@@ -8,6 +8,12 @@ data values were sampled by an Analog to Digital Converter (ADC) and then writte
 This method worked well for many years because the majority of analog data was sampled at 12-bit resolution and programmers implementing analog storage functions did not have to think too hard about the differences between storing signed offset, or unsigned offset data. The sampled values obtained from the ADC could
 simply be written to the file, stored as a positive signed integer value, and any necessary scaling or format conversions could be handled by creating, and applying, the appropriate [OFFSET](./analog/analog-offset.md) and [SCALE](./analog/analog-scale.md) values. It made no difference whether 12-bit or 14-bit data samples were considered to be a signed integer or an unsigned integer as all the possible unsigned values could be stored within the range of a signed 16-bit integer without any risk of integer overflow errors.
 
+|  | 12-bit ADC | 14-bit ADC | 16-bit ADC |
+| --- | --- | --- | --- |
+| Maximum value | 4096 | 16384 | 65536 |
+| Midrange (zero) | 2047 | 8191 | 32767 |
+| Minimum value | 0 | 0 | 0 |
+
 This situation changed in two ways with the introduction of 16-bit resolution Analog Data Convertor (ADC) samples:
 
 - The potential for integer overflow exists when the [ANALOG:OFFSET](./analog/analog-offset.md) parameter is applied to 16-bit resolution data. This requires that all math operations on analog data be performed with at least 32-bit resolution to handle any potential overflow when large analog data values are encountered with any significant [OFFSET](./analog/analog-offset.md) values because any positive offset applied to the maximum sample value causes an overflow error, potentially inverting the data sample.
