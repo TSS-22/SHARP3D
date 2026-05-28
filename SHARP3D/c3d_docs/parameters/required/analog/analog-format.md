@@ -16,8 +16,7 @@ when 32-bit Floating-point became the default C3D file format. C3D files storing
 
 > The parameter describes the analog data storage format, not the C3D file format. 
 
-> The ANALOG:FORMAT parameter was first described about 2005, as a result software
-applications created prior to that time will not read it. 
+> The ANALOG:FORMAT parameter was first described about 2005, as a result software applications created prior to that time will not read it. 
 
 If the [ANALOG:FORMAT](./analog-format.md) parameter is `UNSIGNED` then the [ANALOG:OFFSET](./analog-offset.md) parameter, and other non-negative (all?) Analog Parameters must be interpreted as an Unsigned Int6.
 
