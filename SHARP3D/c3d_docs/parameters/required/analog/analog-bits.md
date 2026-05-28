@@ -1,6 +1,6 @@
 # ANALOG:BITS
 
-- **Type**: [Required](../../required.md) ([see disclaimer](#disclaimer))
+- **Type**: [Required](../../required.md)
 
 - **Locked**: True
 

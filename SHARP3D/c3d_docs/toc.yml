@@ -38,25 +38,25 @@
         - href: parameters/required/group-analog.md
           items:
             - name: ANALOG:USED
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-used.md
             - name: ANALOG:LABELS
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-labels.md
             - name: ANALOG:DESCRIPTIONS
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-descriptions.md
             - name: ANALOG:GEN_SCALE
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-gen_scale.md
             - name: ANALOG:OFFSET
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-offset.md
             - name: ANALOG:UNITS
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-units.md
             - name: ANALOG:SCALE
               href: parameters/required/analog/analog-scale.md
             - name: ANALOG:RATE
-              href: parameters/required/analog/analog-scale.md
+              href: parameters/required/analog/analog-rate.md
             - name: ANALOG:FORMAT
-              href: parameters/required/analog/analog-scale.md
-            - name: ANALOG:BITS
               href: parameters/required/analog/analog-format.md
+            - name: ANALOG:BITS
+              href: parameters/required/analog/analog-bits.md
 - name: Data Section
   href: data/c3d-data-section.md
   items:
