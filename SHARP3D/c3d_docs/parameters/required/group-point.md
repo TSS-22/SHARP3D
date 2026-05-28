@@ -1,0 +1,7 @@
+# POINT
+
+The POINT parameters group provides information about the 3D data contained within a C3D file as well as some basic information about the data environment. As a result, the POINT parameters [POINT:DATA_START](./point/point-data_start.md), [POINT:FRAMES](./point/point-frames.md), and [POINT:USED](./point/point-used.md) are required **even if the C3D file contains only analog information without any 3D information at all**. The [POINT:DATA_START](./point/point-data_start.md) parameter must exist because it is needed to provide a pointer to the start of the 3D point and analog storage within the file. The [POINT:USED](./point/point-used.md) parameter is required as it is used to determine the number of 3D points recorded in the data area. If it is set to zero then it indicates that the 3D point and analog storage area does not contain any 3D point data and may only contain analog data values.
+
+Other POINT parameters may be required by particular software applications, you will need to consult your software or hardware manufacturer’s documentation for details of application specific parameters and their use. 
+
+> It is worth noting that all C3D parameter and group structures have an associated description string that should be used to provide some basic information about each group and parameter.

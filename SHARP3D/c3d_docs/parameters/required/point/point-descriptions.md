@@ -20,4 +20,4 @@ parameter is not locked and may be edited without affecting the C3D file structu
 
 ## Disclaimer
 
-Users occasionally create files with different numbers of LABELS and DESCRIPTIONS parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. SHARP3D consider this a **malpractice**. There should always be a one to one relationship between the number of [LABELS](./point-labels.md) and the number of DESCRIPTIONS. 
+Users occasionally create files with different numbers of [LABELS](./point-labels.md) and [DESCRIPTIONS](./point-descriptions.md) parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. **SHARP3D consider this a malpractice**. There should always be a one to one relationship between the number of [LABELS](./point-labels.md), the number of [DESCRIPTIONS](./point-descriptions.md), and [POINT:USED](./point-used.md). 

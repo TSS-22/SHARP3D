@@ -19,3 +19,7 @@ Invalid points should be stored with a [negative residual](../../../data/3d-poin
 A copy of the USED parameter value can also be found [in word 2 of the C3D file header](../../../c3d-header.md#word-2-number-of-3d-markerstrajectories-per-data-frame). The POINT:USED header value must always be identical to the parameter value.
 
 While the use of an unsigned integer to store the number of points in a C3D file means that a maximum of 65535 points can be stored, the associated [POINT:LABELS](./point-labels.md) and [POINT:DESCRIPTIONS](./point-descriptions.md) parameters are limited to a maximum of 255 entries. This limit can be bypassed by creating additional LABELS2 and DESCRIPTIONS2 parameters.
+
+## Disclaimer
+
+Users occasionally create files with different numbers of [LABELS](./point-labels.md) and [DESCRIPTIONS](./point-descriptions.md) parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. **SHARP3D consider this a malpractice**. There should always be a one to one relationship between the number of [LABELS](./point-labels.md), the number of [DESCRIPTIONS](./point-descriptions.md), and [POINT:USED](./point-used.md). 
