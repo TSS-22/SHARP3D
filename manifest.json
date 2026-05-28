@@ -957,6 +957,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/group-analog.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/group-analog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/group-point.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/group-point.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/point/point-data_start.md",
       "output": {
         ".html": {
@@ -1054,6 +1074,16 @@
       "output": {
         "resource": {
           "relative_path": "docfx_assets/images/analog-sync.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/force_vector_displayed.png",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/force_vector_displayed.png"
         }
       },
       "version": ""

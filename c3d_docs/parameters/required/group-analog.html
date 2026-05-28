@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>ANALOG | SHARP3D Documentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="ANALOG | SHARP3D Documentation ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-analog.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
+            SHARP3D Documentation
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="analog">ANALOG</h1>
+
+<p>The ANALOG parameters group stores information about the analog data recorded within a C3D file. As a result, the parameter <a href="analog/analog-used.html">ANALOG:USED</a> should be stored in all C3D files even if the file does not contain any analog data. C3D files that do not contain analog data should set the value of the <a href="analog/analog-used.html">USED</a> parameter to zero.</p>
+<p>The original specification for <a href="../../data/analog.html">analog data</a> storage within the C3D file assumed that
+data values were sampled by an Analog to Digital Converter (ADC) and then written to the C3D file as binary samples. The assumption was that the binary value would be stored in the C3D file as a signed 16-bit integer unless the C3D file used floating-point format, in which case the signed 16-bit value would be converted to a floating-pint value before being written to the file.</p>
+<p>This method worked well for many years because the majority of analog data was sampled at 12-bit resolution and programmers implementing analog storage functions did not have to think too hard about the differences between storing signed offset, or unsigned offset data. The sampled values obtained from the ADC could
+simply be written to the file, stored as a positive signed integer value, and any necessary scaling or format conversions could be handled by creating, and applying, the appropriate <a href="analog/analog-offset.html">OFFSET</a> and <a href="analog/analog-scale.html">SCALE</a> values. It made no difference whether 12-bit or 14-bit data samples were considered to be a signed integer or an unsigned integer as all the possible unsigned values could be stored within the range of a signed 16-bit integer without any risk of integer overflow errors.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>12-bit ADC</th>
+<th>14-bit ADC</th>
+<th>16-bit ADC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum value</td>
+<td>4096</td>
+<td>16384</td>
+<td>65536</td>
+</tr>
+<tr>
+<td>Midrange (zero)</td>
+<td>2047</td>
+<td>8191</td>
+<td>32767</td>
+</tr>
+<tr>
+<td>Minimum value</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>This situation changed in two ways with the introduction of 16-bit resolution Analog Data Convertor (ADC) samples:</p>
+<ul>
+<li><p>The potential for integer overflow exists when the <a href="analog/analog-offset.html">ANALOG:OFFSET</a> parameter is applied to 16-bit resolution data. This requires that all math operations on analog data be performed with at least 32-bit resolution to handle any potential overflow when large analog data values are encountered with any significant <a href="analog/analog-offset.html">OFFSET</a> values because any positive offset applied to the maximum sample value causes an overflow error, potentially inverting the data sample.</p>
+</li>
+<li><p>The interpretation of the format used to store the analog data sample is significant. Before the introduction of 16-bit ADCs, most analog data samples contained 12-bit data values with a range of 4096 discreet values, stored as positive numbers from 0 to 4095 as a signed 16-bit integer and converted to a scaled voltage measurement by the application of the <a href="analog/analog-scale.html">ANALOG:SCALE</a> and <a href="analog/analog-offset.html">ANALOG:OFFSET</a> parameters associated with individual analog channels. The introduction of 16-bit analog data samples changed this and requires that the analog values are interpreted as signed integer values.</p>
+</li>
+</ul>
+<p>The first C3D application to implement 16-bit analog data stored the analog data as unsigned 16-bit integer values, thus rendering the analog data unreadable to standard C3D applications that expect to read signed integers from the C3D file. The programmer was unwilling to correct this, as the problems were only discovered
+after the software had been widely distributed and users started complaining that other C3D applications could not read the new format.</p>
+<p>In order to work around this problem two additional parameters (<a href="analog/analog-format.html">ANALOG:FORMAT</a> and <a href="analog/analog-bits.html">ANALOG:BITS</a>) were added to the C3D file format description to document the analog sample format and measurement resolution. <strong>These two parameters are “optional” in the sense that they are unnecessary unless the analog values have been stored as unsigned integers</strong>. Some applications will not read these parameters and will fail to read unsigned 16-bit analog data although.</p>
+<p>The choice of SIGNED or UNSIGNED analog data and the ADC or data resolution can be determined by simply interpreting the <a href="analog/analog-offset.html">ANALOG:OFFSET</a> value.</p>
+<blockquote>
+<p>The default storage format for all analog data in a C3D file is as a 16-bit signed integer.</p>
+</blockquote>
+<p>It is strongly recommended that anyone storing 16-bit analog data in integer format C3D files follow the original C3D format description and store their data using signed integers wherever possible. Care is needed when writing code to convert between signed and unsigned formats or reading/writing all format variants.</p>
+<p>The parameters listed below must always be provided if the C3D file does contain analog data. Other ANALOG parameters may be required by particular software applications. Consult your manufacturer’s documentation for details of application specific parameters.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-analog.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

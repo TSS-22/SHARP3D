@@ -87,6 +87,14 @@
         <article data-uid="">
 <h1 id="analogunits">ANALOG:UNITS</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The ANALOG:UNITS parameter is an array of character data values, normally 4 characters in length each. This parameter stores the analog measurement units for each channel (e.g. V, N, Nm). The units should describe the quantities after the scaling factors are applied. As a result, there should always be one ANALOG:UNITS entry for a total of ANALOG:USED channels.</p>
+<p>Note that changing the ANALOG:UNITS parameter does not automatically affect the calculated analog values, as it is not used in the analog scaling calculations. You must change the <a href="analog-scale.html">ANALOG:SCALE</a> parameter to re-scale the analog data.</p>
 
 </article>
 

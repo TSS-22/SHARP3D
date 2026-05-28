@@ -105,6 +105,8 @@
 <p>Invalid points should be stored with a <a href="../../../data/3d-point.html#camera-mask-and-residual">negative residual</a> if no valid trajectory data exists. When an application has read <em>POINT:USED number</em> of 3D coordinate points then it has read the entire frame of 3D data.</p>
 <p>A copy of the USED parameter value can also be found <a href="../../../c3d-header.html#word-2-number-of-3d-markerstrajectories-per-data-frame">in word 2 of the C3D file header</a>. The POINT:USED header value must always be identical to the parameter value.</p>
 <p>While the use of an unsigned integer to store the number of points in a C3D file means that a maximum of 65535 points can be stored, the associated <a href="point-labels.html">POINT:LABELS</a> and <a href="point-descriptions.html">POINT:DESCRIPTIONS</a> parameters are limited to a maximum of 255 entries. This limit can be bypassed by creating additional LABELS2 and DESCRIPTIONS2 parameters.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Users occasionally create files with different numbers of <a href="point-labels.html">LABELS</a> and <a href="point-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="point-labels.html">LABELS</a>, the number of <a href="point-descriptions.html">DESCRIPTIONS</a>, and <a href="point-used.html">POINT:USED</a>.</p>
 
 </article>
 

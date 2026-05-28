@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>ANALOG:LABELS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="ANALOG:LABELS | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,20 @@
         </div>
 
         <article data-uid="">
+<h1 id="analoglabels">ANALOG:LABELS</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The C3D file format defines the ANALOG:LABELS parameter as a character data array that consists of a unique four-character ASCII (A-Z, 0-9) string for each analog channel contained within the C3D file. This is referred to as the analog channel label and is used to reference each channel of data contained within the C3D file data section in the order in which the channels are stored. Labels are typically 4-16 characters long (4 upper case characters is the default).</p>
+<p>The purpose of the LABELS parameter is to allow applications to search for a specific channel of data by referencing its LABELS value instead of looking for a specific analog channel number. This allows applications to be written in a general manner so that they can process data by reference e.g. Analyze all the EMG channels where they are identified as channels EM01 through EM32. An application written in this way will work in any environment, as it does not require that the EMG signals be stored on specific numbered ADC channels.</p>
+<p>Note that while ANALOG:LABELS are typically four upper case characters, many applications may create labels that are longer and contain upper and lower case characters. The LABELS parameter is defined to allow software applications to uniquely identify analog channels, as such each label must be unique and need not be descriptive. The ANALOG:DESCRIPTIONS parameter is available for documentation, so creating ANALOG:LABELS like “Moment.Mz1” and “Voltage.Right Rectus Femoris” is a waste of space when “MZ1” and “RRF” are all that an application needs to identify individual channels.</p>
+<p>Note that a C3D file may contain more or less analog channels than described by this parameter. If the C3D file contains more analog channels than are described by ANALOG:LABELS parameters then the additional analog channels must be referenced by the channel index number</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and <a href="analog-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a>, the number of <a href="analog-descriptions.html">DESCRIPTIONS</a>, and <a href="analog-used.html">POINT:USED</a>.</p>
 
 </article>
 

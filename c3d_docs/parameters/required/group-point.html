@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>ANALOG:RATE | SHARP3D Documentation </title>
+      <title>POINT | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="ANALOG:RATE | SHARP3D Documentation ">
+      <meta name="title" content="POINT | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../../toc.html">
-      <meta name="docfx:tocrel" content="../../../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-rate.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-point.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../../index.html">
-            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,30 +85,18 @@
         </div>
 
         <article data-uid="">
-<h1 id="analograte">ANALOG:RATE</h1>
+<h1 id="point">POINT</h1>
 
-<ul>
-<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
-</li>
-<li><p><strong>Locked</strong>: True</p>
-</li>
-</ul>
+<p>The POINT parameters group provides information about the 3D data contained within a C3D file as well as some basic information about the data environment. As a result, the POINT parameters <a href="point/point-data_start.html">POINT:DATA_START</a>, <a href="point/point-frames.html">POINT:FRAMES</a>, and <a href="point/point-used.html">POINT:USED</a> are required <strong>even if the C3D file contains only analog information without any 3D information at all</strong>. The <a href="point/point-data_start.html">POINT:DATA_START</a> parameter must exist because it is needed to provide a pointer to the start of the 3D point and analog storage within the file. The <a href="point/point-used.html">POINT:USED</a> parameter is required as it is used to determine the number of 3D points recorded in the data area. If it is set to zero then it indicates that the 3D point and analog storage area does not contain any 3D point data and may only contain analog data values.</p>
+<p>Other POINT parameters may be required by particular software applications, you will need to consult your software or hardware manufacturer’s documentation for details of application specific parameters and their use.</p>
 <blockquote>
-<p>This parameter is Locked. Extreme caution should be exercised when editing its value as it affects the way that <a href="../../../data/c3d-data-section.html">data</a> is stored.</p>
+<p>It is worth noting that all C3D parameter and group structures have an associated description string that should be used to provide some basic information about each group and parameter.</p>
 </blockquote>
-<p>The ANALOG:RATE parameter is a single floating-point value that stores the sample rate at which the analog data was collected in samples per second. This indicates the number of analog samples that exist in each analog channel for the given <a href="../point/point-rate.html">POINT:RATE</a> value. For example, an ANALOG:RATE value of 600 for a C3D file that contains data with a POINT:RATE of 60.00 has 10 analog samples per 3D sample (60 x 10).</p>
-<p>The RATE parameter value is not stored in the C3D file header. However, the header does record the 3D sample frame rate in <a href="../../../c3d-header.html#word-11-12-3d-point-data-acquisition-rate">words 11-12</a> as well as the number of analog samples per 3D frame in <a href="../../../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">word 10</a>. The ANALOG:RATE parameter value should always be identical to the value:</p>
-<p><code>3D_frame_rate * analog samples per frame</code></p>
-<p>For example, an ANALOG:RATE will have a value of 600 in a C3D file with a <a href="../point/point-rate.html">POINT:RATE</a> value of 60 that contains 10 samples of analog data per 3D frame.</p>
-<blockquote>
-<p>Note that although the C3D format specified that the number of analog samples per 3D frame must be an integer number, the actual 3D frame rate is a floating-point value since it may not be exact. Therefore, the ANALOG:RATE (from the above calculation) must also be stored as a floating-point value.</p>
-</blockquote>
-<p>Note that a single ANALOG:RATE value applies to all analog channels – the C3D file format requires that all analog channels be recorded at a single rate. This means that if the C3D file is used to store analog data from a variety of different sources, all analog signals must be sampled at the rate required by the source with the highest frequency components.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-rate.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-point.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

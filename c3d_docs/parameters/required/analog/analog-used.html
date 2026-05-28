@@ -87,6 +87,22 @@
         <article data-uid="">
 <h1 id="analogused">ANALOG:USED</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: True</p>
+</li>
+</ul>
+<blockquote>
+<p>This parameter is locked. Extreme caution should be exercised when editing this parameter as it affects the way that 3D/analog data is stored.</p>
+</blockquote>
+<p>The ANALOG:USED parameter is normally an unsigned integer value that stores the number of analog channels that are contained within the C3D file. The value stored in ANALOG:USED is used to compute the analog data frame rate from the total number of analog data words collected during each 3D frame. The total number of analog samples stored per 3D frame must be an integer multiple of ANALOG:USED. The value of the ANALOG:USED parameter is not stored in the C3D file header but can be calculated from two values that are stored in the C3D file header: <a href="../../../c3d-header.html#word-3-total-number-of-analog-samples-per-data-frames">C3D header word 3</a> divided by <a href="../../../c3d-header.html#word-10-number-of-analog-frame-per-data-frame">C3D header Word 10</a>.</p>
+<p>As an unsigned integer, the ANALOG:USED parameter supports a maximum of 65535 analog channels, although it is unusual to find analog hardware systems collecting more than a few hundred channels of analog data. In practice the C3D format is limited to 255 analog channels due to limitations imposed by the parameters <a href="analog-labels.html">LABELS</a>, <a href="analog-descriptions.html">DESCRIPTIONS</a>, <a href="analog-scale.html">SCALE</a>, <a href="analog-offset.html">OFFSET</a>, and <a href="analog-units.html">UNITS</a>. To circumvent these limitations, additional parameters can be created to extend the storage of said parameters: <a href="analog-labels.html">LABELS2</a>, <a href="analog-descriptions.html">DESCRIPTIONS2</a>, <a href="analog-scale.html">SCALE2</a>, <a href="analog-offset.html">OFFSET2</a>, and <a href="analog-units.html">UNITS2</a>, etc. Refer to the documentation of each of those parameters to know more about this.</p>
+<blockquote>
+<p>If the ANALOG:USED parameter is zero then the C3D file does not contain any analog data values and all other ANALOG parameters should be ignored.</p>
+</blockquote>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and <a href="analog-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a>, the number of <a href="analog-descriptions.html">DESCRIPTIONS</a>, and <a href="analog-used.html">POINT:USED</a>.</p>
 
 </article>
 

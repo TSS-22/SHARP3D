@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>ANALOG:DESCRIPTIONS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="ANALOG:DESCRIPTIONS | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,24 @@
         </div>
 
         <article data-uid="">
+<h1 id="analogdescriptions">ANALOG:DESCRIPTIONS</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The ANALOG:DESCRIPTIONS parameter is a character data array that usually consists of a short description of each analog channel referenced by the <a href="analog-labels.html">ANALOG:LABELS</a> parameter. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a> and the number of DESCRIPTIONS although users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and DESCRIPTIONS parameters.</p>
+<p>This parameter exists to provide documentation about each of the individual analog channels. The <a href="analog-labels.html">ANALOG:LABELS</a> parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these <a href="analog-labels.html">LABELS</a> generally has a longer ANALOG:DESCRIPTIONS such as Fx channel, FP1 sn 628301 and Left Extensor Hallucis Longus etc.</p>
+<p>The descriptive entries can contain upper and lower case ASCII characters and are typically 32 8-bit characters in length but may be up to 255 characters. However it is recommended that the DESCRIPTIONS strings stored are as concise as possible for efficient storage. UTF-8 encoding is permitted to support localized character sets but keep in mind that the length of each parameter value defines the number of 8-bit values encoded.</p>
+<p>Note that, like the <a href="../point/point-descriptions.html">POINTS:DESCRIPTIONS</a>, the ANALOG:DESCRIPTIONS are provided simply as a means of providing a human readable description or documentation of the analog channel. Software applications that need to access individual analog channels should access each channel by use of the <a href="analog-labels.html">ANALOG:LABELS</a>, not the ANALOG:DESCRIPTIONS parameter value.</p>
+<blockquote>
+<p>These parameters consume the most space in the C3D parameter block so it makes sense to use then sensibly and concisely.</p>
+</blockquote>
+<p>If you are going to create an ANALOG:DESCRIPTIONS parameter then it makes sense to use it to document the contents of each analog channel instead of creating descriptions like AMTI OR6 Series Force Plate [n] and Analog EMG::Voltage [4,5] which simply duplicate information in the C3D file and is not helpful to anyone accessing the C3D data in the future. It would be much more useful to record the force plate serial number and the muscle name.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>Users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and <a href="analog-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a>, the number of <a href="analog-descriptions.html">DESCRIPTIONS</a>, and <a href="analog-used.html">POINT:USED</a>.</p>
 
 </article>
 
