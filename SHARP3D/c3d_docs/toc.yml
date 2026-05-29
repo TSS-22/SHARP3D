@@ -16,7 +16,7 @@
     - name: Supported Parameters
       items:
         - name: POINT
-        - href: parameters/required/group-point.md
+          href: parameters/required/group-point.md
           items:
             - name: POINT:USED
               href: parameters/required/point/point-used.md
@@ -35,7 +35,7 @@
             - name: POINT:UNITS
               href: parameters/required/point/point-units.md    
         - name: ANALOG
-        - href: parameters/required/group-analog.md
+          href: parameters/required/group-analog.md
           items:
             - name: ANALOG:USED
               href: parameters/required/analog/analog-used.md
@@ -57,6 +57,21 @@
               href: parameters/required/analog/analog-format.md
             - name: ANALOG:BITS
               href: parameters/required/analog/analog-bits.md
+        - name: FORCE_PLATFORM
+          href: parameters/required/group-force_platform.md
+          items:
+            - name: FORCE_PLATFORM:USED
+              href: parameters/required/force_platform/force_platform-used.md
+            - name: FORCE_PLATFORM:TYPE
+              href: parameters/required/force_platform/force_platform-type.md
+            - name: FORCE_PLATFORM:ZERO
+              href: parameters/required/force_platform/force_platform-zero.md
+            - name: FORCE_PLATFORM:CORNERS
+              href: parameters/required/force_platform/force_platform-corners.md
+            - name: FORCE_PLATFORM:ORIGIN
+              href: parameters/required/force_platform/force_platform-origin.md
+            - name: FORCE_PLATFORM:CHANNEL
+              href: parameters/required/force_platform/force_platform-channel.md
 - name: Data Section
   href: data/c3d-data-section.md
   items:
@@ -70,6 +85,44 @@
       href: data/camera-mask.md
     - name: Scaling Resolution
       href: data/scaling-resolution.md
+- name: Appendix
+  href: appendix/appendix.md
+  items:
+    - name: The C3D Frame Count
+      href: appendix/3d-frame-count/main.md
+      items:
+        - name: Reading
+          href: appendix/3d-frame-count/reading.md
+        - name: Writing
+          href: appendix/3d-frame-count/writing.md
+        - name: Updating
+          href: appendix/3d-frame-count/updating.md
+        - name: Maintaining
+          href: appendix/3d-frame-count/maintaining.md
+    - name: Integers and Bytes
+      href: appendix/integers-and-byte/main.md
+      items:
+        - name: Signed Numbers
+          href: appendix/integers-and-byte/signed.md
+        - name: Unsigned Numbers
+          href: appendix/integers-and-byte/unsigned.md
+    - name: Troubleshooting C3D Files
+      href: appendix/troubleshooting-c3d-files/main.md
+      items:
+        - name: Diagnosing
+          href: appendix/troubleshooting-c3d-files/diagnosing.md
+        - name: Repairing
+          href: appendix/troubleshooting-c3d-files/repairing.md
+    - name: Choosing a C3D Format
+      href: appendix/choosing-a-c3d-format/main.md
+      items:
+        - name: Sample Rate Limitations
+          href: appendix/choosing-a-c3d-format/sample.md
+        - name: C3D Parameters
+          href: appendix/choosing-a-c3d-format/c3d-parameters.md
+- name: Glossary of Terms
+  href: glossary/glossary.md
+
 
   
 
