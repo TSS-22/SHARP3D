@@ -1,0 +1,3 @@
+# Glossary of Terms
+
+This glossary contains definitions of terms used in the C3D documentation. In some cases, terms such as record, blocks, and section, are used in ways that may appear unconventional to many users with a traditional programming background. The use of these terms in this manual is an attempt to describe the C3D format in a coherent fashion as a vehicle for the accurate storage of universally accessible data in the 3D biomechanics motion capture environment.
