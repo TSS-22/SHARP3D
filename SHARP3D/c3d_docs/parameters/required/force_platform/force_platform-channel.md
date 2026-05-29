@@ -8,15 +8,15 @@ The FORCE_PLATFORM:CHANNEL parameter is an array of signed integer data values t
 
 While it is recommended that force plate channels be connected to the analog recording device in a logical fashion it is not essential that they are stored in any fixed order within the C3D file. Any application that reads force plate data must use this parameter to determine the force plate channel to analog channel assignments.
 
-Note that if your data collection environment used several different types of force platforms and any of them are **TYPE-3** then this parameter must contain eight (8,) entries for all plates. If **TYPE-3 force plates** are not used then the dimension may be either (6,) or (8,) as the unused values in the CHANNEL parameter should be set to zero and ignored.
+Note that if your data collection environment used several different types of force platforms and any of them are [TYPE-3](../force_platform/force_platform-type.md#type-3) then this parameter must contain eight (8,) entries for all plates. If [TYPE-3 force plates](../force_platform/force_platform-type.md#type-3) are not used then the dimension may be either (6,) or (8,) as the unused values in the CHANNEL parameter should be set to zero and ignored.
 
 >Channels number:
->- **TYPE-1**: 6 or 8
->- **TYPE-2**: 6 or 8
->- **TYPE-3**: 8
->- **TYPE-4**: 6 or 8
+>- [TYPE-1](../force_platform/force_platform-type.md#type-1): 6 or 8
+>- [TYPE-2](../force_platform/force_platform-type.md#type-2): 6 or 8
+>- [TYPE-3](../force_platform/force_platform-type.md#type-3): 8
+>- [TYPE-4](../force_platform/force_platform-type.md#type-4): 6 or 8
 
-|  | **TYPE-1** | **TYPE-2** | **TYPE-3** | **TYPE-4** |
+|  | [TYPE-1](../force_platform/force_platform-type.md#type-4) | [TYPE-2](../force_platform/force_platform-type.md#type-4) | [TYPE-3](../force_platform/force_platform-type.md#type-4) | [TYPE-4](../force_platform/force_platform-type.md#type-4) |
 | --- | --- | --- | --- | --- |
 | CHANNEL (1,i) | Forceₓ | Forceₓ | Forceₓ¹,² | Forceₓ |
 | CHANNEL (2,i) | Forceᵧ | Forceᵧ | Forceₓ³,⁴ | Forceᵧ |

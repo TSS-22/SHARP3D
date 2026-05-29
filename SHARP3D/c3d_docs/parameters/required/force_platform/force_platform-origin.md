@@ -2,4 +2,4 @@
 
 - **Type**: [Required](../../required.md)
 
-- **Locked**: True
+- **Locked**: False

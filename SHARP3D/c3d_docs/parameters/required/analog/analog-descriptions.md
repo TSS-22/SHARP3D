@@ -6,7 +6,7 @@
 
 The ANALOG:DESCRIPTIONS parameter is a character data array that usually consists of a short description of each analog channel referenced by the [ANALOG:LABELS](./analog-labels.md) parameter. There should always be a one to one relationship between the number of [LABELS](./analog-labels.md) and the number of DESCRIPTIONS although users occasionally create files with different numbers of [LABELS](./analog-labels.md) and DESCRIPTIONS parameters.
 
-This parameter exists to provide documentation about each of the individual analog channels. The [ANALOG:LABELS](./analog-labels.md) parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these [LABELS](./analog-labels.md) generally has a longer ANALOG:DESCRIPTIONS such as Fx channel, FP1 sn 628301 and Left Extensor Hallucis Longus etc.
+This parameter exists to provide documentation about each of the individual analog channels. The [ANALOG:LABELS](./analog-labels.md) parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these [LABELS](./analog-labels.md) generally has a longer ANALOG:DESCRIPTIONS such as $F_x$ channel, FP<sub>1</sub> sn 628301 and Left Extensor Hallucis Longus etc.
 
 The descriptive entries can contain upper and lower case ASCII characters and are typically 32 8-bit characters in length but may be up to 255 characters. However it is recommended that the DESCRIPTIONS strings stored are as concise as possible for efficient storage. UTF-8 encoding is permitted to support localized character sets but keep in mind that the length of each parameter value defines the number of 8-bit values encoded.
 

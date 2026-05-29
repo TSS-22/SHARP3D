@@ -2,7 +2,7 @@
 
 - **Type**: [Required](../../required.md)
 
-- **Locked**: False
+- **Locked**: True
 
 > The value of USED sets the minimum array size of other parameters in the [FORCE_PLATFORM](../group-force_platform.md) group.
 

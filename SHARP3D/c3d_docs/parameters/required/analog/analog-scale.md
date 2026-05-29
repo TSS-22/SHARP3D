@@ -26,7 +26,7 @@ The `ADC_range` is the actual input range of the ADC card that is used to collec
 
 ## Recording Analog Data and Computing ANALOG:SCALE
 
-> *This part is about calculating ANALOG:SCALE when recording data to then create a C3D file, but also experimental setup for adequat measurement scale vs experimental needs. This is somewhat of a tangent and disgression. The reader might find useful information, wether concerning C3D file or experimental setup, especially newcomers to ADC and analog recording. This part is relatively confuse, even after trying to edit it to make it more palatable. Other ressources might be more suited to learn about this topic.*
+> *This part is about calculating ANALOG:SCALE when recording data to then create a C3D file, but also experimental setup for adequat measurement scale vs experimental needs. This is somewhat of a tangent. The reader might find useful information, wether concerning C3D file or experimental setup, especially newcomers to ADC and analog recording. Other ressources might be more suited to learn about this topic in depth.*
 
 While the default ADC_range is normally 20 Volts, it is common for individual ADC channels for have the ability to select lower ranges by programming a fixed gain within the ADC measurement system for each individual analog channel. An individual channel gain of x2 results in an individual ADC_range of 10 Volts (±5Volts) while a gain of x4 results in an ADC_range of 5 Volts (±2.5Volts). It is best to always think of this change as a change in the range of acceptable ADC input voltages to avoid confusing the individual ADC channel gains with other external equipment gains. It is very important to remember that any signal that exceeds the ADC input range limits will always result in a clipped signal and the loss of data.
 
@@ -121,15 +121,15 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 
 A strain gauge force platform manufacturer will typically supply data with each force plate that describes how the values measured are affected by the applied forces and moments. This information may be in the form of a single value for each output channel, or alternatively as a matrix of values, which describes how every channel affects every other channel. <!-- !!!!!OMITTED BECAUSE IT IS CONFUSING AND NECESSARY AT THIS STAGE OF THE DISCOURSE!!!!!If we use only the diagonal entries from the calibration matrix then we are ignoring cross-talk terms, which are usually quite small when compared to the elements on the matrix diagonal, and we have just a single sensitivity value for each channel. This is the method used for the six-channel force plates that will be describe first since they are the most widely used.-->The C3D format defines a number of different force plate types to enable the stored analog data from each type to be treated appropriately: 
 
-- **TYPE-1 force plates**: They have three force outputs ($Fx$, $Fy$ and $Fz$) and a $Mz$ and center-of-pressure output ($Px$ and $Py$).
+- [TYPE-1 force plates](../force_platform/force_platform-type.md#type-1): They have three force outputs ($Fx$, $Fy$ and $Fz$) and a $Mz$ and center-of-pressure output ($Px$ and $Py$).
 
-- **TYPE-2 force plates**: They provide three force outputs and three moment outputs ($Mx$, $My$, $Mz$) and scale these signals using a single scaling factor applied to each analog channel.
+- [TYPE-2 force plates]((../force_platform/force_platform-type.md#type-2)): They provide three force outputs and three moment outputs ($Mx$, $My$, $Mz$) and scale these signals using a single scaling factor applied to each analog channel.
 
-- **TYPE-3 force plates**: They provide force outputs from the force plate corners
+- [TYPE-3 force plates](../force_platform/force_platform-type.md#type-3): They provide force outputs from the force plate corners
 
-- **TYPE-4 force plate**s: They are similar to **TYPE-2** but use the entire cross-talk matrix to scale the output data.
+- [TYPE-4 force plates](../force_platform/force_platform-type.md#type-4): They are similar to [TYPE-2](../force_platform/force_platform-type.md#type-2) but use the entire cross-talk matrix to scale the output data.
 
-For example, a **TYPE-2 force plate** sensitivity matrix looks like this:
+For example, a [TYPE-2 force plate](../force_platform/force_platform-type.md#type-2) sensitivity matrix looks like this:
 
 |  | $Vfx$ | $Vfy$ | $Vfz$ | $Vmx$ | $Vmy$ | $Vmz$ |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -161,11 +161,11 @@ produce an output in terms of reactive force.
 
 If the calibration values are supplied in units of Newton-meters per volt (Nm/V) for the force moments, and the measurement units specifying the locations of your reference markers are in millimeters, then you must convert the values referring to moments to Newton-millimeters per volt (Nmm/V). This conversion is achieved by multiplying the ANALOG:SCALE results for the moment channels by 1000.
 
-If a matrix was not supplied then we would be given just the six major diagonal elements from top left to bottom right, in bold in the **TYPE-2 force plate** sensitivty matrix above. These elements are the only parts of the matrix that are used in calculating the SCALE values for **TYPE-1** and **TYPE-2 force plates**.
+If a matrix was not supplied then we would be given just the six major diagonal elements from top left to bottom right, in bold in the [TYPE-2 force plate](../force_platform/force_platform-type.md#type-2) sensitivty matrix above. These elements are the only parts of the matrix that are used in calculating the SCALE values for [TYPE-1](../force_platform/force_platform-type.md#type-1) and [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2).
 
-**TYPE-3 force plates** (Kistler piezo-electric plates) do not use a cross-talk matrix, or produce any moment outputs. Instead, these plates provide eight force channels with outputs that are measured using electrical charge in terms of pico coulombs per newton (pC/N) applied.
+[TYPE-3 force plates](../force_platform/force_platform-type.md#type-3) (Kistler piezo-electric plates) do not use a cross-talk matrix, or produce any moment outputs. Instead, these plates provide eight force channels with outputs that are measured using electrical charge in terms of pico coulombs per newton (pC/N) applied.
 
-The ANALOG:SCALE values for **TYPE-3 force plate** are calculated using information provided by the manufacturer about the sensitivity of the force plate transducers, together with the, user-controlled, channel gains of the charge amplifier supplied with each force plate. **TYPE-3 force plates** produce three sets of force output signals, each with a separate calibration value: these are $Fx$1-2, $Fx$3-4 and $Fy$1-4, $Fy$2-3 together with $Fz$1, $Fz$2, $Fz$3, and $Fz$4. Each force plate is supplied with three separate calibration values that apply to the $Fx$, $Fy$, and $Fz$ channels.
+The ANALOG:SCALE values for [TYPE-3 force plate](../force_platform/force_platform-type.md#type-3) are calculated using information provided by the manufacturer about the sensitivity of the force plate transducers, together with the, user-controlled, channel gains of the charge amplifier supplied with each force plate. [TYPE-3 force plates](../force_platform/force_platform-type.md#type-3) produce three sets of force output signals, each with a separate calibration value: these are $Fx$1-2, $Fx$3-4 and $Fy$1-4, $Fy$2-3 together with $Fz$1, $Fz$2, $Fz$3, and $Fz$4. Each force plate is supplied with three separate calibration values that apply to the $Fx$, $Fy$, and $Fz$ channels.
 
 For example:
 
@@ -187,13 +187,13 @@ $$
 
 Thus, the $Fx$ SCALE value is 0.310 newtons per volt, which is entered as a negative value to produce an output in terms of reactive force.
 
-**TYPE-4 force plates** are mechanically and electrically identical to **TYPE-2 force plates**, and are a special case of **TYPE-2 force plates** that use a slightly different cross-talk correction method. **TYPE-4 force plates** use the entire calibration matrix to calculate their output. As a result, the output from a **TYPE-4 force plate** is slightly more accurate then when only the major diagonal information is used. The ANALOG:SCALE parameters for **TYPE-4 force plates** are calculated as follows:
+[TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are mechanically and electrically identical to [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2), and are a special case of [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2) that use a slightly different cross-talk correction method. [TYPE-4 force plates]((../force_platform/force_platform-type.md#type-4)) use the entire calibration matrix to calculate their output. As a result, the output from a [TYPE-4 force plate](../force_platform/force_platform-type.md#type-4) is slightly more accurate then when only the major diagonal information is used. The ANALOG:SCALE parameters for [TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are calculated as follows:
 
 $$
 \text{SCALE} = \left( \frac{\text{Voltage\_range}}{\text{resolution} \times \text{gain} \times \text{ex}} \times 1000000 \right) / \text{GEN\_SCALE}
 $$
 
-The calibration matrix (the inverse matrix of the sensitivity matrix used by **TYPE-2 force plates**) should be entered in the [FORCE_PLATFORM:CAL_MATRIX](../../additional/force_platform/force_platform-cal_matrix.md) parameter. The conversion from volts to newtons will occur when the calibration matrix is applied to the data as an additional step.
+The calibration matrix (the inverse matrix of the sensitivity matrix used by [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2)) should be entered in the [FORCE_PLATFORM:CAL_MATRIX](../../additional/force_platform/force_platform-cal_matrix.md) parameter. The conversion from volts to newtons will occur when the calibration matrix is applied to the data as an additional step.
 
 $$
 \text{SCALE} = \left( \frac{20}{4096 \times 4000 \times 10} \times 1000000 \right) / 1.00 = 0.12207
