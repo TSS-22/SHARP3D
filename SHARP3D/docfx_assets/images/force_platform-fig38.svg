@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1263.07 738.28">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-linejoin: round;
+        stroke-width: 4px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: red;
+        stroke-width: 5px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-6, .cls-7 {
+        fill: blue;
+      }
+
+      .cls-8 {
+        fill: #ed1c24;
+      }
+
+      .cls-8, .cls-7, .cls-9, .cls-10 {
+        font-family: LiberationSans, 'Liberation Sans';
+        font-size: 60px;
+      }
+
+      .cls-11 {
+        fill: red;
+      }
+
+      .cls-3 {
+        stroke: blue;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        stroke-width: 5px;
+      }
+
+      .cls-12 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        stroke: #00a99d;
+      }
+
+      .cls-10, .cls-13 {
+        fill: lime;
+      }
+
+      .cls-5 {
+        stroke: lime;
+      }
+    </style>
+  </defs>
+  <g id="Layer_4" data-name="Layer 4">
+    <g>
+      <line class="cls-2" x1="733.61" y1="278.8" x2="869.32" y2="217.07"/>
+      <polygon class="cls-11" points="864.2 239.74 863.69 219.63 848.87 206.03 896.49 204.71 864.2 239.74"/>
+    </g>
+    <g>
+      <line class="cls-2" x1="537.5" y1="538" x2="537.5" y2="647.15"/>
+      <polygon class="cls-11" points="518.98 633.11 537.5 640.97 556.01 633.11 537.5 677 518.98 633.11"/>
+    </g>
+    <text class="cls-9" transform="translate(747.07 518.17)"><tspan x="0" y="0">2</tspan></text>
+    <text class="cls-9" transform="translate(968.76 411.66)"><tspan x="0" y="0">1</tspan></text>
+    <text class="cls-9" transform="translate(165.97 359.38)"><tspan x="0" y="0">3</tspan></text>
+    <text class="cls-9" transform="translate(416.98 254.97)"><tspan x="0" y="0">4</tspan></text>
+    <text class="cls-7" transform="translate(641.57 166.76)"><tspan x="0" y="0">Force</tspan></text>
+    <text class="cls-10" transform="translate(443.41 400.6)"><tspan x="0" y="0">Moment</tspan></text>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <polygon class="cls-1" points="1086.5 378 435.5 195 84.5 343 767.5 542 1086.5 378"/>
+    <polyline class="cls-1" points="84.5 343 84.5 408 767.5 604 767.5 542 767.5 604 1086.5 439.5 1086.5 377.5"/>
+    <text class="cls-8" transform="translate(424.58 720.08)"><tspan x="0" y="0">+Z</tspan></text>
+    <text class="cls-8" transform="translate(876.4 268.27)"><tspan x="0" y="0">+X</tspan></text>
+    <text class="cls-8" transform="translate(987.37 595.24)"><tspan x="0" y="0">+</tspan><tspan class="cls-12" x="35.04" y="0">Y</tspan></text>
+  </g>
+  <g id="Layer_3" data-name="Layer 3">
+    <g>
+      <line class="cls-2" x1="934.5" y1="483" x2="1078.81" y2="524.77"/>
+      <polygon class="cls-11" points="1060.17 538.65 1072.87 523.06 1070.46 503.08 1107.48 533.07 1060.17 538.65"/>
+    </g>
+  </g>
+  <g id="Layer_5" data-name="Layer 5">
+    <ellipse class="cls-4" cx="737.38" cy="366.09" rx="39.89" ry="21.24"/>
+    <g>
+      <line class="cls-3" x1="588.5" y1="123" x2="721.94" y2="338.49"/>
+      <polygon class="cls-6" points="740.52 368.5 697.05 336.91 720.55 336.24 731.61 315.51 740.52 368.5"/>
+    </g>
+    <g>
+      <path class="cls-5" d="M807.5,363c1.41,8.26,4.95,22.16-16,35-17.66,10.82-46.76,16.12-72.64,12.56"/>
+      <polygon class="cls-13" points="685.5 399 739.07 394.79 721.64 410.56 726.69 433.51 685.5 399"/>
+    </g>
+  </g>
+</svg>
