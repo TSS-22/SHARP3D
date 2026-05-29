@@ -43,10 +43,10 @@ Not all parameters are intended to be editable. The parameter record contains a 
 
 ### FORCE_PLATFORM
 
-- [FORCE_PLATFORM:USED](./required/force_platform/force_plateform-used.md)
+- [FORCE_PLATFORM:USED](./required/force_platform/force_platform-used.md)
 - [FORCE_PLATFORM:TYPE](./required/force_platform/force_platform-type.md)
-- [FORCE_PLATFORM:ZERO](./required/force_platform/force_plateform-zero.md)
+- [FORCE_PLATFORM:ZERO](./required/force_platform/force_platform-zero.md)
 - [FORCE_PLATFORM:CORNERS](./required/force_platform/force_platform-corners.md)
 - [FORCE_PLATFORM:ORIGIN](./required/force_platform/force_platform-origin.md)
-- [FORCE_PLATFORM:CHANNEL](./required/force_platform/force_plateform-channel.md)
+- [FORCE_PLATFORM:CHANNEL](./required/force_platform/force_platform-channel.md)
 

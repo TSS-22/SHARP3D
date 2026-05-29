@@ -16,7 +16,7 @@
     - name: Supported Parameters
       items:
         - name: POINT
-        - href: parameters/required/group-point.md
+          href: parameters/required/group-point.md
           items:
             - name: POINT:USED
               href: parameters/required/point/point-used.md
@@ -35,7 +35,7 @@
             - name: POINT:UNITS
               href: parameters/required/point/point-units.md    
         - name: ANALOG
-        - href: parameters/required/group-analog.md
+          href: parameters/required/group-analog.md
           items:
             - name: ANALOG:USED
               href: parameters/required/analog/analog-used.md
@@ -57,6 +57,21 @@
               href: parameters/required/analog/analog-format.md
             - name: ANALOG:BITS
               href: parameters/required/analog/analog-bits.md
+        - name: FORCE_PLATFORM
+          href: parameters/required/group-force_platform.md
+          items:
+            - name: FORCE_PLATFORM:USED
+              href: parameters/required/force_platform/force_platform-used.md
+            - name: FORCE_PLATFORM:TYPE
+              href: parameters/required/force_platform/force_platform-type.md
+            - name: FORCE_PLATFORM:ZERO
+              href: parameters/required/force_platform/force_platform-zero.md
+            - name: FORCE_PLATFORM:CORNERS
+              href: parameters/required/force_platform/force_platform-corners.md
+            - name: FORCE_PLATFORM:ORIGIN
+              href: parameters/required/force_platform/force_platform-origin.md
+            - name: FORCE_PLATFORM:CHANNEL
+              href: parameters/required/force_platform/force_platform-channel.md
 - name: Data Section
   href: data/c3d-data-section.md
   items:
