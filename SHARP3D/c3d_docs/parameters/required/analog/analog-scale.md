@@ -123,7 +123,7 @@ A strain gauge force platform manufacturer will typically supply data with each 
 
 - [TYPE-1 force plates](../force_platform/force_platform-type.md#type-1): They have three force outputs ($Fx$, $Fy$ and $Fz$) and a $Mz$ and center-of-pressure output ($Px$ and $Py$).
 
-- [TYPE-2 force plates]((../force_platform/force_platform-type.md#type-2)): They provide three force outputs and three moment outputs ($Mx$, $My$, $Mz$) and scale these signals using a single scaling factor applied to each analog channel.
+- [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2): They provide three force outputs and three moment outputs ($Mx$, $My$, $Mz$) and scale these signals using a single scaling factor applied to each analog channel.
 
 - [TYPE-3 force plates](../force_platform/force_platform-type.md#type-3): They provide force outputs from the force plate corners
 
@@ -187,7 +187,7 @@ $$
 
 Thus, the $Fx$ SCALE value is 0.310 newtons per volt, which is entered as a negative value to produce an output in terms of reactive force.
 
-[TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are mechanically and electrically identical to [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2), and are a special case of [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2) that use a slightly different cross-talk correction method. [TYPE-4 force plates]((../force_platform/force_platform-type.md#type-4)) use the entire calibration matrix to calculate their output. As a result, the output from a [TYPE-4 force plate](../force_platform/force_platform-type.md#type-4) is slightly more accurate then when only the major diagonal information is used. The ANALOG:SCALE parameters for [TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are calculated as follows:
+[TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are mechanically and electrically identical to [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2), and are a special case of [TYPE-2 force plates](../force_platform/force_platform-type.md#type-2) that use a slightly different cross-talk correction method. [TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) use the entire calibration matrix to calculate their output. As a result, the output from a [TYPE-4 force plate](../force_platform/force_platform-type.md#type-4) is slightly more accurate then when only the major diagonal information is used. The ANALOG:SCALE parameters for [TYPE-4 force plates](../force_platform/force_platform-type.md#type-4) are calculated as follows:
 
 $$
 \text{SCALE} = \left( \frac{\text{Voltage\_range}}{\text{resolution} \times \text{gain} \times \text{ex}} \times 1000000 \right) / \text{GEN\_SCALE}
