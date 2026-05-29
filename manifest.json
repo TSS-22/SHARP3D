@@ -627,6 +627,156 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/3d-frame-count/main.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/3d-frame-count/main.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/3d-frame-count/maintaining.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/3d-frame-count/maintaining.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/3d-frame-count/reading.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/3d-frame-count/reading.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/3d-frame-count/updating.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/3d-frame-count/updating.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/3d-frame-count/writing.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/3d-frame-count/writing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/appendix.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/appendix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/choosing-a-c3d-format/c3d-parameters.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/choosing-a-c3d-format/c3d-parameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/choosing-a-c3d-format/main.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/choosing-a-c3d-format/main.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/choosing-a-c3d-format/sample.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/choosing-a-c3d-format/sample.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/integers-and-byte/main.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/integers-and-byte/main.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/integers-and-byte/signed.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/integers-and-byte/signed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/integers-and-byte/unsigned.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/integers-and-byte/unsigned.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/diagnosing.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/diagnosing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/main.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/main.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/repairing.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/appendix/troubleshooting-c3d-files/repairing.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/c3d-file-structure.md",
       "output": {
         ".html": {
@@ -711,6 +861,16 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/data/scaling-resolution.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/glossary/glossary.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/glossary/glossary.html"
         }
       },
       "version": ""
@@ -897,30 +1057,10 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-channel.md",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-channel.md",
       "output": {
         ".html": {
-          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-channel.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-used.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-used.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-zero.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/required/force_platform/force_plateform-zero.html"
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-channel.html"
         }
       },
       "version": ""
@@ -957,10 +1097,40 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/force_platform/force_platform-zero.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-zero.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/required/group-analog.md",
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/group-analog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/required/group-force_platform.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/required/group-force_platform.html"
         }
       },
       "version": ""
@@ -1074,6 +1244,26 @@
       "output": {
         "resource": {
           "relative_path": "docfx_assets/images/analog-sync.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/force_platform-fig38.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/force_platform-fig38.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "docfx_assets/images/force_platform-fig40.svg",
+      "output": {
+        "resource": {
+          "relative_path": "docfx_assets/images/force_platform-fig40.svg"
         }
       },
       "version": ""

@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>FORCE_PLATFORM:CORNERS | SHARP3D Documentation </title>
+      <title> | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="FORCE_PLATFORM:CORNERS | SHARP3D Documentation ">
+      <meta name="title" content=" | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../../toc.html">
-      <meta name="docfx:tocrel" content="../../../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-corners.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/integers-and-byte/main.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../../index.html">
-            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,33 +85,12 @@
         </div>
 
         <article data-uid="">
-<h1 id="force_platformcorners">FORCE_PLATFORM:CORNERS</h1>
 
-<ul>
-<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
-</li>
-<li><p><strong>Locked</strong>: False</p>
-</li>
-</ul>
-<p>The FORCE_PLATFORM:CORNERS parameter is a floating-point array of dimension [3,4,USED] that record the locations of the force platform corners in the reference coordinate system, measured in <a href="../point/point-units.html">POINT:UNITS</a>. This parameter is used by any graphics application to draw the force platforms, force vectors, and center of pressure information in the correct locations relative to the 3D point data.</p>
-<p>The first dimension specifies the X, Y, or Z coordinate.</p>
-<p>The second dimension specifies the corners.</p>
-<p>The corners are numbered from 1 to 4 and refer to the quadrant numbers in the X-Y plane of the force platform coordinate system (not the 3D point reference coordinate system).</p>
-<p>With respect to the force plate coordinate system (<span class="math">\(X\)</span>, <span class="math">\(Y\)</span>, <span class="math">\(Z\)</span>):</p>
-<ul>
-<li>Corner 1: [+1, +1, 0]</li>
-<li>Corner 2: [-1, +1, 0]</li>
-<li>Corner 3: [-1, -1, 0]</li>
-<li>Corner 4: [+1, -1, 0]</li>
-</ul>
-<img src="../../../../docfx_assets/images/force_platform-fig38.svg" alt="The C3D force plate coordinate order." width="600">
-<p>The third dimension specifies the force plates index, in reference to <a href="force_platform-used.html">FORCE_PLATFORM:USED</a>. Its value is therefore</p>
-<!--!!!THIS MUST BE A MISTAKE??!!! The third dimension of the CORNERS array (USED) must be equal to or greater than the value of the [FORCE_PLATFORM:USED](./force_platform-used.md) parameter. -->
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-corners.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/integers-and-byte/main.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

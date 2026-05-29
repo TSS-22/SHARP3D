@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>FORCE_PLATFORM:TYPE | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="FORCE_PLATFORM:TYPE | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,195 @@
         </div>
 
         <article data-uid="">
+<h1 id="force_platformtype">FORCE_PLATFORM:TYPE</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<blockquote>
+<p>Anyone can define a new force plate type to handle a specific configuration. New force plate types must be documented to allow users to read and translate the data stored in the C3D file. <a href="https://github.com/TSS-22/SHARP3D/issues/new">Please fill an issue or contact us to add your force plate definition to SHARP3D supported type</a>.</p>
+</blockquote>
+<p>The FORCE_PLATFORM:TYPE parameter is an array of signed integers that define the type of force platform output expected from each force platform. The TYPE array size must be equal to or greater than the value of the <a href="force_platform-used.html">FORCE_PLATFORM:USED</a> parameter, so at least all the used force plate are defined. Initially, the C3D specification supported three force platform types (<a href="#type-1">Type-1</a>, <a href="#type-2">Type-2</a> and <a href="#type-3">Type-3</a>), with the <a href="#type-4">Type-4</a> platform added in the early 90’s to support the inclusion of the full force plate calibration matrix. Over the years since, various manufacturers have occasionally created additional force platform descriptions to define specific force data collection environments but these are not commonly seen.</p>
+<p>The analog data from each force platform is stored in the associated analog channels defined by the <a href="force_platform-channel.html">FORCE_PLATFORM:CHANNEL</a> parameter. The data stored from each force plate channel is scaled by the <a href="../analog/analog-scale.html">ANALOG:SCALE</a> parameter. <strong>The default storage method should be to store the unprocessed analog samples from each force plate channel in the associated analog channel</strong>. These values are then scaled using the associated floating-point <a href="../analog/analog-scale.html">ANALOG:SCALE</a> or <a href="../../additional/force_platform/force_platform-cal_matrix.html">CAL_MATRIX</a> parameters, which prevents data corruption if the C3D file format is ever changed from floating-point to integer.</p>
+<p>Starting in 2007, one manufacturer started storing pre-scaled force plate data in floating-point formatted C3D files, an approach that has since been used by other manufacturers, resulting in much larger file sizes that require more processing power. The pre-scaled processed data is defined as force plate <a href="#type-2">TYPE-2</a> data with the calculated force and moment data stored in the analog channels defined by the <a href="force_platform-channel.html">FORCE_PLATFORM:CHANNEL</a> parameter. The relevant <a href="../analog/analog-scale.html">ANALOG:SCALE</a> parameters set to a value of 1.00, indicating that the data has already been scaled by the <a href="https://www.vicon.com/software/nexus/">Nexus software</a> and can be interpreted directly as three forces (<span class="math">\(F_x\)</span>, <span class="math">\(F_y\)</span> and <span class="math">\(F_z\)</span>) and three moments (<span class="math">\(M_x\)</span>, <span class="math">\(M_y\)</span> and <span class="math">\(M_z\)</span>).</p>
+<p>While this scheme relieves the end-user of the problems of calculating and applying the <a href="../analog/analog-scale.html">SCALE</a> or <a href="../../additional/force_platform/force_platform-cal_matrix.html">CAL_MATRIX</a> parameters to the data, it eliminates the ability to review the raw force plate signals in the event of any problems with the force plate. As a result end-users have no way of verifying the data collection conditions or the correct force plate scaling factors during any future review or processing of the force data.</p>
+<p>This decision means that when pre-scaled data is stored using the floating-point format with the relevant <a href="../analog/analog-scale.html">ANALOG:SCALE</a> parameters set to a value of 1.00, the C3D file cannot be converted to the integer format without rescaling the force plate data. This is because integer overflow can occur as the stored force plate data (especially the <span class="math">\(M_x\)</span> and <span class="math">\(M_y\)</span> moments) can easily exceed the 16-bit integer storage range when the force plate details and scales are not stored in the C3D file. This essentially defeats one of the major features of the C3D format. This is not a result of using floating-point storage but because the application has failed to record the scaling values.</p>
+<p>An addition effect of storing pre-scaled force data is that the stored values appear to be very accurate (typically storing data values with calculated submicron resolutions) although the actual measurement accuracy does not match the recorded results.</p>
+<h2 id="type-1">TYPE-1</h2>
+<p>The force platform outputs (<span class="math">\(F_x\)</span>, <span class="math">\(F_y\)</span>, and <span class="math">\(F_z\)</span>) are recorded in the first three channels, the locations of the center of pressure (<span class="math">\(P_x\)</span>, <span class="math">\(P_y\)</span>) in the next two channels and the free moment about the Z-axis (<span class="math">\(M_z\)</span>) in the sixth channel. The recommended parameter <a href="../analog/analog-labels.html">ANALOG:LABELs</a> and <a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> are shown below:</p>
+<table>
+<thead>
+<tr>
+<th><a href="../analog/analog-labels.html">ANALOG:LABELs</a></th>
+<th><a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nFX</td>
+<td>FP<sub>n</sub> <span class="math">\(F_x\)</span> force</td>
+</tr>
+<tr>
+<td>nFY</td>
+<td>FP<sub>n</sub> <span class="math">\(F_y\)</span> force</td>
+</tr>
+<tr>
+<td>nFZ</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force</td>
+</tr>
+<tr>
+<td>nPX</td>
+<td>FP<sub>n</sub> <span class="math">\(X\)</span> center of pressure</td>
+</tr>
+<tr>
+<td>nPY</td>
+<td>FP<sub>n</sub> <span class="math">\(Y\)</span> center of pressure</td>
+</tr>
+<tr>
+<td>nMZ</td>
+<td>FP<sub>n</sub> <span class="math">\(Z\)</span> moment</td>
+</tr>
+</tbody>
+</table>
+<p>If multiple force plates are used, it is important to identify the channels for each plate with the force plate number shown as <span class="math">\(n\)</span> in the parameters documented here.</p>
+<h2 id="type-2">TYPE-2</h2>
+<p>The force platform outputs (<span class="math">\(F_x\)</span>, <span class="math">\(F_y\)</span>, and <span class="math">\(F_z\)</span>) are recorded in the first three channels, and the
+moments (<span class="math">\(M_x\)</span>, <span class="math">\(M_y\)</span>, <span class="math">\(M_z\)</span>) in the next three channels. This is an arrangement typical
+for many <a href="https://www.amti.biz/product-line/force-plates/">AMTI</a> and <a href="https://www.bertec.com/products/force-plates">Bertec</a> force plates. The recommended <a href="../analog/analog-labels.html">ANALOG:LABELS</a> and
+<a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> are shown below:</p>
+<table>
+<thead>
+<tr>
+<th><a href="../analog/analog-labels.html">ANALOG:LABELS</a></th>
+<th><a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nFX</td>
+<td>FP<sub>n</sub> <span class="math">\(F_x\)</span> force</td>
+</tr>
+<tr>
+<td>nFY</td>
+<td>FP<sub>n</sub> <span class="math">\(F_y\)</span> force</td>
+</tr>
+<tr>
+<td>nFZ</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force</td>
+</tr>
+<tr>
+<td>nMX</td>
+<td>FP<sub>n</sub> <span class="math">\(M_x\)</span> moment</td>
+</tr>
+<tr>
+<td>nMY</td>
+<td>FP<sub>n</sub> <span class="math">\(M_y\)</span> moment</td>
+</tr>
+<tr>
+<td>nMZ</td>
+<td>FP<sub>n</sub> <span class="math">\(M_z\)</span> moment</td>
+</tr>
+</tbody>
+</table>
+<p>If multiple force plates are used, it is important to identify the channels for each plate with the force plate number shown as <span class="math">\(n\)</span> in the parameters documented here.</p>
+<p>when multiple force plates are used, identify each plate with a number ensures that each <a href="../analog/analog-labels.html">ANALOG:LABELS</a> is unique and make the individual data channels easy to identify. Providing a unique channel <a href="../analog/analog-labels.html">LABELS</a> and <a href="../analog/analog-descriptions.html">DESCRIPTIONS</a> parameter takes very little effort when compared to the amount of time that can be spent attempting to identify individual force plate configuration and scaling issues at any time in the future. It is much easier to look at an analog channel identified as 5MY than a channel labeled A047.</p>
+<p>It is common to see processed force and moment data stored using a TYPE-2 description in the channels defined by the <a href="force_platform-channel.html">FORCE_PLATFORM:CHANNEL</a> parameter.</p>
+<h2 id="type-3">TYPE-3</h2>
+<p>The force platform has eight analog outputs, which are combinations of the <span class="math">\(X\)</span>, <span class="math">\(Y\)</span>, and <span class="math">\(Z\)</span> forces measured at each of the corners of the force platform, an arrangement typical of <a href="https://www.kistler.com/US/en/force-plate/C00000113">Kistler</a> force plates.</p>
+<p>It is recommended that each analog channel signal is identified with a unique <a href="../analog/analog-labels.html">ANALOG:LABELS</a> and ANALOG:DESCRIPTION to store information in each C3D file that documents the file contents. Typical <a href="https://www.kistler.com/US/en/force-plate/C00000113">Kistler</a> specific <a href="../analog/analog-labels.html">ANALOG:LABELS</a> and <a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> are shown below:</p>
+<table>
+<thead>
+<tr>
+<th><a href="../analog/analog-labels.html">ANALOG:LABELS</a></th>
+<th><a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nFX12</td>
+<td>FP<sub>n</sub> <span class="math">\(F_x\)</span> force 1,2</td>
+</tr>
+<tr>
+<td>nFX34</td>
+<td>FP<sub>n</sub> <span class="math">\(F_x\)</span> force 3,4</td>
+</tr>
+<tr>
+<td>nFY14</td>
+<td>FP<sub>n</sub> <span class="math">\(F_y\)</span> force 1,4</td>
+</tr>
+<tr>
+<td>nFY23</td>
+<td>FP<sub>n</sub> <span class="math">\(F_y\)</span> force 2,3</td>
+</tr>
+<tr>
+<td>nFZ1</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force 1</td>
+</tr>
+<tr>
+<td>nFZ2</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force 2</td>
+</tr>
+<tr>
+<td>nFZ3</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force 3</td>
+</tr>
+<tr>
+<td>nFZ4</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force 4</td>
+</tr>
+</tbody>
+</table>
+<p>If multiple force plates are used, it is important to identify the channels for each plate with the force plate number shown as <span class="math">\(n\)</span> in the parameters documented here.</p>
+<p>When multiple force plates are used, identify each plate with a number to ensure that each <a href="../analog/analog-labels.html">ANALOG:LABELS</a> is unique. Correctly identifying each force plate channel takes very little effort when compared to the amount of time that can be spent attempting to discover force plate configuration and scaling issues in data.</p>
+<h2 id="type-4">TYPE-4</h2>
+<p>This force platform is the same as a <a href="#type-2">TYPE-2</a> force platform except that a full calibration matrix is being provided via the <a href="../../additional/force_platform/force_platform-cal_matrix.html">CAL_MATRIX</a> parameter which includes full crosstalk scaling. For a TYPE-4 force plate the individual channel <a href="../analog/analog-scale.html">SCALE</a> parameters should convert the analog data to volts only because the calibration matrix is applied in an additional step to convert volts to force and moment units.</p>
+<blockquote>
+<p>Do
+not use a TYPE-4 force plate type unless the force plate manufacturer provides a complete crosstalk correction matrix with scaling values for all matrix entries. If the supplied matrix only contains the main diagonal elements then define the force plate as a <a href="#type-2">TYPE-2</a> and store the individual scale values for the analog channels.</p>
+</blockquote>
+<p>The recommended <a href="../analog/analog-labels.html">ANALOG:LABELS</a> and <a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> values are identical to a <a href="#type-2">TYPE-2</a> force plate and are shown below:</p>
+<table>
+<thead>
+<tr>
+<th><a href="../analog/analog-labels.html">ANALOG:LABELS</a></th>
+<th><a href="../analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nFX</td>
+<td>FP<sub>n</sub> <span class="math">\(F_x\)</span> force</td>
+</tr>
+<tr>
+<td>nFY</td>
+<td>FP<sub>n</sub> <span class="math">\(F_y\)</span> force</td>
+</tr>
+<tr>
+<td>nFZ</td>
+<td>FP<sub>n</sub> <span class="math">\(F_z\)</span> force</td>
+</tr>
+<tr>
+<td>nMX</td>
+<td>FP<sub>n</sub> <span class="math">\(M_x\)</span> moment</td>
+</tr>
+<tr>
+<td>nMY</td>
+<td>FP<sub>n</sub> <span class="math">\(M_y\)</span> moment</td>
+</tr>
+<tr>
+<td>nMZ</td>
+<td>FP<sub>n</sub> <span class="math">\(M_z\)</span> moment</td>
+</tr>
+</tbody>
+</table>
+<p>When multiple force plates are used,
+identify each plate with a number to ensure that each <a href="../analog/analog-labels.html">ANALOG:LABELS</a> is unique. Correctly identifying each channel takes very little effort when compared to the amount of time that can be spent attempting to discover force plate configuration and scaling issues in data.</p>
+<blockquote>
+<p>Note that some applications may not recognize TYPE-4 plates correctly. These applications will usually work correctly by specifying the <a href="force_platform-type.html">FORCE_PLATFORM:TYPE</a> as a <a href="#type-2">TYPE-2</a> plate and editing the associated <a href="../analog/analog-scale.html">ANALOG:SCALE</a> parameters. If in doubt, consult your application and force plate vendor, but note that defining a force plate as a TYPE-4 plate when the manufacturer has not provided a full crosstalk matrix does not improve accuracy and adds a needless complication to force measurements.</p>
+</blockquote>
 
 </article>
 

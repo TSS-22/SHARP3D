@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>ANALOG:DESCRIPTIONS | SHARP3D Documentation </title>
+      <title>FORCE_PLATFORM:CHANNEL | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="ANALOG:DESCRIPTIONS | SHARP3D Documentation ">
+      <meta name="title" content="FORCE_PLATFORM:CHANNEL | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-descriptions.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-channel.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="analogdescriptions">ANALOG:DESCRIPTIONS</h1>
+<h1 id="force_platformchannel">FORCE_PLATFORM:CHANNEL</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
@@ -93,21 +93,93 @@
 <li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<p>The ANALOG:DESCRIPTIONS parameter is a character data array that usually consists of a short description of each analog channel referenced by the <a href="analog-labels.html">ANALOG:LABELS</a> parameter. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a> and the number of DESCRIPTIONS although users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and DESCRIPTIONS parameters.</p>
-<p>This parameter exists to provide documentation about each of the individual analog channels. The <a href="analog-labels.html">ANALOG:LABELS</a> parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these <a href="analog-labels.html">LABELS</a> generally has a longer ANALOG:DESCRIPTIONS such as <span class="math">\(F_x\)</span> channel, FP<sub>1</sub> sn 628301 and Left Extensor Hallucis Longus etc.</p>
-<p>The descriptive entries can contain upper and lower case ASCII characters and are typically 32 8-bit characters in length but may be up to 255 characters. However it is recommended that the DESCRIPTIONS strings stored are as concise as possible for efficient storage. UTF-8 encoding is permitted to support localized character sets but keep in mind that the length of each parameter value defines the number of 8-bit values encoded.</p>
-<p>Note that, like the <a href="../point/point-descriptions.html">POINTS:DESCRIPTIONS</a>, the ANALOG:DESCRIPTIONS are provided simply as a means of providing a human readable description or documentation of the analog channel. Software applications that need to access individual analog channels should access each channel by use of the <a href="analog-labels.html">ANALOG:LABELS</a>, not the ANALOG:DESCRIPTIONS parameter value.</p>
+<p>The FORCE_PLATFORM:CHANNEL parameter is an array of signed integer data values that record which analog channels contain specific force platform data. The force platform outputs may be connected to any convenient analog input channels in anyorder that is convenient to the user, provided that the assignment of force platform signals to analog channels is correctly specified in this parameter.</p>
+<p>While it is recommended that force plate channels be connected to the analog recording device in a logical fashion it is not essential that they are stored in any fixed order within the C3D file. Any application that reads force plate data must use this parameter to determine the force plate channel to analog channel assignments.</p>
+<p>Note that if your data collection environment used several different types of force platforms and any of them are <a href="force_platform-type.html#type-3">TYPE-3</a> then this parameter must contain eight (8,) entries for all plates. If <a href="force_platform-type.html#type-3">TYPE-3 force plates</a> are not used then the dimension may be either (6,) or (8,) as the unused values in the CHANNEL parameter should be set to zero and ignored.</p>
 <blockquote>
-<p>These parameters consume the most space in the C3D parameter block so it makes sense to use then sensibly and concisely.</p>
+<p>Channels number:</p>
+<ul>
+<li><a href="force_platform-type.html#type-1">TYPE-1</a>: 6 or 8</li>
+<li><a href="force_platform-type.html#type-2">TYPE-2</a>: 6 or 8</li>
+<li><a href="force_platform-type.html#type-3">TYPE-3</a>: 8</li>
+<li><a href="force_platform-type.html#type-4">TYPE-4</a>: 6 or 8</li>
+</ul>
 </blockquote>
-<p>If you are going to create an ANALOG:DESCRIPTIONS parameter then it makes sense to use it to document the contents of each analog channel instead of creating descriptions like AMTI OR6 Series Force Plate [n] and Analog EMG::Voltage [4,5] which simply duplicate information in the C3D file and is not helpful to anyone accessing the C3D data in the future. It would be much more useful to record the force plate serial number and the muscle name.</p>
-<h2 id="disclaimer">Disclaimer</h2>
-<p>Users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and <a href="analog-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a>, the number of <a href="analog-descriptions.html">DESCRIPTIONS</a>, and <a href="analog-used.html">POINT:USED</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><a href="force_platform-type.html#type-4">TYPE-1</a></th>
+<th><a href="force_platform-type.html#type-4">TYPE-2</a></th>
+<th><a href="force_platform-type.html#type-4">TYPE-3</a></th>
+<th><a href="force_platform-type.html#type-4">TYPE-4</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHANNEL (1,i)</td>
+<td>Forceₓ</td>
+<td>Forceₓ</td>
+<td>Forceₓ¹,²</td>
+<td>Forceₓ</td>
+</tr>
+<tr>
+<td>CHANNEL (2,i)</td>
+<td>Forceᵧ</td>
+<td>Forceᵧ</td>
+<td>Forceₓ³,⁴</td>
+<td>Forceᵧ</td>
+</tr>
+<tr>
+<td>CHANNEL (3,i)</td>
+<td>Force_z</td>
+<td>Force_z</td>
+<td>Forceᵧ¹,⁴</td>
+<td>Force_z</td>
+</tr>
+<tr>
+<td>CHANNEL (4,i)</td>
+<td>CoPₓ</td>
+<td>Momentₓ</td>
+<td>Forceᵧ²,³</td>
+<td>Momentₓ</td>
+</tr>
+<tr>
+<td>CHANNEL (5,i)</td>
+<td>CoPᵧ</td>
+<td>Momentᵧ</td>
+<td>Force_z¹</td>
+<td>Momentᵧ</td>
+</tr>
+<tr>
+<td>CHANNEL (6,i)</td>
+<td>Free Moment_z</td>
+<td>Moment_z</td>
+<td>Force_z²</td>
+<td>Moment_z</td>
+</tr>
+<tr>
+<td>CHANNEL (7,i)</td>
+<td>0</td>
+<td>0</td>
+<td>Force_z³</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CHANNEL (8,i)</td>
+<td>0</td>
+<td>0</td>
+<td>Force_z⁴</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The table above shows the assignment of analog channel numbers to force plate signals within this parameter where i is the force platform number. For instance, if <span class="math">\(MZ\)</span> of force platform number 2 is connected to analog channel 15, then CHANNEL(6,2) should contain the entry 15.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-descriptions.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-channel.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

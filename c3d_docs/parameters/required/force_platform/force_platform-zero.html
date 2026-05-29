@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>ANALOG:DESCRIPTIONS | SHARP3D Documentation </title>
+      <title>FORCE_PLATFORM:ZERO | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="ANALOG:DESCRIPTIONS | SHARP3D Documentation ">
+      <meta name="title" content="FORCE_PLATFORM:ZERO | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-descriptions.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-zero.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="analogdescriptions">ANALOG:DESCRIPTIONS</h1>
+<h1 id="force_platformzero">FORCE_PLATFORM:ZERO</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
@@ -93,21 +93,26 @@
 <li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<p>The ANALOG:DESCRIPTIONS parameter is a character data array that usually consists of a short description of each analog channel referenced by the <a href="analog-labels.html">ANALOG:LABELS</a> parameter. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a> and the number of DESCRIPTIONS although users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and DESCRIPTIONS parameters.</p>
-<p>This parameter exists to provide documentation about each of the individual analog channels. The <a href="analog-labels.html">ANALOG:LABELS</a> parameter generally stored a short abbreviation of each channel name such as 1FX, EM05 etc. Each of the channels referenced by these <a href="analog-labels.html">LABELS</a> generally has a longer ANALOG:DESCRIPTIONS such as <span class="math">\(F_x\)</span> channel, FP<sub>1</sub> sn 628301 and Left Extensor Hallucis Longus etc.</p>
-<p>The descriptive entries can contain upper and lower case ASCII characters and are typically 32 8-bit characters in length but may be up to 255 characters. However it is recommended that the DESCRIPTIONS strings stored are as concise as possible for efficient storage. UTF-8 encoding is permitted to support localized character sets but keep in mind that the length of each parameter value defines the number of 8-bit values encoded.</p>
-<p>Note that, like the <a href="../point/point-descriptions.html">POINTS:DESCRIPTIONS</a>, the ANALOG:DESCRIPTIONS are provided simply as a means of providing a human readable description or documentation of the analog channel. Software applications that need to access individual analog channels should access each channel by use of the <a href="analog-labels.html">ANALOG:LABELS</a>, not the ANALOG:DESCRIPTIONS parameter value.</p>
 <blockquote>
-<p>These parameters consume the most space in the C3D parameter block so it makes sense to use then sensibly and concisely.</p>
+<p>The ZERO parameter is specified in terms of <strong>3D data frame numbers</strong> in the C3D file, not analog
+samples.</p>
 </blockquote>
-<p>If you are going to create an ANALOG:DESCRIPTIONS parameter then it makes sense to use it to document the contents of each analog channel instead of creating descriptions like AMTI OR6 Series Force Plate [n] and Analog EMG::Voltage [4,5] which simply duplicate information in the C3D file and is not helpful to anyone accessing the C3D data in the future. It would be much more useful to record the force plate serial number and the muscle name.</p>
-<h2 id="disclaimer">Disclaimer</h2>
-<p>Users occasionally create files with different numbers of <a href="analog-labels.html">LABELS</a> and <a href="analog-descriptions.html">DESCRIPTIONS</a> parameters. This can create unwanted behavior using SHARP3D or any other C3D tool in general due to the inconsistencies it produce. <strong>SHARP3D consider this a malpractice</strong>. There should always be a one to one relationship between the number of <a href="analog-labels.html">LABELS</a>, the number of <a href="analog-descriptions.html">DESCRIPTIONS</a>, and <a href="analog-used.html">POINT:USED</a>.</p>
+<p>The FORCE_PLATFORM:ZERO parameter is an array that normally contains two non-zero integer values. These specify the range of 3D data frame numbers that may be used to provide a baseline for the force platform measurements. The default array values are is 1,10. Some applications may specify a range of 0,10 which should be interpreted as a range of 1 to 10 since the C3D file does not have a 3D frame number 0, the first frame in a C3D file is frame 1.</p>
+<p>This parameter is intended to define the range of analog data that is expected to have no physical forces or moment present and allows an application that reads the force plate data to read the stored analog data for the given frames, find the mean for each channel, and then subtract it from the recorded analog data for the corresponding channel as it is accessed. This process will remove any DC offsets from the recorded force plate data. If the two frame numbers provided are both zero then no baseline-offset correction should be applied - any other value defines a range of 3D frames.</p>
+<blockquote>
+<p>Note that the presence of this parameter does not mean that any baseline correction has been performed, only that if it is to be performed, then the specified values by FORCE_PLATFORM:ZERO should be used.</p>
+</blockquote>
+<p>Motion Capture systems that record the 3D points and force place data can set the ZERO frame numbers based on the data collection conditions, defining them as a range of frames where no 3D points are recorded above the force plates.</p>
+<blockquote>
+<p>Any post processing editing of the C3D file that deletes frames at the start of the data collection will affect the ZERO frame numbers.</p>
+</blockquote>
+<p>Applications that implement baseline correction in an application must be careful to ensure that the baseline correction is only applied to the specified force plate channels and that the force plates were unloaded during the frame rage specified by the parameter.</p>
+<p>An application that processes the force plate data to remove any offsets might set both FORCE_PLATFORM:ZERO frame number to 0 after the C3D file data has been modified to indicate that the data has been processed.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/analog/analog-descriptions.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/force_platform/force_platform-zero.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

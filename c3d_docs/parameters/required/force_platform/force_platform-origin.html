@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>FORCE_PLATFORM:ORIGIN | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="FORCE_PLATFORM:ORIGIN | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,97 @@
         </div>
 
         <article data-uid="">
+<h1 id="force_platformorigin">FORCE_PLATFORM:ORIGIN</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The FORCE_PLATFORM:ORIGIN parameter is a floating-point array of size [3,USED] whose interpretation depends on the type of force plate used, as set by the <a href="force_platform-type.html">TYPE</a> parameter. You should be able to find all the information that you need to calculate the correct ORIGIN values in the appropriate force plate manual supplied by the force plate manufacturer.</p>
+<p>The ORIGIN vector is defined to enable the transformation of the force vectors, as measured by the transducers, into the laboratory coordinate system via the center of the working surface of each force plate defined by the CORNERS parameters. Normally the force plate coordinate system origin is below the surface of the platform and the force plate coordinate system <span class="math">\(Z\)</span>-axis is directed downwards, so that the sign entered in ORIGIN(3) will be negative. The force platform coordinate system depends upon the signals that are output from the transducers, and may need to be modified to provide a standard <a href="https://en.wikipedia.org/wiki/Right-hand_rule">right-handed coordinate system</a>, which ORIGIN is assumed to be. Assuming a <a href="https://www.evl.uic.edu/ralph/508S98/coordinates.html">left-handed coordinate system</a> will change the sign of one of the components.</p>
+<p>In general, the vertical force plate ORIGIN component will be below the surface of the force plate and many applications may experience problems if this is entered incorrectly. While many motion capture calibration systems place a jig on the force plate in an attempt to synchronize the force platform location to the 3D collection volume, this calibration does not affect the force platform origin parameters which must be entered when a force plate is defined in the data collection environment.</p>
+<blockquote>
+<p>The FORCE_PLATFORM:ORIGIN parameter describes the <strong>origin within the force platform location</strong>, recorded in the C3D file <a href="force_platform-corners.html">FORCE_PLATFORM:CORNERS</a> parameterand so it is not affected by any changes in the 3D data collection volume location.</p>
+</blockquote>
+<p>All ORIGIN distance units must be recorded in <a href="../point/point-units.html">POINT:UNITS</a>, as used to express the locations of the <a href="force_platform-corners.html">FORCE_PLATFORM:CORNERS</a> in the 3D coordinate system. It is important to note that every distance in a C3D file must be expressed in the same units.</p>
+<h1 id="type-1"><a href="force_platform-type.html#type-1">TYPE-1</a></h1>
+<p>For a <a href="force_platform-type.html#type-1">TYPE-1</a> force platform only the 3<sup>rd</sup> (ORIGIN(3,)) component is used, while any values stored in ORIGIN(1,) and ORIGIN(2,) are ignored.</p>
+<p>ORIGIN(3,) must contain the displacement from the force plate coordinate system origin to the working surface of the force platform.</p>
+<p>Normally the force plate coordinate system origin is below the surface of the platform and the coordinate system z-axis is directed downwards, so that the sign of the distance entered in ORIGIN(3,) will be negative.</p>
+<h1 id="type-2"><a href="force_platform-type.html#type-2">TYPE-2</a></h1>
+<p>For a <a href="force_platform-type.html#type-2">TYPE-2</a> force platform, the ORIGIN parameter defines a vector pointing from
+the origin of the force plate coordinate system, the point where an application of <span class="math">\(F_x\)</span>,
+<span class="math">\(F_y\)</span>, or <span class="math">\(F_z\)</span> will produce zero moment signals, to the point at the geometric center of
+the physical force platform working surface.</p>
+<p>The vector described by the ORIGIN parameter must be expressed in the force platform coordinate system and locates the center of the working surface of the force plate within the force plate coordinate system. This means that when the force plate is mounted in the floor, the <span class="math">\(Z\)</span> component of this vector will be negative when the force plate origin lies below the physical surface of the force plate.</p>
+<blockquote>
+<p>The origin of the force platform coordinate system will always lie below the physical top surface of the force platform.</p>
+</blockquote>
+<p>The force plate offset vector described by the ORIGIN parameter should locate the center of the working surface of the plate relative to the force plate measurement origin and in the force plate coordinate system. The direction of the force plate coordinate system axis (<span class="math">\(Z\)</span> axis) that is normal to the working surface of the force plate (usually the vertical axis but the force plate could be on its side) is directed away from the working surface of the force plate. Thus, you must travel in a negative <span class="math">\(Z\)</span> direction in the force plate coordinate system to reach the working surface.</p>
+<p>Entering the wrong values for the ORIGIN parameter may produce errors in any application that calculates center of pressure, power, and moments as these calculations will assume that the force plate origin is above the force plate surface, based on the incorrect ORIGIN value.</p>
+<blockquote>
+<p>Failing to store the sign of the FORCE_PLATFORM:ORIGIN values correctly is a common error in many C3D files.</p>
+</blockquote>
+<blockquote>
+<p>The information supplied by the force plate manufacturer must be read carefully when the values of the ORIGIN parameters are determined. Where several force plates are used it is important to remember that the values for each plate and manufacturers calibration descriptions may change from one plate to another depending on the calibration information supplied with each plate.</p>
+</blockquote>
+<p>The original <a href="https://www.amti.biz">AMTI</a> calibration method describes the origin of the force plate coordinate system as an offset to the geometric center of the top surface of the plate, thus describing the <span class="math">\(Z\)</span> offset as a positive number.</p>
+<p>However, calibration data from more recent force platforms describe the location of the force plate coordinate system as an offset from the geometric center of the top surface of the plate resulting in a negative <span class="math">\(Z\)</span> offset value in the manufacturer’s calibration information. The change in the descriptive convention affects only the sign of the <span class="math">\(Z\)</span> offset; The force plate coordinate system does not change.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Older AMTI values</th>
+<th>Current AMTI values</th>
+<th>Correct Origin Signs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>X</td>
+<td>3.9</td>
+<td>-3.9</td>
+<td>-3.9</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>-4.6</td>
+<td>4.6</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>40.2</td>
+<td>-40.2</td>
+<td>-40.2</td>
+</tr>
+</tbody>
+</table>
+<p>The older <a href="https://www.amti.biz">AMTI</a> documentation locates the force plate origin relative to the middle of the working surface and reported this vector in terms of the force plate coordinate system. As a result the sign of the origin values supplied in the <a href="https://www.amti.biz">AMTI</a> calibration information needed to be changed when the values were entered into the C3D format ORIGIN parameters to align the force plate coordinate system with typical motion data collection coordinate systems, something that was often overlooked during the initial data collection configuration. Current <a href="https://www.amti.biz">AMTI</a> calibration documentation provides origin signs that match the description of the ORIGIN parameter.</p>
+<p>C3D files created by many early <a href="https://www.vicon.com/">Vicon systems</a> may not store the correct ORIGIN values for TYPE-2 force plates because of errors in the installation documentation. Users who upgrade their laboratories from equipment installed prior to this time may continue to store the wrong values unless the force plate’s calibration is verified and the correct force platform origin values are entered.</p>
+<h1 id="type-3"><a href="force_platform-type.html#type-3">TYPE-3</a></h1>
+<p>For a <a href="force_platform-type.html#type-3">TYPE-3</a> force platform, these values record the sensor offsets.</p>
+<ul>
+<li><p>ORIGIN(1,) must contain the distance between the transducer axes and the force platform y-axis.</p>
+</li>
+<li><p>ORIGIN(2,) must contain the distance between transducer axes and the force platform
+x-axis.</p>
+</li>
+<li><p>ORIGIN(3,) should contain the distance between the force plate origin and the surface of the force platform.</p>
+</li>
+</ul>
+<img src="../../../../docfx_assets/images/force_platform-fig40.svg" alt="FORCE_PLATFORM:ORIGIN data for eight channel force platforms." width="600">
+<p>Since the force platform <span class="math">\(Z\)</span>-axis projects down, the ORIGIN(3,) value will normally be
+negative as it stores the distance within the force plate coordinate system.</p>
+<blockquote>
+<p>Refer to the manufacturer’s specifications for the force platforms being used.</p>
+</blockquote>
+<p>For most plates, you can assume that ORIGIN(1,) is half inter-transducer distance in <span class="math">\(X\)</span>- direction (shown as <span class="math">\(a\)</span> below) and ORIGIN(2,) is half inter-transducer distance in <span class="math">\(Y\)</span>-direction (shown as <span class="math">\(b\)</span> below). ORIGIN(3) can be a little harder to find but will be provided in the manufacturer’s documentation.</p>
+<p>Remember that all distance units must be the same as were used to express the locations of the 3D points in the laboratory coordinate system.</p>
+<h1 id="type-4"><a href="force_platform-type.html#type-4">TYPE-4</a></h1>
+<p>A <a href="force_platform-type.html#type-4">TYPE-4</a> force platform stores the FORCE_PLATFORM:ORIGIN parameter in <a href="#type-2">exactly the same way</a> as a <a href="force_platform-type.html#type-2">TYPE-2</a> force platform. The ORIGIN parameter must hold the components of the vector pointing from the origin of the force plates coordinate system to the point at the geometric center of the working surface of the force platform. This vector is always expressed in the force platform coordinate system.</p>
 
 </article>
 
