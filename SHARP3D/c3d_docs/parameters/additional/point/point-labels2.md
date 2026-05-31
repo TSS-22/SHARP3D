@@ -14,4 +14,4 @@ When a LABELSX (i.e. LABELS2, LABELS3 etc) is found in a C3D file then the LABEL
 
 UTF-8 encoding is permitted for the LABELS but ASCII characters are recommended as most user localization requirements can be satisfied by defining a UTF-8 encoded [DESCRIPTIONS](../../required/point/point-descriptions.md) string with the same array index. It is important that all [POINT:LABELS](../../required/point/point-labels.md) and POINT:LABELS2 names are concise and unique as they are used by software applications to identify, reference, and track individual 3D points recorded in the C3D file. Refer to [POINT:LABELS](../../required/point/point-labels.md) page for more information on labelling rules.
 
-> To keep consistency with [POINT:LABELS](../../required/point/point-labels.md) rules, SHARP3D consider using UTF-8 characters in POINT:LABELSX a malpractice.
+> To keep it consistent with [POINT:LABELS](../../required/point/point-labels.md) rules, SHARP3D consider using UTF-8 characters in POINT:LABELSX a malpractice.
