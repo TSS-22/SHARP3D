@@ -32,3 +32,11 @@ The choice of SIGNED or UNSIGNED analog data and the ADC or data resolution can 
 It is strongly recommended that anyone storing 16-bit analog data in integer format C3D files follow the original C3D format description and store their data using signed integers wherever possible. Care is needed when writing code to convert between signed and unsigned formats or reading/writing all format variants.
 
 The parameters listed below must always be provided if the C3D file does contain analog data. Other ANALOG parameters may be required by particular software applications. Consult your manufacturer’s documentation for details of application specific parameters.
+
+## Additional ANALOG Parameters
+
+These additional parameters document the extension of the ANALOG group to support more than 255 “analog channels”, enabling the storage of digital data values in the same manner that the C3D file uses to store more than 255 3D points. 
+
+This method remains compatible with older applications which may be limited to only displaying and processing less than 255 analog channels but the extension to add more analog channels does not change the internal C3D format. Therefore implementation is relatively easy for most applications working with the C3D file format and makes it easy to maintain compatibility with older C3D files.
+
+As with the extension to the [POINT group](./group-point.md#additional-point-parameters), the additional parameters described here must be each treated as a single array, the contents of all of the associated [LABELS](../additional/analog/analog-labels2.md), [DESCRIPTIONS](../additional/analog/analog-descriptions2.md), [SCALE](../additional/analog/analog-scale2.md), [OFFSET](../additional/analog/analog-offset2.md), and [UNITS](../additional/analog/analog-units2.md) parameters must all be manipulated in synchronization with each other.
