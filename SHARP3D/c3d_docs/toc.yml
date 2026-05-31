@@ -15,63 +15,120 @@
       href: parameters/application.md
     - name: Supported Parameters
       items:
-        - name: POINT
-          href: parameters/required/group-point.md
-          items:
-            - name: POINT:USED
-              href: parameters/required/point/point-used.md
-            - name: POINT:SCALE_FACTOR
-              href: parameters/required/point/point-scale_factor.md
-            - name: POINT:RATE
-              href: parameters/required/point/point-rate.md
-            - name: POINT:DATA_START
-              href: parameters/required/point/point-data_start.md
-            - name: POINT:FRAMES
-              href: parameters/required/point/point-frames.md
-            - name: POINT:LABELS
-              href: parameters/required/point/point-labels.md
-            - name: POINT:DESCRIPTIONS
-              href: parameters/required/point/point-descriptions.md
-            - name: POINT:UNITS
-              href: parameters/required/point/point-units.md    
         - name: ANALOG
           href: parameters/required/group-analog.md
           items:
-            - name: ANALOG:USED
-              href: parameters/required/analog/analog-used.md
-            - name: ANALOG:LABELS
-              href: parameters/required/analog/analog-labels.md
-            - name: ANALOG:DESCRIPTIONS
-              href: parameters/required/analog/analog-descriptions.md
-            - name: ANALOG:GEN_SCALE
-              href: parameters/required/analog/analog-gen_scale.md
-            - name: ANALOG:OFFSET
-              href: parameters/required/analog/analog-offset.md
-            - name: ANALOG:UNITS
-              href: parameters/required/analog/analog-units.md
-            - name: ANALOG:SCALE
-              href: parameters/required/analog/analog-scale.md
-            - name: ANALOG:RATE
-              href: parameters/required/analog/analog-rate.md
-            - name: ANALOG:FORMAT
-              href: parameters/required/analog/analog-format.md
             - name: ANALOG:BITS
               href: parameters/required/analog/analog-bits.md
+            - name: ANALOG:DESCRIPTIONS
+              href: parameters/required/analog/analog-descriptions.md
+            - name: ANALOG:DESCRIPTIONSX
+              href: parameters\additional\analog\analog-descriptions2.md
+            - name: ANALOG:FORMAT
+              href: parameters/required/analog/analog-format.md
+            - name: ANALOG:GEN_SCALE
+              href: parameters/required/analog/analog-gen_scale.md
+            - name: ANALOG:LABELS
+              href: parameters/required/analog/analog-labels.md
+            - name: ANALOG:LABELSX
+              href: parameters/additional/analog/analog-labels2.md
+            - name: ANALOG:OFFSET
+              href: parameters/required/analog/analog-offset.md
+            - name: ANALOG:OFFSETX
+              href: parameters/additional/analog/analog-offset2.md
+            - name: ANALOG:RATE
+              href: parameters/required/analog/analog-rate.md
+            - name: ANALOG:SCALE
+              href: parameters/required/analog/analog-scale.md
+            - name: ANALOG:SCALEX
+              href: parameters/additional/analog/analog-scale2.md
+            - name: ANALOG:UNITS
+              href: parameters/required/analog/analog-units.md
+            - name: ANALOG:UNITSX
+              href: parameters\additional\analog\analog-units2.md
+            - name: ANALOG:USED
+              href: parameters/required/analog/analog-used.md
+        - name: EVENT
+          href: parameters\additional\event\main.md
+          items:
+            - name: EVENT:CONTEXTS
+              href: parameters\additional\event\event-contexts.md
+            - name: EVENT:DESCRIPTIONS
+              href: parameters\additional\event\event-descriptions.md
+            - name: EVENT:GENERIC_FLAGS
+              href: parameters\additional\event\event-generic_flags.md
+            - name: EVENT:ICON_IDS
+              href: parameters\additional\event\event-icon_ids.md
+            - name: EVENT:LABELS
+              href: parameters\additional\event\event-labels.md
+            - name: EVENT:SUBJECTS
+              href: parameters\additional\event\event-subjects.md
+            - name: EVENT:TIMES
+              href: parameters\additional\event\event-times.md
+            - name: EVENT:USED
+              href: parameters\additional\event\event-used.md
+        - name: EVENT_CONTEXT
+          href:
+          items:
+            - name: EVENT_CONTEXT:COLOURS
+              href: parameters\additional\event_context\event_context-colours.md
+            - name: EVENT_CONTEXT:ICON_IDS
+              href: parameters\additional\event_context\event_context-icon_ids.md
+            - name: EVENT_CONTEXT:LABELS
+              href: parameters\additional\event_context\event_context-labels.md
+            - name: EVENT_CONTEXT:USED
+              href: parameters\additional\event_context\event_context-used.md
         - name: FORCE_PLATFORM
           href: parameters/required/group-force_platform.md
           items:
-            - name: FORCE_PLATFORM:USED
-              href: parameters/required/force_platform/force_platform-used.md
-            - name: FORCE_PLATFORM:TYPE
-              href: parameters/required/force_platform/force_platform-type.md
-            - name: FORCE_PLATFORM:ZERO
-              href: parameters/required/force_platform/force_platform-zero.md
+            - name: FORCE_PLATFORM:CAL_MATRIX
+              href: parameters/additional/force_platform/force_platform-cal_matrix.md
+            - name: FORCE_PLATFORM:CHANNEL
+              href: parameters/required/force_platform/force_platform-channel.md
             - name: FORCE_PLATFORM:CORNERS
               href: parameters/required/force_platform/force_platform-corners.md
             - name: FORCE_PLATFORM:ORIGIN
               href: parameters/required/force_platform/force_platform-origin.md
-            - name: FORCE_PLATFORM:CHANNEL
-              href: parameters/required/force_platform/force_platform-channel.md
+            - name: FORCE_PLATFORM:TYPE
+              href: parameters/required/force_platform/force_platform-type.md
+            - name: FORCE_PLATFORM:USED
+              href: parameters/required/force_platform/force_platform-used.md
+            - name: FORCE_PLATFORM:ZERO
+              href: parameters/required/force_platform/force_platform-zero.md
+        - name: POINT
+          href: parameters/required/group-point.md
+          items:
+            - name: POINT:DATA_START
+              href: parameters/required/point/point-data_start.md
+            - name: POINT:DESCRIPTIONS
+              href: parameters/required/point/point-descriptions.md
+            - name: POINT:DESCRIPTIONSX
+              href: parameters/additional/point/point-descriptions2.md
+            - name: POINT:FRAMES
+              href: parameters/required/point/point-frames.md
+            - name: POINT:LABELS
+              href: parameters/required/point/point-labels.md
+            - name: POINT:LABELSX
+              href: parameters\additional\point\point-labels2.md
+            - name: POINT:LONG_FRAMES
+              href: parameters/additional/point/point-long_frames.md
+            - name: POINT:RATE
+              href: parameters/required/point/point-rate.md
+            - name: POINT:SCALE_FACTOR
+              href: parameters/required/point/point-scale_factor.md
+            - name: POINT:UNITS
+              href: parameters/required/point/point-units.md
+            - name: POINT:USED
+              href: parameters/required/point/point-used.md
+        - name: TRIAL
+          href: parameters/additional/trial/main.md
+          items:
+            - name: TRIAL:ACTUAL_END_FIELD 
+              href: parameters\additional\trial\trial-actual_end_field.md
+            - name: TRIAL:ACTUAL_START_FIELD 
+              href: parameters/additional/trial/trial-actual_start_field.md
+            - name: TRIAL:CAMERA_RATE
+              href: parameters\additional\trial\trial-camera_rate.md    
 - name: Data Section
   href: data/c3d-data-section.md
   items:
