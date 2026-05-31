@@ -8,6 +8,6 @@ The parameters in these serie (i.e. DESCRIPTIONS2, DESCRIPTIONS3, etc) are an ar
 
 These parameters describes the contents of a [LABELS<sub>n</sub>](./point-labels2.md) parameters with the same array index to document the point location or function for anyone reading the C3D file. 
 
-> Any modifications to the C3D file points, by adding or deleting a point, must maintain the descriptions stored in DESCRIPTIONS, DESCRIPTIONS2 etc., in synchronization with the identifiers stored in the LABELS parameters.
+> Any modifications to the C3D file points, by adding or deleting a point, must maintain the descriptions stored in DESCRIPTIONS, DESCRIPTIONS2 etc., in synchronization with the identifiers stored in the [LABELS](../../required/point/point-labels.md) parameters.
 
 Additional information and rules about these parameters can be found in [POINT:DESCRIPTIONS](../../required/point/point-descriptions.md) page.
