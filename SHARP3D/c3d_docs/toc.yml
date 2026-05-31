@@ -16,7 +16,7 @@
     - name: Supported Parameters
       items:
         - name: ANALOG
-          href: parameters/required/group-analog.md
+          href: parameters/groups/group-analog.md
           items:
             - name: ANALOG:BITS
               href: parameters/required/analog/analog-bits.md
@@ -49,7 +49,7 @@
             - name: ANALOG:USED
               href: parameters/required/analog/analog-used.md
         - name: EVENT
-          href: parameters\additional\event\main.md
+          href: parameters\groups\group-event.md
           items:
             - name: EVENT:CONTEXTS
               href: parameters\additional\event\event-contexts.md
@@ -79,7 +79,7 @@
             - name: EVENT_CONTEXT:USED
               href: parameters\additional\event_context\event_context-used.md
         - name: FORCE_PLATFORM
-          href: parameters/required/group-force_platform.md
+          href: parameters/groups/group-force_platform.md
           items:
             - name: FORCE_PLATFORM:CAL_MATRIX
               href: parameters/additional/force_platform/force_platform-cal_matrix.md
@@ -96,7 +96,7 @@
             - name: FORCE_PLATFORM:ZERO
               href: parameters/required/force_platform/force_platform-zero.md
         - name: POINT
-          href: parameters/required/group-point.md
+          href: parameters/groups/group-point.md
           items:
             - name: POINT:DATA_START
               href: parameters/required/point/point-data_start.md
@@ -121,7 +121,7 @@
             - name: POINT:USED
               href: parameters/required/point/point-used.md
         - name: TRIAL
-          href: parameters/additional/trial/main.md
+          href: parameters\groups\group-trial.md
           items:
             - name: TRIAL:ACTUAL_END_FIELD 
               href: parameters\additional\trial\trial-actual_end_field.md
