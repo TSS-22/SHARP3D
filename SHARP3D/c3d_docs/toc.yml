@@ -112,6 +112,8 @@
               href: parameters\application\manufacturer\manufacturer-software.md
             - name: MANUFACTURER:VERSION
               href: parameters\application\manufacturer\manufacturer-version.md
+            - name: MANUFACTURER:VERSION_LABEL
+              href: parameters\application\manufacturer\manufacturer-version_label.md
         - name: POINT
           href: parameters/groups/group-point.md
           items:

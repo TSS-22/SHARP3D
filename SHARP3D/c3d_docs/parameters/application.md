@@ -32,6 +32,7 @@ No specific parameter provided by the C3D User Guide.
 - [MANUFACTURER:EDITED](./application/manufacturer/manufacturer-edited.md)
 - [MANUFACTURER:SOFTWARE](./application/manufacturer/manufacturer-software.md)
 - [MANUFACTURER:VERSION](./application/manufacturer/manufacturer-version.md)
+- [MANUFACTURER:VERSION_label](./application/manufacturer/manufacturer-version_label.md)
 
 ### POINT
 
