@@ -72,6 +72,8 @@
           items:
             - name: EVENT_CONTEXT:COLOURS
               href: parameters\additional\event_context\event_context-colours.md
+            - name: EVENT_CONTEXT:DESCRIPTIONS
+              href: parameters\additional\event_context\event_context-descriptions.md
             - name: EVENT_CONTEXT:ICON_IDS
               href: parameters\additional\event_context\event_context-icon_ids.md
             - name: EVENT_CONTEXT:LABELS

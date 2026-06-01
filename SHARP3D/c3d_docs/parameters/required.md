@@ -19,34 +19,34 @@ Not all parameters are intended to be editable. The parameter record contains a 
 
 ### POINT
 
-- [POINT:USED](./required/point/point-used.md)
-- [POINT:SCALE](./required/point/point-scale_factor.md)
-- [POINT:RATE](./required/point/point-rate.md)
 - [POINT:DATA_START](./required/point/point-data_start.md)
+- [POINT:DESCRIPTIONS](./required/point/point-descriptions.md)
 - [POINT:FRAMES](./required/point/point-frames.md)
 - [POINT:LABELS](./required/point/point-labels.md)
-- [POINT:DESCRIPTIONS](./required/point/point-descriptions.md)
+- [POINT:RATE](./required/point/point-rate.md)
+- [POINT:SCALE](./required/point/point-scale_factor.md)
 - [POINT:UNITS](./required/point/point-units.md)
+- [POINT:USED](./required/point/point-used.md)
 
 ### ANALOG
 
-- [ANALOG:USED](./required/analog/analog-used.md)
-- [ANALOG:LABELS](./required/analog/analog-labels.md)
-- [ANALOG:DESCRIPTIONS](./required/analog/analog-descriptions.md)
-- [ANALOG:GEN_SCALE](./required/analog/analog-gen_scale.md)
-- [ANALOG:OFFSET](./required/analog/analog-offset.md)
-- [ANALOG:UNITS](./required/analog/analog-units.md)
-- [ANALOG:SCALE](./required/analog/analog-scale.md)
-- [ANALOG:RATE](./required/analog/analog-rate.md)
-- [ANALOG:FORMAT](./required/analog/analog-format.md)
 - [ANALOG:BITS](./required/analog/analog-bits.md)
+- [ANALOG:DESCRIPTIONS](./required/analog/analog-descriptions.md)
+- [ANALOG:FORMAT](./required/analog/analog-format.md)
+- [ANALOG:GEN_SCALE](./required/analog/analog-gen_scale.md)
+- [ANALOG:LABELS](./required/analog/analog-labels.md)
+- [ANALOG:OFFSET](./required/analog/analog-offset.md)
+- [ANALOG:RATE](./required/analog/analog-rate.md)
+- [ANALOG:SCALE](./required/analog/analog-scale.md)
+- [ANALOG:UNITS](./required/analog/analog-units.md)
+- [ANALOG:USED](./required/analog/analog-used.md)
 
 ### FORCE_PLATFORM
 
-- [FORCE_PLATFORM:USED](./required/force_platform/force_platform-used.md)
-- [FORCE_PLATFORM:TYPE](./required/force_platform/force_platform-type.md)
-- [FORCE_PLATFORM:ZERO](./required/force_platform/force_platform-zero.md)
 - [FORCE_PLATFORM:CORNERS](./required/force_platform/force_platform-corners.md)
-- [FORCE_PLATFORM:ORIGIN](./required/force_platform/force_platform-origin.md)
 - [FORCE_PLATFORM:CHANNEL](./required/force_platform/force_platform-channel.md)
+- [FORCE_PLATFORM:ORIGIN](./required/force_platform/force_platform-origin.md)
+- [FORCE_PLATFORM:TYPE](./required/force_platform/force_platform-type.md)
+- [FORCE_PLATFORM:USED](./required/force_platform/force_platform-used.md)
+- [FORCE_PLATFORM:ZERO](./required/force_platform/force_platform-zero.md)
 
