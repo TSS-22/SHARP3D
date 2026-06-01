@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT | SHARP3D Documentation </title>
+      <title>ANALOG:OFFSETX | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT | SHARP3D Documentation ">
+      <meta name="title" content="ANALOG:OFFSETX | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../favicon.ico">
-      <link rel="stylesheet" href="../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../toc.html">
-      <meta name="docfx:tocrel" content="../../toc.html">
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
       
-      <meta name="docfx:rel" content="../../../">
+      <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-point.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-offset2.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../index.html">
-            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,18 +85,24 @@
         </div>
 
         <article data-uid="">
-<h1 id="point">POINT</h1>
+<h1 id="analogoffsetx">ANALOG:OFFSETX</h1>
 
-<p>The POINT parameters group provides information about the 3D data contained within a C3D file as well as some basic information about the data environment. As a result, the POINT parameters <a href="point/point-data_start.html">POINT:DATA_START</a>, <a href="point/point-frames.html">POINT:FRAMES</a>, and <a href="point/point-used.html">POINT:USED</a> are required <strong>even if the C3D file contains only analog information without any 3D information at all</strong>. The <a href="point/point-data_start.html">POINT:DATA_START</a> parameter must exist because it is needed to provide a pointer to the start of the 3D point and analog storage within the file. The <a href="point/point-used.html">POINT:USED</a> parameter is required as it is used to determine the number of 3D points recorded in the data area. If it is set to zero then it indicates that the 3D point and analog storage area does not contain any 3D point data and may only contain analog data values.</p>
-<p>Other POINT parameters may be required by particular software applications, you will need to consult your software or hardware manufacturer’s documentation for details of application specific parameters and their use.</p>
+<ul>
+<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The parameters in these serie (i.e. OFFSET2, OFFSET3, etc) are an array of 255 additional <a href="../../required/analog/analog-offset.html">ANALOG:OFFSET</a> values. These parameters are synchronized with the corresponding nalog channels. An individual <a href="../../required/analog/analog-offset.html">OFFSET</a> parameter is required for every analog channel supported by the C3D file. Refer to the page on <a href="../../required/analog/analog-offset.html">ANALOG:OFFSET</a> for more information.</p>
+<p>When a OFFSET (i.e. OFFSETS2, OFFSETS3 etc) is found in a C3D file then the LABELS parameters of higher precedence (LABELSX-1 and onward) must always store 255 values. For example, if OFFSETS2 is present, OFFSETS will store 255 values. If OFFSETS3 is present, OFFSETS and OFFSETS2 store 255 values each.</p>
 <blockquote>
-<p>It is worth noting that all C3D parameter and group structures have an associated description string that should be used to provide some basic information about each group and parameter.</p>
+<p>Any modifications to the C3D file analogs channels, by adding or deleting a channel, must maintain consistency with related Analog parameters: <a href="analog-labels2.html">LABELS</a>, <a href="analog-descriptions2.html">DESCRIPTIONS</a>, OFFSET, <a href="analog-scale2.html">SCALE</a>, <a href="analog-units2.html">UNITS</a>.</p>
 </blockquote>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/group-point.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-offset2.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

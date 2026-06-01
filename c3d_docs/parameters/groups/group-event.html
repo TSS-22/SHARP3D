@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation </title>
+      <title>EVENT | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation ">
+      <meta name="title" content="EVENT | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../../toc.html">
-      <meta name="docfx:tocrel" content="../../../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-event.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../../index.html">
-            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,22 +85,22 @@
         </div>
 
         <article data-uid="">
-<h1 id="trialactual_end_field">TRIAL:ACTUAL_END_FIELD</h1>
+<h1 id="event">EVENT</h1>
 
-<ul>
-<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
-</li>
-<li><p><strong>Locked</strong>: False</p>
-</li>
-</ul>
-<p>The last frame number in the C3D file is stored in the same way as two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word and the second unsigned 16-bit integer is the most significant word.</p>
-<p>Therefore the last frame number is calculated as:</p>
-<p><span class="math">\(\text{Last frame number} = \text{ACTUAL\_END\_FIELD}[1] + \text{ACTUAL\_END\_FIELD}[2]*65535\)</span></p>
+<p>The EVENT group, and the associated <a href="group-event_context.html">EVENT_CONTEXT</a> group, first appeared in C3D files created by <a href="https://oxfordmetrics.com/">Oxford Metrics</a><sup id="fnref1"><a href="#fn1">1</a></sup> in 2001 to work around the limit of a maximum of 18 simple events in the C3D file header. The descriptions are based on a document provided by the manufacturer.</p>
+<blockquote>
+<p>The existence of this group is optional, it is only described here as part of the C3D file format because it appears in many files but may be modified by users to support different event environments.</p>
+</blockquote>
+<p>The basic idea behind this implementation is very much like the concept of the <a href="../../c3d-header.html#header-events">C3D header record events</a>, a count of the total number of events is maintained and then used as an index to access the event times, status etc. It differs in that it allows events to be placed in a context that can be used to organize and group events in an open-ended and flexible manner.</p>
+<blockquote>
+<p>All user defined strings stored in these parameters may be stored using UTF-8 encoding but the parameter and group names must remain unchanged in 7-bit ASCII encoding for universal compatibility.</p>
+</blockquote>
+<p><sup id="fn1">1</sup>Even though Vicon officially began trading in 1984, the original Vicon product was first introduced to market five years earlier in 1979. The system was manufactured by a subsidiary of Oxford Instruments, called Oxford Medical Systems (later Oxford Dynamics). Following a management buyout in 1984, Oxford Dynamics became Oxford Metrics and the 40 year history of Vicon began. <a href="https://www.vicon.com/about-us/">source</a> <a href="#fnref1">↩</a></p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-event.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

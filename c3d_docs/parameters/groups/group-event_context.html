@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation </title>
+      <title>EVENT_CONTEXTS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation ">
+      <meta name="title" content="EVENT_CONTEXTS | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../../toc.html">
-      <meta name="docfx:tocrel" content="../../../toc.html">
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
       
-      <meta name="docfx:rel" content="../../../../">
+      <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-event_context.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../../public/docfx.min.js"></script>
+      <script type="module" src="./../../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../../index.html">
-            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,22 +85,25 @@
         </div>
 
         <article data-uid="">
-<h1 id="trialactual_end_field">TRIAL:ACTUAL_END_FIELD</h1>
+<h1 id="event_contexts">EVENT_CONTEXTS</h1>
 
+<p>This group provides names and descriptions for the contexts of named events in the C3D file that are stored in the <a href="group-event.html">EVENT group</a>. The event context can be thought of as defining the class of event without limiting the user by defining the type of event.
+the typical event contexts are:</p>
 <ul>
-<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
-</li>
-<li><p><strong>Locked</strong>: False</p>
-</li>
+<li>Left side event</li>
+<li>Right side event</li>
+<li>General event</li>
+<li>Invalid event</li>
 </ul>
-<p>The last frame number in the C3D file is stored in the same way as two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word and the second unsigned 16-bit integer is the most significant word.</p>
-<p>Therefore the last frame number is calculated as:</p>
-<p><span class="math">\(\text{Last frame number} = \text{ACTUAL\_END\_FIELD}[1] + \text{ACTUAL\_END\_FIELD}[2]*65535\)</span></p>
+<p>Other contexts can easily be created.</p>
+<p>This allows individual events to be created in the <a href="group-event.html">EVENT group</a> and then analyzed within their context. Thus, a Foot strike event can have a Left side event or Right side event context and can be organized and analyzed with other events with the same context. Multiple event contexts are supported giving applications the ability to define custom event contexts.</p>
+<p>The EVENT_CONTEXT group, and an associated <a href="group-event.html">EVENT group</a>, has been added to work around the limit of no more than 18 events in the <a href="../../c3d-header.html#header-events">C3D file header</a>.</p>
+<p>The descriptions of the parameters presented here are based on the descriptions provided by the manufacturer and from the direct examination of C3D data files. The event storage mechanism described here is completely separate from events stored in the C3D header and there is no requirement that these events duplicate or match the events stored in the C3D file header.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-event_context.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

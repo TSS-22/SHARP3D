@@ -887,10 +887,210 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/analog/analog-descriptions2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/analog/analog-descriptions2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/analog/analog-labels2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/analog/analog-labels2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/analog/analog-offset2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/analog/analog-offset2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/analog/analog-scale2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/analog/analog-scale2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/analog/analog-units2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/analog/analog-units2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-contexts.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-contexts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-descriptions.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-descriptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-generic_flags.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-generic_flags.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-icon_ids.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-icon_ids.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-labels.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-labels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-subjects.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-subjects.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-times.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-times.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event/event-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event/event-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event_context/event_context-colours.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event_context/event_context-colours.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event_context/event_context-descriptions.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event_context/event_context-descriptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event_context/event_context-icon_ids.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event_context/event_context-icon_ids.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event_context/event_context-labels.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event_context/event_context-labels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/event_context/event_context-used.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/event_context/event_context-used.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/additional/force_platform/force_platform-cal_matrix.md",
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/additional/force_platform/force_platform-cal_matrix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/point/point-descriptions2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/point/point-descriptions2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/point/point-labels2.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/point/point-labels2.html"
         }
       },
       "version": ""
@@ -927,6 +1127,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/additional/trial/trial-camera_rate.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/additional/trial/trial-camera_rate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "c3d_docs/parameters/application.md",
       "output": {
         ".html": {
@@ -941,6 +1151,66 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/c3d-parameter-section.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-analog.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-analog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-event.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-event.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-event_context.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-event_context.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-force_platform.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-force_platform.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-point.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-point.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "c3d_docs/parameters/groups/group-trial.md",
+      "output": {
+        ".html": {
+          "relative_path": "c3d_docs/parameters/groups/group-trial.html"
         }
       },
       "version": ""
@@ -1111,36 +1381,6 @@
       "output": {
         ".html": {
           "relative_path": "c3d_docs/parameters/required/force_platform/force_platform-zero.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/group-analog.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/required/group-analog.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/group-force_platform.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/required/group-force_platform.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "c3d_docs/parameters/required/group-point.md",
-      "output": {
-        ".html": {
-          "relative_path": "c3d_docs/parameters/required/group-point.html"
         }
       },
       "version": ""

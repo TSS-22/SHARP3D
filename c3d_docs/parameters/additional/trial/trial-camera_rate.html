@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation </title>
+      <title>TRIAL:CAMERA_RATE | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation ">
+      <meta name="title" content="TRIAL:CAMERA_RATE | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-camera_rate.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="trialactual_end_field">TRIAL:ACTUAL_END_FIELD</h1>
+<h1 id="trialcamera_rate">TRIAL:CAMERA_RATE</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
@@ -93,14 +93,13 @@
 <li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<p>The last frame number in the C3D file is stored in the same way as two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word and the second unsigned 16-bit integer is the most significant word.</p>
-<p>Therefore the last frame number is calculated as:</p>
-<p><span class="math">\(\text{Last frame number} = \text{ACTUAL\_END\_FIELD}[1] + \text{ACTUAL\_END\_FIELD}[2]*65535\)</span></p>
+<p>The <a href="../../groups/group-trial.html">TRIAL group</a> usually contains additional parameters which may be related to external video film synchronization applications. These additional undocumented parameters have no significant function in the C3D file format but may be relevant when attempting to synchronize an external video source. Video data recorded with a standard video camera format is often <a href="https://en.wikipedia.org/wiki/Interlaced_video">interlaced</a> when created and recorded as odd and even fields of data, each frame of data record at a 60Hz frame rate may contain a pair of <a href="https://en.wikipedia.org/wiki/Interlaced_video">interlaced</a> 30Hz fields.</p>
+<p>The existence of the TRIAL:CAMERA_RATE parameter, when the C3D file contains a <a href="../../required/point/point-rate.html">POINT:RATE</a> parameter, suggests that the TRIAL parameters exist to synchronize C3D data with video animations. A <a href="../../required/point/point-rate.html">POINT:RATE</a> of 120Hz and a TRIAL:CAMERA_RATE of 60Hz could potentially synchronize each C3D frame with an <a href="https://en.wikipedia.org/wiki/Interlaced_video">odd and an even video field</a>.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-camera_rate.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

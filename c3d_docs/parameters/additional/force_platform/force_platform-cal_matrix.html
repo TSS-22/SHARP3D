@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>FORCE_PLATFORM:CAL_MATRIX | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="FORCE_PLATFORM:CAL_MATRIX | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,216 @@
         </div>
 
         <article data-uid="">
+<h1 id="force_platformcal_matrix">FORCE_PLATFORM:CAL_MATRIX</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>A calibration matrix enables software applications to correct for cross talk between outputs of the force platform. Software applications that use the full calibration matrix to correct for cross talk will typically provide more accurate results when compared to applications that only have access to the major diagonal component.</p>
+<p>Below is a typical manufacturer's crosstalk matrix supplied in Newton-meters (Nm). The major diagonal components are highlighted in bold.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math">\(F_x\)</span></th>
+<th><span class="math">\(F_y\)</span></th>
+<th><span class="math">\(F_z\)</span></th>
+<th><span class="math">\(M_z\)</span></th>
+<th><span class="math">\(M_y\)</span></th>
+<th><span class="math">\(M_z\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(V_{f_x}\)</span></td>
+<td><strong>0.3405</strong></td>
+<td>0.0004</td>
+<td>0.0005</td>
+<td>0.0029</td>
+<td>0.0012</td>
+<td>0.0100</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{f_y}\)</span></td>
+<td>-0.0003</td>
+<td><strong>0.3395</strong></td>
+<td>0.0006</td>
+<td>0.0051</td>
+<td>0.0043</td>
+<td>-0.0004</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{f_z}\)</span></td>
+<td>-0.0011</td>
+<td>0.0001</td>
+<td><strong>0.0862</strong></td>
+<td>0.0011</td>
+<td>-0.0004</td>
+<td>-0.0019</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_x}\)</span></td>
+<td>0.0002</td>
+<td>0.0008</td>
+<td>0.0003</td>
+<td><strong>0.7918</strong></td>
+<td>-0.0006</td>
+<td>0.0065</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_y}\)</span></td>
+<td>0.0008</td>
+<td>0.0000</td>
+<td>-0.0007</td>
+<td>-0.0004</td>
+<td><strong>0.7884</strong></td>
+<td>0.0103</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_z}\)</span></td>
+<td>0.0027</td>
+<td>0.0011</td>
+<td>0.0003</td>
+<td>-0.0015</td>
+<td>0.0017</td>
+<td><strong>1.7005</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Output of channel i(uV/Vex) <span class="math">\(=\)</span> S(I,j) <span class="math">\(\times\)</span> mechanical input j(N, Nm).</em></p>
+<p>Since the CAL_MATRIX parameter will be ignored, even if present, unless the force platform type is a supported <a href="../../required/force_platform/force_platform-type.html">TYPE</a>, its inclusion in a C3D file does not automatically imply that it must be applied to the stored force data. If the force data <a href="../../required/force_platform/force_platform-type.html">TYPE</a> does not support the CAL_MATRIX then the force plate’s data must be scaled using the <a href="../../required/analog/analog-scale.html">ANALOG:SCALE</a> factors as described in detail in the chapter entitled “<a href="../../required/analog/analog-scale.html#force-plates">Calculating SCALE values for force plates</a>”.</p>
+<p>Note that most force plate systems include some degree of variable amplification of the signals from the plate. The amount of amplification applied to each force signal must be taken into account when applying the calibration matrix and is an important factor is the calculation of the correct <a href="../../required/analog/analog-scale.html">ANALOG:SCALE</a> value for each force plate channel.</p>
+<p>The calibration matrix for each force platform must be applied to the measured channel outputs to obtain the corrected channel outputs according to the matrix equation:</p>
+<p><span class="math">\(\mathbf{CAL\_MATRIX} \cdot \vec{F_{measured}} = \vec{F_{corrected}}\)</span></p>
+<p>where the <span class="math">\(\vec{F}\)</span> are column vectors. The elements of the calibration matrix will always be stored in column order:</p>
+<div class="math">
+\[
+\begin{pmatrix}
+C_{11} &amp; C_{12} &amp; C_{13} &amp; C_{14} &amp; C_{15} &amp; C_{16}\\
+C_{21} &amp; C_{22} &amp; C_{23} &amp; C_{24} &amp; C_{25} &amp; C_{26}\\
+C_{31} &amp; C_{32} &amp; C_{33} &amp; C_{34} &amp; C_{35} &amp; C_{36}\\
+C_{41} &amp; C_{42} &amp; C_{43} &amp; C_{44} &amp; C_{45} &amp; C_{46}\\
+C_{51} &amp; C_{52} &amp; C_{53} &amp; C_{54} &amp; C_{55} &amp; C_{66}\\
+C_{61} &amp; C_{62} &amp; C_{63} &amp; C_{64} &amp; C_{65} &amp; C_{66}\\
+\end{pmatrix}
+\]</div>
+<p>For the first force platform using a 6x6 <span class="math">\(\mathbf{CAL\_MATRIX}\)</span>:</p>
+<ul>
+<li><p><span class="math">\(\mathbf{CAL\_MATRIX}_{1,1,1}\)</span> must contain the first element of the matrix.</p>
+</li>
+<li><p><span class="math">\(\mathbf{CAL\_MATRIX}_{6,1,1}\)</span> the last element of the first column.</p>
+</li>
+<li><p><span class="math">\(\mathbf{CAL\_MATRIX}_{1,2,1}\)</span> must contain the first element of the second column, etc.</p>
+</li>
+</ul>
+<p>The first three rows of the supplied calibration matrix have units of force/Volt (e.g. N/V) and the last three rows have units of moments/Volt (e.g. N•m/V). If the C3D file is using distance units of millimeters then the last three rows of the calibration matrix must have units of N•mm/V. In order to convert from N•m/V to N•mm/V each element in the last three rows must be multiplied by 1000.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math">\(F_x\)</span></th>
+<th><span class="math">\(F_y\)</span></th>
+<th><span class="math">\(F_z\)</span></th>
+<th><span class="math">\(M_z\)</span></th>
+<th><span class="math">\(M_y\)</span></th>
+<th><span class="math">\(M_z\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(V_{f_x}\)</span></td>
+<td>0.3405</td>
+<td>0.0004</td>
+<td>0.0005</td>
+<td>2.900</td>
+<td>1.200</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{f_y}\)</span></td>
+<td>-0.0003</td>
+<td>0.3395</td>
+<td>0.0006</td>
+<td>5.100</td>
+<td>4.300</td>
+<td>-0.400</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{f_z}\)</span></td>
+<td>-0.0011</td>
+<td>0.0001</td>
+<td>0.0862</td>
+<td>1.100</td>
+<td>-0.400</td>
+<td>-1.900</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_x}\)</span></td>
+<td>0.0002</td>
+<td>0.0008</td>
+<td>0.0003</td>
+<td>791.8</td>
+<td>-0.600</td>
+<td>6.500</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_y}\)</span></td>
+<td>0.0008</td>
+<td>0.0000</td>
+<td>-0.0007</td>
+<td>-0.400</td>
+<td>788.4</td>
+<td>10.30</td>
+</tr>
+<tr>
+<td><span class="math">\(V_{m_z}\)</span></td>
+<td>0.0027</td>
+<td>0.0011</td>
+<td>0.0003</td>
+<td>-1.500</td>
+<td>1.700</td>
+<td>1700.5</td>
+</tr>
+</tbody>
+</table>
+<p><em>Output of channel i(uV/Vex) <span class="math">\(=\)</span> S(I,j) <span class="math">\(\times\)</span> mechanical input j(N, Nm).</em></p>
+<p>Note that the analog channels associated with force platforms using the <span class="math">\(\mathbf{CAL_MATRIX}\)</span> must be scaled in Volts (<a href="../../required/analog/analog-scale.html#force-plates">see the earlier discussions for full details on calculating the analog scale values for each force platform type</a>). <a href="https://www.c3d.org/sampledata.html">Sample data files and spreadsheets are available from the C3D web site</a> that implements the CAL_MATRIX parameter calculations for the associated analog channels.</p>
+<p>When implementing the CAL_MATRIX parameter it is very important to be aware of the order in which the C3D format stores the elements of the matrix: <strong>the storage sequence is in column order (as in FORTRAN) and not row order (as in C and C++)</strong>. <!--Or anything really... Love the antics-->Also, every C3D file uses a consistent set of units throughout. thus while the force plate manufacturer usually supplies the moment calibration data in terms of N•m/V, the calibration matrix must store the moment data in N•mm/V if the POINT calibration and measurement units are millimeters.</p>
+<!--hex dump -->
+<p>For example, if we have a 6x6 CAL_MATRIX parameter stored in the C3D file then the first three rows will have units of newtons per Volt and the second three rows will have units of newton•millimeters per Volt (Nm/V * 1000).</p>
+<p>If the analog signals from the six force plate sensors are scaled as Volts in the column vector <span class="math">\(\vec{V}\)</span>:</p>
+<div class="math">
+\[
+\begin{pmatrix}
+V_1\\
+V_2\\
+V_3\\
+V_4\\
+V_5\\
+V_6\\
+\end{pmatrix}
+\]</div>
+<p>Resulting in the corrected forces and moments as the column vector <span class="math">\(\vec{W}\)</span>:</p>
+<div class="math">
+\[
+\begin{pmatrix}
+W_1\\
+W_2\\
+W_3\\
+W_4\\
+W_5\\
+W_6\\
+\end{pmatrix}
+\]</div>
+<p>Then using the standard notation:</p>
+<p><span class="math">\(W = C*V\)</span></p>
+<p>Note that <span class="math">\(W_1\)</span> is computed by:</p>
+<p><span class="math">\(W_1 = C_{11}*V_1 +C_{12}*V_2 +C_{13}*V_3 +C_{14}*V_4 +C_{15}*V_5 +C_{16}*V_6\)</span></p>
+<p>And that the resulting <span class="math">\(W_1\)</span>, <span class="math">\(W_2\)</span>, <span class="math">\(W_3\)</span> will have units of newtons, and <span class="math">\(W4\)</span>, <span class="math">\(W5\)</span>, <span class="math">\(W6\)</span> will have units of newton•millimeters.</p>
+<p>The presence of the FORCE_PLATFORM:CAL_MATRIX parameter in a C3D file means that users and researchers retain the ability to determine the quality of the force plate data in a C3D file in any environment instead of trusting that unseen calculations were performed correctly in the past</p>
 
 </article>
 

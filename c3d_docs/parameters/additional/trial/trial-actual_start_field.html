@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>TRIAL:ACTUAL_START_FIELD | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="TRIAL:ACTUAL_START_FIELD | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -85,7 +85,17 @@
         </div>
 
         <article data-uid="">
+<h1 id="trialactual_start_field">TRIAL:ACTUAL_START_FIELD</h1>
 
+<ul>
+<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
+</li>
+<li><p><strong>Locked</strong>: False</p>
+</li>
+</ul>
+<p>The first frame number in the C3D file is stored in two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word while the second unsigned 16-bit integer is the most significant word.</p>
+<p>Therefore the first frame number is calculated as:</p>
+<p><span class="math">\(\text{First frame number} = \text{ACTUAL\_START\_FIELD}[1] + \text{ACTUAL\_START\_FIELD}[2]*65535\)</span></p>
 
 </article>
 

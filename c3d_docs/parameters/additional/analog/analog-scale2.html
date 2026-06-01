@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation </title>
+      <title>ANALOG:SCALEX | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation ">
+      <meta name="title" content="ANALOG:SCALEX | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-scale2.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="trialactual_end_field">TRIAL:ACTUAL_END_FIELD</h1>
+<h1 id="analogscalex">ANALOG:SCALEX</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
@@ -93,14 +93,16 @@
 <li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<p>The last frame number in the C3D file is stored in the same way as two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word and the second unsigned 16-bit integer is the most significant word.</p>
-<p>Therefore the last frame number is calculated as:</p>
-<p><span class="math">\(\text{Last frame number} = \text{ACTUAL\_END\_FIELD}[1] + \text{ACTUAL\_END\_FIELD}[2]*65535\)</span></p>
+<p>The parameters in these serie (i.e. SCALE2, SCALE3, etc) are an array of 255 additional <a href="../../required/analog/analog-scale.html">ANALOG:SCALE</a> values. These parameters are synchronized with the corresponding nalog channels. An individual <a href="../../required/analog/analog-scale.html">SCALE</a> parameter is required for every analog channel supported by the C3D file. Refer to the page on <a href="../../required/analog/analog-scale.html">ANALOG:SCALE</a> for more information.</p>
+<p>When a SCALESX (i.e. SCALES2, SCALES3 etc) is found in a C3D file then the LABELS parameters of higher precedence (LABELSX-1 and onward) must always store 255 values. For example, if SCALES2 is present, SCALES will store 255 values. If SCALES3 is present, SCALES and SCALES2 store 255 values each.</p>
+<blockquote>
+<p>Any modifications to the C3D file analogs channels, by adding or deleting a channel, must maintain consistency with related Analog parameters: <a href="analog-labels2.html">LABELS</a>, <a href="analog-descriptions2.html">DESCRIPTIONS</a>, <a href="analog-offset2.html">OFFSET</a>, SCALE, <a href="analog-units2.html">UNITS</a>.</p>
+</blockquote>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-scale2.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

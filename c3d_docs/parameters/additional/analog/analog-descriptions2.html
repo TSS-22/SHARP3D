@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation </title>
+      <title>ANALOG:DESCRIPTIONSX | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="TRIAL:ACTUAL_END_FIELD | SHARP3D Documentation ">
+      <meta name="title" content="ANALOG:DESCRIPTIONSX | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-descriptions2.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="trialactual_end_field">TRIAL:ACTUAL_END_FIELD</h1>
+<h1 id="analogdescriptionsx">ANALOG:DESCRIPTIONSX</h1>
 
 <ul>
 <li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
@@ -93,14 +93,17 @@
 <li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<p>The last frame number in the C3D file is stored in the same way as two unsigned 16-bit integer values to form a 32-bit value. The first unsigned 16-bit integer is the least significant word and the second unsigned 16-bit integer is the most significant word.</p>
-<p>Therefore the last frame number is calculated as:</p>
-<p><span class="math">\(\text{Last frame number} = \text{ACTUAL\_END\_FIELD}[1] + \text{ACTUAL\_END\_FIELD}[2]*65535\)</span></p>
+<p>The parameters in these serie (i.e. DESCRIPTIONS2, DESCRIPTIONS3, etc) are an array of ASCII or UTF-8 encoded character strings that may be used to describe each corresponding <a href="analog-labels2.html">LABELSX</a> value. These parameters are synchronized with the corresponding POINT:LABELSX parameter and contains additional description strings with the same properties as the standard <a href="../../required/analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> parameter. For example, DESCRIPTIONS2, describre the trajectories named in LABELS2, DESCRIPTIONS3, the one in DESCRIPTIONS2, etc. When a DESCRIPTIONSX (i.e. DESCRIPTIONS2, DESCRIPTIONS3 etc) is found in a C3D file then the LABELS parameters of higher precedence (LABELSX-1 and onward) must always store 255 values. For example, if DESCRIPTIONS2 is present, DESCRIPTIONS will store 255 values. If DESCRIPTIONS3 is present, DESCRIPTIONS and DESCRIPTIONS2 store 255 values each.</p>
+<p>These parameters describes the contents of a <a href="analog-labels2.html">LABELS<sub>n</sub></a> parameters with the same array index to document the analog channel location or function for anyone reading the C3D file.</p>
+<blockquote>
+<p>Any modifications to the C3D file analogs channels, by adding or deleting a channel, must maintain the descriptions stored in <a href="../../required/analog/analog-descriptions.html">DESCRIPTIONS</a>, DESCRIPTIONS2 etc., in synchronization with the identifiers stored in the <a href="../../required/analog/analog-labels.html">LABELS</a> parameters.</p>
+</blockquote>
+<p>Additional information and rules about these parameters can be found in <a href="../../required/analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a> page.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/trial/trial-actual_end_field.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/analog/analog-descriptions2.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
