@@ -26,6 +26,8 @@
               href: parameters\additional\analog\analog-descriptions2.md
             - name: ANALOG:FORMAT
               href: parameters/required/analog/analog-format.md
+            - name: ANALOG:GAIN
+              href: parameters\application\analog\analog-gain.md
             - name: ANALOG:GEN_SCALE
               href: parameters/required/analog/analog-gen_scale.md
             - name: ANALOG:LABELS
@@ -48,6 +50,8 @@
               href: parameters\additional\analog\analog-units2.md
             - name: ANALOG:USED
               href: parameters/required/analog/analog-used.md
+        - name: ANALYSIS
+          href: parameters\groups\group-analysis.md
         - name: EVENT
           href: parameters\groups\group-event.md
           items:
@@ -97,6 +101,17 @@
               href: parameters/required/force_platform/force_platform-used.md
             - name: FORCE_PLATFORM:ZERO
               href: parameters/required/force_platform/force_platform-zero.md
+        - name: MANUFACTURER
+          href: parameters\groups\group-manufacturer.md
+          items:
+            - name: MANUFACTURER:COMPANY
+              href: parameters\application\manufacturer\manufacturer-company.md
+            - name: MANUFACTURER:EDITED
+              href: parameters\application\manufacturer\manufacturer-edited.md
+            - name: MANUFACTURER:SOFTWARE
+              href: parameters\application\manufacturer\manufacturer-software.md
+            - name: MANUFACTURER:VERSION
+              href: parameters\application\manufacturer\manufacturer-version.md
         - name: POINT
           href: parameters/groups/group-point.md
           items:
@@ -122,6 +137,27 @@
               href: parameters/required/point/point-units.md
             - name: POINT:USED
               href: parameters/required/point/point-used.md
+            - name: POINT:X_SCREEN
+              href: parameters\application\point\point-x_screen.md
+            - name: POINT:Y_SCREEN
+              href: parameters\application\point\point-y_screen.md
+        - name: SEG
+          href: parameters\groups\group-seg.md
+          items:
+            - name: SEG:ACC_FACTOR
+              href: parameters\application\seg\seg-acc_factor.md
+            - name: SEG:DATA_LIMITS
+              href: parameters\application\seg\seg-data_limits.md
+            - name: SEG:INTERSECTION_LIMIT
+              href: parameters\application\seg\seg-intersection_limit.md
+            - name: SEG:MARKER_DIAMETER
+              href: parameters\application\seg\seg-marker_diameter.md
+            - name: SEG:NOISE_FACTOR
+              href: parameters\application\seg\seg-noise_factor.md
+            - name: SEG:RESIDUAL_ERROR_FACTOR
+              href: parameters\application\seg\seg-residual_error_factor.md
+        - name: SUBJECTS
+          href: parameters\groups\group-subjects.md
         - name: TRIAL
           href: parameters\groups\group-trial.md
           items:

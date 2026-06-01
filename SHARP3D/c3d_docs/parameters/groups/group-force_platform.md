@@ -31,6 +31,14 @@ Alternately, the [ANALOG:GEN_SCALE](../required/analog/analog-gen_scale.md) para
 
 A full discussion of all the factors involved in calculating analog scaling factors can be found in the discussion of the [ANALOG:SCALE](../required/analog/analog-scale.md) parameters. Refer to this for complete details of the calculations, including worked examples.
 
+## Additional FORCE_PLATFORM Parameters
+
+The calibration matrix is the inverse matrix of the sensitivity matrix used to calculate the scaling factors. Its presence in a C3D file is optional, allowing greater accuracy in the calculation of forces, powers and moments from the recorded analog data if the full calibration matrix for each force plate is stored within the C3D file and is available to any application that reads the raw analog force plate data from the C3D file. A full matrix, which must contain all 36 unique crosstalk components, means that the file stores all the information needed to generate accurate force and moment data.
+
+Manufacturer’s software applications that store the force plate calibration data separately, perform the force and moment calculations independently, and then store the resulting force and moment values in the C3D file make it very difficult for the user to verify the results when examining the recorded data after a period of time when the original data collection environment may have changed.
+
+The [FORCE_PLATFORM:CAL_MATRIX](../additional/force_platform/force_platform-cal_matrix.md) parameter is an array of 36 floating-point values, supplied by the force platform manufacturer, that document the internal force platform cross-talk signal components.
+
 ## Specifying Force Platform Parameters
 
 Force platforms may be mounted in any orientation with respect to the 3D reference coordinate system. The problem of measuring the location of the force platforms in the reference coordinate system is easily overcome by placing a marker on each corner of each force plate and then measuring the locations using the calibrated 3D system, **taking the height of the centers of the markers above the force plate surfaces into account to record the correct surface z-coordinates within the 3D environment**. The 3D coordinates of each force plate in the 3D environment must be stored in the [CORNERS](../required/force_platform/force_platform-corners.md) parameters in the correct order to document both the location of the force plate and its orientation within the 3D environment.
@@ -47,10 +55,3 @@ Normally, very little error will result from specifying that the force platform 
 
 A simple test of the force plate performance within the 3D measurement volume may be carried out by the use of a rod about one meter long and about which is wrapped two strips of retroreflective material approximately 10mm wide, at locations a short distance from either end. Collect force plate and 3D data with the lower end of the rod on the force platform and a force applied to the top of the rod, moving the upper end of the rod around while the force is applied in order to create varying angles of force applied to the force plate surface. Then generate stick figures showing the force vector and a segment joining the two rod markers. If the force platform is correctly set up the force vector and the line joining the two markers should coincide for the full range of motion of the stick.
 
-## Additional FORCE_PLATFORM Parameters
-
-The calibration matrix is the inverse matrix of the sensitivity matrix used to calculate the scaling factors. Its presence in a C3D file is optional, allowing greater accuracy in the calculation of forces, powers and moments from the recorded analog data if the full calibration matrix for each force plate is stored within the C3D file and is available to any application that reads the raw analog force plate data from the C3D file. A full matrix, which must contain all 36 unique crosstalk components, means that the file stores all the information needed to generate accurate force and moment data.
-
-Manufacturer’s software applications that store the force plate calibration data separately, perform the force and moment calculations independently, and then store the resulting force and moment values in the C3D file make it very difficult for the user to verify the results when examining the recorded data after a period of time when the original data collection environment may have changed.
-
-The [FORCE_PLATFORM:CAL_MATRIX](../additional/force_platform/force_platform-cal_matrix.md) parameter is an array of 36 floating-point values, supplied by the force platform manufacturer, that document the internal force platform cross-talk signal components.
