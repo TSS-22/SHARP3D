@@ -24,7 +24,7 @@ The information presented in this chapter is based on the examination of C3D fil
 
 ### ANALYSIS
 
-No specific parameter provided by the C3D User Guide.
+No specific parameter provided by the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
 
 ### MANUFACTURER
 
@@ -50,4 +50,4 @@ No specific parameter provided by the C3D User Guide.
 
 ### SUBJECTS
 
-No specific parameter provided by the C3D User Guide.
+No specific parameter provided by the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).

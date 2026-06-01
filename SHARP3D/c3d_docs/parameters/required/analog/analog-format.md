@@ -4,7 +4,7 @@
 
 - **Locked**: True
 
-> This part of the documentation in the C3D User Guide is unclear, [see disclaimer](#disclaimer). 
+> This part of the documentation in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf) is unclear, [see disclaimer](#disclaimer). 
 
 The ANALOG:FORMAT parameter is a character data array that consists of a single 7-bit ASCII (A-Z, 0-9) string that documents the [Analog Data](./../../../data/analog.md) format used within the C3D file. The parameter has two possible values: `SIGNED` or `UNSIGNED`. This
 specifies whether the integer [Analog Data](./../../../data/analog.md) and associated integer values [Parameters](../../c3d-parameter-section.md) are stored as **signed** or **unsigned** 16-bit integer. It should normally be “locked”.
@@ -28,7 +28,7 @@ If the ANALOG:FORMAT parameter contains the string `UNSIGNED` then the [ANALOG:O
 
 ## DISCLAIMER
 
-This section is unclear in the C3D User Guide. It is not known if [ANALOG:FORMAT](./analog-format.md) concern all integer parameters, all integer parameters pertaining to analog data, or only the [ANALOG:OFFSET](./analog-offset.md). The only sure part is that [Analog Data](./../../../data/analog.md) are affected by it.
+This section is unclear in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf). It is not known if [ANALOG:FORMAT](./analog-format.md) concern all integer parameters, all integer parameters pertaining to analog data, or only the [ANALOG:OFFSET](./analog-offset.md). The only sure part is that [Analog Data](./../../../data/analog.md) are affected by it.
 
 As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by [ANALOG:FORMAT](./analog-format.md) values in SHARP3D, unless specified otherwise.
 

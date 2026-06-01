@@ -182,7 +182,7 @@ If this is the last Group/Parameter of the Parameter Section the pointer is supp
 
 ##### Description Length
 
-As it is advertised in the official C3D User Guide, this stores the length of the Group/Parameter description string (0-255 characters) that immediately follows this byte.
+As it is advertised in the official [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf), this stores the length of the Group/Parameter description string (0-255 characters) that immediately follows this byte.
 
 In practice, it seems to be the length in bytes of the Description. Indeed Description support ASCII and UTF-8 character. UTF-8 characters have variable length between 1 and 4 bytes. The Description Length value is usually safe as a source of truth to determine when the Description actual length.
 

@@ -12,7 +12,7 @@ a single character:
 - $+Z$
 - $-X$
 - $-Y$
-- $-Z$. 
+- $-Z$
 
 This is used by software applications to indicate which axis of the reference coordinate system should be displayed bottom-to-top up the screen when the application initially opens the file.
 

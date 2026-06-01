@@ -158,6 +158,8 @@
               href: parameters\application\seg\seg-noise_factor.md
             - name: SEG:RESIDUAL_ERROR_FACTOR
               href: parameters\application\seg\seg-residual_error_factor.md
+        - name: SUBJECT
+          href: parameters\groups\group-subject.md
         - name: SUBJECTS
           href: parameters\groups\group-subjects.md
         - name: TRIAL
