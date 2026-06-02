@@ -9,6 +9,8 @@ The SUBJECTS group is normally an application specific group that may contain pa
 When editing or processing any C3D file that contains a SUBJECTS group, it is
 recommended that the parameters in the group are preserved unchanged.
 
+> No specific parameters are mentionned by the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf).
+
 ## Data Encryption
 
 > Data encryption is a user option and can be applied to meet local data privacy requirements. This is not a C3D specific feature, it is simply a user option for parameter contents that can be supported by C3D file creation applications.
@@ -24,3 +26,4 @@ SUBJECT:NAME = Mr. Mistoffelees … can be encoded and stored as
 SUBJECT:NAME = zFnhmZncQfmB43Axs2DDr092APIVFvw
 
 The example above illustrates the encryption of the subject’s name using a secure algorithm encoded with a private key. This could allow the creation of C3D files that meet privacy requirements while remaining accessible to all users.
+
