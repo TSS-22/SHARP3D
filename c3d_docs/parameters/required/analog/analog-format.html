@@ -94,7 +94,7 @@
 </li>
 </ul>
 <blockquote>
-<p>This part of the documentation in the C3D User Guide is unclear, <a href="#disclaimer">see disclaimer</a>.</p>
+<p>This part of the documentation in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> is unclear, <a href="#disclaimer">see disclaimer</a>.</p>
 </blockquote>
 <p>The ANALOG:FORMAT parameter is a character data array that consists of a single 7-bit ASCII (A-Z, 0-9) string that documents the <a href="../../../data/analog.html">Analog Data</a> format used within the C3D file. The parameter has two possible values: <code>SIGNED</code> or <code>UNSIGNED</code>. This
 specifies whether the integer <a href="../../../data/analog.html">Analog Data</a> and associated integer values <a href="../../c3d-parameter-section.html">Parameters</a> are stored as <strong>signed</strong> or <strong>unsigned</strong> 16-bit integer. It should normally be “locked”.</p>
@@ -112,7 +112,7 @@ when 32-bit Floating-point became the default C3D file format. C3D files storing
 <p>If the ANALOG:FORMAT parameter contains the string <code>SIGNED</code> then the C3D 'storage' format for both the data samples and the ANALOG:OFFSET parameters must also be <code>SIGNED</code>. This is the default storage method for all analog data values, irrespective of resolution and allows data to be stored using signed integer values from -32767 to +32767 representing both positive and negative input signal excursions.</p>
 <p>If the ANALOG:FORMAT parameter contains the string <code>UNSIGNED</code> then the <a href="analog-offset.html">ANALOG:OFFSET</a> parameters must also be treated as <code>UNSIGNED</code> values. If the ANALOG:FORMAT parameter does not exist it should be assumed that its value is <code>SIGNED</code> unless the analog data contains 16-bit values, in which case <code>UNSIGNED</code> is a possibility.</p>
 <h2 id="disclaimer">DISCLAIMER</h2>
-<p>This section is unclear in the C3D User Guide. It is not known if <a href="analog-format.html">ANALOG:FORMAT</a> concern all integer parameters, all integer parameters pertaining to analog data, or only the <a href="analog-offset.html">ANALOG:OFFSET</a>. The only sure part is that <a href="../../../data/analog.html">Analog Data</a> are affected by it.</p>
+<p>This section is unclear in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a>. It is not known if <a href="analog-format.html">ANALOG:FORMAT</a> concern all integer parameters, all integer parameters pertaining to analog data, or only the <a href="analog-offset.html">ANALOG:OFFSET</a>. The only sure part is that <a href="../../../data/analog.html">Analog Data</a> are affected by it.</p>
 <p>As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by <a href="analog-format.html">ANALOG:FORMAT</a> values in SHARP3D, unless specified otherwise.</p>
 <p>If <a href="analog-format.html">ANALOG:FORMAT</a> does not exist, nothing tells you that its value is <code>SIGNED</code> with 100% certainty but that is your best bet, and the one that SHARP3D is doing.</p>
 

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Maintaining C3D Frame Count Compatibility | SHARP3D Documentation </title>
+      <title>MANUFACTURER | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Maintaining C3D Frame Count Compatibility | SHARP3D Documentation ">
+      <meta name="title" content="MANUFACTURER | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/3d-frame-count/maintaining.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-manufacturer.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,20 +85,19 @@
         </div>
 
         <article data-uid="">
-<h1 id="maintaining-c3d-frame-count-compatibility">Maintaining C3D Frame Count Compatibility</h1>
+<h1 id="manufacturer">MANUFACTURER</h1>
 
-<p>When a C3D file is created, some applications may expect that any C3D frame count greater than 65535 is stored in either the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameter, or the <a href="../../parameters/additional/trial/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and the <a href="../../parameters/additional/trial/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a> parameters exist with data allowing the frame count to be calculated. So it may be necessary to create these parameters if they do not exist, although the default method should be to store all counts that exceed 65535 in the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter using floating-point.</p>
-<p>When the frame count is changed in any way it is recommended that the header <a href="../../c3d-header.html#word-4-first-frame-number-of-the-raw-data">words 4</a> and <a href="../../c3d-header.html#word-5-end-frame-number-of-the-raw-data">word 5</a>, that record the frame range of the raw data that created the 3D data stored in the C3D file should not be changed, thus preserving the original frame range that created the C3D file.</p>
-<p>However some applications may incorrectly read these header values as describing the C3D file data range. As a result, to maintain compatibility with some older C3D applications it may be necessary to update the header values to describe the range of frames currently stored in the C3D file. Since the header record words are 16-bit integers they cannot store values greater the 65535 so if the C3D file contains more than 65535 frames, write the frame range as 1 to 65535 for compatibility and create the <a href="../../parameters/groups/group-trial.html">TRIAL group</a> so that older applications can calculate the frame count.</p>
 <blockquote>
-<p>It is recommended that all new C3D applications determine the frame count from the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter, ignore the raw data values in the C3D file header.</p>
+<p>This group is optional and exists to document the C3D file creation, any changes or modifications.</p>
 </blockquote>
-<p>It may be necessary, when creating a new C3D file to offer users the option of creating the both the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameter, and the <a href="../../parameters/additional/trial/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and <a href="../../parameters/additional/trial/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a> parameters to support specific manufacturer’s unique C3D frame count environments.</p>
+<p>The MANUFACTURER group is used to record information about the software or hardware used to create the C3D file. This group is intended to provide information that can be used to identify the hardware or software that generated the C3D file to document the original creation of each C3D file. The existence of this group provides information that may be useful when debugging individual user issues and can help applications and users determine the correct interpretation of any unique parameters (e.g. <a href="group-analysis.html">ANALYSIS group</a> parameters) stored in the C3D file whose values and interpretation are specific to the source of the original data.</p>
+<p>There are no requirements that this group exists in a C3D file or that it contains any specific parameters. The following parameters are common but manufacturers can create any values within the group. This group and, any parameters contained within the group, are optional and should contain values specific to the C3D file creator. The intention is to make it easy for anyone who works with C3D files to determine the original source of the file in case any problems are encountered.</p>
+<p>Since this is a user defined group, the parameter values may be stored in 7-bit ASCII or UTF-8 encoding, but since UTF-8 encoded characters are longer than 8-bits, the use of UTF-8 limits the size of the stored entries.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/3d-frame-count/maintaining.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-manufacturer.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

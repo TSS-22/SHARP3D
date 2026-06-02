@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Maintaining C3D Frame Count Compatibility | SHARP3D Documentation </title>
+      <title>SUBJECTS | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Maintaining C3D Frame Count Compatibility | SHARP3D Documentation ">
+      <meta name="title" content="SUBJECTS | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/3d-frame-count/maintaining.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-subjects.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,20 +85,35 @@
         </div>
 
         <article data-uid="">
-<h1 id="maintaining-c3d-frame-count-compatibility">Maintaining C3D Frame Count Compatibility</h1>
+<h1 id="subjects">SUBJECTS</h1>
 
-<p>When a C3D file is created, some applications may expect that any C3D frame count greater than 65535 is stored in either the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameter, or the <a href="../../parameters/additional/trial/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and the <a href="../../parameters/additional/trial/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a> parameters exist with data allowing the frame count to be calculated. So it may be necessary to create these parameters if they do not exist, although the default method should be to store all counts that exceed 65535 in the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter using floating-point.</p>
-<p>When the frame count is changed in any way it is recommended that the header <a href="../../c3d-header.html#word-4-first-frame-number-of-the-raw-data">words 4</a> and <a href="../../c3d-header.html#word-5-end-frame-number-of-the-raw-data">word 5</a>, that record the frame range of the raw data that created the 3D data stored in the C3D file should not be changed, thus preserving the original frame range that created the C3D file.</p>
-<p>However some applications may incorrectly read these header values as describing the C3D file data range. As a result, to maintain compatibility with some older C3D applications it may be necessary to update the header values to describe the range of frames currently stored in the C3D file. Since the header record words are 16-bit integers they cannot store values greater the 65535 so if the C3D file contains more than 65535 frames, write the frame range as 1 to 65535 for compatibility and create the <a href="../../parameters/groups/group-trial.html">TRIAL group</a> so that older applications can calculate the frame count.</p>
 <blockquote>
-<p>It is recommended that all new C3D applications determine the frame count from the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter, ignore the raw data values in the C3D file header.</p>
+<p>Users must contact the manufacturer of the application that creates this group to obtain details and descriptions of the function of these parameters.</p>
 </blockquote>
-<p>It may be necessary, when creating a new C3D file to offer users the option of creating the both the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameter, and the <a href="../../parameters/additional/trial/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and <a href="../../parameters/additional/trial/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a> parameters to support specific manufacturer’s unique C3D frame count environments.</p>
+<p>The SUBJECTS group is normally an application specific group that may contain parameters that allow applications processing the 3D points to associate specific 3D points with multiple individuals with the data collection trial, recording the subject details and the names of specific marker sets and analysis details used.</p>
+<blockquote>
+<p>It should not be confused with the SUBJECT group found in many early clinical C3D files that recorded details specific to each trial and session, such as gender, name, date of birth, weight etc.</p>
+</blockquote>
+<p>When editing or processing any C3D file that contains a SUBJECTS group, it is
+recommended that the parameters in the group are preserved unchanged.</p>
+<blockquote>
+<p>No specific parameters are mentionned by the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a>.</p>
+</blockquote>
+<h2 id="data-encryption">Data Encryption</h2>
+<blockquote>
+<p>Data encryption is a user option and can be applied to meet local data privacy requirements. This is not a C3D specific feature, it is simply a user option for parameter contents that can be supported by C3D file creation applications.</p>
+</blockquote>
+<p>In the United States, the <a href="https://www.congress.gov/104/plaws/publ191/PLAW-104publ191.pdf">Health Insurance Portability and Accountability Act of 1996 (HIPPA)</a> created a set of national standards for the protection of certain classes of personal information that might be stored in the SUBJECTS group and might uniquely identify the subject. Many counties may have similar requirements but the presence of this group does not indicate that any policies have been violated as parameters such as HEIGHT, WEIGHT, GENDER etc. are often required for data processing and analysis without uniquely identifying the subject or source of the data stored in the C3D file.</p>
+<p>When C3D files containing this group are shared, privacy requirements may be met by either removing or encrypting the personal identification parameters while retaining parameters that are needed to research and analysis such as MARKER_SETS, WEIGHT, HEIGHT, GENDER etc.</p>
+<p>The C3D file format is a public domain format designed to help all users share and access data, as a result it does not define support for encryption, but encryption of specific parameter values is possible. As a result, if encryption is required, the encryption and decryption of personal information in a C3D file can be performed by the applications storing the personal information in a C3D file e.g.</p>
+<p>SUBJECT:NAME = Mr. Mistoffelees … can be encoded and stored as</p>
+<p>SUBJECT:NAME = zFnhmZncQfmB43Axs2DDr092APIVFvw</p>
+<p>The example above illustrates the encryption of the subject’s name using a secure algorithm encoded with a private key. This could allow the creation of C3D files that meet privacy requirements while remaining accessible to all users.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/appendix/3d-frame-count/maintaining.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/groups/group-subjects.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

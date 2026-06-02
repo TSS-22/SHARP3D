@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT:LONG_FRAMES | SHARP3D Documentation </title>
+      <title>SEG:RESIDUAL_ERROR _FACTOR | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT:LONG_FRAMES | SHARP3D Documentation ">
+      <meta name="title" content="SEG:RESIDUAL_ERROR _FACTOR | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/point/point-long_frames.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/application/seg/seg-residual_error_factor.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,27 +85,41 @@
         </div>
 
         <article data-uid="">
-<h1 id="pointlong_frames">POINT:LONG_FRAMES</h1>
+<h1 id="segresidual_error-_factor">SEG:RESIDUAL_ERROR _FACTOR</h1>
 
 <ul>
-<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
+<li><p><strong>Type</strong>: <a href="../../application.html">Application</a></p>
 </li>
-<li><p><strong>Locked</strong>: True</p>
+<li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
+<p>The SEG:RESIDUAL_ERROR _FACTOR parameter is a single floating-point value that controls the inclusion of rays during marker reconstruction. It has a nominal value of 2.0 to 3.0 for most gait analysis applications.</p>
 <blockquote>
-<p>This parameter should be locked and caution should be exercised when editing the value of this parameter.</p>
+<p>No other information is given as to what it actually means. In a motion capture system, rays are the camera view of a marker. You need at least 2 to interpolate a 3D position for the marker, but 3 is the minimum to have a trusted position, as explained <a href="../../../data/3d-points-residuals.html">here</a>. SEG:RESIDUAL_ERROR _FACTOR could be referring to the minimum number of rays user for marker reconstruction. A way to ensure that at least SEG:RESIDUAL_ERROR _FACTOR number of camera saw the point. This could be useful in system with more than 7 camera, where the <a href="../../../data/camera-mask.html">camera mask</a> can't cover the whole set of camera and would leave up to interpretation how many camera, at least, saw the marker.</p>
 </blockquote>
-<p>The original C3D documentation described the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter as a signed 16-bit integer, limiting the maximum frame count to 32767 frames. As C3D files started to approach this limit, the interpretation was changed to read <a href="../../required/point/point-frames.html">POINT:FRAMES</a> as an unsigned integer, extending the maximum frame range to 65535 frames but when C3D files passed this limit, <a href="https://www.vicon.com/">Vicon Motion Systems</a> started storing the frame count as two complex <a href="../../groups/group-trial.html">TRIAL</a> parameters, apparently storing the frame count as video fields; the POINT:LONG_FRAMES was independently created by C-Motion<sup id="fnref1"><a href="#fn1">1</a></sup> to store the total frame count as a single floating-point value.</p>
-<p>Both these alternate methods ignored the option of storing the total frame count as a floating-point POINT:FRAMES parameter, an option for all software applications that read C3D parameters correctly, by determining the parameters type before reading the stored values. This was probably a result of the original <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> describing the way that data was stored in C3D files at the time that the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> was written, instead of the way that data could be stored in C3D files.</p>
-<p>The POINT:LONG_FRAMES parameter is described as a floating-point value containing the total frame count for C3D files that contain 65535 or more frames of data. If the POINT:LONG_FRAMES parameter exists, it must override any value stored by the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter which <strong>should be set to 65535 when the actual frame count is larger the 65535</strong>. The LONG_FRAMES parameter may not be found in C3D files that store <a href="../../required/point/point-frames.html">POINT:FRAMES</a> as a floating-point value, or C3D files that expect the user to calculate the total C3D frame count by using frame numbers stored in the <a href="../../groups/group-trial.html">TRIAL</a> group parameters.</p>
-<p>The POINT:LONG_FRAMES is not required in a C3D file that contains less than 65535 frames but if it is present, then the POINT:LONG_FRAMES parameter should contain a copy of the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter. In general the POINT:LONG_FRAMES parameter is only seen in files created by C-Motion<sup id="fnref1"><a href="#fn1">1</a></sup> applications that contain more than 65535 frames.</p>
-<p><sup id="fn1">1</sup>. C-Motion is now <a href="https://www.has-motion.ca/">Has-Motion</a> <a href="#fnref1">↩</a></p>
+<h3 id="from-mistral">From Mistral</h3>
+<h3 id="purpose">Purpose</h3>
+<p>This parameter scales the acceptable residual error for a ray to be included in the reconstruction of a 3D marker point. It acts as a multiplier for the system’s internal residual error threshold.</p>
+<h3 id="how-it-works">How it works</h3>
+<p>For each detected 2D marker in a camera image, the system projects a ray into 3D space.
+The system calculates the residual error for each ray—this is the difference between the observed 2D marker position (in the camera image) and the projected 2D position of the reconstructed 3D point.</p>
+<p>If the residual error for a ray exceeds <span class="math">\(\text{RESIDUAL\_ERROR\_FACTOR} \times (\text{internal threshold})\)</span>, that ray is excluded from the reconstruction for that marker.</p>
+<p>The internal threshold is often derived from the system’s calibration accuracy or noise estimates.</p>
+<p>A value of 2.0 means rays with residual errors twice the internal threshold are still included. A value of 3.0 is more permissive, allowing rays with errors up to three times the threshold.</p>
+<h3 id="effect-of-adjusting">Effect of Adjusting:</h3>
+<p>Lower values (e.g., 1.5): Stricter filtering. Only rays with very low residual errors are included, improving precision but potentially dropping valid data if noise is present.</p>
+<p>Higher values (e.g., 4.0): More rays are included, making the system more tolerant to noise or minor misalignments, but risking the inclusion of outliers.</p>
+<h3 id="why-it-matters">Why It Matters</h3>
+<p>Noise Handling: In real-world motion capture, noise (e.g., from camera sensors, marker occlusion, or calibration errors) can cause residual errors. This factor helps the system decide which rays to trust.</p>
+<p>Marker Occlusion: If a marker is partially occluded in one camera, its residual error may be higher. A higher factor allows the system to still use that ray.</p>
+<p>Application-Specific Tuning: Gait analysis often uses 2.0–3.0 because it involves dynamic movement with some expected noise, but other applications (e.g., static object scanning) might use tighter values.</p>
+<h3 id="practical-example">Practical Example</h3>
+<p>If the internal residual error threshold is 0.5 pixels, and SEG:RESIDUAL_ERROR_FACTOR is set to 2.0, rays with residual errors up to 1.0 pixels will be included. If a ray has a residual error of 1.2 pixels, it will be excluded unless the factor is increased (e.g., to 2.4)</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/point/point-long_frames.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/application/seg/seg-residual_error_factor.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

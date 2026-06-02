@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT:LONG_FRAMES | SHARP3D Documentation </title>
+      <title>SEG:ACC_FACTOR | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT:LONG_FRAMES | SHARP3D Documentation ">
+      <meta name="title" content="SEG:ACC_FACTOR | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/point/point-long_frames.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/application/seg/seg-acc_factor.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,27 +85,21 @@
         </div>
 
         <article data-uid="">
-<h1 id="pointlong_frames">POINT:LONG_FRAMES</h1>
+<h1 id="segacc_factor">SEG:ACC_FACTOR</h1>
 
 <ul>
-<li><p><strong>Type</strong>: <a href="../../additional.html">Additional</a></p>
+<li><p><strong>Type</strong>: <a href="../../application.html">Application</a></p>
 </li>
-<li><p><strong>Locked</strong>: True</p>
+<li><p><strong>Locked</strong>: False</p>
 </li>
 </ul>
-<blockquote>
-<p>This parameter should be locked and caution should be exercised when editing the value of this parameter.</p>
-</blockquote>
-<p>The original C3D documentation described the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter as a signed 16-bit integer, limiting the maximum frame count to 32767 frames. As C3D files started to approach this limit, the interpretation was changed to read <a href="../../required/point/point-frames.html">POINT:FRAMES</a> as an unsigned integer, extending the maximum frame range to 65535 frames but when C3D files passed this limit, <a href="https://www.vicon.com/">Vicon Motion Systems</a> started storing the frame count as two complex <a href="../../groups/group-trial.html">TRIAL</a> parameters, apparently storing the frame count as video fields; the POINT:LONG_FRAMES was independently created by C-Motion<sup id="fnref1"><a href="#fn1">1</a></sup> to store the total frame count as a single floating-point value.</p>
-<p>Both these alternate methods ignored the option of storing the total frame count as a floating-point POINT:FRAMES parameter, an option for all software applications that read C3D parameters correctly, by determining the parameters type before reading the stored values. This was probably a result of the original <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> describing the way that data was stored in C3D files at the time that the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> was written, instead of the way that data could be stored in C3D files.</p>
-<p>The POINT:LONG_FRAMES parameter is described as a floating-point value containing the total frame count for C3D files that contain 65535 or more frames of data. If the POINT:LONG_FRAMES parameter exists, it must override any value stored by the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter which <strong>should be set to 65535 when the actual frame count is larger the 65535</strong>. The LONG_FRAMES parameter may not be found in C3D files that store <a href="../../required/point/point-frames.html">POINT:FRAMES</a> as a floating-point value, or C3D files that expect the user to calculate the total C3D frame count by using frame numbers stored in the <a href="../../groups/group-trial.html">TRIAL</a> group parameters.</p>
-<p>The POINT:LONG_FRAMES is not required in a C3D file that contains less than 65535 frames but if it is present, then the POINT:LONG_FRAMES parameter should contain a copy of the <a href="../../required/point/point-frames.html">POINT:FRAMES</a> parameter. In general the POINT:LONG_FRAMES parameter is only seen in files created by C-Motion<sup id="fnref1"><a href="#fn1">1</a></sup> applications that contain more than 65535 frames.</p>
-<p><sup id="fn1">1</sup>. C-Motion is now <a href="https://www.has-motion.ca/">Has-Motion</a> <a href="#fnref1">↩</a></p>
+<p>A single floating-point value that sets the maximum average acceleration, in terms of <a href="../../required/point/point-units.html">POINT:UNITS</a> seconds, per second, over five successive samples for photogrammetry software to start a new segment.</p>
+<p>This generally has a nominal value for gait analysis of 50mm/sec/sec but this may be varied for other trajectory sources.</p>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/additional/point/point-long_frames.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/application/seg/seg-acc_factor.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

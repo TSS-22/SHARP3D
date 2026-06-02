@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>Integers and Bytes | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="Integers and Bytes | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,7 +85,90 @@
         </div>
 
         <article data-uid="">
+<h1 id="integers-and-bytes">Integers and Bytes</h1>
 
+<p>Some of the <a href="../../parameters/c3d-parameter-section.html">parameters</a> in C3D files store data values using 16-bit integers, while various parameter <a href="../../c3d-header.html">header</a> values and arrays use an 8-bit byte as an index. In the original C3D specification all integers and bytes in the <a href="../../parameters/c3d-parameter-section.html">parameter section</a> were one's complement signed integers with a range of –32767 to +32767, and all 8-bit integers were one's complement signed bytes with a range of –127 to +127. Thus, in the original C3D format description every integer and byte in a parameter could store both positive and negative values and arrays could potentially have both positive and negative indexes.</p>
+<p>Some 16-bit integer parameters in a C3D file never need to store a negative value; for example the number of 3D points and the number of analog channels are always positive values. In addition, arrays within the C3D file (which use an 8-bit index) never use a negative index – the array index values are always positive, while other parameters (analog data sample values, parameter indexes, group IDs, parameter IDs, and name lengths) require that the stored value is signed.</p>
+<p>The C3D format expects that all integer parameters that can never have a negative value are interpreted as unsigned values and that arrays use an unsigned 8-bit byte index which doubles the potential array storage available. The stored binary format of the C3D files remains unchanged but the interpretation of the stored values in older C3D files is now occasionally dependent on the value that is being read.</p>
+<p>Binary and hex bytes as unisgned and one's complement signed byte values:</p>
+<table>
+<thead>
+<tr>
+<th>Binary</th>
+<th>Hex</th>
+<th>Unsigned</th>
+<th>Signed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11111111</td>
+<td>FF</td>
+<td>255</td>
+<td>-0</td>
+</tr>
+<tr>
+<td>11111110</td>
+<td>FE</td>
+<td>254</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>10101111</td>
+<td>AF</td>
+<td>175</td>
+<td>-80</td>
+</tr>
+<tr>
+<td>10000000</td>
+<td>80</td>
+<td>128</td>
+<td>-127</td>
+</tr>
+<tr>
+<td>01111111</td>
+<td>7F</td>
+<td>127</td>
+<td>127</td>
+</tr>
+<tr>
+<td>01010000</td>
+<td>50</td>
+<td>80</td>
+<td>80</td>
+</tr>
+<tr>
+<td>00000001</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>00000000</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Storing unsigned values in C3D files does not change the contents of the file at a binary level and remains compatible with older applications written to process C3D files that did not exceed the original file size limits, e.g. 32,767 frames of data.</p>
+</blockquote>
+<p>This change in the interpretation of the integer parameter values has the potential to cause problems for some older software applications that will read negative values for frame ranges and array indexes in larger files created with the new interpretation of the C3D standard but should not cause problems for modern applications. The majority of older applications will fail to read the newer C3D files for other reasons.</p>
+<p>While the larger arrays created by the use of unsigned bytes as array indexes can significantly increase the size of the parameter section, many modern applications use create larger parameter labels and store empty descriptions which can add a significant amount of empty space to the parameter storage. Many of the older software applications, written using signed integers throughout, allocate fixed amounts of parameter storage (generally about 10kB) and any C3D file that uses unsigned array indexes, or poorly designed label names and descriptions, is very likely to overflow this allocation, usually with fatal results for the application.</p>
+<p>Since the discussion above does not change the C3D file format at a binary level
+there is no flag to indicate that a C3D file uses unsigned integers in the <a href="../../parameters/c3d-parameter-section.html">parameter section</a>. The use of unsigned integers can only be determined by finding unsigned values that exceed the signed range values in certain parameter or index values as
+shown in the table below. For example, if the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> value is greater than
+32767 then unsigned integers are used because a negative frame count (if read as a
+signed integer) cannot exist:</p>
+<p>| Parameters | Signed Integer | Unsigned Integer |
+| --- | --- | --- |
+| <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> | Data value 1 to 32767 | Data value 1 to 65535 |
+| <a href="../../parameters/required/point/point-labels.html">POINT:LABELS</a> | Array index 1 to 127 | Array index 1 to 255 |
+| <a href="../../parameters/required/analog/analog-labels.html">ANALOG:LABELS</a> | Array index 1 to 127 | Array index 1 to 255 |
+<em>Typical signed integer vs unsigned integer parameter changes.</em></p>
+<p>It is worth pointing out at this stage that it is unlikely that most parameters will ever be required to exceed the ranges supported by the original signed value. In general, the <a href="../../parameters/required/point/point-labels.html">POINT:LABELS</a> and <a href="../../parameters/required/analog/analog-labels.html">ANALOG:LABELS</a> are the most likely to exceed the signed range of 127 array entries, while old applications may read the frame count stored in <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> as a negative integer value if the actual frame count is unsigned and exceeds 32767 resulting in an error.</p>
+<p>Other parameter entries could exceed the signed integer limits but it is unlikely to be seen in most environments. While it is theoretically possible that almost all of the force plate parameters could take unsigned values, the only ones that are likely to be unsigned are the parameters <a href="../../parameters/required/force_platform/force_platform-channel.html">FORCE_PLATFORM:CHANNEL</a> which would have to use an unsigned array if the C3D file contained more than 127 analog channels.</p>
 
 </article>
 

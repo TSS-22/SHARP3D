@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>Writing the C3D Frame Count | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="Writing the C3D Frame Count | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,7 +85,10 @@
         </div>
 
         <article data-uid="">
+<h1 id="writing-the-c3d-frame-count">Writing the C3D Frame Count</h1>
 
+<p>When creating a new C3D file, or saving any changes to an existing C3D file that has been modified, the frame count may need to be stored using several different methods for compatibility with applications whose programmers independently created unique frame storage methods.</p>
+<p>The default frame count storage method should be to write the C3D frame count to the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter as an unsigned integer if the C3D frame count is less than 65535 and as a floating-point value if the frame count is 65535 or more. This method guarantees compatibility with all applications that meet the C3D standard although some applications may require that the C3D file header raw data frame range defines the same count, and the <a href="../../parameters/groups/group-trial.html">TRIAL parameter group</a> defining the first and last frame numbers, forcing the application to calculate the file frame count.</p>
 
 </article>
 

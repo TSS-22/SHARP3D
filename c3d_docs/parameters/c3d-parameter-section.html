@@ -375,7 +375,7 @@ For example POINT:MARKER_UNITS and POINT:MARKER_ID may cause problems because th
 <p>Due to the C3D Standard allowing Group/Parameter to not have <a href="#description-length">Description Length</a> and <a href="#description">Description</a> fields, the pointer value is your main source of truth as to when a Group/Parameter definition is over.</p>
 </blockquote>
 <h5 id="description-length">Description Length</h5>
-<p>As it is advertised in the official C3D User Guide, this stores the length of the Group/Parameter description string (0-255 characters) that immediately follows this byte.</p>
+<p>As it is advertised in the official <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a>, this stores the length of the Group/Parameter description string (0-255 characters) that immediately follows this byte.</p>
 <p>In practice, it seems to be the length in bytes of the Description. Indeed Description support ASCII and UTF-8 character. UTF-8 characters have variable length between 1 and 4 bytes. The Description Length value is usually safe as a source of truth to determine when the Description actual length.</p>
 <blockquote>
 <p>This field is optional as per C3D Standard. But in order to keep Group/Parameter consistent everywhere, we vividly recommend applications to implement it even if no Description is to be set for the parameter data structure.</p>
