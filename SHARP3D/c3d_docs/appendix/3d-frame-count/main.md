@@ -10,4 +10,4 @@ Because the new [TRIAL group](../../parameters/groups/group-trial.md) parameters
 
 The independent creation of different methods of storing the C3D frame count has created a complex situation when an application opens a C3D file and attempts to determine the C3D frame count.
 
-<sup id="fn1">1</sup>C-Motion is now [Has-Motion](https://www.has-motion.ca/) [↩](#fnref1)
+<sup id="fn1">1</sup>. C-Motion is now [Has-Motion](https://www.has-motion.ca/) [↩](#fnref1)

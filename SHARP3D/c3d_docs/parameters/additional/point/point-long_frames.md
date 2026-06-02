@@ -14,4 +14,4 @@ The POINT:LONG_FRAMES parameter is described as a floating-point value containin
 
 The POINT:LONG_FRAMES is not required in a C3D file that contains less than 65535 frames but if it is present, then the POINT:LONG_FRAMES parameter should contain a copy of the [POINT:FRAMES](../../required/point/point-frames.md) parameter. In general the POINT:LONG_FRAMES parameter is only seen in files created by C-Motion<sup id="fnref1"><a href="#fn1">1</a></sup> applications that contain more than 65535 frames.
 
-<sup id="fn1">1</sup>C-Motion is now [Has-Motion](https://www.has-motion.ca/) [↩](#fnref1)
+<sup id="fn1">1</sup>. C-Motion is now [Has-Motion](https://www.has-motion.ca/) [↩](#fnref1)
