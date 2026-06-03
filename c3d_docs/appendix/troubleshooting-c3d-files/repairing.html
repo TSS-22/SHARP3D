@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>Repairing C3D Files | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="Repairing C3D Files | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,7 +85,14 @@
         </div>
 
         <article data-uid="">
+<h1 id="repairing-c3d-files">Repairing C3D Files</h1>
 
+<blockquote>
+<p>The commercial editor mentionned originally, C3Deditor, as well as the other applications, are not available anymore. We recommend <a href="https://github.com/pyomeca/ezc3d">EZC3D</a> or SHARP3D for editing purpose. If your file can't be opened by SHARP3D, <a href="https://github.com/TSS-22/SHARP3D/issues/new">please let us know</a> and file an issue while providing the problematic C3D file so we can help you figure it out, and potentially add its format to what SHARP3D support.</p>
+</blockquote>
+<p>If you need to repair we recommend <a href="https://github.com/pyomeca/ezc3d">EZC3D</a> or SHARP3D which can open most if not all viable C3D files, and give you a chance to repair many common faults as well as giving you the ability to edit locked parameters and delete unwanted or corrupted data channels.</p>
+<p><a href="https://www.c3d.org/sampledata.html">Many sample C3D files are available from the C3D web site</a> that illustrate the problems that appear when application programmers create C3D files scaled in meters instead of millimeters, set the 3D marker residuals incorrectly as -1 rendering all the data invalid, fail to record accurate <a href="../../parameters/required/analog/analog-scale.html">ANALOG:SCALE</a> and <a href="../../parameters/required/analog/analog-offset.html">ANALOG:OFFSET</a> parameters, fail to set the <a href="../../parameters/required/point/point-data_start.html">POINT:DATA_START</a> parameter correctly, or even fail to accurately sample and store the analog data correctly. These are all problems that may prevent a user from opening a C3D file or, if the file is opened and read, can present corrupt data.</p>
+<p>An additional issue is that many C3D applications expect that the C3D file header values, recording the frame range of the original raw data that was processed to create the C3D file, are actually recording the stored C3D file frame range. As a result applications may read the header values and incorrectly apply them to the C3D file, causing errors when a C3D file that has been edited to add or delete 3D frames and causing the application to become confused as it reads two different frame ranges from one file.</p>
 
 </article>
 

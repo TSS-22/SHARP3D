@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>Diagnosing C3D Problems | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="Diagnosing C3D Problems | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,7 +85,27 @@
         </div>
 
         <article data-uid="">
+<h1 id="diagnosing-c3d-problems">Diagnosing C3D Problems</h1>
 
+<blockquote>
+<p>MLSViewer which were recommended in the original <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> is not available to download anymore. <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> is discontinued since 13 years, but as you can technically still download and build from source, we kept the parts mentionning it.</p>
+</blockquote>
+<p>As far as we know, at present, your best bet is using <a href="https://github.com/pyomeca/ezc3d">EZC3D</a>, SHARP3D, or any of the main motion capture company software: <a href="https://optitrack.com/software/motive">Motiv</a>, <a href="https://www.vicon.com/software/nexus/">Nexus</a> or <a href="https://www.qualisys.com/software/qualisys-track-manager/">Qualysis Track Manager</a>. If those applications succeed in opening and displaying the C3D file with problems in other applications then you can examine the file in detail and may be able to determine the cause of the problem by comparing the contents of the problem file with the contents of any of the test suites available from the C3D web site or the sample files supplied with the two viewer applications.</p>
+<blockquote>
+<p>Many C3D applications may expect that the frame count will be stored as a 16-bit integer although the C3D format supports storing the frame count as either an integer or a floating-point value.</p>
+</blockquote>
+<p>All early C3D files will have less than 32767 frames and most applications should open these files without any problems. Files created in the early 2000’s may have frame ranges from 32767 to 65535 frames and some applications may have problems opening these files. In recent years C3D files with more than 65535 frames have been appearing and manufacturers have invented various methods of storing the frame count that may not be understood by all applications. In addition the increased frame count may cause internal overflow errors in some applications that were written for the clinical environment where data collections are typically less than a couple of minutes.</p>
+<p>The <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> application (MOtion Kinetic and Kinematic Analyzer) is an unsupported, user written application, that can be downloaded from the c3d.org web site and displays the C3D file contents in a graphical environment which makes it easy to visualize and examine the 3D and analog data contained in the C3D file. The <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> graphical interface makes C3D data visualization convenient but it does not provide a detailed breakdown of the C3D file contents and, as a user written application, it is unsupported and as a result it may report “errors” due to some misunderstandings about the details of the C3D file format, so any error messages displayed by <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> may be a result of internal <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> issues. For example when a C3D file does notcontain any force plate data and the FORCE_PLATFORM:USED parameter has been set 0 (conforming to the C3D format) <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> may report that the force plate location parameters are missing even though the C3D file parameters have documented that there are no force plates. So the “error” that <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> reports may be an internal coding error, not an actual C3D file error in some cases. As a result <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> is mainly a convenient way to view the C3D file data and while the error logger reports may be helpful, they are not always accurate.</p>
+<p>Since <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a> allows the user to save the C3D file after it has been opened it offers both the chance to “fix” an error or create a new error if the file is saved.</p>
+<p>If you want to review the contents of the C3D file in detail then <a href="https://github.com/pyomeca/ezc3d">EZC3D</a> and SHARP3D are a
+good choice. They it will open most C3D file.</p>
+<p>If you are still having problems opening a file, but the <a href="https://github.com/pyomeca/ezc3d">EZC3D</a> or SHARP3D allows you to see the file contents, then the next step is to debug the file contents using the details described in this <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> as a reference for the contents and structure of the C3D file.</p>
+<p>The C3D file format is an efficient binary format that has existed for a very long time. As a result of the binary format, the peculiarities and many exceptions accumulated through time, writing data to the C3D file format is a little complex and it is not uncommon for new application programmers to fail to understand the format detail and capabilities. This can result in new applications creating C3D files that they can read but other applications are unable to open or open and display incorrect values. If you cannot get <a href="https://biomechanical-toolkit.github.io/mokka/">Mokka</a>, or other applications mentionned above to open the file and display the contents then you can be confident that it is either corrupt, or not a C3D file.</p>
+<p>The next option is to use a binary file hex editor to examine the file at a binary level. The first 512 bytes of the file form the <a href="../../c3d-header.html">C3D header</a> that defines the C3D file structure and is documented byte by byte in this user guide together with all the <a href="../../parameters/c3d-parameter-section.html">parameter and group formats</a>. As a result the C3D file can be examined with a binary file editor to verify the contents.</p>
+<blockquote>
+<p>The original author of the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a> mentionned HxD as free hex editor that can open, display, and edit the contents of C3D files at a binary level. We personnally recommend <a href="https://imhex.werwolv.net/">ImHex</a> and <a href="https://github.com/NationalSecurityAgency/ghidra">Ghidra</a>. They are both free and open source Hex editor with packed a lot of tools.</p>
+</blockquote>
+<p>For example, a detailed examination of the C3D file header record shown above at a binary level enables us to verify that the parameters start in the second 512 byte block, and the file stored data from twenty-six 3D points, sixteen analog channels and contains 450 frames of raw data, recorded at fifty frames/second with four samples of analog data stored with each 3D point frame sample. While examining a C3D file byte by byte at a binary level with a hex editor can be time consuming, the documentation in this user guide allows you to verify, and even edit if necessary, individual parameters within the file at a binary level and verify the internal structure.</p>
 
 </article>
 

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title> | SHARP3D Documentation </title>
+      <title>C3D Parameters | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content=" | SHARP3D Documentation ">
+      <meta name="title" content="C3D Parameters | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../../../favicon.ico">
@@ -85,7 +85,27 @@
         </div>
 
         <article data-uid="">
+<h1 id="c3d-parameters">C3D Parameters</h1>
 
+<p>The definition of <a href="../../parameters/c3d-parameter-section.html">C3D parameters section</a> is simple:</p>
+<blockquote>
+<p>The parameter section must contain all the information necessary to define the contents of the <a href="../../data/3d-point.html">3D point data section</a> and <a href="../../data/analog.html">analog data section</a> of the C3D file.</p>
+</blockquote>
+<p>This requirement ensures that anyone opening and reading a C3D file has access to all of the information necessary to interpret and analyze the C3D file contents. The exact parameter contents will vary depending on the data stored in the C3D file, if the file is to be correctly interpreted all the required C3D parameters, documented in this user guide, must exist in the C3D file.</p>
+<p>Manufacturers and application programmers can create unique parameters storing data values necessary to support individual application, data collection, and analysis environments. All new parameters need to be publically described and their function documented if the resulting files are to meet the C3D standard and be accessible.</p>
+<p>While parameters can describe the data stored in a C3D file, if any changes are made to the data storage methods then existing applications will be unable to interpret the new C3D file contents. For example, it is possible to create a C3D file with a single analog channel containing a stream of 16-bit analog samples, so this documentation could be stored in a C3D file using UTF-16 characters, each stored as a 16-bit sample in the analog channel. As a result the C3D file would meet the <a href="../../glossary/glossary.html#adtech-file-format">ADTECH format definition</a><sup id="fnref1"><a href="#fn1">1</a></sup> if the new data was documented by creating an ANALOG:UTF16 parameter. But while the file would be readable by virtually all existing C3D applications, none of them would correctly display the data until they were updated to read the new parameter and apply it to the data processing.</p>
+<p>The ADTECH format definition:</p>
+<blockquote>
+<p>The C3D format defines the 3D Data section contents as a collection of 3D locations stored as XYZ co-ordinates, together with synchronized analog samples stored with each 3D frame.</p>
+</blockquote>
+<p>The interpretation of the analog samples is determined when the values are read by users, a format is defined for Force Plate data associated with the 3D coordinates but all other interpretations and processing will be specific to the stored data. The <a href="../../parameters/c3d-parameter-section.html">C3D parameters</a> exist to provide descriptions of the stored data and allow users to interpret and process the stored values. For example, the C3D format does not require that accelerometer, EMG, and footswitch data is stored in a C3D file but it can be added to a C3D file and described by parameters associated with the <a href="../../parameters/groups/group-analog.html">ANALOG group</a> allowing users to interpret and process the data.</p>
+<h2 id="parameter-interpretation">Parameter Interpretation</h2>
+<p>The C3D environment is very flexible because all data collection environments are different, the C3D parameters exist to try and allow users to identify and process the data, regardless of the environment that created it. The parameter concept can result in collections of parameters that document the contents of each analog channel and the interpretation but it’s common to see C3D files that only contain data with identical LABEL and DESCRIPTION parameters without any data specific information as a result of applications written to create and process C3D data by programmers without any clinical or biomechanics lab experience.</p>
+<p>The C3D format evolved in the <a href="https://www.nih.gov/">NIH biomechanics lab</a> under the direction of a professor of Kinesiology and Applied Physiology working with in the biomechanics, human anatomy, and exercise physiology fields to collect and process biomechanics gait movement information for <a href="https://www.nih.gov/">NIH</a> clinicians and researchers working with many labs. As a result the C3D format was designed with parameters to document and describe the data, so each analog channel of data is described by a set of parameters, <a href="../../parameters/required/analog/analog-labels.html">ANALOG:LABELS</a>, <a href="../../parameters/required/analog/analog-descriptions.html">ANALOG:DESCRIPTIONS</a>, <a href="../../parameters/required/analog/analog-scale.html">ANALOG:SCALE</a>, <a href="../../parameters/required/analog/analog-offset.html">ANALOG:OFFSET</a>, and <a href="../../parameters/required/analog/analog-units.html">ANALOG:UNITS</a>.</p>
+<p>The parameter concept is that each analog channel has a unique machine readable LABEL and a human readable DESCRIPTION. The LABEL allows software to identify each channel and the DESCRIPTION records the channel contents in human (and culture specific words) for the users. The aim is to allow data to be recorded in different environments, while users can identify the data from the DESCRIPTION, and software applications can process it by referencing the LABEL and determine the associated SCALE, OFFSET, and UNITS parameters to accurately process the data.</p>
+<p>If the C3D design is supported then users can open files from many different environments and determine the contents in each file. This allows the software to process the data based on the associated LABEL reference. For example one file might contain data identified as “Right Ant Tib” and stored as millivolts in analog channel 12 labeled EMG12 while another file might contain “Reit Tib Ant” in analog channel 43 store as volts and labeled REMTA. The users software can then process both data sets by referencing the LABEL parameters that the user identifies as indicating the analogue channels containing the relevant data by looking at the human readable DESCRIPTION parameters.</p>
+<p>The LABEL is intended to be machine readable (e.g. EMG01 stored as 7-bit ASCII characters) while the associated DESCRIPTION is human readable (e.g. bicep femoris, bíceps femoral, or dikéfalos miriaíos, stored as UTF-8 characters). So all data processing environments can reference the LABEL reliably while displaying the DESCRIPTION to support the users local language. This can result in a C3D file that is universally accessible in virtually all environments, allowing data to be collected, shared, and processed, worldwide.</p>
+<p><sup id="fn1">1</sup>. This is simply the C3D format described in the present document: a <a href="../../data/c3d-data-section.html">data section</a> with data frame that are made of <a href="../../data/c3d-data-section.html#3d-point-data">3d point frame</a> and <a href="../../data/c3d-data-section.html#analog-data">analog frame</a>. <a href="#fnref1">↩</a></p>
 
 </article>
 
