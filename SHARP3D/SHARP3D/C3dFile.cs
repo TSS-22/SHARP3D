@@ -117,7 +117,8 @@ namespace SHARP3D
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            Data = GetData(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
+            int analogBiValue = 12;
+            (Data, analogBiValue) = GetDataAndBit(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
 
             CloseFileStream();
         }
@@ -283,8 +284,8 @@ namespace SHARP3D
         /// <param name="processor">The processor type used to create the C3D file.</param>
         /// <param name="dataTypeFile">The data type used in the C3D file.</param>
         /// <param name="pointScaleFactor">The point scale factor.</param>
-        /// <returns>A <see cref="C3dData"/> object containing the data.</returns>
-        internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
+        /// <returns>A <see cref="C3dData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
+        internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
             int framesNumber = GetRightAmountOfFrames();
