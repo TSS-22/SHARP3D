@@ -136,7 +136,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
 
             FileStream fileStream = C3dFile.OpenC3dFile(filePath);
             C3dFile c3dFile = new C3dFile();
-            c3dFile.C3dStream = fileStream;
             c3dFile.ProcessorFile = C3dFile.ReadProcessorByte(fileStream);
             c3dFile.Header = c3dFile.GetHeader(fileStream, c3dFile.ProcessorFile);
             return c3dFile;
@@ -166,7 +165,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedParameterSectionPointerValue, c3dFile.Header.PointerParameterSection);
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
@@ -175,7 +173,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedDataFormat, c3dFile.Header.StorageFormat);
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
@@ -184,7 +181,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedNumber, c3dFile.Header.MarkersPerFrame);
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
@@ -193,7 +189,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedPointScale, c3dFile.Header.ScaleFactor);
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
@@ -202,7 +197,6 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
         {
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
             Assert.Equal(expectedAcquisitionRate, c3dFile.Header.Rate3dFrame);
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
@@ -214,19 +208,17 @@ namespace SHARP3D.Test.Tests.BuilderTests.Header.TestSuite_01
             {
                 Assert.Equal(expectedEventTimes[i], c3dFile.Header.Events[i].EventTime);
             }
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
         [MemberData(nameof(DataPointerData))]
         public void DataPointer_Tests(string filepath, int expectedValuePointer)
         {
+            FileStream c3dStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
             C3dFile c3dFile = GetC3dFileWithHeader(filepath);
-            ProcessorType processor = C3dFile.ReadProcessorByte(c3dFile.C3dStream);
-            int pointerDataSection = C3dFile.GetDataSectionPointer(c3dFile.C3dStream, processor);
+            ProcessorType processor = C3dFile.ReadProcessorByte(c3dStream);
+            int pointerDataSection = C3dFile.GetDataSectionPointer(c3dStream, processor);
             Assert.Equal(expectedValuePointer, c3dFile.Header.PointerDataSection);
-            c3dFile.CloseFileStream();
-            c3dFile.CloseFileStream();
         }
 
         [Theory]
