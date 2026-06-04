@@ -68,6 +68,7 @@ namespace SHARP3D.Data
                     // Support file that are missing data compared to the advertised number of frame and parameter values.
                     // There is just too many of those files in the examples to just discard them.
                     Console.WriteLine($"WARNING: the file does not contains enough data for the expected frame number. It is missing {context.FramesNumber - i} frames.");
+                    break;
                 }
             }
 
@@ -88,6 +89,9 @@ namespace SHARP3D.Data
             //    14 - bit: -8,192 to 8,191
             //    15 - bit: -16,384 to 16,383
             //    16 - bit: -32,768 to 32,767
+
+            // https://electronics.stackexchange.com/a/163236
+            // Due to this we skip the odd bit ADC, for the moment at least. Because 13 bits ADC get flags by our algorithm too often to be normal.
             int analogBitsGuesstimate = 12;
             switch (context.DataTypeFile)
             {
@@ -99,18 +103,18 @@ namespace SHARP3D.Data
                             {
                                 analogBitsGuesstimate = 12;
                             }
-                            else if (maxAnalogSample <= 8191)
-                            {
-                                analogBitsGuesstimate = 13;
-                            }
+                            //else if (maxAnalogSample <= 8191)
+                            //{
+                            //    analogBitsGuesstimate = 13;
+                            //}
                             else if (maxAnalogSample <= 16383)
                             {
                                 analogBitsGuesstimate = 14;
                             }
-                            else if (maxAnalogSample <= 32767)
-                            {
-                                analogBitsGuesstimate = 15;
-                            }
+                            //else if (maxAnalogSample <= 32767)
+                            //{
+                            //    analogBitsGuesstimate = 15;
+                            //}
                             else if (maxAnalogSample <= 65535)
                             {
                                 analogBitsGuesstimate = 16;
@@ -121,18 +125,18 @@ namespace SHARP3D.Data
                             {
                                 analogBitsGuesstimate = 12;
                             }
-                            else if (maxAnalogSample <= 4095)
-                            {
-                                analogBitsGuesstimate = 13;
-                            }
+                            //else if (maxAnalogSample <= 4095)
+                            //{
+                            //    analogBitsGuesstimate = 13;
+                            //}
                             else if (maxAnalogSample <= 8191)
                             {
                                 analogBitsGuesstimate = 14;
                             }
-                            else if (maxAnalogSample <= 16383)
-                            {
-                                analogBitsGuesstimate = 15;
-                            }
+                            //else if (maxAnalogSample <= 16383)
+                            //{
+                            //    analogBitsGuesstimate = 15;
+                            //}
                             else if (maxAnalogSample <= 32767)
                             {
                                 analogBitsGuesstimate = 16;
@@ -148,18 +152,18 @@ namespace SHARP3D.Data
                             {
                                 analogBitsGuesstimate = 12;
                             }
-                            else if (maxAnalogSample <= 8191)
-                            {
-                                analogBitsGuesstimate = 13;
-                            }
+                            //else if (maxAnalogSample <= 8191)
+                            //{
+                            //    analogBitsGuesstimate = 13;
+                            //}
                             else if (maxAnalogSample <= 16383)
                             {
                                 analogBitsGuesstimate = 14;
                             }
-                            else if (maxAnalogSample <= 32767)
-                            {
-                                analogBitsGuesstimate = 15;
-                            }
+                            //else if (maxAnalogSample <= 32767)
+                            //{
+                            //    analogBitsGuesstimate = 15;
+                            //}
                             else if (maxAnalogSample <= 65535)
                             {
                                 analogBitsGuesstimate = 16;
@@ -171,18 +175,18 @@ namespace SHARP3D.Data
                             {
                                 analogBitsGuesstimate = 12;
                             }
-                            else if (maxAnalogSample <= 4095)
-                            {
-                                analogBitsGuesstimate = 13;
-                            }
+                            //else if (maxAnalogSample <= 4095)
+                            //{
+                            //    analogBitsGuesstimate = 13;
+                            //}
                             else if (maxAnalogSample <= 8191)
                             {
                                 analogBitsGuesstimate = 14;
                             }
-                            else if (maxAnalogSample <= 16383)
-                            {
-                                analogBitsGuesstimate = 15;
-                            }
+                            //else if (maxAnalogSample <= 16383)
+                            //{
+                            //    analogBitsGuesstimate = 15;
+                            //}
                             else if (maxAnalogSample <= 32767)
                             {
                                 analogBitsGuesstimate = 16;
