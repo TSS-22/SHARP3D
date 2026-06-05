@@ -6,9 +6,6 @@ using SHARP3D.Parameter;
 using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
@@ -25,9 +22,9 @@ namespace SHARP3D
     public class C3dFile
     {
         /// <summary>
-        /// Represents the file stream used to access the C3D file.
+        /// The path of the C3D File.
         /// </summary>
-        public FileStream? C3dStream { get; set; } = null;
+        public string Path { get; set; }
         
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
@@ -94,41 +91,43 @@ namespace SHARP3D
         /// </summary>
         internal C3dFile() { }
 
-
-
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class with the specified file stream.
         /// </summary>
         /// <param name="fileStream">The file stream to read the C3D file from.</param>
         internal C3dFile(FileStream fileStream)
-        {
-            C3dStream = fileStream;
+        { 
             ProcessorFile = ReadProcessorByte(fileStream); 
             float tempScaleFactor = GetPointScaleFactor(fileStream, ProcessorFile);
             ScaleFactor = Math.Abs(tempScaleFactor);
             DataTypeFile = tempScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
             
-            Header = GetHeader(C3dStream, ProcessorFile);
+            Header = GetHeader(fileStream, ProcessorFile);
 
             PointerParameterSection = Header.PointerParameterSection;
             PointerDataSection = Header.PointerDataSection;
 
-            Parameters = GetParameters(C3dStream, ProcessorFile, PointerParameterSection, PointerDataSection);
+            Parameters = GetParameters(fileStream, ProcessorFile, PointerParameterSection, PointerDataSection);
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            Data = GetData(C3dStream, ProcessorFile, DataTypeFile, ScaleFactor);
+            int analogBiValue = 12;
+            (Data, analogBiValue) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, ScaleFactor);
 
-            CloseFileStream();
+            fileStream.Close();
         }
 
         /// <summary>
-        /// Creates an empty instance of the <see cref="C3dFile"/> class.
+        /// Opens a C3D file for reading.
         /// </summary>
-        /// <returns>An empty <see cref="C3dFile"/> instance.</returns>
-        public C3dFile CreateEmpty()
+        /// <param name="filepath">The path to the C3D file.</param>
+        /// <returns>A file stream for the C3D file.</returns>
+        /// <remarks>
+        /// For legacy purposes for the tests. This method should be discarded for production.
+        /// </remarks>
+        internal static FileStream OpenC3dFile(string filepath)
         {
-            return new C3dFile();
+            return new FileStream(filepath, FileMode.Open, FileAccess.Read);
         }
 
         /// <summary>
@@ -283,8 +282,8 @@ namespace SHARP3D
         /// <param name="processor">The processor type used to create the C3D file.</param>
         /// <param name="dataTypeFile">The data type used in the C3D file.</param>
         /// <param name="pointScaleFactor">The point scale factor.</param>
-        /// <returns>A <see cref="C3dData"/> object containing the data.</returns>
-        internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
+        /// <returns>A <see cref="C3dData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
+        internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
             int framesNumber = GetRightAmountOfFrames();
@@ -640,63 +639,5 @@ namespace SHARP3D
             }
         }
 
-        /// <summary>
-        /// Converts the C3D file to a byte array.
-        /// </summary>
-        /// <returns>A byte array representing the C3D file.</returns>
-        /// <remarks>
-        /// TODO: Implement actual binaries transformation logic.
-        /// </remarks>
-        public byte[] ToBinaries()
-        {
-            return new byte[] { };
-        }
-
-        /// <summary>
-        /// Saves the C3D file to the specified file path.
-        /// </summary>
-        /// <param name="filepath">The path to save the C3D file to.</param>
-        /// <returns>An integer representing the result of the save operation (0 for success).</returns>
-        /// <remarks>
-        /// TODO: Implement actual file saving logic. Return 0 if success, else error code. Use the C3dFileManager for this.
-        /// </remarks>
-        public int SaveToFile(string filepath)
-        {
-            return 0;
-        }
-
-        /// <summary>
-        /// Checks if the file stream is open.
-        /// </summary>
-        /// <returns>True if the file stream is open; otherwise, false.</returns>
-        public bool IsFileStreamOpen()
-        {
-            return C3dStream != null;
-        }
-
-        /// <summary>
-        /// Closes the file stream.
-        /// </summary>
-        public void CloseFileStream()
-        {
-            if (C3dStream != null)
-            {
-                C3dStream.Close();
-                C3dStream = null;
-            }
-        }
-
-        /// <summary>
-        /// Opens a C3D file for reading.
-        /// </summary>
-        /// <param name="filepath">The path to the C3D file.</param>
-        /// <returns>A file stream for the C3D file.</returns>
-        /// <remarks>
-        /// For legacy purposes for the tests. This method should be discarded for production.
-        /// </remarks>
-        internal static FileStream OpenC3dFile(string filepath)
-        {
-            return new FileStream(filepath, FileMode.Open, FileAccess.Read);
-        }
     }
 }
