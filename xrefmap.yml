@@ -41,45 +41,6 @@ references:
   fullName.vb: SHARP3D.C3dFile.New
   nameWithType: C3dFile.C3dFile
   nameWithType.vb: C3dFile.New
-- uid: SHARP3D.C3dFile.C3dStream
-  name: C3dStream
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_C3dStream
-  commentId: P:SHARP3D.C3dFile.C3dStream
-  fullName: SHARP3D.C3dFile.C3dStream
-  nameWithType: C3dFile.C3dStream
-- uid: SHARP3D.C3dFile.C3dStream*
-  name: C3dStream
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_C3dStream_
-  commentId: Overload:SHARP3D.C3dFile.C3dStream
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.C3dStream
-  nameWithType: C3dFile.C3dStream
-- uid: SHARP3D.C3dFile.CloseFileStream
-  name: CloseFileStream()
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CloseFileStream
-  commentId: M:SHARP3D.C3dFile.CloseFileStream
-  fullName: SHARP3D.C3dFile.CloseFileStream()
-  nameWithType: C3dFile.CloseFileStream()
-- uid: SHARP3D.C3dFile.CloseFileStream*
-  name: CloseFileStream
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CloseFileStream_
-  commentId: Overload:SHARP3D.C3dFile.CloseFileStream
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.CloseFileStream
-  nameWithType: C3dFile.CloseFileStream
-- uid: SHARP3D.C3dFile.CreateEmpty
-  name: CreateEmpty()
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CreateEmpty
-  commentId: M:SHARP3D.C3dFile.CreateEmpty
-  fullName: SHARP3D.C3dFile.CreateEmpty()
-  nameWithType: C3dFile.CreateEmpty()
-- uid: SHARP3D.C3dFile.CreateEmpty*
-  name: CreateEmpty
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CreateEmpty_
-  commentId: Overload:SHARP3D.C3dFile.CreateEmpty
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.CreateEmpty
-  nameWithType: C3dFile.CreateEmpty
 - uid: SHARP3D.C3dFile.Data
   name: Data
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Data
@@ -135,22 +96,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.GetAnalogSamplePerFrame
   nameWithType: C3dFile.GetAnalogSamplePerFrame
-- uid: SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  name: GetData(FileStream, ProcessorType, DataType, float)
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetData_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
-  commentId: M:SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  name.vb: GetData(FileStream, ProcessorType, DataType, Single)
-  fullName: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
-  fullName.vb: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
-  nameWithType: C3dFile.GetData(FileStream, ProcessorType, DataType, float)
-  nameWithType.vb: C3dFile.GetData(FileStream, ProcessorType, DataType, Single)
-- uid: SHARP3D.C3dFile.GetData*
-  name: GetData
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetData_
-  commentId: Overload:SHARP3D.C3dFile.GetData
+- uid: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name: GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataAndBit_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
+  commentId: M:SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name.vb: GetDataAndBit(FileStream, ProcessorType, DataType, Single)
+  fullName: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
+  fullName.vb: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
+  nameWithType: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  nameWithType.vb: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, Single)
+- uid: SHARP3D.C3dFile.GetDataAndBit*
+  name: GetDataAndBit
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataAndBit_
+  commentId: Overload:SHARP3D.C3dFile.GetDataAndBit
   isSpec: "True"
-  fullName: SHARP3D.C3dFile.GetData
-  nameWithType: C3dFile.GetData
+  fullName: SHARP3D.C3dFile.GetDataAndBit
+  nameWithType: C3dFile.GetDataAndBit
 - uid: SHARP3D.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   name: GetDataSectionPointer(FileStream, ProcessorType)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataSectionPointer_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
@@ -322,19 +283,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.Header
   nameWithType: C3dFile.Header
-- uid: SHARP3D.C3dFile.IsFileStreamOpen
-  name: IsFileStreamOpen()
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_IsFileStreamOpen
-  commentId: M:SHARP3D.C3dFile.IsFileStreamOpen
-  fullName: SHARP3D.C3dFile.IsFileStreamOpen()
-  nameWithType: C3dFile.IsFileStreamOpen()
-- uid: SHARP3D.C3dFile.IsFileStreamOpen*
-  name: IsFileStreamOpen
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_IsFileStreamOpen_
-  commentId: Overload:SHARP3D.C3dFile.IsFileStreamOpen
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.IsFileStreamOpen
-  nameWithType: C3dFile.IsFileStreamOpen
 - uid: SHARP3D.C3dFile.LoadFromFile(System.String)
   name: LoadFromFile(string)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_LoadFromFile_System_String_
@@ -393,6 +341,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.Parameters
   nameWithType: C3dFile.Parameters
+- uid: SHARP3D.C3dFile.Path
+  name: Path
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Path
+  commentId: P:SHARP3D.C3dFile.Path
+  fullName: SHARP3D.C3dFile.Path
+  nameWithType: C3dFile.Path
+- uid: SHARP3D.C3dFile.Path*
+  name: Path
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Path_
+  commentId: Overload:SHARP3D.C3dFile.Path
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.Path
+  nameWithType: C3dFile.Path
 - uid: SHARP3D.C3dFile.PointerDataSection
   name: PointerDataSection
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_PointerDataSection
@@ -487,22 +448,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.ReadProcessorByte
   nameWithType: C3dFile.ReadProcessorByte
-- uid: SHARP3D.C3dFile.SaveToFile(System.String)
-  name: SaveToFile(string)
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_System_String_
-  commentId: M:SHARP3D.C3dFile.SaveToFile(System.String)
-  name.vb: SaveToFile(String)
-  fullName: SHARP3D.C3dFile.SaveToFile(string)
-  fullName.vb: SHARP3D.C3dFile.SaveToFile(String)
-  nameWithType: C3dFile.SaveToFile(string)
-  nameWithType.vb: C3dFile.SaveToFile(String)
-- uid: SHARP3D.C3dFile.SaveToFile*
-  name: SaveToFile
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_
-  commentId: Overload:SHARP3D.C3dFile.SaveToFile
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.SaveToFile
-  nameWithType: C3dFile.SaveToFile
 - uid: SHARP3D.C3dFile.ScaleFactor
   name: ScaleFactor
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ScaleFactor
@@ -516,19 +461,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.ScaleFactor
   nameWithType: C3dFile.ScaleFactor
-- uid: SHARP3D.C3dFile.ToBinaries
-  name: ToBinaries()
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries
-  commentId: M:SHARP3D.C3dFile.ToBinaries
-  fullName: SHARP3D.C3dFile.ToBinaries()
-  nameWithType: C3dFile.ToBinaries()
-- uid: SHARP3D.C3dFile.ToBinaries*
-  name: ToBinaries
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries_
-  commentId: Overload:SHARP3D.C3dFile.ToBinaries
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.ToBinaries
-  nameWithType: C3dFile.ToBinaries
 - uid: SHARP3D.Data
   name: SHARP3D.Data
   href: api/SHARP3D.Data.html
@@ -602,48 +534,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.C3dDataHelper.IsValid
   nameWithType: C3dDataHelper.IsValid
-- uid: SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList(System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]},System.Collections.Generic.List{System.Single[][]})
-  name: ProcessPointsAndAnalogsList(List<C3dDataPoint[]>, List<float[][]>)
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ProcessPointsAndAnalogsList_System_Collections_Generic_List_SHARP3D_Data_Data_C3dDataPoint____System_Collections_Generic_List_System_Single______
-  commentId: M:SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList(System.Collections.Generic.List{SHARP3D.Data.Data.C3dDataPoint[]},System.Collections.Generic.List{System.Single[][]})
-  name.vb: ProcessPointsAndAnalogsList(List(Of C3dDataPoint()), List(Of Single()()))
-  fullName: SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList(System.Collections.Generic.List<SHARP3D.Data.Data.C3dDataPoint[]>, System.Collections.Generic.List<float[][]>)
-  fullName.vb: SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList(System.Collections.Generic.List(Of SHARP3D.Data.Data.C3dDataPoint()), System.Collections.Generic.List(Of Single()()))
-  nameWithType: C3dDataHelper.ProcessPointsAndAnalogsList(List<C3dDataPoint[]>, List<float[][]>)
-  nameWithType.vb: C3dDataHelper.ProcessPointsAndAnalogsList(List(Of C3dDataPoint()), List(Of Single()()))
-- uid: SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList*
-  name: ProcessPointsAndAnalogsList
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ProcessPointsAndAnalogsList_
-  commentId: Overload:SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList
-  isSpec: "True"
-  fullName: SHARP3D.Data.C3dDataHelper.ProcessPointsAndAnalogsList
-  nameWithType: C3dDataHelper.ProcessPointsAndAnalogsList
-- uid: SHARP3D.Data.C3dDataHelper.ReadAllData(SHARP3D.Data.Data.C3dDataContext)
-  name: ReadAllData(C3dDataContext)
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ReadAllData_SHARP3D_Data_Data_C3dDataContext_
-  commentId: M:SHARP3D.Data.C3dDataHelper.ReadAllData(SHARP3D.Data.Data.C3dDataContext)
-  fullName: SHARP3D.Data.C3dDataHelper.ReadAllData(SHARP3D.Data.Data.C3dDataContext)
-  nameWithType: C3dDataHelper.ReadAllData(C3dDataContext)
-- uid: SHARP3D.Data.C3dDataHelper.ReadAllData*
-  name: ReadAllData
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ReadAllData_
-  commentId: Overload:SHARP3D.Data.C3dDataHelper.ReadAllData
-  isSpec: "True"
-  fullName: SHARP3D.Data.C3dDataHelper.ReadAllData
-  nameWithType: C3dDataHelper.ReadAllData
-- uid: SHARP3D.Data.C3dDataHelper.ReadDataFrame(SHARP3D.Data.Data.C3dDataContext)
-  name: ReadDataFrame(C3dDataContext)
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ReadDataFrame_SHARP3D_Data_Data_C3dDataContext_
-  commentId: M:SHARP3D.Data.C3dDataHelper.ReadDataFrame(SHARP3D.Data.Data.C3dDataContext)
-  fullName: SHARP3D.Data.C3dDataHelper.ReadDataFrame(SHARP3D.Data.Data.C3dDataContext)
-  nameWithType: C3dDataHelper.ReadDataFrame(C3dDataContext)
-- uid: SHARP3D.Data.C3dDataHelper.ReadDataFrame*
-  name: ReadDataFrame
-  href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ReadDataFrame_
-  commentId: Overload:SHARP3D.Data.C3dDataHelper.ReadDataFrame
-  isSpec: "True"
-  fullName: SHARP3D.Data.C3dDataHelper.ReadDataFrame
-  nameWithType: C3dDataHelper.ReadDataFrame
 - uid: SHARP3D.Data.C3dDataHelper.ReadDataFrameFloat32(SHARP3D.Data.Data.C3dDataContext)
   name: ReadDataFrameFloat32(C3dDataContext)
   href: api/SHARP3D.Data.C3dDataHelper.html#SHARP3D_Data_C3dDataHelper_ReadDataFrameFloat32_SHARP3D_Data_Data_C3dDataContext_

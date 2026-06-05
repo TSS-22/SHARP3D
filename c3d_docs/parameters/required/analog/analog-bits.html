@@ -100,6 +100,23 @@
 <p>As this value directly affects the interpretation of the analog data it should normally be “locked”. If the parameter does not exist its value can be measured by reading every analog sample contained in the <a href="../../../data/analog.html">analog data section</a> and
 determining the effective resolution from the highest analog data value found. Alternatively, it is usually safe to assume that its value is 12.</p>
 <p>Software applications that change the resolution of analog data values for compatibility (i.e., down sampling 16-bit data to 12-bits) should always update this parameter to indicate the resolution of the data stored within the C3D file as it can be used to allow software applications to recalculate the <a href="analog-scale.html">ANALOG:SCALE</a> parameter values.</p>
+<h2 id="boundary-values">Boundary Values</h2>
+<h3 id="unsigned-integers">Unsigned Integers</h3>
+<ul>
+<li>12-bit: 0 to 4,095</li>
+<li>13-bit: 0 to 8,191</li>
+<li>14-bit: 0 to 16,383</li>
+<li>15-bit: 0 to 32,767</li>
+<li>16-bit: 0 to 65,535</li>
+</ul>
+<h3 id="signed-integers-twos-complement">Signed Integers (Two's Complement)</h3>
+<ul>
+<li>12-bit: -2,048 to 2,047</li>
+<li>13-bit: -4,096 to 4,095</li>
+<li>14-bit: -8,192 to 8,191</li>
+<li>15-bit: -16,384 to 16,383</li>
+<li>16-bit: -32,768 to 32,767</li>
+</ul>
 
 </article>
 
