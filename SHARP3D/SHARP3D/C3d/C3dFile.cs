@@ -26,49 +26,49 @@ namespace SHARP3D.C3d
         /// <summary>
         /// The path of the C3D File.
         /// </summary>
-        public string FilePath { get; init; }
+        public string FilePath { get; set; }
         
-        public long FileLength { get; init; }
+        public long FileLength { get; set; }
 
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
-        public ProcessorType ProcessorFile { get; init; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorFile { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
         /// <summary>
         /// Gets or sets the type of processor used by the host system.
         /// </summary>
-        public ProcessorType ProcessorHost { get; init; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
+        public ProcessorType ProcessorHost { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
         /// <summary>
         /// Gets or sets the data type used in the C3D file.
         /// </summary>
-        public DataType DataTypeFile { get; init; }
+        public DataType DataTypeFile { get; set; }
 
         /// <summary>
         /// Gets or sets the pointer to the parameter section in the C3D file.
         /// </summary>
-        public int PointerParameterSection { get; init; }
+        public int PointerParameterSection { get; set; }
 
         /// <summary>
         /// Gets or sets the pointer to the data section in the C3D file.
         /// </summary>
-        public int PointerDataSection { get; init; }
+        public int PointerDataSection { get; set; }
 
         /// <summary>
         /// Gets or sets the header information of the C3D file.
         /// </summary>
-        public C3dHeader Header { get; init; } = new C3dHeader();
+        public C3dHeader Header { get; set; } = new C3dHeader();
 
         /// <summary>
         /// Gets or sets the list of parameter groups in the C3D file.
         /// </summary>
-        public List<C3dParameterGroup> Parameters { get; init; }
+        public List<C3dParameterGroup> Parameters { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of parameters in the C3D file.
         /// </summary>
-        public C3dParameterCollection ParameterCollection { get; init; }
+        public C3dParameterCollection ParameterCollection { get; set; }
 
         public C3dParameterPoint Point { get; set; }
         public C3dParameterAnalog Analog { get; set; }
@@ -76,7 +76,15 @@ namespace SHARP3D.C3d
         /// <summary>
         /// Gets or sets the data contained in the C3D file.
         /// </summary>
-        public C3dData Data { get; init; }
+        public C3dData Data { get; set; }
+
+        /// <summary>
+        /// Centralize the values needed to extract the data from the C3D file.
+        /// </summary>
+        /// <remarks>
+        /// It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
+        /// </remarks>
+        public C3dDataContext DataContext { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class.
@@ -104,8 +112,8 @@ namespace SHARP3D.C3d
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            Point = setFilePoint();
-            Analog = setFileAnalog();
+            //Point = SetFilePoint();
+            Analog = SetFileAnalog();
 
             int tempAnalogBits = 12;
             (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
@@ -153,8 +161,8 @@ namespace SHARP3D.C3d
             fileAnalog.ChannelScale = GetAnalogChannelScale(fileAnalog.Used);
             fileAnalog.Offset = GetAnalogOffset(fileAnalog.Used, GetAnalogFormat());
             fileAnalog.Labels = GetAnalogLabels(fileAnalog.Used);
-            fileAnalog.Descriptions = GetAnalogDescriptions();
-            fileAnalog.Units;
+            //fileAnalog.Descriptions = GetAnalogDescriptions();
+            //fileAnalog.Units;
 
             return fileAnalog;
         }
@@ -271,13 +279,80 @@ namespace SHARP3D.C3d
         {
             // Check the length of analogUsed.
             // Go by chunk of 255 used values and look for the adequate analog:labelX.
-            int numberOfLabelParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            int numberOfLabelsParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            // Create place holder and associated global index for ease of use.
+            string[] analogLabels = new string[analogUsed];
+            int labelIndex = 0;
+            int labelLeft = analogUsed;
+            bool isLastLabel = false;
+
+            for (int i = 0; i< numberOfLabelsParameters; i++)
+            {
+                // Check if this is the last label parameter to check
+                if (labelLeft <= 255)
+                {
+                    isLastLabel = true;
+                }
+
+                // Get the right label name
+                string parameterName = $"labels{i + 1}";
+                if (i==0)
+                {
+                    parameterName = "labels";
+                }
+
+                // Process labels
+                try
+                {
+                    char[,]? labels = GetParameter("analog", parameterName).Data as char[,];
+                    if (labels != null)
+                    {
+                        // Check if I have the right number of labels (second dimension of the char array).
+                        int labelInBatchToDo= isLastLabel ? labelLeft : 255;
+                        int labelInBatch = labels.GetLength(1);
+
+                        for(int j=0; j< labelInBatch; j++)
+                        {
+                            List<char> tempCharLabel = new List<char> { };
+                            for(int k=0; k< labels.GetLength(0); k++)
+                            {
+                                tempCharLabel.Add(labels[k, j]);
+                            }
+                            analogLabels[labelIndex] = new string(tempCharLabel.ToArray());
+
+                            labelInBatchToDo--;
+                            labelLeft--;
+                            labelIndex++;
+                        }
+
+                        // If there is some left over
+                        for(int j=0; j< labelInBatchToDo; j++)
+                        {
+                            analogLabels[labelIndex] = $"Channel {labelIndex + 1}";
+                            labelLeft--;
+                            labelIndex++;
+                        }
+                        Console.WriteLine("dede");
+                    }
+                    else 
+                    {
+                        // We throw an exception because 
+                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
+                    }
+                }
+                catch (Exception ex) when(ex is ParameterNotFoundException || ex is NullReferenceException)
+                {
+                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default labels for analog channels.");
+
+                    // TODO: Create default behavior
+                }
+            }
 
             return new string[] { };
         }
         internal string[] GetAnalogDescriptions(int analogUsed)
         {
-            int numberOfDescriptionParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            int numberOfDescriptionsParameters = (int)Math.Ceiling((double)analogUsed / 255);
 
             return new string[] { };
         }
@@ -286,25 +361,25 @@ namespace SHARP3D.C3d
         {
             C3dParameterPoint filePoint = new C3dParameterPoint();
 
-            filePoint.Descriptions;
-            filePoint.Frames = GetRightAmountOfFrames();
-            filePoint.Labels;
-            filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
-            filePoint.Scale = Header.ScaleFactor;
-            filePoint.Units;
+            //filePoint.Descriptions;
+            //filePoint.Frames = GetRightAmountOfFrames();
+            //filePoint.Labels;
+            //filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
+            //filePoint.Scale = Header.ScaleFactor;
+            //filePoint.Units;
 
-            // See GetRightAmountMarkerPerFrame. Simple answer: some people fucked up and now we have to go through hoops to make it work reliably.
-            int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
-            filePoint.Used = GetRightAmountMarkerPerFrame(
-                filePoint.Frames,
-                analogChannels,
-                GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
-                    Header.MarkersPerFrame,
-                    markersPerFrame,
-                    PointerDataSection,
-                    FileLength,
-                    DataTypeFile
-                    );
+            //// See GetRightAmountMarkerPerFrame. Simple answer: some people fucked up and now we have to go through hoops to make it work reliably.
+            //int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
+            //filePoint.Used = GetRightAmountMarkerPerFrame(
+            //    filePoint.Frames,
+            //    analogChannels,
+            //    GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
+            //        Header.MarkersPerFrame,
+            //        markersPerFrame,
+            //        PointerDataSection,
+            //        FileLength,
+            //        DataTypeFile
+            //        );
             
 
             return filePoint;
@@ -549,7 +624,7 @@ namespace SHARP3D.C3d
             }
 
             // TODO: actually sort the error that can come
-            C3dDataContext DataContext = new C3dDataContext(
+            DataContext = new C3dDataContext(
                 c3dStream: c3dStream,
                 processor: processor,
                 dataTypeFile: dataTypeFile,
