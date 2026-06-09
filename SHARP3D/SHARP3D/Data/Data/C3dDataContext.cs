@@ -5,7 +5,7 @@ namespace SHARP3D.Data.Data
     // TODO: Check that all the values are actually used and therefore necessary.
 
     /// <summary>
-    /// Represents the context for reading and processing data from a C3D file.
+    /// Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -108,11 +108,11 @@ namespace SHARP3D.Data.Data
         /// <param name="pointRate">The acquisition rate of the 3D point data, in Hz.</param>
         /// <param name="analogRate">The acquisition rate of the analog data, in Hz.</param>
         /// <param name="analogChannels">The number of analog channels in the C3D file.</param>
-        /// <param name="pointScaleFactor">The scale factor applied to 3D point coordinates.</param>
+        /// <param name="pointScale">The scale factor applied to 3D point coordinates.</param>
         /// <summary>
-        /// <param name="analogGeneralScaleFactor">The general scale factor applied to all analog data.</param>
+        /// <param name="analogGeneralScale">The general scale factor applied to all analog data.</param>
         /// </summary>
-        /// <param name="analogChannelScaleFactor">The scale factors applied to individual analog channels.</param>
+        /// <param name="analogChannelScale">The scale factors applied to individual analog channels.</param>
         /// <param name="analogOffset">The offset for analog data in the C3D file.</param>
         /// <param name="analogSamplePerFrame">The number of analog sample in each frame.</param>
         /// <param name="analogFormat">The analog flag format</param>
@@ -129,9 +129,9 @@ namespace SHARP3D.Data.Data
             float pointRate,
             float analogRate,
             int analogChannels,
-            float pointScaleFactor,
-            float analogGeneralScaleFactor,
-            float []analogChannelScaleFactor,
+            float pointScale,
+            float analogGeneralScale,
+            float []analogChannelScale,
             int[] analogOffset,
             int analogSamplePerFrame,
             AnalogFormatFlag analogFormat)
@@ -146,9 +146,9 @@ namespace SHARP3D.Data.Data
             AnalogRate = analogRate;
             AnalogChannels = analogChannels;
             AnalogSamplePerFrame = analogSamplePerFrame;
-            PointScaleFactor = pointScaleFactor;
-            AnalogGeneralScaleFactor = analogGeneralScaleFactor;
-            AnalogChannelScaleFactor = analogChannelScaleFactor;
+            PointScaleFactor = pointScale;
+            AnalogGeneralScaleFactor = analogGeneralScale;
+            AnalogChannelScaleFactor = analogChannelScale;
             AnalogOffset = analogOffset;
             AnalogFormat = analogFormat;
         }

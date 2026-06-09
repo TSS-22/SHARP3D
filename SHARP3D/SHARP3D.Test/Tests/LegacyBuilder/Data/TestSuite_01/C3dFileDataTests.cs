@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Test.Tests.BuilderTests.Data.TestSuite_01
+﻿using SHARP3D.C3d;
+
+namespace SHARP3D.Test.Tests.BuilderTests.Data.TestSuite_01
 {
 
     public class C3dFileDataTests
