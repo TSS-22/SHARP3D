@@ -161,7 +161,7 @@ namespace SHARP3D.C3d
             fileAnalog.ChannelScale = GetAnalogChannelScale(fileAnalog.Used);
             fileAnalog.Offset = GetAnalogOffset(fileAnalog.Used, GetAnalogFormat());
             fileAnalog.Labels = GetAnalogLabels(fileAnalog.Used);
-            //fileAnalog.Descriptions = GetAnalogDescriptions();
+            fileAnalog.Descriptions = GetAnalogDescriptions(fileAnalog.Used);
             //fileAnalog.Units;
 
             return fileAnalog;
@@ -293,6 +293,8 @@ namespace SHARP3D.C3d
                 {
                     isLastLabel = true;
                 }
+                // Get the number of label to extract
+                int labelInBatchToDo = isLastLabel ? labelLeft : 255;
 
                 // Get the right label name
                 string parameterName = $"labels{i + 1}";
@@ -308,7 +310,6 @@ namespace SHARP3D.C3d
                     if (labels != null)
                     {
                         // Check if I have the right number of labels (second dimension of the char array).
-                        int labelInBatchToDo= isLastLabel ? labelLeft : 255;
                         int labelInBatch = labels.GetLength(1);
 
                         for(int j=0; j< labelInBatch; j++)
@@ -318,7 +319,7 @@ namespace SHARP3D.C3d
                             {
                                 tempCharLabel.Add(labels[k, j]);
                             }
-                            analogLabels[labelIndex] = new string(tempCharLabel.ToArray());
+                            analogLabels[labelIndex] = new string(tempCharLabel.ToArray()).Trim();
 
                             labelInBatchToDo--;
                             labelLeft--;
@@ -336,25 +337,106 @@ namespace SHARP3D.C3d
                     }
                     else 
                     {
-                        // We throw an exception because 
+                        // We throw an exception because the ANALOG:LABELX was not populated at all. 
+                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
                         throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
                     }
                 }
                 catch (Exception ex) when(ex is ParameterNotFoundException || ex is NullReferenceException)
                 {
                     Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default labels for analog channels.");
-
-                    // TODO: Create default behavior
+                    for (int j = 0; j < labelInBatchToDo; j++)
+                    {
+                        analogLabels[labelIndex] = $"Channel {labelIndex + 1}";
+                        labelLeft--;
+                        labelIndex++;
+                    }
                 }
             }
 
-            return new string[] { };
+            return analogLabels;
         }
+
         internal string[] GetAnalogDescriptions(int analogUsed)
         {
+            // Check the length of analogUsed.
+            // Go by chunk of 255 used values and look for the adequate analog:labelX.
             int numberOfDescriptionsParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            // Create place holder and associated global index for ease of use.
+            string[] analogDescriptions = new string[analogUsed];
+            int descriptionIndex = 0;
+            int descriptionLeft = analogUsed;
+            bool isLastDescription = false;
 
-            return new string[] { };
+            for (int i = 0; i < numberOfDescriptionsParameters; i++)
+            {
+                // Check if this is the last label parameter to check
+                if (descriptionLeft <= 255)
+                {
+                    isLastDescription = true;
+                }
+                // Get the number of label to extract
+                int labelInBatchToDo = isLastDescription ? descriptionLeft : 255;
+
+                // Get the right label name
+                string parameterName = $"descriptions{i + 1}";
+                if (i == 0)
+                {
+                    parameterName = "descriptions";
+                }
+
+                // Process labels
+                try
+                {
+                    char[,]? labels = GetParameter("analog", parameterName).Data as char[,];
+                    if (labels != null)
+                    {
+                        // Check if I have the right number of labels (second dimension of the char array).
+                        int labelInBatch = labels.GetLength(1);
+
+                        for (int j = 0; j < labelInBatch; j++)
+                        {
+                            List<char> tempCharLabel = new List<char> { };
+                            for (int k = 0; k < labels.GetLength(0); k++)
+                            {
+                                tempCharLabel.Add(labels[k, j]);
+                            }
+                            analogDescriptions[descriptionIndex] = new string(tempCharLabel.ToArray()).Trim();
+
+                            labelInBatchToDo--;
+                            descriptionLeft--;
+                            descriptionIndex++;
+                        }
+
+                        // If there is some left over
+                        for (int j = 0; j < labelInBatchToDo; j++)
+                        {
+                            analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}";
+                            descriptionLeft--;
+                            descriptionIndex++;
+                        }
+                        Console.WriteLine("dede");
+                    }
+                    else
+                    {
+                        // We throw an exception because the ANALOG:LABELX was not populated at all. 
+                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
+                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
+                    }
+                }
+                catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
+                {
+                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default labels for analog channels.");
+                    for (int j = 0; j < labelInBatchToDo; j++)
+                    {
+                        analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}";
+                        descriptionLeft--;
+                        descriptionIndex++;
+                    }
+                }
+            }
+
+            return analogDescriptions;
         }
 
         internal C3dParameterPoint setFilePoint()
