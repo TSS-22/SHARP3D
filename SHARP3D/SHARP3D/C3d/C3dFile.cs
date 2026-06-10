@@ -7,6 +7,7 @@ using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
 
@@ -112,8 +113,8 @@ namespace SHARP3D.C3d
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            //Point = SetFilePoint();
             Analog = SetFileAnalog();
+            Point = setFilePoint(Analog.Used, Analog.Rate);
 
             int tempAnalogBits = 12;
             (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
@@ -160,11 +161,46 @@ namespace SHARP3D.C3d
             fileAnalog.Used = GetAnalogUsed();
             fileAnalog.ChannelScale = GetAnalogChannelScale(fileAnalog.Used);
             fileAnalog.Offset = GetAnalogOffset(fileAnalog.Used, GetAnalogFormat());
-            fileAnalog.Labels = GetAnalogLabels(fileAnalog.Used);
-            fileAnalog.Descriptions = GetAnalogDescriptions(fileAnalog.Used);
-            fileAnalog.Units = GetAnalogUnits(fileAnalog.Used);
+            fileAnalog.Labels = GetXParameters(fileAnalog.Used, "analog", "labels");
+            fileAnalog.Descriptions = GetXParameters(fileAnalog.Used, "analog", "descriptions");
+            fileAnalog.Units = GetXParameters(fileAnalog.Used, "analog", "units");
 
             return fileAnalog;
+        }
+
+        internal C3dParameterPoint setFilePoint(int analogUsed, float analogRate)
+        {
+            C3dParameterPoint filePoint = new C3dParameterPoint();
+
+            filePoint.Frames = GetRightAmountOfFrames();
+            filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
+            filePoint.Scale = Header.ScaleFactor;
+            
+            // See GetRightAmountMarkerPerFrame. Simple answer: some people fucked up and now we have to go through hoops to make it work reliably.
+            int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
+            filePoint.Used = GetRightAmountMarkerPerFrame(
+                filePoint.Frames,
+                analogUsed,
+                GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
+                    Header.MarkersPerFrame,
+                    markersPerFrame,
+                    PointerDataSection,
+                    FileLength,
+                    DataTypeFile
+                    );
+            filePoint.Labels = GetXParameters(filePoint.Used, "point", "labels");
+            filePoint.Descriptions = GetXParameters(filePoint.Used, "point", "descriptions");
+            char[]? tempUnits = GetParameter("point", "units").Data as char[];
+            if(tempUnits == null)
+            {
+                filePoint.Units = "mm";
+            }
+            else
+            {
+                filePoint.Units = new string(tempUnits).Trim();
+            }
+
+                return filePoint;
         }
 
         internal float GetAnalogRate()
@@ -275,284 +311,90 @@ namespace SHARP3D.C3d
             return analogOffset;
         }
 
-        internal string[] GetAnalogLabels(int analogUsed)
+        internal string[] GetXParameters(int used, string group, string parameter)
         {
-            // Check the length of analogUsed.
-            // Go by chunk of 255 used values and look for the adequate analog:labelX.
-            int numberOfLabelsParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            // For POINT: and ANALOG:
+            // LABELS, DESCRIPTIONS and UNITS
+            // Check the length of group used.
+            // Go by chunk of 255 used values and look for the adequate GROUP:PARAMETERX.
+            int numberOfParameters = (int)Math.Ceiling((double)used / 255);
             // Create place holder and associated global index for ease of use.
-            string[] analogLabels = new string[analogUsed];
-            int labelIndex = 0;
-            int labelLeft = analogUsed;
-            bool isLastLabel = false;
+            string[] analogUnits = new string[used];
+            int paramIndex = 0;
+            int paramLeft = used;
+            bool isLastParam = false;
 
-            for (int i = 0; i< numberOfLabelsParameters; i++)
+            for (int i = 0; i < numberOfParameters; i++)
             {
-                // Check if this is the last label parameter to check
-                if (labelLeft <= 255)
+                // Check if this is the last parameter number to check
+                if (paramLeft <= 255)
                 {
-                    isLastLabel = true;
+                    isLastParam = true;
                 }
-                // Get the number of label to extract
-                int labelInBatchToDo = isLastLabel ? labelLeft : 255;
+                // Get the number of parameter to extract
+                int paramInBatchToDo = isLastParam ? paramLeft : 255;
 
-                // Get the right label name
-                string parameterName = $"labels{i + 1}";
-                if (i==0)
-                {
-                    parameterName = "labels";
-                }
-
-                // Process labels
-                try
-                {
-                    char[,]? labels = GetParameter("analog", parameterName).Data as char[,];
-                    if (labels != null)
-                    {
-                        // Check if I have the right number of labels (second dimension of the char array).
-                        int labelInBatch = labels.GetLength(1);
-
-                        for(int j=0; j< labelInBatch; j++)
-                        {
-                            List<char> tempCharLabel = new List<char> { };
-                            for(int k=0; k< labels.GetLength(0); k++)
-                            {
-                                tempCharLabel.Add(labels[k, j]);
-                            }
-                            analogLabels[labelIndex] = new string(tempCharLabel.ToArray()).Trim();
-
-                            labelInBatchToDo--;
-                            labelLeft--;
-                            labelIndex++;
-                        }
-
-                        // If there is some left over
-                        for(int j=0; j< labelInBatchToDo; j++)
-                        {
-                            analogLabels[labelIndex] = $"Channel {labelIndex + 1}";
-                            labelLeft--;
-                            labelIndex++;
-                        }
-                        Console.WriteLine("dede");
-                    }
-                    else 
-                    {
-                        // We throw an exception because the ANALOG:LABELX was not populated at all. 
-                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
-                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
-                    }
-                }
-                catch (Exception ex) when(ex is ParameterNotFoundException || ex is NullReferenceException)
-                {
-                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default labels for analog channels.");
-                    for (int j = 0; j < labelInBatchToDo; j++)
-                    {
-                        analogLabels[labelIndex] = $"Channel {labelIndex + 1}";
-                        labelLeft--;
-                        labelIndex++;
-                    }
-                }
-            }
-
-            return analogLabels;
-        }
-
-        internal string[] GetAnalogDescriptions(int analogUsed)
-        {
-            // Check the length of analogUsed.
-            // Go by chunk of 255 used values and look for the adequate analog:descriptionsX.
-            int numberOfDescriptionsParameters = (int)Math.Ceiling((double)analogUsed / 255);
-            // Create place holder and associated global index for ease of use.
-            string[] analogDescriptions = new string[analogUsed];
-            int descriptionIndex = 0;
-            int descriptionLeft = analogUsed;
-            bool isLastDescription = false;
-
-            for (int i = 0; i < numberOfDescriptionsParameters; i++)
-            {
-                // Check if this is the last label parameter to check
-                if (descriptionLeft <= 255)
-                {
-                    isLastDescription = true;
-                }
-                // Get the number of label to extract
-                int labelInBatchToDo = isLastDescription ? descriptionLeft : 255;
-
-                // Get the right label name
-                string parameterName = $"descriptions{i + 1}";
+                // Get the right parameter name
+                string parameterName = $"{parameter}{i + 1}";
                 if (i == 0)
                 {
-                    parameterName = "descriptions";
+                    parameterName = parameter;
                 }
 
-                // Process labels
+                // Process Parameters
                 try
                 {
-                    char[,]? descriptions = GetParameter("analog", parameterName).Data as char[,];
-                    if (descriptions != null)
+                    char[,]? param = GetParameter(group, parameterName).Data as char[,];
+                    if (param != null)
                     {
-                        // Check if I have the right number of labels (second dimension of the char array).
-                        int labelInBatch = descriptions.GetLength(1);
+                        // Check if I have the right number of parameters instance (second dimension of the char array).
+                        int paramInBatch = param.GetLength(1);
 
-                        for (int j = 0; j < labelInBatch; j++)
+                        for (int j = 0; j < paramInBatch; j++)
                         {
-                            List<char> tempCharLabel = new List<char> { };
-                            for (int k = 0; k < descriptions.GetLength(0); k++)
+                            List<char> tempCharParam = new List<char> { };
+                            for (int k = 0; k < param.GetLength(0); k++)
                             {
-                                tempCharLabel.Add(descriptions[k, j]);
+                                tempCharParam.Add(param[k, j]);
                             }
-                            analogDescriptions[descriptionIndex] = new string(tempCharLabel.ToArray()).Trim();
+                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim();
 
-                            labelInBatchToDo--;
-                            descriptionLeft--;
-                            descriptionIndex++;
+                            paramInBatchToDo--;
+                            paramLeft--;
+                            paramIndex++;
                         }
 
                         // If there is some left over
-                        for (int j = 0; j < labelInBatchToDo; j++)
+                        for (int j = 0; j < paramInBatchToDo; j++)
                         {
-                            analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}. No description provided.";
-                            descriptionLeft--;
-                            descriptionIndex++;
+                            analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                            paramLeft--;
+                            paramIndex++;
                         }
                         Console.WriteLine("dede");
                     }
                     else
                     {
-                        // We throw an exception because the ANALOG:DESCRITPIONX was not populated at all. 
+                        // We throw an exception because the GROUP:PARAMETERX was not populated at all. 
                         // It should not happen though, as it is either gonna be filled, not enough filled, or absent
-                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
+                        throw new NullReferenceException($"{group.ToUpper()}:{parameterName.ToUpper()} is not populated.");
                     }
                 }
                 catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
                 {
-                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default descriptions for analog channels.");
-                    for (int j = 0; j < labelInBatchToDo; j++)
+                    Console.WriteLine($"Error with {group.ToUpper()}:{parameterName.ToUpper()}: {ex.Message}. Defaulting to default values for {group.ToUpper()}:{parameterName.ToUpper()} .");
+                    for (int j = 0; j < paramInBatchToDo; j++)
                     {
-                        analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}. No description provided.";
-                        descriptionLeft--;
-                        descriptionIndex++;
-                    }
-                }
-            }
-
-            return analogDescriptions;
-        }
-
-        internal string[] GetAnalogUnits(int analogUsed)
-        {
-            // Check the length of analogUsed.
-            // Go by chunk of 255 used values and look for the adequate analog:labelX.
-            int numberOfUnitsParameters = (int)Math.Ceiling((double)analogUsed / 255);
-            // Create place holder and associated global index for ease of use.
-            string[] analogUnits = new string[analogUsed];
-            int unitIndex = 0;
-            int unitLeft = analogUsed;
-            bool isLastUnit = false;
-
-            for (int i = 0; i < numberOfUnitsParameters; i++)
-            {
-                // Check if this is the last label parameter to check
-                if (unitLeft <= 255)
-                {
-                    isLastUnit = true;
-                }
-                // Get the number of label to extract
-                int labelInBatchToDo = isLastUnit ? unitLeft : 255;
-
-                // Get the right label name
-                string parameterName = $"units{i + 1}";
-                if (i == 0)
-                {
-                    parameterName = "units";
-                }
-
-                // Process labels
-                try
-                {
-                    char[,]? units = GetParameter("analog", parameterName).Data as char[,];
-                    if (units != null)
-                    {
-                        // Check if I have the right number of labels (second dimension of the char array).
-                        int labelInBatch = units.GetLength(1);
-
-                        for (int j = 0; j < labelInBatch; j++)
-                        {
-                            List<char> tempCharLabel = new List<char> { };
-                            for (int k = 0; k < units.GetLength(0); k++)
-                            {
-                                tempCharLabel.Add(units[k, j]);
-                            }
-                            analogUnits[unitIndex] = new string(tempCharLabel.ToArray()).Trim();
-
-                            labelInBatchToDo--;
-                            unitLeft--;
-                            unitIndex++;
-                        }
-
-                        // If there is some left over
-                        for (int j = 0; j < labelInBatchToDo; j++)
-                        {
-                            analogUnits[unitIndex] = $"Channel {unitIndex + 1}.. No unit provided.";
-                            unitLeft--;
-                            unitIndex++;
-                        }
-                        Console.WriteLine("dede");
-                    }
-                    else
-                    {
-                        // We throw an exception because the ANALOG:DESCRITPIONX was not populated at all. 
-                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
-                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
-                    }
-                }
-                catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
-                {
-                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default units for analog channels.");
-                    for (int j = 0; j < labelInBatchToDo; j++)
-                    {
-                        analogUnits[unitIndex] = $"Channel {unitIndex + 1}. No unit provided.";
-                        unitLeft--;
-                        unitIndex++;
+                        analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                        paramLeft--;
+                        paramIndex++;
                     }
                 }
             }
 
             return analogUnits;
         }
-
-        internal C3dParameterPoint setFilePoint()
-        {
-            C3dParameterPoint filePoint = new C3dParameterPoint();
-
-            //filePoint.Descriptions;
-            //filePoint.Frames = GetRightAmountOfFrames();
-            //filePoint.Labels;
-            //filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
-            //filePoint.Scale = Header.ScaleFactor;
-            //filePoint.Units;
-
-            //// See GetRightAmountMarkerPerFrame. Simple answer: some people fucked up and now we have to go through hoops to make it work reliably.
-            //int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
-            //filePoint.Used = GetRightAmountMarkerPerFrame(
-            //    filePoint.Frames,
-            //    analogChannels,
-            //    GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
-            //        Header.MarkersPerFrame,
-            //        markersPerFrame,
-            //        PointerDataSection,
-            //        FileLength,
-            //        DataTypeFile
-            //        );
-            
-
-            return filePoint;
-        }
-
-        
-
-
-        
 
         /// <summary>
         /// Reads the header information from the C3D file.
