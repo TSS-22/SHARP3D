@@ -155,18 +155,28 @@ Bad formatting:</p>
 <h3 id="explanation">Explanation</h3>
 <h4 id="sharp3dtesttestsbasictestbasics">SHARP3D.Test.Tests.BasicTest.Basics</h4>
 <p><strong>Status</strong>: Under investigation</p>
-<p>This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. EZC3D and Qualisys both have similar error, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.</p>
+<p>This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. <a href="https://github.com/pyomeca/ezc3d">EZC3D</a> and <a href="https://www.qualisys.com/software/qualisys-track-manager/">QTM Qualisys</a> both have similar errors, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.</p>
 <h4 id="sharp3dtesttestsbasictestreadsfloatingframenumber">SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber</h4>
 <p><strong>Status</strong>: Solved</p>
-<p>The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and Qualisys.</p>
+<p>The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and <a href="https://www.qualisys.com/software/qualisys-track-manager/">QTM Qualisys</a>.</p>
 <h4 id="sharp3dtesttestssampleerrorfilestestopenfiletest_test">SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test</h4>
 <p><strong>Status</strong>: Under investigation</p>
+<ul>
+<li><p><strong>SampleError13</strong>: Same issue as <a href="#sharp3dtesttestssampleerrorfilestestsample13basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test</a>. We took SampleError13 out of the test data. This is not an issue because the test <a href="#sharp3dtesttestssampleerrorfilestestsample13basic_test">Sample13Basic_Test</a> open the file anyway, so this test was redundant in the first place.</p>
+</li>
+<li><p><strong>SampleError20</strong>: This is a sample file received from Phasespace Inc.  This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.</p>
+</li>
+</ul>
 <h4 id="sharp3dtesttestssampleerrorfilestestsample13basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test</h4>
-<p><strong>Status</strong>: Under investigation</p>
+<p><strong>Status</strong>: Solved</p>
+<p>The files are actually &quot;correctly&quot; handled. The errors came from the files themselves: there are only 499 frames, and not 500 as advertised. The entity creating the file probably counted from 1 to 500, instead of 0 to 499, as in C3D, frame 0 don't exist per se.</p>
+<p>We took account of this during our test.</p>
+<p>Also the point axis are wrong for some reasons. It is actually quite funny to see the dancer move on the ground. It looks like a fish pulled out of the water at first glance. But this tells you that there could be more issues lurking in these files. Again, SHARP3D tries to take a non punitive approach to maximize the chance of opening file, to then correct them automatically, or give you a chance to do so.</p>
 <h4 id="sharp3dtesttestssampleerrorfilestestsample18basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test</h4>
 <p><strong>Status</strong>: Under investigation</p>
 <h4 id="sharp3dtesttestssampleerrorfilestestsample20basic_test">SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test</h4>
-<p><strong>Status</strong>: Under investigation</p>
+<p><strong>Status</strong>: Solved</p>
+<p>This is a sample file received from Phasespace Inc. This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.</p>
 
 </article>
 

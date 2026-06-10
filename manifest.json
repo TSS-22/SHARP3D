@@ -12,6 +12,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3d.C3d.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3d.C3d.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3d.C3d",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3d.C3dFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3d.C3dFile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3d.C3dFile",
+      "Summary": "<p sourcefile=\"api/SHARP3D.C3d.C3dFile.yml\" sourcestartlinenumber=\"1\">Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary conversion.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3d.C3dParameterAnalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3d.C3dParameterAnalog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3d.C3dParameterAnalog",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3d.C3dParameterPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3d.C3dParameterPoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3d.C3dParameterPoint",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3d.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3d.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3d",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.C3dFile.yml",
       "output": {
         ".html": {
@@ -64,7 +134,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Data.Data.C3dDataContext",
-      "Summary": "<p sourcefile=\"api/SHARP3D.Data.Data.C3dDataContext.yml\" sourcestartlinenumber=\"1\">Represents the context for reading and processing data from a C3D file.</p>\n"
+      "Summary": "<p sourcefile=\"api/SHARP3D.Data.Data.C3dDataContext.yml\" sourcestartlinenumber=\"1\">Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.</p>\n"
     },
     {
       "type": "ManagedReference",

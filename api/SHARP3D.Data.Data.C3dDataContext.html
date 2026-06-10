@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class C3dDataContext | SHARP3D Documentation ">
       
-      <meta name="description" content="Represents the context for reading and processing data from a C3D file.">
+      <meta name="description" content="Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class C3dDataContext  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents the context for reading and processing data from a C3D file.</p>
+  <div class="markdown summary"><p>Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -171,7 +171,7 @@ the data section of a C3D file, including file stream, processor type, data type
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScale, float analogGeneralScale, float[] analogChannelScale, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -203,12 +203,12 @@ the data section of a C3D file, including file stream, processor type, data type
     <dt><code>analogChannels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The number of analog channels in the C3D file.</p>
 </dd>
-    <dt><code>pointScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>pointScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd><p>The scale factor applied to 3D point coordinates.</p>
 </dd>
-    <dt><code>analogGeneralScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>analogGeneralScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
-    <dt><code>analogChannelScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dt><code>analogChannelScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
     <dd><p>The scale factors applied to individual analog channels.</p>
 </dd>
     <dt><code>analogOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>

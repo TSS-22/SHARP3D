@@ -7,6 +7,742 @@ references:
   commentId: N:SHARP3D
   fullName: SHARP3D
   nameWithType: SHARP3D
+- uid: SHARP3D.C3d
+  name: SHARP3D.C3d
+  href: api/SHARP3D.C3d.html
+  commentId: N:SHARP3D.C3d
+  fullName: SHARP3D.C3d
+  nameWithType: SHARP3D.C3d
+- uid: SHARP3D.C3d.C3d
+  name: C3d
+  href: api/SHARP3D.C3d.C3d.html
+  commentId: T:SHARP3D.C3d.C3d
+  fullName: SHARP3D.C3d.C3d
+  nameWithType: C3d
+- uid: SHARP3D.C3d.C3dFile
+  name: C3dFile
+  href: api/SHARP3D.C3d.C3dFile.html
+  commentId: T:SHARP3D.C3d.C3dFile
+  fullName: SHARP3D.C3d.C3dFile
+  nameWithType: C3dFile
+- uid: SHARP3D.C3d.C3dFile.#ctor
+  name: C3dFile()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile__ctor
+  commentId: M:SHARP3D.C3d.C3dFile.#ctor
+  name.vb: New()
+  fullName: SHARP3D.C3d.C3dFile.C3dFile()
+  fullName.vb: SHARP3D.C3d.C3dFile.New()
+  nameWithType: C3dFile.C3dFile()
+  nameWithType.vb: C3dFile.New()
+- uid: SHARP3D.C3d.C3dFile.#ctor(System.IO.FileStream)
+  name: C3dFile(FileStream)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile__ctor_System_IO_FileStream_
+  commentId: M:SHARP3D.C3d.C3dFile.#ctor(System.IO.FileStream)
+  name.vb: New(FileStream)
+  fullName: SHARP3D.C3d.C3dFile.C3dFile(System.IO.FileStream)
+  fullName.vb: SHARP3D.C3d.C3dFile.New(System.IO.FileStream)
+  nameWithType: C3dFile.C3dFile(FileStream)
+  nameWithType.vb: C3dFile.New(FileStream)
+- uid: SHARP3D.C3d.C3dFile.#ctor*
+  name: C3dFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile__ctor_
+  commentId: Overload:SHARP3D.C3d.C3dFile.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.C3d.C3dFile.C3dFile
+  fullName.vb: SHARP3D.C3d.C3dFile.New
+  nameWithType: C3dFile.C3dFile
+  nameWithType.vb: C3dFile.New
+- uid: SHARP3D.C3d.C3dFile.Analog
+  name: Analog
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Analog
+  commentId: P:SHARP3D.C3d.C3dFile.Analog
+  fullName: SHARP3D.C3d.C3dFile.Analog
+  nameWithType: C3dFile.Analog
+- uid: SHARP3D.C3d.C3dFile.Analog*
+  name: Analog
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Analog_
+  commentId: Overload:SHARP3D.C3d.C3dFile.Analog
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.Analog
+  nameWithType: C3dFile.Analog
+- uid: SHARP3D.C3d.C3dFile.Data
+  name: Data
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Data
+  commentId: P:SHARP3D.C3d.C3dFile.Data
+  fullName: SHARP3D.C3d.C3dFile.Data
+  nameWithType: C3dFile.Data
+- uid: SHARP3D.C3d.C3dFile.Data*
+  name: Data
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Data_
+  commentId: Overload:SHARP3D.C3d.C3dFile.Data
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.Data
+  nameWithType: C3dFile.Data
+- uid: SHARP3D.C3d.C3dFile.DataContext
+  name: DataContext
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_DataContext
+  commentId: P:SHARP3D.C3d.C3dFile.DataContext
+  fullName: SHARP3D.C3d.C3dFile.DataContext
+  nameWithType: C3dFile.DataContext
+- uid: SHARP3D.C3d.C3dFile.DataContext*
+  name: DataContext
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_DataContext_
+  commentId: Overload:SHARP3D.C3d.C3dFile.DataContext
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.DataContext
+  nameWithType: C3dFile.DataContext
+- uid: SHARP3D.C3d.C3dFile.DataTypeFile
+  name: DataTypeFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_DataTypeFile
+  commentId: P:SHARP3D.C3d.C3dFile.DataTypeFile
+  fullName: SHARP3D.C3d.C3dFile.DataTypeFile
+  nameWithType: C3dFile.DataTypeFile
+- uid: SHARP3D.C3d.C3dFile.DataTypeFile*
+  name: DataTypeFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_DataTypeFile_
+  commentId: Overload:SHARP3D.C3d.C3dFile.DataTypeFile
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.DataTypeFile
+  nameWithType: C3dFile.DataTypeFile
+- uid: SHARP3D.C3d.C3dFile.FileLength
+  name: FileLength
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_FileLength
+  commentId: P:SHARP3D.C3d.C3dFile.FileLength
+  fullName: SHARP3D.C3d.C3dFile.FileLength
+  nameWithType: C3dFile.FileLength
+- uid: SHARP3D.C3d.C3dFile.FileLength*
+  name: FileLength
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_FileLength_
+  commentId: Overload:SHARP3D.C3d.C3dFile.FileLength
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.FileLength
+  nameWithType: C3dFile.FileLength
+- uid: SHARP3D.C3d.C3dFile.FilePath
+  name: FilePath
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_FilePath
+  commentId: P:SHARP3D.C3d.C3dFile.FilePath
+  fullName: SHARP3D.C3d.C3dFile.FilePath
+  nameWithType: C3dFile.FilePath
+- uid: SHARP3D.C3d.C3dFile.FilePath*
+  name: FilePath
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_FilePath_
+  commentId: Overload:SHARP3D.C3d.C3dFile.FilePath
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.FilePath
+  nameWithType: C3dFile.FilePath
+- uid: SHARP3D.C3d.C3dFile.GetAnalogChannelScale(System.Int32)
+  name: GetAnalogChannelScale(int)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogChannelScale_System_Int32_
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogChannelScale(System.Int32)
+  name.vb: GetAnalogChannelScale(Integer)
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogChannelScale(int)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetAnalogChannelScale(Integer)
+  nameWithType: C3dFile.GetAnalogChannelScale(int)
+  nameWithType.vb: C3dFile.GetAnalogChannelScale(Integer)
+- uid: SHARP3D.C3d.C3dFile.GetAnalogChannelScale*
+  name: GetAnalogChannelScale
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogChannelScale_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogChannelScale
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogChannelScale
+  nameWithType: C3dFile.GetAnalogChannelScale
+- uid: SHARP3D.C3d.C3dFile.GetAnalogFormat
+  name: GetAnalogFormat()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogFormat
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogFormat
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogFormat()
+  nameWithType: C3dFile.GetAnalogFormat()
+- uid: SHARP3D.C3d.C3dFile.GetAnalogFormat*
+  name: GetAnalogFormat
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogFormat_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogFormat
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogFormat
+  nameWithType: C3dFile.GetAnalogFormat
+- uid: SHARP3D.C3d.C3dFile.GetAnalogGeneralScale
+  name: GetAnalogGeneralScale()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogGeneralScale
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogGeneralScale
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogGeneralScale()
+  nameWithType: C3dFile.GetAnalogGeneralScale()
+- uid: SHARP3D.C3d.C3dFile.GetAnalogGeneralScale*
+  name: GetAnalogGeneralScale
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogGeneralScale_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogGeneralScale
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogGeneralScale
+  nameWithType: C3dFile.GetAnalogGeneralScale
+- uid: SHARP3D.C3d.C3dFile.GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name: GetAnalogOffset(int, AnalogFormatFlag)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogOffset_System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name.vb: GetAnalogOffset(Integer, AnalogFormatFlag)
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogOffset(int, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetAnalogOffset(Integer, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  nameWithType: C3dFile.GetAnalogOffset(int, AnalogFormatFlag)
+  nameWithType.vb: C3dFile.GetAnalogOffset(Integer, AnalogFormatFlag)
+- uid: SHARP3D.C3d.C3dFile.GetAnalogOffset*
+  name: GetAnalogOffset
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogOffset_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogOffset
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogOffset
+  nameWithType: C3dFile.GetAnalogOffset
+- uid: SHARP3D.C3d.C3dFile.GetAnalogRate
+  name: GetAnalogRate()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogRate
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogRate
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogRate()
+  nameWithType: C3dFile.GetAnalogRate()
+- uid: SHARP3D.C3d.C3dFile.GetAnalogRate*
+  name: GetAnalogRate
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogRate_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogRate
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogRate
+  nameWithType: C3dFile.GetAnalogRate
+- uid: SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)
+  name: GetAnalogSamplePerFrame(float, float)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogSamplePerFrame_System_Single_System_Single_
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)
+  name.vb: GetAnalogSamplePerFrame(Single, Single)
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame(float, float)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame(Single, Single)
+  nameWithType: C3dFile.GetAnalogSamplePerFrame(float, float)
+  nameWithType.vb: C3dFile.GetAnalogSamplePerFrame(Single, Single)
+- uid: SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame*
+  name: GetAnalogSamplePerFrame
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogSamplePerFrame_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogSamplePerFrame
+  nameWithType: C3dFile.GetAnalogSamplePerFrame
+- uid: SHARP3D.C3d.C3dFile.GetAnalogUsed
+  name: GetAnalogUsed()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogUsed
+  commentId: M:SHARP3D.C3d.C3dFile.GetAnalogUsed
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogUsed()
+  nameWithType: C3dFile.GetAnalogUsed()
+- uid: SHARP3D.C3d.C3dFile.GetAnalogUsed*
+  name: GetAnalogUsed
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetAnalogUsed_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetAnalogUsed
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetAnalogUsed
+  nameWithType: C3dFile.GetAnalogUsed
+- uid: SHARP3D.C3d.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name: GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetDataAndBit_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
+  commentId: M:SHARP3D.C3d.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name.vb: GetDataAndBit(FileStream, ProcessorType, DataType, Single)
+  fullName: SHARP3D.C3d.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
+  nameWithType: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  nameWithType.vb: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, Single)
+- uid: SHARP3D.C3d.C3dFile.GetDataAndBit*
+  name: GetDataAndBit
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetDataAndBit_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetDataAndBit
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetDataAndBit
+  nameWithType: C3dFile.GetDataAndBit
+- uid: SHARP3D.C3d.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  name: GetDataSectionPointer(FileStream, ProcessorType)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetDataSectionPointer_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
+  commentId: M:SHARP3D.C3d.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  fullName: SHARP3D.C3d.C3dFile.GetDataSectionPointer(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType)
+  nameWithType: C3dFile.GetDataSectionPointer(FileStream, ProcessorType)
+- uid: SHARP3D.C3d.C3dFile.GetDataSectionPointer*
+  name: GetDataSectionPointer
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetDataSectionPointer_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetDataSectionPointer
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetDataSectionPointer
+  nameWithType: C3dFile.GetDataSectionPointer
+- uid: SHARP3D.C3d.C3dFile.GetFrameValue(System.Object)
+  name: GetFrameValue(object?)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetFrameValue_System_Object_
+  commentId: M:SHARP3D.C3d.C3dFile.GetFrameValue(System.Object)
+  name.vb: GetFrameValue(Object)
+  fullName: SHARP3D.C3d.C3dFile.GetFrameValue(object?)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetFrameValue(Object)
+  nameWithType: C3dFile.GetFrameValue(object?)
+  nameWithType.vb: C3dFile.GetFrameValue(Object)
+- uid: SHARP3D.C3d.C3dFile.GetFrameValue*
+  name: GetFrameValue
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetFrameValue_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetFrameValue
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetFrameValue
+  nameWithType: C3dFile.GetFrameValue
+- uid: SHARP3D.C3d.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  name: GetHeader(FileStream, ProcessorType)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetHeader_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
+  commentId: M:SHARP3D.C3d.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  fullName: SHARP3D.C3d.C3dFile.GetHeader(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType)
+  nameWithType: C3dFile.GetHeader(FileStream, ProcessorType)
+- uid: SHARP3D.C3d.C3dFile.GetHeader*
+  name: GetHeader
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetHeader_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetHeader
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetHeader
+  nameWithType: C3dFile.GetHeader
+- uid: SHARP3D.C3d.C3dFile.GetParameter(System.String,System.String)
+  name: GetParameter(string, string)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameter_System_String_System_String_
+  commentId: M:SHARP3D.C3d.C3dFile.GetParameter(System.String,System.String)
+  name.vb: GetParameter(String, String)
+  fullName: SHARP3D.C3d.C3dFile.GetParameter(string, string)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetParameter(String, String)
+  nameWithType: C3dFile.GetParameter(string, string)
+  nameWithType.vb: C3dFile.GetParameter(String, String)
+- uid: SHARP3D.C3d.C3dFile.GetParameter*
+  name: GetParameter
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameter_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetParameter
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetParameter
+  nameWithType: C3dFile.GetParameter
+- uid: SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
+  name: GetParameterBlockCount(FileStream)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterBlockCount_System_IO_FileStream_
+  commentId: M:SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
+  fullName: SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
+  nameWithType: C3dFile.GetParameterBlockCount(FileStream)
+- uid: SHARP3D.C3d.C3dFile.GetParameterBlockCount*
+  name: GetParameterBlockCount
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterBlockCount_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetParameterBlockCount
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetParameterBlockCount
+  nameWithType: C3dFile.GetParameterBlockCount
+- uid: SHARP3D.C3d.C3dFile.GetParameterSectionPointer(System.IO.FileStream)
+  name: GetParameterSectionPointer(FileStream)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterSectionPointer_System_IO_FileStream_
+  commentId: M:SHARP3D.C3d.C3dFile.GetParameterSectionPointer(System.IO.FileStream)
+  fullName: SHARP3D.C3d.C3dFile.GetParameterSectionPointer(System.IO.FileStream)
+  nameWithType: C3dFile.GetParameterSectionPointer(FileStream)
+- uid: SHARP3D.C3d.C3dFile.GetParameterSectionPointer*
+  name: GetParameterSectionPointer
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterSectionPointer_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetParameterSectionPointer
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetParameterSectionPointer
+  nameWithType: C3dFile.GetParameterSectionPointer
+- uid: SHARP3D.C3d.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  name: GetParameters(FileStream, ProcessorType, int, int)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameters_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_System_Int32_System_Int32_
+  commentId: M:SHARP3D.C3d.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  name.vb: GetParameters(FileStream, ProcessorType, Integer, Integer)
+  fullName: SHARP3D.C3d.C3dFile.GetParameters(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, int, int)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetParameters(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, Integer, Integer)
+  nameWithType: C3dFile.GetParameters(FileStream, ProcessorType, int, int)
+  nameWithType.vb: C3dFile.GetParameters(FileStream, ProcessorType, Integer, Integer)
+- uid: SHARP3D.C3d.C3dFile.GetParameters*
+  name: GetParameters
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameters_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetParameters
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetParameters
+  nameWithType: C3dFile.GetParameters
+- uid: SHARP3D.C3d.C3dFile.GetPointFrameValue(System.String)
+  name: GetPointFrameValue(string)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetPointFrameValue_System_String_
+  commentId: M:SHARP3D.C3d.C3dFile.GetPointFrameValue(System.String)
+  name.vb: GetPointFrameValue(String)
+  fullName: SHARP3D.C3d.C3dFile.GetPointFrameValue(string)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetPointFrameValue(String)
+  nameWithType: C3dFile.GetPointFrameValue(string)
+  nameWithType.vb: C3dFile.GetPointFrameValue(String)
+- uid: SHARP3D.C3d.C3dFile.GetPointFrameValue*
+  name: GetPointFrameValue
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetPointFrameValue_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetPointFrameValue
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetPointFrameValue
+  nameWithType: C3dFile.GetPointFrameValue
+- uid: SHARP3D.C3d.C3dFile.GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  name: GetPointScale(FileStream, ProcessorType)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetPointScale_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
+  commentId: M:SHARP3D.C3d.C3dFile.GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  fullName: SHARP3D.C3d.C3dFile.GetPointScale(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType)
+  nameWithType: C3dFile.GetPointScale(FileStream, ProcessorType)
+- uid: SHARP3D.C3d.C3dFile.GetPointScale*
+  name: GetPointScale
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetPointScale_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetPointScale
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetPointScale
+  nameWithType: C3dFile.GetPointScale
+- uid: SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int64,SHARP3D.Utils.Enum.DataType)
+  name: GetRightAmountMarkerPerFrame(int, int, int, int, int, int, long, DataType)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetRightAmountMarkerPerFrame_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int32_System_Int64_SHARP3D_Utils_Enum_DataType_
+  commentId: M:SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int64,SHARP3D.Utils.Enum.DataType)
+  name.vb: GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, DataType)
+  fullName: SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame(int, int, int, int, int, int, long, SHARP3D.Utils.Enum.DataType)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, SHARP3D.Utils.Enum.DataType)
+  nameWithType: C3dFile.GetRightAmountMarkerPerFrame(int, int, int, int, int, int, long, DataType)
+  nameWithType.vb: C3dFile.GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, DataType)
+- uid: SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame*
+  name: GetRightAmountMarkerPerFrame
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetRightAmountMarkerPerFrame_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetRightAmountMarkerPerFrame
+  nameWithType: C3dFile.GetRightAmountMarkerPerFrame
+- uid: SHARP3D.C3d.C3dFile.GetRightAmountOfFrames
+  name: GetRightAmountOfFrames()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetRightAmountOfFrames
+  commentId: M:SHARP3D.C3d.C3dFile.GetRightAmountOfFrames
+  fullName: SHARP3D.C3d.C3dFile.GetRightAmountOfFrames()
+  nameWithType: C3dFile.GetRightAmountOfFrames()
+- uid: SHARP3D.C3d.C3dFile.GetRightAmountOfFrames*
+  name: GetRightAmountOfFrames
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetRightAmountOfFrames_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetRightAmountOfFrames
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetRightAmountOfFrames
+  nameWithType: C3dFile.GetRightAmountOfFrames
+- uid: SHARP3D.C3d.C3dFile.GetXParameters(System.Int32,System.String,System.String)
+  name: GetXParameters(int, string, string)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetXParameters_System_Int32_System_String_System_String_
+  commentId: M:SHARP3D.C3d.C3dFile.GetXParameters(System.Int32,System.String,System.String)
+  name.vb: GetXParameters(Integer, String, String)
+  fullName: SHARP3D.C3d.C3dFile.GetXParameters(int, string, string)
+  fullName.vb: SHARP3D.C3d.C3dFile.GetXParameters(Integer, String, String)
+  nameWithType: C3dFile.GetXParameters(int, string, string)
+  nameWithType.vb: C3dFile.GetXParameters(Integer, String, String)
+- uid: SHARP3D.C3d.C3dFile.GetXParameters*
+  name: GetXParameters
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetXParameters_
+  commentId: Overload:SHARP3D.C3d.C3dFile.GetXParameters
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.GetXParameters
+  nameWithType: C3dFile.GetXParameters
+- uid: SHARP3D.C3d.C3dFile.Header
+  name: Header
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Header
+  commentId: P:SHARP3D.C3d.C3dFile.Header
+  fullName: SHARP3D.C3d.C3dFile.Header
+  nameWithType: C3dFile.Header
+- uid: SHARP3D.C3d.C3dFile.Header*
+  name: Header
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Header_
+  commentId: Overload:SHARP3D.C3d.C3dFile.Header
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.Header
+  nameWithType: C3dFile.Header
+- uid: SHARP3D.C3d.C3dFile.LoadFromFile(System.String)
+  name: LoadFromFile(string)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_LoadFromFile_System_String_
+  commentId: M:SHARP3D.C3d.C3dFile.LoadFromFile(System.String)
+  name.vb: LoadFromFile(String)
+  fullName: SHARP3D.C3d.C3dFile.LoadFromFile(string)
+  fullName.vb: SHARP3D.C3d.C3dFile.LoadFromFile(String)
+  nameWithType: C3dFile.LoadFromFile(string)
+  nameWithType.vb: C3dFile.LoadFromFile(String)
+- uid: SHARP3D.C3d.C3dFile.LoadFromFile*
+  name: LoadFromFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_LoadFromFile_
+  commentId: Overload:SHARP3D.C3d.C3dFile.LoadFromFile
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.LoadFromFile
+  nameWithType: C3dFile.LoadFromFile
+- uid: SHARP3D.C3d.C3dFile.OpenC3dFile(System.String)
+  name: OpenC3dFile(string)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_OpenC3dFile_System_String_
+  commentId: M:SHARP3D.C3d.C3dFile.OpenC3dFile(System.String)
+  name.vb: OpenC3dFile(String)
+  fullName: SHARP3D.C3d.C3dFile.OpenC3dFile(string)
+  fullName.vb: SHARP3D.C3d.C3dFile.OpenC3dFile(String)
+  nameWithType: C3dFile.OpenC3dFile(string)
+  nameWithType.vb: C3dFile.OpenC3dFile(String)
+- uid: SHARP3D.C3d.C3dFile.OpenC3dFile*
+  name: OpenC3dFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_OpenC3dFile_
+  commentId: Overload:SHARP3D.C3d.C3dFile.OpenC3dFile
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.OpenC3dFile
+  nameWithType: C3dFile.OpenC3dFile
+- uid: SHARP3D.C3d.C3dFile.ParameterCollection
+  name: ParameterCollection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ParameterCollection
+  commentId: P:SHARP3D.C3d.C3dFile.ParameterCollection
+  fullName: SHARP3D.C3d.C3dFile.ParameterCollection
+  nameWithType: C3dFile.ParameterCollection
+- uid: SHARP3D.C3d.C3dFile.ParameterCollection*
+  name: ParameterCollection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ParameterCollection_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ParameterCollection
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ParameterCollection
+  nameWithType: C3dFile.ParameterCollection
+- uid: SHARP3D.C3d.C3dFile.Parameters
+  name: Parameters
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Parameters
+  commentId: P:SHARP3D.C3d.C3dFile.Parameters
+  fullName: SHARP3D.C3d.C3dFile.Parameters
+  nameWithType: C3dFile.Parameters
+- uid: SHARP3D.C3d.C3dFile.Parameters*
+  name: Parameters
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Parameters_
+  commentId: Overload:SHARP3D.C3d.C3dFile.Parameters
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.Parameters
+  nameWithType: C3dFile.Parameters
+- uid: SHARP3D.C3d.C3dFile.Point
+  name: Point
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Point
+  commentId: P:SHARP3D.C3d.C3dFile.Point
+  fullName: SHARP3D.C3d.C3dFile.Point
+  nameWithType: C3dFile.Point
+- uid: SHARP3D.C3d.C3dFile.Point*
+  name: Point
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Point_
+  commentId: Overload:SHARP3D.C3d.C3dFile.Point
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.Point
+  nameWithType: C3dFile.Point
+- uid: SHARP3D.C3d.C3dFile.PointerDataSection
+  name: PointerDataSection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_PointerDataSection
+  commentId: P:SHARP3D.C3d.C3dFile.PointerDataSection
+  fullName: SHARP3D.C3d.C3dFile.PointerDataSection
+  nameWithType: C3dFile.PointerDataSection
+- uid: SHARP3D.C3d.C3dFile.PointerDataSection*
+  name: PointerDataSection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_PointerDataSection_
+  commentId: Overload:SHARP3D.C3d.C3dFile.PointerDataSection
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.PointerDataSection
+  nameWithType: C3dFile.PointerDataSection
+- uid: SHARP3D.C3d.C3dFile.PointerParameterSection
+  name: PointerParameterSection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_PointerParameterSection
+  commentId: P:SHARP3D.C3d.C3dFile.PointerParameterSection
+  fullName: SHARP3D.C3d.C3dFile.PointerParameterSection
+  nameWithType: C3dFile.PointerParameterSection
+- uid: SHARP3D.C3d.C3dFile.PointerParameterSection*
+  name: PointerParameterSection
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_PointerParameterSection_
+  commentId: Overload:SHARP3D.C3d.C3dFile.PointerParameterSection
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.PointerParameterSection
+  nameWithType: C3dFile.PointerParameterSection
+- uid: SHARP3D.C3d.C3dFile.ProcessorFile
+  name: ProcessorFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ProcessorFile
+  commentId: P:SHARP3D.C3d.C3dFile.ProcessorFile
+  fullName: SHARP3D.C3d.C3dFile.ProcessorFile
+  nameWithType: C3dFile.ProcessorFile
+- uid: SHARP3D.C3d.C3dFile.ProcessorFile*
+  name: ProcessorFile
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ProcessorFile_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ProcessorFile
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ProcessorFile
+  nameWithType: C3dFile.ProcessorFile
+- uid: SHARP3D.C3d.C3dFile.ProcessorHost
+  name: ProcessorHost
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ProcessorHost
+  commentId: P:SHARP3D.C3d.C3dFile.ProcessorHost
+  fullName: SHARP3D.C3d.C3dFile.ProcessorHost
+  nameWithType: C3dFile.ProcessorHost
+- uid: SHARP3D.C3d.C3dFile.ProcessorHost*
+  name: ProcessorHost
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ProcessorHost_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ProcessorHost
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ProcessorHost
+  nameWithType: C3dFile.ProcessorHost
+- uid: SHARP3D.C3d.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
+  name: ReadHeaderBinaries(FileStream)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadHeaderBinaries_System_IO_FileStream_
+  commentId: M:SHARP3D.C3d.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
+  fullName: SHARP3D.C3d.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
+  nameWithType: C3dFile.ReadHeaderBinaries(FileStream)
+- uid: SHARP3D.C3d.C3dFile.ReadHeaderBinaries*
+  name: ReadHeaderBinaries
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadHeaderBinaries_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ReadHeaderBinaries
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ReadHeaderBinaries
+  nameWithType: C3dFile.ReadHeaderBinaries
+- uid: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
+  name: ReadParameterBinaries(FileStream, int, int)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadParameterBinaries_System_IO_FileStream_System_Int32_System_Int32_
+  commentId: M:SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
+  name.vb: ReadParameterBinaries(FileStream, Integer, Integer)
+  fullName: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream, int, int)
+  fullName.vb: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream, Integer, Integer)
+  nameWithType: C3dFile.ReadParameterBinaries(FileStream, int, int)
+  nameWithType.vb: C3dFile.ReadParameterBinaries(FileStream, Integer, Integer)
+- uid: SHARP3D.C3d.C3dFile.ReadParameterBinaries*
+  name: ReadParameterBinaries
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadParameterBinaries_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ReadParameterBinaries
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ReadParameterBinaries
+  nameWithType: C3dFile.ReadParameterBinaries
+- uid: SHARP3D.C3d.C3dFile.ReadProcessorByte(System.IO.FileStream)
+  name: ReadProcessorByte(FileStream)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadProcessorByte_System_IO_FileStream_
+  commentId: M:SHARP3D.C3d.C3dFile.ReadProcessorByte(System.IO.FileStream)
+  fullName: SHARP3D.C3d.C3dFile.ReadProcessorByte(System.IO.FileStream)
+  nameWithType: C3dFile.ReadProcessorByte(FileStream)
+- uid: SHARP3D.C3d.C3dFile.ReadProcessorByte*
+  name: ReadProcessorByte
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadProcessorByte_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ReadProcessorByte
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ReadProcessorByte
+  nameWithType: C3dFile.ReadProcessorByte
+- uid: SHARP3D.C3d.C3dFile.SetFileAnalog
+  name: SetFileAnalog()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_SetFileAnalog
+  commentId: M:SHARP3D.C3d.C3dFile.SetFileAnalog
+  fullName: SHARP3D.C3d.C3dFile.SetFileAnalog()
+  nameWithType: C3dFile.SetFileAnalog()
+- uid: SHARP3D.C3d.C3dFile.SetFileAnalog*
+  name: SetFileAnalog
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_SetFileAnalog_
+  commentId: Overload:SHARP3D.C3d.C3dFile.SetFileAnalog
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.SetFileAnalog
+  nameWithType: C3dFile.SetFileAnalog
+- uid: SHARP3D.C3d.C3dFile.setFilePoint(System.Int32,System.Single)
+  name: setFilePoint(int, float)
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_setFilePoint_System_Int32_System_Single_
+  commentId: M:SHARP3D.C3d.C3dFile.setFilePoint(System.Int32,System.Single)
+  name.vb: setFilePoint(Integer, Single)
+  fullName: SHARP3D.C3d.C3dFile.setFilePoint(int, float)
+  fullName.vb: SHARP3D.C3d.C3dFile.setFilePoint(Integer, Single)
+  nameWithType: C3dFile.setFilePoint(int, float)
+  nameWithType.vb: C3dFile.setFilePoint(Integer, Single)
+- uid: SHARP3D.C3d.C3dFile.setFilePoint*
+  name: setFilePoint
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_setFilePoint_
+  commentId: Overload:SHARP3D.C3d.C3dFile.setFilePoint
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.setFilePoint
+  nameWithType: C3dFile.setFilePoint
+- uid: SHARP3D.C3d.C3dParameterAnalog
+  name: C3dParameterAnalog
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html
+  commentId: T:SHARP3D.C3d.C3dParameterAnalog
+  fullName: SHARP3D.C3d.C3dParameterAnalog
+  nameWithType: C3dParameterAnalog
+- uid: SHARP3D.C3d.C3dParameterAnalog.Bits
+  name: Bits
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Bits
+  commentId: P:SHARP3D.C3d.C3dParameterAnalog.Bits
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Bits
+  nameWithType: C3dParameterAnalog.Bits
+- uid: SHARP3D.C3d.C3dParameterAnalog.Bits*
+  name: Bits
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Bits_
+  commentId: Overload:SHARP3D.C3d.C3dParameterAnalog.Bits
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Bits
+  nameWithType: C3dParameterAnalog.Bits
+- uid: SHARP3D.C3d.C3dParameterAnalog.ChannelScale
+  name: ChannelScale
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_ChannelScale
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.ChannelScale
+  fullName: SHARP3D.C3d.C3dParameterAnalog.ChannelScale
+  nameWithType: C3dParameterAnalog.ChannelScale
+- uid: SHARP3D.C3d.C3dParameterAnalog.Descriptions
+  name: Descriptions
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Descriptions
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Descriptions
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Descriptions
+  nameWithType: C3dParameterAnalog.Descriptions
+- uid: SHARP3D.C3d.C3dParameterAnalog.GeneralScale
+  name: GeneralScale
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_GeneralScale
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.GeneralScale
+  fullName: SHARP3D.C3d.C3dParameterAnalog.GeneralScale
+  nameWithType: C3dParameterAnalog.GeneralScale
+- uid: SHARP3D.C3d.C3dParameterAnalog.Labels
+  name: Labels
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Labels
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Labels
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Labels
+  nameWithType: C3dParameterAnalog.Labels
+- uid: SHARP3D.C3d.C3dParameterAnalog.Offset
+  name: Offset
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Offset
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Offset
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Offset
+  nameWithType: C3dParameterAnalog.Offset
+- uid: SHARP3D.C3d.C3dParameterAnalog.Rate
+  name: Rate
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Rate
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Rate
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Rate
+  nameWithType: C3dParameterAnalog.Rate
+- uid: SHARP3D.C3d.C3dParameterAnalog.Units
+  name: Units
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Units
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Units
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Units
+  nameWithType: C3dParameterAnalog.Units
+- uid: SHARP3D.C3d.C3dParameterAnalog.Used
+  name: Used
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Used
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.Used
+  fullName: SHARP3D.C3d.C3dParameterAnalog.Used
+  nameWithType: C3dParameterAnalog.Used
+- uid: SHARP3D.C3d.C3dParameterPoint
+  name: C3dParameterPoint
+  href: api/SHARP3D.C3d.C3dParameterPoint.html
+  commentId: T:SHARP3D.C3d.C3dParameterPoint
+  fullName: SHARP3D.C3d.C3dParameterPoint
+  nameWithType: C3dParameterPoint
+- uid: SHARP3D.C3d.C3dParameterPoint.Descriptions
+  name: Descriptions
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Descriptions
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Descriptions
+  fullName: SHARP3D.C3d.C3dParameterPoint.Descriptions
+  nameWithType: C3dParameterPoint.Descriptions
+- uid: SHARP3D.C3d.C3dParameterPoint.Frames
+  name: Frames
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Frames
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Frames
+  fullName: SHARP3D.C3d.C3dParameterPoint.Frames
+  nameWithType: C3dParameterPoint.Frames
+- uid: SHARP3D.C3d.C3dParameterPoint.Labels
+  name: Labels
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Labels
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Labels
+  fullName: SHARP3D.C3d.C3dParameterPoint.Labels
+  nameWithType: C3dParameterPoint.Labels
+- uid: SHARP3D.C3d.C3dParameterPoint.Rate
+  name: Rate
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Rate
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Rate
+  fullName: SHARP3D.C3d.C3dParameterPoint.Rate
+  nameWithType: C3dParameterPoint.Rate
+- uid: SHARP3D.C3d.C3dParameterPoint.Scale
+  name: Scale
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Scale
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Scale
+  fullName: SHARP3D.C3d.C3dParameterPoint.Scale
+  nameWithType: C3dParameterPoint.Scale
+- uid: SHARP3D.C3d.C3dParameterPoint.Units
+  name: Units
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Units
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Units
+  fullName: SHARP3D.C3d.C3dParameterPoint.Units
+  nameWithType: C3dParameterPoint.Units
+- uid: SHARP3D.C3d.C3dParameterPoint.Used
+  name: Used
+  href: api/SHARP3D.C3d.C3dParameterPoint.html#SHARP3D_C3d_C3dParameterPoint_Used
+  commentId: F:SHARP3D.C3d.C3dParameterPoint.Used
+  fullName: SHARP3D.C3d.C3dParameterPoint.Used
+  nameWithType: C3dParameterPoint.Used
 - uid: SHARP3D.C3dFile
   name: C3dFile
   href: api/SHARP3D.C3dFile.html
@@ -41,6 +777,45 @@ references:
   fullName.vb: SHARP3D.C3dFile.New
   nameWithType: C3dFile.C3dFile
   nameWithType.vb: C3dFile.New
+- uid: SHARP3D.C3dFile.C3dStream
+  name: C3dStream
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_C3dStream
+  commentId: P:SHARP3D.C3dFile.C3dStream
+  fullName: SHARP3D.C3dFile.C3dStream
+  nameWithType: C3dFile.C3dStream
+- uid: SHARP3D.C3dFile.C3dStream*
+  name: C3dStream
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_C3dStream_
+  commentId: Overload:SHARP3D.C3dFile.C3dStream
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.C3dStream
+  nameWithType: C3dFile.C3dStream
+- uid: SHARP3D.C3dFile.CloseFileStream
+  name: CloseFileStream()
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CloseFileStream
+  commentId: M:SHARP3D.C3dFile.CloseFileStream
+  fullName: SHARP3D.C3dFile.CloseFileStream()
+  nameWithType: C3dFile.CloseFileStream()
+- uid: SHARP3D.C3dFile.CloseFileStream*
+  name: CloseFileStream
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CloseFileStream_
+  commentId: Overload:SHARP3D.C3dFile.CloseFileStream
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.CloseFileStream
+  nameWithType: C3dFile.CloseFileStream
+- uid: SHARP3D.C3dFile.CreateEmpty
+  name: CreateEmpty()
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CreateEmpty
+  commentId: M:SHARP3D.C3dFile.CreateEmpty
+  fullName: SHARP3D.C3dFile.CreateEmpty()
+  nameWithType: C3dFile.CreateEmpty()
+- uid: SHARP3D.C3dFile.CreateEmpty*
+  name: CreateEmpty
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_CreateEmpty_
+  commentId: Overload:SHARP3D.C3dFile.CreateEmpty
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.CreateEmpty
+  nameWithType: C3dFile.CreateEmpty
 - uid: SHARP3D.C3dFile.Data
   name: Data
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Data
@@ -96,22 +871,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.GetAnalogSamplePerFrame
   nameWithType: C3dFile.GetAnalogSamplePerFrame
-- uid: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  name: GetDataAndBit(FileStream, ProcessorType, DataType, float)
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataAndBit_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
-  commentId: M:SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  name.vb: GetDataAndBit(FileStream, ProcessorType, DataType, Single)
-  fullName: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
-  fullName.vb: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
-  nameWithType: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, float)
-  nameWithType.vb: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, Single)
-- uid: SHARP3D.C3dFile.GetDataAndBit*
-  name: GetDataAndBit
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataAndBit_
-  commentId: Overload:SHARP3D.C3dFile.GetDataAndBit
+- uid: SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name: GetData(FileStream, ProcessorType, DataType, float)
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetData_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
+  commentId: M:SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  name.vb: GetData(FileStream, ProcessorType, DataType, Single)
+  fullName: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
+  fullName.vb: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
+  nameWithType: C3dFile.GetData(FileStream, ProcessorType, DataType, float)
+  nameWithType.vb: C3dFile.GetData(FileStream, ProcessorType, DataType, Single)
+- uid: SHARP3D.C3dFile.GetData*
+  name: GetData
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetData_
+  commentId: Overload:SHARP3D.C3dFile.GetData
   isSpec: "True"
-  fullName: SHARP3D.C3dFile.GetDataAndBit
-  nameWithType: C3dFile.GetDataAndBit
+  fullName: SHARP3D.C3dFile.GetData
+  nameWithType: C3dFile.GetData
 - uid: SHARP3D.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   name: GetDataSectionPointer(FileStream, ProcessorType)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataSectionPointer_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
@@ -283,6 +1058,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.Header
   nameWithType: C3dFile.Header
+- uid: SHARP3D.C3dFile.IsFileStreamOpen
+  name: IsFileStreamOpen()
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_IsFileStreamOpen
+  commentId: M:SHARP3D.C3dFile.IsFileStreamOpen
+  fullName: SHARP3D.C3dFile.IsFileStreamOpen()
+  nameWithType: C3dFile.IsFileStreamOpen()
+- uid: SHARP3D.C3dFile.IsFileStreamOpen*
+  name: IsFileStreamOpen
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_IsFileStreamOpen_
+  commentId: Overload:SHARP3D.C3dFile.IsFileStreamOpen
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.IsFileStreamOpen
+  nameWithType: C3dFile.IsFileStreamOpen
 - uid: SHARP3D.C3dFile.LoadFromFile(System.String)
   name: LoadFromFile(string)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_LoadFromFile_System_String_
@@ -341,19 +1129,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.Parameters
   nameWithType: C3dFile.Parameters
-- uid: SHARP3D.C3dFile.Path
-  name: Path
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Path
-  commentId: P:SHARP3D.C3dFile.Path
-  fullName: SHARP3D.C3dFile.Path
-  nameWithType: C3dFile.Path
-- uid: SHARP3D.C3dFile.Path*
-  name: Path
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Path_
-  commentId: Overload:SHARP3D.C3dFile.Path
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.Path
-  nameWithType: C3dFile.Path
 - uid: SHARP3D.C3dFile.PointerDataSection
   name: PointerDataSection
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_PointerDataSection
@@ -448,6 +1223,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.ReadProcessorByte
   nameWithType: C3dFile.ReadProcessorByte
+- uid: SHARP3D.C3dFile.SaveToFile(System.String)
+  name: SaveToFile(string)
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_System_String_
+  commentId: M:SHARP3D.C3dFile.SaveToFile(System.String)
+  name.vb: SaveToFile(String)
+  fullName: SHARP3D.C3dFile.SaveToFile(string)
+  fullName.vb: SHARP3D.C3dFile.SaveToFile(String)
+  nameWithType: C3dFile.SaveToFile(string)
+  nameWithType.vb: C3dFile.SaveToFile(String)
+- uid: SHARP3D.C3dFile.SaveToFile*
+  name: SaveToFile
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_
+  commentId: Overload:SHARP3D.C3dFile.SaveToFile
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.SaveToFile
+  nameWithType: C3dFile.SaveToFile
 - uid: SHARP3D.C3dFile.ScaleFactor
   name: ScaleFactor
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ScaleFactor
@@ -461,6 +1252,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.ScaleFactor
   nameWithType: C3dFile.ScaleFactor
+- uid: SHARP3D.C3dFile.ToBinaries
+  name: ToBinaries()
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries
+  commentId: M:SHARP3D.C3dFile.ToBinaries
+  fullName: SHARP3D.C3dFile.ToBinaries()
+  nameWithType: C3dFile.ToBinaries()
+- uid: SHARP3D.C3dFile.ToBinaries*
+  name: ToBinaries
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries_
+  commentId: Overload:SHARP3D.C3dFile.ToBinaries
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.ToBinaries
+  nameWithType: C3dFile.ToBinaries
 - uid: SHARP3D.Data
   name: SHARP3D.Data
   href: api/SHARP3D.Data.html
