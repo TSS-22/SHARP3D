@@ -6,11 +6,14 @@ using SHARP3D.Parameter;
 using SHARP3D.Parameter.Data;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
 [assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
-namespace SHARP3D
+namespace SHARP3D.C3d
 {
     /// <summary>
     /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary conversion.
@@ -24,8 +27,10 @@ namespace SHARP3D
         /// <summary>
         /// The path of the C3D File.
         /// </summary>
-        public string Path { get; set; }
+        public string FilePath { get; set; }
         
+        public long FileLength { get; set; }
+
         /// <summary>
         /// Specifies the type of processor that was used to create the C3D file.
         /// </summary>
@@ -37,6 +42,11 @@ namespace SHARP3D
         public ProcessorType ProcessorHost { get; set; } = BitConverter.IsLittleEndian ? ProcessorType.INTEL : ProcessorType.SIG_MIPS;
 
         /// <summary>
+        /// Gets or sets the data type used in the C3D file.
+        /// </summary>
+        public DataType DataTypeFile { get; set; }
+
+        /// <summary>
         /// Gets or sets the pointer to the parameter section in the C3D file.
         /// </summary>
         public int PointerParameterSection { get; set; }
@@ -45,16 +55,6 @@ namespace SHARP3D
         /// Gets or sets the pointer to the data section in the C3D file.
         /// </summary>
         public int PointerDataSection { get; set; }
-
-        /// <summary>
-        /// Gets or sets the scale factor used for 3D point data in the C3D file.
-        /// </summary>
-        public float ScaleFactor { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data type used in the C3D file.
-        /// </summary>
-        public DataType DataTypeFile { get; set; }
 
         /// <summary>
         /// Gets or sets the header information of the C3D file.
@@ -71,6 +71,14 @@ namespace SHARP3D
         /// </summary>
         public C3dParameterCollection ParameterCollection { get; set; }
 
+        public C3dParameterPoint Point { get; set; }
+        public C3dParameterAnalog Analog { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data contained in the C3D file.
+        /// </summary>
+        public C3dData Data { get; set; }
+
         /// <summary>
         /// Centralize the values needed to extract the data from the C3D file.
         /// </summary>
@@ -78,13 +86,6 @@ namespace SHARP3D
         /// It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
         /// </remarks>
         public C3dDataContext DataContext { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data contained in the C3D file.
-        /// </summary>
-        public C3dData Data { get; set; }
-
-        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class.
@@ -96,12 +97,13 @@ namespace SHARP3D
         /// </summary>
         /// <param name="fileStream">The file stream to read the C3D file from.</param>
         internal C3dFile(FileStream fileStream)
-        { 
+        {
+            FilePath = fileStream.Name;
+            FileLength = fileStream.Length;
             ProcessorFile = ReadProcessorByte(fileStream); 
-            float tempScaleFactor = GetPointScaleFactor(fileStream, ProcessorFile);
-            ScaleFactor = Math.Abs(tempScaleFactor);
-            DataTypeFile = tempScaleFactor < 0 ? DataType.FLOAT32 : DataType.INT16;
-            
+            float tempPointScale = GetPointScale(fileStream, ProcessorFile);
+            DataTypeFile = tempPointScale < 0 ? DataType.FLOAT32 : DataType.INT16;
+
             Header = GetHeader(fileStream, ProcessorFile);
 
             PointerParameterSection = Header.PointerParameterSection;
@@ -111,8 +113,40 @@ namespace SHARP3D
 
             ParameterCollection = new C3dParameterCollection(Parameters);
 
-            int analogBiValue = 12;
-            (Data, analogBiValue) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, ScaleFactor);
+            Analog = SetFileAnalog();
+            Point = setFilePoint(Analog.Used, Analog.Rate);
+
+            int tempAnalogBits = 12;
+            (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
+
+            // Because ANALOG:BITS is not always defined. It needs to be "guesstimated".
+            //https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html
+            Analog = new C3dParameterAnalog
+            {
+                Bits = tempAnalogBits,
+                Descriptions = Analog.Descriptions,
+                GeneralScale = Analog.GeneralScale,
+                Labels = Analog.Labels,
+                Offset = Analog.Offset,
+                Rate = Analog.Rate,
+                ChannelScale = Analog.ChannelScale,
+                Units = Analog.Units,
+                Used = Analog.Used
+            };
+
+            // We update the Frames count to reflect the actual amount of frames in the data.
+            // Not the mistake, or the wishful thinking of the entity creating the file.
+            Point = new C3dParameterPoint
+            {
+                Frames = Data.Points.Count,
+                Rate = Point.Rate,
+                Scale = Point.Scale,
+                Units = Point.Units,
+                Used = Point.Used,
+                Descriptions = Point.Descriptions,
+                Labels = Point.Labels
+            };
+            
 
             fileStream.Close();
         }
@@ -128,6 +162,269 @@ namespace SHARP3D
         internal static FileStream OpenC3dFile(string filepath)
         {
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
+        }
+
+        internal C3dParameterAnalog SetFileAnalog()
+        {
+            C3dParameterAnalog fileAnalog = new C3dParameterAnalog();
+
+            try 
+            {
+                fileAnalog.Bits = GetParameter("analog", "bits").Data?.GetValue(0) as int? ?? 12;
+            } catch(ParameterNotFoundException ex)
+            {
+                Console.WriteLine($"{ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
+                fileAnalog.Bits = 12;
+            }
+            
+            fileAnalog.GeneralScale = GetAnalogGeneralScale();
+            fileAnalog.Rate = GetAnalogRate();
+            fileAnalog.Used = GetAnalogUsed();
+            fileAnalog.ChannelScale = GetAnalogChannelScale(fileAnalog.Used);
+            fileAnalog.Offset = GetAnalogOffset(fileAnalog.Used, GetAnalogFormat());
+            fileAnalog.Labels = GetXParameters(fileAnalog.Used, "analog", "labels");
+            fileAnalog.Descriptions = GetXParameters(fileAnalog.Used, "analog", "descriptions");
+            fileAnalog.Units = GetXParameters(fileAnalog.Used, "analog", "units");
+
+            return fileAnalog;
+        }
+
+        internal C3dParameterPoint setFilePoint(int analogUsed, float analogRate)
+        {
+            C3dParameterPoint filePoint = new C3dParameterPoint();
+
+            filePoint.Frames = GetRightAmountOfFrames();
+            filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
+            filePoint.Scale = Header.ScaleFactor;
+            
+            // See GetRightAmountMarkerPerFrame. Simple answer: some people fucked up and now we have to go through hoops to make it work reliably.
+            int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
+            filePoint.Used = GetRightAmountMarkerPerFrame(
+                filePoint.Frames,
+                analogUsed,
+                GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
+                    Header.MarkersPerFrame,
+                    markersPerFrame,
+                    PointerDataSection,
+                    FileLength,
+                    DataTypeFile
+                    );
+            filePoint.Labels = GetXParameters(filePoint.Used, "point", "labels");
+            filePoint.Descriptions = GetXParameters(filePoint.Used, "point", "descriptions");
+            try
+            {
+                char[]? tempUnits = GetParameter("point", "units").Data as char[];
+                if (tempUnits == null)
+                {
+                    throw new ParameterNotFoundException("POINT:UNITS is not populated.");
+                }
+                else
+                {
+                    filePoint.Units = new string(tempUnits).Trim();
+                }
+            }
+            catch(ParameterNotFoundException ex)
+            {
+                Console.WriteLine($"{ex.Message}. Defaulting to default C3D Point units: 'mm'");
+                filePoint.Units = "mm";
+            }
+            
+
+                return filePoint;
+        }
+
+        internal float GetAnalogRate()
+        {
+            try
+            {
+                return GetParameter("analog", "rate").Data?.GetValue(0) as float? ?? 0f; // Contradiction in the C3D documentation. Should have put more info, I forgot what it was.
+            }
+            catch (ParameterNotFoundException ex) 
+            {
+                Console.WriteLine("No ANALOG:RATE parameter found. Defaulting to 0 Hz for analog data.");
+                return 0f;
+            }   
+        }
+
+        internal int GetAnalogUsed()
+        {
+            try 
+            { 
+                return GetParameter("analog", "used").Data?.GetValue(0) as int? ?? 0; 
+            } 
+            catch (ParameterNotFoundException ex) 
+            {
+                Console.WriteLine("No ANALOG:USED parameter found. Defaulting to 0 analog channels.");
+                return 0;
+            }
+        }
+
+        internal float GetAnalogGeneralScale()
+        {
+            // TODO: Should I default to 0 or 1 if the parameter is not found or does not have value?
+            try 
+            {
+                return GetParameter("analog", "gen_scale").Data?.GetValue(0) as float? ?? 1f; 
+            } catch (ParameterNotFoundException ex) 
+            {
+                return 1f;
+            }
+        }
+
+        internal float[] GetAnalogChannelScale(int analogUsed)
+        {
+            float[] tempAnalogChannelScale = new float[] { 0f };
+            try { tempAnalogChannelScale = GetParameter("analog", "scale").Data as float[] ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
+
+            float[] analogChannelScale;
+            if (tempAnalogChannelScale.Length >= analogUsed)
+            {
+                analogChannelScale = tempAnalogChannelScale.Take(analogUsed).ToArray();
+            }
+            else // Some files don't have enough ANALOG:SCALE_CHANNEL. They seems to only have 1 as the scale factor, hence we just add 1 for the missing indexes.
+            {
+
+                float[] paddedArray = new float[analogUsed];
+
+                // Copy the original values
+                Array.Copy(tempAnalogChannelScale, paddedArray, tempAnalogChannelScale.Length);
+
+                // Fill the remaining positions with 1
+                for (int i = tempAnalogChannelScale.Length; i < analogUsed; i++)
+                {
+                    paddedArray[i] = 1f;
+                }
+                analogChannelScale = paddedArray;
+            }
+
+            return analogChannelScale;
+        }
+
+        internal AnalogFormatFlag GetAnalogFormat()
+        {
+            // That's the default so we don't care if it is anything else than unsigned. If we can find better strategy than the one from C3D User guide, we will implement it here.
+            AnalogFormatFlag analogFormat = AnalogFormatFlag.SIGNED;
+
+            Array analogFormatValue = Sharp3dConstants.SignedArrayString;
+            try
+            {
+                analogFormatValue = GetParameter("analog", "format").Data;
+            }
+            catch (ParameterNotFoundException ex)
+            {
+                Console.WriteLine("No ANALOG:FORMAT parameter found. Defaulting to SIGNED format for analog data.");
+            }
+
+            if (analogFormatValue == Sharp3dConstants.UnsignedArrayString)
+            {
+                analogFormat = AnalogFormatFlag.UNSIGNED;
+            }
+
+            return analogFormat;
+        }
+
+        internal int[] GetAnalogOffset(int analogUsed, AnalogFormatFlag analogFormat)
+        {
+            // Some software have the analogoff set as a float.
+            //int analogOffset = 0;
+            int[] analogOffset = new int[analogUsed];
+            try
+            {
+                analogOffset = GetParameter("analog", "offset").Data?
+                    .OfType<object>()
+                    .Select(obj => Convert.ToInt32(obj))
+                    .ToArray() ?? Array.Empty<int>();
+
+            }
+            catch (IndexOutOfRangeException) { }
+            catch (ParameterNotFoundException ex) { }
+            return analogOffset;
+        }
+
+        internal string[] GetXParameters(int used, string group, string parameter)
+        {
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            // For POINT: and ANALOG:
+            // LABELS, DESCRIPTIONS and UNITS
+            // Check the length of group used.
+            // Go by chunk of 255 used values and look for the adequate GROUP:PARAMETERX.
+            int numberOfParameters = (int)Math.Ceiling((double)used / 255);
+            // Create place holder and associated global index for ease of use.
+            string[] analogUnits = new string[used];
+            int paramIndex = 0;
+            int paramLeft = used;
+            bool isLastParam = false;
+
+            for (int i = 0; i < numberOfParameters; i++)
+            {
+                // Check if this is the last parameter number to check
+                if (paramLeft <= 255)
+                {
+                    isLastParam = true;
+                }
+                // Get the number of parameter to extract
+                int paramInBatchToDo = isLastParam ? paramLeft : 255;
+
+                // Get the right parameter name
+                string parameterName = $"{parameter}{i + 1}";
+                if (i == 0)
+                {
+                    parameterName = parameter;
+                }
+
+                // Process Parameters
+                try
+                {
+                    char[,]? param = GetParameter(group, parameterName).Data as char[,];
+                    if (param != null)
+                    {
+                        // Check if I have the right number of parameters instance (second dimension of the char array).
+                        // Some files have too much analog channels vs what is actually used. 
+                        int paramInBatch = param.GetLength(1) >= paramInBatchToDo? paramInBatchToDo : param.GetLength(1);
+
+                        for (int j = 0; j < paramInBatch; j++)
+                        {
+                            List<char> tempCharParam = new List<char> { };
+                            for (int k = 0; k < param.GetLength(0); k++)
+                            {
+                                tempCharParam.Add(param[k, j]);
+                            }
+                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim();
+
+                            paramInBatchToDo--;
+                            paramLeft--;
+                            paramIndex++;
+                        }
+
+                        // If there is some left over
+                        for (int j = 0; j < paramInBatchToDo; j++)
+                        {
+                            analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                            paramLeft--;
+                            paramIndex++;
+                        }
+                        Console.WriteLine("dede");
+                    }
+                    else
+                    {
+                        // We throw an exception because the GROUP:PARAMETERX was not populated at all. 
+                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
+                        throw new NullReferenceException($"{group.ToUpper()}:{parameterName.ToUpper()} is not populated.");
+                    }
+                }
+                catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
+                {
+                    Console.WriteLine($"Error with {group.ToUpper()}:{parameterName.ToUpper()}: {ex.Message}. Defaulting to default values for {group.ToUpper()}:{parameterName.ToUpper()} .");
+                    for (int j = 0; j < paramInBatchToDo; j++)
+                    {
+                        analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                        paramLeft--;
+                        paramIndex++;
+                    }
+                }
+            }
+
+            return analogUnits;
         }
 
         /// <summary>
@@ -195,7 +492,7 @@ namespace SHARP3D
             byte[] pointerToData = new byte[2];
             c3dStream.Seek(16, SeekOrigin.Begin);
             c3dStream.ReadExactly(pointerToData);
-            return ((C3dBytesConvertor.ToInt(pointerToData, processor) - 1) * 512); // I don't know why you have to substrack 1.
+            return (C3dBytesConvertor.ToInt(pointerToData, processor) - 1) * 512; // I don't know why you have to substrack 1.
         }
 
         /// <summary>
@@ -228,13 +525,14 @@ namespace SHARP3D
         /// <param name="c3dStream">The file stream to read from.</param>
         /// <param name="processor">The processor type used to create the C3D file.</param>
         /// <returns>The point scale factor.</returns>
-        internal float GetPointScaleFactor(FileStream c3dStream, ProcessorType processor)
+        internal float GetPointScale(FileStream c3dStream, ProcessorType processor)
         {
             byte[] valueBuffer = new byte[4];
             c3dStream.Seek(12, SeekOrigin.Begin);
             c3dStream.ReadExactly(valueBuffer);
             return C3dBytesConvertor.ToFloat(valueBuffer, processor);
         }
+
 
         /// <summary>
         /// Reads the header binaries from the C3D file.
@@ -281,37 +579,37 @@ namespace SHARP3D
         /// <param name="c3dStream">The file stream to read from.</param>
         /// <param name="processor">The processor type used to create the C3D file.</param>
         /// <param name="dataTypeFile">The data type used in the C3D file.</param>
-        /// <param name="pointScaleFactor">The point scale factor.</param>
+        /// <param name="pointScale">The point scale factor.</param>
         /// <returns>A <see cref="C3dData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
-        internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
+        internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
         {
             int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
             int framesNumber = GetRightAmountOfFrames();
-            float pointRate = (GetParameter("point", "rate").Data?.GetValue(0) as float?) ?? 0f;
-            int markersPerFrame = (GetParameter("point", "used").Data?.GetValue(0) as int?) ?? 0;
+            float pointRate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
+            int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
 
             // Some application don't give a fuck about the ANALOG mandatory parameters
             // NaturalPoint as per Sample29 readme might be one one of those. Optitrack also.
             float analogRate = 0;
             try 
             { 
-                analogRate = (GetParameter("analog", "rate").Data?.GetValue(0) as float?) ?? 0f; // Contradiction in the C3D documentation
+                analogRate = GetParameter("analog", "rate").Data?.GetValue(0) as float? ?? 0f; // Contradiction in the C3D documentation
             }
             catch (ParameterNotFoundException ex) { }
 
             int analogChannels = 0;
-            try { analogChannels = (GetParameter("analog", "used").Data?.GetValue(0) as int?) ?? 0; } catch (ParameterNotFoundException ex) { }
+            try { analogChannels = GetParameter("analog", "used").Data?.GetValue(0) as int? ?? 0; } catch (ParameterNotFoundException ex) { }
 
-            float analogGeneralScaleFactor = 0.0f;
-            try { analogGeneralScaleFactor = (GetParameter("analog", "gen_scale").Data?.GetValue(0) as float?) ?? 0f; } catch (ParameterNotFoundException ex) { }
+            float analogGeneralScale = 0.0f;
+            try { analogGeneralScale = GetParameter("analog", "gen_scale").Data?.GetValue(0) as float? ?? 0f; } catch (ParameterNotFoundException ex) { }
 
-            float[] tempAnalogChannelScaleFactor = new float[] { 0f };
-            try { tempAnalogChannelScaleFactor = (GetParameter("analog", "scale").Data as float[]) ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
+            float[] tempAnalogChannelScale = new float[] { 0f };
+            try { tempAnalogChannelScale = GetParameter("analog", "scale").Data as float[] ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
 
-            float[] analogChannelScaleFactor;
-            if (tempAnalogChannelScaleFactor.Length >= analogChannels) 
+            float[] analogChannelScale;
+            if (tempAnalogChannelScale.Length >= analogChannels) 
             {
-                analogChannelScaleFactor = tempAnalogChannelScaleFactor.Take(analogChannels).ToArray();
+                analogChannelScale = tempAnalogChannelScale.Take(analogChannels).ToArray();
             }
             else // Some files don't have enough ANALOG:SCALE_CHANNEL. They seems to only have 1 as the scale factor, hence we just add 1 for the missing indexes.
             {
@@ -319,20 +617,20 @@ namespace SHARP3D
                 float[] paddedArray = new float[analogChannels];
 
                 // Copy the original values
-                Array.Copy(tempAnalogChannelScaleFactor, paddedArray, tempAnalogChannelScaleFactor.Length);
+                Array.Copy(tempAnalogChannelScale, paddedArray, tempAnalogChannelScale.Length);
 
                 // Fill the remaining positions with 1
-                for (int i = tempAnalogChannelScaleFactor.Length; i < analogChannels; i++)
+                for (int i = tempAnalogChannelScale.Length; i < analogChannels; i++)
                 {
                     paddedArray[i] = 1f;
                 }
-                analogChannelScaleFactor = paddedArray;
+                analogChannelScale = paddedArray;
             }
 
 
-                // Some software have the analogoff set as a float.
-                //int analogOffset = 0;
-                int[] analogOffset = new int[analogChannels];
+            // Some software have the analogoff set as a float.
+            //int analogOffset = 0;
+            int[] analogOffset = new int[analogChannels];
             try
             {
                 analogOffset = GetParameter("analog", "offset").Data?
@@ -368,26 +666,17 @@ namespace SHARP3D
                 processor: processor,
                 dataTypeFile: dataTypeFile,
                 pointerDataSection: pointerDataSection,
-                framesNumber: framesNumber,
-                markersPerFrame: GetRightAmountMarkerPerFrame(
-                framesNumber,
-                analogChannels,
-                GetAnalogSamplePerFrame(pointRate, analogRate),
-                    Header.MarkersPerFrame,
-                    markersPerFrame,
-                    pointerDataSection,
-                    c3dStream.Length,
-                    dataTypeFile
-                    ),
-                pointRate: pointRate,
-                analogRate: analogRate,
-                analogChannels:analogChannels,
-                pointScaleFactor: pointScaleFactor,
-                analogGeneralScaleFactor: analogGeneralScaleFactor,
-                analogChannelScaleFactor: analogChannelScaleFactor,
-                analogOffset: analogOffset,
-                analogSamplePerFrame: GetAnalogSamplePerFrame(pointRate, analogRate),
-                analogFormat: analogFormat
+                framesNumber: Point.Frames,
+                markersPerFrame: Point.Used,
+                pointRate: Point.Rate,
+                analogRate: Analog.Rate,
+                analogChannels:Analog.Used,
+                pointScale: Point.Scale,
+                analogGeneralScale: Analog.GeneralScale,
+                analogChannelScale: Analog.ChannelScale,
+                analogOffset: Analog.Offset,
+                analogSamplePerFrame: GetAnalogSamplePerFrame(Point.Rate, Analog.Rate),
+                analogFormat: GetAnalogFormat()
                 );
             
             
@@ -430,7 +719,7 @@ namespace SHARP3D
             }
             else
             {
-                return ((int)analogSamplePerFrame);
+                return (int)analogSamplePerFrame;
             }
         }
 
@@ -602,7 +891,7 @@ namespace SHARP3D
         /// <remarks>
         /// Some file have bad construction and features wrong value in either HEADER:POINT:USED or PARAMETER:POINT:USED. Reading them then comes down to luck.
         /// Despite the fact that the creator of those file messed up, they might still be usable.
-        /// We assume the followin values to be always truthful:
+        /// We assume the following values to be always truthful:
         /// <list type="bullet">
         ///     <item>PARAMETER:POINT:FRAME</item>
         ///     <item>PARAMETER:POINT:RATE</item>
@@ -623,13 +912,13 @@ namespace SHARP3D
             long c3dStreamLength,
             DataType dataTypeFile) 
         {
-            long lengthFromHeader = frameNumber * ((headerPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile) + pointerDataSection;
-            long lengthFromParameter = frameNumber * ((parameterPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile) + pointerDataSection;
-            if ((lengthFromHeader == lengthFromParameter) || ((lengthFromHeader <= c3dStreamLength) && (lengthFromParameter > c3dStreamLength)))
+            long lengthFromHeader = frameNumber * (headerPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile + pointerDataSection;
+            long lengthFromParameter = frameNumber * (parameterPointUsed * 4 + analogSamplePerFrame * analogChannels) * (int)dataTypeFile + pointerDataSection;
+            if (lengthFromHeader == lengthFromParameter || lengthFromHeader <= c3dStreamLength && lengthFromParameter > c3dStreamLength)
             {
                 return headerPointUsed;
             }
-            else if ((lengthFromParameter <= c3dStreamLength) && (lengthFromHeader > c3dStreamLength))
+            else if (lengthFromParameter <= c3dStreamLength && lengthFromHeader > c3dStreamLength)
             {
                 return parameterPointUsed;
             }

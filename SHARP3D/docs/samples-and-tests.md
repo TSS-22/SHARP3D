@@ -37,13 +37,16 @@ At the moment 12 tests are failing:
     1. Sample31\large01.c3d
     2. Sample31\large02.c3d
 
+
 2. [SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber](#sharp3dtesttestsbasictestreadsfloatingframenumber)
     1. SampleFiles\Sample36\72610framesf.c3
+
 
 3. [SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test](#sharp3dtesttestssampleerrorfilestestopenfiletest_test)
     1. SampleErrorFiles\Sample13
     2. SampleErrorFiles\Sample18
     3. SampleErrorFiles\Sample20
+
 
 4. [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test)
     1. SampleErrorFiles\Sample13\Dance.c3d
@@ -51,8 +54,10 @@ At the moment 12 tests are failing:
     3. SampleErrorFiles\Sample13\golfswing.c3d
     4. SampleErrorFiles\Sample13\golfswing1.c3d
 
+
 5. [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test](#sharp3dtesttestssampleerrorfilestestsample18basic_test)
     1. SampleErrorFiles\Sample18\bad_parameter_section.c3d
+
 
 6. [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test](#sharp3dtesttestssampleerrorfilestestsample20basic_test)
     1. SampleErrorFiles\Sample20\phasespace_sample
@@ -63,21 +68,32 @@ At the moment 12 tests are failing:
 
 **Status**: Under investigation
 
-This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. EZC3D and Qualisys both have similar error, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.
+This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. [EZC3D](https://github.com/pyomeca/ezc3d) and [QTM Qualisys](https://www.qualisys.com/software/qualisys-track-manager/) both have similar errors, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.
 
 #### SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber
 
 **Status**: Solved
 
-The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and Qualisys.
+The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and [QTM Qualisys](https://www.qualisys.com/software/qualisys-track-manager/).
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test
 
 **Status**: Under investigation 
 
+- **SampleError13**: Same issue as [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test). We took SampleError13 out of the test data. This is not an issue because the test [Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test) open the file anyway, so this test was redundant in the first place.
+
+- **SampleError20**: This is a sample file received from Phasespace Inc.  This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.
+
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test
 
-**Status**: Under investigation
+**Status**: Solved
+
+The files are actually "correctly" handled. The errors came from the files themselves: there are only 499 frames, and not 500 as advertised. The entity creating the file probably counted from 1 to 500, instead of 0 to 499, as in C3D, frame 0 don't exist per se.
+
+We took account of this during our test. 
+
+Also the point axis are wrong for some reasons. It is actually quite funny to see the dancer move on the ground. It looks like a fish pulled out of the water at first glance. But this tells you that there could be more issues lurking in these files. Again, SHARP3D tries to take a non punitive approach to maximize the chance of opening file, to then correct them automatically, or give you a chance to do so.
+            
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test
 
@@ -85,4 +101,6 @@ The file is incorrectly build and is missing data to account for the expected am
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test
 
-**Status**: Under investigation
+**Status**: Solved
+
+This is a sample file received from Phasespace Inc. This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.
