@@ -119,6 +119,8 @@ namespace SHARP3D.C3d
             int tempAnalogBits = 12;
             (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
 
+            // Because ANALOG:BITS is not always defined. It needs to be "guesstimated".
+            //https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html
             Analog = new C3dParameterAnalog
             {
                 Bits = tempAnalogBits,
@@ -130,6 +132,19 @@ namespace SHARP3D.C3d
                 ChannelScale = Analog.ChannelScale,
                 Units = Analog.Units,
                 Used = Analog.Used
+            };
+
+            // We update the Frames count to reflect the actual amount of frames in the data.
+            // Not the mistake, or the wishful thinking of the entity creating the file.
+            Point = new C3dParameterPoint
+            {
+                Frames = Data.Points.Count,
+                Rate = Point.Rate,
+                Scale = Point.Scale,
+                Units = Point.Units,
+                Used = Point.Used,
+                Descriptions = Point.Descriptions,
+                Labels = Point.Labels
             };
             
 

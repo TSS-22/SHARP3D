@@ -80,7 +80,9 @@ The file is incorrectly build and is missing data to account for the expected am
 
 **Status**: Under investigation 
 
-- Sample13: Same issue as [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test). We took SampleError13 out of the test data. This is not an issue because the test [Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test) open the file anyway, so this test was redundant in the first place.
+- **SampleError13**: Same issue as [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test). We took SampleError13 out of the test data. This is not an issue because the test [Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test) open the file anyway, so this test was redundant in the first place.
+
+- **SampleError20**: This is a sample file received from Phasespace Inc.  This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test
 
@@ -99,4 +101,6 @@ Also the point axis are wrong for some reasons. It is actually quite funny to se
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test
 
-**Status**: Under investigation
+**Status**: Solved
+
+This is a sample file received from Phasespace Inc. This file contains a 3D data block but no parameters to describe the data. Therefore it probably can only be read by Phasespace Inc. It has been taken out of the data set.
