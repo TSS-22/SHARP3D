@@ -162,7 +162,7 @@ namespace SHARP3D.C3d
             fileAnalog.Offset = GetAnalogOffset(fileAnalog.Used, GetAnalogFormat());
             fileAnalog.Labels = GetAnalogLabels(fileAnalog.Used);
             fileAnalog.Descriptions = GetAnalogDescriptions(fileAnalog.Used);
-            //fileAnalog.Units;
+            fileAnalog.Units = GetAnalogUnits(fileAnalog.Used);
 
             return fileAnalog;
         }
@@ -360,7 +360,7 @@ namespace SHARP3D.C3d
         internal string[] GetAnalogDescriptions(int analogUsed)
         {
             // Check the length of analogUsed.
-            // Go by chunk of 255 used values and look for the adequate analog:labelX.
+            // Go by chunk of 255 used values and look for the adequate analog:descriptionsX.
             int numberOfDescriptionsParameters = (int)Math.Ceiling((double)analogUsed / 255);
             // Create place holder and associated global index for ease of use.
             string[] analogDescriptions = new string[analogUsed];
@@ -388,18 +388,18 @@ namespace SHARP3D.C3d
                 // Process labels
                 try
                 {
-                    char[,]? labels = GetParameter("analog", parameterName).Data as char[,];
-                    if (labels != null)
+                    char[,]? descriptions = GetParameter("analog", parameterName).Data as char[,];
+                    if (descriptions != null)
                     {
                         // Check if I have the right number of labels (second dimension of the char array).
-                        int labelInBatch = labels.GetLength(1);
+                        int labelInBatch = descriptions.GetLength(1);
 
                         for (int j = 0; j < labelInBatch; j++)
                         {
                             List<char> tempCharLabel = new List<char> { };
-                            for (int k = 0; k < labels.GetLength(0); k++)
+                            for (int k = 0; k < descriptions.GetLength(0); k++)
                             {
-                                tempCharLabel.Add(labels[k, j]);
+                                tempCharLabel.Add(descriptions[k, j]);
                             }
                             analogDescriptions[descriptionIndex] = new string(tempCharLabel.ToArray()).Trim();
 
@@ -411,7 +411,7 @@ namespace SHARP3D.C3d
                         // If there is some left over
                         for (int j = 0; j < labelInBatchToDo; j++)
                         {
-                            analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}";
+                            analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}. No description provided.";
                             descriptionLeft--;
                             descriptionIndex++;
                         }
@@ -419,17 +419,17 @@ namespace SHARP3D.C3d
                     }
                     else
                     {
-                        // We throw an exception because the ANALOG:LABELX was not populated at all. 
+                        // We throw an exception because the ANALOG:DESCRITPIONX was not populated at all. 
                         // It should not happen though, as it is either gonna be filled, not enough filled, or absent
                         throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
                     }
                 }
                 catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
                 {
-                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default labels for analog channels.");
+                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default descriptions for analog channels.");
                     for (int j = 0; j < labelInBatchToDo; j++)
                     {
-                        analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}";
+                        analogDescriptions[descriptionIndex] = $"Channel {descriptionIndex + 1}. No description provided.";
                         descriptionLeft--;
                         descriptionIndex++;
                     }
@@ -437,6 +437,88 @@ namespace SHARP3D.C3d
             }
 
             return analogDescriptions;
+        }
+
+        internal string[] GetAnalogUnits(int analogUsed)
+        {
+            // Check the length of analogUsed.
+            // Go by chunk of 255 used values and look for the adequate analog:labelX.
+            int numberOfUnitsParameters = (int)Math.Ceiling((double)analogUsed / 255);
+            // Create place holder and associated global index for ease of use.
+            string[] analogUnits = new string[analogUsed];
+            int unitIndex = 0;
+            int unitLeft = analogUsed;
+            bool isLastUnit = false;
+
+            for (int i = 0; i < numberOfUnitsParameters; i++)
+            {
+                // Check if this is the last label parameter to check
+                if (unitLeft <= 255)
+                {
+                    isLastUnit = true;
+                }
+                // Get the number of label to extract
+                int labelInBatchToDo = isLastUnit ? unitLeft : 255;
+
+                // Get the right label name
+                string parameterName = $"units{i + 1}";
+                if (i == 0)
+                {
+                    parameterName = "units";
+                }
+
+                // Process labels
+                try
+                {
+                    char[,]? units = GetParameter("analog", parameterName).Data as char[,];
+                    if (units != null)
+                    {
+                        // Check if I have the right number of labels (second dimension of the char array).
+                        int labelInBatch = units.GetLength(1);
+
+                        for (int j = 0; j < labelInBatch; j++)
+                        {
+                            List<char> tempCharLabel = new List<char> { };
+                            for (int k = 0; k < units.GetLength(0); k++)
+                            {
+                                tempCharLabel.Add(units[k, j]);
+                            }
+                            analogUnits[unitIndex] = new string(tempCharLabel.ToArray()).Trim();
+
+                            labelInBatchToDo--;
+                            unitLeft--;
+                            unitIndex++;
+                        }
+
+                        // If there is some left over
+                        for (int j = 0; j < labelInBatchToDo; j++)
+                        {
+                            analogUnits[unitIndex] = $"Channel {unitIndex + 1}.. No unit provided.";
+                            unitLeft--;
+                            unitIndex++;
+                        }
+                        Console.WriteLine("dede");
+                    }
+                    else
+                    {
+                        // We throw an exception because the ANALOG:DESCRITPIONX was not populated at all. 
+                        // It should not happen though, as it is either gonna be filled, not enough filled, or absent
+                        throw new NullReferenceException($"{parameterName.ToUpper()} is not populated.");
+                    }
+                }
+                catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
+                {
+                    Console.WriteLine($"Error with {parameterName.ToUpper()}: {ex.Message}. Defaulting to default units for analog channels.");
+                    for (int j = 0; j < labelInBatchToDo; j++)
+                    {
+                        analogUnits[unitIndex] = $"Channel {unitIndex + 1}. No unit provided.";
+                        unitLeft--;
+                        unitIndex++;
+                    }
+                }
+            }
+
+            return analogUnits;
         }
 
         internal C3dParameterPoint setFilePoint()
