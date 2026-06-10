@@ -153,9 +153,15 @@ namespace SHARP3D.C3d
         {
             C3dParameterAnalog fileAnalog = new C3dParameterAnalog();
 
-
-
-            fileAnalog.Bits = GetParameter("analog", "bits").Data?.GetValue(0) as int? ?? 12; ;
+            try 
+            {
+                fileAnalog.Bits = GetParameter("analog", "bits").Data?.GetValue(0) as int? ?? 12;
+            } catch(ParameterNotFoundException ex)
+            {
+                Console.WriteLine($"{ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
+                fileAnalog.Bits = 12;
+            }
+            
             fileAnalog.GeneralScale = GetAnalogGeneralScale();
             fileAnalog.Rate = GetAnalogRate();
             fileAnalog.Used = GetAnalogUsed();
@@ -190,15 +196,24 @@ namespace SHARP3D.C3d
                     );
             filePoint.Labels = GetXParameters(filePoint.Used, "point", "labels");
             filePoint.Descriptions = GetXParameters(filePoint.Used, "point", "descriptions");
-            char[]? tempUnits = GetParameter("point", "units").Data as char[];
-            if(tempUnits == null)
+            try
             {
+                char[]? tempUnits = GetParameter("point", "units").Data as char[];
+                if (tempUnits == null)
+                {
+                    throw new ParameterNotFoundException("POINT:UNITS is not populated.");
+                }
+                else
+                {
+                    filePoint.Units = new string(tempUnits).Trim();
+                }
+            }
+            catch(ParameterNotFoundException ex)
+            {
+                Console.WriteLine($"{ex.Message}. Defaulting to default C3D Point units: 'mm'");
                 filePoint.Units = "mm";
             }
-            else
-            {
-                filePoint.Units = new string(tempUnits).Trim();
-            }
+            
 
                 return filePoint;
         }
@@ -349,7 +364,8 @@ namespace SHARP3D.C3d
                     if (param != null)
                     {
                         // Check if I have the right number of parameters instance (second dimension of the char array).
-                        int paramInBatch = param.GetLength(1);
+                        // Some files have too much analog channels vs what is actually used. 
+                        int paramInBatch = param.GetLength(1) >= paramInBatchToDo? paramInBatchToDo : param.GetLength(1);
 
                         for (int j = 0; j < paramInBatch; j++)
                         {
@@ -635,26 +651,17 @@ namespace SHARP3D.C3d
                 processor: processor,
                 dataTypeFile: dataTypeFile,
                 pointerDataSection: pointerDataSection,
-                framesNumber: framesNumber,
-                markersPerFrame: GetRightAmountMarkerPerFrame(
-                framesNumber,
-                analogChannels,
-                GetAnalogSamplePerFrame(pointRate, analogRate),
-                    Header.MarkersPerFrame,
-                    markersPerFrame,
-                    pointerDataSection,
-                    c3dStream.Length,
-                    dataTypeFile
-                    ),
-                pointRate: pointRate,
-                analogRate: analogRate,
-                analogChannels:analogChannels,
-                pointScale: pointScale,
-                analogGeneralScale: analogGeneralScale,
-                analogChannelScale: analogChannelScale,
-                analogOffset: analogOffset,
-                analogSamplePerFrame: GetAnalogSamplePerFrame(pointRate, analogRate),
-                analogFormat: analogFormat
+                framesNumber: Point.Frames,
+                markersPerFrame: Point.Used,
+                pointRate: Point.Rate,
+                analogRate: Analog.Rate,
+                analogChannels:Analog.Used,
+                pointScale: Point.Scale,
+                analogGeneralScale: Analog.GeneralScale,
+                analogChannelScale: Analog.ChannelScale,
+                analogOffset: Analog.Offset,
+                analogSamplePerFrame: GetAnalogSamplePerFrame(Point.Rate, Analog.Rate),
+                analogFormat: GetAnalogFormat()
                 );
             
             

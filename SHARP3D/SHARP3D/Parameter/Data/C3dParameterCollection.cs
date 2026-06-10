@@ -83,7 +83,7 @@ namespace SHARP3D.Parameter.Data
             {
                 if ((groupValues.Length == 0) || groupValues == null) 
                 {
-                    throw new EmptyParameterGroupException($"The group \"{groupName}\" does not contain any parameters.");
+                    throw new EmptyParameterGroupException($"The group '{groupName}' does not contain any parameters.");
                 }
                 foreach (var item in groupValues)
                 {
@@ -92,11 +92,11 @@ namespace SHARP3D.Parameter.Data
                         return (_mapGroupStringToIndex[groupName], item.Item2);
                     }
                 }
-                throw new ParameterNotFoundException($"The parameter \"{parameterName}\" was not found in the group \"{groupName}\"");
+                throw new ParameterNotFoundException($"The parameter '{parameterName}' was not found in the group '{groupName}'");
             }
             else 
             {
-                throw new ParameterNotFoundException($"The combination \"{groupName}\":\"{parameterName}\" don't exist.");
+                throw new ParameterNotFoundException($"The combination '{groupName}:{parameterName}' don't exist.");
             }
         }
 

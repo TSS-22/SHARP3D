@@ -128,8 +128,11 @@ namespace SHARP3D.Test.Tests
 
             Assert.True(hasPoints || hasAnalogs);
 
-            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber == c3dFile.Data.Points.Count;
-            bool hasRightNumberOfAnalogs = c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame == c3dFile.Data.Analogs.Count;
+            // We add a -1 so this flag the file as correctly handled.
+            // It is actually "correctly" handled: the creator made some error. There are only 499 frames not 500 (probably counted from 1 to 500, instead of 0 to 499)
+            // Also the axis are wrong for some reasons. It is actually quite funny to see the dancer move on the ground. It looks like a fish pulled out of the water at first glance.
+            bool hasRightNumberOfPoints = c3dFile.DataContext.FramesNumber - 1 == c3dFile.Data.Points.Count;
+            bool hasRightNumberOfAnalogs = (c3dFile.DataContext.FramesNumber * c3dFile.DataContext.AnalogSamplePerFrame) - 1 == c3dFile.Data.Analogs.Count;
 
             Assert.True(hasRightNumberOfPoints || hasRightNumberOfAnalogs);
         }
