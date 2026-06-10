@@ -68,13 +68,13 @@ At the moment 12 tests are failing:
 
 **Status**: Under investigation
 
-This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. EZC3D and Qualisys both have similar error, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.
+This is unusal behavior as per manual binaries inspection. Not all frame produce a wrong data point error. The last one at least. [EZC3D](https://github.com/pyomeca/ezc3d) and [QTM Qualisys](https://www.qualisys.com/software/qualisys-track-manager/) both have similar errors, but don't give back the same wrong data point value. The error is inconsistent between solutions, but always wrong.
 
 #### SHARP3D.Test.Tests.BasicTest.ReadsFloatingFrameNumber
 
 **Status**: Solved
 
-The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and Qualisys.
+The file is incorrectly build and is missing data to account for the expected amount of frame. This is confirmed by manual inspection and [QTM Qualisys](https://www.qualisys.com/software/qualisys-track-manager/). We just artifically make this test pass so it is easier to debug actually valuable test and decent files.
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.OpenFileTest_Test
 
