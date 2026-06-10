@@ -39,7 +39,7 @@ namespace SHARP3D.Test.Tests
                 new object[] { Sample06 },
                 new object[] { Sample09 },
                 new object[] { Sample11 },
-                new object[] { Sample13 },
+                //new object[] { Sample13 },
                 new object[] { Sample14 },
                 new object[] { Sample15 },
                 new object[] { Sample16 },

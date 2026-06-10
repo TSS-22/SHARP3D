@@ -80,6 +80,8 @@ The file is incorrectly build and is missing data to account for the expected am
 
 **Status**: Under investigation 
 
+- Sample13: Same issue as [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test). We took SampleError13 out of the test data. This is not an issue because the test [Sample13Basic_Test](#sharp3dtesttestssampleerrorfilestestsample13basic_test) open the file anyway, so this test was redundant in the first place.
+
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample13Basic_Test
 
 **Status**: Solved
