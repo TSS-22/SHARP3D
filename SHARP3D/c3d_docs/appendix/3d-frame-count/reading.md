@@ -2,6 +2,9 @@
 
 When a C3D file is opened, the number of frames stored in the file is normally read from the C3D parameter [POINT:FRAMES](../../parameters/required/point/point-frames.md). It is important that applications determine the parameter storage type when they open a parameter, before reading the parameter value. Traditionally the C3D frame count stored in the [POINT:FRAMES](../../parameters/required/point/point-frames.md) parameter was a signed integer, but it may also be stored as an unsigned integer, or a floating-point value. So applications opening the C3D file must be written correctly and must determine the parameter type before reading the parameter.
 
+
+## C3D User Guide recommendation
+
 When a C3D file is opened, the following rules need to apply to reading the frame count from file that may have different vendors’ interpretations of the C3D standard:
 
 1. If the value stored in the [POINT:FRAMES](../../parameters/required/point/point-frames.md) parameter is not 65535, then the value
@@ -15,6 +18,16 @@ stored in [POINT:FRAMES](../../parameters/required/point/point-frames.md) is the
 4. If the [POINT:FRAMES](../../parameters/required/point/point-frames.md) parameter value is 65535 and the [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md) parameter exists, then the [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md) contains the frame count stored as a floating-point value.
 
 5. If the [POINT:FRAMES](../../parameters/required/point/point-frames.md) parameter value is 65535 and both the [TRIAL parameters](../../parameters/groups/group-trial.md) and the [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md) parameters exist, then they should both contain identical frame counts.
+
+## SHARP3D Heuristic
+
+1. Check [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md). If [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md) > 0, use [POINT:LONG_FRAMES](../../parameters/additional/point/point-long_frames.md) value. Else, go to **2**.
+
+2. Check [TRIAL:ACTUAL_START_FIELD](../../parameters/additional/trial/trial-actual_start_field.md) and [TRIAL:ACTUAL_END_FIELD](../../parameters/additional/trial/trial-actual_end_field.md) values. If the computation from the [TRIAL parameters](../../parameters/groups/group-trial.md) works out to a valid number of frame, use this value. Else, go to **3**.
+
+3. Use [POINT:FRAMES](../../parameters/required/point/point-frames.md) value.
+
+4. If for some reason [POINT:FRAMES](../../parameters/required/point/point-frames.md) is not defined or empty, the frame number can't be read.
 
 While these rules describe the actual C3D data frame count, a potential complication is that the C3D file header stores the frame range of the raw data that generated the 3D data stored in the C3D file. The original raw data frame range is stored as two 16-bit integers in header [words 4](../../c3d-header.md#word-4-first-frame-number-of-the-raw-data) and [word 5](../../c3d-header.md#word-5-end-frame-number-of-the-raw-data) that record the first and last frame numbers of the raw data that created the 3D data values stored in the file. While there is a potential relationship between the frame numbers stored in the header, and the frames stored as C3D data, the header values do not define the C3D file frame count.
 

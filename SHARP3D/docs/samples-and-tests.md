@@ -13,7 +13,7 @@ The following .JSON file have been corrected by hand due to [ezc3d](https://gith
 Bad formatting:
 - "kyowadengyo.json" (Expected path: "SHARP3D.Test/SampleFiles/Sample27/kyowadengyo.json")  
 
-Bin to Float Conversion disagreement on the last frame (off by around +/- 0.5:
+Bin to Float Conversion disagreement on the last frame (off by around +/- 0.5):
 - "large01.json" (Expected path: "SHARP3D.Test/TestFiles/Sample31/large01.c3d")
 - "large02.json" (Expected path: "SHARP3D.Test/TestFiles/Sample31/large02.c3d")
 
@@ -98,6 +98,8 @@ Also the point axis are wrong for some reasons. It is actually quite funny to se
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test
 
 **Status**: Under investigation
+
+The problem in this file is that there seems to be an "empty" group which has a name with length=9, but actually contains no data. It is quite tricky to work it out. It shouldn't be impossible to work it out, but it is not a priority at the moment.
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test
 

@@ -1,9 +1,6 @@
 ﻿using SHARP3D.Data.Data;
-using SHARP3D.Exceptions;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 
 namespace SHARP3D.Data
@@ -44,7 +41,6 @@ namespace SHARP3D.Data
                 try
                 {
                     (C3dDataPoint[], float[][], int) frame;
-                    Console.WriteLine($"Frame: {i}-----");
                     switch (context.DataTypeFile)
                     {
                         case DataType.INT16:

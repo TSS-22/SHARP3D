@@ -30,8 +30,8 @@ If the ANALOG:FORMAT parameter contains the string `UNSIGNED` then the [ANALOG:O
 
 This section is unclear in the [C3D User Guide](https://www.c3d.org/docs/C3D_User_Guide.pdf). It is not known if [ANALOG:FORMAT](./analog-format.md) concern all integer parameters, all integer parameters pertaining to analog data, or only the [ANALOG:OFFSET](./analog-offset.md). The only sure part is that [Analog Data](./../../../data/analog.md) are affected by it.
 
-As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by [ANALOG:FORMAT](./analog-format.md) values in SHARP3D, unless specified otherwise.
-
 If [ANALOG:FORMAT](./analog-format.md) does not exist, nothing tells you that its value is `SIGNED` with 100% certainty but that is your best bet, and the one that SHARP3D is doing.
+
+As most if not all Analog parameters seems to be constrained to positive value only, all integer analog parameters are affected by [ANALOG:FORMAT](./analog-format.md) values in SHARP3D, unless specified otherwise. Please [let us know](https://github.com/TSS-22/SHARP3D/issues/new) if you need an excpetion to this rule for your case.
 
 
