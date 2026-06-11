@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.C3d
 {
-    public struct C3dParameterPoint
+    public  class C3dParameterPoint
     {
         public string[] Descriptions;
         public int Frames;

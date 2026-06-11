@@ -28,5 +28,6 @@ The scaling factor is dependent upon the calibration volume and is calculated wh
 
 When C3D files with the POINT:SCALE value set to -1 are seen, it indicates that the application creating the file does not fully support the C3D file format and as a result the file cannot be saved as an integer format C3D file, and probably only contains processed values, not actual measurements.
 
+## WARNING
 
-
+Out of the 88 files provided by the C3D website, only 17 of them had a correctly computed scale factor: max value / 32000. That is less than 24% of them. SHARP3D makes the choice to correct the scale factor once the whole data has been read. This means that the data will be consistent with what was written in the file (hopefully, if such a simple thing was wrongly computed, what else was) but the scale factor will be recomputed afterward to reflect C3D convention.

@@ -429,7 +429,10 @@ namespace SHARP3D.Parameter
                 }
                 else if (analogFormatValue == unsignedArrayString)
                 {
-                    // Convert all the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
+                    // Convert ALL the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
+                    // At the moment that seems to be our best bet, as the FORMAT parameter behavior (loosely) defined in the doc
+                    // and tells people that we should make int16 parameter either sigend or unsigned. 
+                    // So we make the assumption that user read the doc and understood it the same way as we did, and that there is no need for exception.
                     for (int g = 0; g < groups.Count; g++)
                     {
                         if (groups[g].Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true)

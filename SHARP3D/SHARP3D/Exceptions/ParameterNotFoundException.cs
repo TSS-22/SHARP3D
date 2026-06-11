@@ -1,5 +1,8 @@
 ﻿namespace SHARP3D.Exceptions
 {
+    /// <summary>
+    /// Exception thrown when a Parameter in not found.
+    /// </summary>
     public class ParameterNotFoundException : InvalidOperationException
     {
 

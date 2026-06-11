@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
 [assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
@@ -28,7 +29,10 @@ namespace SHARP3D.C3d
         /// The path of the C3D File.
         /// </summary>
         public string FilePath { get; set; }
-        
+
+        /// <summary>
+        /// The length of the C3D File in bytes.
+        /// </summary>
         public long FileLength { get; set; }
 
         /// <summary>
@@ -71,6 +75,7 @@ namespace SHARP3D.C3d
         /// </summary>
         public C3dParameterCollection ParameterCollection { get; set; }
 
+        
         public C3dParameterPoint Point { get; set; }
         public C3dParameterAnalog Analog { get; set; }
 
@@ -115,38 +120,24 @@ namespace SHARP3D.C3d
 
             Analog = SetFileAnalog();
             Point = setFilePoint(Analog.Used, Analog.Rate);
+            Analog.SamplesPerFrame = GetAnalogSamplePerFrame(Point.Rate, Analog.Rate);
 
             int tempAnalogBits = 12;
             (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
-
+            
             // Because ANALOG:BITS is not always defined. It needs to be "guesstimated".
             //https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html
-            Analog = new C3dParameterAnalog
+            if (Analog.Bits == 0)
             {
-                Bits = tempAnalogBits,
-                Descriptions = Analog.Descriptions,
-                GeneralScale = Analog.GeneralScale,
-                Labels = Analog.Labels,
-                Offset = Analog.Offset,
-                Rate = Analog.Rate,
-                ChannelScale = Analog.ChannelScale,
-                Units = Analog.Units,
-                Used = Analog.Used
-            };
-
+                Analog.Bits = tempAnalogBits;
+            }
             // We update the Frames count to reflect the actual amount of frames in the data.
             // Not the mistake, or the wishful thinking of the entity creating the file.
-            Point = new C3dParameterPoint
-            {
-                Frames = Data.Points.Count,
-                Rate = Point.Rate,
-                Scale = Point.Scale,
-                Units = Point.Units,
-                Used = Point.Used,
-                Descriptions = Point.Descriptions,
-                Labels = Point.Labels
-            };
-            
+            Point.Frames = Data.Points.Count;
+            // We make the choice of recomputing the scale factor
+            Point.Scale = ComputeScaleFactor();
+
+
 
             fileStream.Close();
         }
@@ -168,15 +159,16 @@ namespace SHARP3D.C3d
         {
             C3dParameterAnalog fileAnalog = new C3dParameterAnalog();
 
-            try 
+            try
             {
                 fileAnalog.Bits = GetParameter("analog", "bits").Data?.GetValue(0) as int? ?? 12;
-            } catch(ParameterNotFoundException ex)
+            }
+            catch (ParameterNotFoundException ex)
             {
                 Console.WriteLine($"{ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
-                fileAnalog.Bits = 12;
+                fileAnalog.Bits = 0;
             }
-            
+
             fileAnalog.GeneralScale = GetAnalogGeneralScale();
             fileAnalog.Rate = GetAnalogRate();
             fileAnalog.Used = GetAnalogUsed();
@@ -185,7 +177,7 @@ namespace SHARP3D.C3d
             fileAnalog.Labels = GetXParameters(fileAnalog.Used, "analog", "labels");
             fileAnalog.Descriptions = GetXParameters(fileAnalog.Used, "analog", "descriptions");
             fileAnalog.Units = GetXParameters(fileAnalog.Used, "analog", "units");
-
+            fileAnalog.SamplesPerFrame = 0;
             return fileAnalog;
         }
 
@@ -403,7 +395,6 @@ namespace SHARP3D.C3d
                             paramLeft--;
                             paramIndex++;
                         }
-                        Console.WriteLine("dede");
                     }
                     else
                     {
@@ -496,18 +487,6 @@ namespace SHARP3D.C3d
         }
 
         /// <summary>
-        /// Gets the number of parameter blocks in the C3D file.
-        /// </summary>
-        /// <param name="c3dStream">The file stream to read from.</param>
-        /// <returns>The number of parameter blocks.</returns>
-        internal static int GetParameterBlockCount(FileStream c3dStream)
-        {
-            int parameterSectionPointer = GetParameterSectionPointer(c3dStream);
-            c3dStream.Seek(parameterSectionPointer + 2, SeekOrigin.Begin);
-            return c3dStream.ReadByte();
-        }
-
-        /// <summary>
         /// Reads the processor type byte from the C3D file.
         /// </summary>
         /// <param name="c3dStream">The file stream to read from.</param>
@@ -547,21 +526,6 @@ namespace SHARP3D.C3d
         }
 
         /// <summary>
-        /// Reads the parameter binaries from the C3D file.
-        /// </summary>
-        /// <param name="c3dStream">The file stream to read from.</param>
-        /// <param name="parameterSectionPointer">The pointer to the parameter section.</param>
-        /// <param name="parameterBlockCount">The number of parameter blocks.</param>
-        /// <returns>A byte array containing the parameter binaries.</returns>
-        internal static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)
-        {
-            byte[] parameters = new byte[parameterBlockCount * 512];
-            c3dStream.Seek(parameterSectionPointer, SeekOrigin.Begin);
-            c3dStream.ReadExactly(parameters, 0, parameterBlockCount * 512);
-            return parameters;
-        }
-
-        /// <summary>
         /// Gets a parameter from the C3D file by its group and parameter name.
         /// </summary>
         /// <param name="groupName">The name of the parameter group.</param>
@@ -583,89 +547,12 @@ namespace SHARP3D.C3d
         /// <returns>A <see cref="C3dData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
         internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
         {
-            int pointerDataSection = GetDataSectionPointer(c3dStream, processor);
-            int framesNumber = GetRightAmountOfFrames();
-            float pointRate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;
-            int markersPerFrame = GetParameter("point", "used").Data?.GetValue(0) as int? ?? 0;
-
-            // Some application don't give a fuck about the ANALOG mandatory parameters
-            // NaturalPoint as per Sample29 readme might be one one of those. Optitrack also.
-            float analogRate = 0;
-            try 
-            { 
-                analogRate = GetParameter("analog", "rate").Data?.GetValue(0) as float? ?? 0f; // Contradiction in the C3D documentation
-            }
-            catch (ParameterNotFoundException ex) { }
-
-            int analogChannels = 0;
-            try { analogChannels = GetParameter("analog", "used").Data?.GetValue(0) as int? ?? 0; } catch (ParameterNotFoundException ex) { }
-
-            float analogGeneralScale = 0.0f;
-            try { analogGeneralScale = GetParameter("analog", "gen_scale").Data?.GetValue(0) as float? ?? 0f; } catch (ParameterNotFoundException ex) { }
-
-            float[] tempAnalogChannelScale = new float[] { 0f };
-            try { tempAnalogChannelScale = GetParameter("analog", "scale").Data as float[] ?? new float[] { 0f }; } catch (ParameterNotFoundException ex) { }
-
-            float[] analogChannelScale;
-            if (tempAnalogChannelScale.Length >= analogChannels) 
-            {
-                analogChannelScale = tempAnalogChannelScale.Take(analogChannels).ToArray();
-            }
-            else // Some files don't have enough ANALOG:SCALE_CHANNEL. They seems to only have 1 as the scale factor, hence we just add 1 for the missing indexes.
-            {
-                
-                float[] paddedArray = new float[analogChannels];
-
-                // Copy the original values
-                Array.Copy(tempAnalogChannelScale, paddedArray, tempAnalogChannelScale.Length);
-
-                // Fill the remaining positions with 1
-                for (int i = tempAnalogChannelScale.Length; i < analogChannels; i++)
-                {
-                    paddedArray[i] = 1f;
-                }
-                analogChannelScale = paddedArray;
-            }
-
-
-            // Some software have the analogoff set as a float.
-            //int analogOffset = 0;
-            int[] analogOffset = new int[analogChannels];
-            try
-            {
-                analogOffset = GetParameter("analog", "offset").Data?
-                    .OfType<object>()
-                    .Select(obj => Convert.ToInt32(obj))
-                    .ToArray() ?? Array.Empty<int>();
-
-            }
-            catch (IndexOutOfRangeException) { }
-            catch (ParameterNotFoundException ex) { }
-
-            // That's the default so we don't care if it is anything else than unsigned. If we can find better strategy than the one from C3D User guide, we will implement it here.
-            AnalogFormatFlag analogFormat = AnalogFormatFlag.SIGNED;
-
-            Array analogFormatValue = Sharp3dConstants.SignedArrayString;
-            try
-            {
-                analogFormatValue = GetParameter("analog", "format").Data;
-            }
-            catch(ParameterNotFoundException ex)
-            {
-                Console.WriteLine("No ANALOG:FORMAT parameter found. Defaulting to SIGNED format for analog data.");
-            }
-
-            if ( analogFormatValue == Sharp3dConstants.UnsignedArrayString)
-            {
-                analogFormat = AnalogFormatFlag.UNSIGNED;
-            }
-
             // TODO: actually sort the error that can come
             DataContext = new C3dDataContext(
                 c3dStream: c3dStream,
                 processor: processor,
                 dataTypeFile: dataTypeFile,
-                pointerDataSection: pointerDataSection,
+                pointerDataSection: PointerDataSection,
                 framesNumber: Point.Frames,
                 markersPerFrame: Point.Used,
                 pointRate: Point.Rate,
@@ -675,11 +562,9 @@ namespace SHARP3D.C3d
                 analogGeneralScale: Analog.GeneralScale,
                 analogChannelScale: Analog.ChannelScale,
                 analogOffset: Analog.Offset,
-                analogSamplePerFrame: GetAnalogSamplePerFrame(Point.Rate, Analog.Rate),
+                analogSamplePerFrame: Analog.SamplesPerFrame,
                 analogFormat: GetAnalogFormat()
                 );
-            
-            
 
             return C3dDataHelper.FromFileStream(DataContext);
         }
@@ -762,7 +647,6 @@ namespace SHARP3D.C3d
         /// Thrown internally if a parameter is not found, but caught and ignored to allow fallback to other methods.
         /// </exception>
         internal int GetRightAmountOfFrames() {
-
             // As per page 93 and 94 of the C3D User Guide
             try
             {
@@ -926,6 +810,25 @@ namespace SHARP3D.C3d
             {
                 throw new C3dIncompatiblePointUsedValuesException("Incompatible values of HEADER:POINT:USED and PARAMETER:POINT:USED in regard to file length.");
             }
+        }
+
+        internal float ComputeScaleFactor()
+        {
+            float maxValue = 0f;
+            foreach (C3dDataPoint[] points in Data.Points)
+            {
+                foreach (C3dDataPoint point in points)
+                {
+                    foreach (float dataPoint in point.Data)
+                    {
+                        if (dataPoint > maxValue)
+                        {
+                            maxValue = dataPoint;
+                        }
+                    }
+                }
+            }
+            return maxValue / (float)32000;
         }
 
     }
