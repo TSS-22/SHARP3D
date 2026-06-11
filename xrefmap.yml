@@ -66,6 +66,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.C3dFile.Analog
   nameWithType: C3dFile.Analog
+- uid: SHARP3D.C3d.C3dFile.ComputeScaleFactor
+  name: ComputeScaleFactor()
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ComputeScaleFactor
+  commentId: M:SHARP3D.C3d.C3dFile.ComputeScaleFactor
+  fullName: SHARP3D.C3d.C3dFile.ComputeScaleFactor()
+  nameWithType: C3dFile.ComputeScaleFactor()
+- uid: SHARP3D.C3d.C3dFile.ComputeScaleFactor*
+  name: ComputeScaleFactor
+  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ComputeScaleFactor_
+  commentId: Overload:SHARP3D.C3d.C3dFile.ComputeScaleFactor
+  isSpec: "True"
+  fullName: SHARP3D.C3d.C3dFile.ComputeScaleFactor
+  nameWithType: C3dFile.ComputeScaleFactor
 - uid: SHARP3D.C3d.C3dFile.Data
   name: Data
   href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_Data
@@ -305,19 +318,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.C3dFile.GetParameter
   nameWithType: C3dFile.GetParameter
-- uid: SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  name: GetParameterBlockCount(FileStream)
-  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterBlockCount_System_IO_FileStream_
-  commentId: M:SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  fullName: SHARP3D.C3d.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  nameWithType: C3dFile.GetParameterBlockCount(FileStream)
-- uid: SHARP3D.C3d.C3dFile.GetParameterBlockCount*
-  name: GetParameterBlockCount
-  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterBlockCount_
-  commentId: Overload:SHARP3D.C3d.C3dFile.GetParameterBlockCount
-  isSpec: "True"
-  fullName: SHARP3D.C3d.C3dFile.GetParameterBlockCount
-  nameWithType: C3dFile.GetParameterBlockCount
 - uid: SHARP3D.C3d.C3dFile.GetParameterSectionPointer(System.IO.FileStream)
   name: GetParameterSectionPointer(FileStream)
   href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_GetParameterSectionPointer_System_IO_FileStream_
@@ -570,22 +570,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.C3dFile.ReadHeaderBinaries
   nameWithType: C3dFile.ReadHeaderBinaries
-- uid: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
-  name: ReadParameterBinaries(FileStream, int, int)
-  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadParameterBinaries_System_IO_FileStream_System_Int32_System_Int32_
-  commentId: M:SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
-  name.vb: ReadParameterBinaries(FileStream, Integer, Integer)
-  fullName: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream, int, int)
-  fullName.vb: SHARP3D.C3d.C3dFile.ReadParameterBinaries(System.IO.FileStream, Integer, Integer)
-  nameWithType: C3dFile.ReadParameterBinaries(FileStream, int, int)
-  nameWithType.vb: C3dFile.ReadParameterBinaries(FileStream, Integer, Integer)
-- uid: SHARP3D.C3d.C3dFile.ReadParameterBinaries*
-  name: ReadParameterBinaries
-  href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadParameterBinaries_
-  commentId: Overload:SHARP3D.C3d.C3dFile.ReadParameterBinaries
-  isSpec: "True"
-  fullName: SHARP3D.C3d.C3dFile.ReadParameterBinaries
-  nameWithType: C3dFile.ReadParameterBinaries
 - uid: SHARP3D.C3d.C3dFile.ReadProcessorByte(System.IO.FileStream)
   name: ReadProcessorByte(FileStream)
   href: api/SHARP3D.C3d.C3dFile.html#SHARP3D_C3d_C3dFile_ReadProcessorByte_System_IO_FileStream_
@@ -683,6 +667,12 @@ references:
   commentId: F:SHARP3D.C3d.C3dParameterAnalog.Rate
   fullName: SHARP3D.C3d.C3dParameterAnalog.Rate
   nameWithType: C3dParameterAnalog.Rate
+- uid: SHARP3D.C3d.C3dParameterAnalog.SamplesPerFrame
+  name: SamplesPerFrame
+  href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_SamplesPerFrame
+  commentId: F:SHARP3D.C3d.C3dParameterAnalog.SamplesPerFrame
+  fullName: SHARP3D.C3d.C3dParameterAnalog.SamplesPerFrame
+  nameWithType: C3dParameterAnalog.SamplesPerFrame
 - uid: SHARP3D.C3d.C3dParameterAnalog.Units
   name: Units
   href: api/SHARP3D.C3d.C3dParameterAnalog.html#SHARP3D_C3d_C3dParameterAnalog_Units

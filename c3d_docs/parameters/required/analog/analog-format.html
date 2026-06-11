@@ -113,8 +113,8 @@ when 32-bit Floating-point became the default C3D file format. C3D files storing
 <p>If the ANALOG:FORMAT parameter contains the string <code>UNSIGNED</code> then the <a href="analog-offset.html">ANALOG:OFFSET</a> parameters must also be treated as <code>UNSIGNED</code> values. If the ANALOG:FORMAT parameter does not exist it should be assumed that its value is <code>SIGNED</code> unless the analog data contains 16-bit values, in which case <code>UNSIGNED</code> is a possibility.</p>
 <h2 id="disclaimer">DISCLAIMER</h2>
 <p>This section is unclear in the <a href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User Guide</a>. It is not known if <a href="analog-format.html">ANALOG:FORMAT</a> concern all integer parameters, all integer parameters pertaining to analog data, or only the <a href="analog-offset.html">ANALOG:OFFSET</a>. The only sure part is that <a href="../../../data/analog.html">Analog Data</a> are affected by it.</p>
-<p>As most if not all Analog parameters seems to be positive value only, all integer analog parameters are affected by <a href="analog-format.html">ANALOG:FORMAT</a> values in SHARP3D, unless specified otherwise.</p>
 <p>If <a href="analog-format.html">ANALOG:FORMAT</a> does not exist, nothing tells you that its value is <code>SIGNED</code> with 100% certainty but that is your best bet, and the one that SHARP3D is doing.</p>
+<p>As most if not all Analog parameters seems to be constrained to positive value only, all integer analog parameters are affected by <a href="analog-format.html">ANALOG:FORMAT</a> values in SHARP3D, unless specified otherwise. Please <a href="https://github.com/TSS-22/SHARP3D/issues/new">let us know</a> if you need an excpetion to this rule for your case.</p>
 
 </article>
 

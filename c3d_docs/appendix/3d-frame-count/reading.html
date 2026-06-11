@@ -88,6 +88,7 @@
 <h1 id="reading-the-c3d-frame-count">Reading the C3D Frame Count</h1>
 
 <p>When a C3D file is opened, the number of frames stored in the file is normally read from the C3D parameter <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a>. It is important that applications determine the parameter storage type when they open a parameter, before reading the parameter value. Traditionally the C3D frame count stored in the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter was a signed integer, but it may also be stored as an unsigned integer, or a floating-point value. So applications opening the C3D file must be written correctly and must determine the parameter type before reading the parameter.</p>
+<h2 id="c3d-user-guide-recommendation">C3D User Guide recommendation</h2>
 <p>When a C3D file is opened, the following rules need to apply to reading the frame count from file that may have different vendors’ interpretations of the C3D standard:</p>
 <ol>
 <li><p>If the value stored in the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter is not 65535, then the value
@@ -101,6 +102,17 @@ stored in <a href="../../parameters/required/point/point-frames.html">POINT:FRAM
 <li><p>If the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter value is 65535 and the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameter exists, then the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> contains the frame count stored as a floating-point value.</p>
 </li>
 <li><p>If the <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> parameter value is 65535 and both the <a href="../../parameters/groups/group-trial.html">TRIAL parameters</a> and the <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> parameters exist, then they should both contain identical frame counts.</p>
+</li>
+</ol>
+<h2 id="sharp3d-heuristic">SHARP3D Heuristic</h2>
+<ol>
+<li><p>Check <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a>. If <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> &gt; 0, use <a href="../../parameters/additional/point/point-long_frames.html">POINT:LONG_FRAMES</a> value. Else, go to <strong>2</strong>.</p>
+</li>
+<li><p>Check <a href="../../parameters/additional/trial/trial-actual_start_field.html">TRIAL:ACTUAL_START_FIELD</a> and <a href="../../parameters/additional/trial/trial-actual_end_field.html">TRIAL:ACTUAL_END_FIELD</a> values. If the computation from the <a href="../../parameters/groups/group-trial.html">TRIAL parameters</a> works out to a valid number of frame, use this value. Else, go to <strong>3</strong>.</p>
+</li>
+<li><p>Use <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> value.</p>
+</li>
+<li><p>If for some reason <a href="../../parameters/required/point/point-frames.html">POINT:FRAMES</a> is not defined or empty, the frame number can't be read.</p>
 </li>
 </ol>
 <p>While these rules describe the actual C3D data frame count, a potential complication is that the C3D file header stores the frame range of the raw data that generated the 3D data stored in the C3D file. The original raw data frame range is stored as two 16-bit integers in header <a href="../../c3d-header.html#word-4-first-frame-number-of-the-raw-data">words 4</a> and <a href="../../c3d-header.html#word-5-end-frame-number-of-the-raw-data">word 5</a> that record the first and last frame numbers of the raw data that created the 3D data values stored in the file. While there is a potential relationship between the frame numbers stored in the header, and the frames stored as C3D data, the header values do not define the C3D file frame count.</p>

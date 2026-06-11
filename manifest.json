@@ -232,7 +232,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Exceptions.EmptyParameterGroupException",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.EmptyParameterGroupException.yml\" sourcestartlinenumber=\"1\">Exception thrown when an C3D Parameter Group is empty.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -260,7 +260,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Exceptions.ParameterNotFoundException",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.ParameterNotFoundException.yml\" sourcestartlinenumber=\"1\">Exception thrown when a Parameter in not found.</p>\n"
     },
     {
       "type": "ManagedReference",
