@@ -1,7 +1,7 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Test.Tests.TestUtils
+namespace SHARP3D.Test.Utils
 {
     public class C3dBytesConvertorTests
     {

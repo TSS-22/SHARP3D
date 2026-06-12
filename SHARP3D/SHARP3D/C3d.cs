@@ -1,38 +1,41 @@
-﻿using SHARP3D.Parameter.DataEntity;
-using System.Runtime.CompilerServices;
+﻿using SHARP3D.Data.DataEntity;
+using SHARP3D.Parameter.DataEntity;
 
 namespace SHARP3D
 {
     public class C3d
     {
         public string? FilePath = null;
-        public C3dParameterPoint Point;
-        public C3dParameterAnalog Analog;
-        
+        public C3dParameterPoint RequiredPoint;
+        public C3dParameterAnalog RequiredAnalog;
+        public C3dData Data; 
+
         public C3d(string filePath)
         {
             C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
             FilePath = c3DFile.FilePath;
-            Point = c3DFile.Point;
-            Analog = c3DFile.Analog;
+            RequiredPoint = c3DFile.Point;
+            RequiredAnalog = c3DFile.Analog;
 
+            (Data.Point, Data.Residual, Data.CameraMask) = GetPointDataFromFile();
+            (Data.Analog, Data.ForcePlate) = GetAnalogDataFromFile();
 
         }
 
-        internal (float[,,], float[]) GetPointDataFromFile()
+        internal (float?[,,]?, float?[]?, bool[,,,,,,]?) GetPointDataFromFile()
         {
-            return (new float[,,] { }, new float[] { });
+            return (null, null, null);
         }
 
         // I think this one is useless.
-        internal (float[], float[]?) GetAnalogDataFromFile()
+        internal (float[]?, float[,,]?) GetAnalogDataFromFile()
         {
-            return (new float[] { }, new float[] { });
+            return (null, null);
         }
 
-        internal float[] GetForcePlateDataFromFile()
+        internal float[,,] GetForcePlateDataFromFile()
         {
-            return new float[] { };
+            return new float[,,] { };
         }
     }
 }

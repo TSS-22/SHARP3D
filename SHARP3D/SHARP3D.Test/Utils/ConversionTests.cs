@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SHARP3D.Test.Tests.Utils
+namespace SHARP3D.Test.Utils
 {
     public class ConversionTests
     {
@@ -39,10 +39,10 @@ namespace SHARP3D.Test.Tests.Utils
         [MemberData(nameof(IntValueData))]
         public void ConversionSignedToUnsignedInt_Test(int[] values)
         {
-            Int16 signedData = (Int16)values[0];
-            Int16 unsignedData = (Int16)values[1];
+            short signedData = (short)values[0];
+            short unsignedData = (short)values[1];
 
-            Int16 valueToTest = (Int16)(signedData & 0xFFFF);
+            short valueToTest = (short)(signedData & 0xFFFF);
 
             Assert.Equal(unsignedData, valueToTest);
         }
