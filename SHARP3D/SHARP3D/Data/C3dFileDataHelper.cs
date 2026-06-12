@@ -1,4 +1,4 @@
-﻿using SHARP3D.Data.Data;
+﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 
@@ -12,13 +12,13 @@ namespace SHARP3D.Data
     /// This class contains utility methods to simplify common operations on C3D files,
     /// such as reading data frames, processing points and analogs, and validating data integrity.
     /// </remarks>
-    public static class C3dDataHelper
+    public static class C3dFileDataHelper
     {
         /// <summary>
         /// Reads and parses C3D data from a file stream using the provided context.
         /// </summary>
-        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
-        /// <returns>A <see cref="C3dData"/> object containing parsed points and analogs. And an int containing the ANALOG:BITS guesstimate.</returns>
+        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
+        /// <returns>A <see cref="C3dFileData"/> object containing parsed points and analogs. And an int containing the ANALOG:BITS guesstimate.</returns>
         /// <exception cref="EndOfStreamException">
         /// Many of the file given by the C3D organization as example to test any C3D app present too little data for the amount of frame advertised in regards to their parameters value. 
         /// Due to the fact that they still showcase valid data till the cutoff, we decided to provide our library with a non punitive approach: this function will read frames from a C3D file till it either reach the number of frame advertised (best case, and what should be the norm) or reach the end of the stream (worst case).
@@ -27,12 +27,12 @@ namespace SHARP3D.Data
         /// <exception cref="NotSupportedException">
         /// Thrown if the data type is not supported (neither INT16 nor FLOAT32).
         /// </exception>
-        public static (C3dData, int) FromFileStream(C3dDataContext context) 
+        public static (C3dFileData, int) FromFileStream(C3dFileDataContext context) 
         {
             // TODO: Add the check for AnalogSamplePerFrame, total number of analog sample must be a mutliple of this. In the way the c3d file is done there is a better way to check for that I think
             context.C3dStream.Seek(context.PointerDataSection, SeekOrigin.Begin);
 
-            List<C3dDataPoint[]> points = new List<C3dDataPoint[]>();
+            List<C3dFileDataPoint[]> points = new List<C3dFileDataPoint[]>();
             List<float[][]> analogs = new List<float[][]>();
             int maxAnalogSample = 0;
 
@@ -40,7 +40,7 @@ namespace SHARP3D.Data
             {
                 try
                 {
-                    (C3dDataPoint[], float[][], int) frame;
+                    (C3dFileDataPoint[], float[][], int) frame;
                     switch (context.DataTypeFile)
                     {
                         case DataType.INT16:
@@ -194,7 +194,7 @@ namespace SHARP3D.Data
             }
 
             return (
-                new C3dData
+                new C3dFileData
                     {
                         Points = points,
                         Analogs = analogs
@@ -206,12 +206,12 @@ namespace SHARP3D.Data
         /// <summary>
         /// Reads a data frame with INT16 data type.
         /// </summary>
-        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
         /// <returns>A tuple containing arrays of points and analogs for the frame and maximum value of the raw sample.</returns>
-        internal static (C3dDataPoint[], float[][], int) ReadDataFrameInt16(C3dDataContext context) 
+        internal static (C3dFileDataPoint[], float[][], int) ReadDataFrameInt16(C3dFileDataContext context) 
         {
             
-            List<C3dDataPoint> points = new List<C3dDataPoint>();
+            List<C3dFileDataPoint> points = new List<C3dFileDataPoint>();
             List<float[]> analogs = new List<float[]>();
             // This is used to compute ANALOG:BITS. 
             // We need the maximum value of raw analog sample to "guesstimate" the bit resolution of the ADC used for acquistion.
@@ -231,7 +231,7 @@ namespace SHARP3D.Data
                 byte camAndSign = (byte)context.C3dStream.ReadByte();
                 int residualInt = context.C3dStream.ReadByte();
                 bool[] cameraMask = GetCameraMask(camAndSign);
-                points.Add(new C3dDataPoint 
+                points.Add(new C3dFileDataPoint 
                 {
                     Data = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
@@ -274,12 +274,12 @@ namespace SHARP3D.Data
         /// <summary>
         /// Reads a data frame with FLOAT32 data type.
         /// </summary>
-        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
         /// <returns>A tuple containing arrays of points and analogs for the frame.</returns>
-        internal static (C3dDataPoint[], float[][], int) ReadDataFrameFloat32(C3dDataContext context) 
+        internal static (C3dFileDataPoint[], float[][], int) ReadDataFrameFloat32(C3dFileDataContext context) 
         {
             
-            List<C3dDataPoint> points = new List<C3dDataPoint>();
+            List<C3dFileDataPoint> points = new List<C3dFileDataPoint>();
             List<float[]> analogs = new List<float[]>();
             // This is used to compute ANALOG:BITS. 
             // We need the maximum value of raw analog sample to "guesstimate" the bit resolution of the ADC used for acquistion.
@@ -315,13 +315,13 @@ namespace SHARP3D.Data
                         //Console.WriteLine($"WARNING: Camera mask and Residual Float32 value was above the signed limit of Int16 format. Value: {floatCamSignResidual}");
                     }    
                 }
-                byte[] intCamSignResidual = BitConverter.GetBytes((Int16)floatCamSignResidual);
+                byte[] intCamSignResidual = BitConverter.GetBytes((short)floatCamSignResidual);
                 byte camAndSign = intCamSignResidual[0];
                 int residualInt = intCamSignResidual[1];
 
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
-                points.Add(new C3dDataPoint
+                points.Add(new C3dFileDataPoint
                 {
                     Data = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
@@ -375,7 +375,7 @@ namespace SHARP3D.Data
         /// <returns>True if the point is raw; otherwise, false.</returns>
         internal static bool IsRaw(byte camAndSign, int residual)
         {
-            if ((camAndSign == 0b00000001) || (residual == 0))
+            if (camAndSign == 0b00000001 || residual == 0)
             {
                 return false;
             }
@@ -391,12 +391,12 @@ namespace SHARP3D.Data
         /// <param name="camAndSign">The camera and sign byte.</param>
         /// <param name="pointValue">The point values.</param>
         /// <param name="cameraMask">The camera mask.</param>
-        /// <param name="context">The <see cref="C3dDataContext"/> containing file stream and metadata.</param>
+        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
         /// <returns>True if the point is valid; otherwise, false.</returns>
         /// <remarks>
         /// This value can't be trusted. Some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.
         /// </remarks>
-        internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dDataContext context) 
+        internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dFileDataContext context) 
         {
             // TODO: Isn't this shit show just that I forgot to take into account the differences between the processor ? I guess not because they do specify, byte 1, byte 2. But did they badly explain their shit again?
             //byte[] buffer = new byte[] { camAndSign, (byte)residual };

@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.Parameter.Data
+﻿namespace SHARP3D.Parameter.DataEntity
 {
     /// <summary>
     /// Represents a group of parameters in a C3D file, including metadata and a list of parameters.
@@ -41,7 +41,7 @@
     /// </list>
     /// </para>
     /// </remarks>
-    public struct C3dParameterGroup : IEquatable<C3dParameterGroup>
+    public struct C3dFileParameterGroup : IEquatable<C3dFileParameterGroup>
     {
         /// <summary>
         /// <para>
@@ -107,14 +107,14 @@
         /// <summary>
         /// The list of parameters contained in this group.
         /// </summary>
-        public List<C3dParameter> Parameters;
+        public List<C3dFileParameter> Parameters;
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dParameterGroup"/> instance is equal to another <see cref="C3dParameterGroup"/> instance.
+        /// Determines whether the current <see cref="C3dFileParameterGroup"/> instance is equal to another <see cref="C3dFileParameterGroup"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="C3dParameterGroup"/> instance to compare with the current instance.</param>
+        /// <param name="other">The <see cref="C3dFileParameterGroup"/> instance to compare with the current instance.</param>
         /// <returns><c>true</c> if the current instance is equal to the <paramref name="other"/> parameter; otherwise, <c>false</c>.</returns>
-        public bool Equals(C3dParameterGroup other) 
+        public bool Equals(C3dFileParameterGroup other) 
         {
             return NameLength == other.NameLength &&
                 Id == other.Id &&
@@ -130,33 +130,33 @@
         }
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dParameterGroup"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileParameterGroup"/> instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
         /// <returns><c>true</c> if the current instance is equal to the <paramref name="obj"/> parameter; otherwise, <c>false</c>.</returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dParameterGroup other && Equals(other);
+            return obj is C3dFileParameterGroup other && Equals(other);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dParameterGroup"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileParameterGroup"/> instances are equal.
         /// </summary>
-        /// <param name="group1">The first <see cref="C3dParameterGroup"/> instance to compare.</param>
-        /// <param name="group2">The second <see cref="C3dParameterGroup"/> instance to compare.</param>
+        /// <param name="group1">The first <see cref="C3dFileParameterGroup"/> instance to compare.</param>
+        /// <param name="group2">The second <see cref="C3dFileParameterGroup"/> instance to compare.</param>
         /// <returns><c>true</c> if <paramref name="group1"/> and <paramref name="group2"/> are equal; otherwise, <c>false</c>.</returns>
-        public static bool operator ==(C3dParameterGroup group1, C3dParameterGroup group2)
+        public static bool operator ==(C3dFileParameterGroup group1, C3dFileParameterGroup group2)
         {
             return group1.Equals(group2);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dParameterGroup"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileParameterGroup"/> instances are not equal.
         /// </summary>
-        /// <param name="group1">The first <see cref="C3dParameterGroup"/> instance to compare.</param>
-        /// <param name="group2">The second <see cref="C3dParameterGroup"/> instance to compare.</param>
+        /// <param name="group1">The first <see cref="C3dFileParameterGroup"/> instance to compare.</param>
+        /// <param name="group2">The second <see cref="C3dFileParameterGroup"/> instance to compare.</param>
         /// <returns><c>true</c> if <paramref name="group1"/> and <paramref name="group2"/> are not equal; otherwise, <c>false</c>.</returns>
-        public static bool operator !=(C3dParameterGroup group1, C3dParameterGroup group2)
+        public static bool operator !=(C3dFileParameterGroup group1, C3dFileParameterGroup group2)
         {
             return !group1.Equals(group2);
         }

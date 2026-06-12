@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Exceptions;
 
-namespace SHARP3D.Parameter.Data
+namespace SHARP3D.Parameter.DataEntity
 {
     /// <summary>
     /// References all the groups and parameters in a two-way dictionary for convenience.
@@ -8,7 +8,7 @@ namespace SHARP3D.Parameter.Data
     /// <remarks>
     /// This class provides methods to retrieve parameter indices, list group parameters, and list all groups.
     /// </remarks>
-    public class C3dParameterCollection
+    public class C3dFileParameterCollection
     {
         private readonly Dictionary<string, (string, int)[]> _groupValuesByName = new();
         private readonly Dictionary<int, (string, int)[]> _groupValuesByIndex = new();
@@ -16,15 +16,15 @@ namespace SHARP3D.Parameter.Data
         private readonly Dictionary<string, int> _mapGroupStringToIndex = new();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="C3dParameterCollection"/> class.
+        /// Initializes a new instance of the <see cref="C3dFileParameterCollection"/> class.
         /// </summary>
-        public C3dParameterCollection() { }
+        public C3dFileParameterCollection() { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="C3dParameterCollection"/> class using a list of <see cref="C3dParameterGroup"/>.
+        /// Initializes a new instance of the <see cref="C3dFileParameterCollection"/> class using a list of <see cref="C3dFileParameterGroup"/>.
         /// </summary>
-        /// <param name="c3dFileParameters">The list of <see cref="C3dParameterGroup"/> to populate the collection.</param>
-        public C3dParameterCollection(List<C3dParameterGroup> c3dFileParameters) 
+        /// <param name="c3dFileParameters">The list of <see cref="C3dFileParameterGroup"/> to populate the collection.</param>
+        public C3dFileParameterCollection(List<C3dFileParameterGroup> c3dFileParameters) 
         {
             for(int i =0; i < c3dFileParameters.Count; i++)
             {

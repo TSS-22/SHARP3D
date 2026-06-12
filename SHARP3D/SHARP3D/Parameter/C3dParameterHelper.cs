@@ -1,4 +1,4 @@
-﻿using SHARP3D.Parameter.Data;
+﻿using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Text;
@@ -26,12 +26,12 @@ namespace SHARP3D.Parameter
         /// TODO: Handle UTF-8 error cases as per https://en.wikipedia.org/wiki/UTF-8#Error_handling
         /// </remarks>
         // TODO: https://en.wikipedia.org/wiki/UTF-8#Error_handling
-        public static List<C3dParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
+        public static List<C3dFileParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
         {
             int[] scalarDimension = { 1 };
             c3dStream.Seek(pointerParameterSection + 4, SeekOrigin.Begin);
-            List<C3dParameterGroup> groups = new List<C3dParameterGroup> { };
-            List<C3dParameter> parameters = new List<C3dParameter> { };
+            List<C3dFileParameterGroup> groups = new List<C3dFileParameterGroup> { };
+            List<C3dFileParameter> parameters = new List<C3dFileParameter> { };
 
             // TO CLEAN
             //string filePathParameterSave = @"C:\Users\hfm\Documents\GitHub\SHARP3D\Ressources\parameters_samplingerrorfiles.csv";
@@ -102,7 +102,7 @@ namespace SHARP3D.Parameter
                     description = Encoding.UTF8.GetString(descriptionBuffer).TrimEnd('\0');
                     // Group
                     groups.Add(
-                        new C3dParameterGroup
+                        new C3dFileParameterGroup
                         {
                             NameLength = nameLength,
                             Id = id,
@@ -112,7 +112,7 @@ namespace SHARP3D.Parameter
                             ActualDescriptionLength = actualDescriptionLength,
                             Description = description,
                             Locked = nameLength < 0 ? true : false,
-                            Parameters = new List<C3dParameter> { }
+                            Parameters = new List<C3dFileParameter> { }
                         }
                         );
                 }
@@ -322,7 +322,7 @@ namespace SHARP3D.Parameter
                         }
                     }
                     parameters.Add(
-                        new C3dParameter
+                        new C3dFileParameter
                         {
                             NameLength = nameLength,
                             Id = id,
@@ -401,7 +401,7 @@ namespace SHARP3D.Parameter
                     string analogFormatDescription = "Determine if Analog data and parameter are signed or unsigned integers.";
 
                     groups.First(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Parameters.Add(
-                    new C3dParameter
+                    new C3dFileParameter
                     {
                         NameLength = (sbyte)analogFormatName.Length,
                         Id = Math.Abs(groups.FirstOrDefault(g => g.Name?.Equals("analog", StringComparison.OrdinalIgnoreCase) == true).Id),
@@ -449,7 +449,7 @@ namespace SHARP3D.Parameter
                                         unsignedData[j] = signedData[j] & 0xFFFF; // Masking to get the unsigned value
                                     }
                                     // Fix: Copy struct, modify, then assign back
-                                    C3dParameter tempParameter = groups[g].Parameters[i];
+                                    C3dFileParameter tempParameter = groups[g].Parameters[i];
                                     tempParameter.Data = unsignedData;
                                     tempParameter.DataTypeFile = DataType.UINT16;
                                     groups[g].Parameters[i] = tempParameter;

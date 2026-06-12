@@ -1,5 +1,5 @@
-﻿using SHARP3D.Header;
-using SHARP3D.Parameter.Data;
+﻿using SHARP3D.Header.DataEntity;
+using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Test.ToolKit;
 using SHARP3D.Utils.Enum;
 using System.Text.RegularExpressions;
@@ -14,7 +14,7 @@ namespace SHARP3D.Test.Tests
         public static readonly int Id = 0;
         public static readonly int PointerNextParameterStruct = 20;
         public static readonly bool Locked = false;
-        public static readonly List<C3dParameter> Parameters = new List<C3dParameter>();
+        public static readonly List<C3dFileParameter> Parameters = new List<C3dFileParameter>();
 
         // Parameter variables
         public static readonly DataType DataTypeFile = DataType.FLOAT32;
@@ -29,8 +29,8 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterGroupEmptyEquality_Test()
         {
-            C3dParameterGroup group1 = new C3dParameterGroup();
-            C3dParameterGroup group2 = new C3dParameterGroup();
+            C3dFileParameterGroup group1 = new C3dFileParameterGroup();
+            C3dFileParameterGroup group2 = new C3dFileParameterGroup();
 
             Assert.True(TestingTools.AssertEqual(group1, group2));
         }
@@ -38,7 +38,7 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterGroupEquality_Test()
         {
-            C3dParameterGroup group1 = new C3dParameterGroup
+            C3dFileParameterGroup group1 = new C3dFileParameterGroup
             {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
@@ -50,7 +50,7 @@ namespace SHARP3D.Test.Tests
                 Parameters = Parameters
             };
 
-            C3dParameterGroup group2 = new C3dParameterGroup
+            C3dFileParameterGroup group2 = new C3dFileParameterGroup
             {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
@@ -69,7 +69,7 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterGroupInequality_Test()
         {
-            C3dParameterGroup group1 = new C3dParameterGroup
+            C3dFileParameterGroup group1 = new C3dFileParameterGroup
             {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
@@ -81,10 +81,10 @@ namespace SHARP3D.Test.Tests
                 Parameters = Parameters
             };
 
-            List<C3dParameter> parametersDifferent = new List<C3dParameter>();
-            parametersDifferent.Add(new C3dParameter());
+            List<C3dFileParameter> parametersDifferent = new List<C3dFileParameter>();
+            parametersDifferent.Add(new C3dFileParameter());
 
-            C3dParameterGroup group2 = new C3dParameterGroup
+            C3dFileParameterGroup group2 = new C3dFileParameterGroup
             {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
@@ -103,7 +103,7 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterEmptyEquality_Test()
         {
-            C3dParameter param1 = new C3dParameter();
+            C3dFileParameter param1 = new C3dFileParameter();
             Assert.False(TestingTools.AssertInequal(param1, param1));
             Assert.True(TestingTools.AssertEqual(param1, param1));
         }
@@ -111,7 +111,7 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterEquality_Test()
         {
-            C3dParameter param1 = new C3dParameter {
+            C3dFileParameter param1 = new C3dFileParameter {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
                 Name = Name,
@@ -121,7 +121,7 @@ namespace SHARP3D.Test.Tests
                 Data = IntArray1
             };
 
-            C3dParameter param2 = new C3dParameter
+            C3dFileParameter param2 = new C3dFileParameter
             {
                 NameLength = (sbyte)Name.Length,
                 Id = Id,
@@ -138,12 +138,12 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterInequality_Test1()
         {
-            C3dParameter param1 = new C3dParameter
+            C3dFileParameter param1 = new C3dFileParameter
             {
                 Data = IntArray1
             };
 
-            C3dParameter param2 = new C3dParameter
+            C3dFileParameter param2 = new C3dFileParameter
             {
                 Data = IntArray2
             };
@@ -154,12 +154,12 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void ParameterInequality_Test2()
         {
-            C3dParameter param1 = new C3dParameter
+            C3dFileParameter param1 = new C3dFileParameter
             {
                 Data = IntArray1
             };
 
-            C3dParameter param2 = new C3dParameter
+            C3dFileParameter param2 = new C3dFileParameter
             {
                 Data = FloatArray1
             };
@@ -170,7 +170,7 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void C3dHeaderEmptyEquality_Test()
         {
-            C3dHeader header1 = new C3dHeader { };
+            C3dFileHeader header1 = new C3dFileHeader { };
             Assert.False(TestingTools.AssertInequal(header1, header1));
             Assert.True(TestingTools.AssertEqual(header1, header1));
         }
@@ -178,19 +178,19 @@ namespace SHARP3D.Test.Tests
         [Fact]
         public void C3dHeaderInequality_Test()
         {
-            C3dHeader header1 = new C3dHeader
+            C3dFileHeader header1 = new C3dFileHeader
             {
-                Events = new C3dHeaderEvent[]
+                Events = new C3dFileHeaderEvent[]
                 {
-                    new C3dHeaderEvent()
+                    new C3dFileHeaderEvent()
                 }
             };
 
-            C3dHeader header2 = new C3dHeader
+            C3dFileHeader header2 = new C3dFileHeader
             {
-                Events = new C3dHeaderEvent[]
+                Events = new C3dFileHeaderEvent[]
                 {
-                    new C3dHeaderEvent
+                    new C3dFileHeaderEvent
                     {
                         EventTime = 10f
                     }

@@ -1,7 +1,7 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Header
+namespace SHARP3D.Header.DataEntity
 {
     ///<summary>
     /// Represents the header information of a C3D file format used in 3D motion capture data.
@@ -10,7 +10,7 @@ namespace SHARP3D.Header
     /// <para>
     /// The header are made of 512 bytes of information at the beginning of a C3D file.
     /// </para>
-    public struct C3dHeader : IEquatable<C3dHeader>
+    public struct C3dFileHeader : IEquatable<C3dFileHeader>
     {
         ///<summary>
         ///<para>
@@ -130,10 +130,10 @@ namespace SHARP3D.Header
         ///</para>
         /// Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
         ///</summary>
-        public C3dHeaderEvent[] Events;
+        public C3dFileHeaderEvent[] Events;
 
 
-        public bool Equals(C3dHeader other)
+        public bool Equals(C3dFileHeader other)
         {
             return PointerParameterSection == other.PointerParameterSection &&
                    StorageFormat == other.StorageFormat &&
@@ -148,24 +148,24 @@ namespace SHARP3D.Header
                    Rate3dFrame == other.Rate3dFrame &&
                    Support4charEventLabels == other.Support4charEventLabels &&
                    EventsNb == other.EventsNb &&
-                   ((Events == null && other.Events == null) ||
-                    (Events != null && other.Events != null &&
+                   (Events == null && other.Events == null ||
+                    Events != null && other.Events != null &&
                      Events.Length == other.Events.Length &&
-                     !Events.Where((t, i) => !object.Equals(t, other.Events[i])).Any()));
+                     !Events.Where((t, i) => !Equals(t, other.Events[i])).Any());
         }
 
         ///<summary>
-        /// Determines whether the current <see cref="C3dHeader"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileHeader"/> instance is equal to a specified object.
         ///</summary>
         ///<param name="obj">The object to compare with the current instance.</param>
         ///<returns>True if the current instance is equal to the <paramref name="obj"/> parameter; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dHeader other && Equals(other);
+            return obj is C3dFileHeader other && Equals(other);
         }
 
         ///<summary>
-        /// Returns the hash code for the current <see cref="C3dHeader"/> instance.
+        /// Returns the hash code for the current <see cref="C3dFileHeader"/> instance.
         ///</summary>
         ///<returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
@@ -190,7 +190,7 @@ namespace SHARP3D.Header
                 if (Events != null)
                 {
                     foreach (var ev in Events)
-                        hash = hash * 23 + (ev.GetHashCode());
+                        hash = hash * 23 + ev.GetHashCode();
                 }
 
                 return hash;
@@ -198,40 +198,40 @@ namespace SHARP3D.Header
         }
 
         ///<summary>
-        /// Determines whether two specified <see cref="C3dHeader"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileHeader"/> instances are equal.
         ///</summary>
-        ///<param name="left">The first <see cref="C3dHeader"/> instance to compare.</param>
-        ///<param name="right">The second <see cref="C3dHeader"/> instance to compare.</param>
+        ///<param name="left">The first <see cref="C3dFileHeader"/> instance to compare.</param>
+        ///<param name="right">The second <see cref="C3dFileHeader"/> instance to compare.</param>
         ///<returns>True if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, false.</returns>
-        public static bool operator ==(C3dHeader left, C3dHeader right)
+        public static bool operator ==(C3dFileHeader left, C3dFileHeader right)
         {
             return left.Equals(right);
         }
 
         ///<summary>
-        /// Determines whether two specified <see cref="C3dHeader"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileHeader"/> instances are not equal.
         ///</summary>
-        ///<param name="left">The first <see cref="C3dHeader"/> instance to compare.</param>
-        ///<param name="right">The second <see cref="C3dHeader"/> instance to compare.</param>
+        ///<param name="left">The first <see cref="C3dFileHeader"/> instance to compare.</param>
+        ///<param name="right">The second <see cref="C3dFileHeader"/> instance to compare.</param>
         ///<returns>True if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, false.</returns>
-        public static bool operator !=(C3dHeader left, C3dHeader right)
+        public static bool operator !=(C3dFileHeader left, C3dFileHeader right)
         {
             return !left.Equals(right);
         }
 
         ///<summary>
-        /// Parses a byte array into a <see cref="C3dHeader"/> struct.
+        /// Parses a byte array into a <see cref="C3dFileHeader"/> struct.
         ///</summary>
         ///<param name="binaries">The byte array to parse.</param>
         ///<param name="processorFile">The <see cref="ProcessorType"/> used to interpret the byte order of the binary data.</param>
-        ///<returns>A <see cref="C3dHeader"/> instance populated with the parsed data.</returns>
+        ///<returns>A <see cref="C3dFileHeader"/> instance populated with the parsed data.</returns>
         // TODO: Try to "reverse compute" the scale factor. Indeed if it is just found by dividing the max absolute value by 32000, mathematically I can find it back with the max value read by the int16 value.
         // TODO: Implement method to parse binaries into C3dHeader struct.
-        public static C3dHeader FromBinaries(byte[] binaries, ProcessorType processorFile)
+        public static C3dFileHeader FromBinaries(byte[] binaries, ProcessorType processorFile)
         {
             byte[] pointerParameterSectionBinaries = { 0, binaries[0] };
 
-            return new C3dHeader
+            return new C3dFileHeader
             {
                 PointerParameterSection = (binaries[0] - 1) * 512,
                 StorageFormat = Convert.ToChar(binaries[1]) == 'P' ? StorageFormat.ORIGINAL : StorageFormat.UNKOWN,
@@ -246,7 +246,7 @@ namespace SHARP3D.Header
                 Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorFile),
                 Support4charEventLabels = C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorFile) == 12345 ? true : false,
                 EventsNb = C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorFile),
-                Events = C3dHeaderEvent.EventsFromBinaries(
+                Events = C3dFileHeaderEvent.EventsFromBinaries(
                     binaries.Skip(304).Take(208).ToArray(), // Event binaries
                     C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorFile), // Nb of events
                     C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorFile) == 12345 ? true : false, // Support 4 char event labels

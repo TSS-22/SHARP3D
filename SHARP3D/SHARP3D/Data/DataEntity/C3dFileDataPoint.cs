@@ -1,9 +1,9 @@
-﻿namespace SHARP3D.Data.Data
+﻿namespace SHARP3D.Data.DataEntity
 {
     /// <summary>
     /// Represents a single 3D data point in a C3D file, including its coordinates, residual, camera visibility, and validity.
     /// </summary>
-    public struct C3dDataPoint : IEquatable<C3dDataPoint>
+    public struct C3dFileDataPoint : IEquatable<C3dFileDataPoint>
     {
         /// <summary>
         /// Gets or sets the coordinate data of the 3D point.
@@ -44,13 +44,13 @@
 
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dDataPoint"/> instance is equal to another <see cref="C3dDataPoint"/> instance.
+        /// Determines whether the current <see cref="C3dFileDataPoint"/> instance is equal to another <see cref="C3dFileDataPoint"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="C3dDataPoint"/> instance to compare with the current instance.</param>
+        /// <param name="other">The <see cref="C3dFileDataPoint"/> instance to compare with the current instance.</param>
         /// <returns>
         /// <c>true</c> if the current instance is equal to the <paramref name="other"/> parameter; otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(C3dDataPoint other)
+        public bool Equals(C3dFileDataPoint other)
         {
             // Compare AverageResidual, Raw, and Valid
             if (AverageResidual != other.AverageResidual ||
@@ -94,7 +94,7 @@
         }
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dDataPoint"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileDataPoint"/> instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
         /// <returns>
@@ -102,7 +102,7 @@
         /// </returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dDataPoint other && Equals(other);
+            return obj is C3dFileDataPoint other && Equals(other);
         }
 
         /// <summary>
@@ -110,7 +110,7 @@
         /// </summary>
         /// <returns>A 32-bit signed integer that is the hash code for this instance.</returns>
         /// <remarks>
-        /// The hash code is calculated using all fields of the <see cref="C3dDataPoint"/> struct.
+        /// The hash code is calculated using all fields of the <see cref="C3dFileDataPoint"/> struct.
         /// </remarks>
         public override int GetHashCode()
         {
@@ -140,27 +140,27 @@
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dDataPoint"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileDataPoint"/> instances are equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dDataPoint"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dDataPoint"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileDataPoint"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileDataPoint"/> instance to compare.</param>
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, <c>false</c>.
         /// </returns>
-        public static bool operator ==(C3dDataPoint left, C3dDataPoint right)
+        public static bool operator ==(C3dFileDataPoint left, C3dFileDataPoint right)
         {
             return left.Equals(right);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dDataPoint"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileDataPoint"/> instances are not equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dDataPoint"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dDataPoint"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileDataPoint"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileDataPoint"/> instance to compare.</param>
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, <c>false</c>.
         /// </returns>
-        public static bool operator !=(C3dDataPoint left, C3dDataPoint right)
+        public static bool operator !=(C3dFileDataPoint left, C3dFileDataPoint right)
         {
             return !left.Equals(right);
         }

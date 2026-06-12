@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.C3d
+﻿namespace SHARP3D.Parameter.DataEntity
 {
     public  class C3dParameterPoint
     {

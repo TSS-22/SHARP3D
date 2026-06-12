@@ -1,6 +1,4 @@
-﻿using SHARP3D.C3d;
-
-namespace SHARP3D.Test.Tests.BuilderTests.Parameter.TestSuite_01
+﻿namespace SHARP3D.Test.Tests.BuilderTests.Parameter.TestSuite_01
 {
     public class C3dFileParameterTests
     {

@@ -1,13 +1,13 @@
 ﻿using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Header
+namespace SHARP3D.Header.DataEntity
 {
     // TODO: Implement methods to curate the eventLabel. Don't know where to put it.
     /// <summary>
     /// Represents an event in a C3D file header, including its time, display flag, and label.
     /// </summary>
-    public struct C3dHeaderEvent : IEquatable<C3dHeaderEvent>
+    public struct C3dFileHeaderEvent : IEquatable<C3dFileHeaderEvent>
     {
         /// <summary>
         /// The time at which the event occurs.
@@ -23,11 +23,11 @@ namespace SHARP3D.Header
         public string EventLabel;
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dHeaderEvent"/> instance is equal to another <see cref="C3dHeaderEvent"/> instance.
+        /// Determines whether the current <see cref="C3dFileHeaderEvent"/> instance is equal to another <see cref="C3dFileHeaderEvent"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="C3dHeaderEvent"/> instance to compare with the current instance.</param>
+        /// <param name="other">The <see cref="C3dFileHeaderEvent"/> instance to compare with the current instance.</param>
         /// <returns>True if the current instance is equal to the <paramref name="other"/> parameter; otherwise, false.</returns>
-        public bool Equals(C3dHeaderEvent other)
+        public bool Equals(C3dFileHeaderEvent other)
         {
             return EventTime == other.EventTime &&
                    DisplayFlag == other.DisplayFlag &&
@@ -35,17 +35,17 @@ namespace SHARP3D.Header
         }
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dHeaderEvent"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileHeaderEvent"/> instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
         /// <returns>True if the current instance is equal to the <paramref name="obj"/> parameter; otherwise, false.</returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dHeaderEvent other && Equals(other);
+            return obj is C3dFileHeaderEvent other && Equals(other);
         }
 
         /// <summary>
-        /// Returns the hash code for the current <see cref="C3dHeaderEvent"/> instance.
+        /// Returns the hash code for the current <see cref="C3dFileHeaderEvent"/> instance.
         /// </summary>
         /// <returns>A 32-bit signed integer hash code.</returns>
         public override int GetHashCode()
@@ -61,38 +61,38 @@ namespace SHARP3D.Header
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dHeaderEvent"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileHeaderEvent"/> instances are equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dHeaderEvent"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dHeaderEvent"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileHeaderEvent"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileHeaderEvent"/> instance to compare.</param>
         /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, false.</returns>
-        public static bool operator ==(C3dHeaderEvent left, C3dHeaderEvent right)
+        public static bool operator ==(C3dFileHeaderEvent left, C3dFileHeaderEvent right)
         {
             return left.Equals(right);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dHeaderEvent"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileHeaderEvent"/> instances are not equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dHeaderEvent"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dHeaderEvent"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileHeaderEvent"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileHeaderEvent"/> instance to compare.</param>
         /// <returns>True if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, false.</returns>
-        public static bool operator !=(C3dHeaderEvent left, C3dHeaderEvent right)
+        public static bool operator !=(C3dFileHeaderEvent left, C3dFileHeaderEvent right)
         {
             return !left.Equals(right);
         }
 
         /// <summary>
-        /// Parses a byte array into an array of <see cref="C3dHeaderEvent"/> instances.
+        /// Parses a byte array into an array of <see cref="C3dFileHeaderEvent"/> instances.
         /// </summary>
         /// <param name="binaries">The byte array to parse.</param>
         /// <param name="definedEventsNb">The number of events defined in the byte array.</param>
         /// <param name="supported4CharLabels">Indicates whether the C3D file supports 4-character event labels.</param>
         /// <param name="processorFile">The <see cref="ProcessorType"/> used to interpret the byte order of the binary data.</param>
-        /// <returns>An array of <see cref="C3dHeaderEvent"/> instances populated with the parsed data.</returns>
-        public static C3dHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels, ProcessorType processorFile)
+        /// <returns>An array of <see cref="C3dFileHeaderEvent"/> instances populated with the parsed data.</returns>
+        public static C3dFileHeaderEvent[] EventsFromBinaries(byte[] binaries, int definedEventsNb, bool supported4CharLabels, ProcessorType processorFile)
         {
-            C3dHeaderEvent[] events = new C3dHeaderEvent[definedEventsNb];
+            C3dFileHeaderEvent[] events = new C3dFileHeaderEvent[definedEventsNb];
             for (int i = 0; i < definedEventsNb; i++)
             {
                 events[i] = EventFromBinaries(
@@ -107,15 +107,15 @@ namespace SHARP3D.Header
         }
 
         /// <summary>
-        /// Parses a byte array into a single <see cref="C3dHeaderEvent"/> instance.
+        /// Parses a byte array into a single <see cref="C3dFileHeaderEvent"/> instance.
         /// </summary>
         /// <param name="binEventTime">The byte array representing the event time.</param>
         /// <param name="binHeaderEventFlag">The byte array representing the event display flag.</param>
         /// <param name="binEventLabel">The byte array representing the event label.</param>
         /// <param name="supported4CharLabels">Indicates whether the C3D file supports 4-character event labels.</param>
         /// <param name="processorFile">The <see cref="ProcessorType"/> used to interpret the byte order of the binary data.</param>
-        /// <returns>A <see cref="C3dHeaderEvent"/> instance populated with the parsed data.</returns>
-        public static C3dHeaderEvent EventFromBinaries(
+        /// <returns>A <see cref="C3dFileHeaderEvent"/> instance populated with the parsed data.</returns>
+        public static C3dFileHeaderEvent EventFromBinaries(
             byte[] binEventTime,
             byte[] binHeaderEventFlag,
             byte[] binEventLabel,
@@ -123,7 +123,7 @@ namespace SHARP3D.Header
             ProcessorType processorFile
             )
         {
-            C3dHeaderEvent headerEvent = new C3dHeaderEvent();
+            C3dFileHeaderEvent headerEvent = new C3dFileHeaderEvent();
             headerEvent.EventTime = C3dBytesConvertor.ToFloat(binEventTime, processorFile);
             headerEvent.DisplayFlag = HeaderEventFlagHelper.FromByte(binHeaderEventFlag[0]);
             // Assuming the label is a fixed length string of 16 bytes

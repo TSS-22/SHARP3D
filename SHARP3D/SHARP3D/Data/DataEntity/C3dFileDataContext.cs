@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Data.Data
+namespace SHARP3D.Data.DataEntity
 {
     // TODO: Check that all the values are actually used and therefore necessary.
 
@@ -13,7 +13,7 @@ namespace SHARP3D.Data.Data
     /// the data section of a C3D file, including file stream, processor type, data type, and scaling factors.
     /// </para>
     /// </remarks>
-    public class C3dDataContext
+    public class C3dFileDataContext
     {
         /// <summary>
         /// Gets the file stream used to access the C3D file.
@@ -97,7 +97,7 @@ namespace SHARP3D.Data.Data
         public AnalogFormatFlag AnalogFormat { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="C3dDataContext"/> class.
+        /// Initializes a new instance of the <see cref="C3dFileDataContext"/> class.
         /// </summary>
         /// <param name="c3dStream">The file stream used to access the C3D file.</param>
         /// <param name="processor">The processor type used to create the C3D file.</param>
@@ -119,7 +119,7 @@ namespace SHARP3D.Data.Data
         /// <exception cref="Exception">
         /// Thrown if the ratio of <paramref name="analogRate"/> to <paramref name="pointRate"/> is not an integer.
         /// </exception>
-        public C3dDataContext(
+        public C3dFileDataContext(
             FileStream c3dStream,
             ProcessorType processor,
             DataType dataTypeFile,

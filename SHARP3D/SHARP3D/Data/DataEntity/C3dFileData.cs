@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.Data.Data
+﻿namespace SHARP3D.Data.DataEntity
 {
     /// <summary>
     /// Represents 3D data in a C3D file, including points and analog data.
@@ -8,16 +8,16 @@
     /// This struct stores 3D point data and analog data as lists of arrays.
     /// </para>
     /// <para>
-    /// <strong>Points:</strong> A list of <see cref="C3dDataPoint"/> arrays, where each array represents a frame of 3D points.
+    /// <strong>Points:</strong> A list of <see cref="C3dFileDataPoint"/> arrays, where each array represents a frame of 3D points.
     /// </para>
     /// <para>
     /// <strong>Analogs:</strong> A list of 2D float arrays, where each array represents a frame of analog data.
     /// </para>
     /// <para>
-    /// <strong>Equality:</strong> Two <see cref="C3dData"/> instances are considered equal if their <see cref="Points"/> and <see cref="Analogs"/> fields are equal.
+    /// <strong>Equality:</strong> Two <see cref="C3dFileData"/> instances are considered equal if their <see cref="Points"/> and <see cref="Analogs"/> fields are equal.
     /// </para>
     /// </remarks>
-    public struct C3dData : IEquatable<C3dData>
+    public struct C3dFileData : IEquatable<C3dFileData>
     {
         /// <summary>
         /// Gets or sets a list of 3D point arrays, where each array represents a frame of 3D points.
@@ -27,7 +27,7 @@
         /// </remarks>
         #warning Temporary fix.
         // TODO: Add resolutions of the points
-        public List<C3dDataPoint[]> Points;
+        public List<C3dFileDataPoint[]> Points;
         //string[] PointLabels;
         //string PointsUnit;// Default: mm
 
@@ -39,13 +39,13 @@
         //string[] AnalogUnits;
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dData"/> instance is equal to another <see cref="C3dData"/> instance.
+        /// Determines whether the current <see cref="C3dFileData"/> instance is equal to another <see cref="C3dFileData"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="C3dData"/> instance to compare with the current instance.</param>
+        /// <param name="other">The <see cref="C3dFileData"/> instance to compare with the current instance.</param>
         /// <returns>
         /// <c>true</c> if the current instance is equal to the <paramref name="other"/> parameter; otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(C3dData other)
+        public bool Equals(C3dFileData other)
         {
             // Compare Points: List of C3dDataPoint[]
             if (Points == null && other.Points == null)
@@ -58,8 +58,8 @@
             {
                 for (int i = 0; i < Points.Count; i++)
                 {
-                    C3dDataPoint[] thisPoints = Points[i];
-                    C3dDataPoint[] otherPoints = other.Points[i];
+                    C3dFileDataPoint[] thisPoints = Points[i];
+                    C3dFileDataPoint[] otherPoints = other.Points[i];
                     if (thisPoints == null && otherPoints == null)
                         continue;
                     if (thisPoints == null || otherPoints == null || thisPoints.Length != otherPoints.Length)
@@ -110,7 +110,7 @@
         }
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dData"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileData"/> instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
         /// <returns>
@@ -118,7 +118,7 @@
         /// </returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dData other && Equals(other);
+            return obj is C3dFileData other && Equals(other);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@
                         if (pointArray != null)
                         {
                             foreach (var point in pointArray)
-                                hash = hash * 23 + (point.GetHashCode());
+                                hash = hash * 23 + point.GetHashCode();
                         }
                     }
                 }
@@ -168,27 +168,27 @@
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dData"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileData"/> instances are equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dData"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dData"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileData"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileData"/> instance to compare.</param>
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, <c>false</c>.
         /// </returns>
-        public static bool operator ==(C3dData left, C3dData right)
+        public static bool operator ==(C3dFileData left, C3dFileData right)
         {
             return left.Equals(right);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dData"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileData"/> instances are not equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dData"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dData"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileData"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileData"/> instance to compare.</param>
         /// <returns>
         /// <c>true</c> if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, <c>false</c>.
         /// </returns>
-        public static bool operator !=(C3dData left, C3dData right)
+        public static bool operator !=(C3dFileData left, C3dFileData right)
         {
             return !left.Equals(right);
         }

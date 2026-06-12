@@ -1,20 +1,17 @@
 ﻿using SHARP3D.Data;
-using SHARP3D.Data.Data;
+using SHARP3D.Data.DataEntity;
 using SHARP3D.Exceptions;
-using SHARP3D.Header;
+using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter;
-using SHARP3D.Parameter.Data;
+using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Runtime.CompilerServices;
-using static System.Net.Mime.MediaTypeNames;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
 [assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
-namespace SHARP3D.C3d
+namespace SHARP3D
 {
     /// <summary>
     /// Represents a C3D file, providing methods for processing headers, parameters, loading, saving, and binary conversion.
@@ -63,17 +60,17 @@ namespace SHARP3D.C3d
         /// <summary>
         /// Gets or sets the header information of the C3D file.
         /// </summary>
-        public C3dHeader Header { get; set; } = new C3dHeader();
+        public C3dFileHeader Header { get; set; } = new C3dFileHeader();
 
         /// <summary>
         /// Gets or sets the list of parameter groups in the C3D file.
         /// </summary>
-        public List<C3dParameterGroup> Parameters { get; set; }
+        public List<C3dFileParameterGroup> Parameters { get; set; }
 
         /// <summary>
         /// Gets or sets the collection of parameters in the C3D file.
         /// </summary>
-        public C3dParameterCollection ParameterCollection { get; set; }
+        public C3dFileParameterCollection ParameterCollection { get; set; }
 
         
         public C3dParameterPoint Point { get; set; }
@@ -82,7 +79,7 @@ namespace SHARP3D.C3d
         /// <summary>
         /// Gets or sets the data contained in the C3D file.
         /// </summary>
-        public C3dData Data { get; set; }
+        public C3dFileData Data { get; set; }
 
         /// <summary>
         /// Centralize the values needed to extract the data from the C3D file.
@@ -90,7 +87,7 @@ namespace SHARP3D.C3d
         /// <remarks>
         /// It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
         /// </remarks>
-        public C3dDataContext DataContext { get; set; }
+        public C3dFileDataContext DataContext { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="C3dFile"/> class.
@@ -116,7 +113,7 @@ namespace SHARP3D.C3d
 
             Parameters = GetParameters(fileStream, ProcessorFile, PointerParameterSection, PointerDataSection);
 
-            ParameterCollection = new C3dParameterCollection(Parameters);
+            ParameterCollection = new C3dFileParameterCollection(Parameters);
 
             Analog = SetFileAnalog();
             Point = setFilePoint(Analog.Used, Analog.Rate);
@@ -423,12 +420,12 @@ namespace SHARP3D.C3d
         /// </summary>
         /// <param name="fileStream">The file stream to read from.</param>
         /// <param name="processorFile">The processor type used to create the C3D file.</param>
-        /// <returns>A <see cref="C3dHeader"/> object containing the header information.</returns>
-        internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
+        /// <returns>A <see cref="C3dFileHeader"/> object containing the header information.</returns>
+        internal C3dFileHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
         {
             fileStream.Seek(0, SeekOrigin.Begin);
             byte[] headerBinaries = ReadHeaderBinaries(fileStream);
-            return C3dHeader.FromBinaries(headerBinaries, processorFile);
+            return C3dFileHeader.FromBinaries(headerBinaries, processorFile);
         }
 
         /// <summary>
@@ -440,7 +437,7 @@ namespace SHARP3D.C3d
         /// <param name="pointerDataSection">The pointer to the data section.</param>
         /// <returns>A list of <see cref="C3dParameterGroup"/> objects containing the parameters.</returns>
         /// <exception cref="InvalidOperationException">Thrown if the file stream is not open.</exception>
-        internal List<C3dParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
+        internal List<C3dFileParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
         {
             if (fileStream == null)
             {
@@ -530,8 +527,8 @@ namespace SHARP3D.C3d
         /// </summary>
         /// <param name="groupName">The name of the parameter group.</param>
         /// <param name="parameterName">The name of the parameter.</param>
-        /// <returns>A <see cref="C3dParameter"/> object representing the requested parameter.</returns>
-        public C3dParameter GetParameter(string groupName, string parameterName)
+        /// <returns>A <see cref="C3dFileParameter"/> object representing the requested parameter.</returns>
+        public C3dFileParameter GetParameter(string groupName, string parameterName)
         {
             (int,int) indexParameter = ParameterCollection.GetParameterIndex(groupName, parameterName);
             return Parameters[indexParameter.Item1].Parameters[indexParameter.Item2];
@@ -544,11 +541,11 @@ namespace SHARP3D.C3d
         /// <param name="processor">The processor type used to create the C3D file.</param>
         /// <param name="dataTypeFile">The data type used in the C3D file.</param>
         /// <param name="pointScale">The point scale factor.</param>
-        /// <returns>A <see cref="C3dData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
-        internal (C3dData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
+        /// <returns>A <see cref="C3dFileData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
+        internal (C3dFileData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
         {
             // TODO: actually sort the error that can come
-            DataContext = new C3dDataContext(
+            DataContext = new C3dFileDataContext(
                 c3dStream: c3dStream,
                 processor: processor,
                 dataTypeFile: dataTypeFile,
@@ -566,7 +563,7 @@ namespace SHARP3D.C3d
                 analogFormat: GetAnalogFormat()
                 );
 
-            return C3dDataHelper.FromFileStream(DataContext);
+            return C3dFileDataHelper.FromFileStream(DataContext);
         }
 
 
@@ -676,8 +673,8 @@ namespace SHARP3D.C3d
             // As per page 99,100 and 101 of the C3D User Guide.
             try
             {
-                C3dParameter trialActualStartField = GetParameter("trial", "actual_start_field");
-                C3dParameter trialActualEndField = GetParameter("trial", "actual_end_field");
+                C3dFileParameter trialActualStartField = GetParameter("trial", "actual_start_field");
+                C3dFileParameter trialActualEndField = GetParameter("trial", "actual_end_field");
 
                 int firstFrame = GetFrameValue(trialActualStartField.Data.GetValue(0)) + GetFrameValue(trialActualStartField.Data.GetValue(1)) * 65535;
                 int lastFrame = GetFrameValue(trialActualEndField.Data.GetValue(0)) + GetFrameValue(trialActualEndField.Data.GetValue(1)) * 65535;
@@ -815,9 +812,9 @@ namespace SHARP3D.C3d
         internal float ComputeScaleFactor()
         {
             float maxValue = 0f;
-            foreach (C3dDataPoint[] points in Data.Points)
+            foreach (C3dFileDataPoint[] points in Data.Points)
             {
-                foreach (C3dDataPoint point in points)
+                foreach (C3dFileDataPoint point in points)
                 {
                     foreach (float dataPoint in point.Data)
                     {
@@ -828,7 +825,7 @@ namespace SHARP3D.C3d
                     }
                 }
             }
-            return maxValue / (float)32000;
+            return maxValue / 32000;
         }
 
     }

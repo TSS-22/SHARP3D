@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter.Data
+namespace SHARP3D.Parameter.DataEntity
 {
     /// <summary>
     /// Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.
@@ -44,7 +44,7 @@ namespace SHARP3D.Parameter.Data
     /// </para>
     /// </remarks>
 
-    public struct C3dParameter : IEquatable<C3dParameter>
+    public struct C3dFileParameter : IEquatable<C3dFileParameter>
     {
         /// <summary>
         /// <para>
@@ -132,11 +132,11 @@ namespace SHARP3D.Parameter.Data
         public bool Locked;
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dParameter"/> instance is equal to another <see cref="C3dParameter"/> instance.
+        /// Determines whether the current <see cref="C3dFileParameter"/> instance is equal to another <see cref="C3dFileParameter"/> instance.
         /// </summary>
-        /// <param name="other">The <see cref="C3dParameter"/> instance to compare with the current instance.</param>
+        /// <param name="other">The <see cref="C3dFileParameter"/> instance to compare with the current instance.</param>
         /// <returns><c>true</c> if the current instance is equal to the <paramref name="other"/> parameter; otherwise, <c>false</c>.</returns>
-        public bool Equals(C3dParameter other)
+        public bool Equals(C3dFileParameter other)
         {
             // Compare all value-type fields
             if (NameLength != other.NameLength ||
@@ -188,13 +188,13 @@ namespace SHARP3D.Parameter.Data
         }
 
         /// <summary>
-        /// Determines whether the current <see cref="C3dParameter"/> instance is equal to a specified object.
+        /// Determines whether the current <see cref="C3dFileParameter"/> instance is equal to a specified object.
         /// </summary>
         /// <param name="obj">The object to compare with the current instance.</param>
         /// <returns><c>true</c> if the current instance is equal to the <paramref name="obj"/> parameter; otherwise, <c>false</c>.</returns>
         public override bool Equals(object obj)
         {
-            return obj is C3dParameter other && Equals(other);
+            return obj is C3dFileParameter other && Equals(other);
         }
 
         public override int GetHashCode()
@@ -218,23 +218,23 @@ namespace SHARP3D.Parameter.Data
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dParameter"/> instances are equal.
+        /// Determines whether two specified <see cref="C3dFileParameter"/> instances are equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dParameter"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dParameter"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileParameter"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileParameter"/> instance to compare.</param>
         /// <returns><c>true</c> if <paramref name="left"/> and <paramref name="right"/> are equal; otherwise, <c>false</c>.</returns>
-        public static bool operator ==(C3dParameter left, C3dParameter right)
+        public static bool operator ==(C3dFileParameter left, C3dFileParameter right)
         {
             return left.Equals(right);
         }
 
         /// <summary>
-        /// Determines whether two specified <see cref="C3dParameter"/> instances are not equal.
+        /// Determines whether two specified <see cref="C3dFileParameter"/> instances are not equal.
         /// </summary>
-        /// <param name="left">The first <see cref="C3dParameter"/> instance to compare.</param>
-        /// <param name="right">The second <see cref="C3dParameter"/> instance to compare.</param>
+        /// <param name="left">The first <see cref="C3dFileParameter"/> instance to compare.</param>
+        /// <param name="right">The second <see cref="C3dFileParameter"/> instance to compare.</param>
         /// <returns><c>true</c> if <paramref name="left"/> and <paramref name="right"/> are not equal; otherwise, <c>false</c>.</returns>
-        public static bool operator !=(C3dParameter left, C3dParameter right)
+        public static bool operator !=(C3dFileParameter left, C3dFileParameter right)
         {
             return !left.Equals(right);
         }
