@@ -8,7 +8,7 @@ namespace SHARP3D
         public string? FilePath = null;
         public C3dParameterPoint RequiredPoint;
         public C3dParameterAnalog RequiredAnalog;
-        public C3dData Data; 
+        public C3dData Data = new C3dData(); 
 
         public C3d(string filePath)
         {
@@ -20,6 +20,12 @@ namespace SHARP3D
             (Data.Point, Data.Residual, Data.CameraMask) = GetPointDataFromFile();
             (Data.Analog, Data.ForcePlate) = GetAnalogDataFromFile();
 
+        }
+
+        public C3d()
+        {
+            RequiredPoint = new C3dParameterPoint();
+            RequiredAnalog = new C3dParameterAnalog();
         }
 
         internal (float?[,,]?, float?[]?, bool[,,,,,,]?) GetPointDataFromFile()
@@ -37,5 +43,8 @@ namespace SHARP3D
         {
             return new float[,,] { };
         }
+
+
+
     }
 }
