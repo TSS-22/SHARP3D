@@ -1,8 +1,4 @@
-﻿using SHARP3D.Utils;
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace SHARP3D.Parameter.DataEntity.Clean
+﻿namespace SHARP3D.Parameter.DataEntity.Clean
 {
     public class C3dParameterGroup
     {
@@ -23,11 +19,14 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         public string Description = "No Description provided.";
         public List<C3dParameter> Parameters = new List<C3dParameter> { };
 
-        public C3dParameterGroup(string name, string description, List<C3dParameter> parameters)
+        public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null)
         {
             Name = name;
             Description = description;
-            Parameters = parameters;
+            if(parameters != null)
+            {
+                Parameters = parameters;
+            }
         }
 
         public string[] ListParameters()
@@ -52,14 +51,23 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             throw new ArgumentException($"Parameter with name '{name.ToUpper()}' not found in group '{Name}'.");
         }
 
-        public void AddParameter(string name, string description, Array data)
+        public void AddParameter(string parameterName, string description, Array data)
         {
-            if (Parameters.Any(p => p.Name == name))
+            if (Parameters.Any(p => p.Name == parameterName))
             {
-                throw new ArgumentException($"A parameter with the name '{name}' already exists in group '{Name}'.");
+                throw new ArgumentException($"A parameter with the name '{parameterName}' already exists in group '{Name}'.");
             }
-            Array flattenedArray;
-            Parameters.Add(new C3dParameter(name, description, data));
+
+            Parameters.Add(new C3dParameter(Name, parameterName, description, data));
+        }
+
+        public void DeleteParameter(string name)
+        {
+            bool removed = Parameters.RemoveAll(p => p.Name == name) > 0;
+            if (!removed)
+            {
+                throw new ArgumentException($"Parameter with name '{name.ToUpper()}' not found in group '{Name}'.");
+            }
         }
     }
 }

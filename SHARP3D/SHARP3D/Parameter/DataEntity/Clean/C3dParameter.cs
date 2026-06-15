@@ -1,8 +1,12 @@
 ﻿
+using SHARP3D.Utils;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace SHARP3D.Parameter.DataEntity.Clean
 {
     public class C3dParameter
     {
+        public string Group;
         private string _name = "UNKNOWN";
         public string Name
         {
@@ -18,21 +22,42 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
         }
         public string Description = "No Description provided.";
-        public int[] Dimensions = new int[] { };
-        public Array Data = new int[] { };
+        public int[] Dimensions { get; private set; }  = new int[] { };
+        public Array _Data = new int[] { };
+        public Array Data
+        {
+            get => _Data; // Getter
+            set
+            {
+                // Custom logic in the setter
+                if ((value == null) || (value.Length == 0))
+                {
+                    throw new ArgumentException("Parameter data cannot be empty or null.");
+                }
+                _Data = value;
+                Dimensions = GetDimensions(value);
+            }
+        }
         public bool Locked = false;
     
-        public C3dParameter(string name, string description, Array data)
+        public C3dParameter(string group, string name, string description, Array data)
         {
+            Group = group;
             Name = name;
             Description = description;
             Data = data;
-            List<int> tempDimensions = new List<int> { };
+            Dimensions = GetDimensions(data);
+        }
+
+        private int[] GetDimensions(Array data)
+        {
+            List<int> dimensions = new List<int> { };
             for (int i = 0; i < Data.Rank; i++)
             {
-                tempDimensions.Add(Data.GetLength(i));
+                dimensions.Add(Data.GetLength(i));
             }
-            Dimensions = tempDimensions.ToArray();
+            return dimensions.ToArray();
         }
+
     }
 }

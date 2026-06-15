@@ -1,13 +1,17 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
+using SHARP3D.Parameter.DataEntity.Clean;
 
 namespace SHARP3D
 {
     public class C3d
     {
         public string? FilePath = null;
-        public C3dParameterPoint RequiredPoint;
-        public C3dParameterAnalog RequiredAnalog;
+        public C3dParameterPoint RequiredPoint = new C3dParameterPoint();
+        public C3dParameterAnalog RequiredAnalog = new C3dParameterAnalog();
+
+        public C3dParameterSection Parameters;
+
         public C3dData Data = new C3dData(); 
 
         public C3d(string filePath)
@@ -22,11 +26,7 @@ namespace SHARP3D
 
         }
 
-        public C3d()
-        {
-            RequiredPoint = new C3dParameterPoint();
-            RequiredAnalog = new C3dParameterAnalog();
-        }
+        public C3d() { }
 
         internal (float?[,,]?, float?[]?, bool[,,,,,,]?) GetPointDataFromFile()
         {
