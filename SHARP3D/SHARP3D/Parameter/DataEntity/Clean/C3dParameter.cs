@@ -40,13 +40,30 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         }
         public bool Locked = false;
     
-        public C3dParameter(string group, string name, string description, Array data)
+        public C3dParameter(
+            string group,
+            string name,
+            Array data,
+            string description= "No Description provided.",
+            bool locked=false
+            )
         {
-            Group = group;
-            Name = name;
+            Group = group.ToUpper();
+            Name = name.ToUpper();
             Description = description;
             Data = data;
             Dimensions = GetDimensions(data);
+            Locked = locked;
+        }
+
+        public C3dParameter(string groupName, C3dFileParameter parameter)
+        {
+            Group = groupName.ToUpper();
+            Name = parameter.Name.ToUpper();
+            Description = parameter.Description;
+            Data = parameter.Data;
+            Dimensions = GetDimensions(parameter.Data);
+            Locked = parameter.Locked;
         }
 
         private int[] GetDimensions(Array data)
