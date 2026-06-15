@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class C3dDataContext | SHARP3D Documentation </title>
+      <title>Class C3dFileDataContext | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class C3dDataContext | SHARP3D Documentation ">
+      <meta name="title" content="Class C3dFileDataContext | SHARP3D Documentation ">
       
-      <meta name="description" content="Represents the context for reading and processing data from a C3D file.">
+      <meta name="description" content="Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/dev/apiSpec/new?filename=SHARP3D_Data_Data_C3dDataContext.md&amp;value=---%0Auid%3A%20SHARP3D.Data.Data.C3dDataContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Data_DataEntity_C3dFileDataContext.md&amp;value=---%0Auid%3A%20SHARP3D.Data.DataEntity.C3dFileDataContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SHARP3D.Data.Data.C3dDataContext">
+        <article data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext">
 
 
 
-  <h1 id="SHARP3D_Data_Data_C3dDataContext" data-uid="SHARP3D.Data.Data.C3dDataContext" class="text-break">
-Class C3dDataContext  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SHARP3D_Data_DataEntity_C3dFileDataContext" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext" class="text-break">
+Class C3dFileDataContext  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Data.html">Data</a>.<a class="xref" href="SHARP3D.Data.Data.html">Data</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Data.html">Data</a>.<a class="xref" href="SHARP3D.Data.DataEntity.html">DataEntity</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents the context for reading and processing data from a C3D file.</p>
+  <div class="markdown summary"><p>Represents the context for reading and processing data from a C3D file. It centralize the values needed to extract the data from the C3D file.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class C3dDataContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class C3dFileDataContext</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Class C3dDataContext  <a class="header-action link-secondary" title="View source
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">C3dDataContext</span></div>
+      <div><span class="xref">C3dFileDataContext</span></div>
     </dd>
   </dl>
 
@@ -147,7 +147,7 @@ Class C3dDataContext  <a class="header-action link-secondary" title="View source
 
 
 
-  <h2 id="SHARP3D_Data_Data_C3dDataContext_remarks">Remarks</h2>
+  <h2 id="SHARP3D_Data_DataEntity_C3dFileDataContext_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 This class encapsulates all necessary information and parameters required to read and interpret
 the data section of a C3D file, including file stream, processor type, data type, and scaling factors.
@@ -159,19 +159,19 @@ the data section of a C3D file, including file stream, processor type, data type
 </h2>
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext__ctor_" data-uid="SHARP3D.Data.Data.C3dDataContext.#ctor*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext__ctor_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_" data-uid="SHARP3D.Data.Data.C3dDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)">
-  C3dDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)">
+  C3dFileDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html">C3dDataContext</a> class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataContext.html">C3dFileDataContext</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public C3dDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScaleFactor, float analogGeneralScaleFactor, float[] analogChannelScaleFactor, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dFileDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScale, float analogGeneralScale, float[] analogChannelScale, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -203,12 +203,12 @@ the data section of a C3D file, including file stream, processor type, data type
     <dt><code>analogChannels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The number of analog channels in the C3D file.</p>
 </dd>
-    <dt><code>pointScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>pointScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd><p>The scale factor applied to 3D point coordinates.</p>
 </dd>
-    <dt><code>analogGeneralScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><code>analogGeneralScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd></dd>
-    <dt><code>analogChannelScaleFactor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dt><code>analogChannelScale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
     <dd><p>The scale factors applied to individual analog channels.</p>
 </dd>
     <dt><code>analogOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
@@ -243,11 +243,11 @@ the data section of a C3D file, including file stream, processor type, data type
 </h2>
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogChannelScaleFactor_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogChannelScaleFactor_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogChannelScaleFactor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogChannelScaleFactor" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogChannelScaleFactor">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogChannelScaleFactor" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogChannelScaleFactor">
   AnalogChannelScaleFactor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the scale factors applied to individual analog channels.</p>
@@ -271,18 +271,18 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <h4 class="section" id="SHARP3D_Data_Data_C3dDataContext_AnalogChannelScaleFactor_remarks">Remarks</h4>
+  <h4 class="section" id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogChannelScaleFactor_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Each element in the array corresponds to the scale factor for a specific analog channel.</p>
 </div>
 
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogChannels_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogChannels*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogChannels_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogChannels*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogChannels" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogChannels">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogChannels" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogChannels">
   AnalogChannels
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the number of analog channels in the C3D file.</p>
@@ -310,11 +310,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogFormat_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogFormat*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogFormat_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogFormat*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogFormat" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogFormat">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogFormat" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogFormat">
   AnalogFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the analog the <a href="https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog-format.html">ANALOG:FORMAT Parameter</a> value.</p>
@@ -342,11 +342,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogGeneralScaleFactor_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogGeneralScaleFactor_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogGeneralScaleFactor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogGeneralScaleFactor" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogGeneralScaleFactor">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogGeneralScaleFactor" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogGeneralScaleFactor">
   AnalogGeneralScaleFactor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the general scale factor applied to all analog data.</p>
@@ -374,11 +374,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogOffset_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogOffset*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogOffset_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogOffset*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogOffset" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogOffset">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogOffset" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogOffset">
   AnalogOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the offset for analog data in the C3D file.</p>
@@ -406,11 +406,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogRate_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogRate*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogRate_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogRate*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogRate" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogRate">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogRate" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogRate">
   AnalogRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the acquisition rate of the analog data, in Hz.</p>
@@ -438,11 +438,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_AnalogSamplePerFrame_" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogSamplePerFrame_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogSamplePerFrame*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_AnalogSamplePerFrame" data-uid="SHARP3D.Data.Data.C3dDataContext.AnalogSamplePerFrame">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogSamplePerFrame" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.AnalogSamplePerFrame">
   AnalogSamplePerFrame
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the number of analog samples per 3D frame.</p>
@@ -466,18 +466,18 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <h4 class="section" id="SHARP3D_Data_Data_C3dDataContext_AnalogSamplePerFrame_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This value is calculated as the ratio of <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_AnalogRate">AnalogRate</a> to <a class="xref" href="SHARP3D.Data.Data.C3dDataContext.html#SHARP3D_Data_Data_C3dDataContext_PointRate">PointRate</a>.</p>
+  <h4 class="section" id="SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogSamplePerFrame_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This value is calculated as the ratio of <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext_AnalogRate">AnalogRate</a> to <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext_PointRate">PointRate</a>.</p>
 </div>
 
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_C3dStream_" data-uid="SHARP3D.Data.Data.C3dDataContext.C3dStream*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_C3dStream_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.C3dStream*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_C3dStream" data-uid="SHARP3D.Data.Data.C3dDataContext.C3dStream">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_C3dStream" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.C3dStream">
   C3dStream
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the file stream used to access the C3D file.</p>
@@ -505,11 +505,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_DataTypeFile_" data-uid="SHARP3D.Data.Data.C3dDataContext.DataTypeFile*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_DataTypeFile_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.DataTypeFile*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_DataTypeFile" data-uid="SHARP3D.Data.Data.C3dDataContext.DataTypeFile">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_DataTypeFile" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.DataTypeFile">
   DataTypeFile
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the data type of the values stored in the C3D file.</p>
@@ -537,11 +537,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_FramesNumber_" data-uid="SHARP3D.Data.Data.C3dDataContext.FramesNumber*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_FramesNumber_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.FramesNumber*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_FramesNumber" data-uid="SHARP3D.Data.Data.C3dDataContext.FramesNumber">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_FramesNumber" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.FramesNumber">
   FramesNumber
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the total number of frames in the C3D file.</p>
@@ -569,11 +569,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_MarkersPerFrame_" data-uid="SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_MarkersPerFrame_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.MarkersPerFrame*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_MarkersPerFrame" data-uid="SHARP3D.Data.Data.C3dDataContext.MarkersPerFrame">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_MarkersPerFrame" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.MarkersPerFrame">
   MarkersPerFrame
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the number of markers per frame in the C3D file.</p>
@@ -601,11 +601,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_PointRate_" data-uid="SHARP3D.Data.Data.C3dDataContext.PointRate*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointRate_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointRate*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_PointRate" data-uid="SHARP3D.Data.Data.C3dDataContext.PointRate">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointRate" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointRate">
   PointRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the acquisition rate of the 3D point data, in Hz.</p>
@@ -633,11 +633,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_PointScaleFactor_" data-uid="SHARP3D.Data.Data.C3dDataContext.PointScaleFactor*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointScaleFactor_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointScaleFactor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_PointScaleFactor" data-uid="SHARP3D.Data.Data.C3dDataContext.PointScaleFactor">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointScaleFactor" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointScaleFactor">
   PointScaleFactor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the scale factor applied to 3D point coordinates.</p>
@@ -665,11 +665,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_PointerDataSection_" data-uid="SHARP3D.Data.Data.C3dDataContext.PointerDataSection*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointerDataSection_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointerDataSection*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_PointerDataSection" data-uid="SHARP3D.Data.Data.C3dDataContext.PointerDataSection">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_PointerDataSection" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.PointerDataSection">
   PointerDataSection
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the pointer to the start of the data section in the C3D file.</p>
@@ -697,11 +697,11 @@ the data section of a C3D file, including file stream, processor type, data type
 
 
 
-  <a id="SHARP3D_Data_Data_C3dDataContext_Processor_" data-uid="SHARP3D.Data.Data.C3dDataContext.Processor*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileDataContext_Processor_" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.Processor*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dDataContext_Processor" data-uid="SHARP3D.Data.Data.C3dDataContext.Processor">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileDataContext_Processor" data-uid="SHARP3D.Data.DataEntity.C3dFileDataContext.Processor">
   Processor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the processor type used to create the C3D file.</p>
@@ -733,7 +733,7 @@ the data section of a C3D file, including file stream, processor type, data type
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dDataContext.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileDataContext.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

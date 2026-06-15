@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Struct C3dData | SHARP3D Documentation </title>
+      <title>Struct C3dFileData | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct C3dData | SHARP3D Documentation ">
+      <meta name="title" content="Struct C3dFileData | SHARP3D Documentation ">
       
       <meta name="description" content="Represents 3D data in a C3D file, including points and analog data.">
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/dev/apiSpec/new?filename=SHARP3D_Data_Data_C3dData.md&amp;value=---%0Auid%3A%20SHARP3D.Data.Data.C3dData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Data_DataEntity_C3dFileData.md&amp;value=---%0Auid%3A%20SHARP3D.Data.DataEntity.C3dFileData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SHARP3D.Data.Data.C3dData">
+        <article data-uid="SHARP3D.Data.DataEntity.C3dFileData">
 
 
 
-  <h1 id="SHARP3D_Data_Data_C3dData" data-uid="SHARP3D.Data.Data.C3dData" class="text-break">
-Struct C3dData  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SHARP3D_Data_DataEntity_C3dFileData" data-uid="SHARP3D.Data.DataEntity.C3dFileData" class="text-break">
+Struct C3dFileData  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Data.html">Data</a>.<a class="xref" href="SHARP3D.Data.Data.html">Data</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Data.html">Data</a>.<a class="xref" href="SHARP3D.Data.DataEntity.html">DataEntity</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
@@ -102,7 +102,7 @@ Struct C3dData  <a class="header-action link-secondary" title="View source" href
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct C3dData : IEquatable&lt;C3dData&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct C3dFileData : IEquatable&lt;C3dFileData&gt;</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Struct C3dData  <a class="header-action link-secondary" title="View source" href
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a>&gt;</div>
     </dd>
   </dl>
 
@@ -137,18 +137,18 @@ Struct C3dData  <a class="header-action link-secondary" title="View source" href
 
 
 
-  <h2 id="SHARP3D_Data_Data_C3dData_remarks">Remarks</h2>
+  <h2 id="SHARP3D_Data_DataEntity_C3dFileData_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>
 This struct stores 3D point data and analog data as lists of arrays.
 </p>
 <p>
-<strong>Points:</strong> A list of <a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a> arrays, where each array represents a frame of 3D points.
+<strong>Points:</strong> A list of <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataPoint.html">C3dFileDataPoint</a> arrays, where each array represents a frame of 3D points.
 </p>
 <p>
 <strong>Analogs:</strong> A list of 2D float arrays, where each array represents a frame of analog data.
 </p>
 <p>
-<strong>Equality:</strong> Two <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instances are considered equal if their <a class="xref" href="SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_Points">Points</a> and <a class="xref" href="SHARP3D.Data.Data.C3dData.html#SHARP3D_Data_Data_C3dData_Analogs">Analogs</a> fields are equal.
+<strong>Equality:</strong> Two <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instances are considered equal if their <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html#SHARP3D_Data_DataEntity_C3dFileData_Points">Points</a> and <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html#SHARP3D_Data_DataEntity_C3dFileData_Analogs">Analogs</a> fields are equal.
 </p>
 </div>
 
@@ -158,9 +158,9 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <h3 id="SHARP3D_Data_Data_C3dData_Analogs" data-uid="SHARP3D.Data.Data.C3dData.Analogs">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_Analogs" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Analogs">
   Analogs
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a list of 2D float arrays, where each array represents a frame of analog data.</p>
@@ -189,9 +189,9 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <h3 id="SHARP3D_Data_Data_C3dData_Points" data-uid="SHARP3D.Data.Data.C3dData.Points">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_Points" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Points">
   Points
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets a list of 3D point arrays, where each array represents a frame of 3D points.</p>
@@ -199,7 +199,7 @@ This struct stores 3D point data and analog data as lists of arrays.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;C3dDataPoint[]&gt; Points</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;C3dFileDataPoint[]&gt; Points</code></pre>
   </div>
 
 
@@ -207,7 +207,7 @@ This struct stores 3D point data and analog data as lists of arrays.
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Data.Data.C3dDataPoint.html">C3dDataPoint</a>[]&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataPoint.html">C3dFileDataPoint</a>[]&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -215,7 +215,7 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <h4 class="section" id="SHARP3D_Data_Data_C3dData_Points_remarks">Remarks</h4>
+  <h4 class="section" id="SHARP3D_Data_DataEntity_C3dFileData_Points_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>TODO: Add resolutions of the points.</p>
 </div>
 
@@ -226,25 +226,25 @@ This struct stores 3D point data and analog data as lists of arrays.
 </h2>
 
 
-  <a id="SHARP3D_Data_Data_C3dData_Equals_" data-uid="SHARP3D.Data.Data.C3dData.Equals*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileData_Equals_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Equals*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dData_Equals_SHARP3D_Data_Data_C3dData_" data-uid="SHARP3D.Data.Data.C3dData.Equals(SHARP3D.Data.Data.C3dData)">
-  Equals(C3dData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_Equals_SHARP3D_Data_DataEntity_C3dFileData_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Equals(SHARP3D.Data.DataEntity.C3dFileData)">
+  Equals(C3dFileData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether the current <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance is equal to another <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance.</p>
+  <div class="markdown level1 summary"><p>Determines whether the current <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance is equal to another <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Equals(C3dData other)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Equals(C3dFileData other)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>other</code> <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
-    <dd><p>The <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance to compare with the current instance.</p>
+    <dt><code>other</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd><p>The <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance to compare with the current instance.</p>
 </dd>
   </dl>
 
@@ -265,14 +265,14 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <a id="SHARP3D_Data_Data_C3dData_Equals_" data-uid="SHARP3D.Data.Data.C3dData.Equals*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileData_Equals_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Equals*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dData_Equals_System_Object_" data-uid="SHARP3D.Data.Data.C3dData.Equals(System.Object)">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_Equals_System_Object_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.Equals(System.Object)">
   Equals(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether the current <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance is equal to a specified object.</p>
+  <div class="markdown level1 summary"><p>Determines whether the current <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance is equal to a specified object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -304,11 +304,11 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <a id="SHARP3D_Data_Data_C3dData_GetHashCode_" data-uid="SHARP3D.Data.Data.C3dData.GetHashCode*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileData_GetHashCode_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.GetHashCode*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dData_GetHashCode" data-uid="SHARP3D.Data.Data.C3dData.GetHashCode">
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_GetHashCode" data-uid="SHARP3D.Data.DataEntity.C3dFileData.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the hash code for this instance.</p>
@@ -341,28 +341,28 @@ This struct stores 3D point data and analog data as lists of arrays.
 </h2>
 
 
-  <a id="SHARP3D_Data_Data_C3dData_op_Equality_" data-uid="SHARP3D.Data.Data.C3dData.op_Equality*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileData_op_Equality_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.op_Equality*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dData_op_Equality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_" data-uid="SHARP3D.Data.Data.C3dData.op_Equality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)">
-  operator ==(C3dData, C3dData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_op_Equality_SHARP3D_Data_DataEntity_C3dFileData_SHARP3D_Data_DataEntity_C3dFileData_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.op_Equality(SHARP3D.Data.DataEntity.C3dFileData,SHARP3D.Data.DataEntity.C3dFileData)">
+  operator ==(C3dFileData, C3dFileData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instances are equal.</p>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instances are equal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator ==(C3dData left, C3dData right)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool operator ==(C3dFileData left, C3dFileData right)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>left</code> <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
-    <dd><p>The first <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance to compare.</p>
+    <dt><code>left</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd><p>The first <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance to compare.</p>
 </dd>
-    <dt><code>right</code> <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
-    <dd><p>The second <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance to compare.</p>
+    <dt><code>right</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd><p>The second <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance to compare.</p>
 </dd>
   </dl>
 
@@ -383,28 +383,28 @@ This struct stores 3D point data and analog data as lists of arrays.
 
 
 
-  <a id="SHARP3D_Data_Data_C3dData_op_Inequality_" data-uid="SHARP3D.Data.Data.C3dData.op_Inequality*"></a>
+  <a id="SHARP3D_Data_DataEntity_C3dFileData_op_Inequality_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.op_Inequality*"></a>
 
-  <h3 id="SHARP3D_Data_Data_C3dData_op_Inequality_SHARP3D_Data_Data_C3dData_SHARP3D_Data_Data_C3dData_" data-uid="SHARP3D.Data.Data.C3dData.op_Inequality(SHARP3D.Data.Data.C3dData,SHARP3D.Data.Data.C3dData)">
-  operator !=(C3dData, C3dData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Data_DataEntity_C3dFileData_op_Inequality_SHARP3D_Data_DataEntity_C3dFileData_SHARP3D_Data_DataEntity_C3dFileData_" data-uid="SHARP3D.Data.DataEntity.C3dFileData.op_Inequality(SHARP3D.Data.DataEntity.C3dFileData,SHARP3D.Data.DataEntity.C3dFileData)">
+  operator !=(C3dFileData, C3dFileData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instances are not equal.</p>
+  <div class="markdown level1 summary"><p>Determines whether two specified <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instances are not equal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator !=(C3dData left, C3dData right)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool operator !=(C3dFileData left, C3dFileData right)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>left</code> <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
-    <dd><p>The first <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance to compare.</p>
+    <dt><code>left</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd><p>The first <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance to compare.</p>
 </dd>
-    <dt><code>right</code> <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a></dt>
-    <dd><p>The second <a class="xref" href="SHARP3D.Data.Data.C3dData.html">C3dData</a> instance to compare.</p>
+    <dt><code>right</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd><p>The second <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a> instance to compare.</p>
 </dd>
   </dl>
 
@@ -429,7 +429,7 @@ This struct stores 3D point data and analog data as lists of arrays.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/dev/SHARP3D/SHARP3D/Data/Data/C3dData.cs/#L20" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dFileData.cs/#L20" class="edit-link">Edit this page</a>
         </div>
 
 
