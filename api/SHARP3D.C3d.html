@@ -156,7 +156,7 @@ Class C3d  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="SHARP3D_C3d__ctor" data-uid="SHARP3D.C3d.#ctor">
   C3d()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -369,22 +369,63 @@ Class C3d  <a class="header-action link-secondary" title="View source" href="htt
 
   <a id="SHARP3D_C3d_GetAnalogDataFromFile_" data-uid="SHARP3D.C3d.GetAnalogDataFromFile*"></a>
 
-  <h3 id="SHARP3D_C3d_GetAnalogDataFromFile" data-uid="SHARP3D.C3d.GetAnalogDataFromFile">
-  GetAnalogDataFromFile()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_C3d_GetAnalogDataFromFile_System_Collections_Generic_List_System_Single______" data-uid="SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]})">
+  GetAnalogDataFromFile(List&lt;float[][]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">internal (float[]?, float[,,]?) GetAnalogDataFromFile()</code></pre>
+    <pre><code class="lang-csharp hljs">internal (float[,], float[,,]?) GetAnalogDataFromFile(List&lt;float[][]&gt; fileAnalogData)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileAnalogData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[][]&gt;</dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,,])</dt>
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,,])</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_C3d_GetDataFromFile_" data-uid="SHARP3D.C3d.GetDataFromFile*"></a>
+
+  <h3 id="SHARP3D_C3d_GetDataFromFile_SHARP3D_Data_DataEntity_C3dFileData_" data-uid="SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)">
+  GetDataFromFile(C3dFileData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal C3dData GetDataFromFile(C3dFileData fileData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fileData</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileData.html">C3dFileData</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SHARP3D.Data.DataEntity.C3dData.html">C3dData</a></dt>
     <dd></dd>
   </dl>
 
@@ -402,7 +443,7 @@ Class C3d  <a class="header-action link-secondary" title="View source" href="htt
 
   <h3 id="SHARP3D_C3d_GetForcePlateDataFromFile" data-uid="SHARP3D.C3d.GetForcePlateDataFromFile">
   GetForcePlateDataFromFile()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -431,22 +472,27 @@ Class C3d  <a class="header-action link-secondary" title="View source" href="htt
 
   <a id="SHARP3D_C3d_GetPointDataFromFile_" data-uid="SHARP3D.C3d.GetPointDataFromFile*"></a>
 
-  <h3 id="SHARP3D_C3d_GetPointDataFromFile" data-uid="SHARP3D.C3d.GetPointDataFromFile">
-  GetPointDataFromFile()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_C3d_GetPointDataFromFile_System_Collections_Generic_List_SHARP3D_Data_DataEntity_C3dFileDataPoint____" data-uid="SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]})">
+  GetPointDataFromFile(List&lt;C3dFileDataPoint[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/C3d.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">internal (float?[,,]?, float?[]?, bool[,,,,,,]?) GetPointDataFromFile()</code></pre>
+    <pre><code class="lang-csharp hljs">internal (float?[,,], float?[,], bool[,,]) GetPointDataFromFile(List&lt;C3dFileDataPoint[]&gt; filePointData)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePointData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataPoint.html">C3dFileDataPoint</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[,,], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[,,,,,,])</dt>
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[,,], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[,], <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[,,])</dt>
     <dd></dd>
   </dl>
 

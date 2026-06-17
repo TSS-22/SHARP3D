@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class C3dData | SHARP3D Documentation </title>
+      <title>Class ArrayUtils | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class C3dData | SHARP3D Documentation ">
+      <meta name="title" content="Class ArrayUtils | SHARP3D Documentation ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Data_DataEntity_C3dData.md&amp;value=---%0Auid%3A%20SHARP3D.Data.DataEntity.C3dData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Utils_ArrayUtils.md&amp;value=---%0Auid%3A%20SHARP3D.Utils.ArrayUtils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SHARP3D.Data.DataEntity.C3dData">
+        <article data-uid="SHARP3D.Utils.ArrayUtils">
 
 
 
-  <h1 id="SHARP3D_Data_DataEntity_C3dData" data-uid="SHARP3D.Data.DataEntity.C3dData" class="text-break">
-Class C3dData  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SHARP3D_Utils_ArrayUtils" data-uid="SHARP3D.Utils.ArrayUtils" class="text-break">
+Class ArrayUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L3"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Data.html">Data</a>.<a class="xref" href="SHARP3D.Data.DataEntity.html">DataEntity</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Utils.html">Utils</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
@@ -101,7 +101,7 @@ Class C3dData  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class C3dData</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ArrayUtils</code></pre>
   </div>
 
 
@@ -111,7 +111,7 @@ Class C3dData  <a class="header-action link-secondary" title="View source" href=
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">C3dData</span></div>
+      <div><span class="xref">ArrayUtils</span></div>
     </dd>
   </dl>
 
@@ -148,27 +148,31 @@ Class C3dData  <a class="header-action link-secondary" title="View source" href=
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="methods">Methods
 </h2>
 
 
+  <a id="SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_" data-uid="SHARP3D.Utils.ArrayUtils.ConvertTo2DArray*"></a>
 
-  <h3 id="SHARP3D_Data_DataEntity_C3dData_Analog" data-uid="SHARP3D.Data.DataEntity.C3dData.Analog">
-  Analog
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_System_Collections_Generic_List_System_Single____" data-uid="SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List{System.Single[]})">
+  ConvertTo2DArray(List&lt;float[]&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float[,]? Analog</code></pre>
+    <pre><code class="lang-csharp hljs">public static float[,] ConvertTo2DArray(List&lt;float[]&gt; list)</code></pre>
   </div>
 
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>list</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]&gt;</dt>
+    <dd></dd>
+  </dl>
 
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,]</dt>
     <dd></dd>
@@ -183,130 +187,12 @@ Class C3dData  <a class="header-action link-secondary" title="View source" href=
 
 
 
-  <h3 id="SHARP3D_Data_DataEntity_C3dData_CameraMask" data-uid="SHARP3D.Data.DataEntity.C3dData.CameraMask">
-  CameraMask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L8"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool[,,]? CameraMask</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>[,,]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SHARP3D_Data_DataEntity_C3dData_ForcePlate" data-uid="SHARP3D.Data.DataEntity.C3dData.ForcePlate">
-  ForcePlate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L11"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float[,,]? ForcePlate</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,,]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SHARP3D_Data_DataEntity_C3dData_Point" data-uid="SHARP3D.Data.DataEntity.C3dData.Point">
-  Point
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L6"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float?[,,]? Point</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[,,]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SHARP3D_Data_DataEntity_C3dData_Residual" data-uid="SHARP3D.Data.DataEntity.C3dData.Residual">
-  Residual
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L7"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float?[,]? Residual</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?[,]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/DataEntity/C3dData.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L3" class="edit-link">Edit this page</a>
         </div>
 
 

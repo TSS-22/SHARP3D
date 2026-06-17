@@ -53,12 +53,15 @@ references:
   commentId: F:SHARP3D.C3d.FilePath
   fullName: SHARP3D.C3d.FilePath
   nameWithType: C3d.FilePath
-- uid: SHARP3D.C3d.GetAnalogDataFromFile
-  name: GetAnalogDataFromFile()
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetAnalogDataFromFile
-  commentId: M:SHARP3D.C3d.GetAnalogDataFromFile
-  fullName: SHARP3D.C3d.GetAnalogDataFromFile()
-  nameWithType: C3d.GetAnalogDataFromFile()
+- uid: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]})
+  name: GetAnalogDataFromFile(List<float[][]>)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetAnalogDataFromFile_System_Collections_Generic_List_System_Single______
+  commentId: M:SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]})
+  name.vb: GetAnalogDataFromFile(List(Of Single()()))
+  fullName: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List<float[][]>)
+  fullName.vb: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List(Of Single()()))
+  nameWithType: C3d.GetAnalogDataFromFile(List<float[][]>)
+  nameWithType.vb: C3d.GetAnalogDataFromFile(List(Of Single()()))
 - uid: SHARP3D.C3d.GetAnalogDataFromFile*
   name: GetAnalogDataFromFile
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetAnalogDataFromFile_
@@ -66,6 +69,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.GetAnalogDataFromFile
   nameWithType: C3d.GetAnalogDataFromFile
+- uid: SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
+  name: GetDataFromFile(C3dFileData)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetDataFromFile_SHARP3D_Data_DataEntity_C3dFileData_
+  commentId: M:SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
+  fullName: SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
+  nameWithType: C3d.GetDataFromFile(C3dFileData)
+- uid: SHARP3D.C3d.GetDataFromFile*
+  name: GetDataFromFile
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetDataFromFile_
+  commentId: Overload:SHARP3D.C3d.GetDataFromFile
+  isSpec: "True"
+  fullName: SHARP3D.C3d.GetDataFromFile
+  nameWithType: C3d.GetDataFromFile
 - uid: SHARP3D.C3d.GetForcePlateDataFromFile
   name: GetForcePlateDataFromFile()
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile
@@ -79,12 +95,15 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.GetForcePlateDataFromFile
   nameWithType: C3d.GetForcePlateDataFromFile
-- uid: SHARP3D.C3d.GetPointDataFromFile
-  name: GetPointDataFromFile()
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetPointDataFromFile
-  commentId: M:SHARP3D.C3d.GetPointDataFromFile
-  fullName: SHARP3D.C3d.GetPointDataFromFile()
-  nameWithType: C3d.GetPointDataFromFile()
+- uid: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]})
+  name: GetPointDataFromFile(List<C3dFileDataPoint[]>)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetPointDataFromFile_System_Collections_Generic_List_SHARP3D_Data_DataEntity_C3dFileDataPoint____
+  commentId: M:SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]})
+  name.vb: GetPointDataFromFile(List(Of C3dFileDataPoint()))
+  fullName: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List<SHARP3D.Data.DataEntity.C3dFileDataPoint[]>)
+  fullName.vb: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List(Of SHARP3D.Data.DataEntity.C3dFileDataPoint()))
+  nameWithType: C3d.GetPointDataFromFile(List<C3dFileDataPoint[]>)
+  nameWithType.vb: C3d.GetPointDataFromFile(List(Of C3dFileDataPoint()))
 - uid: SHARP3D.C3d.GetPointDataFromFile*
   name: GetPointDataFromFile
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetPointDataFromFile_
@@ -1734,12 +1753,6 @@ references:
   commentId: F:SHARP3D.Data.DataEntity.C3dFileDataPoint.CameraMask
   fullName: SHARP3D.Data.DataEntity.C3dFileDataPoint.CameraMask
   nameWithType: C3dFileDataPoint.CameraMask
-- uid: SHARP3D.Data.DataEntity.C3dFileDataPoint.Data
-  name: Data
-  href: api/SHARP3D.Data.DataEntity.C3dFileDataPoint.html#SHARP3D_Data_DataEntity_C3dFileDataPoint_Data
-  commentId: F:SHARP3D.Data.DataEntity.C3dFileDataPoint.Data
-  fullName: SHARP3D.Data.DataEntity.C3dFileDataPoint.Data
-  nameWithType: C3dFileDataPoint.Data
 - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint.Equals(SHARP3D.Data.DataEntity.C3dFileDataPoint)
   name: Equals(C3dFileDataPoint)
   href: api/SHARP3D.Data.DataEntity.C3dFileDataPoint.html#SHARP3D_Data_DataEntity_C3dFileDataPoint_Equals_SHARP3D_Data_DataEntity_C3dFileDataPoint_
@@ -1775,6 +1788,12 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.DataEntity.C3dFileDataPoint.GetHashCode
   nameWithType: C3dFileDataPoint.GetHashCode
+- uid: SHARP3D.Data.DataEntity.C3dFileDataPoint.Point
+  name: Point
+  href: api/SHARP3D.Data.DataEntity.C3dFileDataPoint.html#SHARP3D_Data_DataEntity_C3dFileDataPoint_Point
+  commentId: F:SHARP3D.Data.DataEntity.C3dFileDataPoint.Point
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataPoint.Point
+  nameWithType: C3dFileDataPoint.Point
 - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint.Raw
   name: Raw
   href: api/SHARP3D.Data.DataEntity.C3dFileDataPoint.html#SHARP3D_Data_DataEntity_C3dFileDataPoint_Raw
@@ -4276,6 +4295,28 @@ references:
   commentId: N:SHARP3D.Utils
   fullName: SHARP3D.Utils
   nameWithType: SHARP3D.Utils
+- uid: SHARP3D.Utils.ArrayUtils
+  name: ArrayUtils
+  href: api/SHARP3D.Utils.ArrayUtils.html
+  commentId: T:SHARP3D.Utils.ArrayUtils
+  fullName: SHARP3D.Utils.ArrayUtils
+  nameWithType: ArrayUtils
+- uid: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List{System.Single[]})
+  name: ConvertTo2DArray(List<float[]>)
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_System_Collections_Generic_List_System_Single____
+  commentId: M:SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List{System.Single[]})
+  name.vb: ConvertTo2DArray(List(Of Single()))
+  fullName: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List<float[]>)
+  fullName.vb: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List(Of Single()))
+  nameWithType: ArrayUtils.ConvertTo2DArray(List<float[]>)
+  nameWithType.vb: ArrayUtils.ConvertTo2DArray(List(Of Single()))
+- uid: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray*
+  name: ConvertTo2DArray
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.ConvertTo2DArray
+  isSpec: "True"
+  fullName: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray
+  nameWithType: ArrayUtils.ConvertTo2DArray
 - uid: SHARP3D.Utils.C3dBytesConvertor
   name: C3dBytesConvertor
   href: api/SHARP3D.Utils.C3dBytesConvertor.html

@@ -684,6 +684,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.ArrayUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.ArrayUtils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.ArrayUtils",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Utils.C3dBytesConvertor.yml",
       "output": {
         ".html": {
