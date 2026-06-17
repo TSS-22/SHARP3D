@@ -198,7 +198,7 @@ namespace SHARP3D.Data
                     {
                         Points = points,
                         Analogs = analogs
-                    },
+                },
                 analogBitsGuesstimate
                 );
         }
@@ -233,7 +233,7 @@ namespace SHARP3D.Data
                 bool[] cameraMask = GetCameraMask(camAndSign);
                 points.Add(new C3dFileDataPoint 
                 {
-                    Data = pointValues.ToArray(),
+                    Point = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
@@ -241,6 +241,7 @@ namespace SHARP3D.Data
                 });
             }
             // Get Analogs
+            bool isThereNegativeValues = false;
             for (int i = 0; i < context.AnalogSamplePerFrame; i++)
             {
                 float[] oneFullAnalogsSample = new float[context.AnalogChannels];
@@ -260,13 +261,22 @@ namespace SHARP3D.Data
                             rawAnalogSample = C3dBytesConvertor.ToInt(buffer, context.Processor);
                             break;
                     }
-                    if(maxRawAnalogSample< Math.Abs(rawAnalogSample))
-                    {
-                        maxRawAnalogSample = Math.Abs(rawAnalogSample);
-                    }
+                    
                     oneFullAnalogsSample[j] = (rawAnalogSample - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    if (maxRawAnalogSample < Math.Abs(rawAnalogSample))
+                    {
+                        maxRawAnalogSample = rawAnalogSample;
+                    }
+                    if (rawAnalogSample < 0)
+                    {
+                        isThereNegativeValues = true;
+                    }
                 }
                 analogs.Add(oneFullAnalogsSample);
+            }
+            if (isThereNegativeValues)
+            {
+                maxRawAnalogSample = -maxRawAnalogSample;
             }
             return (points.ToArray(), analogs.ToArray(), maxRawAnalogSample);
         }
@@ -323,7 +333,7 @@ namespace SHARP3D.Data
 
                 points.Add(new C3dFileDataPoint
                 {
-                    Data = pointValues.ToArray(),
+                    Point = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
@@ -342,6 +352,7 @@ namespace SHARP3D.Data
                     byte[] buffer = new byte[4];
                     context.C3dStream.ReadExactly(buffer);
                     rawAnalogSampleFloat = C3dBytesConvertor.ToFloat(buffer, context.Processor);
+                    // I can't remember why I am doing this line below
                     rawAnalogSampleInt = (int)(rawAnalogSampleFloat > 0 ? Math.Ceiling(rawAnalogSampleFloat) : Math.Floor(rawAnalogSampleFloat));
                     oneFullAnalogsSample[j] = (rawAnalogSampleFloat - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
 
