@@ -87,11 +87,11 @@ namespace SHARP3D
         // I will make a function to get the analog in a simple 2D array
         internal (float[,], float[,,]?) GetAnalogDataFromFile(List<float[][]> fileAnalogData)
         {
+            // This is the number of frame for the analog array creation
             int nbFrame = fileAnalogData.Count * RequiredAnalog.SamplesPerFrame;
-
             float[,] analog = new float[nbFrame, RequiredAnalog.Used];
 
-            for (int idFrame = 0; idFrame < nbFrame; idFrame++)
+            for (int idFrame = 0; idFrame < fileAnalogData.Count; idFrame++)
             {
                 for (int idSample = 0; idSample < RequiredAnalog.SamplesPerFrame; idSample++)
                 {
