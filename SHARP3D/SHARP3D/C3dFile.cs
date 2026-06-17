@@ -816,7 +816,7 @@ namespace SHARP3D
             {
                 foreach (C3dFileDataPoint point in points)
                 {
-                    foreach (float dataPoint in point.Data)
+                    foreach (float dataPoint in point.Point)
                     {
                         if (dataPoint > maxValue)
                         {

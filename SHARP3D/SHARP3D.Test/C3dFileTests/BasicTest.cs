@@ -178,7 +178,7 @@ namespace SHARP3D.Test.Tests
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+                    Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Point[i]);
                 }
             }
             else
@@ -191,7 +191,7 @@ namespace SHARP3D.Test.Tests
                     }
                     else 
                     {
-                        Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Data[i]);
+                        Assert.Equal(expectedResults.PointFirst0[i], c3dFile.Data.Points[0][0].Point[i]);
                     }
                         
                 }
@@ -202,7 +202,7 @@ namespace SHARP3D.Test.Tests
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Assert.Equal((double)expectedResults.PointLast0[i], (double)c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i], precision: 2);
+                    Assert.Equal((double)expectedResults.PointLast0[i], (double)c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Point[i], precision: 2);
                 }
             }
             else 
@@ -215,7 +215,7 @@ namespace SHARP3D.Test.Tests
                     }
                     else
                     {
-                        Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Data[i]);
+                        Assert.Equal(expectedResults.PointLast0[i], c3dFile.Data.Points[c3dFile.Data.Points.Count - 1][0].Point[i]);
                     }
                 }
             }

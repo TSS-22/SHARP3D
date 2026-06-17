@@ -22,21 +22,12 @@
         /// <summary>
         /// Gets or sets a list of 3D point arrays, where each array represents a frame of 3D points.
         /// </summary>
-        /// <remarks>
-        /// TODO: Add resolutions of the points.
-        /// </remarks>
-        #warning Temporary fix.
-        // TODO: Add resolutions of the points
         public List<C3dFileDataPoint[]> Points;
-        //string[] PointLabels;
-        //string PointsUnit;// Default: mm
 
         /// <summary>
         /// Gets or sets a list of 2D float arrays, where each array represents a frame of analog data.
         /// </summary>
         public List<float[][]> Analogs;
-        //string[] AnalogLabels;
-        //string[] AnalogUnits;
 
         /// <summary>
         /// Determines whether the current <see cref="C3dFileData"/> instance is equal to another <see cref="C3dFileData"/> instance.

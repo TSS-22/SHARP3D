@@ -11,7 +11,7 @@
         /// <remarks>
         /// This array contains the X, Y, and Z coordinates of the point.
         /// </remarks>
-        public float[] Data;
+        public float[] Point;
 
         /// <summary>
         /// Gets or sets the average residual of the 3D point.
@@ -59,17 +59,17 @@
                 return false;
 
             // Compare Data: float[]
-            if (Data == null && other.Data == null)
+            if (Point == null && other.Point == null)
             {
                 // Both are null, continue
             }
-            else if (Data == null || other.Data == null || Data.Length != other.Data.Length)
+            else if (Point == null || other.Point == null || Point.Length != other.Point.Length)
                 return false;
             else
             {
-                for (int i = 0; i < Data.Length; i++)
+                for (int i = 0; i < Point.Length; i++)
                 {
-                    if (Data[i] != other.Data[i])
+                    if (Point[i] != other.Point[i])
                         return false;
                 }
             }
@@ -122,9 +122,9 @@
                 hash = hash * 23 + Valid.GetHashCode();
 
                 // Include Data in hash code
-                if (Data != null)
+                if (Point != null)
                 {
-                    foreach (var value in Data)
+                    foreach (var value in Point)
                         hash = hash * 23 + value.GetHashCode();
                 }
 
