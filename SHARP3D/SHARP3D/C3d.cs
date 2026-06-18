@@ -9,6 +9,7 @@ namespace SHARP3D
         public string? FilePath = null;
         public C3dParameterPoint RequiredPoint = new C3dParameterPoint();
         public C3dParameterAnalog RequiredAnalog = new C3dParameterAnalog();
+        public C3dParameterForceplate RequiredForceplate = new C3dParameterForceplate();
 
         public C3dParameterSection Parameters = new C3dParameterSection();
 
@@ -21,6 +22,7 @@ namespace SHARP3D
             
             RequiredPoint = c3DFile.Point;
             RequiredAnalog = c3DFile.Analog;
+            RequiredForceplate = GetParameterForceplateFromFile();
             Parameters = new C3dParameterSection(c3DFile.Parameters);
 
             Data = GetDataFromFile(c3DFile.Data);
@@ -101,11 +103,18 @@ namespace SHARP3D
                     }
                 }
             }
-
-                    return (analog, null);
+            float[,,]? forcePlate = RequiredForceplate.Used > 0 ? GetForcePlateDataFromFile(fileAnalogData) : null;
+            return (analog, forcePlate);
         }
 
-        internal float[,,] GetForcePlateDataFromFile()
+        internal C3dParameterForceplate GetParameterForceplateFromFile()
+        {
+            C3dParameterForceplate parameterForceplate = new C3dParameterForceplate();
+
+            return parameterForceplate;
+        }
+
+        internal float[,,] GetForcePlateDataFromFile(List<float[][]> fileAnalogData)
         {
             return new float[,,] { };
         }

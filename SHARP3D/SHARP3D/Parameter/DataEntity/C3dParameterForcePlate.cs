@@ -2,10 +2,11 @@
 
 namespace SHARP3D.Parameter.DataEntity
 {
-    public class C3dParameterForcePlate
+    public class C3dParameterForceplate
     {
-        public int[] Channel = new int[] { };
+        public int[] Channels = new int[] { };
         public float[] Corners = new float[] { };
+        public string[] Labels;
         public float[] Origin = new float[] { };
         public ForcePlateType Type = ForcePlateType.UNKOWN;
         public int Used = 0;
