@@ -22,14 +22,25 @@ namespace SHARP3D
             
             RequiredPoint = c3DFile.Point;
             RequiredAnalog = c3DFile.Analog;
-            RequiredForceplate = GetParameterForceplateFromFile();
+            RequiredForceplate = c3DFile.Forceplate;
+
             Parameters = new C3dParameterSection(c3DFile.Parameters);
 
             Data = GetDataFromFile(c3DFile.Data);
 
+            CleanUpParameters();
+
         }
 
         public C3d() { }
+
+        internal void CleanUpParameters()
+        {
+            // Discard the labels of the FORCE_PLATFORM that are still in ANALOG
+
+            // Discard from "Parameters" the required parameters:
+
+        }
 
         internal C3dData GetDataFromFile(C3dFileData fileData) 
         {
@@ -38,10 +49,9 @@ namespace SHARP3D
             {
                 (data.Point, data.Residual, data.CameraMask) = GetPointDataFromFile(fileData.Points);
             }
-            if(fileData.Analogs.Count != 0)
-            {
-                (data.Analog, data.ForcePlate) = GetAnalogDataFromFile(fileData.Analogs);
-            }
+
+            data.Analog = fileData.Analogs.Count != 0 ? GetAnalogDataFromFile(fileData.Analogs) : null;
+            data.ForcePlate = (RequiredForceplate.Used > 0 ) && (data.Analog != null) ? GetForcePlateDataFromFile(data.Analog) : null;
             return data;
         }
         internal (float?[,,], float?[,], bool[,,]) GetPointDataFromFile(List<C3dFileDataPoint[]> filePointData)
@@ -60,7 +70,7 @@ namespace SHARP3D
                 for(int idTraj=0; idTraj < nbTrajectory; idTraj++)
                 {
                     // Point populating
-                    if (filePointData[idFrame][idTraj].Valid != null)
+                    if (filePointData[idFrame][idTraj].Valid != false)
                     {
                         for (int idPoint=0; idPoint < nbPoint; idPoint++) 
                         {
@@ -69,7 +79,7 @@ namespace SHARP3D
                     }
 
                     // Residual populating
-                    if (filePointData[idFrame][idTraj].Raw!=null)
+                    if (filePointData[idFrame][idTraj].Raw!=false)
                     {
                         residual[idFrame, idTraj] = filePointData[idFrame][idTraj].AverageResidual;
                     }
@@ -87,7 +97,7 @@ namespace SHARP3D
 
         // We are making the bet that going by frame is the right choice. Should be easier to put back in binaries maybe ?
         // I will make a function to get the analog in a simple 2D array
-        internal (float[,], float[,,]?) GetAnalogDataFromFile(List<float[][]> fileAnalogData)
+        internal float[,] GetAnalogDataFromFile(List<float[][]> fileAnalogData)
         {
             // This is the number of frame for the analog array creation
             int nbFrame = fileAnalogData.Count * RequiredAnalog.SamplesPerFrame;
@@ -103,20 +113,14 @@ namespace SHARP3D
                     }
                 }
             }
-            float[,,]? forcePlate = RequiredForceplate.Used > 0 ? GetForcePlateDataFromFile(fileAnalogData) : null;
-            return (analog, forcePlate);
+            
+            return (analog);
         }
 
-        internal C3dParameterForceplate GetParameterForceplateFromFile()
+        internal float[,] GetForcePlateDataFromFile(float[,] analogData)
         {
-            C3dParameterForceplate parameterForceplate = new C3dParameterForceplate();
 
-            return parameterForceplate;
-        }
-
-        internal float[,,] GetForcePlateDataFromFile(List<float[][]> fileAnalogData)
-        {
-            return new float[,,] { };
+            return new float[,] { };
         }
     }
 }

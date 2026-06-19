@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Utils
+﻿using SHARP3D.Utils.Enum;
+
+namespace SHARP3D.Utils
 {
     /// <summary>
     /// Provides program-wide constants for SHARP3D, including arrays representing signed and unsigned string literals.
@@ -14,6 +16,16 @@
         /// A read-only <see cref="Array"/> of <see cref="char"/> representing the string "UNSIGNED".
         /// </summary>
         public static readonly Array UnsignedArrayString;
+
+        public static readonly Dictionary<ForceplateType, int> ForceplateChannelNumber = new Dictionary<ForceplateType, int>
+            {
+                { ForceplateType.UNKOWN, 0 },
+                { ForceplateType.TYPE_1, 6 },
+                { ForceplateType.TYPE_2, 6 },
+                { ForceplateType.TYPE_3, 8 },
+                { ForceplateType.TYPE_4, 6 },
+
+            };
 
         /// <summary>
         /// Initializes the <see cref="SignedArrayString"/> and <see cref="UnsignedArrayString"/> arrays.
@@ -33,6 +45,7 @@
             {
                 UnsignedArrayString.SetValue("UNSIGNED"[i], i);
             }
+
         }
     }
 }
