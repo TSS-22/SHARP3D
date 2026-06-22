@@ -81,5 +81,15 @@
             C3dParameterGroup groupFound = GetGroup(groupName);
             return groupFound.GetParameter(parameterName);
         }
+
+        public void DeleteParameter(string groupName, string parameterName)
+        {
+            C3dParameterGroup groupFound = GetGroup(groupName);
+            bool removed = groupFound.Parameters.RemoveAll(p => p.Name == parameterName.ToUpper()) > 0;
+            if (!removed)
+            {
+                throw new ArgumentException($"Parameter '{groupName.ToUpper()}:{parameterName.ToUpper()}' was not deleted because it cannot be found.");
+            }
+        }
     }
 }

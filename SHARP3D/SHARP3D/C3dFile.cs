@@ -120,6 +120,7 @@ namespace SHARP3D
             Analog = SetFileAnalog();
             Point = setFilePoint(Analog.Used, Analog.Rate);
             Analog.SamplesPerFrame = GetAnalogSamplePerFrame(Point.Rate, Analog.Rate);
+            
             // We put it last because it needs some values from Analog.
             Forceplate = setFileForceplate();
 
@@ -137,6 +138,8 @@ namespace SHARP3D
             Point.Frames = Data.Points.Count;
             // We make the choice of recomputing the scale factor
             Point.Scale = ComputeScaleFactor();
+            // It is usefull to have access to such value later on.
+            Analog.TotalSamples = Data.Analogs.Count * Analog.SamplesPerFrame;
 
             fileStream.Close();
         }

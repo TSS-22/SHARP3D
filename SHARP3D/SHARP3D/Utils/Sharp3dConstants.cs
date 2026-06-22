@@ -27,6 +27,46 @@ namespace SHARP3D.Utils
 
             };
 
+        public static readonly Dictionary<string, string[]> ParameterToDiscardFromC3dFileToC3d = new Dictionary<string, string[]>
+        {
+            { "ANALOG", new string[]
+                {
+                    "BITS",
+                    "DESCRIPTIONS",
+                    "FORMAT",
+                    "GEN_SCALE",
+                    "LABELS",
+                    "OFFSET",
+                    "RATE",
+                    "SCALE",
+                    "UNITS",
+                    "USED",
+                }
+            },
+            { "FORCE_PLATFORM", new string[]
+                {
+                    "CORNERS",
+                    "CHANNEL",
+                    "ORIGIN",
+                    "TYPE",
+                    "USED",
+                    "ZERO",
+                }
+            },
+            { "POINT", new string[]
+                {
+                    "DATA_START",
+                    "DESCRIPTIONS",
+                    "FRAMES",
+                    "LABELS",
+                    "RATE",
+                    "SCALE",
+                    "UNITS",
+                    "USED",
+                }
+            },
+        };
+
         /// <summary>
         /// Initializes the <see cref="SignedArrayString"/> and <see cref="UnsignedArrayString"/> arrays.
         /// </summary>
