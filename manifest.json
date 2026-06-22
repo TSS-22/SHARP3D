@@ -544,16 +544,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.yml",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html"
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dParameterForcePlate",
+      "Title": "SHARP3D.Parameter.DataEntity.C3dParameterForceplate",
       "Summary": null
     },
     {
@@ -740,16 +740,16 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Utils.Enum.ForcePlateType.yml",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.ForceplateType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SHARP3D.Utils.Enum.ForcePlateType.html"
+          "relative_path": "api/SHARP3D.Utils.Enum.ForceplateType.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SHARP3D.Utils.Enum.ForcePlateType",
+      "Title": "SHARP3D.Utils.Enum.ForceplateType",
       "Summary": null
     },
     {

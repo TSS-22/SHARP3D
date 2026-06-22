@@ -41,12 +41,41 @@ references:
   fullName.vb: SHARP3D.C3d.New
   nameWithType: C3d.C3d
   nameWithType.vb: C3d.New
+- uid: SHARP3D.C3d.CleanUpParameters
+  name: CleanUpParameters()
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_CleanUpParameters
+  commentId: M:SHARP3D.C3d.CleanUpParameters
+  fullName: SHARP3D.C3d.CleanUpParameters()
+  nameWithType: C3d.CleanUpParameters()
+- uid: SHARP3D.C3d.CleanUpParameters*
+  name: CleanUpParameters
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_CleanUpParameters_
+  commentId: Overload:SHARP3D.C3d.CleanUpParameters
+  isSpec: "True"
+  fullName: SHARP3D.C3d.CleanUpParameters
+  nameWithType: C3d.CleanUpParameters
 - uid: SHARP3D.C3d.Data
   name: Data
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Data
   commentId: F:SHARP3D.C3d.Data
   fullName: SHARP3D.C3d.Data
   nameWithType: C3d.Data
+- uid: SHARP3D.C3d.DeleteAnalogChannels(System.Int32[])
+  name: DeleteAnalogChannels(int[])
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteAnalogChannels_System_Int32___
+  commentId: M:SHARP3D.C3d.DeleteAnalogChannels(System.Int32[])
+  name.vb: DeleteAnalogChannels(Integer())
+  fullName: SHARP3D.C3d.DeleteAnalogChannels(int[])
+  fullName.vb: SHARP3D.C3d.DeleteAnalogChannels(Integer())
+  nameWithType: C3d.DeleteAnalogChannels(int[])
+  nameWithType.vb: C3d.DeleteAnalogChannels(Integer())
+- uid: SHARP3D.C3d.DeleteAnalogChannels*
+  name: DeleteAnalogChannels
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteAnalogChannels_
+  commentId: Overload:SHARP3D.C3d.DeleteAnalogChannels
+  isSpec: "True"
+  fullName: SHARP3D.C3d.DeleteAnalogChannels
+  nameWithType: C3d.DeleteAnalogChannels
 - uid: SHARP3D.C3d.FilePath
   name: FilePath
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_FilePath
@@ -82,12 +111,15 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.GetDataFromFile
   nameWithType: C3d.GetDataFromFile
-- uid: SHARP3D.C3d.GetForcePlateDataFromFile
-  name: GetForcePlateDataFromFile()
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile
-  commentId: M:SHARP3D.C3d.GetForcePlateDataFromFile
-  fullName: SHARP3D.C3d.GetForcePlateDataFromFile()
-  nameWithType: C3d.GetForcePlateDataFromFile()
+- uid: SHARP3D.C3d.GetForcePlateDataFromFile(System.Single[0:,0:])
+  name: GetForcePlateDataFromFile(float[,])
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile_System_Single_0__0___
+  commentId: M:SHARP3D.C3d.GetForcePlateDataFromFile(System.Single[0:,0:])
+  name.vb: GetForcePlateDataFromFile(Single(,))
+  fullName: SHARP3D.C3d.GetForcePlateDataFromFile(float[,])
+  fullName.vb: SHARP3D.C3d.GetForcePlateDataFromFile(Single(,))
+  nameWithType: C3d.GetForcePlateDataFromFile(float[,])
+  nameWithType.vb: C3d.GetForcePlateDataFromFile(Single(,))
 - uid: SHARP3D.C3d.GetForcePlateDataFromFile*
   name: GetForcePlateDataFromFile
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile_
@@ -123,6 +155,12 @@ references:
   commentId: F:SHARP3D.C3d.RequiredAnalog
   fullName: SHARP3D.C3d.RequiredAnalog
   nameWithType: C3d.RequiredAnalog
+- uid: SHARP3D.C3d.RequiredForceplate
+  name: RequiredForceplate
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_RequiredForceplate
+  commentId: F:SHARP3D.C3d.RequiredForceplate
+  fullName: SHARP3D.C3d.RequiredForceplate
+  nameWithType: C3d.RequiredForceplate
 - uid: SHARP3D.C3d.RequiredPoint
   name: RequiredPoint
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_RequiredPoint
@@ -254,6 +292,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.FilePath
   nameWithType: C3dFile.FilePath
+- uid: SHARP3D.C3dFile.Forceplate
+  name: Forceplate
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Forceplate
+  commentId: P:SHARP3D.C3dFile.Forceplate
+  fullName: SHARP3D.C3dFile.Forceplate
+  nameWithType: C3dFile.Forceplate
+- uid: SHARP3D.C3dFile.Forceplate*
+  name: Forceplate
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_Forceplate_
+  commentId: Overload:SHARP3D.C3dFile.Forceplate
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.Forceplate
+  nameWithType: C3dFile.Forceplate
 - uid: SHARP3D.C3dFile.GetAnalogChannelScale(System.Int32)
   name: GetAnalogChannelScale(int)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogChannelScale_System_Int32_
@@ -706,6 +757,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.SetFileAnalog
   nameWithType: C3dFile.SetFileAnalog
+- uid: SHARP3D.C3dFile.setFileForceplate
+  name: setFileForceplate()
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFileForceplate
+  commentId: M:SHARP3D.C3dFile.setFileForceplate
+  fullName: SHARP3D.C3dFile.setFileForceplate()
+  nameWithType: C3dFile.setFileForceplate()
+- uid: SHARP3D.C3dFile.setFileForceplate*
+  name: setFileForceplate
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFileForceplate_
+  commentId: Overload:SHARP3D.C3dFile.setFileForceplate
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.setFileForceplate
+  nameWithType: C3dFile.setFileForceplate
 - uid: SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
   name: setFilePoint(int, float)
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFilePoint_System_Int32_System_Single_
@@ -3631,6 +3695,12 @@ references:
   commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.SamplesPerFrame
   fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.SamplesPerFrame
   nameWithType: C3dParameterAnalog.SamplesPerFrame
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
+  name: TotalSamples
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_TotalSamples
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
+  nameWithType: C3dParameterAnalog.TotalSamples
 - uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Units
   name: Units
   href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Units
@@ -3643,48 +3713,60 @@ references:
   commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Used
   fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Used
   nameWithType: C3dParameterAnalog.Used
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate
-  name: C3dParameterForcePlate
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate
-  nameWithType: C3dParameterForcePlate
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Channel
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate
+  name: C3dParameterForceplate
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dParameterForceplate
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate
+  nameWithType: C3dParameterForceplate
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
   name: Channel
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Channel
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Channel
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Channel
-  nameWithType: C3dParameterForcePlate.Channel
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Corners
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Channel
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
+  nameWithType: C3dParameterForceplate.Channel
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
   name: Corners
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Corners
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Corners
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Corners
-  nameWithType: C3dParameterForcePlate.Corners
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Origin
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Corners
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
+  nameWithType: C3dParameterForceplate.Corners
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
+  name: Descriptions
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
+  nameWithType: C3dParameterForceplate.Descriptions
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
+  name: Labels
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
+  nameWithType: C3dParameterForceplate.Labels
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
   name: Origin
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Origin
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Origin
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Origin
-  nameWithType: C3dParameterForcePlate.Origin
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Type
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Origin
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
+  nameWithType: C3dParameterForceplate.Origin
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
   name: Type
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Type
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Type
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Type
-  nameWithType: C3dParameterForcePlate.Type
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Used
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Type
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
+  nameWithType: C3dParameterForceplate.Type
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
   name: Used
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Used
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Used
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Used
-  nameWithType: C3dParameterForcePlate.Used
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Zero
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
+  nameWithType: C3dParameterForceplate.Used
+- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
   name: Zero
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.html#SHARP3D_Parameter_DataEntity_C3dParameterForcePlate_Zero
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Zero
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForcePlate.Zero
-  nameWithType: C3dParameterForcePlate.Zero
+  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Zero
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
+  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
+  nameWithType: C3dParameterForceplate.Zero
 - uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint
   name: C3dParameterPoint
   href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html
@@ -4068,6 +4150,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup
   nameWithType: C3dParameterSection.DeleteGroup
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(System.String,System.String)
+  name: DeleteParameter(string, string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteParameter_System_String_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(System.String,System.String)
+  name.vb: DeleteParameter(String, String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(string, string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(String, String)
+  nameWithType: C3dParameterSection.DeleteParameter(string, string)
+  nameWithType.vb: C3dParameterSection.DeleteParameter(String, String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter*
+  name: DeleteParameter
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteParameter_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter
+  nameWithType: C3dParameterSection.DeleteParameter
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(System.String)
   name: GetGroup(string)
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroup_System_String_
@@ -4614,42 +4712,42 @@ references:
   commentId: F:SHARP3D.Utils.Enum.DataType.UINT16
   fullName: SHARP3D.Utils.Enum.DataType.UINT16
   nameWithType: DataType.UINT16
-- uid: SHARP3D.Utils.Enum.ForcePlateType
-  name: ForcePlateType
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html
-  commentId: T:SHARP3D.Utils.Enum.ForcePlateType
-  fullName: SHARP3D.Utils.Enum.ForcePlateType
-  nameWithType: ForcePlateType
-- uid: SHARP3D.Utils.Enum.ForcePlateType.TYPE_1
+- uid: SHARP3D.Utils.Enum.ForceplateType
+  name: ForceplateType
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html
+  commentId: T:SHARP3D.Utils.Enum.ForceplateType
+  fullName: SHARP3D.Utils.Enum.ForceplateType
+  nameWithType: ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_1
   name: TYPE_1
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html#SHARP3D_Utils_Enum_ForcePlateType_TYPE_1
-  commentId: F:SHARP3D.Utils.Enum.ForcePlateType.TYPE_1
-  fullName: SHARP3D.Utils.Enum.ForcePlateType.TYPE_1
-  nameWithType: ForcePlateType.TYPE_1
-- uid: SHARP3D.Utils.Enum.ForcePlateType.TYPE_2
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html#SHARP3D_Utils_Enum_ForceplateType_TYPE_1
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  nameWithType: ForceplateType.TYPE_1
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_2
   name: TYPE_2
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html#SHARP3D_Utils_Enum_ForcePlateType_TYPE_2
-  commentId: F:SHARP3D.Utils.Enum.ForcePlateType.TYPE_2
-  fullName: SHARP3D.Utils.Enum.ForcePlateType.TYPE_2
-  nameWithType: ForcePlateType.TYPE_2
-- uid: SHARP3D.Utils.Enum.ForcePlateType.TYPE_3
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html#SHARP3D_Utils_Enum_ForceplateType_TYPE_2
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  nameWithType: ForceplateType.TYPE_2
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_3
   name: TYPE_3
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html#SHARP3D_Utils_Enum_ForcePlateType_TYPE_3
-  commentId: F:SHARP3D.Utils.Enum.ForcePlateType.TYPE_3
-  fullName: SHARP3D.Utils.Enum.ForcePlateType.TYPE_3
-  nameWithType: ForcePlateType.TYPE_3
-- uid: SHARP3D.Utils.Enum.ForcePlateType.TYPE_4
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html#SHARP3D_Utils_Enum_ForceplateType_TYPE_3
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  nameWithType: ForceplateType.TYPE_3
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_4
   name: TYPE_4
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html#SHARP3D_Utils_Enum_ForcePlateType_TYPE_4
-  commentId: F:SHARP3D.Utils.Enum.ForcePlateType.TYPE_4
-  fullName: SHARP3D.Utils.Enum.ForcePlateType.TYPE_4
-  nameWithType: ForcePlateType.TYPE_4
-- uid: SHARP3D.Utils.Enum.ForcePlateType.UNKOWN
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html#SHARP3D_Utils_Enum_ForceplateType_TYPE_4
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  nameWithType: ForceplateType.TYPE_4
+- uid: SHARP3D.Utils.Enum.ForceplateType.UNKOWN
   name: UNKOWN
-  href: api/SHARP3D.Utils.Enum.ForcePlateType.html#SHARP3D_Utils_Enum_ForcePlateType_UNKOWN
-  commentId: F:SHARP3D.Utils.Enum.ForcePlateType.UNKOWN
-  fullName: SHARP3D.Utils.Enum.ForcePlateType.UNKOWN
-  nameWithType: ForcePlateType.UNKOWN
+  href: api/SHARP3D.Utils.Enum.ForceplateType.html#SHARP3D_Utils_Enum_ForceplateType_UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  fullName: SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  nameWithType: ForceplateType.UNKOWN
 - uid: SHARP3D.Utils.Enum.HeaderEventFlag
   name: HeaderEventFlag
   href: api/SHARP3D.Utils.Enum.HeaderEventFlag.html
@@ -4866,6 +4964,18 @@ references:
   commentId: T:SHARP3D.Utils.Sharp3dConstants
   fullName: SHARP3D.Utils.Sharp3dConstants
   nameWithType: Sharp3dConstants
+- uid: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
+  name: ForceplateChannelNumber
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_ForceplateChannelNumber
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
+  fullName: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
+  nameWithType: Sharp3dConstants.ForceplateChannelNumber
+- uid: SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
+  name: ParameterToDiscardFromC3dFileToC3d
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_ParameterToDiscardFromC3dFileToC3d
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
+  fullName: SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
+  nameWithType: Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
 - uid: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
   name: SignedArrayString
   href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_SignedArrayString

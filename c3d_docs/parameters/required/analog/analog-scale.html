@@ -188,9 +188,9 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <p><img src="../../../../docfx_assets/images/force_vector_displayed.png" alt="Force vector displayed"></p>
 <p>A strain gauge force platform manufacturer will typically supply data with each force plate that describes how the values measured are affected by the applied forces and moments. This information may be in the form of a single value for each output channel, or alternatively as a matrix of values, which describes how every channel affects every other channel. <!-- !!!!!OMITTED BECAUSE IT IS CONFUSING AND NECESSARY AT THIS STAGE OF THE DISCOURSE!!!!!If we use only the diagonal entries from the calibration matrix then we are ignoring cross-talk terms, which are usually quite small when compared to the elements on the matrix diagonal, and we have just a single sensitivity value for each channel. This is the method used for the six-channel force plates that will be describe first since they are the most widely used.-->The C3D format defines a number of different force plate types to enable the stored analog data from each type to be treated appropriately:</p>
 <ul>
-<li><p><a href="../force_platform/force_platform-type.html#type-1">TYPE-1 force plates</a>: They have three force outputs (<span class="math">\(Fx\)</span>, <span class="math">\(Fy\)</span> and <span class="math">\(Fz\)</span>) and a <span class="math">\(Mz\)</span> and center-of-pressure output (<span class="math">\(Px\)</span> and <span class="math">\(Py\)</span>).</p>
+<li><p><a href="../force_platform/force_platform-type.html#type-1">TYPE-1 force plates</a>: They have three force outputs (<span class="math">\(F_x\)</span>, <span class="math">\(F_y\)</span> and <span class="math">\(F_z\)</span>) and a <span class="math">\(Mz\)</span> and center-of-pressure output (<span class="math">\(P_x\)</span> and <span class="math">\(P_y\)</span>).</p>
 </li>
-<li><p><a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plates</a>: They provide three force outputs and three moment outputs (<span class="math">\(Mx\)</span>, <span class="math">\(My\)</span>, <span class="math">\(Mz\)</span>) and scale these signals using a single scaling factor applied to each analog channel.</p>
+<li><p><a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plates</a>: They provide three force outputs and three moment outputs (<span class="math">\(M_x\)</span>, <span class="math">\(M_y\)</span>, <span class="math">\(M_z\)</span>) and scale these signals using a single scaling factor applied to each analog channel.</p>
 </li>
 <li><p><a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plates</a>: They provide force outputs from the force plate corners</p>
 </li>
@@ -202,17 +202,17 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <thead>
 <tr>
 <th></th>
-<th><span class="math">\(Vfx\)</span></th>
-<th><span class="math">\(Vfy\)</span></th>
-<th><span class="math">\(Vfz\)</span></th>
-<th><span class="math">\(Vmx\)</span></th>
-<th><span class="math">\(Vmy\)</span></th>
-<th><span class="math">\(Vmz\)</span></th>
+<th><span class="math">\(V_{f_x}\)</span></th>
+<th><span class="math">\(V_{f_y}\)</span></th>
+<th><span class="math">\(V_{f_z}\)</span></th>
+<th><span class="math">\(V_{m_x}\)</span></th>
+<th><span class="math">\(V_{m_x}\)</span></th>
+<th><span class="math">\(V_{m_x}\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="math">\(Fx\)</span></td>
+<td><span class="math">\(F_x\)</span></td>
 <td><strong>0.643</strong></td>
 <td>-0.003</td>
 <td>0.009</td>
@@ -221,7 +221,7 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <td>-0.005</td>
 </tr>
 <tr>
-<td><span class="math">\(Fy\)</span></td>
+<td><span class="math">\(F_y\)</span></td>
 <td>0.001</td>
 <td><strong>0.642</strong></td>
 <td>0.000</td>
@@ -230,7 +230,7 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <td>0.007</td>
 </tr>
 <tr>
-<td><span class="math">\(Fz\)</span></td>
+<td><span class="math">\(F_z\)</span></td>
 <td>0.010</td>
 <td>0.011</td>
 <td><strong>0.170</strong></td>
@@ -239,7 +239,7 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <td>-0.001</td>
 </tr>
 <tr>
-<td><span class="math">\(Mx\)</span></td>
+<td><span class="math">\(M_x\)</span></td>
 <td>0.015</td>
 <td>-0.001</td>
 <td>0.008</td>
@@ -248,7 +248,7 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <td>0.001</td>
 </tr>
 <tr>
-<td><span class="math">\(My\)</span></td>
+<td><span class="math">\(M_y\)</span></td>
 <td>-0.008</td>
 <td>0.005</td>
 <td>-0.011</td>
@@ -257,7 +257,7 @@ piezo-electric force plates (e.g. Kistler), and six-channel strain gauge force p
 <td>0.000</td>
 </tr>
 <tr>
-<td><span class="math">\(Mz\)</span></td>
+<td><span class="math">\(M_z\)</span></td>
 <td>0.004</td>
 <td>-0.001</td>
 <td>0.009</td>
@@ -284,12 +284,12 @@ produce an output in terms of reactive force.</p>
 <p>If the calibration values are supplied in units of Newton-meters per volt (Nm/V) for the force moments, and the measurement units specifying the locations of your reference markers are in millimeters, then you must convert the values referring to moments to Newton-millimeters per volt (Nmm/V). This conversion is achieved by multiplying the ANALOG:SCALE results for the moment channels by 1000.</p>
 <p>If a matrix was not supplied then we would be given just the six major diagonal elements from top left to bottom right, in bold in the <a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plate</a> sensitivty matrix above. These elements are the only parts of the matrix that are used in calculating the SCALE values for <a href="../force_platform/force_platform-type.html#type-1">TYPE-1</a> and <a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plates</a>.</p>
 <p><a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plates</a> (Kistler piezo-electric plates) do not use a cross-talk matrix, or produce any moment outputs. Instead, these plates provide eight force channels with outputs that are measured using electrical charge in terms of pico coulombs per newton (pC/N) applied.</p>
-<p>The ANALOG:SCALE values for <a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plate</a> are calculated using information provided by the manufacturer about the sensitivity of the force plate transducers, together with the, user-controlled, channel gains of the charge amplifier supplied with each force plate. <a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plates</a> produce three sets of force output signals, each with a separate calibration value: these are $Fx$1-2, $Fx$3-4 and $Fy$1-4, $Fy$2-3 together with $Fz$1, $Fz$2, $Fz$3, and $Fz$4. Each force plate is supplied with three separate calibration values that apply to the <span class="math">\(Fx\)</span>, <span class="math">\(Fy\)</span>, and <span class="math">\(Fz\)</span> channels.</p>
+<p>The ANALOG:SCALE values for <a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plate</a> are calculated using information provided by the manufacturer about the sensitivity of the force plate transducers, together with the, user-controlled, channel gains of the charge amplifier supplied with each force plate. <a href="../force_platform/force_platform-type.html#type-3">TYPE-3 force plates</a> produce three sets of force output signals, each with a separate calibration value: these are <span class="math">\(F_x1-2\)</span>, <span class="math">\(F_x3-4\)</span> and <span class="math">\(F_y1-4\)</span>, <span class="math">\(F_y2-3\)</span> together with <span class="math">\(F_z1\)</span>, <span class="math">\(F_z2\)</span>, <span class="math">\(F_z3\)</span>, and <span class="math">\(F_z4\)</span>. Each force plate is supplied with three separate calibration values that apply to the <span class="math">\(F_x\)</span>, <span class="math">\(F_y\)</span>, and <span class="math">\(F_z\)</span> channels.</p>
 <p>For example:</p>
 <ul>
-<li><span class="math">\(Fx\)</span>: 7.87 pC/N</li>
-<li><span class="math">\(Fy\)</span>: 7.85 pC/N</li>
-<li><span class="math">\(Fz\)</span>: 3.89 pC/N</li>
+<li><span class="math">\(F_x\)</span>: 7.87 pC/N</li>
+<li><span class="math">\(F_y\)</span>: 7.85 pC/N</li>
+<li><span class="math">\(F_z\)</span>: 3.89 pC/N</li>
 </ul>
 <p>Using the example above with a calibration of 7.87 pC/N and a charge amplifier range of 5000pC (fs_range) for a 10 volt output yields a scale factor would be:</p>
 <div class="math">
@@ -301,7 +301,7 @@ produce an output in terms of reactive force.</p>
 \[
 \text{SCALE} = \left( \left( \frac{20}{4096 \times 7.87} \right) \times \left( \frac{5000}{10 \times 1} \right) \right) / 1.00 = 0.310217
 \]</div>
-<p>Thus, the <span class="math">\(Fx\)</span> SCALE value is 0.310 newtons per volt, which is entered as a negative value to produce an output in terms of reactive force.</p>
+<p>Thus, the <span class="math">\(F_x\)</span> SCALE value is 0.310 newtons per volt, which is entered as a negative value to produce an output in terms of reactive force.</p>
 <p><a href="../force_platform/force_platform-type.html#type-4">TYPE-4 force plates</a> are mechanically and electrically identical to <a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plates</a>, and are a special case of <a href="../force_platform/force_platform-type.html#type-2">TYPE-2 force plates</a> that use a slightly different cross-talk correction method. <a href="../force_platform/force_platform-type.html#type-4">TYPE-4 force plates</a> use the entire calibration matrix to calculate their output. As a result, the output from a <a href="../force_platform/force_platform-type.html#type-4">TYPE-4 force plate</a> is slightly more accurate then when only the major diagonal information is used. The ANALOG:SCALE parameters for <a href="../force_platform/force_platform-type.html#type-4">TYPE-4 force plates</a> are calculated as follows:</p>
 <div class="math">
 \[
