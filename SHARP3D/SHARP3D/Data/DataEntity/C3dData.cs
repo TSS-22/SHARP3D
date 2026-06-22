@@ -8,6 +8,6 @@
         public bool[,,]? CameraMask = null;// No point data -> null
 
         public float[,]? Analog = null; // | No analog data -> null
-        public float[,,]? ForcePlate = null;// | No force plate data -> null
+        public float[][,]? ForcePlate = null;// | No force plate data -> null
     }
 }

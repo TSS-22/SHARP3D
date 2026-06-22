@@ -1,6 +1,9 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
+using SHARP3D.Utils;
+using System.Text.RegularExpressions;
+using System.Threading.Channels;
 
 namespace SHARP3D
 {
@@ -9,6 +12,7 @@ namespace SHARP3D
         public string? FilePath = null;
         public C3dParameterPoint RequiredPoint = new C3dParameterPoint();
         public C3dParameterAnalog RequiredAnalog = new C3dParameterAnalog();
+        public C3dParameterForceplate RequiredForceplate = new C3dParameterForceplate();
 
         public C3dParameterSection Parameters = new C3dParameterSection();
 
@@ -21,13 +25,104 @@ namespace SHARP3D
             
             RequiredPoint = c3DFile.Point;
             RequiredAnalog = c3DFile.Analog;
+            RequiredForceplate = c3DFile.Forceplate;
+
             Parameters = new C3dParameterSection(c3DFile.Parameters);
 
             Data = GetDataFromFile(c3DFile.Data);
+            // TODO: Get force plate labels
+            CleanUpParameters();
 
         }
 
         public C3d() { }
+
+        internal void CleanUpParameters()
+        {
+            // Discard from "Parameters" the required parameters
+            foreach (KeyValuePair<string, string[]> group in Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d)
+            {
+                foreach (string parameter in group.Value)
+                {
+                    try
+                    {
+                        Parameters.DeleteParameter(group.Key, parameter);
+                    }
+                    catch (ArgumentException) { }
+                    
+                }
+            }
+            
+            // FORCE_PLATFORM clean up
+            List<int> channelsToDelete = new List<int>();
+            foreach (int[] channels in RequiredForceplate.Channel)
+            {
+                foreach(int channel in channels)
+                {
+                    channelsToDelete.Add(channel);
+                }
+            }
+            DeleteAnalogChannels(channelsToDelete.ToArray());
+
+        }
+
+        internal void DeleteAnalogChannels(int[] channels)
+        {
+            float[,] newDataAnalog = new float[,] { };
+            if (RequiredAnalog.Used - channels.Length != 0)
+            {
+                newDataAnalog = new float[RequiredAnalog.TotalSamples, RequiredAnalog.Used - channels.Length];
+            }
+            
+            float[] newChannelScale = new float[RequiredAnalog.Used - channels.Length];
+            string[] newDescriptions = new string[RequiredAnalog.Used - channels.Length];
+            string[] newLabelsAnalog = new string[RequiredAnalog.Used - channels.Length];
+            int[] newOffset = new int[RequiredAnalog.Used - channels.Length];
+            string[] newUnits = new string[RequiredAnalog.Used - channels.Length];
+            
+            int offsetChannel = 0; // To work the channel taken out during the populating phase
+
+            if(Data.Analog != null)
+            {
+                // Get data and Labels
+                for (int idChannel = 0; idChannel < RequiredAnalog.Used; idChannel++)
+                {
+                    if (channels.Contains(idChannel))
+                    {
+                        offsetChannel++;
+                        continue;
+                    }
+                    else
+                    {
+                        for (int idSample=0; idSample < RequiredAnalog.TotalSamples; idSample++)
+                        {
+                    
+                            newDataAnalog[idSample, idChannel - offsetChannel] = Data.Analog[idSample, idChannel];
+
+                            newChannelScale[idChannel - offsetChannel] = RequiredAnalog.ChannelScale[idChannel];
+                            newDescriptions[idChannel - offsetChannel] = RequiredAnalog.Descriptions[idChannel];
+                            newLabelsAnalog[idChannel - offsetChannel] = RequiredAnalog.Labels[idChannel];
+                            newOffset[idChannel - offsetChannel] = RequiredAnalog.Offset[idChannel];
+                            newUnits[idChannel - offsetChannel] = RequiredAnalog.Units[idChannel];
+                        }
+                    }
+                }
+                Data.Analog = newDataAnalog;
+
+                RequiredAnalog.ChannelScale = newChannelScale;
+                RequiredAnalog.Descriptions = newDescriptions;
+                RequiredAnalog.Labels = newLabelsAnalog;
+                RequiredAnalog.Offset = newOffset;
+                RequiredAnalog.Units = newUnits;
+
+                RequiredAnalog.Used = newDataAnalog.GetLength(1); // In case some of the channels where not found.
+            }
+            else
+            {
+                Console.WriteLine("Can't delete channels: there is no Analog data.");
+            }
+        }
+
 
         internal C3dData GetDataFromFile(C3dFileData fileData) 
         {
@@ -36,12 +131,14 @@ namespace SHARP3D
             {
                 (data.Point, data.Residual, data.CameraMask) = GetPointDataFromFile(fileData.Points);
             }
-            if(fileData.Analogs.Count != 0)
-            {
-                (data.Analog, data.ForcePlate) = GetAnalogDataFromFile(fileData.Analogs);
-            }
+
+            data.Analog = fileData.Analogs.Count != 0 ? GetAnalogDataFromFile(fileData.Analogs) : null;
+            data.ForcePlate = (RequiredForceplate.Used > 0 ) && (data.Analog != null) ? GetForcePlateDataFromFile(data.Analog) : null;
+
+            // Discard force_platform data from analog before returning #177
             return data;
         }
+
         internal (float?[,,], float?[,], bool[,,]) GetPointDataFromFile(List<C3dFileDataPoint[]> filePointData)
         {
             int nbFrame = filePointData.Count;
@@ -58,7 +155,7 @@ namespace SHARP3D
                 for(int idTraj=0; idTraj < nbTrajectory; idTraj++)
                 {
                     // Point populating
-                    if (filePointData[idFrame][idTraj].Valid != null)
+                    if (filePointData[idFrame][idTraj].Valid != false)
                     {
                         for (int idPoint=0; idPoint < nbPoint; idPoint++) 
                         {
@@ -67,7 +164,7 @@ namespace SHARP3D
                     }
 
                     // Residual populating
-                    if (filePointData[idFrame][idTraj].Raw!=null)
+                    if (filePointData[idFrame][idTraj].Raw!=false)
                     {
                         residual[idFrame, idTraj] = filePointData[idFrame][idTraj].AverageResidual;
                     }
@@ -85,7 +182,7 @@ namespace SHARP3D
 
         // We are making the bet that going by frame is the right choice. Should be easier to put back in binaries maybe ?
         // I will make a function to get the analog in a simple 2D array
-        internal (float[,], float[,,]?) GetAnalogDataFromFile(List<float[][]> fileAnalogData)
+        internal float[,] GetAnalogDataFromFile(List<float[][]> fileAnalogData)
         {
             // This is the number of frame for the analog array creation
             int nbFrame = fileAnalogData.Count * RequiredAnalog.SamplesPerFrame;
@@ -101,13 +198,43 @@ namespace SHARP3D
                     }
                 }
             }
-
-                    return (analog, null);
+            
+            return (analog);
         }
 
-        internal float[,,] GetForcePlateDataFromFile()
+        internal float[][,] GetForcePlateDataFromFile(float[,] analogData)
         {
-            return new float[,,] { };
+            List<float[,]> totalForceplateData = new List<float[,]> { };
+            // Get the data
+            for(int idPlate=0; idPlate < RequiredForceplate.Used; idPlate++)
+            {
+                // Compute the force plate offset
+                int zeroFrameNb = RequiredForceplate.Zero.Item2 - RequiredForceplate.Zero.Item1;
+                float[] zero = new float[RequiredForceplate.Channel[idPlate].Length];
+
+                for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                {
+                    float zeroData = 0.0f;
+                    for (int idFrame = RequiredForceplate.Zero.Item1; idFrame < zeroFrameNb; idFrame++)
+                    {
+                        zeroData = analogData[idFrame, RequiredForceplate.Channel[idPlate][idChannel]];
+                    }
+                    zero[idChannel] = zeroData / zeroFrameNb;
+                }
+                
+                // Initialize the force plate data array
+                float[,] forceplateData = new float[analogData.GetLength(0), RequiredForceplate.Channel[idPlate].Length];
+                // Populate the array
+                for(int idFrame=0; idFrame < analogData.GetLength(0); idFrame++)
+                {
+                    for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                    {
+                        forceplateData[idFrame, idChannel] = analogData[idFrame, RequiredForceplate.Channel[idPlate][idChannel]] - zero[idChannel]; // Offset
+                    }
+                }
+                totalForceplateData.Add(forceplateData);
+            }
+            return totalForceplateData.ToArray();
         }
     }
 }

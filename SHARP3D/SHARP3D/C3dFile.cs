@@ -6,6 +6,7 @@ using SHARP3D.Parameter;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
@@ -75,6 +76,7 @@ namespace SHARP3D
         
         public C3dParameterPoint Point { get; set; }
         public C3dParameterAnalog Analog { get; set; }
+        public C3dParameterForceplate Forceplate { get; set; }
 
         /// <summary>
         /// Gets or sets the data contained in the C3D file.
@@ -118,6 +120,9 @@ namespace SHARP3D
             Analog = SetFileAnalog();
             Point = setFilePoint(Analog.Used, Analog.Rate);
             Analog.SamplesPerFrame = GetAnalogSamplePerFrame(Point.Rate, Analog.Rate);
+            
+            // We put it last because it needs some values from Analog.
+            Forceplate = setFileForceplate();
 
             int tempAnalogBits = 12;
             (Data, tempAnalogBits) = GetDataAndBit(fileStream, ProcessorFile, DataTypeFile, Header.ScaleFactor);
@@ -133,8 +138,8 @@ namespace SHARP3D
             Point.Frames = Data.Points.Count;
             // We make the choice of recomputing the scale factor
             Point.Scale = ComputeScaleFactor();
-
-
+            // It is usefull to have access to such value later on.
+            Analog.TotalSamples = Data.Analogs.Count * Analog.SamplesPerFrame;
 
             fileStream.Close();
         }
@@ -152,6 +157,144 @@ namespace SHARP3D
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
         }
 
+        internal C3dParameterForceplate setFileForceplate()
+        {
+            C3dParameterForceplate fileForceplate = new C3dParameterForceplate();
+            try
+            {
+                // FORCE_PLATFORM:USED - DONE
+                int forceplateUsed = 0;
+                try { 
+                    forceplateUsed = GetParameter("force_platform", "used").Data?.GetValue(0) as int? ?? throw new ParameterNotFoundException("No force plate advertised.");
+                    fileForceplate.Used = forceplateUsed;
+                } catch (ParameterNotFoundException ex) { }
+
+                //FORCE_PLATFORM:TYPE - DONE
+                ForceplateType[] forceplateType = new ForceplateType[forceplateUsed];
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        forceplateType[idFp] = (ForceplateType)(GetParameter("force_platform", "type").Data?.GetValue(idFp) as int? ?? throw new ParameterNotFoundException($"TYPE not advertised for forceplate {idFp}."));
+                    }
+                    fileForceplate.Type = forceplateType;
+                }
+                catch (ParameterNotFoundException) { }
+                catch (IndexOutOfRangeException) { }
+
+                //FORCE_PLATFORM:CORNERS - DONE
+                float[,,] forceplateCorner = new float[fileForceplate.Used, 4, 3];
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        for (int idCoor = 0; idCoor<3; idCoor++)
+                        {
+                            for(int idCorner = 0;idCorner<4; idCorner++)
+                            {
+                                forceplateCorner[idFp, idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ?? throw new ParameterNotFoundException($"CORNERS not advertised for forceplate {idFp}."));
+                            }
+                        }
+                    }
+                    fileForceplate.Corners = forceplateCorner;
+                }
+                catch (ParameterNotFoundException) { }
+                catch (IndexOutOfRangeException) { }
+
+                //FORCE_PLATEFORM:ORIGIN - DONE
+                float[,] forceplateOrigin = new float[fileForceplate.Used, 3];
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        for (int idOrigin = 0; idOrigin < 3; idOrigin++)
+                        {
+                            forceplateOrigin[idFp, idOrigin] = (float)(GetParameter("force_platform", "origin").Data?.GetValue(idOrigin, idFp) as float? ?? throw new ParameterNotFoundException($"ORIGIN error for force plate {idFp}."));
+                        }
+                    }
+                    fileForceplate.Origin = forceplateOrigin;
+                }
+                catch (ParameterNotFoundException) { }
+                catch (IndexOutOfRangeException) { }
+
+                //FORCE_PLATFORM:ZERO - DONE
+                (int,int) forceplateZero = (0,0);
+                try
+                {
+
+                    forceplateZero.Item1 = (int)(GetParameter("force_platform", "zero").Data?.GetValue(0) as int? ?? throw new ParameterNotFoundException($"ZERO beginning frame index error."));
+                    forceplateZero.Item2 = (int)(GetParameter("force_platform", "zero").Data?.GetValue(1) as int? ?? throw new ParameterNotFoundException($"ZERO last frame index error."));
+
+                    if (forceplateZero.Item1 > 0)
+                    {
+                        // We make it so that the index work for most of programming language that start on zero
+                        forceplateZero.Item1--;
+                        forceplateZero.Item2--;
+                    }
+
+                    fileForceplate.Zero = forceplateZero;
+                }
+                catch (ParameterNotFoundException) { }
+                catch (IndexOutOfRangeException) { }
+
+                // FORCE_PLATFORM:CHANNEL
+                List<int[]> forceplateChannel = new List<int[]> { };
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        int nbChannel;
+                        if (!Sharp3dConstants.ForceplateChannelNumber.TryGetValue(fileForceplate.Type[idFp], out nbChannel))
+                        {
+                            throw new ParameterNotFoundException($"CHANNEL, channel number or TYPE error for force plate {idFp} while collecting CHANNEL.");
+                        }
+                        int[] tempChannel = new int[nbChannel];
+                        for (int idChannel = 0; idChannel < nbChannel; idChannel++)
+                        {
+                            // We add a "-1" because channels are specified starting 1 not 0...
+                            //I need to add a check to make sure that channel id start at 0. Can I do this? 
+                            // Do I need to do it actually ? because it must be again some C3D shenanigan that is 
+                            // Outdone by the way I am reading the file anyway.
+                            tempChannel[idChannel] = (int)(GetParameter("force_platform", "channel").Data?.GetValue(idChannel, idFp) as int? ?? throw new ParameterNotFoundException($"CHANNEL inedx {idChannel} error for force plate {idFp}.")) - 1;
+                        }
+                        forceplateChannel.Add(tempChannel);
+                    }
+                    fileForceplate.Channel = forceplateChannel.ToArray();
+                }
+                catch (IndexOutOfRangeException) { }
+                catch (ParameterNotFoundException) { }
+
+                //FORCE_PLATFORM:LABELS
+                List<string[]> forceplateLabels = new List<string[]> { };
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        string[] tempLabel = new string[fileForceplate.Channel[idFp].Length];
+                        for (int idChannel = 0; idChannel < fileForceplate.Channel[idFp].Length; idChannel++)
+                        {
+                            tempLabel[idChannel] = Analog.Labels[fileForceplate.Channel[idFp][idChannel]];
+                        }
+                        forceplateLabels.Add(tempLabel);
+                    }
+                    fileForceplate.Labels = forceplateLabels.ToArray();
+                }
+                catch (IndexOutOfRangeException) { }
+                catch (ParameterNotFoundException) { }
+            }
+            catch (ParameterNotFoundException ex)
+            {
+                fileForceplate = new C3dParameterForceplate();
+                Console.WriteLine($"No force plateform correctly advertised in {FilePath}: {ex.Message}");
+
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine($"No force plateform correctly advertised in {FilePath}. {ex.Message}");
+            }
+
+            return fileForceplate;
+        }
         internal C3dParameterAnalog SetFileAnalog()
         {
             C3dParameterAnalog fileAnalog = new C3dParameterAnalog();

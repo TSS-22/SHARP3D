@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Utils.Enum
 {
-    public enum ForcePlateType
+    public enum ForceplateType
     {
         UNKOWN = 0,
         TYPE_1 = 1,
