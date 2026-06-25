@@ -1,7 +1,9 @@
 ﻿using SHARP3D.Data.DataEntity;
+using SHARP3D.Exceptions;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
+using SHARP3D.Utils.Enum;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
 
@@ -208,6 +210,18 @@ namespace SHARP3D
             // Get the data
             for(int idPlate=0; idPlate < RequiredForceplate.Used; idPlate++)
             {
+                // Get the type for calibration matrix
+                // WARNING: It will go out of bound if I didn't do this properly
+                float[] vecCalMat = new float[] { };
+                float[,] calMat = new float[,] { };
+                try
+                {
+                    vecCalMat = GetCalibrationMatrixVector(idPlate);
+                    calMat = GetCalibrationMatrix(idPlate);
+                }
+                catch (Exception) { }
+                
+                
                 // Compute the force plate offset
                 int zeroFrameNb = RequiredForceplate.Zero.Item2 - RequiredForceplate.Zero.Item1;
                 float[] zero = new float[RequiredForceplate.Channel[idPlate].Length];
@@ -231,10 +245,123 @@ namespace SHARP3D
                     {
                         forceplateData[idFrame, idChannel] = analogData[idFrame, RequiredForceplate.Channel[idPlate][idChannel]] - zero[idChannel]; // Offset
                     }
+                    // Apply calibration matrix if needs to
+                    if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) && vecCalMat.Length != 0)
+                    {
+
+                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        {
+                            forceplateData[idFrame, idChannel] = forceplateData[idFrame, idChannel] * vecCalMat[idChannel];
+                        }
+                    }
+                    else if (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4 && calMat.Length != 0)
+                    {
+                        float[] tempforceplateDataRow = new float[forceplateData.GetLength(1)];
+
+                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        {
+                            tempforceplateDataRow[idChannel] = forceplateData[idFrame, idChannel];
+                        }
+                        tempforceplateDataRow = ArrayUtils.VecMatMultiplication(tempforceplateDataRow, calMat);
+                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        {
+                            forceplateData[idFrame, idChannel] = tempforceplateDataRow[idChannel];
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Plateform of type {RequiredForceplate.Type} doesn't support calibration matrix.");
+
+                    }
                 }
+
                 totalForceplateData.Add(forceplateData);
             }
             return totalForceplateData.ToArray();
+        }
+
+        internal float[] GetCalibrationMatrixVector(int idPlate)
+        {
+            try
+            {
+                C3dParameter calibrationMatrixParameter = Parameters.GetParameter("force_platform", "cal_matrix");
+
+                float[] calibrationVector = Enumerable.Repeat(1.0f, calibrationMatrixParameter.Dimensions[0]).ToArray();
+                if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) || (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4))
+                {
+                    for(int i=0; i < calibrationVector.Length; i++)
+                    {
+                        try
+                        {
+                            calibrationVector[i] = calibrationMatrixParameter.Data.GetValue(i, i, idPlate) as float? ?? throw new NullReferenceException();
+                        }
+                        catch(NullReferenceException) 
+                        {
+                            Console.Error.WriteLine($"WARNING: Force plate id {idPlate} calibration matrix is null at index: [{i},{i}]");
+                        }
+                    }
+                }
+                else
+                {
+                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+
+                }
+                return calibrationVector;
+            }
+            catch (ArgumentException) { throw; }
+            catch (NoCalibrationMatrixForForceplateType) { throw; }
+        }
+
+        internal float[,] GetCalibrationMatrix(int idPlate)
+        {
+            try
+            {
+                C3dParameter calibrationMatrixParameter = Parameters.GetParameter("force_platform", "cal_matrix");
+
+                float[,] calibrationMatrix = new float[calibrationMatrixParameter.Dimensions[1], calibrationMatrixParameter.Dimensions[0]];
+                if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) || (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4))
+                {
+                    for (int i = 0; i < calibrationMatrixParameter.Dimensions[1]; i++)
+                    {
+                        for (int j = 0; j < calibrationMatrixParameter.Dimensions[0]; j++)
+                        {
+                            calibrationMatrix[i, j] = 1.0f;
+                        }
+                    }
+
+                    if (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2)
+                    {
+                        for (int col = 0; col < calibrationMatrix.GetLength(0); col++)
+                        {
+                            for (int row = 0; row < calibrationMatrix.GetLength(1); row++)
+                            {
+                                try
+                                {
+                                    calibrationMatrix[row, col] = calibrationMatrixParameter.Data.GetValue(col, row, idPlate) as float? ?? throw new NullReferenceException();
+                                }
+                                catch (NullReferenceException)
+                                {
+                                    Console.Error.WriteLine($"WARNING: Force plate id {idPlate} calibration matrix is null at index: [{col},{row}]");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+
+                    }
+                    return calibrationMatrix;
+                }
+                else 
+                {
+                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+
+                }
+                
+            }
+            catch (ArgumentException) { throw; }
+            catch (NoCalibrationMatrixForForceplateType) { throw; }
         }
     }
 }
