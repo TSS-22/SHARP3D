@@ -10,4 +10,5 @@
         public float[,]? Analog = null; // | No analog data -> null
         public float[][,]? ForcePlate = null;// | No force plate data -> null
     }
+
 }

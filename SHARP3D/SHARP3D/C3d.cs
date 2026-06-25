@@ -4,6 +4,8 @@ using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Drawing;
+using System.Reflection.Emit;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
 
@@ -68,6 +70,118 @@ namespace SHARP3D
 
         }
 
+        internal void DeletePointTrajectories(string[] trajectoriesLabels)
+        {
+            List<int> trajectories = new List<int>();
+
+            for (int idTraj = 0; idTraj < RequiredPoint.Labels.Length; idTraj++)
+            {
+                foreach (string label in trajectoriesLabels)
+                {
+                    if (RequiredAnalog.Labels[idTraj] == label)
+                    {
+                        trajectories.Add(idTraj);
+                        continue;
+                    }
+                }
+            }
+
+            DeletePointTrajectories(trajectories.ToArray());
+        }
+
+        internal void DeletePointTrajectories(int[] trajectories)
+        {
+            // Data side
+            float?[,,] newDataPoint = new float?[,,] { };
+            if ((RequiredPoint.Used - trajectories.Length != 0))
+            {
+                newDataPoint = new float?[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length, Data.Point.GetLength(2)];
+            }
+
+            float?[,] newResidual = new float?[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length];
+            bool[,,] newCameramask = new bool[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length, Data.CameraMask.GetLength(2)];
+            // Parameter side
+            string[] newDescriptions = new string[RequiredPoint.Used - trajectories.Length];
+            string[] newLabels = new string[RequiredPoint.Used - trajectories.Length];
+
+            int offsetTraj = 0; // To work the channel taken out during the populating phase
+            if (Data.Analog != null)
+            {
+                float maxPointValue = 0;
+                for (int idTraj = 0; idTraj < RequiredAnalog.Used; idTraj++)
+                {
+                    if (trajectories.Contains(idTraj))
+                    {
+                        offsetTraj++;
+                        continue;
+                    }
+                    else
+                    {
+                        for (int idFrame = 0; idFrame < RequiredAnalog.TotalSamples; idFrame++)
+                        {
+                            // Point
+                            for(int idPoint = 0; idPoint < Data.Point.GetLength(2); idPoint++) 
+                            {
+                                newDataPoint[idFrame, idTraj - offsetTraj, idPoint] = Data.Point[idFrame, idTraj, idPoint];
+                                if(Data.Point[idFrame, idTraj, idPoint] != null) 
+                                {
+                                    if (maxPointValue > Math.Abs((float)Data.Point[idFrame, idTraj, idPoint]))
+                                    {
+                                        maxPointValue = Math.Abs((float)Data.Point[idFrame, idTraj, idPoint]);
+                                    }
+                                }
+                                
+                            }
+                            // Residual
+                            newResidual[idFrame, idTraj - offsetTraj] = Data.Residual[idFrame, idTraj];
+                            // Camera mask
+                            for (int idCamera = 0; idCamera < Data.Point.GetLength(2); idCamera++)
+                            {
+                                newCameramask[idFrame, idTraj - offsetTraj, idCamera] = Data.CameraMask[idFrame, idTraj, idCamera];
+                            }
+                            // Parameters
+                            newDescriptions[idTraj - offsetTraj] = RequiredPoint.Descriptions[idTraj];
+                            newLabels[idTraj - offsetTraj] = RequiredPoint.Labels[idTraj];
+
+                        }
+                    }
+
+                    Data.Point = newDataPoint;
+                    Data.Residual = newResidual;
+                    Data.CameraMask = newCameramask;
+
+                    RequiredPoint.Descriptions = newDescriptions;
+                    RequiredPoint.Labels = newLabels;
+                    RequiredPoint.Scale = maxPointValue / 32000;
+                    RequiredPoint.Used = newDataPoint.GetLength(1);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Can't delete trajectories: there is no Point data.");
+            }
+        }
+
+
+        internal void DeleteAnalogChannels(string[] channelLabels)
+        {
+            List<int> channels = new List<int>();
+
+            for(int idChannel = 0; idChannel < RequiredAnalog.Labels.Length; idChannel++)
+            {
+                foreach (string label in channelLabels)
+                {
+                    if (RequiredAnalog.Labels[idChannel] == label)
+                    {
+                        channels.Add(idChannel);
+                        continue;
+                    }
+                }
+            }
+
+            DeleteAnalogChannels(channels.ToArray());
+        }
+
         internal void DeleteAnalogChannels(int[] channels)
         {
             float[,] newDataAnalog = new float[,] { };
@@ -75,7 +189,8 @@ namespace SHARP3D
             {
                 newDataAnalog = new float[RequiredAnalog.TotalSamples, RequiredAnalog.Used - channels.Length];
             }
-            
+
+
             float[] newChannelScale = new float[RequiredAnalog.Used - channels.Length];
             string[] newDescriptions = new string[RequiredAnalog.Used - channels.Length];
             string[] newLabelsAnalog = new string[RequiredAnalog.Used - channels.Length];
