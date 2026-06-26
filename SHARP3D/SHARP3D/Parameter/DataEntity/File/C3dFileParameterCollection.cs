@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Exceptions;
 
-namespace SHARP3D.Parameter.DataEntity
+namespace SHARP3D.Parameter.DataEntity.File
 {
     /// <summary>
     /// References all the groups and parameters in a two-way dictionary for convenience.
@@ -81,7 +81,7 @@ namespace SHARP3D.Parameter.DataEntity
             parameterName = parameterName.ToUpper();
             if (_groupValuesByName.TryGetValue(groupName, out (string, int)[] groupValues))
             {
-                if ((groupValues.Length == 0) || groupValues == null) 
+                if (groupValues.Length == 0 || groupValues == null) 
                 {
                     throw new EmptyParameterGroupException($"The group '{groupName}' does not contain any parameters.");
                 }
@@ -116,11 +116,11 @@ namespace SHARP3D.Parameter.DataEntity
             groupName = groupName.ToUpper();
             if (_groupValuesByName.TryGetValue(groupName, out (string, int)[]? values))
             {
-                if ((values.Length == 0) || values == null) 
+                if (values.Length == 0 || values == null) 
                 {
                     throw new EmptyParameterGroupException($"The group \"{groupName}\" does not contain any parameters.");
                 }
-                return (values);
+                return values;
             }
             else { throw new KeyNotFoundException($"The group \"{groupName}\" doesn't exist."); }
         }
@@ -140,11 +140,11 @@ namespace SHARP3D.Parameter.DataEntity
         {
             if (_groupValuesByIndex.TryGetValue(groupIndex, out (string, int)[]? values))
             {
-                if ((values.Length == 0) || values == null)
+                if (values.Length == 0 || values == null)
                 {
                     throw new EmptyParameterGroupException($"The group at index \"{groupIndex}\" does not contain any parameters.");
                 }
-                return (values);
+                return values;
             }
             else { throw new KeyNotFoundException($"The group at index \"{groupIndex}\" doesn't exist."); }
         }

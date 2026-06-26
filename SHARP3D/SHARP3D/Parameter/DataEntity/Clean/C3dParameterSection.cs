@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Parameter.DataEntity.Clean
+﻿using SHARP3D.Parameter.DataEntity.File;
+
+namespace SHARP3D.Parameter.DataEntity.Clean
 {
     public class C3dParameterSection
     {

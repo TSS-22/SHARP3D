@@ -1,6 +1,5 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Exceptions;
-using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
@@ -11,9 +10,7 @@ namespace SHARP3D
     public class C3d
     {
         public string? FilePath = null;
-        public C3dParameterPoint RequiredPoint = new C3dParameterPoint();
-        public C3dParameterAnalog RequiredAnalog = new C3dParameterAnalog();
-        public C3dParameterForceplate RequiredForceplate = new C3dParameterForceplate();
+        public RequiredParameters Required = new RequiredParameters();
 
         public C3dParameterSection Parameters = new C3dParameterSection();
 
@@ -24,9 +21,9 @@ namespace SHARP3D
             C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
             FilePath = c3DFile.FilePath;
             
-            RequiredPoint = c3DFile.Point;
-            RequiredAnalog = c3DFile.Analog;
-            RequiredForceplate = c3DFile.Forceplate;
+            Required.Point = c3DFile.Point;
+            Required.Analog = c3DFile.Analog;
+            Required.Forceplate = c3DFile.Forceplate;
 
             Parameters = new C3dParameterSection(c3DFile.Parameters);
 
@@ -56,7 +53,7 @@ namespace SHARP3D
             
             // FORCE_PLATFORM clean up
             List<int> channelsToDelete = new List<int>();
-            foreach (int[] channels in RequiredForceplate.Channel)
+            foreach (int[] channels in Required.Forceplate.Channel)
             {
                 foreach(int channel in channels)
                 {
@@ -79,15 +76,29 @@ namespace SHARP3D
 
         }
 
+        // TODO
+        internal void AddForceplate()
+        {
+
+        }
+
+        // TODO
+        internal void DeleteForceplate(int[] idPlate)
+        {
+
+        }
+
+        
+
         internal void DeletePointTrajectories(string[] trajectoriesLabels)
         {
             List<int> trajectories = new List<int>();
 
-            for (int idTraj = 0; idTraj < RequiredPoint.Labels.Length; idTraj++)
+            for (int idTraj = 0; idTraj < Required.Point.Labels.Length; idTraj++)
             {
                 foreach (string label in trajectoriesLabels)
                 {
-                    if (RequiredAnalog.Labels[idTraj] == label)
+                    if (Required.Analog.Labels[idTraj] == label)
                     {
                         trajectories.Add(idTraj);
                         continue;
@@ -102,22 +113,22 @@ namespace SHARP3D
         {
             // Data side
             float?[,,] newDataPoint = new float?[,,] { };
-            if ((RequiredPoint.Used - trajectories.Length != 0))
+            if ((Required.Point.Used - trajectories.Length != 0))
             {
-                newDataPoint = new float?[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length, Data.Point.GetLength(2)];
+                newDataPoint = new float?[Required.Point.Frames, Required.Point.Used - trajectories.Length, Data.Point.GetLength(2)];
             }
 
-            float?[,] newResidual = new float?[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length];
-            bool[,,] newCameramask = new bool[RequiredPoint.Frames, RequiredPoint.Used - trajectories.Length, Data.CameraMask.GetLength(2)];
+            float?[,] newResidual = new float?[Required.Point.Frames, Required.Point.Used - trajectories.Length];
+            bool[,,] newCameramask = new bool[Required.Point.Frames, Required.Point.Used - trajectories.Length, Data.CameraMask.GetLength(2)];
             // Parameter side
-            string[] newDescriptions = new string[RequiredPoint.Used - trajectories.Length];
-            string[] newLabels = new string[RequiredPoint.Used - trajectories.Length];
+            string[] newDescriptions = new string[Required.Point.Used - trajectories.Length];
+            string[] newLabels = new string[Required.Point.Used - trajectories.Length];
 
             int offsetTraj = 0; // To work the channel taken out during the populating phase
             if (Data.Analog != null)
             {
                 float maxPointValue = 0;
-                for (int idTraj = 0; idTraj < RequiredAnalog.Used; idTraj++)
+                for (int idTraj = 0; idTraj < Required.Analog.Used; idTraj++)
                 {
                     if (trajectories.Contains(idTraj))
                     {
@@ -126,7 +137,7 @@ namespace SHARP3D
                     }
                     else
                     {
-                        for (int idFrame = 0; idFrame < RequiredAnalog.TotalSamples; idFrame++)
+                        for (int idFrame = 0; idFrame < Required.Analog.TotalSamples; idFrame++)
                         {
                             // Point
                             for(int idPoint = 0; idPoint < Data.Point.GetLength(2); idPoint++) 
@@ -149,8 +160,8 @@ namespace SHARP3D
                                 newCameramask[idFrame, idTraj - offsetTraj, idCamera] = Data.CameraMask[idFrame, idTraj, idCamera];
                             }
                             // Parameters
-                            newDescriptions[idTraj - offsetTraj] = RequiredPoint.Descriptions[idTraj];
-                            newLabels[idTraj - offsetTraj] = RequiredPoint.Labels[idTraj];
+                            newDescriptions[idTraj - offsetTraj] = Required.Point.Descriptions[idTraj];
+                            newLabels[idTraj - offsetTraj] = Required.Point.Labels[idTraj];
 
                         }
                     }
@@ -159,10 +170,10 @@ namespace SHARP3D
                     Data.Residual = newResidual;
                     Data.CameraMask = newCameramask;
 
-                    RequiredPoint.Descriptions = newDescriptions;
-                    RequiredPoint.Labels = newLabels;
-                    RequiredPoint.Scale = maxPointValue / 32000;
-                    RequiredPoint.Used = newDataPoint.GetLength(1);
+                    Required.Point.Descriptions = newDescriptions;
+                    Required.Point.Labels = newLabels;
+                    Required.Point.Scale = maxPointValue / 32000;
+                    Required.Point.Used = newDataPoint.GetLength(1);
                 }
             }
             else
@@ -176,11 +187,11 @@ namespace SHARP3D
         {
             List<int> channels = new List<int>();
 
-            for(int idChannel = 0; idChannel < RequiredAnalog.Labels.Length; idChannel++)
+            for(int idChannel = 0; idChannel < Required.Analog.Labels.Length; idChannel++)
             {
                 foreach (string label in channelLabels)
                 {
-                    if (RequiredAnalog.Labels[idChannel] == label)
+                    if (Required.Analog.Labels[idChannel] == label)
                     {
                         channels.Add(idChannel);
                         continue;
@@ -194,24 +205,24 @@ namespace SHARP3D
         internal void DeleteAnalogChannels(int[] channels)
         {
             float[,] newDataAnalog = new float[,] { };
-            if (RequiredAnalog.Used - channels.Length != 0)
+            if (Required.Analog.Used - channels.Length != 0)
             {
-                newDataAnalog = new float[RequiredAnalog.TotalSamples, RequiredAnalog.Used - channels.Length];
+                newDataAnalog = new float[Required.Analog.TotalSamples, Required.Analog.Used - channels.Length];
             }
 
 
-            float[] newChannelScale = new float[RequiredAnalog.Used - channels.Length];
-            string[] newDescriptions = new string[RequiredAnalog.Used - channels.Length];
-            string[] newLabelsAnalog = new string[RequiredAnalog.Used - channels.Length];
-            int[] newOffset = new int[RequiredAnalog.Used - channels.Length];
-            string[] newUnits = new string[RequiredAnalog.Used - channels.Length];
+            float[] newChannelScale = new float[Required.Analog.Used - channels.Length];
+            string[] newDescriptions = new string[Required.Analog.Used - channels.Length];
+            string[] newLabelsAnalog = new string[Required.Analog.Used - channels.Length];
+            int[] newOffset = new int[Required.Analog.Used - channels.Length];
+            string[] newUnits = new string[Required.Analog.Used - channels.Length];
             
             int offsetChannel = 0; // To work the channel taken out during the populating phase
 
             if(Data.Analog != null)
             {
                 // Get data and Labels
-                for (int idChannel = 0; idChannel < RequiredAnalog.Used; idChannel++)
+                for (int idChannel = 0; idChannel < Required.Analog.Used; idChannel++)
                 {
                     if (channels.Contains(idChannel))
                     {
@@ -220,28 +231,28 @@ namespace SHARP3D
                     }
                     else
                     {
-                        for (int idSample=0; idSample < RequiredAnalog.TotalSamples; idSample++)
+                        for (int idSample=0; idSample < Required.Analog.TotalSamples; idSample++)
                         {
                     
                             newDataAnalog[idSample, idChannel - offsetChannel] = Data.Analog[idSample, idChannel];
 
-                            newChannelScale[idChannel - offsetChannel] = RequiredAnalog.ChannelScale[idChannel];
-                            newDescriptions[idChannel - offsetChannel] = RequiredAnalog.Descriptions[idChannel];
-                            newLabelsAnalog[idChannel - offsetChannel] = RequiredAnalog.Labels[idChannel];
-                            newOffset[idChannel - offsetChannel] = RequiredAnalog.Offset[idChannel];
-                            newUnits[idChannel - offsetChannel] = RequiredAnalog.Units[idChannel];
+                            newChannelScale[idChannel - offsetChannel] = Required.Analog.ChannelScale[idChannel];
+                            newDescriptions[idChannel - offsetChannel] = Required.Analog.Descriptions[idChannel];
+                            newLabelsAnalog[idChannel - offsetChannel] = Required.Analog.Labels[idChannel];
+                            newOffset[idChannel - offsetChannel] = Required.Analog.Offset[idChannel];
+                            newUnits[idChannel - offsetChannel] = Required.Analog.Units[idChannel];
                         }
                     }
                 }
                 Data.Analog = newDataAnalog;
 
-                RequiredAnalog.ChannelScale = newChannelScale;
-                RequiredAnalog.Descriptions = newDescriptions;
-                RequiredAnalog.Labels = newLabelsAnalog;
-                RequiredAnalog.Offset = newOffset;
-                RequiredAnalog.Units = newUnits;
+                Required.Analog.ChannelScale = newChannelScale;
+                Required.Analog.Descriptions = newDescriptions;
+                Required.Analog.Labels = newLabelsAnalog;
+                Required.Analog.Offset = newOffset;
+                Required.Analog.Units = newUnits;
 
-                RequiredAnalog.Used = newDataAnalog.GetLength(1); // In case some of the channels where not found.
+                Required.Analog.Used = newDataAnalog.GetLength(1); // In case some of the channels where not found.
             }
             else
             {
@@ -259,7 +270,7 @@ namespace SHARP3D
             }
 
             data.Analog = fileData.Analogs.Count != 0 ? GetAnalogDataFromFile(fileData.Analogs) : null;
-            data.ForcePlate = (RequiredForceplate.Used > 0 ) && (data.Analog != null) ? GetForcePlateDataFromFile(data.Analog) : null;
+            data.ForcePlate = (Required.Forceplate.Used > 0 ) && (data.Analog != null) ? GetForcePlateDataFromFile(data.Analog) : null;
 
             // Discard force_platform data from analog before returning #177
             return data;
@@ -311,14 +322,14 @@ namespace SHARP3D
         internal float[,] GetAnalogDataFromFile(List<float[][]> fileAnalogData)
         {
             // This is the number of frame for the analog array creation
-            int nbFrame = fileAnalogData.Count * RequiredAnalog.SamplesPerFrame;
-            float[,] analog = new float[nbFrame, RequiredAnalog.Used];
+            int nbFrame = fileAnalogData.Count * Required.Analog.SamplesPerFrame;
+            float[,] analog = new float[nbFrame, Required.Analog.Used];
 
             for (int idFrame = 0; idFrame < fileAnalogData.Count; idFrame++)
             {
-                for (int idSample = 0; idSample < RequiredAnalog.SamplesPerFrame; idSample++)
+                for (int idSample = 0; idSample < Required.Analog.SamplesPerFrame; idSample++)
                 {
-                    for (int idChannel = 0; idChannel < RequiredAnalog.Used; idChannel++)
+                    for (int idChannel = 0; idChannel < Required.Analog.Used; idChannel++)
                     {
                         analog[idFrame * 4 + idSample, idChannel] = fileAnalogData[idFrame][idSample][idChannel];
                     }
@@ -332,7 +343,7 @@ namespace SHARP3D
         {
             List<float[,]> totalForceplateData = new List<float[,]> { };
             // Get the data
-            for(int idPlate=0; idPlate < RequiredForceplate.Used; idPlate++)
+            for(int idPlate=0; idPlate < Required.Forceplate.Used; idPlate++)
             {
                 // Get the type for calibration matrix
                 // WARNING: It will go out of bound if I didn't do this properly
@@ -347,47 +358,47 @@ namespace SHARP3D
                 
                 
                 // Compute the force plate offset
-                int zeroFrameNb = RequiredForceplate.Zero.Item2 - RequiredForceplate.Zero.Item1;
-                float[] zero = new float[RequiredForceplate.Channel[idPlate].Length];
+                int zeroFrameNb = Required.Forceplate.Zero.Item2 - Required.Forceplate.Zero.Item1;
+                float[] zero = new float[Required.Forceplate.Channel[idPlate].Length];
 
-                for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
                 {
                     float zeroData = 0.0f;
-                    for (int idFrame = RequiredForceplate.Zero.Item1; idFrame < zeroFrameNb; idFrame++)
+                    for (int idFrame = Required.Forceplate.Zero.Item1; idFrame < zeroFrameNb; idFrame++)
                     {
-                        zeroData = analogData[idFrame, RequiredForceplate.Channel[idPlate][idChannel]];
+                        zeroData = analogData[idFrame, Required.Forceplate.Channel[idPlate][idChannel]];
                     }
                     zero[idChannel] = zeroData / zeroFrameNb;
                 }
                 
                 // Initialize the force plate data array
-                float[,] forceplateData = new float[analogData.GetLength(0), RequiredForceplate.Channel[idPlate].Length];
+                float[,] forceplateData = new float[analogData.GetLength(0), Required.Forceplate.Channel[idPlate].Length];
                 // Populate the array
                 for(int idFrame=0; idFrame < analogData.GetLength(0); idFrame++)
                 {
-                    for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                    for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
                     {
-                        forceplateData[idFrame, idChannel] = analogData[idFrame, RequiredForceplate.Channel[idPlate][idChannel]] - zero[idChannel]; // Offset
+                        forceplateData[idFrame, idChannel] = analogData[idFrame, Required.Forceplate.Channel[idPlate][idChannel]] - zero[idChannel]; // Offset
                     }
                     // Apply calibration matrix if needs to
-                    if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) && vecCalMat.Length != 0)
+                    if ((Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_2) && vecCalMat.Length != 0)
                     {
 
-                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
                         {
                             forceplateData[idFrame, idChannel] = forceplateData[idFrame, idChannel] * vecCalMat[idChannel];
                         }
                     }
-                    else if (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4 && calMat.Length != 0)
+                    else if (Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_4 && calMat.Length != 0)
                     {
                         float[] tempforceplateDataRow = new float[forceplateData.GetLength(1)];
 
-                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
                         {
                             tempforceplateDataRow[idChannel] = forceplateData[idFrame, idChannel];
                         }
                         tempforceplateDataRow = ArrayUtils.VecMatMultiplication(tempforceplateDataRow, calMat);
-                        for (int idChannel = 0; idChannel < RequiredForceplate.Channel[idPlate].Length; idChannel++)
+                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
                         {
                             forceplateData[idFrame, idChannel] = tempforceplateDataRow[idChannel];
                         }
@@ -395,7 +406,7 @@ namespace SHARP3D
                     else
                     {
                         // Need a better place for this. Is it redundant ?
-                        //Console.WriteLine($"Plateform of type {RequiredForceplate.Type} doesn't support calibration matrix.");
+                        //Console.WriteLine($"Plateform of type {Required.Forceplate.Type} doesn't support calibration matrix.");
 
                     }
                 }
@@ -412,7 +423,7 @@ namespace SHARP3D
                 C3dParameter calibrationMatrixParameter = Parameters.GetParameter("force_platform", "cal_matrix");
 
                 float[] calibrationVector = Enumerable.Repeat(1.0f, calibrationMatrixParameter.Dimensions[0]).ToArray();
-                if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) || (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4))
+                if ((Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_2) || (Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_4))
                 {
                     for(int i=0; i < calibrationVector.Length; i++)
                     {
@@ -428,7 +439,7 @@ namespace SHARP3D
                 }
                 else
                 {
-                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {Required.Forceplate.Type[idPlate]} and therefore don't have calibration matrix.");
 
                 }
                 return calibrationVector;
@@ -444,7 +455,7 @@ namespace SHARP3D
                 C3dParameter calibrationMatrixParameter = Parameters.GetParameter("force_platform", "cal_matrix");
 
                 float[,] calibrationMatrix = new float[calibrationMatrixParameter.Dimensions[1], calibrationMatrixParameter.Dimensions[0]];
-                if ((RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2) || (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_4))
+                if ((Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_2) || (Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_4))
                 {
                     for (int i = 0; i < calibrationMatrixParameter.Dimensions[1]; i++)
                     {
@@ -454,7 +465,7 @@ namespace SHARP3D
                         }
                     }
 
-                    if (RequiredForceplate.Type[idPlate] == ForceplateType.TYPE_2)
+                    if (Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_2)
                     {
                         for (int col = 0; col < calibrationMatrix.GetLength(0); col++)
                         {
@@ -473,14 +484,14 @@ namespace SHARP3D
                     }
                     else
                     {
-                        throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+                        throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {Required.Forceplate.Type[idPlate]} and therefore don't have calibration matrix.");
 
                     }
                     return calibrationMatrix;
                 }
                 else 
                 {
-                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {RequiredForceplate.Type[idPlate]} and therefore don't have calibration matrix.");
+                    throw new NoCalibrationMatrixForForceplateType($"Force plate id {idPlate} is of type {Required.Forceplate.Type[idPlate]} and therefore don't have calibration matrix.");
 
                 }
                 

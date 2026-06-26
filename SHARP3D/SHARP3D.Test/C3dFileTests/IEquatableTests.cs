@@ -1,5 +1,5 @@
 ﻿using SHARP3D.Header.DataEntity;
-using SHARP3D.Parameter.DataEntity;
+using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Test.ToolKit;
 using SHARP3D.Utils.Enum;
 using System.Text.RegularExpressions;

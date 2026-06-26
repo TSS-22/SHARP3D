@@ -4,6 +4,8 @@ using SHARP3D.Exceptions;
 using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter;
 using SHARP3D.Parameter.DataEntity;
+using SHARP3D.Parameter.DataEntity.Clean;
+using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Collections.Generic;

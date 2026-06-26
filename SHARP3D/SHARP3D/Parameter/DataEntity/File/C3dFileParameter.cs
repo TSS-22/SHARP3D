@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Utils.Enum;
 
-namespace SHARP3D.Parameter.DataEntity
+namespace SHARP3D.Parameter.DataEntity.File
 {
     /// <summary>
     /// Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.
@@ -177,7 +177,7 @@ namespace SHARP3D.Parameter.DataEntity
             {
                 for (int i = 0; i < Data.Length; i++)
                 {
-                    if (!object.Equals(Data.GetValue(i), other.Data.GetValue(i)))
+                    if (!Equals(Data.GetValue(i), other.Data.GetValue(i)))
                     {
                         return false;
                     }
