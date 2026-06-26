@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Data.Clean
 {
-    internal class C3dPointTrajectory
+    public class C3dPointTrajectory
     {
         public string Label = "Unkown";
         public string description = "No description provided";

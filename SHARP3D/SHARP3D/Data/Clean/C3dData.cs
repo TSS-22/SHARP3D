@@ -9,9 +9,9 @@
 
         //public float[,]? Analog = null; // | No analog data -> null
         //public float[][,]? ForcePlate = null;// | No force plate data -> null
-        C3dPointTrajectory[] Points = new C3dPointTrajectory[] { };
-        C3dAnalogChannel[] Analogs = new C3dAnalogChannel[] { };
-        C3dForceplate[] Forceplates = new C3dForceplate[] { };
+        public C3dPointTrajectory[] Points = new C3dPointTrajectory[] { };
+        public C3dAnalogChannel[] Analogs = new C3dAnalogChannel[] { };
+        public C3dForceplate[] Forceplates = new C3dForceplate[] { };
     }
 
 }
