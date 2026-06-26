@@ -2,16 +2,12 @@
 {
     public class C3dParameterAnalog
     {
-        public int Bits { get; set; } = 12;
-        public float[] ChannelScale = new float[] { };
-        public string[] Descriptions = new string[] { };
+        // Let's try to do without BITS and RATE straight away.
+        //public int Bits = 12;
         public float GeneralScale = 1;
-        public string[] Labels = new string[] { };
-        public int[] Offset = new int[] { } ;
-        public float Rate = 0;
+        //public float Rate = 0.0f;
         public int SamplesPerFrame = 0;
         public int TotalSamples = 0;
-        public string[] Units = new string[] { };
     }
 
 }
