@@ -16,7 +16,6 @@
             List<C3dParameterGroup> groups = new List<C3dParameterGroup>();
             foreach (C3dFileParameterGroup fileGroup in fileGroups)
             {
-                Console.WriteLine(fileGroup.Name);
                 groups.Add(new C3dParameterGroup(fileGroup));
             }
 
@@ -90,6 +89,61 @@
             {
                 throw new ArgumentException($"Parameter '{groupName.ToUpper()}:{parameterName.ToUpper()}' was not deleted because it cannot be found.");
             }
+        }
+
+        public string GetStringParameterTree()
+        {
+            string parameterTree = "------\nGroups and Parameters:\n------\n";
+
+            foreach(C3dParameterGroup group in Groups)
+            {
+                parameterTree = string.Concat(parameterTree, $"{group.Name}:\n");
+                foreach(C3dParameter parameter in group.Parameters)
+                {
+                    parameterTree = string.Concat(parameterTree, $"\t{parameter.Name}\n");
+                }
+                parameterTree = string.Concat(parameterTree, "------\n");
+            }
+
+            return parameterTree;
+        }
+
+        public string GetStringListParameters(C3dParameterGroup group)
+        {
+            string parameters = $"------\n{group.Name}:\n------\n";
+
+            foreach (C3dParameter parameter in group.Parameters)
+            {
+                parameters = string.Concat(parameters, $"{parameter.Name}\n");
+            }
+            parameters = string.Concat(parameters, "------\n");
+
+            return parameters;
+        }
+
+        public string GetStringListParameters(string groupName)
+        {
+            try
+            {
+                return GetStringListParameters(GetGroup(groupName));
+            }
+            catch (ArgumentException ex) 
+            {
+                throw;
+            }
+            
+        }
+
+        public string GetStringListGroups()
+        {
+            string parameterTree = "------\nGroups:\n------\n";
+
+            foreach (C3dParameterGroup group in Groups)
+            {
+                parameterTree = string.Concat(parameterTree, $"{group.Name}\n"); 
+            }
+            parameterTree = string.Concat(parameterTree, "------\n");
+            return parameterTree;
         }
     }
 }

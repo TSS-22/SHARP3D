@@ -4,10 +4,7 @@ using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Drawing;
-using System.Reflection.Emit;
-using System.Text.RegularExpressions;
-using System.Threading.Channels;
+
 
 namespace SHARP3D
 {
@@ -34,7 +31,7 @@ namespace SHARP3D
             Parameters = new C3dParameterSection(c3DFile.Parameters);
 
             Data = GetDataFromFile(c3DFile.Data);
-            // TODO: Get force plate labels
+
             CleanUpParameters();
 
         }
@@ -67,6 +64,18 @@ namespace SHARP3D
                 }
             }
             DeleteAnalogChannels(channelsToDelete.ToArray());
+
+        }
+
+        // TODO
+        internal void AddAnalogChannel()
+        {
+
+        }
+
+        // TODO
+        internal void AddPointTrajectory()
+        {
 
         }
 
@@ -385,7 +394,8 @@ namespace SHARP3D
                     }
                     else
                     {
-                        Console.WriteLine($"Plateform of type {RequiredForceplate.Type} doesn't support calibration matrix.");
+                        // Need a better place for this. Is it redundant ?
+                        //Console.WriteLine($"Plateform of type {RequiredForceplate.Type} doesn't support calibration matrix.");
 
                     }
                 }
