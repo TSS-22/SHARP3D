@@ -76,9 +76,9 @@ namespace SHARP3D
         public C3dFileParameterCollection ParameterCollection { get; set; }
 
         
-        public C3dParameterPoint Point { get; set; }
-        public C3dParameterAnalog Analog { get; set; }
-        public C3dParameterForceplate Forceplate { get; set; }
+        public C3dFileParameterPoint Point { get; set; }
+        public C3dFileParameterAnalog Analog { get; set; }
+        public C3dFileParameterForceplate Forceplate { get; set; }
 
         /// <summary>
         /// Gets or sets the data contained in the C3D file.
@@ -159,9 +159,9 @@ namespace SHARP3D
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
         }
 
-        internal C3dParameterForceplate setFileForceplate()
+        internal C3dFileParameterForceplate setFileForceplate()
         {
-            C3dParameterForceplate fileForceplate = new C3dParameterForceplate();
+            C3dFileParameterForceplate fileForceplate = new C3dFileParameterForceplate();
             try
             {
                 // FORCE_PLATFORM:USED - DONE
@@ -286,7 +286,7 @@ namespace SHARP3D
             }
             catch (ParameterNotFoundException ex)
             {
-                fileForceplate = new C3dParameterForceplate();
+                fileForceplate = new C3dFileParameterForceplate();
                 Console.WriteLine($"No force plateform correctly advertised in {FilePath}: {ex.Message}");
 
             }
@@ -297,9 +297,9 @@ namespace SHARP3D
 
             return fileForceplate;
         }
-        internal C3dParameterAnalog SetFileAnalog()
+        internal C3dFileParameterAnalog SetFileAnalog()
         {
-            C3dParameterAnalog fileAnalog = new C3dParameterAnalog();
+            C3dFileParameterAnalog fileAnalog = new C3dFileParameterAnalog();
 
             try
             {
@@ -323,9 +323,9 @@ namespace SHARP3D
             return fileAnalog;
         }
 
-        internal C3dParameterPoint setFilePoint(int analogUsed, float analogRate)
+        internal C3dFileParameterPoint setFilePoint(int analogUsed, float analogRate)
         {
-            C3dParameterPoint filePoint = new C3dParameterPoint();
+            C3dFileParameterPoint filePoint = new C3dFileParameterPoint();
 
             filePoint.Frames = GetRightAmountOfFrames();
             filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;

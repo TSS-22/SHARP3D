@@ -2,7 +2,7 @@
 
 namespace SHARP3D.Parameter.DataEntity
 {
-    public class C3dFileParameterForcePlate
+    public class C3dFileParameterForceplate
     {
         public int[][] Channel = new int[][] { }; // We keep the typo to be consistant with the C3D Doc. It won't be used by the user anyway.
         public float[,,] Corners = new float[,,] { };
