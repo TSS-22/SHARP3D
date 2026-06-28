@@ -184,7 +184,7 @@ namespace SHARP3D
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
-                //FORCE_PLATFORM:CAL_MATRIX
+                //FORCE_PLATFORM:CAL_MATRIX - DONE
                 // We make the assumption that, as FORCE_PLATFORM:CAL_MATRIX is an optional Parameter
                 // and in the light of the way it is set in the sample file,
                 // we think that CAL_MAT value are only added for TYPE-2 or TYPE-4 force plates.
@@ -214,7 +214,8 @@ namespace SHARP3D
                             {
                                 for (int row = 0; row < calMatRowNb; row++)
                                 {
-                                    calMat[col, row] = (float)(GetParameter("force_platform", "cal_matrix").Data?.GetValue(col, row, idCalMat) as float? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                                    float temp = calMat[col, row] = col == row ? 1.0f : 0.0f;
+                                    calMat[col, row] = (float)(GetParameter("force_platform", "cal_matrix").Data?.GetValue(col, row, idCalMat) as float? ?? temp);
                                 }
                             }
 
@@ -234,7 +235,6 @@ namespace SHARP3D
                     }
                     fileForceplate.CalibrationMatrix = forceplateCalMat.ToArray();
                 }
-                catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
                 

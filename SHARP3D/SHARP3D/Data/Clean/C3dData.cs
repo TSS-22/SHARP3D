@@ -227,9 +227,9 @@ namespace SHARP3D.Data.Clean
                 {
                     // Data
                     List<float> dataToAdd = new List<float>();
-                    for (int idFrame = 0; idFrame < fileAnalogData[0].Count(); idFrame++)
+                    for (int idFrame = 0; idFrame < fileAnalogData.Count(); idFrame++)
                     {
-                        for (int idSample = 0; idSample < fileAnalogData[1].Count(); idSample++)
+                        for (int idSample = 0; idSample < fileAnalogData[0].Count(); idSample++)
                         {
                             dataToAdd.Add(fileAnalogData[idFrame][idSample][idChannel]);
                         }
