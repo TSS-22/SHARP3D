@@ -51,28 +51,40 @@ namespace SHARP3D.Data.Clean
         }
 
 
-        // TODO
-        public void AddAnalogChannel()
+        public void AddAnalogChannel(C3dAnalogChannel channelToAdd)
         {
+            List<C3dAnalogChannel> analogChannels = Analogs.ToList();
+            analogChannels.Add(channelToAdd);
+            Analogs = analogChannels.ToArray();
+        }
 
+        public void AddPointTrajectory(C3dPointTrajectory trajectoryToAdd)
+        {
+            List<C3dPointTrajectory> points = Points.ToList();
+            points.Add(trajectoryToAdd);
+            Points = points.ToArray();
+        }
+
+        public void AddForceplate(C3dForceplate forceplateToAdd)
+        {
+            List<C3dForceplate> forceplates = Forceplates.ToList();
+            forceplates.Add(forceplateToAdd);
+            Forceplates = forceplates.ToArray();
         }
 
         // TODO
-        public void AddPointTrajectory()
+        public void DeleteForceplate(int[] idPlates)
         {
+            List<C3dForceplate> newForceplate = new List<C3dForceplate> { };
 
-        }
-
-        // TODO
-        public void AddForceplate()
-        {
-
-        }
-
-        // TODO
-        public void DeleteForceplate(int[] idPlate)
-        {
-
+            for (int idPlate = 0; idPlate < Forceplates.Length; idPlate++)
+            {
+                if (!idPlates.Contains(idPlate))
+                {
+                    newForceplate.Add(Forceplates[idPlate]);
+                }
+            }
+            Forceplates = newForceplate.ToArray();
         }
 
 
