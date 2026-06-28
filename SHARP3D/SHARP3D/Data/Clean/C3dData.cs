@@ -223,7 +223,7 @@ namespace SHARP3D.Data.Clean
             List<C3dAnalogChannel> c3dAnalogChannels = new List<C3dAnalogChannel>();
             if(fileAnalogData.Count() != 0)
             {
-                for (int idChannel = 0; idChannel < fileAnalogData[2].Count(); idChannel++)
+                for (int idChannel = 0; idChannel < fileAnalogData[0][0].Count(); idChannel++)
                 {
                     // Data
                     List<float> dataToAdd = new List<float>();
@@ -305,21 +305,14 @@ namespace SHARP3D.Data.Clean
 
             if (fileParameterForceplate.Channel.Count() != 0)
             {
-
                 for (int idPlate = 0; idPlate < fileParameterForceplate.Used; idPlate++)
                 {
                     C3dForceplate forceplateToAdd = new C3dForceplate();
 
-                    List<float[]> forceplateData = new List<float[]>();
-                    
-                    for(int idSample = 0; idSample < analogData.GetLength(0); idSample++)
+                    List<C3dAnalogChannel> forceplateData = new List<C3dAnalogChannel>();
+                    foreach (int idChannel in fileParameterForceplate.Channel[idPlate])
                     {
-                        List<float> sampleData = new List<float>();
-                        foreach (int idChannel in fileParameterForceplate.Channel[idPlate])
-                        {
-                            sampleData.Add(analogData[idChannel].Data[idSample]);
-                        }
-                        forceplateData.Add(sampleData.ToArray());
+                        forceplateData.Add(analogData[idChannel]);
                     }
 
                     c3dForceplates.Add(
@@ -327,12 +320,10 @@ namespace SHARP3D.Data.Clean
                         {
                             CalibrationMatrix = fileParameterForceplate.CalibrationMatrix[idPlate],
                             Corners = fileParameterForceplate.Corners[idPlate],
-                            Label = fileParameterForceplate.Labels[idPlate],
-                            Description = fileParameterForceplate.Descriptions[idPlate],
                             Origin = fileParameterForceplate.Origin[idPlate],
                             Type = fileParameterForceplate.Type[idPlate],
                             Zero = fileParameterForceplate.Zero,
-                            Data = ArrayUtils.To2DArray(forceplateData)
+                            Data = forceplateData.ToArray()
                         });
                 }
                 
