@@ -1,7 +1,6 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
-using SHARP3D.Utils.Enum;
 
 namespace SHARP3D.Data.Clean
 {

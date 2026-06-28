@@ -184,37 +184,96 @@ namespace SHARP3D
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
-                //FORCE_PLATFORM:CORNERS - DONE
-                float[,,] forceplateCorner = new float[fileForceplate.Used, 4, 3];
+                //FORCE_PLATFORM:CAL_MATRIX
+                // We make the assumption that, as FORCE_PLATFORM:CAL_MATRIX is an optional Parameter
+                // and in the light of the way it is set in the sample file,
+                // we think that CAL_MAT value are only added for TYPE-2 or TYPE-4 force plates.
+                // We can't be sure because none of the sample files allows us to check that assumptions.
+                // Don't go gentle into that good night.
+                List<float[,]> forceplateCalMat = new List<float[,]>();
+                int idCalMat = 0;
                 try
                 {
                     for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
                     {
+                        // Well, a try catch would be nice here
+                        int calMatColNb =  6;
+                        int calMatRowNb =  6;
+                        try
+                        {
+                            calMatColNb = (int)(GetParameter("force_platform", "cal_matrix").Dimensions?.GetValue(0) as int? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                            calMatRowNb = (int)(GetParameter("force_platform", "cal_matrix").Dimensions?.GetValue(1) as int? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                        }
+                        catch(ParameterNotFoundException) { }
+
+                        float[,] calMat = new float[calMatColNb, calMatRowNb];
+
+                        if ((forceplateType[idFp] == ForceplateType.TYPE_2) || (forceplateType[idFp] == ForceplateType.TYPE_4))
+                        {
+                            for (int col = 0; col < calMatColNb; col++)
+                            {
+                                for (int row = 0; row < calMatRowNb; row++)
+                                {
+                                    calMat[col, row] = (float)(GetParameter("force_platform", "cal_matrix").Data?.GetValue(col, row, idCalMat) as float? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                                }
+                            }
+
+                            idCalMat++;
+                        }
+                        else
+                        {
+                            for (int col = 0; col < calMatColNb; col++)
+                            {
+                                for (int row = 0; row < calMatRowNb; row++)
+                                {
+                                    calMat[col, row] = col==row? 1 : 0;
+                                }
+                            }
+                        }
+                        forceplateCalMat.Add(calMat);
+                    }
+                    fileForceplate.CalibrationMatrix = forceplateCalMat.ToArray();
+                }
+                catch (ParameterNotFoundException) { }
+                catch (IndexOutOfRangeException) { }
+
+                
+
+                //FORCE_PLATFORM:CORNERS - DONE
+                List<float[,]> forceplateCorner = new List<float[,]>();
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        float[,] cornerData = new float[4, 3];
                         for (int idCoor = 0; idCoor<3; idCoor++)
                         {
                             for(int idCorner = 0;idCorner<4; idCorner++)
                             {
-                                forceplateCorner[idFp, idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ?? throw new ParameterNotFoundException($"CORNERS not advertised for forceplate {idFp}."));
+                                cornerData[idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ?? throw new ParameterNotFoundException($"CORNERS not advertised for forceplate {idFp}."));
                             }
                         }
+                        forceplateCorner.Add(cornerData);
                     }
-                    fileForceplate.Corners = forceplateCorner;
+                    fileForceplate.Corners = forceplateCorner.ToArray();
                 }
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
                 //FORCE_PLATEFORM:ORIGIN - DONE
-                float[,] forceplateOrigin = new float[fileForceplate.Used, 3];
+                List<float[]> forceplateOrigin = new List<float[]>();
                 try
                 {
                     for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
                     {
+                        float[] originData = new float[3];
                         for (int idOrigin = 0; idOrigin < 3; idOrigin++)
                         {
-                            forceplateOrigin[idFp, idOrigin] = (float)(GetParameter("force_platform", "origin").Data?.GetValue(idOrigin, idFp) as float? ?? throw new ParameterNotFoundException($"ORIGIN error for force plate {idFp}."));
+                            originData[idOrigin] = (float)(GetParameter("force_platform", "origin").Data?.GetValue(idOrigin, idFp) as float? ?? throw new ParameterNotFoundException($"ORIGIN error for force plate {idFp}."));
                         }
+                        forceplateOrigin.Add(originData);
                     }
-                    fileForceplate.Origin = forceplateOrigin;
+                    fileForceplate.Origin = forceplateOrigin.ToArray();
                 }
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }

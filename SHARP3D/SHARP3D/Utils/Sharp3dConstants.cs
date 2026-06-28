@@ -45,6 +45,7 @@ namespace SHARP3D.Utils
             },
             { "FORCE_PLATFORM", new string[]
                 {
+                    "CAL_MATRIX",
                     "CORNERS",
                     "CHANNEL",
                     "ORIGIN",

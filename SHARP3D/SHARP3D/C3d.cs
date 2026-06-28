@@ -17,21 +17,21 @@ namespace SHARP3D
 
         public C3d(string filePath)
         {
-            C3dFile c3DFile = C3dFile.LoadFromFile(filePath);
-            FilePath = c3DFile.FilePath;
+            C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
+            FilePath = c3dFile.FilePath;
             
             Required.Point = new C3dParameterPoint { 
-                Rate = c3DFile.Point.Rate,
-                Units = c3DFile.Point.Units,
+                Rate = c3dFile.Point.Rate,
+                Units = c3dFile.Point.Units,
             };
             Required.Analog = new C3dParameterAnalog{
-                GeneralScale = c3DFile.Analog.GeneralScale,
-                SamplesPerFrame = c3DFile.Analog.SamplesPerFrame,
+                GeneralScale = c3dFile.Analog.GeneralScale,
+                SamplesPerFrame = c3dFile.Analog.SamplesPerFrame,
             };
 
-            Parameters = new C3dParameterSection(c3DFile.Parameters);
+            Parameters = new C3dParameterSection(c3dFile.Parameters);
 
-            Data = new C3dData(c3DFile);
+            Data = new C3dData(c3dFile);
 
             Parameters.CleanRequiredParameters();
         }

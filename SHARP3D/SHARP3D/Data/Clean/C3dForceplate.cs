@@ -35,11 +35,11 @@ namespace SHARP3D.Data.Clean
             float[,]? calibrationMatrix = null,
             string[]? labels = null,
             string[]? descriptions = null,
-            float[,,]? data = null
+            float[,]? data = null
             )
         {
             CalibrationMatrix = calibrationMatrix ?? new float[,] { };
-            Data = data ?? new float[,,] { };
+            Data = data ?? new float[,] { };
             switch (type)
             {
                 case ForceplateType.TYPE_1:
