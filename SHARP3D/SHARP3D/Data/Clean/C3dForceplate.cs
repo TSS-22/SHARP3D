@@ -23,7 +23,7 @@ namespace SHARP3D.Data.Clean
         public float[] Origin = new float[3];
         public ForceplateType Type = ForceplateType.UNKOWN;
         public (int, int) Zero = (0, 0);
-        public float[,,] Data = new float[,,] { }; // [Frame, Sample, Channel]
+        public float[,] Data = new float[,] { }; // [Frame, Sample, Channel]
 
         public C3dForceplate() { }
 

@@ -2,8 +2,6 @@
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Reflection.Emit;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Data.Clean
 {
@@ -31,7 +29,7 @@ namespace SHARP3D.Data.Clean
             // Forceplate
             if ((c3dFile.Forceplate.Used > 0) && (Analogs.Length!= 0))
             {
-                Forceplates =  GetForcePlateDataFromFile(Analogs);
+                Forceplates =  GetForcePlateDataFromFile(Analogs, c3dFile.Forceplate);
             }
 
             CleanForceplateInAnalog(c3dFile.Forceplate.Channel);
@@ -218,8 +216,6 @@ namespace SHARP3D.Data.Clean
             return c3DPoints.ToArray();
         }
 
-        // We are making the bet that going by frame is the right choice. Should be easier to put back in binaries maybe ?
-        // I will make a function to get the analog in a simple 2D array
         internal C3dAnalogChannel[] GetAnalogDataFromFile(
             List<float[][]> fileAnalogData,
             C3dFileParameterAnalog? fileParameterAnalog = null
@@ -231,15 +227,13 @@ namespace SHARP3D.Data.Clean
                 for (int idChannel = 0; idChannel < fileAnalogData[2].Count(); idChannel++)
                 {
                     // Data
-                    List<float[]> dataToAdd = new List<float[]>();
+                    List<float> dataToAdd = new List<float>();
                     for (int idFrame = 0; idFrame < fileAnalogData[0].Count(); idFrame++)
                     {
-                        List<float> sample = new List<float>();
                         for (int idSample = 0; idSample < fileAnalogData[1].Count(); idSample++)
                         {
-                            sample.Add(fileAnalogData[idFrame][idSample][idChannel]);
+                            dataToAdd.Add(fileAnalogData[idFrame][idSample][idChannel]);
                         }
-                        dataToAdd.Add(sample.ToArray());
                     }
                     // Parameters
                     float scaleToAdd = 1;
@@ -302,81 +296,49 @@ namespace SHARP3D.Data.Clean
             return c3dAnalogChannels.ToArray();
         }
 
-        internal float[][,] GetForcePlateDataFromFile(float[,] analogData)
+        internal C3dForceplate[] GetForcePlateDataFromFile(
+            C3dAnalogChannel[] analogData,
+            C3dFileParameterForceplate fileParameterForceplate
+            )
         {
-            List<float[,]> totalForceplateData = new List<float[,]> { };
-            // Get the data
-            for (int idPlate = 0; idPlate < Required.Forceplate.Used; idPlate++)
+            List<C3dForceplate> c3dForceplates = new List<C3dForceplate>();
+            int offsetPlateCalMat = 0;
+
+            if (fileParameterForceplate.Channel.Count() != 0)
             {
-                // Get the type for calibration matrix
-                // WARNING: It will go out of bound if I didn't do this properly
-                float[] vecCalMat = new float[] { };
-                float[,] calMat = new float[,] { };
-                try
+
+                for (int idPlate = 0; idPlate < fileParameterForceplate.Used; idPlate++)
                 {
-                    vecCalMat = GetCalibrationMatrixVector(idPlate);
-                    calMat = GetCalibrationMatrix(idPlate);
-                }
-                catch (Exception) { }
+                    C3dForceplate forceplateToAdd = new C3dForceplate();
 
-
-                // Compute the force plate offset
-                int zeroFrameNb = Required.Forceplate.Zero.Item2 - Required.Forceplate.Zero.Item1;
-                float[] zero = new float[Required.Forceplate.Channel[idPlate].Length];
-
-                for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
-                {
-                    float zeroData = 0.0f;
-                    for (int idFrame = Required.Forceplate.Zero.Item1; idFrame < zeroFrameNb; idFrame++)
+                    List<float[]> forceplateData = new List<float[]>();
+                    
+                    for(int idSample = 0; idSample < analogData.GetLength(0); idSample++)
                     {
-                        zeroData = analogData[idFrame, Required.Forceplate.Channel[idPlate][idChannel]];
-                    }
-                    zero[idChannel] = zeroData / zeroFrameNb;
-                }
-
-                // Initialize the force plate data array
-                float[,] forceplateData = new float[analogData.GetLength(0), Required.Forceplate.Channel[idPlate].Length];
-                // Populate the array
-                for (int idFrame = 0; idFrame < analogData.GetLength(0); idFrame++)
-                {
-                    for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
-                    {
-                        forceplateData[idFrame, idChannel] = analogData[idFrame, Required.Forceplate.Channel[idPlate][idChannel]] - zero[idChannel]; // Offset
-                    }
-                    // Apply calibration matrix if needs to
-                    if ((Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_2) && vecCalMat.Length != 0)
-                    {
-
-                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
+                        List<float> sampleData = new List<float>();
+                        foreach (int idChannel in fileParameterForceplate.Channel[idPlate])
                         {
-                            forceplateData[idFrame, idChannel] = forceplateData[idFrame, idChannel] * vecCalMat[idChannel];
+                            sampleData.Add(analogData[idChannel].Data[idSample]);
                         }
+                        forceplateData.Add(sampleData.ToArray());
                     }
-                    else if (Required.Forceplate.Type[idPlate] == ForceplateType.TYPE_4 && calMat.Length != 0)
-                    {
-                        float[] tempforceplateDataRow = new float[forceplateData.GetLength(1)];
 
-                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
+                    c3dForceplates.Add(
+                        new C3dForceplate
                         {
-                            tempforceplateDataRow[idChannel] = forceplateData[idFrame, idChannel];
-                        }
-                        tempforceplateDataRow = ArrayUtils.VecMatMultiplication(tempforceplateDataRow, calMat);
-                        for (int idChannel = 0; idChannel < Required.Forceplate.Channel[idPlate].Length; idChannel++)
-                        {
-                            forceplateData[idFrame, idChannel] = tempforceplateDataRow[idChannel];
-                        }
-                    }
-                    else
-                    {
-                        // Need a better place for this. Is it redundant ?
-                        //Console.WriteLine($"Plateform of type {Required.Forceplate.Type} doesn't support calibration matrix.");
-
-                    }
+                            CalibrationMatrix = fileParameterForceplate.CalibrationMatrix[idPlate],
+                            Corners = fileParameterForceplate.Corners[idPlate],
+                            Label = fileParameterForceplate.Labels[idPlate],
+                            Description = fileParameterForceplate.Descriptions[idPlate],
+                            Origin = fileParameterForceplate.Origin[idPlate],
+                            Type = fileParameterForceplate.Type[idPlate],
+                            Zero = fileParameterForceplate.Zero,
+                            Data = ArrayUtils.To2DArray(forceplateData)
+                        });
                 }
-
-                totalForceplateData.Add(forceplateData);
+                
             }
-            return totalForceplateData.ToArray();
+            return c3dForceplates.ToArray();
         }
 
         public void CleanForceplateInAnalog(int[][] forcePlateChannels)

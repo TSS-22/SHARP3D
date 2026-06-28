@@ -9,19 +9,6 @@
         public int Offset = 0;
         public float Rate = 0.0f;
         public string Unit;
-        public float[][] Data = new float[][] { };
-
-        public float[] GetData1D()
-        {
-            List<float> data1D = new List<float>();
-            foreach (float[] frame in Data)
-            {
-                foreach (float sample in frame)
-                {
-                    data1D.Add(sample);
-                }
-            }
-            return data1D.ToArray();
-        }
+        public float[] Data = new float[] { };
     }
 }
