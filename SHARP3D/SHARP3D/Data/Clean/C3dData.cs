@@ -34,20 +34,80 @@ namespace SHARP3D.Data.Clean
             CleanForceplateInAnalog(c3dFile.Forceplate.Channel);
         }
 
+        // TODO
+        public int AddFrame()
+        {
+            return Points.Length != 0 ? Points[0].Residual.Length : 0;
+        }
+
+        // TODO
+        public int DeleteFrame(int idFrameToDelete)
+        {
+            foreach (C3dPointTrajectory trajectory in Points)
+            {
+                
+            }
+
+            foreach (C3dAnalogChannel channel in Analogs)
+            {
+      
+            }
+
+            foreach (C3dForceplate forcePlate in Forceplates)
+            {
+
+            }
+
+
+            return Points.Length !=0 ? Points[0].Residual.Length : 0;
+        }
+
         public (float?[,,], float?[,], bool[,,]) GetAllPointsData()
         {
+            List<float?[,]> dataPoints = new List<float?[,]>();
+            List<float?[]> dataResidual = new List<float?[]>();
+            List<bool[,]> dataMask = new List<bool[,]>();
 
-            return (new float?[,,] { }, new float?[,] { }, new bool[,,] { });
+            foreach (C3dPointTrajectory trajectory in Points)
+            {
+                dataPoints.Add(trajectory.Point);
+                dataResidual.Add(trajectory.Residual);
+                dataMask.Add(trajectory.CameraMask);
+            }
+
+            return (dataPoints.To3DArray(), dataResidual.To2DArray(), dataMask.To3DArray());
         }
 
         public float[,] GetAllAnalogsData()
         {
-            return new float[,] { };
+            List<float[]> analogs = new List<float[]>();
+
+            foreach (C3dAnalogChannel channel in Analogs)
+            {
+                analogs.Add(channel.Data);
+            }
+
+            return analogs.To2DArray();
         }
 
-        public float[][,] GetAllForceplateData()
+        public float[][,] GetAllForceplateData(bool applyCalibrationMatrix)
         {
-            return new float[][,] { };
+            List<float[,]> allData = new List<float[,]>();
+
+            foreach (C3dForceplate forcePlate in Forceplates) 
+            {
+                switch (applyCalibrationMatrix)
+                {
+                    case true:
+                        allData.Add(forcePlate.GetAllData());
+                        break;
+                    default:
+                        allData.Add(forcePlate.GetAllDataWithCalMat());
+                        break;
+                }
+            }
+
+            return allData.ToArray();
         }
 
 
@@ -218,9 +278,9 @@ namespace SHARP3D.Data.Clean
                         {
                             Label = labelToAdd,
                             Description = descriptionToAdd,
-                            Point = ArrayUtils.To2DArray(points),
+                            Point = points.To2DArray(),
                             Residual = residuals.ToArray(),
-                            CameraMask = ArrayUtils.To2DArray(cameramasks)
+                            CameraMask = cameramasks.To2DArray()
                         });
                 }
             }

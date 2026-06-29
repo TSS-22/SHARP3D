@@ -2,24 +2,6 @@
 {
     public static class ArrayUtils
     {
-        public static float[,] ConvertTo2DArray(List<float[]> list)
-        {
-            int rows = list.Count;
-            int cols = list[0].Length; // Assume all inner arrays have the same length
-
-            float[,] array2D = new float[rows, cols];
-
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    array2D[i, j] = list[i][j];
-                }
-            }
-
-            return array2D;
-        }
-
         /// <summary>
         /// Multiplies a row vector (1xN) by a matrix (NxM), resulting in a row vector (1xM).
         /// </summary>
@@ -95,13 +77,13 @@
         /// <exception cref="ArgumentException">
         /// Thrown if <paramref name="jagged3DArray"/> is null, empty, or if any inner 2D array has different dimensions than the first.
         /// </exception>
-        public static T[,,] To3DArray<T>(this T[][,] jagged3DArray)
+        public static T[,,] To3DArray<T>(this List<T[,]> jagged3DArray)
         {
-            if (jagged3DArray == null || jagged3DArray.Length == 0)
+            if (jagged3DArray == null || jagged3DArray.Count == 0)
                 throw new ArgumentException("Jagged array is empty or null.", nameof(jagged3DArray));
 
             // Get dimensions from the first 2D array
-            int depth = jagged3DArray.Length;
+            int depth = jagged3DArray.Count;
             int rows = jagged3DArray[0].GetLength(0);
             int cols = jagged3DArray[0].GetLength(1);
 
