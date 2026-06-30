@@ -33,7 +33,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             for(int idGroup = 0; idGroup<Groups.Count; idGroup++)
             {
                 string[] regexParametersList = new string[] { };
-                if (Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d.TryGetValue(Groups[idGroup].Name, out regexParametersList))
+                if (Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.TryGetValue(Groups[idGroup].Name, out regexParametersList))
                 {
                     List<C3dParameter> newParameters = new List<C3dParameter>();
                     for(int idParameter = 0; idParameter < Groups[idGroup].Parameters.Count; idParameter++)
