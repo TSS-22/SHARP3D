@@ -41,132 +41,30 @@ references:
   fullName.vb: SHARP3D.C3d.New
   nameWithType: C3d.C3d
   nameWithType.vb: C3d.New
-- uid: SHARP3D.C3d.CleanUpParameters
-  name: CleanUpParameters()
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_CleanUpParameters
-  commentId: M:SHARP3D.C3d.CleanUpParameters
-  fullName: SHARP3D.C3d.CleanUpParameters()
-  nameWithType: C3d.CleanUpParameters()
-- uid: SHARP3D.C3d.CleanUpParameters*
-  name: CleanUpParameters
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_CleanUpParameters_
-  commentId: Overload:SHARP3D.C3d.CleanUpParameters
-  isSpec: "True"
-  fullName: SHARP3D.C3d.CleanUpParameters
-  nameWithType: C3d.CleanUpParameters
 - uid: SHARP3D.C3d.Data
   name: Data
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Data
   commentId: F:SHARP3D.C3d.Data
   fullName: SHARP3D.C3d.Data
   nameWithType: C3d.Data
-- uid: SHARP3D.C3d.DeleteAnalogChannels(System.Int32[])
-  name: DeleteAnalogChannels(int[])
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteAnalogChannels_System_Int32___
-  commentId: M:SHARP3D.C3d.DeleteAnalogChannels(System.Int32[])
-  name.vb: DeleteAnalogChannels(Integer())
-  fullName: SHARP3D.C3d.DeleteAnalogChannels(int[])
-  fullName.vb: SHARP3D.C3d.DeleteAnalogChannels(Integer())
-  nameWithType: C3d.DeleteAnalogChannels(int[])
-  nameWithType.vb: C3d.DeleteAnalogChannels(Integer())
-- uid: SHARP3D.C3d.DeleteAnalogChannels*
-  name: DeleteAnalogChannels
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteAnalogChannels_
-  commentId: Overload:SHARP3D.C3d.DeleteAnalogChannels
-  isSpec: "True"
-  fullName: SHARP3D.C3d.DeleteAnalogChannels
-  nameWithType: C3d.DeleteAnalogChannels
 - uid: SHARP3D.C3d.FilePath
   name: FilePath
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_FilePath
   commentId: F:SHARP3D.C3d.FilePath
   fullName: SHARP3D.C3d.FilePath
   nameWithType: C3d.FilePath
-- uid: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]})
-  name: GetAnalogDataFromFile(List<float[][]>)
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetAnalogDataFromFile_System_Collections_Generic_List_System_Single______
-  commentId: M:SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]})
-  name.vb: GetAnalogDataFromFile(List(Of Single()()))
-  fullName: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List<float[][]>)
-  fullName.vb: SHARP3D.C3d.GetAnalogDataFromFile(System.Collections.Generic.List(Of Single()()))
-  nameWithType: C3d.GetAnalogDataFromFile(List<float[][]>)
-  nameWithType.vb: C3d.GetAnalogDataFromFile(List(Of Single()()))
-- uid: SHARP3D.C3d.GetAnalogDataFromFile*
-  name: GetAnalogDataFromFile
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetAnalogDataFromFile_
-  commentId: Overload:SHARP3D.C3d.GetAnalogDataFromFile
-  isSpec: "True"
-  fullName: SHARP3D.C3d.GetAnalogDataFromFile
-  nameWithType: C3d.GetAnalogDataFromFile
-- uid: SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
-  name: GetDataFromFile(C3dFileData)
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetDataFromFile_SHARP3D_Data_DataEntity_C3dFileData_
-  commentId: M:SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
-  fullName: SHARP3D.C3d.GetDataFromFile(SHARP3D.Data.DataEntity.C3dFileData)
-  nameWithType: C3d.GetDataFromFile(C3dFileData)
-- uid: SHARP3D.C3d.GetDataFromFile*
-  name: GetDataFromFile
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetDataFromFile_
-  commentId: Overload:SHARP3D.C3d.GetDataFromFile
-  isSpec: "True"
-  fullName: SHARP3D.C3d.GetDataFromFile
-  nameWithType: C3d.GetDataFromFile
-- uid: SHARP3D.C3d.GetForcePlateDataFromFile(System.Single[0:,0:])
-  name: GetForcePlateDataFromFile(float[,])
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile_System_Single_0__0___
-  commentId: M:SHARP3D.C3d.GetForcePlateDataFromFile(System.Single[0:,0:])
-  name.vb: GetForcePlateDataFromFile(Single(,))
-  fullName: SHARP3D.C3d.GetForcePlateDataFromFile(float[,])
-  fullName.vb: SHARP3D.C3d.GetForcePlateDataFromFile(Single(,))
-  nameWithType: C3d.GetForcePlateDataFromFile(float[,])
-  nameWithType.vb: C3d.GetForcePlateDataFromFile(Single(,))
-- uid: SHARP3D.C3d.GetForcePlateDataFromFile*
-  name: GetForcePlateDataFromFile
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetForcePlateDataFromFile_
-  commentId: Overload:SHARP3D.C3d.GetForcePlateDataFromFile
-  isSpec: "True"
-  fullName: SHARP3D.C3d.GetForcePlateDataFromFile
-  nameWithType: C3d.GetForcePlateDataFromFile
-- uid: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]})
-  name: GetPointDataFromFile(List<C3dFileDataPoint[]>)
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetPointDataFromFile_System_Collections_Generic_List_SHARP3D_Data_DataEntity_C3dFileDataPoint____
-  commentId: M:SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]})
-  name.vb: GetPointDataFromFile(List(Of C3dFileDataPoint()))
-  fullName: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List<SHARP3D.Data.DataEntity.C3dFileDataPoint[]>)
-  fullName.vb: SHARP3D.C3d.GetPointDataFromFile(System.Collections.Generic.List(Of SHARP3D.Data.DataEntity.C3dFileDataPoint()))
-  nameWithType: C3d.GetPointDataFromFile(List<C3dFileDataPoint[]>)
-  nameWithType.vb: C3d.GetPointDataFromFile(List(Of C3dFileDataPoint()))
-- uid: SHARP3D.C3d.GetPointDataFromFile*
-  name: GetPointDataFromFile
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_GetPointDataFromFile_
-  commentId: Overload:SHARP3D.C3d.GetPointDataFromFile
-  isSpec: "True"
-  fullName: SHARP3D.C3d.GetPointDataFromFile
-  nameWithType: C3d.GetPointDataFromFile
 - uid: SHARP3D.C3d.Parameters
   name: Parameters
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameters
   commentId: F:SHARP3D.C3d.Parameters
   fullName: SHARP3D.C3d.Parameters
   nameWithType: C3d.Parameters
-- uid: SHARP3D.C3d.RequiredAnalog
-  name: RequiredAnalog
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_RequiredAnalog
-  commentId: F:SHARP3D.C3d.RequiredAnalog
-  fullName: SHARP3D.C3d.RequiredAnalog
-  nameWithType: C3d.RequiredAnalog
-- uid: SHARP3D.C3d.RequiredForceplate
-  name: RequiredForceplate
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_RequiredForceplate
-  commentId: F:SHARP3D.C3d.RequiredForceplate
-  fullName: SHARP3D.C3d.RequiredForceplate
-  nameWithType: C3d.RequiredForceplate
-- uid: SHARP3D.C3d.RequiredPoint
-  name: RequiredPoint
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_RequiredPoint
-  commentId: F:SHARP3D.C3d.RequiredPoint
-  fullName: SHARP3D.C3d.RequiredPoint
-  nameWithType: C3d.RequiredPoint
+- uid: SHARP3D.C3d.Required
+  name: Required
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_Required
+  commentId: F:SHARP3D.C3d.Required
+  fullName: SHARP3D.C3d.Required
+  nameWithType: C3d.Required
 - uid: SHARP3D.C3dFile
   name: C3dFile
   href: api/SHARP3D.C3dFile.html
@@ -1020,6 +918,541 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.C3dFileDataHelper.ReadDataFrameInt16
   nameWithType: C3dFileDataHelper.ReadDataFrameInt16
+- uid: SHARP3D.Data.Clean
+  name: SHARP3D.Data.Clean
+  href: api/SHARP3D.Data.Clean.html
+  commentId: N:SHARP3D.Data.Clean
+  fullName: SHARP3D.Data.Clean
+  nameWithType: SHARP3D.Data.Clean
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel
+  name: C3dAnalogChannel
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html
+  commentId: T:SHARP3D.Data.Clean.C3dAnalogChannel
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel
+  nameWithType: C3dAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Bits
+  name: Bits
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Bits
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Bits
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Bits
+  nameWithType: C3dAnalogChannel.Bits
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Data
+  name: Data
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Data
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Data
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Data
+  nameWithType: C3dAnalogChannel.Data
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Description
+  name: Description
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Description
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Description
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Description
+  nameWithType: C3dAnalogChannel.Description
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Label
+  name: Label
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Label
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Label
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Label
+  nameWithType: C3dAnalogChannel.Label
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  name: Offset
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Offset
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  nameWithType: C3dAnalogChannel.Offset
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Rate
+  name: Rate
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Rate
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Rate
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Rate
+  nameWithType: C3dAnalogChannel.Rate
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  name: Scale
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Scale
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  nameWithType: C3dAnalogChannel.Scale
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Unit
+  name: Unit
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Unit
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Unit
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Unit
+  nameWithType: C3dAnalogChannel.Unit
+- uid: SHARP3D.Data.Clean.C3dData
+  name: C3dData
+  href: api/SHARP3D.Data.Clean.C3dData.html
+  commentId: T:SHARP3D.Data.Clean.C3dData
+  fullName: SHARP3D.Data.Clean.C3dData
+  nameWithType: C3dData
+- uid: SHARP3D.Data.Clean.C3dData.#ctor
+  name: C3dData()
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData__ctor
+  commentId: M:SHARP3D.Data.Clean.C3dData.#ctor
+  name.vb: New()
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData()
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New()
+  nameWithType: C3dData.C3dData()
+  nameWithType.vb: C3dData.New()
+- uid: SHARP3D.Data.Clean.C3dData.#ctor(SHARP3D.C3dFile)
+  name: C3dData(C3dFile)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData__ctor_SHARP3D_C3dFile_
+  commentId: M:SHARP3D.Data.Clean.C3dData.#ctor(SHARP3D.C3dFile)
+  name.vb: New(C3dFile)
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData(SHARP3D.C3dFile)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New(SHARP3D.C3dFile)
+  nameWithType: C3dData.C3dData(C3dFile)
+  nameWithType.vb: C3dData.New(C3dFile)
+- uid: SHARP3D.Data.Clean.C3dData.#ctor*
+  name: C3dData
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData__ctor_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New
+  nameWithType: C3dData.C3dData
+  nameWithType.vb: C3dData.New
+- uid: SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  name: AddAnalogChannel(C3dAnalogChannel)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddAnalogChannel_SHARP3D_Data_Clean_C3dAnalogChannel_
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  fullName: SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  nameWithType: C3dData.AddAnalogChannel(C3dAnalogChannel)
+- uid: SHARP3D.Data.Clean.C3dData.AddAnalogChannel*
+  name: AddAnalogChannel
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddAnalogChannel_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddAnalogChannel
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.AddAnalogChannel
+  nameWithType: C3dData.AddAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  name: AddForceplate(C3dForceplate)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddForceplate_SHARP3D_Data_Clean_C3dForceplate_
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  fullName: SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  nameWithType: C3dData.AddForceplate(C3dForceplate)
+- uid: SHARP3D.Data.Clean.C3dData.AddForceplate*
+  name: AddForceplate
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddForceplate_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddForceplate
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.AddForceplate
+  nameWithType: C3dData.AddForceplate
+- uid: SHARP3D.Data.Clean.C3dData.AddFrame
+  name: AddFrame()
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddFrame
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddFrame
+  fullName: SHARP3D.Data.Clean.C3dData.AddFrame()
+  nameWithType: C3dData.AddFrame()
+- uid: SHARP3D.Data.Clean.C3dData.AddFrame*
+  name: AddFrame
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddFrame_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddFrame
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.AddFrame
+  nameWithType: C3dData.AddFrame
+- uid: SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  name: AddPointTrajectory(C3dPointTrajectory)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddPointTrajectory_SHARP3D_Data_Clean_C3dPointTrajectory_
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  fullName: SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  nameWithType: C3dData.AddPointTrajectory(C3dPointTrajectory)
+- uid: SHARP3D.Data.Clean.C3dData.AddPointTrajectory*
+  name: AddPointTrajectory
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddPointTrajectory_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddPointTrajectory
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.AddPointTrajectory
+  nameWithType: C3dData.AddPointTrajectory
+- uid: SHARP3D.Data.Clean.C3dData.Analogs
+  name: Analogs
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_Analogs
+  commentId: F:SHARP3D.Data.Clean.C3dData.Analogs
+  fullName: SHARP3D.Data.Clean.C3dData.Analogs
+  nameWithType: C3dData.Analogs
+- uid: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(System.Int32[][])
+  name: CleanForceplateInAnalog(int[][])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_CleanForceplateInAnalog_System_Int32_____
+  commentId: M:SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(System.Int32[][])
+  name.vb: CleanForceplateInAnalog(Integer()())
+  fullName: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(int[][])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(Integer()())
+  nameWithType: C3dData.CleanForceplateInAnalog(int[][])
+  nameWithType.vb: C3dData.CleanForceplateInAnalog(Integer()())
+- uid: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog*
+  name: CleanForceplateInAnalog
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_CleanForceplateInAnalog_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog
+  nameWithType: C3dData.CleanForceplateInAnalog
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.Int32[])
+  name: DeleteAnalogChannels(int[])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteAnalogChannels_System_Int32___
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.Int32[])
+  name.vb: DeleteAnalogChannels(Integer())
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(int[])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(Integer())
+  nameWithType: C3dData.DeleteAnalogChannels(int[])
+  nameWithType.vb: C3dData.DeleteAnalogChannels(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.String[])
+  name: DeleteAnalogChannels(string[])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteAnalogChannels_System_String___
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.String[])
+  name.vb: DeleteAnalogChannels(String())
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(string[])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(String())
+  nameWithType: C3dData.DeleteAnalogChannels(string[])
+  nameWithType.vb: C3dData.DeleteAnalogChannels(String())
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels*
+  name: DeleteAnalogChannels
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteAnalogChannels_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels
+  nameWithType: C3dData.DeleteAnalogChannels
+- uid: SHARP3D.Data.Clean.C3dData.DeleteForceplate(System.Int32[])
+  name: DeleteForceplate(int[])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteForceplate_System_Int32___
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteForceplate(System.Int32[])
+  name.vb: DeleteForceplate(Integer())
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteForceplate(int[])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteForceplate(Integer())
+  nameWithType: C3dData.DeleteForceplate(int[])
+  nameWithType.vb: C3dData.DeleteForceplate(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.DeleteForceplate*
+  name: DeleteForceplate
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteForceplate_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteForceplate
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteForceplate
+  nameWithType: C3dData.DeleteForceplate
+- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
+  name: DeleteFrame(int)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteFrame_System_Int32_
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
+  name.vb: DeleteFrame(Integer)
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame(int)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteFrame(Integer)
+  nameWithType: C3dData.DeleteFrame(int)
+  nameWithType.vb: C3dData.DeleteFrame(Integer)
+- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame*
+  name: DeleteFrame
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteFrame_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteFrame
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame
+  nameWithType: C3dData.DeleteFrame
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
+  name: DeletePointTrajectories(int[])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeletePointTrajectories_System_Int32___
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
+  name.vb: DeletePointTrajectories(Integer())
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(int[])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(Integer())
+  nameWithType: C3dData.DeletePointTrajectories(int[])
+  nameWithType.vb: C3dData.DeletePointTrajectories(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.String[])
+  name: DeletePointTrajectories(string[])
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeletePointTrajectories_System_String___
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.String[])
+  name.vb: DeletePointTrajectories(String())
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(string[])
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(String())
+  nameWithType: C3dData.DeletePointTrajectories(string[])
+  nameWithType.vb: C3dData.DeletePointTrajectories(String())
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories*
+  name: DeletePointTrajectories
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeletePointTrajectories_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories
+  nameWithType: C3dData.DeletePointTrajectories
+- uid: SHARP3D.Data.Clean.C3dData.Forceplates
+  name: Forceplates
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_Forceplates
+  commentId: F:SHARP3D.Data.Clean.C3dData.Forceplates
+  fullName: SHARP3D.Data.Clean.C3dData.Forceplates
+  nameWithType: C3dData.Forceplates
+- uid: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  name: GetAllAnalogsData()
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllAnalogsData
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData()
+  nameWithType: C3dData.GetAllAnalogsData()
+- uid: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData*
+  name: GetAllAnalogsData
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllAnalogsData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  nameWithType: C3dData.GetAllAnalogsData
+- uid: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(System.Boolean)
+  name: GetAllForceplateData(bool)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllForceplateData_System_Boolean_
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllForceplateData(System.Boolean)
+  name.vb: GetAllForceplateData(Boolean)
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(bool)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(Boolean)
+  nameWithType: C3dData.GetAllForceplateData(bool)
+  nameWithType.vb: C3dData.GetAllForceplateData(Boolean)
+- uid: SHARP3D.Data.Clean.C3dData.GetAllForceplateData*
+  name: GetAllForceplateData
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllForceplateData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllForceplateData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllForceplateData
+  nameWithType: C3dData.GetAllForceplateData
+- uid: SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  name: GetAllPointsData()
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllPointsData
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllPointsData()
+  nameWithType: C3dData.GetAllPointsData()
+- uid: SHARP3D.Data.Clean.C3dData.GetAllPointsData*
+  name: GetAllPointsData
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllPointsData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  nameWithType: C3dData.GetAllPointsData
+- uid: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  name: GetAnalogDataFromFile(List<float[][]>, C3dFileParameterAnalog?)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAnalogDataFromFile_System_Collections_Generic_List_System_Single______SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  name.vb: GetAnalogDataFromFile(List(Of Single()()), C3dFileParameterAnalog)
+  fullName: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List<float[][]>, SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog?)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List(Of Single()()), SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  nameWithType: C3dData.GetAnalogDataFromFile(List<float[][]>, C3dFileParameterAnalog?)
+  nameWithType.vb: C3dData.GetAnalogDataFromFile(List(Of Single()()), C3dFileParameterAnalog)
+- uid: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile*
+  name: GetAnalogDataFromFile
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAnalogDataFromFile_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile
+  nameWithType: C3dData.GetAnalogDataFromFile
+- uid: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  name: GetForcePlateDataFromFile(C3dAnalogChannel[], C3dFileParameterForceplate)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetForcePlateDataFromFile_SHARP3D_Data_Clean_C3dAnalogChannel___SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  name.vb: GetForcePlateDataFromFile(C3dAnalogChannel(), C3dFileParameterForceplate)
+  fullName: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[], SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel(), SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  nameWithType: C3dData.GetForcePlateDataFromFile(C3dAnalogChannel[], C3dFileParameterForceplate)
+  nameWithType.vb: C3dData.GetForcePlateDataFromFile(C3dAnalogChannel(), C3dFileParameterForceplate)
+- uid: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile*
+  name: GetForcePlateDataFromFile
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetForcePlateDataFromFile_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile
+  nameWithType: C3dData.GetForcePlateDataFromFile
+- uid: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  name: GetPointDataFromFile(List<C3dFileDataPoint[]>, C3dFileParameterPoint?)
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetPointDataFromFile_System_Collections_Generic_List_SHARP3D_Data_DataEntity_C3dFileDataPoint____SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  name.vb: GetPointDataFromFile(List(Of C3dFileDataPoint()), C3dFileParameterPoint)
+  fullName: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List<SHARP3D.Data.DataEntity.C3dFileDataPoint[]>, SHARP3D.Parameter.DataEntity.C3dFileParameterPoint?)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List(Of SHARP3D.Data.DataEntity.C3dFileDataPoint()), SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  nameWithType: C3dData.GetPointDataFromFile(List<C3dFileDataPoint[]>, C3dFileParameterPoint?)
+  nameWithType.vb: C3dData.GetPointDataFromFile(List(Of C3dFileDataPoint()), C3dFileParameterPoint)
+- uid: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile*
+  name: GetPointDataFromFile
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetPointDataFromFile_
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetPointDataFromFile
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile
+  nameWithType: C3dData.GetPointDataFromFile
+- uid: SHARP3D.Data.Clean.C3dData.Points
+  name: Points
+  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_Points
+  commentId: F:SHARP3D.Data.Clean.C3dData.Points
+  fullName: SHARP3D.Data.Clean.C3dData.Points
+  nameWithType: C3dData.Points
+- uid: SHARP3D.Data.Clean.C3dForceplate
+  name: C3dForceplate
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html
+  commentId: T:SHARP3D.Data.Clean.C3dForceplate
+  fullName: SHARP3D.Data.Clean.C3dForceplate
+  nameWithType: C3dForceplate
+- uid: SHARP3D.Data.Clean.C3dForceplate.#ctor
+  name: C3dForceplate()
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate__ctor
+  commentId: M:SHARP3D.Data.Clean.C3dForceplate.#ctor
+  name.vb: New()
+  fullName: SHARP3D.Data.Clean.C3dForceplate.C3dForceplate()
+  fullName.vb: SHARP3D.Data.Clean.C3dForceplate.New()
+  nameWithType: C3dForceplate.C3dForceplate()
+  nameWithType.vb: C3dForceplate.New()
+- uid: SHARP3D.Data.Clean.C3dForceplate.#ctor*
+  name: C3dForceplate
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate__ctor_
+  commentId: Overload:SHARP3D.Data.Clean.C3dForceplate.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Data.Clean.C3dForceplate.C3dForceplate
+  fullName.vb: SHARP3D.Data.Clean.C3dForceplate.New
+  nameWithType: C3dForceplate.C3dForceplate
+  nameWithType.vb: C3dForceplate.New
+- uid: SHARP3D.Data.Clean.C3dForceplate.CalibrationMatrix
+  name: CalibrationMatrix
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_CalibrationMatrix
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.CalibrationMatrix
+  fullName: SHARP3D.Data.Clean.C3dForceplate.CalibrationMatrix
+  nameWithType: C3dForceplate.CalibrationMatrix
+- uid: SHARP3D.Data.Clean.C3dForceplate.Corners
+  name: Corners
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_Corners
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.Corners
+  fullName: SHARP3D.Data.Clean.C3dForceplate.Corners
+  nameWithType: C3dForceplate.Corners
+- uid: SHARP3D.Data.Clean.C3dForceplate.Data
+  name: Data
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_Data
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.Data
+  fullName: SHARP3D.Data.Clean.C3dForceplate.Data
+  nameWithType: C3dForceplate.Data
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType1
+  name: DefaultDescriptionType1
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultDescriptionType1
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType1
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType1
+  nameWithType: C3dForceplate.DefaultDescriptionType1
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType2
+  name: DefaultDescriptionType2
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultDescriptionType2
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType2
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType2
+  nameWithType: C3dForceplate.DefaultDescriptionType2
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType3
+  name: DefaultDescriptionType3
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultDescriptionType3
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType3
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType3
+  nameWithType: C3dForceplate.DefaultDescriptionType3
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType4
+  name: DefaultDescriptionType4
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultDescriptionType4
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType4
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionType4
+  nameWithType: C3dForceplate.DefaultDescriptionType4
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionTypeUnkown
+  name: DefaultDescriptionTypeUnkown
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultDescriptionTypeUnkown
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionTypeUnkown
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultDescriptionTypeUnkown
+  nameWithType: C3dForceplate.DefaultDescriptionTypeUnkown
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelTypeUnkown
+  name: DefaultLabelTypeUnkown
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultLabelTypeUnkown
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultLabelTypeUnkown
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelTypeUnkown
+  nameWithType: C3dForceplate.DefaultLabelTypeUnkown
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType1
+  name: DefaultLabelsType1
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultLabelsType1
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType1
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType1
+  nameWithType: C3dForceplate.DefaultLabelsType1
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType2
+  name: DefaultLabelsType2
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultLabelsType2
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType2
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType2
+  nameWithType: C3dForceplate.DefaultLabelsType2
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType3
+  name: DefaultLabelsType3
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultLabelsType3
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType3
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType3
+  nameWithType: C3dForceplate.DefaultLabelsType3
+- uid: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType4
+  name: DefaultLabelsType4
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_DefaultLabelsType4
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType4
+  fullName: SHARP3D.Data.Clean.C3dForceplate.DefaultLabelsType4
+  nameWithType: C3dForceplate.DefaultLabelsType4
+- uid: SHARP3D.Data.Clean.C3dForceplate.GetAllData
+  name: GetAllData()
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_GetAllData
+  commentId: M:SHARP3D.Data.Clean.C3dForceplate.GetAllData
+  fullName: SHARP3D.Data.Clean.C3dForceplate.GetAllData()
+  nameWithType: C3dForceplate.GetAllData()
+- uid: SHARP3D.Data.Clean.C3dForceplate.GetAllData*
+  name: GetAllData
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_GetAllData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dForceplate.GetAllData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dForceplate.GetAllData
+  nameWithType: C3dForceplate.GetAllData
+- uid: SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat
+  name: GetAllDataWithCalMat()
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_GetAllDataWithCalMat
+  commentId: M:SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat
+  fullName: SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat()
+  nameWithType: C3dForceplate.GetAllDataWithCalMat()
+- uid: SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat*
+  name: GetAllDataWithCalMat
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_GetAllDataWithCalMat_
+  commentId: Overload:SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dForceplate.GetAllDataWithCalMat
+  nameWithType: C3dForceplate.GetAllDataWithCalMat
+- uid: SHARP3D.Data.Clean.C3dForceplate.Origin
+  name: Origin
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_Origin
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.Origin
+  fullName: SHARP3D.Data.Clean.C3dForceplate.Origin
+  nameWithType: C3dForceplate.Origin
+- uid: SHARP3D.Data.Clean.C3dForceplate.Type
+  name: Type
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_Type
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.Type
+  fullName: SHARP3D.Data.Clean.C3dForceplate.Type
+  nameWithType: C3dForceplate.Type
+- uid: SHARP3D.Data.Clean.C3dForceplate.Zero
+  name: Zero
+  href: api/SHARP3D.Data.Clean.C3dForceplate.html#SHARP3D_Data_Clean_C3dForceplate_Zero
+  commentId: F:SHARP3D.Data.Clean.C3dForceplate.Zero
+  fullName: SHARP3D.Data.Clean.C3dForceplate.Zero
+  nameWithType: C3dForceplate.Zero
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory
+  name: C3dPointTrajectory
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html
+  commentId: T:SHARP3D.Data.Clean.C3dPointTrajectory
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory
+  nameWithType: C3dPointTrajectory
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory.CameraMask
+  name: CameraMask
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html#SHARP3D_Data_Clean_C3dPointTrajectory_CameraMask
+  commentId: F:SHARP3D.Data.Clean.C3dPointTrajectory.CameraMask
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory.CameraMask
+  nameWithType: C3dPointTrajectory.CameraMask
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory.Description
+  name: Description
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html#SHARP3D_Data_Clean_C3dPointTrajectory_Description
+  commentId: F:SHARP3D.Data.Clean.C3dPointTrajectory.Description
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory.Description
+  nameWithType: C3dPointTrajectory.Description
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory.Label
+  name: Label
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html#SHARP3D_Data_Clean_C3dPointTrajectory_Label
+  commentId: F:SHARP3D.Data.Clean.C3dPointTrajectory.Label
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory.Label
+  nameWithType: C3dPointTrajectory.Label
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory.Point
+  name: Point
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html#SHARP3D_Data_Clean_C3dPointTrajectory_Point
+  commentId: F:SHARP3D.Data.Clean.C3dPointTrajectory.Point
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory.Point
+  nameWithType: C3dPointTrajectory.Point
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory.Residual
+  name: Residual
+  href: api/SHARP3D.Data.Clean.C3dPointTrajectory.html#SHARP3D_Data_Clean_C3dPointTrajectory_Residual
+  commentId: F:SHARP3D.Data.Clean.C3dPointTrajectory.Residual
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory.Residual
+  nameWithType: C3dPointTrajectory.Residual
 - uid: SHARP3D.Data.Data
   name: SHARP3D.Data.Data
   href: api/SHARP3D.Data.Data.html
@@ -1452,42 +1885,6 @@ references:
   commentId: N:SHARP3D.Data.DataEntity
   fullName: SHARP3D.Data.DataEntity
   nameWithType: SHARP3D.Data.DataEntity
-- uid: SHARP3D.Data.DataEntity.C3dData
-  name: C3dData
-  href: api/SHARP3D.Data.DataEntity.C3dData.html
-  commentId: T:SHARP3D.Data.DataEntity.C3dData
-  fullName: SHARP3D.Data.DataEntity.C3dData
-  nameWithType: C3dData
-- uid: SHARP3D.Data.DataEntity.C3dData.Analog
-  name: Analog
-  href: api/SHARP3D.Data.DataEntity.C3dData.html#SHARP3D_Data_DataEntity_C3dData_Analog
-  commentId: F:SHARP3D.Data.DataEntity.C3dData.Analog
-  fullName: SHARP3D.Data.DataEntity.C3dData.Analog
-  nameWithType: C3dData.Analog
-- uid: SHARP3D.Data.DataEntity.C3dData.CameraMask
-  name: CameraMask
-  href: api/SHARP3D.Data.DataEntity.C3dData.html#SHARP3D_Data_DataEntity_C3dData_CameraMask
-  commentId: F:SHARP3D.Data.DataEntity.C3dData.CameraMask
-  fullName: SHARP3D.Data.DataEntity.C3dData.CameraMask
-  nameWithType: C3dData.CameraMask
-- uid: SHARP3D.Data.DataEntity.C3dData.ForcePlate
-  name: ForcePlate
-  href: api/SHARP3D.Data.DataEntity.C3dData.html#SHARP3D_Data_DataEntity_C3dData_ForcePlate
-  commentId: F:SHARP3D.Data.DataEntity.C3dData.ForcePlate
-  fullName: SHARP3D.Data.DataEntity.C3dData.ForcePlate
-  nameWithType: C3dData.ForcePlate
-- uid: SHARP3D.Data.DataEntity.C3dData.Point
-  name: Point
-  href: api/SHARP3D.Data.DataEntity.C3dData.html#SHARP3D_Data_DataEntity_C3dData_Point
-  commentId: F:SHARP3D.Data.DataEntity.C3dData.Point
-  fullName: SHARP3D.Data.DataEntity.C3dData.Point
-  nameWithType: C3dData.Point
-- uid: SHARP3D.Data.DataEntity.C3dData.Residual
-  name: Residual
-  href: api/SHARP3D.Data.DataEntity.C3dData.html#SHARP3D_Data_DataEntity_C3dData_Residual
-  commentId: F:SHARP3D.Data.DataEntity.C3dData.Residual
-  fullName: SHARP3D.Data.DataEntity.C3dData.Residual
-  nameWithType: C3dData.Residual
 - uid: SHARP3D.Data.DataEntity.C3dFileData
   name: C3dFileData
   href: api/SHARP3D.Data.DataEntity.C3dFileData.html
@@ -2084,6 +2481,40 @@ references:
   fullName.vb: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.New
   nameWithType: IncompatiblePointAndAnalogRate.IncompatiblePointAndAnalogRate
   nameWithType.vb: IncompatiblePointAndAnalogRate.New
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  name: NoCalibrationMatrixForForceplateType
+  href: api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html
+  commentId: T:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  nameWithType: NoCalibrationMatrixForForceplateType
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String)
+  name: NoCalibrationMatrixForForceplateType(string)
+  href: api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html#SHARP3D_Exceptions_NoCalibrationMatrixForForceplateType__ctor_System_String_
+  commentId: M:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string)
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New(String)
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string)
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New(String)
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String,System.Exception)
+  name: NoCalibrationMatrixForForceplateType(string, Exception)
+  href: api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html#SHARP3D_Exceptions_NoCalibrationMatrixForForceplateType__ctor_System_String_System_Exception_
+  commentId: M:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string, System.Exception)
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New(String, System.Exception)
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string, Exception)
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New(String, Exception)
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor*
+  name: NoCalibrationMatrixForForceplateType
+  href: api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html#SHARP3D_Exceptions_NoCalibrationMatrixForForceplateType__ctor_
+  commentId: Overload:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New
 - uid: SHARP3D.Exceptions.ParameterNotFoundException
   name: ParameterNotFoundException
   href: api/SHARP3D.Exceptions.ParameterNotFoundException.html
@@ -3244,577 +3675,193 @@ references:
   commentId: N:SHARP3D.Parameter.DataEntity
   fullName: SHARP3D.Parameter.DataEntity
   nameWithType: SHARP3D.Parameter.DataEntity
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter
-  name: C3dFileParameter
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameter
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter
-  nameWithType: C3dFileParameter
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Data
-  name: Data
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Data
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Data
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Data
-  nameWithType: C3dFileParameter.Data
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.DataTypeFile
-  name: DataTypeFile
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_DataTypeFile
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.DataTypeFile
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.DataTypeFile
-  nameWithType: C3dFileParameter.DataTypeFile
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Description
-  name: Description
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Description
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Description
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Description
-  nameWithType: C3dFileParameter.Description
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.DescriptionLength
-  name: DescriptionLength
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_DescriptionLength
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.DescriptionLength
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.DescriptionLength
-  nameWithType: C3dFileParameter.DescriptionLength
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Dimensions
-  name: Dimensions
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Dimensions
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Dimensions
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Dimensions
-  nameWithType: C3dFileParameter.Dimensions
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  name: Equals(C3dFileParameter)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Equals_SHARP3D_Parameter_DataEntity_C3dFileParameter_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  nameWithType: C3dFileParameter.Equals(C3dFileParameter)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(System.Object)
-  name: Equals(object)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Equals_System_Object_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(object)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals(Object)
-  nameWithType: C3dFileParameter.Equals(object)
-  nameWithType.vb: C3dFileParameter.Equals(Object)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals*
-  name: Equals
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Equals_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Equals
-  nameWithType: C3dFileParameter.Equals
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode
-  name: GetHashCode()
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_GetHashCode
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode()
-  nameWithType: C3dFileParameter.GetHashCode()
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode*
-  name: GetHashCode
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_GetHashCode_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.GetHashCode
-  nameWithType: C3dFileParameter.GetHashCode
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Id
-  name: Id
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Id
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Id
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Id
-  nameWithType: C3dFileParameter.Id
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Locked
-  name: Locked
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Locked
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Locked
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Locked
-  nameWithType: C3dFileParameter.Locked
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.Name
-  name: Name
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_Name
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.Name
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.Name
-  nameWithType: C3dFileParameter.Name
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.NameLength
-  name: NameLength
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_NameLength
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.NameLength
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.NameLength
-  nameWithType: C3dFileParameter.NameLength
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.NbOfDimensions
-  name: NbOfDimensions
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_NbOfDimensions
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.NbOfDimensions
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.NbOfDimensions
-  nameWithType: C3dFileParameter.NbOfDimensions
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.PointerNextParameterStruct
-  name: PointerNextParameterStruct
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_PointerNextParameterStruct
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameter.PointerNextParameterStruct
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.PointerNextParameterStruct
-  nameWithType: C3dFileParameter.PointerNextParameterStruct
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Equality(SHARP3D.Parameter.DataEntity.C3dFileParameter,SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  name: operator ==(C3dFileParameter, C3dFileParameter)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_op_Equality_SHARP3D_Parameter_DataEntity_C3dFileParameter_SHARP3D_Parameter_DataEntity_C3dFileParameter_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Equality(SHARP3D.Parameter.DataEntity.C3dFileParameter,SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  name.vb: =(C3dFileParameter, C3dFileParameter)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.operator ==(SHARP3D.Parameter.DataEntity.C3dFileParameter, SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameter.=(SHARP3D.Parameter.DataEntity.C3dFileParameter, SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  nameWithType: C3dFileParameter.operator ==(C3dFileParameter, C3dFileParameter)
-  nameWithType.vb: C3dFileParameter.=(C3dFileParameter, C3dFileParameter)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Equality*
-  name: operator ==
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_op_Equality_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.operator ==
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameter.=
-  nameWithType: C3dFileParameter.operator ==
-  nameWithType.vb: C3dFileParameter.=
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Inequality(SHARP3D.Parameter.DataEntity.C3dFileParameter,SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  name: operator !=(C3dFileParameter, C3dFileParameter)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_op_Inequality_SHARP3D_Parameter_DataEntity_C3dFileParameter_SHARP3D_Parameter_DataEntity_C3dFileParameter_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Inequality(SHARP3D.Parameter.DataEntity.C3dFileParameter,SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  name.vb: <>(C3dFileParameter, C3dFileParameter)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.operator !=(SHARP3D.Parameter.DataEntity.C3dFileParameter, SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameter.<>(SHARP3D.Parameter.DataEntity.C3dFileParameter, SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  nameWithType: C3dFileParameter.operator !=(C3dFileParameter, C3dFileParameter)
-  nameWithType.vb: C3dFileParameter.<>(C3dFileParameter, C3dFileParameter)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Inequality*
-  name: operator !=
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_C3dFileParameter_op_Inequality_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameter.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameter.operator !=
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameter.<>
-  nameWithType: C3dFileParameter.operator !=
-  nameWithType.vb: C3dFileParameter.<>
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection
-  name: C3dFileParameterCollection
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection
-  nameWithType: C3dFileParameterCollection
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor
-  name: C3dFileParameterCollection()
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__ctor
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor
-  name.vb: New()
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.C3dFileParameterCollection()
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.New()
-  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection()
-  nameWithType.vb: C3dFileParameterCollection.New()
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.C3dFileParameterGroup})
-  name: C3dFileParameterCollection(List<C3dFileParameterGroup>)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__ctor_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup__
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.C3dFileParameterGroup})
-  name.vb: New(List(Of C3dFileParameterGroup))
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.C3dFileParameterCollection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.C3dFileParameterGroup>)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.C3dFileParameterGroup))
-  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection(List<C3dFileParameterGroup>)
-  nameWithType.vb: C3dFileParameterCollection.New(List(Of C3dFileParameterGroup))
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor*
-  name: C3dFileParameterCollection
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__ctor_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.C3dFileParameterCollection
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.New
-  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection
-  nameWithType.vb: C3dFileParameterCollection.New
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex(System.String,System.String)
-  name: GetParameterIndex(string, string)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_GetParameterIndex_System_String_System_String_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex(System.String,System.String)
-  name.vb: GetParameterIndex(String, String)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex(string, string)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex(String, String)
-  nameWithType: C3dFileParameterCollection.GetParameterIndex(string, string)
-  nameWithType.vb: C3dFileParameterCollection.GetParameterIndex(String, String)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex*
-  name: GetParameterIndex
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_GetParameterIndex_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.GetParameterIndex
-  nameWithType: C3dFileParameterCollection.GetParameterIndex
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(System.Int32)
-  name: ListGroupParameters(int)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_ListGroupParameters_System_Int32_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(System.Int32)
-  name.vb: ListGroupParameters(Integer)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(int)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(Integer)
-  nameWithType: C3dFileParameterCollection.ListGroupParameters(int)
-  nameWithType.vb: C3dFileParameterCollection.ListGroupParameters(Integer)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(System.String)
-  name: ListGroupParameters(string)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_ListGroupParameters_System_String_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(System.String)
-  name.vb: ListGroupParameters(String)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(string)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters(String)
-  nameWithType: C3dFileParameterCollection.ListGroupParameters(string)
-  nameWithType.vb: C3dFileParameterCollection.ListGroupParameters(String)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters*
-  name: ListGroupParameters
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_ListGroupParameters_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroupParameters
-  nameWithType: C3dFileParameterCollection.ListGroupParameters
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups
-  name: ListGroups()
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_ListGroups
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups()
-  nameWithType: C3dFileParameterCollection.ListGroups()
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups*
-  name: ListGroups
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection_ListGroups_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.ListGroups
-  nameWithType: C3dFileParameterCollection.ListGroups
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByIndex
-  name: _groupValuesByIndex
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__groupValuesByIndex
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByIndex
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByIndex
-  nameWithType: C3dFileParameterCollection._groupValuesByIndex
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByName
-  name: _groupValuesByName
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__groupValuesByName
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByName
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._groupValuesByName
-  nameWithType: C3dFileParameterCollection._groupValuesByName
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupIndexToString
-  name: _mapGroupIndexToString
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__mapGroupIndexToString
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupIndexToString
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupIndexToString
-  nameWithType: C3dFileParameterCollection._mapGroupIndexToString
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupStringToIndex
-  name: _mapGroupStringToIndex
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_C3dFileParameterCollection__mapGroupStringToIndex
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupStringToIndex
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterCollection._mapGroupStringToIndex
-  nameWithType: C3dFileParameterCollection._mapGroupStringToIndex
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup
-  name: C3dFileParameterGroup
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup
-  nameWithType: C3dFileParameterGroup
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.ActualDescriptionLength
-  name: ActualDescriptionLength
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_ActualDescriptionLength
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.ActualDescriptionLength
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.ActualDescriptionLength
-  nameWithType: C3dFileParameterGroup.ActualDescriptionLength
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Description
-  name: Description
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Description
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Description
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Description
-  nameWithType: C3dFileParameterGroup.Description
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.DescriptionLength
-  name: DescriptionLength
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_DescriptionLength
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.DescriptionLength
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.DescriptionLength
-  nameWithType: C3dFileParameterGroup.DescriptionLength
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  name: Equals(C3dFileParameterGroup)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Equals_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  nameWithType: C3dFileParameterGroup.Equals(C3dFileParameterGroup)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(System.Object)
-  name: Equals(object)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Equals_System_Object_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(object)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals(Object)
-  nameWithType: C3dFileParameterGroup.Equals(object)
-  nameWithType.vb: C3dFileParameterGroup.Equals(Object)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals*
-  name: Equals
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Equals_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Equals
-  nameWithType: C3dFileParameterGroup.Equals
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode
-  name: GetHashCode()
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_GetHashCode
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode()
-  nameWithType: C3dFileParameterGroup.GetHashCode()
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode*
-  name: GetHashCode
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_GetHashCode_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode
-  isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.GetHashCode
-  nameWithType: C3dFileParameterGroup.GetHashCode
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Id
-  name: Id
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Id
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Id
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Id
-  nameWithType: C3dFileParameterGroup.Id
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Locked
-  name: Locked
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Locked
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Locked
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Locked
-  nameWithType: C3dFileParameterGroup.Locked
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Name
-  name: Name
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Name
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Name
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Name
-  nameWithType: C3dFileParameterGroup.Name
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.NameLength
-  name: NameLength
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_NameLength
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.NameLength
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.NameLength
-  nameWithType: C3dFileParameterGroup.NameLength
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Parameters
-  name: Parameters
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_Parameters
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Parameters
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.Parameters
-  nameWithType: C3dFileParameterGroup.Parameters
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.PointerNextParameterStruct
-  name: PointerNextParameterStruct
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_PointerNextParameterStruct
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.PointerNextParameterStruct
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.PointerNextParameterStruct
-  nameWithType: C3dFileParameterGroup.PointerNextParameterStruct
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Equality(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  name: operator ==(C3dFileParameterGroup, C3dFileParameterGroup)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_op_Equality_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Equality(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  name.vb: =(C3dFileParameterGroup, C3dFileParameterGroup)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.operator ==(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.=(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  nameWithType: C3dFileParameterGroup.operator ==(C3dFileParameterGroup, C3dFileParameterGroup)
-  nameWithType.vb: C3dFileParameterGroup.=(C3dFileParameterGroup, C3dFileParameterGroup)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Equality*
-  name: operator ==
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_op_Equality_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.operator ==
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.=
-  nameWithType: C3dFileParameterGroup.operator ==
-  nameWithType.vb: C3dFileParameterGroup.=
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Inequality(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  name: operator !=(C3dFileParameterGroup, C3dFileParameterGroup)
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_op_Inequality_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_
-  commentId: M:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Inequality(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  name.vb: <>(C3dFileParameterGroup, C3dFileParameterGroup)
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.operator !=(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.<>(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  nameWithType: C3dFileParameterGroup.operator !=(C3dFileParameterGroup, C3dFileParameterGroup)
-  nameWithType.vb: C3dFileParameterGroup.<>(C3dFileParameterGroup, C3dFileParameterGroup)
-- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Inequality*
-  name: operator !=
-  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_op_Inequality_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.operator !=
-  fullName.vb: SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.<>
-  nameWithType: C3dFileParameterGroup.operator !=
-  nameWithType.vb: C3dFileParameterGroup.<>
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog
-  name: C3dParameterAnalog
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dParameterAnalog
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog
-  nameWithType: C3dParameterAnalog
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  name: C3dFileParameterAnalog
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  nameWithType: C3dFileParameterAnalog
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
   name: Bits
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Bits
-  commentId: P:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits
-  nameWithType: C3dParameterAnalog.Bits
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits*
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Bits
+  commentId: P:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  nameWithType: C3dFileParameterAnalog.Bits
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits*
   name: Bits
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Bits_
-  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Bits_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
   isSpec: "True"
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Bits
-  nameWithType: C3dParameterAnalog.Bits
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.ChannelScale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  nameWithType: C3dFileParameterAnalog.Bits
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
   name: ChannelScale
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_ChannelScale
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.ChannelScale
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.ChannelScale
-  nameWithType: C3dParameterAnalog.ChannelScale
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Descriptions
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_ChannelScale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  nameWithType: C3dFileParameterAnalog.ChannelScale
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
   name: Descriptions
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Descriptions
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Descriptions
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Descriptions
-  nameWithType: C3dParameterAnalog.Descriptions
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.GeneralScale
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  nameWithType: C3dFileParameterAnalog.Descriptions
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
   name: GeneralScale
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_GeneralScale
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.GeneralScale
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.GeneralScale
-  nameWithType: C3dParameterAnalog.GeneralScale
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Labels
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_GeneralScale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  nameWithType: C3dFileParameterAnalog.GeneralScale
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
   name: Labels
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Labels
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Labels
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Labels
-  nameWithType: C3dParameterAnalog.Labels
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Offset
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  nameWithType: C3dFileParameterAnalog.Labels
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
   name: Offset
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Offset
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Offset
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Offset
-  nameWithType: C3dParameterAnalog.Offset
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Rate
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Offset
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  nameWithType: C3dFileParameterAnalog.Offset
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
   name: Rate
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Rate
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Rate
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Rate
-  nameWithType: C3dParameterAnalog.Rate
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.SamplesPerFrame
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Rate
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  nameWithType: C3dFileParameterAnalog.Rate
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
   name: SamplesPerFrame
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_SamplesPerFrame
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.SamplesPerFrame
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.SamplesPerFrame
-  nameWithType: C3dParameterAnalog.SamplesPerFrame
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_SamplesPerFrame
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  nameWithType: C3dFileParameterAnalog.SamplesPerFrame
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
   name: TotalSamples
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_TotalSamples
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.TotalSamples
-  nameWithType: C3dParameterAnalog.TotalSamples
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Units
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_TotalSamples
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  nameWithType: C3dFileParameterAnalog.TotalSamples
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
   name: Units
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Units
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Units
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Units
-  nameWithType: C3dParameterAnalog.Units
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Used
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Units
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  nameWithType: C3dFileParameterAnalog.Units
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
   name: Used
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dParameterAnalog_Used
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Used
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterAnalog.Used
-  nameWithType: C3dParameterAnalog.Used
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate
-  name: C3dParameterForceplate
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dParameterForceplate
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate
-  nameWithType: C3dParameterForceplate
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  nameWithType: C3dFileParameterAnalog.Used
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  name: C3dFileParameterForceplate
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  nameWithType: C3dFileParameterForceplate
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.CalibrationMatrix
+  name: CalibrationMatrix
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_CalibrationMatrix
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.CalibrationMatrix
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.CalibrationMatrix
+  nameWithType: C3dFileParameterForceplate.CalibrationMatrix
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Channel
   name: Channel
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Channel
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Channel
-  nameWithType: C3dParameterForceplate.Channel
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Channel
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Channel
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Channel
+  nameWithType: C3dFileParameterForceplate.Channel
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Corners
   name: Corners
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Corners
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Corners
-  nameWithType: C3dParameterForceplate.Corners
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Corners
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Corners
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Corners
+  nameWithType: C3dFileParameterForceplate.Corners
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Descriptions
   name: Descriptions
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Descriptions
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Descriptions
-  nameWithType: C3dParameterForceplate.Descriptions
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Descriptions
+  nameWithType: C3dFileParameterForceplate.Descriptions
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Labels
   name: Labels
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Labels
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Labels
-  nameWithType: C3dParameterForceplate.Labels
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Labels
+  nameWithType: C3dFileParameterForceplate.Labels
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Origin
   name: Origin
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Origin
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Origin
-  nameWithType: C3dParameterForceplate.Origin
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Origin
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Origin
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Origin
+  nameWithType: C3dFileParameterForceplate.Origin
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Type
   name: Type
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Type
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Type
-  nameWithType: C3dParameterForceplate.Type
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Type
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Type
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Type
+  nameWithType: C3dFileParameterForceplate.Type
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Used
   name: Used
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Used
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Used
-  nameWithType: C3dParameterForceplate.Used
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Used
+  nameWithType: C3dFileParameterForceplate.Used
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Zero
   name: Zero
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dParameterForceplate_Zero
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterForceplate.Zero
-  nameWithType: C3dParameterForceplate.Zero
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint
-  name: C3dParameterPoint
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html
-  commentId: T:SHARP3D.Parameter.DataEntity.C3dParameterPoint
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint
-  nameWithType: C3dParameterPoint
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Descriptions
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html#SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_Zero
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Zero
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.Zero
+  nameWithType: C3dFileParameterForceplate.Zero
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  name: C3dFileParameterPoint
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  nameWithType: C3dFileParameterPoint
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
   name: Descriptions
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Descriptions
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Descriptions
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Descriptions
-  nameWithType: C3dParameterPoint.Descriptions
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Frames
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  nameWithType: C3dFileParameterPoint.Descriptions
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
   name: Frames
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Frames
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Frames
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Frames
-  nameWithType: C3dParameterPoint.Frames
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Labels
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Frames
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  nameWithType: C3dFileParameterPoint.Frames
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
   name: Labels
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Labels
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Labels
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Labels
-  nameWithType: C3dParameterPoint.Labels
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Rate
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  nameWithType: C3dFileParameterPoint.Labels
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
   name: Rate
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Rate
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Rate
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Rate
-  nameWithType: C3dParameterPoint.Rate
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Scale
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Rate
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  nameWithType: C3dFileParameterPoint.Rate
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
   name: Scale
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Scale
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Scale
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Scale
-  nameWithType: C3dParameterPoint.Scale
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Units
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Scale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  nameWithType: C3dFileParameterPoint.Scale
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
   name: Units
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Units
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Units
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Units
-  nameWithType: C3dParameterPoint.Units
-- uid: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Used
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Units
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  nameWithType: C3dFileParameterPoint.Units
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
   name: Used
-  href: api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dParameterPoint_Used
-  commentId: F:SHARP3D.Parameter.DataEntity.C3dParameterPoint.Used
-  fullName: SHARP3D.Parameter.DataEntity.C3dParameterPoint.Used
-  nameWithType: C3dParameterPoint.Used
+  href: api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html#SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  nameWithType: C3dFileParameterPoint.Used
 - uid: SHARP3D.Parameter.DataEntity.Clean
   name: SHARP3D.Parameter.DataEntity.Clean
   href: api/SHARP3D.Parameter.DataEntity.Clean.html
@@ -3827,13 +3874,13 @@ references:
   commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameter
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
   nameWithType: C3dParameter
-- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.#ctor(System.String,SHARP3D.Parameter.DataEntity.C3dFileParameter)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.#ctor(System.String,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
   name: C3dParameter(string, C3dFileParameter)
-  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameter__ctor_System_String_SHARP3D_Parameter_DataEntity_C3dFileParameter_
-  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameter.#ctor(System.String,SHARP3D.Parameter.DataEntity.C3dFileParameter)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameter__ctor_System_String_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameter.#ctor(System.String,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
   name.vb: New(String, C3dFileParameter)
-  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.C3dParameter(string, SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.New(String, SHARP3D.Parameter.DataEntity.C3dFileParameter)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.C3dParameter(string, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.New(String, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
   nameWithType: C3dParameter.C3dParameter(string, C3dFileParameter)
   nameWithType.vb: C3dParameter.New(String, C3dFileParameter)
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.#ctor(System.String,System.String,System.Array,System.String,System.Boolean)
@@ -3925,6 +3972,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.Name
   nameWithType: C3dParameter.Name
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray(System.Array)
+  name: StringArrayToPaddedCharArray(Array)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameter_StringArrayToPaddedCharArray_System_Array_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray(System.Array)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray(System.Array)
+  nameWithType: C3dParameter.StringArrayToPaddedCharArray(Array)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray*
+  name: StringArrayToPaddedCharArray
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameter_StringArrayToPaddedCharArray_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.StringArrayToPaddedCharArray
+  nameWithType: C3dParameter.StringArrayToPaddedCharArray
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter._Data
   name: _Data
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameter__Data
@@ -3937,19 +3997,37 @@ references:
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameter._name
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter._name
   nameWithType: C3dParameter._name
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  name: C3dParameterAnalog
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  nameWithType: C3dParameterAnalog
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
+  name: GeneralScale
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_GeneralScale
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
+  nameWithType: C3dParameterAnalog.GeneralScale
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
+  name: SamplesPerFrame
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_SamplesPerFrame
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
+  nameWithType: C3dParameterAnalog.SamplesPerFrame
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
   name: C3dParameterGroup
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
   commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
   nameWithType: C3dParameterGroup
-- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
   name: C3dParameterGroup(C3dFileParameterGroup)
-  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__ctor_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup_
-  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__ctor_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
   name.vb: New(C3dFileParameterGroup)
-  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.C3dParameterGroup(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
-  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.New(SHARP3D.Parameter.DataEntity.C3dFileParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.C3dParameterGroup(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.New(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
   nameWithType: C3dParameterGroup.C3dParameterGroup(C3dFileParameterGroup)
   nameWithType.vb: C3dParameterGroup.New(C3dFileParameterGroup)
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})
@@ -3971,11 +4049,11 @@ references:
   fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.New
   nameWithType: C3dParameterGroup.C3dParameterGroup
   nameWithType.vb: C3dParameterGroup.New
-- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.C3dFileParameter)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
   name: AddParameter(C3dFileParameter)
-  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_SHARP3D_Parameter_DataEntity_C3dFileParameter_
-  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.C3dFileParameter)
-  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.C3dFileParameter)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
   nameWithType: C3dParameterGroup.AddParameter(C3dFileParameter)
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(System.String,System.Array,System.String,System.Boolean)
   name: AddParameter(string, Array, string, bool)
@@ -4031,6 +4109,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameter
   nameWithType: C3dParameterGroup.GetParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex(System.String)
+  name: GetParameterIndex(string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_GetParameterIndex_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex(System.String)
+  name.vb: GetParameterIndex(String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex(string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex(String)
+  nameWithType: C3dParameterGroup.GetParameterIndex(string)
+  nameWithType.vb: C3dParameterGroup.GetParameterIndex(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex*
+  name: GetParameterIndex
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_GetParameterIndex_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex
+  nameWithType: C3dParameterGroup.GetParameterIndex
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.ListParameters
   name: ListParameters()
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_ListParameters
@@ -4075,6 +4169,24 @@ references:
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup._name
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup._name
   nameWithType: C3dParameterGroup._name
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  name: C3dParameterPoint
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  nameWithType: C3dParameterPoint
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Rate
+  name: Rate
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Rate
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Rate
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Rate
+  nameWithType: C3dParameterPoint.Rate
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units
+  name: Units
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Units
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units
+  nameWithType: C3dParameterPoint.Units
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
   name: C3dParameterSection
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html
@@ -4090,15 +4202,6 @@ references:
   fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New()
   nameWithType: C3dParameterSection.C3dParameterSection()
   nameWithType.vb: C3dParameterSection.New()
-- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.C3dFileParameterGroup})
-  name: C3dParameterSection(List<C3dFileParameterGroup>)
-  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection__ctor_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_C3dFileParameterGroup__
-  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.C3dFileParameterGroup})
-  name.vb: New(List(Of C3dFileParameterGroup))
-  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.C3dFileParameterGroup>)
-  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.C3dFileParameterGroup))
-  nameWithType: C3dParameterSection.C3dParameterSection(List<C3dFileParameterGroup>)
-  nameWithType.vb: C3dParameterSection.New(List(Of C3dFileParameterGroup))
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup})
   name: C3dParameterSection(List<C3dParameterGroup>)
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection__ctor_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__
@@ -4108,6 +4211,15 @@ references:
   fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup))
   nameWithType: C3dParameterSection.C3dParameterSection(List<C3dParameterGroup>)
   nameWithType.vb: C3dParameterSection.New(List(Of C3dParameterGroup))
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  name: C3dParameterSection(List<C3dFileParameterGroup>)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection__ctor_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup__
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  name.vb: New(List(Of C3dFileParameterGroup))
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup))
+  nameWithType: C3dParameterSection.C3dParameterSection(List<C3dFileParameterGroup>)
+  nameWithType.vb: C3dParameterSection.New(List(Of C3dFileParameterGroup))
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor*
   name: C3dParameterSection
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection__ctor_
@@ -4166,6 +4278,67 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter
   nameWithType: C3dParameterSection.DeleteParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  name: DeleteUneededParametersFromFiles()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteUneededParametersFromFiles
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles()
+  nameWithType: C3dParameterSection.DeleteUneededParametersFromFiles()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles*
+  name: DeleteUneededParametersFromFiles
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteUneededParametersFromFiles_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  nameWithType: C3dParameterSection.DeleteUneededParametersFromFiles
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  name: DisplayStringListGroups()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListGroups
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups()
+  nameWithType: C3dParameterSection.DisplayStringListGroups()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups*
+  name: DisplayStringListGroups
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListGroups_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  nameWithType: C3dParameterSection.DisplayStringListGroups
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  name: DisplayStringListParameters(C3dParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListParameters_SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  nameWithType: C3dParameterSection.DisplayStringListParameters(C3dParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(System.String)
+  name: DisplayStringListParameters(string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListParameters_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(System.String)
+  name.vb: DisplayStringListParameters(String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(String)
+  nameWithType: C3dParameterSection.DisplayStringListParameters(string)
+  nameWithType.vb: C3dParameterSection.DisplayStringListParameters(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters*
+  name: DisplayStringListParameters
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListParameters_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters
+  nameWithType: C3dParameterSection.DisplayStringListParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  name: DisplayStringParameterTree()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringParameterTree
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree()
+  nameWithType: C3dParameterSection.DisplayStringParameterTree()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree*
+  name: DisplayStringParameterTree
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringParameterTree_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  nameWithType: C3dParameterSection.DisplayStringParameterTree
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(System.String)
   name: GetGroup(string)
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroup_System_String_
@@ -4182,6 +4355,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup
   nameWithType: C3dParameterSection.GetGroup
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(System.String)
+  name: GetGroupIndex(string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroupIndex_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(System.String)
+  name.vb: GetGroupIndex(String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(String)
+  nameWithType: C3dParameterSection.GetGroupIndex(string)
+  nameWithType.vb: C3dParameterSection.GetGroupIndex(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex*
+  name: GetGroupIndex
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroupIndex_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex
+  nameWithType: C3dParameterSection.GetGroupIndex
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String)
   name: GetParameter(string)
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetParameter_System_String_
@@ -4207,12 +4396,490 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter
   nameWithType: C3dParameterSection.GetParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(System.String,System.String)
+  name: GetParameterIndex(string, string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetParameterIndex_System_String_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(System.String,System.String)
+  name.vb: GetParameterIndex(String, String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(string, string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(String, String)
+  nameWithType: C3dParameterSection.GetParameterIndex(string, string)
+  nameWithType.vb: C3dParameterSection.GetParameterIndex(String, String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex*
+  name: GetParameterIndex
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetParameterIndex_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex
+  nameWithType: C3dParameterSection.GetParameterIndex
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  name: GetStringListGroups()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListGroups
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups()
+  nameWithType: C3dParameterSection.GetStringListGroups()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups*
+  name: GetStringListGroups
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListGroups_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  nameWithType: C3dParameterSection.GetStringListGroups
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  name: GetStringListParameters(C3dParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListParameters_SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  nameWithType: C3dParameterSection.GetStringListParameters(C3dParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(System.String)
+  name: GetStringListParameters(string)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListParameters_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(System.String)
+  name.vb: GetStringListParameters(String)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(String)
+  nameWithType: C3dParameterSection.GetStringListParameters(string)
+  nameWithType.vb: C3dParameterSection.GetStringListParameters(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters*
+  name: GetStringListParameters
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListParameters_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters
+  nameWithType: C3dParameterSection.GetStringListParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  name: GetStringParameterTree()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringParameterTree
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree()
+  nameWithType: C3dParameterSection.GetStringParameterTree()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree*
+  name: GetStringParameterTree
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringParameterTree_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  nameWithType: C3dParameterSection.GetStringParameterTree
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
   name: Groups
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_Groups
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
   nameWithType: C3dParameterSection.Groups
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  name: C3dRequiredParameters
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.html
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  nameWithType: C3dRequiredParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Analog
+  name: Analog
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.html#SHARP3D_Parameter_DataEntity_Clean_C3dRequiredParameters_Analog
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Analog
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Analog
+  nameWithType: C3dRequiredParameters.Analog
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Point
+  name: Point
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.html#SHARP3D_Parameter_DataEntity_Clean_C3dRequiredParameters_Point
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Point
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.Point
+  nameWithType: C3dRequiredParameters.Point
+- uid: SHARP3D.Parameter.DataEntity.File
+  name: SHARP3D.Parameter.DataEntity.File
+  href: api/SHARP3D.Parameter.DataEntity.File.html
+  commentId: N:SHARP3D.Parameter.DataEntity.File
+  fullName: SHARP3D.Parameter.DataEntity.File
+  nameWithType: SHARP3D.Parameter.DataEntity.File
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+  name: C3dFileParameter
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html
+  commentId: T:SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+  nameWithType: C3dFileParameter
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Data
+  name: Data
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Data
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Data
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Data
+  nameWithType: C3dFileParameter.Data
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DataTypeFile
+  name: DataTypeFile
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_DataTypeFile
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DataTypeFile
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DataTypeFile
+  nameWithType: C3dFileParameter.DataTypeFile
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Description
+  name: Description
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Description
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Description
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Description
+  nameWithType: C3dFileParameter.Description
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DescriptionLength
+  name: DescriptionLength
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_DescriptionLength
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DescriptionLength
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.DescriptionLength
+  nameWithType: C3dFileParameter.DescriptionLength
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Dimensions
+  name: Dimensions
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Dimensions
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Dimensions
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Dimensions
+  nameWithType: C3dFileParameter.Dimensions
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  name: Equals(C3dFileParameter)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Equals_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  nameWithType: C3dFileParameter.Equals(C3dFileParameter)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(System.Object)
+  name: Equals(object)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Equals_System_Object_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(object)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals(Object)
+  nameWithType: C3dFileParameter.Equals(object)
+  nameWithType.vb: C3dFileParameter.Equals(Object)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals*
+  name: Equals
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Equals_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Equals
+  nameWithType: C3dFileParameter.Equals
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode
+  name: GetHashCode()
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_GetHashCode
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode()
+  nameWithType: C3dFileParameter.GetHashCode()
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode*
+  name: GetHashCode
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_GetHashCode_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.GetHashCode
+  nameWithType: C3dFileParameter.GetHashCode
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Id
+  name: Id
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Id
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Id
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Id
+  nameWithType: C3dFileParameter.Id
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Locked
+  name: Locked
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Locked
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Locked
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Locked
+  nameWithType: C3dFileParameter.Locked
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Name
+  name: Name
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_Name
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Name
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.Name
+  nameWithType: C3dFileParameter.Name
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NameLength
+  name: NameLength
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_NameLength
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NameLength
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NameLength
+  nameWithType: C3dFileParameter.NameLength
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NbOfDimensions
+  name: NbOfDimensions
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_NbOfDimensions
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NbOfDimensions
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.NbOfDimensions
+  nameWithType: C3dFileParameter.NbOfDimensions
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.PointerNextParameterStruct
+  name: PointerNextParameterStruct
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_PointerNextParameterStruct
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.PointerNextParameterStruct
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.PointerNextParameterStruct
+  nameWithType: C3dFileParameter.PointerNextParameterStruct
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Equality(SHARP3D.Parameter.DataEntity.File.C3dFileParameter,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  name: operator ==(C3dFileParameter, C3dFileParameter)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_op_Equality_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Equality(SHARP3D.Parameter.DataEntity.File.C3dFileParameter,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  name.vb: =(C3dFileParameter, C3dFileParameter)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.operator ==(SHARP3D.Parameter.DataEntity.File.C3dFileParameter, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.=(SHARP3D.Parameter.DataEntity.File.C3dFileParameter, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  nameWithType: C3dFileParameter.operator ==(C3dFileParameter, C3dFileParameter)
+  nameWithType.vb: C3dFileParameter.=(C3dFileParameter, C3dFileParameter)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Equality*
+  name: operator ==
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_op_Equality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.operator ==
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.=
+  nameWithType: C3dFileParameter.operator ==
+  nameWithType.vb: C3dFileParameter.=
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Inequality(SHARP3D.Parameter.DataEntity.File.C3dFileParameter,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  name: operator !=(C3dFileParameter, C3dFileParameter)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_op_Inequality_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Inequality(SHARP3D.Parameter.DataEntity.File.C3dFileParameter,SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  name.vb: <>(C3dFileParameter, C3dFileParameter)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.operator !=(SHARP3D.Parameter.DataEntity.File.C3dFileParameter, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.<>(SHARP3D.Parameter.DataEntity.File.C3dFileParameter, SHARP3D.Parameter.DataEntity.File.C3dFileParameter)
+  nameWithType: C3dFileParameter.operator !=(C3dFileParameter, C3dFileParameter)
+  nameWithType.vb: C3dFileParameter.<>(C3dFileParameter, C3dFileParameter)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Inequality*
+  name: operator !=
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameter_op_Inequality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameter.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.operator !=
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.<>
+  nameWithType: C3dFileParameter.operator !=
+  nameWithType.vb: C3dFileParameter.<>
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+  name: C3dFileParameterCollection
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html
+  commentId: T:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+  nameWithType: C3dFileParameterCollection
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor
+  name: C3dFileParameterCollection()
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__ctor
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor
+  name.vb: New()
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.C3dFileParameterCollection()
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.New()
+  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection()
+  nameWithType.vb: C3dFileParameterCollection.New()
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  name: C3dFileParameterCollection(List<C3dFileParameterGroup>)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__ctor_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup__
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  name.vb: New(List(Of C3dFileParameterGroup))
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.C3dFileParameterCollection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup))
+  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection(List<C3dFileParameterGroup>)
+  nameWithType.vb: C3dFileParameterCollection.New(List(Of C3dFileParameterGroup))
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor*
+  name: C3dFileParameterCollection
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__ctor_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.C3dFileParameterCollection
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.New
+  nameWithType: C3dFileParameterCollection.C3dFileParameterCollection
+  nameWithType.vb: C3dFileParameterCollection.New
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex(System.String,System.String)
+  name: GetParameterIndex(string, string)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_GetParameterIndex_System_String_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex(System.String,System.String)
+  name.vb: GetParameterIndex(String, String)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex(string, string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex(String, String)
+  nameWithType: C3dFileParameterCollection.GetParameterIndex(string, string)
+  nameWithType.vb: C3dFileParameterCollection.GetParameterIndex(String, String)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex*
+  name: GetParameterIndex
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_GetParameterIndex_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.GetParameterIndex
+  nameWithType: C3dFileParameterCollection.GetParameterIndex
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(System.Int32)
+  name: ListGroupParameters(int)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_ListGroupParameters_System_Int32_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(System.Int32)
+  name.vb: ListGroupParameters(Integer)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(int)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(Integer)
+  nameWithType: C3dFileParameterCollection.ListGroupParameters(int)
+  nameWithType.vb: C3dFileParameterCollection.ListGroupParameters(Integer)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(System.String)
+  name: ListGroupParameters(string)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_ListGroupParameters_System_String_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(System.String)
+  name.vb: ListGroupParameters(String)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(string)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters(String)
+  nameWithType: C3dFileParameterCollection.ListGroupParameters(string)
+  nameWithType.vb: C3dFileParameterCollection.ListGroupParameters(String)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters*
+  name: ListGroupParameters
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_ListGroupParameters_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroupParameters
+  nameWithType: C3dFileParameterCollection.ListGroupParameters
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups
+  name: ListGroups()
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_ListGroups
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups()
+  nameWithType: C3dFileParameterCollection.ListGroups()
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups*
+  name: ListGroups
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection_ListGroups_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.ListGroups
+  nameWithType: C3dFileParameterCollection.ListGroups
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByIndex
+  name: _groupValuesByIndex
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__groupValuesByIndex
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByIndex
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByIndex
+  nameWithType: C3dFileParameterCollection._groupValuesByIndex
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByName
+  name: _groupValuesByName
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__groupValuesByName
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByName
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._groupValuesByName
+  nameWithType: C3dFileParameterCollection._groupValuesByName
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupIndexToString
+  name: _mapGroupIndexToString
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__mapGroupIndexToString
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupIndexToString
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupIndexToString
+  nameWithType: C3dFileParameterCollection._mapGroupIndexToString
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupStringToIndex
+  name: _mapGroupStringToIndex
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterCollection__mapGroupStringToIndex
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupStringToIndex
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection._mapGroupStringToIndex
+  nameWithType: C3dFileParameterCollection._mapGroupStringToIndex
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+  name: C3dFileParameterGroup
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
+  commentId: T:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+  nameWithType: C3dFileParameterGroup
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.ActualDescriptionLength
+  name: ActualDescriptionLength
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_ActualDescriptionLength
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.ActualDescriptionLength
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.ActualDescriptionLength
+  nameWithType: C3dFileParameterGroup.ActualDescriptionLength
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Description
+  name: Description
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Description
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Description
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Description
+  nameWithType: C3dFileParameterGroup.Description
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.DescriptionLength
+  name: DescriptionLength
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_DescriptionLength
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.DescriptionLength
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.DescriptionLength
+  nameWithType: C3dFileParameterGroup.DescriptionLength
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name: Equals(C3dFileParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Equals_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  nameWithType: C3dFileParameterGroup.Equals(C3dFileParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(System.Object)
+  name: Equals(object)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Equals_System_Object_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(object)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals(Object)
+  nameWithType: C3dFileParameterGroup.Equals(object)
+  nameWithType.vb: C3dFileParameterGroup.Equals(Object)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals*
+  name: Equals
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Equals_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Equals
+  nameWithType: C3dFileParameterGroup.Equals
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode
+  name: GetHashCode()
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_GetHashCode
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode()
+  nameWithType: C3dFileParameterGroup.GetHashCode()
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode*
+  name: GetHashCode
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_GetHashCode_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.GetHashCode
+  nameWithType: C3dFileParameterGroup.GetHashCode
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Id
+  name: Id
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Id
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Id
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Id
+  nameWithType: C3dFileParameterGroup.Id
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Locked
+  name: Locked
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Locked
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Locked
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Locked
+  nameWithType: C3dFileParameterGroup.Locked
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Name
+  name: Name
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Name
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Name
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Name
+  nameWithType: C3dFileParameterGroup.Name
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.NameLength
+  name: NameLength
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_NameLength
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.NameLength
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.NameLength
+  nameWithType: C3dFileParameterGroup.NameLength
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Parameters
+  name: Parameters
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_Parameters
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Parameters
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.Parameters
+  nameWithType: C3dFileParameterGroup.Parameters
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.PointerNextParameterStruct
+  name: PointerNextParameterStruct
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_PointerNextParameterStruct
+  commentId: F:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.PointerNextParameterStruct
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.PointerNextParameterStruct
+  nameWithType: C3dFileParameterGroup.PointerNextParameterStruct
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Equality(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name: operator ==(C3dFileParameterGroup, C3dFileParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_op_Equality_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Equality(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name.vb: =(C3dFileParameterGroup, C3dFileParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.operator ==(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.=(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  nameWithType: C3dFileParameterGroup.operator ==(C3dFileParameterGroup, C3dFileParameterGroup)
+  nameWithType.vb: C3dFileParameterGroup.=(C3dFileParameterGroup, C3dFileParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Equality*
+  name: operator ==
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_op_Equality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.operator ==
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.=
+  nameWithType: C3dFileParameterGroup.operator ==
+  nameWithType.vb: C3dFileParameterGroup.=
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Inequality(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name: operator !=(C3dFileParameterGroup, C3dFileParameterGroup)
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_op_Inequality_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_
+  commentId: M:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Inequality(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup,SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name.vb: <>(C3dFileParameterGroup, C3dFileParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.operator !=(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.<>(SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup, SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  nameWithType: C3dFileParameterGroup.operator !=(C3dFileParameterGroup, C3dFileParameterGroup)
+  nameWithType.vb: C3dFileParameterGroup.<>(C3dFileParameterGroup, C3dFileParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Inequality*
+  name: operator !=
+  href: api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html#SHARP3D_Parameter_DataEntity_File_C3dFileParameterGroup_op_Inequality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.operator !=
+  fullName.vb: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.<>
+  nameWithType: C3dFileParameterGroup.operator !=
+  nameWithType.vb: C3dFileParameterGroup.<>
 - uid: SHARP3D.Parameter.JsonSupportedParameter
   name: JsonSupportedParameter
   href: api/SHARP3D.Parameter.JsonSupportedParameter.html
@@ -4399,22 +5066,80 @@ references:
   commentId: T:SHARP3D.Utils.ArrayUtils
   fullName: SHARP3D.Utils.ArrayUtils
   nameWithType: ArrayUtils
-- uid: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List{System.Single[]})
-  name: ConvertTo2DArray(List<float[]>)
-  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_System_Collections_Generic_List_System_Single____
-  commentId: M:SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List{System.Single[]})
-  name.vb: ConvertTo2DArray(List(Of Single()))
-  fullName: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List<float[]>)
-  fullName.vb: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray(System.Collections.Generic.List(Of Single()))
-  nameWithType: ArrayUtils.ConvertTo2DArray(List<float[]>)
-  nameWithType.vb: ArrayUtils.ConvertTo2DArray(List(Of Single()))
-- uid: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray*
-  name: ConvertTo2DArray
-  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_ConvertTo2DArray_
-  commentId: Overload:SHARP3D.Utils.ArrayUtils.ConvertTo2DArray
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  name: IsBaseElementPrimitive(Array)
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementPrimitive_System_Array_
+  commentId: M:SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  nameWithType: ArrayUtils.IsBaseElementPrimitive(Array)
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive*
+  name: IsBaseElementPrimitive
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementPrimitive_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive
   isSpec: "True"
-  fullName: SHARP3D.Utils.ArrayUtils.ConvertTo2DArray
-  nameWithType: ArrayUtils.ConvertTo2DArray
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive
+  nameWithType: ArrayUtils.IsBaseElementPrimitive
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  name: IsBaseElementString(Array)
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementString_System_Array_
+  commentId: M:SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  nameWithType: ArrayUtils.IsBaseElementString(Array)
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementString*
+  name: IsBaseElementString
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementString_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.IsBaseElementString
+  isSpec: "True"
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementString
+  nameWithType: ArrayUtils.IsBaseElementString
+- uid: SHARP3D.Utils.ArrayUtils.To2DArray*
+  name: To2DArray
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To2DArray_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.To2DArray
+  isSpec: "True"
+  fullName: SHARP3D.Utils.ArrayUtils.To2DArray
+  nameWithType: ArrayUtils.To2DArray
+- uid: SHARP3D.Utils.ArrayUtils.To2DArray``1(System.Collections.Generic.List{``0[]})
+  name: To2DArray<T>(List<T[]>)
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To2DArray__1_System_Collections_Generic_List___0____
+  commentId: M:SHARP3D.Utils.ArrayUtils.To2DArray``1(System.Collections.Generic.List{``0[]})
+  name.vb: To2DArray(Of T)(List(Of T()))
+  fullName: SHARP3D.Utils.ArrayUtils.To2DArray<T>(System.Collections.Generic.List<T[]>)
+  fullName.vb: SHARP3D.Utils.ArrayUtils.To2DArray(Of T)(System.Collections.Generic.List(Of T()))
+  nameWithType: ArrayUtils.To2DArray<T>(List<T[]>)
+  nameWithType.vb: ArrayUtils.To2DArray(Of T)(List(Of T()))
+- uid: SHARP3D.Utils.ArrayUtils.To3DArray*
+  name: To3DArray
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To3DArray_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.To3DArray
+  isSpec: "True"
+  fullName: SHARP3D.Utils.ArrayUtils.To3DArray
+  nameWithType: ArrayUtils.To3DArray
+- uid: SHARP3D.Utils.ArrayUtils.To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  name: To3DArray<T>(List<T[,]>)
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To3DArray__1_System_Collections_Generic_List___0_0__0____
+  commentId: M:SHARP3D.Utils.ArrayUtils.To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  name.vb: To3DArray(Of T)(List(Of T(,)))
+  fullName: SHARP3D.Utils.ArrayUtils.To3DArray<T>(System.Collections.Generic.List<T[,]>)
+  fullName.vb: SHARP3D.Utils.ArrayUtils.To3DArray(Of T)(System.Collections.Generic.List(Of T(,)))
+  nameWithType: ArrayUtils.To3DArray<T>(List<T[,]>)
+  nameWithType.vb: ArrayUtils.To3DArray(Of T)(List(Of T(,)))
+- uid: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  name: VecMatMultiplication(float[], float[,])
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_VecMatMultiplication_System_Single___System_Single_0__0___
+  commentId: M:SHARP3D.Utils.ArrayUtils.VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  name.vb: VecMatMultiplication(Single(), Single(,))
+  fullName: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(float[], float[,])
+  fullName.vb: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(Single(), Single(,))
+  nameWithType: ArrayUtils.VecMatMultiplication(float[], float[,])
+  nameWithType.vb: ArrayUtils.VecMatMultiplication(Single(), Single(,))
+- uid: SHARP3D.Utils.ArrayUtils.VecMatMultiplication*
+  name: VecMatMultiplication
+  href: api/SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_VecMatMultiplication_
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.VecMatMultiplication
+  isSpec: "True"
+  fullName: SHARP3D.Utils.ArrayUtils.VecMatMultiplication
+  nameWithType: ArrayUtils.VecMatMultiplication
 - uid: SHARP3D.Utils.C3dBytesConvertor
   name: C3dBytesConvertor
   href: api/SHARP3D.Utils.C3dBytesConvertor.html
@@ -4970,12 +5695,12 @@ references:
   commentId: F:SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
   fullName: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
   nameWithType: Sharp3dConstants.ForceplateChannelNumber
-- uid: SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
-  name: ParameterToDiscardFromC3dFileToC3d
-  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_ParameterToDiscardFromC3dFileToC3d
-  commentId: F:SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
-  fullName: SHARP3D.Utils.Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
-  nameWithType: Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d
+- uid: SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
+  name: RegexParameterToDiscardFromC3dFileToC3d
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_RegexParameterToDiscardFromC3dFileToC3d
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
+  fullName: SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
+  nameWithType: Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
 - uid: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
   name: SignedArrayString
   href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_SignedArrayString

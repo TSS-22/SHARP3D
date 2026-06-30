@@ -68,6 +68,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Clean.C3dAnalogChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Clean.C3dAnalogChannel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Clean.C3dAnalogChannel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Clean.C3dData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Clean.C3dData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Clean.C3dData",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Clean.C3dForceplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Clean.C3dForceplate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Clean.C3dForceplate",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Clean.C3dPointTrajectory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Clean.C3dPointTrajectory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Clean.C3dPointTrajectory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Data.Clean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Data.Clean.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Data.Clean",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Data.Data.C3dData.yml",
       "output": {
         ".html": {
@@ -120,20 +190,6 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Data.Data",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Data.DataEntity.C3dData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SHARP3D.Data.DataEntity.C3dData.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SHARP3D.Data.DataEntity.C3dData",
       "Summary": null
     },
     {
@@ -275,6 +331,20 @@
       "IsMRef": true,
       "Title": "SHARP3D.Exceptions.IncompatiblePointAndAnalogRate",
       "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.yml\" sourcestartlinenumber=\"1\">Exception thrown when a force plate doesn't have calibration matrix due to its type.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -488,86 +558,44 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameter.yml",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameter.html"
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameter",
-      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.C3dFileParameter.yml\" sourcestartlinenumber=\"1\">Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameterCollection",
-      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.C3dFileParameterCollection.yml\" sourcestartlinenumber=\"1\">References all the groups and parameters in a two-way dictionary for convenience.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameterGroup",
-      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.C3dFileParameterGroup.yml\" sourcestartlinenumber=\"1\">Represents a group of parameters in a C3D file, including metadata and a list of parameters.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterAnalog.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dParameterAnalog",
+      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.yml",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterForceplate.html"
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dParameterForceplate",
+      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.yml",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dParameterPoint.html"
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SHARP3D.Parameter.DataEntity.C3dParameterPoint",
+      "Title": "SHARP3D.Parameter.DataEntity.C3dFileParameterPoint",
       "Summary": null
     },
     {
@@ -586,6 +614,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.yml",
       "output": {
         ".html": {
@@ -596,6 +638,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint",
       "Summary": null
     },
     {
@@ -614,6 +670,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Parameter.DataEntity.Clean.yml",
       "output": {
         ".html": {
@@ -624,6 +694,62 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Parameter.DataEntity.Clean",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.File.C3dFileParameter",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.File.C3dFileParameter.yml\" sourcestartlinenumber=\"1\">Represents a parameter in a C3D file, including its metadata, data type, dimensions, and data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.yml\" sourcestartlinenumber=\"1\">References all the groups and parameters in a two-way dictionary for convenience.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup",
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.yml\" sourcestartlinenumber=\"1\">Represents a group of parameters in a C3D file, including metadata and a list of parameters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Parameter.DataEntity.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Parameter.DataEntity.File.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Parameter.DataEntity.File",
       "Summary": null
     },
     {
