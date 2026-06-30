@@ -170,7 +170,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         public (int,int) GetParameterIndex(string groupName, string parameterName)
         {
             int groupIndex = GetGroupIndex(groupName);
-            return (groupIndex, Groups[groupIndex].GetParameterIndex(parameterName);
+            return (groupIndex, Groups[groupIndex].GetParameterIndex(parameterName));
         }
 
 
