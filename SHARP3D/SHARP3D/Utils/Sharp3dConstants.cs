@@ -27,21 +27,19 @@ namespace SHARP3D.Utils
 
             };
 
-        // WARNING: 
-        // This does not encompass the parameter with format XXX[0-9]*
-        public static readonly Dictionary<string, string[]> ParameterToDiscardFromC3dFileToC3d = new Dictionary<string, string[]>
+        public static readonly Dictionary<string, string[]> RegexParameterToDiscardFromC3dFileToC3d = new Dictionary<string, string[]>
         {
             { "ANALOG", new string[]
                 {
                     "BITS",
-                    "DESCRIPTIONS",
+                    "DESCRIPTIONS[0-9]*",
                     "FORMAT",
                     "GEN_SCALE",
-                    "LABELS",
-                    "OFFSET",
+                    "LABELS[0-9]*",
+                    "OFFSET[0-9]*",
                     "RATE",
-                    "SCALE",
-                    "UNITS",
+                    "SCALE[0-9]*",
+                    "UNITS[0-9]*",
                     "USED",
                 }
             },
@@ -59,9 +57,9 @@ namespace SHARP3D.Utils
             { "POINT", new string[]
                 {
                     "DATA_START",
-                    "DESCRIPTIONS",
+                    "DESCRIPTIONS[0-9]*",
                     "FRAMES",
-                    "LABELS",
+                    "LABELS[0-9]*",
                     "LONG_FRAMES",
                     "RATE",
                     "SCALE",

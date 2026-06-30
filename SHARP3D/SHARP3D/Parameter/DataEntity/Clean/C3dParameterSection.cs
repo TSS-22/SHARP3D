@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -28,71 +29,32 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         }
         public void DeleteUneededParametersFromFiles()
         {
-            // Discard from "Parameters" the required parameters
-            foreach (KeyValuePair<string, string[]> group in Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d)
+            List<C3dParameterGroup> newGroups = new List<C3dParameterGroup>();
+            for(int idGroup = 0; idGroup<Groups.Count; idGroup++)
             {
-                foreach (string parameter in group.Value)
+                string[] regexParametersList = new string[] { };
+                if (Sharp3dConstants.ParameterToDiscardFromC3dFileToC3d.TryGetValue(Groups[idGroup].Name, out regexParametersList))
                 {
-                    try
+                    List<C3dParameter> newParameters = new List<C3dParameter>();
+                    for(int idParameter = 0; idParameter < Groups[idGroup].Parameters.Count; idParameter++)
                     {
-                        DeleteParameter(group.Key, parameter);
+                        bool toKeep = true;
+                        foreach(string regexParameter in regexParametersList)
+                        {
+                            if (Regex.IsMatch(Groups[idGroup].Parameters[idParameter].Name, regexParameter))
+                            {
+                                toKeep = false;
+                                break;
+                            }
+                        }
+                        if (toKeep)
+                        {
+                            newParameters.Add(Groups[idGroup].Parameters[idParameter]);
+                        }
                     }
-                    catch (ArgumentException) { }
-                }
+                    Groups[idGroup].Parameters = newParameters;
+                }   
             }
-            // Take care of all the parameter with format XXX[0-9]*
-            // POINT
-            try
-            {
-                C3dParameterGroup pointGroup = GetGroup("point");
-                List<C3dParameter> newParameters = new List<C3dParameter>();
-
-                foreach (C3dParameter parameter in pointGroup.Parameters)
-                {
-                    if ( 
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "LABELS[0-9]*")) || 
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "DESCRIPTIONS[0-9]*")))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        newParameters.Add(parameter);
-                    }
-                    pointGroup.Parameters = newParameters;
-                    Groups[GetGroupIndex("point")] = pointGroup;
-                }
-            }
-            catch (ArgumentException) { }
-            // ANALOG
-            try
-            {
-                C3dParameterGroup analogGroup = GetGroup("analog");
-                List<C3dParameter> newParameters = new List<C3dParameter>();
-
-                foreach (C3dParameter parameter in analogGroup.Parameters)
-                {
-                    if (
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "LABELS[0-9]*")) ||
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "DESCRIPTIONS[0-9]*")) ||
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "OFFSET[0-9]*")) ||
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "SCALE[0-9]*")) ||
-                        (Regex.IsMatch(parameter.Name.ToUpper(), "UNITS[0-9]*"))
-                        
-                        )
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        newParameters.Add(parameter);
-                    }
-                    analogGroup.Parameters = newParameters;
-                    Groups[GetGroupIndex("analog")] = analogGroup;
-                }
-            }
-            catch (ArgumentException) { }
-
         }
         
         public C3dParameterGroup GetGroup(string name)
@@ -121,10 +83,14 @@ namespace SHARP3D.Parameter.DataEntity.Clean
 
         public void AddGroup(string name, string description, List<C3dParameter>? parameters = null)
         {
-            if (Groups.Any(g => g.Name == name.ToUpper()))
+            foreach(C3dParameterGroup group in Groups)
             {
-                throw new ArgumentException($"A parameter group with the name '{name.ToUpper()}' already exists in section.");
+                if ((group.Name == name.ToUpper()))
+                {
+                    throw new ArgumentException($"A parameter group with the name '{name.ToUpper()}' already exists in section.");
+                }
             }
+            
             Groups.Add(new C3dParameterGroup(name, description, parameters));
         }
 
