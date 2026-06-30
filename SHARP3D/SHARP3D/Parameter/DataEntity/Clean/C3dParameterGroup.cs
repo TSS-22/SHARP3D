@@ -1,4 +1,6 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
+using SHARP3D.Utils;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
@@ -84,6 +86,18 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             if (Parameters.Any(p => p.Name == parameterName.ToUpper()))
             {
                 throw new ArgumentException($"A parameter with the name '{parameterName}' already exists in group '{Name}'.");
+            }
+            // Check if the parameter as a taken name
+            string[] regexParametersList = new string[] { };
+            if (Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.TryGetValue(Name, out regexParametersList))
+            {
+                foreach (string regexParameter in regexParametersList)
+                {
+                    if (Regex.IsMatch(parameterName, regexParameter))
+                    {
+                        throw new ArgumentException($"Parameter '{parameterName}' cannot be created in group {Name}. See documentation about reserved parameter names.");
+                    }
+                }
             }
 
             Parameters.Add(new C3dParameter(Name, parameterName, data, description));
