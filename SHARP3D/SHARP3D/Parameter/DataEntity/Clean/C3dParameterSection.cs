@@ -106,6 +106,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
             throw new ArgumentException($"Parameter group with name '{name.ToUpper()}' not found in section.");
         }
+
         public int GetGroupIndex(string groupName)
         {
             for(int i=0; i<Groups.Count; i++)
@@ -115,7 +116,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                     return i;
                 }
             }
-            throw new ArgumentException($"Parameter group with name '{name.ToUpper()}' not found in section.");
+            throw new ArgumentException($"Parameter group with name '{groupName.ToUpper()}' not found in section.");
         }
 
         public void AddGroup(string name, string description, List<C3dParameter>? parameters = null)
@@ -166,6 +167,13 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             return groupFound.GetParameter(parameterName);
         }
 
+        public (int,int) GetParameterIndex(string groupName, string parameterName)
+        {
+            int groupIndex = GetGroupIndex(groupName);
+            return (groupIndex, Groups[groupIndex].GetParameterIndex(parameterName);
+        }
+
+
         public void DeleteParameter(string groupName, string parameterName)
         {
             C3dParameterGroup groupFound = GetGroup(groupName);
@@ -176,7 +184,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
         }
 
-        public string GetStringParameterTree()
+        public string DisplayStringParameterTree()
         {
             string parameterTree = "------\nGroups and Parameters:\n------\n";
 
@@ -193,7 +201,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             return parameterTree;
         }
 
-        public string GetStringListParameters(C3dParameterGroup group)
+        public string DisplayStringListParameters(C3dParameterGroup group)
         {
             string parameters = $"------\n{group.Name}:\n------\n";
 
@@ -206,11 +214,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             return parameters;
         }
 
-        public string GetStringListParameters(string groupName)
+        public string DisplayStringListParameters(string groupName)
         {
             try
             {
-                return GetStringListParameters(GetGroup(groupName));
+                return DisplayStringListParameters(GetGroup(groupName));
             }
             catch (ArgumentException ex) 
             {
@@ -219,7 +227,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             
         }
 
-        public string GetStringListGroups()
+        public string DisplayStringListGroups()
         {
             string parameterTree = "------\nGroups:\n------\n";
 
@@ -229,6 +237,51 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
             parameterTree = string.Concat(parameterTree, "------\n");
             return parameterTree;
+        }
+
+        public Dictionary<string, string[]> GetStringParameterTree()
+        {
+            Dictionary<string, string[]> parameterTree = new Dictionary<string, string[]>();
+
+            foreach (C3dParameterGroup group in Groups)
+            {
+                parameterTree.Add(group.Name, GetStringListParameters(group.Name));
+            }
+
+            return parameterTree;
+        }
+
+        public string[] GetStringListParameters(C3dParameterGroup group)
+        {
+            List<string> parametersNameList = new List<string>();
+            foreach (C3dParameter parameter in group.Parameters)
+            {
+                parametersNameList.Add(parameter.Name);
+            }
+            return parametersNameList.ToArray();
+        }
+
+        public string[] GetStringListParameters(string groupName)
+        {
+            try
+            {
+                return GetStringListParameters(GetGroup(groupName));
+            }
+            catch (ArgumentException ex)
+            {
+                throw;
+            }
+
+        }
+
+        public string[] GetStringListGroups()
+        {
+            List<string> groupsNameList = new List<string>();
+            foreach (C3dParameterGroup group in Groups)
+            {
+                groupsNameList.Add(group.Name);
+            }
+            return groupsNameList.ToArray();
         }
 
     }

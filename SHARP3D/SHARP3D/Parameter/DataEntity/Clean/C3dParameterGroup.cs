@@ -1,4 +1,5 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
+using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
 {
@@ -64,6 +65,18 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 }
             }
             throw new ArgumentException($"Parameter with name '{name.ToUpper()}' not found in group '{Name}'.");
+        }
+
+        public int GetParameterIndex(string nameParameter)
+        {
+            for (int i = 0; i < Parameters.Count; i++)
+            {
+                if (Parameters[i].Name == nameParameter.ToUpper())
+                {
+                    return i;
+                }
+            }
+            throw new ArgumentException($"Parameter with name '{nameParameter.ToUpper()}' not found in group '{Name}'.");            
         }
 
         public void AddParameter(string parameterName, Array data, string description= "No Description provided.", bool locked=false)
