@@ -106,6 +106,89 @@
 
             return rectangular3DArray;
         }
+
+        /// <summary>
+        /// Determines whether the base elements of a jagged or multi-dimensional array are of a primitive type.
+        /// </summary>
+        /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>int[][]</c>) or multi-dimensional array.</param>
+        /// <returns>
+        /// <c>true</c> if the innermost elements of the array are primitive types (e.g., <c>int</c>, <c>char</c>, <c>bool</c>);
+        /// <c>false</c> if the array is <c>null</c>, empty, or the base elements are non-primitive (e.g., <c>string</c>, custom classes).
+        /// </returns>
+        /// <remarks>
+        /// This method recursively drills down to the innermost element type of the array.
+        /// For example:
+        /// <list type="bullet">
+        ///   <item><description><c>int[][]</c> returns <c>true</c> because the base element is <c>int</c>.</description></item>
+        ///   <item><description><c>string[][]</c> returns <c>false</c> because the base element is <c>string</c>.</description></item>
+        ///   <item><description><c>char[][][]</c> returns <c>true</c> because the base element is <c>char</c>.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// int[][] jaggedIntArray = new int[2][];
+        /// jaggedIntArray[0] = new int[] { 1, 2, 3 };
+        /// bool isPrimitive = IsBaseElementPrimitive(jaggedIntArray); // Returns true
+        /// </code>
+        /// </example>
+        public static bool IsBaseElementPrimitive(Array array)
+        {
+            if (array == null)
+                return false;
+
+            Type type = array.GetType();
+
+            // Drill down to the innermost element type
+            while (type.IsArray)
+            {
+                type = type.GetElementType();
+            }
+
+            // Check if the innermost type is primitive
+            return type.IsPrimitive;
+        }
+
+        /// <summary>
+        /// Determines whether the base elements of a jagged or multi-dimensional array are of type <see cref="string"/>.
+        /// </summary>
+        /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>string[][]</c>) or multi-dimensional array.</param>
+        /// <returns>
+        /// <c>true</c> if the innermost elements of the array are of type <see cref="string"/>;
+        /// <c>false</c> if the array is <c>null</c>, empty, or the base elements are not <see cref="string"/>.
+        /// </returns>
+        /// <remarks>
+        /// This method recursively drills down to the innermost element type of the array.
+        /// For example:
+        /// <list type="bullet">
+        ///   <item><description><c>string[][]</c> returns <c>true</c> because the base element is <see cref="string"/>.</description></item>
+        ///   <item><description><c>string[][][]</c> returns <c>true</c> because the base element is <see cref="string"/>.</description></item>
+        ///   <item><description><c>int[][]</c> returns <c>false</c> because the base element is <c>int</c>.</description></item>
+        ///   <item><description><c>object[][]</c> returns <c>false</c> because the base element is <see cref="object"/>.</description></item>
+        /// </list>
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// string[][] jaggedStringArray = new string[2][];
+        /// jaggedStringArray[0] = new string[] { "hello", "world" };
+        /// bool isString = IsBaseElementString(jaggedStringArray); // Returns true
+        /// </code>
+        /// </example>
+        public static bool IsBaseElementString(Array array)
+        {
+            if (array == null)
+                return false;
+
+            Type type = array.GetType();
+
+            // Drill down to the innermost element type
+            while (type.IsArray)
+            {
+                type = type.GetElementType();
+            }
+
+            // Check if the innermost type is string
+            return type == typeof(string);
+        }
     }
 }
 

@@ -26,7 +26,7 @@ namespace SHARP3D.Utils
                 { ForceplateType.TYPE_4, 6 },
 
             };
-
+    
         public static readonly Dictionary<string, string[]> RegexParameterToDiscardFromC3dFileToC3d = new Dictionary<string, string[]>
         {
             { "ANALOG", new string[]

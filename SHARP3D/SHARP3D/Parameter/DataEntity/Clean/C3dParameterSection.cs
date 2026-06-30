@@ -1,8 +1,6 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
 {

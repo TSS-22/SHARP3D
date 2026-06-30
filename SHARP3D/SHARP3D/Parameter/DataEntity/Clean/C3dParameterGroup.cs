@@ -95,7 +95,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 {
                     if (Regex.IsMatch(parameterName, regexParameter))
                     {
-                        throw new ArgumentException($"Parameter '{parameterName}' cannot be created in group {Name}. See documentation about reserved parameter names.");
+                        throw new ArgumentException($"Parameter '{parameterName}' cannot be created in group {Name}. See documentation about reserved parameter and how to interact with them.");
                     }
                 }
             }
@@ -109,16 +109,39 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             {
                 throw new ArgumentException($"A parameter with the name '{fileParameter.Name}' already exists in group '{Name}'.");
             }
-
+            // Check if the parameter as a taken name
+            string[] regexParametersList = new string[] { };
+            if (Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.TryGetValue(Name, out regexParametersList))
+            {
+                foreach (string regexParameter in regexParametersList)
+                {
+                    if (Regex.IsMatch(fileParameter.Name, regexParameter))
+                    {
+                        throw new ArgumentException($"Parameter '{fileParameter.Name}' cannot be created in group {Name}. See documentation about reserved parameter and how to interact with them.");
+                    }
+                }
+            }
             Parameters.Add(new C3dParameter(Name, fileParameter));
         }
 
-        public void DeleteParameter(string name)
+        public void DeleteParameter(string parameterName)
         {
-            bool removed = Parameters.RemoveAll(p => p.Name == name.ToUpper()) > 0;
+            // Check if the parameter as a taken name
+            string[] regexParametersList = new string[] { };
+            if (Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.TryGetValue(Name, out regexParametersList))
+            {
+                foreach (string regexParameter in regexParametersList)
+                {
+                    if (Regex.IsMatch(parameterName, regexParameter))
+                    {
+                        throw new ArgumentException($"Parameter '{parameterName}' cannot be deleted in group {Name}. See documentation about reserved parameter and how to interact with them.");
+                    }
+                }
+            }
+            bool removed = Parameters.RemoveAll(p => p.Name == parameterName.ToUpper()) > 0;
             if (!removed)
             {
-                throw new ArgumentException($"Parameter with name '{name.ToUpper()}' not found in group '{Name}'.");
+                throw new ArgumentException($"Parameter with name '{parameterName.ToUpper()}' not found in group '{Name}'.");
             }
         }
     }
