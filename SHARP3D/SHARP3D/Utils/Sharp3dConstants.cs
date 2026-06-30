@@ -27,6 +27,8 @@ namespace SHARP3D.Utils
 
             };
 
+        // WARNING: 
+        // This does not encompass the parameter with format XXX[0-9]*
         public static readonly Dictionary<string, string[]> ParameterToDiscardFromC3dFileToC3d = new Dictionary<string, string[]>
         {
             { "ANALOG", new string[]
@@ -60,12 +62,20 @@ namespace SHARP3D.Utils
                     "DESCRIPTIONS",
                     "FRAMES",
                     "LABELS",
+                    "LONG_FRAMES",
                     "RATE",
                     "SCALE",
                     "UNITS",
                     "USED",
                 }
             },
+            {
+                "TRIAL", new string[]
+                {
+                    "ACTUAL_END_FIELD",
+                    "ACTUAL_START_FIELD",
+                }
+            }
         };
 
         /// <summary>

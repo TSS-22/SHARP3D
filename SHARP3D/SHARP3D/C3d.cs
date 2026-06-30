@@ -33,7 +33,7 @@ namespace SHARP3D
 
             Data = new C3dData(c3dFile);
 
-            Parameters.CleanRequiredParameters();
+            Parameters.DeleteUneededParametersFromFiles();
         }
     }
 }
