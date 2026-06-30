@@ -1,6 +1,7 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
+using System.Threading.Channels;
 
 namespace SHARP3D.Data.Clean
 {
@@ -113,6 +114,13 @@ namespace SHARP3D.Data.Clean
 
         public void AddAnalogChannel(C3dAnalogChannel channelToAdd)
         {
+            foreach (C3dAnalogChannel channel in Analogs)
+            {
+                if (channel.Label == channelToAdd.Label)
+                {
+                    throw new ArgumentException($"There is already an analog channel with label {channelToAdd.Label}. Labels must be uniques");
+                }
+            }
             List<C3dAnalogChannel> analogChannels = Analogs.ToList();
             analogChannels.Add(channelToAdd);
             Analogs = analogChannels.ToArray();
@@ -120,6 +128,13 @@ namespace SHARP3D.Data.Clean
 
         public void AddPointTrajectory(C3dPointTrajectory trajectoryToAdd)
         {
+            foreach (C3dPointTrajectory trajectory in Points)
+            {
+                if (trajectory.Label == trajectoryToAdd.Label)
+                {
+                    throw new ArgumentException($"There is already a 3D point trajectory with label {trajectory.Label}. Labels must be uniques");
+                }
+            }
             List<C3dPointTrajectory> points = Points.ToList();
             points.Add(trajectoryToAdd);
             Points = points.ToArray();
@@ -127,6 +142,16 @@ namespace SHARP3D.Data.Clean
 
         public void AddForceplate(C3dForceplate forceplateToAdd)
         {
+            foreach (C3dAnalogChannel channel in forceplateToAdd.Data)
+            {
+                foreach (C3dAnalogChannel channel2 in forceplateToAdd.Data)
+                {
+                    if (channel.Label == channel2.Label)
+                    {
+                        throw new ArgumentException($"There is already an analog channel with label {channel.Label}. Force plate channels Labels must be uniques");
+                    }
+                }
+            }
             List<C3dForceplate> forceplates = Forceplates.ToList();
             forceplates.Add(forceplateToAdd);
             Forceplates = forceplates.ToArray();
