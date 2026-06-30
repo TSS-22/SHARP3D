@@ -1,4 +1,4 @@
-﻿namespace SHARP3D.Parameter.DataEntity
+﻿namespace SHARP3D.Parameter.DataEntity.File
 {
     /// <summary>
     /// Represents a group of parameters in a C3D file, including metadata and a list of parameters.
@@ -183,7 +183,7 @@
                 {
                     foreach (var parameter in Parameters)
                     {
-                        hash = hash * 23 + (parameter.GetHashCode());
+                        hash = hash * 23 + parameter.GetHashCode();
                     }
                 }
 

@@ -4,6 +4,8 @@ using SHARP3D.Exceptions;
 using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter;
 using SHARP3D.Parameter.DataEntity;
+using SHARP3D.Parameter.DataEntity.Clean;
+using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
 using System.Collections.Generic;
@@ -74,9 +76,9 @@ namespace SHARP3D
         public C3dFileParameterCollection ParameterCollection { get; set; }
 
         
-        public C3dParameterPoint Point { get; set; }
-        public C3dParameterAnalog Analog { get; set; }
-        public C3dParameterForceplate Forceplate { get; set; }
+        public C3dFileParameterPoint Point { get; set; }
+        public C3dFileParameterAnalog Analog { get; set; }
+        public C3dFileParameterForceplate Forceplate { get; set; }
 
         /// <summary>
         /// Gets or sets the data contained in the C3D file.
@@ -157,9 +159,9 @@ namespace SHARP3D
             return new FileStream(filepath, FileMode.Open, FileAccess.Read);
         }
 
-        internal C3dParameterForceplate setFileForceplate()
+        internal C3dFileParameterForceplate setFileForceplate()
         {
-            C3dParameterForceplate fileForceplate = new C3dParameterForceplate();
+            C3dFileParameterForceplate fileForceplate = new C3dFileParameterForceplate();
             try
             {
                 // FORCE_PLATFORM:USED - DONE
@@ -182,37 +184,96 @@ namespace SHARP3D
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
-                //FORCE_PLATFORM:CORNERS - DONE
-                float[,,] forceplateCorner = new float[fileForceplate.Used, 4, 3];
+                //FORCE_PLATFORM:CAL_MATRIX - DONE
+                // We make the assumption that, as FORCE_PLATFORM:CAL_MATRIX is an optional Parameter
+                // and in the light of the way it is set in the sample file,
+                // we think that CAL_MAT value are only added for TYPE-2 or TYPE-4 force plates.
+                // We can't be sure because none of the sample files allows us to check that assumptions.
+                // Don't go gentle into that good night.
+                List<float[,]> forceplateCalMat = new List<float[,]>();
+                int idCalMat = 0;
                 try
                 {
                     for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
                     {
+                        // Well, a try catch would be nice here
+                        int calMatColNb =  6;
+                        int calMatRowNb =  6;
+                        try
+                        {
+                            calMatColNb = (int)(GetParameter("force_platform", "cal_matrix").Dimensions?.GetValue(0) as int? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                            calMatRowNb = (int)(GetParameter("force_platform", "cal_matrix").Dimensions?.GetValue(1) as int? ?? throw new ParameterNotFoundException($"CAL_MATRIX not advertised for forceplate {idFp}."));
+                        }
+                        catch(ParameterNotFoundException) { }
+
+                        float[,] calMat = new float[calMatColNb, calMatRowNb];
+
+                        if ((forceplateType[idFp] == ForceplateType.TYPE_2) || (forceplateType[idFp] == ForceplateType.TYPE_4))
+                        {
+                            for (int col = 0; col < calMatColNb; col++)
+                            {
+                                for (int row = 0; row < calMatRowNb; row++)
+                                {
+                                    float temp = calMat[col, row] = col == row ? 1.0f : 0.0f;
+                                    calMat[col, row] = (float)(GetParameter("force_platform", "cal_matrix").Data?.GetValue(col, row, idCalMat) as float? ?? temp);
+                                }
+                            }
+
+                            idCalMat++;
+                        }
+                        else
+                        {
+                            for (int col = 0; col < calMatColNb; col++)
+                            {
+                                for (int row = 0; row < calMatRowNb; row++)
+                                {
+                                    calMat[col, row] = col==row? 1 : 0;
+                                }
+                            }
+                        }
+                        forceplateCalMat.Add(calMat);
+                    }
+                    fileForceplate.CalibrationMatrix = forceplateCalMat.ToArray();
+                }
+                catch (IndexOutOfRangeException) { }
+
+                
+
+                //FORCE_PLATFORM:CORNERS - DONE
+                List<float[,]> forceplateCorner = new List<float[,]>();
+                try
+                {
+                    for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
+                    {
+                        float[,] cornerData = new float[4, 3];
                         for (int idCoor = 0; idCoor<3; idCoor++)
                         {
                             for(int idCorner = 0;idCorner<4; idCorner++)
                             {
-                                forceplateCorner[idFp, idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ?? throw new ParameterNotFoundException($"CORNERS not advertised for forceplate {idFp}."));
+                                cornerData[idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ?? throw new ParameterNotFoundException($"CORNERS not advertised for forceplate {idFp}."));
                             }
                         }
+                        forceplateCorner.Add(cornerData);
                     }
-                    fileForceplate.Corners = forceplateCorner;
+                    fileForceplate.Corners = forceplateCorner.ToArray();
                 }
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
 
                 //FORCE_PLATEFORM:ORIGIN - DONE
-                float[,] forceplateOrigin = new float[fileForceplate.Used, 3];
+                List<float[]> forceplateOrigin = new List<float[]>();
                 try
                 {
                     for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
                     {
+                        float[] originData = new float[3];
                         for (int idOrigin = 0; idOrigin < 3; idOrigin++)
                         {
-                            forceplateOrigin[idFp, idOrigin] = (float)(GetParameter("force_platform", "origin").Data?.GetValue(idOrigin, idFp) as float? ?? throw new ParameterNotFoundException($"ORIGIN error for force plate {idFp}."));
+                            originData[idOrigin] = (float)(GetParameter("force_platform", "origin").Data?.GetValue(idOrigin, idFp) as float? ?? throw new ParameterNotFoundException($"ORIGIN error for force plate {idFp}."));
                         }
+                        forceplateOrigin.Add(originData);
                     }
-                    fileForceplate.Origin = forceplateOrigin;
+                    fileForceplate.Origin = forceplateOrigin.ToArray();
                 }
                 catch (ParameterNotFoundException) { }
                 catch (IndexOutOfRangeException) { }
@@ -284,7 +345,7 @@ namespace SHARP3D
             }
             catch (ParameterNotFoundException ex)
             {
-                fileForceplate = new C3dParameterForceplate();
+                fileForceplate = new C3dFileParameterForceplate();
                 Console.WriteLine($"No force plateform correctly advertised in {FilePath}: {ex.Message}");
 
             }
@@ -295,9 +356,9 @@ namespace SHARP3D
 
             return fileForceplate;
         }
-        internal C3dParameterAnalog SetFileAnalog()
+        internal C3dFileParameterAnalog SetFileAnalog()
         {
-            C3dParameterAnalog fileAnalog = new C3dParameterAnalog();
+            C3dFileParameterAnalog fileAnalog = new C3dFileParameterAnalog();
 
             try
             {
@@ -321,9 +382,9 @@ namespace SHARP3D
             return fileAnalog;
         }
 
-        internal C3dParameterPoint setFilePoint(int analogUsed, float analogRate)
+        internal C3dFileParameterPoint setFilePoint(int analogUsed, float analogRate)
         {
-            C3dParameterPoint filePoint = new C3dParameterPoint();
+            C3dFileParameterPoint filePoint = new C3dFileParameterPoint();
 
             filePoint.Frames = GetRightAmountOfFrames();
             filePoint.Rate = GetParameter("point", "rate").Data?.GetValue(0) as float? ?? 0f;

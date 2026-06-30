@@ -1,4 +1,5 @@
 ﻿
+using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -51,18 +52,32 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             Group = group.ToUpper();
             Name = name.ToUpper();
             Description = description;
-            Data = data;
+            Data = data; // TODO
             Dimensions = GetDimensions(data);
             Locked = locked;
         }
 
         public C3dParameter(string groupName, C3dFileParameter parameter)
         {
-            Group = groupName.ToUpper();
+            if (ArrayUtils.IsBaseElementPrimitive(parameter.Data))
+            {
+                if (ArrayUtils.IsBaseElementString(parameter.Data)) 
+                {
+                    Data = StringArrayToPaddedCharArray(parameter.Data);
+                }
+                else
+                {
+                    Data = parameter.Data;
+                }    
+            }
+            else
+            {
+                throw new ArgumentException($"Only primitive types and string are supported. {parameter.Data.GetType().GetElementType().Name} is unsupported.");
+            }
+                Group = groupName.ToUpper();
             Name = parameter.Name.ToUpper();
             Description = parameter.Description;
-            Data = parameter.Data;
-            Dimensions = GetDimensions(parameter.Data);
+            Dimensions = GetDimensions(Data);
             Locked = parameter.Locked;
         }
 
@@ -74,6 +89,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 dimensions.Add(Data.GetLength(i));
             }
             return dimensions.ToArray();
+        }
+
+        private Array StringArrayToPaddedCharArray(Array stringData)
+        {
+            return new char[0];
         }
 
     }

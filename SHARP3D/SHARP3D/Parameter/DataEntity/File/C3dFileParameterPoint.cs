@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Parameter.DataEntity
 {
-    public  class C3dParameterPoint
+    public  class C3dFileParameterPoint
     {
         public string[] Descriptions = new string[] { };
         public int Frames = 0;

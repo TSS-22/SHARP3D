@@ -1,4 +1,8 @@
-﻿namespace SHARP3D.Parameter.DataEntity.Clean
+﻿using SHARP3D.Parameter.DataEntity.File;
+using SHARP3D.Utils;
+using System.Text.RegularExpressions;
+
+namespace SHARP3D.Parameter.DataEntity.Clean
 {
     public class C3dParameterSection
     {
@@ -16,13 +20,41 @@
             List<C3dParameterGroup> groups = new List<C3dParameterGroup>();
             foreach (C3dFileParameterGroup fileGroup in fileGroups)
             {
-                Console.WriteLine(fileGroup.Name);
                 groups.Add(new C3dParameterGroup(fileGroup));
             }
 
             Groups = groups;
         }
-
+        public void DeleteUneededParametersFromFiles()
+        {
+            List<C3dParameterGroup> newGroups = new List<C3dParameterGroup>();
+            for(int idGroup = 0; idGroup<Groups.Count; idGroup++)
+            {
+                string[] regexParametersList = new string[] { };
+                if (Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.TryGetValue(Groups[idGroup].Name, out regexParametersList))
+                {
+                    List<C3dParameter> newParameters = new List<C3dParameter>();
+                    for(int idParameter = 0; idParameter < Groups[idGroup].Parameters.Count; idParameter++)
+                    {
+                        bool toKeep = true;
+                        foreach(string regexParameter in regexParametersList)
+                        {
+                            if (Regex.IsMatch(Groups[idGroup].Parameters[idParameter].Name, regexParameter))
+                            {
+                                toKeep = false;
+                                break;
+                            }
+                        }
+                        if (toKeep)
+                        {
+                            newParameters.Add(Groups[idGroup].Parameters[idParameter]);
+                        }
+                    }
+                    Groups[idGroup].Parameters = newParameters;
+                }   
+            }
+        }
+        
         public C3dParameterGroup GetGroup(string name)
         {
             foreach (C3dParameterGroup group in Groups)
@@ -34,12 +66,29 @@
             }
             throw new ArgumentException($"Parameter group with name '{name.ToUpper()}' not found in section.");
         }
+
+        public int GetGroupIndex(string groupName)
+        {
+            for(int i=0; i<Groups.Count; i++)
+            {
+                if (Groups[i].Name == groupName.ToUpper())
+                {
+                    return i;
+                }
+            }
+            throw new ArgumentException($"Parameter group with name '{groupName.ToUpper()}' not found in section.");
+        }
+
         public void AddGroup(string name, string description, List<C3dParameter>? parameters = null)
         {
-            if (Groups.Any(g => g.Name == name.ToUpper()))
+            foreach(C3dParameterGroup group in Groups)
             {
-                throw new ArgumentException($"A parameter group with the name '{name.ToUpper()}' already exists in section.");
+                if ((group.Name == name.ToUpper()))
+                {
+                    throw new ArgumentException($"A parameter group with the name '{name.ToUpper()}' already exists in section.");
+                }
             }
+            
             Groups.Add(new C3dParameterGroup(name, description, parameters));
         }
 
@@ -82,6 +131,13 @@
             return groupFound.GetParameter(parameterName);
         }
 
+        public (int,int) GetParameterIndex(string groupName, string parameterName)
+        {
+            int groupIndex = GetGroupIndex(groupName);
+            return (groupIndex, Groups[groupIndex].GetParameterIndex(parameterName));
+        }
+
+
         public void DeleteParameter(string groupName, string parameterName)
         {
             C3dParameterGroup groupFound = GetGroup(groupName);
@@ -91,5 +147,106 @@
                 throw new ArgumentException($"Parameter '{groupName.ToUpper()}:{parameterName.ToUpper()}' was not deleted because it cannot be found.");
             }
         }
+
+        public string DisplayStringParameterTree()
+        {
+            string parameterTree = "------\nGroups and Parameters:\n------\n";
+
+            foreach(C3dParameterGroup group in Groups)
+            {
+                parameterTree = string.Concat(parameterTree, $"{group.Name}:\n");
+                foreach(C3dParameter parameter in group.Parameters)
+                {
+                    parameterTree = string.Concat(parameterTree, $"\t{parameter.Name}\n");
+                }
+                parameterTree = string.Concat(parameterTree, "------\n");
+            }
+
+            return parameterTree;
+        }
+
+        public string DisplayStringListParameters(C3dParameterGroup group)
+        {
+            string parameters = $"------\n{group.Name}:\n------\n";
+
+            foreach (C3dParameter parameter in group.Parameters)
+            {
+                parameters = string.Concat(parameters, $"{parameter.Name}\n");
+            }
+            parameters = string.Concat(parameters, "------\n");
+
+            return parameters;
+        }
+
+        public string DisplayStringListParameters(string groupName)
+        {
+            try
+            {
+                return DisplayStringListParameters(GetGroup(groupName));
+            }
+            catch (ArgumentException ex) 
+            {
+                throw;
+            }
+            
+        }
+
+        public string DisplayStringListGroups()
+        {
+            string parameterTree = "------\nGroups:\n------\n";
+
+            foreach (C3dParameterGroup group in Groups)
+            {
+                parameterTree = string.Concat(parameterTree, $"{group.Name}\n"); 
+            }
+            parameterTree = string.Concat(parameterTree, "------\n");
+            return parameterTree;
+        }
+
+        public Dictionary<string, string[]> GetStringParameterTree()
+        {
+            Dictionary<string, string[]> parameterTree = new Dictionary<string, string[]>();
+
+            foreach (C3dParameterGroup group in Groups)
+            {
+                parameterTree.Add(group.Name, GetStringListParameters(group.Name));
+            }
+
+            return parameterTree;
+        }
+
+        public string[] GetStringListParameters(C3dParameterGroup group)
+        {
+            List<string> parametersNameList = new List<string>();
+            foreach (C3dParameter parameter in group.Parameters)
+            {
+                parametersNameList.Add(parameter.Name);
+            }
+            return parametersNameList.ToArray();
+        }
+
+        public string[] GetStringListParameters(string groupName)
+        {
+            try
+            {
+                return GetStringListParameters(GetGroup(groupName));
+            }
+            catch (ArgumentException ex)
+            {
+                throw;
+            }
+
+        }
+
+        public string[] GetStringListGroups()
+        {
+            List<string> groupsNameList = new List<string>();
+            foreach (C3dParameterGroup group in Groups)
+            {
+                groupsNameList.Add(group.Name);
+            }
+            return groupsNameList.ToArray();
+        }
+
     }
 }

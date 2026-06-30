@@ -1,6 +1,6 @@
 ﻿namespace SHARP3D.Parameter.DataEntity
 {
-    public class C3dParameterAnalog
+    public class C3dFileParameterAnalog
     {
         public int Bits { get; set; } = 12;
         public float[] ChannelScale = new float[] { };

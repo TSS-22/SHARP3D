@@ -4,6 +4,8 @@
 
 - **Locked**: False
 
+This parameter seems to be of the form [6,6,USED].
+
 A calibration matrix enables software applications to correct for cross talk between outputs of the force platform. Software applications that use the full calibration matrix to correct for cross talk will typically provide more accurate results when compared to applications that only have access to the major diagonal component.
 
 Below is a typical manufacturer's crosstalk matrix supplied in Newton-meters (Nm). The major diagonal components are highlighted in bold.
