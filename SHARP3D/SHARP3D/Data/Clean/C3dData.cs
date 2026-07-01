@@ -16,13 +16,13 @@ namespace SHARP3D.Data.Clean
             // Points
             if (c3dFile.Data.Points.Count != 0)
             {
-                Points = GetPointDataFromFile(c3dFile.Data.Points);
+                Points = GetPointDataFromFile(c3dFile.Data.Points, c3dFile.Point);
             }
 
             // Analogs
             if (c3dFile.Data.Points.Count != 0)
             {
-                Analogs = GetAnalogDataFromFile(c3dFile.Data.Analogs);
+                Analogs = GetAnalogDataFromFile(c3dFile.Data.Analogs, c3dFile.Analog);
             }
 
             // Forceplate
