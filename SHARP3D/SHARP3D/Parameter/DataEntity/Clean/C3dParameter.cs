@@ -60,6 +60,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             string group,
             string name,
             Array data,
+            bool isFortranOrdered = false,
             string description= "No Description provided.",
             bool locked=false
             )
@@ -74,11 +75,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             {
                 if (ArrayUtils.IsBaseElementString(data))
                 {
-                    Data = StringArrayToPaddedCharArray(data);
+                    Data = isFortranOrdered ? StringArrayToPaddedCharArray(data) : StringArrayToPaddedCharArray(data).ToFortranColumnMajor();
                 }
                 else
                 {
-                    Data = data;
+                    Data = isFortranOrdered ? data : data.ToFortranColumnMajor();
                 }
             }
             else

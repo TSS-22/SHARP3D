@@ -81,7 +81,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             throw new ArgumentException($"Parameter with name '{nameParameter.ToUpper()}' not found in group '{Name}'.");            
         }
 
-        public void AddParameter(string parameterName, Array data, string description= "No Description provided.", bool locked=false)
+        public void AddParameter(string parameterName, Array data, string description= "No Description provided.", bool locked=false, bool isFortranOrdered = false)
         {
             if (Parameters.Any(p => p.Name == parameterName.ToUpper()))
             {
@@ -100,7 +100,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 }
             }
 
-            Parameters.Add(new C3dParameter(Name, parameterName, data, description));
+            Parameters.Add(new C3dParameter(Name, parameterName, data, isFortranOrdered, description));
         }
 
         public void AddParameter(C3dFileParameter fileParameter)

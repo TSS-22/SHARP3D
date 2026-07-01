@@ -5,5 +5,4 @@
         public float GeneralScale = 1;
         public int SamplesPerFrame = 0;
     }
-
 }
