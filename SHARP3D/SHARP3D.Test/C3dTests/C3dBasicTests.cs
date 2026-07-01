@@ -122,7 +122,7 @@ namespace SHARP3D.Test.C3dTests
             }
             else
             {
-                Assert.Equal(expectedResults.PointFrames, c3d.Data.Points[0].Point.Length);
+                Assert.Equal(expectedResults.PointFrames, c3d.Data.Points[0].Point.GetLength(0));
             }
             
 
