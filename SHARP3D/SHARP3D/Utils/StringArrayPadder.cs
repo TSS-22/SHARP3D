@@ -3,7 +3,7 @@
     public class StringArrayPadder
     {
         // Convert string array of any dimensionality (1-6D) to char array (+1 dim for characters)
-        public static Array PadStringsToChar<T>(Array inputArray, int? maxStringLength = null)
+        public static Array PadStringsToChar(Array inputArray, int? maxStringLength = null)
         {
             if (inputArray == null) throw new ArgumentNullException(nameof(inputArray));
 
