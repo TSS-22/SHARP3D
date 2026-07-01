@@ -1,7 +1,6 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
-using System.Threading.Channels;
 
 namespace SHARP3D.Data.Clean
 {
@@ -58,7 +57,6 @@ namespace SHARP3D.Data.Clean
             {
 
             }
-
 
             return Points.Length !=0 ? Points[0].Residual.Length : 0;
         }

@@ -149,6 +149,33 @@
         }
 
         /// <summary>
+        /// Find the base elements of a jagged or multi-dimensional array.
+        /// </summary>
+        /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>int[][]</c>) or multi-dimensional array.</param>
+        /// <returns>
+        /// The type of the innermost elements of the array, or <c>null</c> if the array is <c>null</c> or empty.
+        /// </returns>
+        /// <remarks>
+        /// This method recursively drills down to the innermost element type of the array.
+        /// </remarks>
+        public static Type? GetTypeBaseElement(Array array)
+        {
+            if (array == null)
+                return null;
+
+            Type type = array.GetType();
+
+            // Drill down to the innermost element type
+            while (type.IsArray)
+            {
+                type = type.GetElementType();
+            }
+
+            // Check if the innermost type is primitive
+            return type;
+        }
+
+        /// <summary>
         /// Determines whether the base elements of a jagged or multi-dimensional array are of type <see cref="string"/>.
         /// </summary>
         /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>string[][]</c>) or multi-dimensional array.</param>

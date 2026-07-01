@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
-using System.Security.Cryptography;
+using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
@@ -26,7 +26,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         public List<C3dParameter> Parameters = new List<C3dParameter> { };
         bool Locked = false;
 
-        public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null)
+        public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null, bool locked= false)
         {
             Name = name.ToUpper();
             Description = description;
@@ -47,7 +47,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
         }
 
-        public string[] ListParameters()
+        public string[] ListParametersName()
         {
             string[] parameterNames = new string[Parameters.Count];
             for (int i = 0; i < Parameters.Count; i++)
