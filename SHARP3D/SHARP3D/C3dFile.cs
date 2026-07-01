@@ -454,7 +454,6 @@ namespace SHARP3D
 
         internal float GetAnalogGeneralScale()
         {
-            // TODO: Should I default to 0 or 1 if the parameter is not found or does not have value?
             try 
             {
                 return GetParameter("analog", "gen_scale").Data?.GetValue(0) as float? ?? 1f; 

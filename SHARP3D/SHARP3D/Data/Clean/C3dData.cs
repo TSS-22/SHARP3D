@@ -140,9 +140,9 @@ namespace SHARP3D.Data.Clean
 
         public void AddForceplate(C3dForceplate forceplateToAdd)
         {
-            foreach (C3dAnalogChannel channel in forceplateToAdd.Data)
+            foreach (C3dAnalogChannel channel in forceplateToAdd.Channels)
             {
-                foreach (C3dAnalogChannel channel2 in forceplateToAdd.Data)
+                foreach (C3dAnalogChannel channel2 in forceplateToAdd.Channels)
                 {
                     if (channel.Label == channel2.Label)
                     {
@@ -417,7 +417,7 @@ namespace SHARP3D.Data.Clean
                             Origin = fileParameterForceplate.Origin[idPlate],
                             Type = fileParameterForceplate.Type[idPlate],
                             Zero = fileParameterForceplate.Zero,
-                            Data = forceplateData.ToArray()
+                            Channels = forceplateData.ToArray()
                         });
                 }
                 

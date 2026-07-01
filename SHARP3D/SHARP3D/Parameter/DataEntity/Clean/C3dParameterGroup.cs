@@ -43,7 +43,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             Locked = group.Locked;
             foreach (C3dFileParameter parameter in group.Parameters)
             {
-                AddParameter(parameter);
+                try
+                {
+                    AddParameter(parameter);
+                }
+                catch (ArgumentException) { }
             }
         }
 
