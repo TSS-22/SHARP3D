@@ -75,7 +75,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             {
                 if (ArrayUtils.IsBaseElementString(data))
                 {
-                    Data = isFortranOrdered ? StringArrayToPaddedCharArray(data) : StringArrayToPaddedCharArray(data).ToFortranColumnMajor();
+                    if (data.Rank > 6)
+                    {
+                        throw new ArgumentException("C3d only support data array of up to 7 dimensions.");
+                    }
+                    Data = isFortranOrdered ? StringArrayPadder.PadStringsToChar(data) : StringArrayPadder.PadStringsToChar(data).ToFortranColumnMajor();
                 }
                 else
                 {
@@ -105,7 +109,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             {
                 if (ArrayUtils.IsBaseElementString(parameter.Data)) 
                 {
-                    Data = StringArrayToPaddedCharArray(parameter.Data);
+                    if (parameter.Data.Rank > 6)
+                    {
+                        throw new ArgumentException("C3d only support data array of up to 7 dimensions.");
+                    }
+                    Data = StringArrayPadder.PadStringsToChar(parameter.Data);
                 }
                 else
                 {
@@ -131,11 +139,6 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 dimensions.Add(Data.GetLength(i));
             }
             return dimensions.ToArray();
-        }
-
-        private Array StringArrayToPaddedCharArray(Array stringData)
-        {
-            return new char[0];
         }
 
     }
