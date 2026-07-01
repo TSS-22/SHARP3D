@@ -1,10 +1,7 @@
 ﻿
 using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
-using System.Data.Common;
-using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
 {

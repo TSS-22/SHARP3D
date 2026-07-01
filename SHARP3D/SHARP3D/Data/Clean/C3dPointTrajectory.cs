@@ -2,7 +2,6 @@
 {
     public class C3dPointTrajectory
     {
-        // TODO: label should be unique.
         public string Label = "Unkown";
         public string Description = "No description provided for trajectory.";
 

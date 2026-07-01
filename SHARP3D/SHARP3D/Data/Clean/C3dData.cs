@@ -155,7 +155,6 @@ namespace SHARP3D.Data.Clean
             Forceplates = forceplates.ToArray();
         }
 
-        // TODO
         public void DeleteForceplate(int[] idPlates)
         {
             List<C3dForceplate> newForceplate = new List<C3dForceplate> { };
