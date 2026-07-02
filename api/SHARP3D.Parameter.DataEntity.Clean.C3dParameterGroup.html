@@ -185,8 +185,8 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__ctor_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor*"></a>
 
-  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__ctor_System_String_System_String_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_Clean_C3dParameter__" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})">
-  C3dParameterGroup(string, string, List&lt;C3dParameter&gt;?)
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup__ctor_System_String_System_String_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_Clean_C3dParameter__System_Boolean_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.#ctor(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter},System.Boolean)">
+  C3dParameterGroup(string, string, List&lt;C3dParameter&gt;?, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -194,7 +194,7 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public C3dParameterGroup(string name, string description, List&lt;C3dParameter&gt;? parameters = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dParameterGroup(string name, string description, List&lt;C3dParameter&gt;? parameters = null, bool locked = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -204,6 +204,8 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
     <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html">C3dParameter</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>locked</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -385,7 +387,7 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_SHARP3D_Parameter_DataEntity_File_C3dFileParameter_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(SHARP3D.Parameter.DataEntity.File.C3dFileParameter)">
   AddParameter(C3dFileParameter)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -414,16 +416,16 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter*"></a>
 
-  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_System_String_System_Array_System_String_System_Boolean_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(System.String,System.Array,System.String,System.Boolean)">
-  AddParameter(string, Array, string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_AddParameter_System_String_System_Array_System_String_System_Boolean_System_Boolean_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.AddParameter(System.String,System.Array,System.String,System.Boolean,System.Boolean)">
+  AddParameter(string, Array, string, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddParameter(string parameterName, Array data, string description = &quot;No Description provided.&quot;, bool locked = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddParameter(string parameterName, Array data, string description = &quot;No Description provided.&quot;, bool locked = false, bool isFortranOrdered = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -435,6 +437,8 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
     <dt><code>description</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>locked</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>isFortranOrdered</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -453,7 +457,7 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_DeleteParameter_System_String_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.DeleteParameter(System.String)">
   DeleteParameter(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -484,7 +488,7 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_GetParameter_System_String_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameter(System.String)">
   GetParameter(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -520,7 +524,7 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_GetParameterIndex_System_String_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.GetParameterIndex(System.String)">
   GetParameterIndex(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -552,18 +556,18 @@ Class C3dParameterGroup  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_ListParameters_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.ListParameters*"></a>
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_ListParametersName_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.ListParametersName*"></a>
 
-  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_ListParameters" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.ListParameters">
-  ListParameters()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_ListParametersName" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.ListParametersName">
+  ListParametersName()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterGroup.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] ListParameters()</code></pre>
+    <pre><code class="lang-csharp hljs">public string[] ListParametersName()</code></pre>
   </div>
 
 

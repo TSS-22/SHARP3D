@@ -152,6 +152,48 @@ Class ArrayUtils  <a class="header-action link-secondary" title="View source" hr
 </h2>
 
 
+  <a id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_" data-uid="SHARP3D.Utils.ArrayUtils.GetTypeBaseElement*"></a>
+
+  <h3 id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)">
+  GetTypeBaseElement(Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Find the base elements of a jagged or multi-dimensional array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Type? GetTypeBaseElement(Array array)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">Array</a></dt>
+    <dd><p>The input array to check. Can be a jagged array (e.g., <code>int[][]</code>) or multi-dimensional array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd><p>The type of the innermost elements of the array, or <code>null</code> if the array is <code>null</code> or empty.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_System_Array__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method recursively drills down to the innermost element type of the array.</p>
+</div>
+
+
+
+
   <a id="SHARP3D_Utils_ArrayUtils_IsBaseElementPrimitive_" data-uid="SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive*"></a>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_IsBaseElementPrimitive_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)">
@@ -206,7 +248,7 @@ For example:</p>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_IsBaseElementString_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)">
   IsBaseElementString(Array)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the base elements of a jagged or multi-dimensional array are of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
@@ -351,6 +393,91 @@ For example:</p>
     <dd><p>Thrown if <code class="paramref">jagged3DArray</code> is null, empty, or if any inner 2D array has different dimensions than the first.</p>
 </dd>
   </dl>
+
+
+
+  <a id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor_" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor*"></a>
+
+  <h3 id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)">
+  ToFortranColumnMajor(Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
+Supports arrays of rank 1 to 7.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Array ToFortranColumnMajor(this Array rowMajorArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowMajorArray</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">Array</a></dt>
+    <dd><p>The input row-major array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">Array</a></dt>
+    <dd><p>A new array with column-major layout.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor_" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor*"></a>
+
+  <h3 id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor__1___0_0__0__0___" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor``1(``0[0:,0:,0:])">
+  ToFortranColumnMajor&lt;T&gt;(T[,,])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T[,,] ToFortranColumnMajor&lt;T&gt;(this T[,,] rowMajorArray)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rowMajorArray</code> T[,,]</dt>
+    <dd><p>The input row-major array.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>T[,,]</dt>
+    <dd><p>A new array with column-major layout.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of the array elements.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 

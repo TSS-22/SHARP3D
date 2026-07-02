@@ -89,7 +89,7 @@
 
 
   <h1 id="SHARP3D_Data_C3dFileDataHelper" data-uid="SHARP3D.Data.C3dFileDataHelper" class="text-break">
-Class C3dFileDataHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class C3dFileDataHelper  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -161,7 +161,7 @@ such as reading data frames, processing points and analogs, and validating data 
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_FromFileStream_SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.FromFileStream(SHARP3D.Data.DataEntity.C3dFileDataContext)">
   FromFileStream(C3dFileDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads and parses C3D data from a file stream using the provided context.</p>
@@ -211,7 +211,7 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_GetCameraMask_System_Byte_" data-uid="SHARP3D.Data.C3dFileDataHelper.GetCameraMask(System.Byte)">
   GetCameraMask(byte)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L424"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L442"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -247,7 +247,7 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_IsRaw_System_Byte_System_Int32_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsRaw(System.Byte,System.Int32)">
   IsRaw(byte, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L395"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines if a point is raw or interpolated based on camera/sign byte and residual.</p>
@@ -289,7 +289,7 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_IsValid_System_Byte_System_Single___System_Boolean___SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte,System.Single[],System.Boolean[],SHARP3D.Data.DataEntity.C3dFileDataContext)">
   IsValid(byte, float[], bool[], C3dFileDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L410"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L418"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines if a point is valid based on camera/sign byte, point values, and camera mask.</p>
@@ -336,11 +336,87 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
 
 
+  <a id="SHARP3D_Data_C3dFileDataHelper_IsValid_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsValid*"></a>
+
+  <h3 id="SHARP3D_Data_C3dFileDataHelper_IsValid_System_Byte___SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte[],SHARP3D.Data.DataEntity.C3dFileDataContext)">
+  IsValid(byte[], C3dFileDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L432"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static bool IsValid(byte[] bufferCamSignRes, C3dFileDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bufferCamSignRes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataContext.html">C3dFileDataContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Data_C3dFileDataHelper_IsValid_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsValid*"></a>
+
+  <h3 id="SHARP3D_Data_C3dFileDataHelper_IsValid_System_Int16_SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.IsValid(System.Int16,SHARP3D.Data.DataEntity.C3dFileDataContext)">
+  IsValid(short, C3dFileDataContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">internal static bool IsValid(short camSignRes, C3dFileDataContext context)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>camSignRes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd></dd>
+    <dt><code>context</code> <a class="xref" href="SHARP3D.Data.DataEntity.C3dFileDataContext.html">C3dFileDataContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SHARP3D_Data_C3dFileDataHelper_ReadDataFrameFloat32_" data-uid="SHARP3D.Data.C3dFileDataHelper.ReadDataFrameFloat32*"></a>
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_ReadDataFrameFloat32_SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.ReadDataFrameFloat32(SHARP3D.Data.DataEntity.C3dFileDataContext)">
   ReadDataFrameFloat32(C3dFileDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L296"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads a data frame with FLOAT32 data type.</p>
@@ -379,7 +455,7 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 
   <h3 id="SHARP3D_Data_C3dFileDataHelper_ReadDataFrameInt16_SHARP3D_Data_DataEntity_C3dFileDataContext_" data-uid="SHARP3D.Data.C3dFileDataHelper.ReadDataFrameInt16(SHARP3D.Data.DataEntity.C3dFileDataContext)">
   ReadDataFrameInt16(C3dFileDataContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Reads a data frame with INT16 data type.</p>
@@ -418,7 +494,7 @@ That said we do not approve of the practice of cutting off mid-frames.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Data/C3dFileDataHelper.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 
