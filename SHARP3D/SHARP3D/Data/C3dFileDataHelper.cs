@@ -1,6 +1,7 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System;
 
 
 namespace SHARP3D.Data
@@ -227,17 +228,23 @@ namespace SHARP3D.Data
                     context.C3dStream.ReadExactly(buffer);
                     pointValues.Add(C3dBytesConvertor.ToInt(buffer, context.Processor) * context.PointScaleFactor);
                 }
+                byte[] bufferCamSignRes = new byte[2];
+                context.C3dStream.ReadExactly(bufferCamSignRes);
 
-                byte camAndSign = (byte)context.C3dStream.ReadByte();
-                int residualInt = context.C3dStream.ReadByte();
+                //byte camAndSign = (byte)context.C3dStream.ReadByte();
+                //int residualInt = context.C3dStream.ReadByte();
+                byte camAndSign = bufferCamSignRes[0];
+                int residualInt = bufferCamSignRes[1];
+
                 bool[] cameraMask = GetCameraMask(camAndSign);
+
                 points.Add(new C3dFileDataPoint 
                 {
                     Point = pointValues.ToArray(),
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(camAndSign, pointValues.ToArray(), cameraMask, context)
+                    Valid = IsValid(bufferCamSignRes, context)
                 });
             }
             // Get Analogs
@@ -314,6 +321,7 @@ namespace SHARP3D.Data
                 float floatCamSignResidual = C3dBytesConvertor.ToFloat(floatCamSignResidualBuffer, context.Processor);
                 
                 // TODO: Reactivate for publication. Too many files badly done which create way too much warnings.
+                // It seems that it is done on purpose though.
                 if (floatCamSignResidual > 32768)
                 {
                     if (floatCamSignResidual > 65536)
@@ -337,7 +345,7 @@ namespace SHARP3D.Data
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(camAndSign, pointValues.ToArray(), cameraMask, context)
+                    Valid = IsValid((short)floatCamSignResidual, context)
                 });
             }
             // Get Analogs
@@ -419,6 +427,16 @@ namespace SHARP3D.Data
             //bool signTest =  (camAndSign & 0b10000000) == 0 ? true : false;
             //bool cameraTest = cameraMask.Any(x => x);
             //return signTest && cameraTest; // Because some software don't save correctly the values correctly to tell if it is a valid or not measurement.
+        }
+
+        internal static bool IsValid(byte[] bufferCamSignRes, C3dFileDataContext context)
+        {
+            return C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor) < 0 ? false : true;
+        }
+
+        internal static bool IsValid(Int16 camSignRes, C3dFileDataContext context)
+        {
+            return camSignRes < 0 ? false : true;
         }
 
         internal static bool[] GetCameraMask(byte camAndSign) 

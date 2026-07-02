@@ -211,7 +211,7 @@ namespace SHARP3D.Test.Tests
                 {
                     if (expectedResults.PointLast0[i] == null)
                     {
-                        Assert.Null(expectedResults.PointLast0[i]);
+                        Assert.Null(expectedResults.PointLast0[i]); // The fuck
                     }
                     else
                     {

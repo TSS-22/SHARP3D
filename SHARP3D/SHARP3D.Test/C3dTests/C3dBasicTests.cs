@@ -143,7 +143,11 @@ namespace SHARP3D.Test.C3dTests
                 {
                     if (expectedResults.PointFirst0[i] == null)
                     {
-                        Assert.Null(expectedResults.PointFirst0[i]);
+                        Assert.Null(c3d.Data.Points[0].Point[0, i]);
+                    }
+                    else if(expectedResults.PointFirst0[i] == 0)
+                    {
+                        Assert.Null(c3d.Data.Points[0].Point[0, i]);
                     }
                     else
                     {
@@ -169,9 +173,13 @@ namespace SHARP3D.Test.C3dTests
                     {
                         Assert.Null(expectedResults.PointLast0[i]);
                     }
+                    else if (expectedResults.PointFirst0[i] == 0)
+                    {
+                        Assert.Null(c3d.Data.Points[0].Point[c3d.Data.Points[0].Point.GetLength(0) - 1, i]);
+                    }
                     else
                     {
-                        Assert.Equal(expectedResults.PointLast0[i], c3d.Data.Points[0].Point[c3d.Data.Points[0].Point.GetLength(0) - 1, 0]);
+                        Assert.Equal(expectedResults.PointLast0[i], c3d.Data.Points[0].Point[c3d.Data.Points[0].Point.GetLength(0) - 1, i]);
                     }
                 }
             }
