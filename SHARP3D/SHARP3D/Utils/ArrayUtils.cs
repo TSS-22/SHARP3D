@@ -149,6 +149,33 @@
         }
 
         /// <summary>
+        /// Find the base elements of a jagged or multi-dimensional array.
+        /// </summary>
+        /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>int[][]</c>) or multi-dimensional array.</param>
+        /// <returns>
+        /// The type of the innermost elements of the array, or <c>null</c> if the array is <c>null</c> or empty.
+        /// </returns>
+        /// <remarks>
+        /// This method recursively drills down to the innermost element type of the array.
+        /// </remarks>
+        public static Type? GetTypeBaseElement(Array array)
+        {
+            if (array == null)
+                return null;
+
+            Type type = array.GetType();
+
+            // Drill down to the innermost element type
+            while (type.IsArray)
+            {
+                type = type.GetElementType();
+            }
+
+            // Check if the innermost type is primitive
+            return type;
+        }
+
+        /// <summary>
         /// Determines whether the base elements of a jagged or multi-dimensional array are of type <see cref="string"/>.
         /// </summary>
         /// <param name="array">The input array to check. Can be a jagged array (e.g., <c>string[][]</c>) or multi-dimensional array.</param>
@@ -188,6 +215,82 @@
 
             // Check if the innermost type is string
             return type == typeof(string);
+        }
+
+        /// <summary>
+        /// Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
+        /// </summary>
+        /// <typeparam name="T">Type of the array elements.</typeparam>
+        /// <param name="rowMajorArray">The input row-major array.</param>
+        /// <returns>A new array with column-major layout.</returns>
+        public static T[,,] ToFortranColumnMajor<T>(this T[,,] rowMajorArray)
+        {
+            int dim1 = rowMajorArray.GetLength(0);
+            int dim2 = rowMajorArray.GetLength(1);
+            int dim3 = rowMajorArray.GetLength(2);
+
+            T[,,] columnMajorArray = new T[dim3, dim2, dim1];
+
+            for (int i = 0; i < dim1; i++)
+                for (int j = 0; j < dim2; j++)
+                    for (int k = 0; k < dim3; k++)
+                        columnMajorArray[k, j, i] = rowMajorArray[i, j, k];
+
+            return columnMajorArray;
+        }
+
+        /// <summary>
+        /// Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
+        /// Supports arrays of rank 1 to 7.
+        /// </summary>
+        /// <param name="rowMajorArray">The input row-major array.</param>
+        /// <returns>A new array with column-major layout.</returns>
+        public static Array ToFortranColumnMajor(this Array rowMajorArray)
+        {
+            if (rowMajorArray == null)
+                throw new ArgumentNullException(nameof(rowMajorArray));
+
+            int rank = rowMajorArray.Rank;
+            if (rank < 1 || rank > 7)
+                throw new ArgumentException("Array rank must be between 1 and 7.", nameof(rowMajorArray));
+
+            // Get the dimensions of the input array
+            int[] dimensions = new int[rank];
+            for (int i = 0; i < rank; i++)
+                dimensions[i] = rowMajorArray.GetLength(i);
+
+            // Reverse the dimensions for column-major
+            int[] fortranDimensions = dimensions.Reverse().ToArray();
+
+            // Create the output array with reversed dimensions
+            Array columnMajorArray = Array.CreateInstance(rowMajorArray.GetType().GetElementType(), fortranDimensions);
+
+            // Iterate over all indices in the input array
+            int[] indices = new int[rank];
+            Action<int> incrementIndices = null;
+            incrementIndices = (currentRank) =>
+            {
+                if (currentRank == rank)
+                {
+                    // Calculate the corresponding indices in the output array
+                    int[] fortranIndices = new int[rank];
+                    for (int i = 0; i < rank; i++)
+                        fortranIndices[i] = indices[rank - 1 - i];
+
+                    // Copy the value
+                    columnMajorArray.SetValue(
+                        rowMajorArray.GetValue(indices),
+                        fortranIndices
+                    );
+                    return;
+                }
+
+                for (indices[currentRank] = 0; indices[currentRank] < dimensions[currentRank]; indices[currentRank]++)
+                    incrementIndices(currentRank + 1);
+            };
+
+            incrementIndices(0);
+            return columnMajorArray;
         }
     }
 }

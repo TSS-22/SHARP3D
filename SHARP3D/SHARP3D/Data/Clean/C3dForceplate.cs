@@ -1,4 +1,5 @@
-﻿using SHARP3D.Utils.Enum;
+﻿using SHARP3D.Utils;
+using SHARP3D.Utils.Enum;
 
 namespace SHARP3D.Data.Clean
 {
@@ -24,20 +25,69 @@ namespace SHARP3D.Data.Clean
         public float[] Origin = new float[3];
         public ForceplateType Type = ForceplateType.UNKOWN;
         public (int, int) Zero = (0, 0);
-        public C3dAnalogChannel[] Data = new C3dAnalogChannel[] { }; // [Frame, Sample, Channel]
+        public C3dAnalogChannel[] Channels = new C3dAnalogChannel[] { }; // [Frame, Sample, Channel]
 
         public C3dForceplate() { }
 
-        // TODO
         public float[,] GetAllData()
         {
-            return new float[,] { };
+            List<float[]> analogs = new List<float[]>();
+
+            for(int idFrame = 0; idFrame < Channels[0].Data.Length; idFrame++)
+            {
+                List<float> frameData = new List<float>();
+                for (int idChannel = 0; idChannel < Channels.Length; idChannel++)
+                {
+                    frameData.Add(Channels[idChannel].Data[idFrame]);
+                }
+                analogs.Add(frameData.ToArray());
+            }
+
+            return analogs.To2DArray();
         }
 
-        // TODO
+        public float[] ApplyCalMat(float[] data)
+        {
+            switch (Type)
+            {
+                case ForceplateType.TYPE_2:
+                    if (CalibrationMatrix.Length > 0)
+                    {
+                        for (int i = 0; i < data.Length; i++)
+                        {
+                            data[i] = data[i] * CalibrationMatrix[i, i];
+                        }
+                    }
+                    return data;
+                case ForceplateType.TYPE_4:
+                    if (CalibrationMatrix.Length > 0)
+                    {
+                        return ArrayUtils.VecMatMultiplication(data, CalibrationMatrix);
+                    }
+                    else
+                    {
+                        return data;
+                    }
+                default:
+                    return data;
+            }
+        }
+
         public float[,] GetAllDataWithCalMat()
         {
-            return new float[,] { };
+            List<float[]> analogs = new List<float[]>();
+
+            for (int idFrame = 0; idFrame < Channels[0].Data.Length; idFrame++)
+            {
+                List<float> frameData = new List<float>();
+                for (int idChannel = 0; idChannel < Channels.Length; idChannel++)
+                {
+                    frameData.Add(Channels[idChannel].Data[idFrame]);
+                }
+                analogs.Add(ApplyCalMat(frameData.ToArray()));
+            }
+
+            return analogs.To2DArray();
         }
         // TODO?
         // This one on the back burner for the time being

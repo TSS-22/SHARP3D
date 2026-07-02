@@ -16,13 +16,13 @@ namespace SHARP3D.Data.Clean
             // Points
             if (c3dFile.Data.Points.Count != 0)
             {
-                Points = GetPointDataFromFile(c3dFile.Data.Points);
+                Points = GetPointDataFromFile(c3dFile.Data.Points, c3dFile.Point);
             }
 
             // Analogs
             if (c3dFile.Data.Points.Count != 0)
             {
-                Analogs = GetAnalogDataFromFile(c3dFile.Data.Analogs);
+                Analogs = GetAnalogDataFromFile(c3dFile.Data.Analogs, c3dFile.Analog);
             }
 
             // Forceplate
@@ -57,7 +57,6 @@ namespace SHARP3D.Data.Clean
             {
 
             }
-
 
             return Points.Length !=0 ? Points[0].Residual.Length : 0;
         }
@@ -113,6 +112,13 @@ namespace SHARP3D.Data.Clean
 
         public void AddAnalogChannel(C3dAnalogChannel channelToAdd)
         {
+            foreach (C3dAnalogChannel channel in Analogs)
+            {
+                if (channel.Label == channelToAdd.Label)
+                {
+                    throw new ArgumentException($"There is already an analog channel with label {channelToAdd.Label}. Labels must be uniques");
+                }
+            }
             List<C3dAnalogChannel> analogChannels = Analogs.ToList();
             analogChannels.Add(channelToAdd);
             Analogs = analogChannels.ToArray();
@@ -120,6 +126,13 @@ namespace SHARP3D.Data.Clean
 
         public void AddPointTrajectory(C3dPointTrajectory trajectoryToAdd)
         {
+            foreach (C3dPointTrajectory trajectory in Points)
+            {
+                if (trajectory.Label == trajectoryToAdd.Label)
+                {
+                    throw new ArgumentException($"There is already a 3D point trajectory with label {trajectory.Label}. Labels must be uniques");
+                }
+            }
             List<C3dPointTrajectory> points = Points.ToList();
             points.Add(trajectoryToAdd);
             Points = points.ToArray();
@@ -127,12 +140,21 @@ namespace SHARP3D.Data.Clean
 
         public void AddForceplate(C3dForceplate forceplateToAdd)
         {
+            foreach (C3dAnalogChannel channel in forceplateToAdd.Channels)
+            {
+                foreach (C3dAnalogChannel channel2 in forceplateToAdd.Channels)
+                {
+                    if (channel.Label == channel2.Label)
+                    {
+                        throw new ArgumentException($"There is already an analog channel with label {channel.Label}. Force plate channels Labels must be uniques");
+                    }
+                }
+            }
             List<C3dForceplate> forceplates = Forceplates.ToList();
             forceplates.Add(forceplateToAdd);
             Forceplates = forceplates.ToArray();
         }
 
-        // TODO
         public void DeleteForceplate(int[] idPlates)
         {
             List<C3dForceplate> newForceplate = new List<C3dForceplate> { };
@@ -395,7 +417,7 @@ namespace SHARP3D.Data.Clean
                             Origin = fileParameterForceplate.Origin[idPlate],
                             Type = fileParameterForceplate.Type[idPlate],
                             Zero = fileParameterForceplate.Zero,
-                            Data = forceplateData.ToArray()
+                            Channels = forceplateData.ToArray()
                         });
                 }
                 

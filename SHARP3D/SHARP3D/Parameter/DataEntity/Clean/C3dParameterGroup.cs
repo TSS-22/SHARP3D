@@ -1,6 +1,6 @@
 ﻿using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
-using System.Security.Cryptography;
+using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
 namespace SHARP3D.Parameter.DataEntity.Clean
@@ -26,7 +26,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
         public List<C3dParameter> Parameters = new List<C3dParameter> { };
         bool Locked = false;
 
-        public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null)
+        public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null, bool locked= false)
         {
             Name = name.ToUpper();
             Description = description;
@@ -43,11 +43,15 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             Locked = group.Locked;
             foreach (C3dFileParameter parameter in group.Parameters)
             {
-                AddParameter(parameter);
+                try
+                {
+                    AddParameter(parameter);
+                }
+                catch (ArgumentException) { }
             }
         }
 
-        public string[] ListParameters()
+        public string[] ListParametersName()
         {
             string[] parameterNames = new string[Parameters.Count];
             for (int i = 0; i < Parameters.Count; i++)
@@ -81,7 +85,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             throw new ArgumentException($"Parameter with name '{nameParameter.ToUpper()}' not found in group '{Name}'.");            
         }
 
-        public void AddParameter(string parameterName, Array data, string description= "No Description provided.", bool locked=false)
+        public void AddParameter(string parameterName, Array data, string description= "No Description provided.", bool locked=false, bool isFortranOrdered = false)
         {
             if (Parameters.Any(p => p.Name == parameterName.ToUpper()))
             {
@@ -100,7 +104,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 }
             }
 
-            Parameters.Add(new C3dParameter(Name, parameterName, data, description));
+            Parameters.Add(new C3dParameter(Name, parameterName, data, isFortranOrdered, description));
         }
 
         public void AddParameter(C3dFileParameter fileParameter)
