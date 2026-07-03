@@ -8,13 +8,13 @@ The first 512-bytes block at the beginning of every C3D file is referred as the 
 |-----------|-------------------------|-------------------------------------------------------------------------------------------------|
 | 1         | Byte 1: uint8, Byte 2: char | Byte 1: Number of 512-byte blocks to Parameter Section + 1.<br>Byte 2: Data storage format flag. |
 | 2         | uint16                  | Number of markers stored in each Data Frame.                                                    |
-| 3         | uint16                  | Total number of analog samples per Data Frame.                                                  |
+| 3         | uint16                  | Total number of analog samples per [Data Frame](./data/c3d-data-section.md#data-frame-structure).                                                  |
 | 4         | uint16                  | First frame number of raw data (not used/misleading).                                           |
 | 5         | uint16                  | Last frame number of raw data (not used/misleading).                                            |
 | 6         | uint16                  | Maximum 3D frame interpolation gap.                                                             |
 | 7-8       | float32                 | Data Scale factor.                                                                              |
 | 9         | uint16                  | Number of 512-byte blocks to the Data Section + 1.                                              |
-| 10        | uint16                  | Analog Frames per Data Frame.                                                                   |
+| 10        | uint16                  | [Analog Frames](./data/analog.md) per [Data Frame](./data/c3d-data-section.md#data-frame-structure).                                                                   |
 | 11-12     | float32                 | 3D Point Data acquisition rate in Hertz.                                                        |
 | 13-149    | —                       | Not used.                                                                                       |
 | 150       | uint16                  | Indicates support for 2 or 4-character Header Event labels.                                    |
@@ -54,7 +54,7 @@ It records the number of trajectories stored in each frame of the file as 3D poi
 
 ### Word 3: Total Number of Analog Samples per Data Frames
 
-It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples.
+It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.
 
 If the C3D file does not contain any analog data then the value of Word 3 will be zero.
 
@@ -90,7 +90,6 @@ The use of this item is not specified in the C3D file description although the m
 
 Any application reading the C3D file may override this value and interpolate gaps of any length if desired and record the maximum interpolation length by updating this value.
 
-
 ### Word 7-8: 3D Sacle Factor
 
 It contain the [3D Scale Factor](./parameters/required/point/point-scale_factor.md) value.
@@ -111,8 +110,7 @@ It gives the position of the First [Data Section](./data/c3d-data-section.md) bl
 
 ### Word 10: Number of Analog Frame per Data Frame
 
-It gives the number of Analog Frame per Data Frame. The C3D
-structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.
+It gives the number of Analog Frame per Data Frame. The C3D structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.
 
 While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.
 

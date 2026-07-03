@@ -800,7 +800,7 @@ namespace SHARP3D
             }
             if (Math.Abs(analogSamplePerFrame - (int)analogSamplePerFrame) > 0)
             {
-                return Header.AnalogSampleRatePerFrame;
+                return Header.AnalogFramePerDataFrame;
             }
             else
             {

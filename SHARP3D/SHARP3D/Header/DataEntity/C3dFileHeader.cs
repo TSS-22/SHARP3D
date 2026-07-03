@@ -40,10 +40,10 @@ namespace SHARP3D.Header.DataEntity
         ///<para>
         /// Word: 3
         ///</para>
-        /// The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.
+        /// The total number of analog samples in each 3D frame. If no analog data is stored, this value is zero.
         ///</summary>
         ///<remarks>
-        ///This parameter encompass the total analog sample recorded and can be confusing. For example if you have a force plate with 6 channels recording at 4 times the 3D marker acquisition rate, then the value of that variable should be: 4 * 6 = 24. But even this doesn't match the value from the test files.
+        /// It is given by the multiplication of the number of Analog Frame in each Data Frame by the number of Channel used.
         /// </remarks>
         public int AnalogSamplesPerFrame;
 
@@ -94,9 +94,9 @@ namespace SHARP3D.Header.DataEntity
         ///<para>
         /// Word: 10
         ///</para>
-        /// The analog sample rate per 3D frame.
+        /// The number of Analog Frame in each Data Frame.
         ///</summary>
-        public int AnalogSampleRatePerFrame;
+        public int AnalogFramePerDataFrame;
 
         ///<summary>
         ///<para>
@@ -144,7 +144,7 @@ namespace SHARP3D.Header.DataEntity
                    MaxFrameIntepolationGap == other.MaxFrameIntepolationGap &&
                    ScaleFactor == other.ScaleFactor &&
                    PointerDataSection == other.PointerDataSection &&
-                   AnalogSampleRatePerFrame == other.AnalogSampleRatePerFrame &&
+                   AnalogFramePerDataFrame == other.AnalogFramePerDataFrame &&
                    Rate3dFrame == other.Rate3dFrame &&
                    Support4charEventLabels == other.Support4charEventLabels &&
                    EventsNb == other.EventsNb &&
@@ -182,7 +182,7 @@ namespace SHARP3D.Header.DataEntity
                 hash = hash * 23 + MaxFrameIntepolationGap.GetHashCode();
                 hash = hash * 23 + ScaleFactor.GetHashCode();
                 hash = hash * 23 + PointerDataSection.GetHashCode();
-                hash = hash * 23 + AnalogSampleRatePerFrame.GetHashCode();
+                hash = hash * 23 + AnalogFramePerDataFrame.GetHashCode();
                 hash = hash * 23 + Rate3dFrame.GetHashCode();
                 hash = hash * 23 + Support4charEventLabels.GetHashCode();
                 hash = hash * 23 + EventsNb.GetHashCode();
@@ -242,7 +242,7 @@ namespace SHARP3D.Header.DataEntity
                 MaxFrameIntepolationGap = C3dBytesConvertor.ToInt(binaries.Skip(10).Take(2).ToArray(), processorFile),
                 ScaleFactor = Math.Abs(C3dBytesConvertor.ToFloat(binaries.Skip(12).Take(4).ToArray(), processorFile)),
                 PointerDataSection = (C3dBytesConvertor.ToInt(binaries.Skip(16).Take(2).ToArray(), processorFile) - 1) * 512, // I think the -1 comes from the fact that the guy that created the c3d don't like starting at index 0.
-                AnalogSampleRatePerFrame = C3dBytesConvertor.ToUInt(binaries.Skip(18).Take(2).ToArray(), processorFile),
+                AnalogFramePerDataFrame = C3dBytesConvertor.ToUInt(binaries.Skip(18).Take(2).ToArray(), processorFile),
                 Rate3dFrame = C3dBytesConvertor.ToFloat(binaries.Skip(20).Take(4).ToArray(), processorFile),
                 Support4charEventLabels = C3dBytesConvertor.ToInt(binaries.Skip(298).Take(2).ToArray(), processorFile) == 12345 ? true : false,
                 EventsNb = C3dBytesConvertor.ToInt(binaries.Skip(300).Take(2).ToArray(), processorFile),
