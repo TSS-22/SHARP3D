@@ -346,12 +346,12 @@ namespace SHARP3D
             catch (ParameterNotFoundException ex)
             {
                 fileForceplate = new C3dFileParameterForceplate();
-                Console.WriteLine($"No force plateform correctly advertised in {FilePath}: {ex.Message}");
+                Console.Error.WriteLine($"WARNING: No force plateform correctly advertised in {FilePath}: {ex.Message}");
 
             }
             catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine($"No force plateform correctly advertised in {FilePath}. {ex.Message}");
+                Console.Error.WriteLine($"WARNING: No force plateform correctly advertised in {FilePath}. {ex.Message}");
             }
 
             return fileForceplate;
@@ -366,7 +366,7 @@ namespace SHARP3D
             }
             catch (ParameterNotFoundException ex)
             {
-                Console.WriteLine($"{ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
+                Console.Error.WriteLine($"WARNING: {ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
                 fileAnalog.Bits = 0;
             }
 
@@ -418,7 +418,7 @@ namespace SHARP3D
             }
             catch(ParameterNotFoundException ex)
             {
-                Console.WriteLine($"{ex.Message}. Defaulting to default C3D Point units: 'mm'");
+                Console.Error.WriteLine($"WARNING: {ex.Message}. Defaulting to default C3D Point units: 'mm'");
                 filePoint.Units = "mm";
             }
             
@@ -434,7 +434,7 @@ namespace SHARP3D
             }
             catch (ParameterNotFoundException ex) 
             {
-                Console.WriteLine("No ANALOG:RATE parameter found. Defaulting to 0 Hz for analog data.");
+                Console.Error.WriteLine("WARNING: No ANALOG:RATE parameter found. Defaulting to 0 Hz for analog data.");
                 return 0f;
             }   
         }
@@ -447,7 +447,7 @@ namespace SHARP3D
             } 
             catch (ParameterNotFoundException ex) 
             {
-                Console.WriteLine("No ANALOG:USED parameter found. Defaulting to 0 analog channels.");
+                Console.Error.WriteLine("WARNING: No ANALOG:USED parameter found. Defaulting to 0 analog channels.");
                 return 0;
             }
         }
@@ -504,7 +504,7 @@ namespace SHARP3D
             }
             catch (ParameterNotFoundException ex)
             {
-                Console.WriteLine("No ANALOG:FORMAT parameter found. Defaulting to SIGNED format for analog data.");
+                Console.Error.WriteLine("WARNING: No ANALOG:FORMAT parameter found. Defaulting to SIGNED format for analog data.");
             }
 
             if (analogFormatValue == Sharp3dConstants.UnsignedArrayString)
@@ -605,7 +605,7 @@ namespace SHARP3D
                 }
                 catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
                 {
-                    Console.WriteLine($"Error with {group.ToUpper()}:{parameterName.ToUpper()}: {ex.Message}. Defaulting to default values for {group.ToUpper()}:{parameterName.ToUpper()} .");
+                    Console.Error.WriteLine($"WARNING: Error with {group.ToUpper()}:{parameterName.ToUpper()}: {ex.Message}. Defaulting to default values for {group.ToUpper()}:{parameterName.ToUpper()} .");
                     for (int j = 0; j < paramInBatchToDo; j++)
                     {
                         analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";

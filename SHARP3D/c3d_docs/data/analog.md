@@ -121,7 +121,7 @@ Float32 Analog Data storage is organized in exactly the same way as with the Int
 
 > The stored Analog Data values must never be stored as pre-scaled values as this effectively destroys vital information about the analog data sampling and processing.
 
-The parameters [ANALOG:GEN_SCALE](../parameters/required/analog/analog-gen_scale.md) and channel specific [ANALOG:SCALE](../parameters/required/analog/analog-scale.md) and [ANALOG:OFFSET](../parameters/required/analog/analog-offset.md) values must be applied to the FLoat32 value to obtain the physical world units in exactly the same way as we scale the integer formatted data.
+The parameters [ANALOG:GEN_SCALE](../parameters/required/analog/analog-gen_scale.md) and channel specific [ANALOG:SCALE](../parameters/required/analog/analog-scale.md) and [ANALOG:OFFSET](../parameters/required/analog/analog-offset.md) values must be applied to the Float32 value to obtain the physical world units in exactly the same way as we scale the integer formatted data.
 
 Thus, a floating-point analog sample is calculated as:
 
