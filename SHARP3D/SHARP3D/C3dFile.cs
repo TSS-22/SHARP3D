@@ -431,7 +431,7 @@ namespace SHARP3D
             try
             {
                 return GetParameter("analog", "rate").Data?.GetValue(0) as float? ?? 0f; // Contradiction in the C3D documentation. Should have put more info, I forgot what it was.
-            }
+            } // Seems alright to me.
             catch (ParameterNotFoundException ex) 
             {
                 Console.Error.WriteLine("WARNING: No ANALOG:RATE parameter found. Defaulting to 0 Hz for analog data.");
