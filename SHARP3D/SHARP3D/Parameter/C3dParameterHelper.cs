@@ -374,7 +374,7 @@ namespace SHARP3D.Parameter
             }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine("Group ANALOG not found. Cannot create ANALOG:FORMAT parameter. Defaulting to \"SIGNED\" behavior.\nException details: " + ex.Message);
+                Console.Error.WriteLine("WARNING: Group ANALOG not found. Cannot create ANALOG:FORMAT parameter. Defaulting to \"SIGNED\" behavior.\nException details: " + ex.Message);
                 doesAnalogExist = false;
             }
 
@@ -460,7 +460,7 @@ namespace SHARP3D.Parameter
                 }
                 else
                 {
-                    Console.WriteLine("Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");
+                    Console.Error.WriteLine("WARNING: Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");
                 }
             }
 

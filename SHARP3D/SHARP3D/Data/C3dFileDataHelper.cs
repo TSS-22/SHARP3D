@@ -65,7 +65,7 @@ namespace SHARP3D.Data
                 {
                     // Support file that are missing data compared to the advertised number of frame and parameter values.
                     // There is just too many of those files in the examples to just discard them.
-                    Console.WriteLine($"WARNING: the file does not contains enough data for the expected frame number. It is missing {context.FramesNumber - i} frames.");
+                    Console.Error.WriteLine($"WARNING: the file does not contains enough data for the expected frame number. It is missing {context.FramesNumber - i} frames.");
                     break;
                 }
             }
