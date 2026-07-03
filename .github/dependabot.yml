@@ -5,21 +5,24 @@
 
 version: 2
 updates:
-  # NuGet package updates
   - package-ecosystem: "nuget"
-    directory: "/"
+    # Point to where your csproj files are, NOT the root
+    directory: "./SHARP3D/SHARP3D"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
     open-pull-requests-limit: 10
-    commit-message:
-      prefix: "chore(nuget)"
-    labels:
-      - "dependencies"
-      - "nuget"
-
-  # GitHub Actions updates
+    
+  # Test project separately if needed
+  - package-ecosystem: "nuget"
+    directory: "./SHARP3D/SHARP3D.Test"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -27,8 +30,3 @@ updates:
       day: "monday"
       time: "09:00"
     open-pull-requests-limit: 5
-    commit-message:
-      prefix: "ci(actions)"
-    labels:
-      - "dependencies"
-      - "github-actions"
