@@ -145,20 +145,20 @@ It contains helper functions to parse and serialize the header data, as well as 
 
 
 
-  <h3 id="SHARP3D_Header_DataEntity_C3dFileHeader_AnalogSampleRatePerFrame" data-uid="SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSampleRatePerFrame">
-  AnalogSampleRatePerFrame
+  <h3 id="SHARP3D_Header_DataEntity_C3dFileHeader_AnalogFramePerDataFrame" data-uid="SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame">
+  AnalogFramePerDataFrame
   <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>
  Word: 10
 </p>
-<p>The analog sample rate per 3D frame.</p>
+<p>The number of Analog Frame in each Data Frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int AnalogSampleRatePerFrame</code></pre>
+    <pre><code class="lang-csharp hljs">public int AnalogFramePerDataFrame</code></pre>
   </div>
 
 
@@ -187,7 +187,7 @@ It contains helper functions to parse and serialize the header data, as well as 
   <div class="markdown level1 summary"><p>
  Word: 3
 </p>
-<p>The total number of analog channels stored in each 3D frame. If no analog data is stored, this value is zero.</p>
+<p>The total number of analog samples in each 3D frame. If no analog data is stored, this value is zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -209,7 +209,7 @@ It contains helper functions to parse and serialize the header data, as well as 
 
 
   <h4 class="section" id="SHARP3D_Header_DataEntity_C3dFileHeader_AnalogSamplesPerFrame_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This parameter encompass the total analog sample recorded and can be confusing. For example if you have a force plate with 6 channels recording at 4 times the 3D marker acquisition rate, then the value of that variable should be: 4 * 6 = 24. But even this doesn't match the value from the test files.</p>
+  <div class="markdown level1 remarks"><p>It is given by the multiplication of the number of Analog Frame in each Data Frame by the number of Channel used.</p>
 </div>
 
 

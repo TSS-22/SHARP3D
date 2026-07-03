@@ -3009,12 +3009,12 @@ references:
   commentId: T:SHARP3D.Header.DataEntity.C3dFileHeader
   fullName: SHARP3D.Header.DataEntity.C3dFileHeader
   nameWithType: C3dFileHeader
-- uid: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSampleRatePerFrame
-  name: AnalogSampleRatePerFrame
-  href: api/SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_AnalogSampleRatePerFrame
-  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSampleRatePerFrame
-  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSampleRatePerFrame
-  nameWithType: C3dFileHeader.AnalogSampleRatePerFrame
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  name: AnalogFramePerDataFrame
+  href: api/SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_AnalogFramePerDataFrame
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  nameWithType: C3dFileHeader.AnalogFramePerDataFrame
 - uid: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSamplesPerFrame
   name: AnalogSamplesPerFrame
   href: api/SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_AnalogSamplesPerFrame

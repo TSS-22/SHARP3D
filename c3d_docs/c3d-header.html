@@ -111,7 +111,7 @@
 <tr>
 <td>3</td>
 <td>uint16</td>
-<td>Total number of analog samples per Data Frame.</td>
+<td>Total number of analog samples per <a href="data/c3d-data-section.html#data-frame-structure">Data Frame</a>.</td>
 </tr>
 <tr>
 <td>4</td>
@@ -141,7 +141,7 @@
 <tr>
 <td>10</td>
 <td>uint16</td>
-<td>Analog Frames per Data Frame.</td>
+<td><a href="data/analog.html">Analog Frames</a> per <a href="data/c3d-data-section.html#data-frame-structure">Data Frame</a>.</td>
 </tr>
 <tr>
 <td>11-12</td>
@@ -216,7 +216,7 @@
 <h3 id="word-2-number-of-3d-markerstrajectories-per-data-frame">Word 2: Number of 3D Markers/Trajectories per Data Frame</h3>
 <p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="parameters/required/point/point-used.html">POINT:USED parameter</a>.</p>
 <h3 id="word-3-total-number-of-analog-samples-per-data-frames">Word 3: Total Number of Analog Samples per Data Frames</h3>
-<p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples.</p>
+<p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 3 will be zero.</p>
 <h3 id="word-4-first-frame-number-of-the-raw-data">Word 4: First Frame Number of the Raw Data</h3>
 <p>It contains the number of the first frame of the raw data used to create the C3D file. It does not represent the number of the first frame of the C3D file, as not all the frames from the raw data might have been used to create the C3D file.</p>
@@ -257,8 +257,7 @@
 <h3 id="word-9-pointer-to-data-section">Word 9: Pointer to Data Section</h3>
 <p>It gives the position of the First <a href="data/c3d-data-section.html">Data Section</a> block, with unit being 512-bytes blocks; Header Section counted as block 1. More simply, it is the number + 1 of 512-bytes block from the beginning of the file to the <a href="data/c3d-data-section.html">Data Section</a> first block.</p>
 <h3 id="word-10-number-of-analog-frame-per-data-frame">Word 10: Number of Analog Frame per Data Frame</h3>
-<p>It gives the number of Analog Frame per Data Frame. The C3D
-structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.</p>
+<p>It gives the number of Analog Frame per Data Frame. The C3D structure for 3D Point and Analog Data assumes that each Data Frame can have one 3D Point Frame and one or more Analog Frame from each analog channel sampled. Thus this value is the actual analog sample rate measured and recorded in terms of Analog Frame per 3D Point Frame.</p>
 <p>While this means that C3D files can only contain data sampled at integer multiples of the 3D frame rate, it means that data storage synchronization is guaranteed and makes it easy to calculate the size and location of individual 3D data frames and their associated analog samples within the C3D file.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 10 will be zero.</p>
 <h3 id="word-11-12-3d-point-data-acquisition-rate">Word 11-12: 3D Point Data Acquisition Rate</h3>
