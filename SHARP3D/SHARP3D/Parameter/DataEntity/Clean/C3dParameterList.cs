@@ -1,7 +1,4 @@
-﻿using SHARP3D.Utils;
-using System.Text.RegularExpressions;
-
-namespace SHARP3D.Parameter.DataEntity.Clean
+﻿namespace SHARP3D.Parameter.DataEntity.Clean
 {
     public class C3dParameterList
     {
