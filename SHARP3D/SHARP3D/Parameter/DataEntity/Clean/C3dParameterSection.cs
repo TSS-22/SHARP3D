@@ -7,7 +7,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
     public class C3dParameterSection
     {
          List<C3dParameterGroup> Groups = new List<C3dParameterGroup> { };
-
+        
         public C3dParameterSection() { }
 
         public C3dParameterSection(List<C3dParameterGroup> parameterGroups)
