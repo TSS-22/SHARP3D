@@ -35,5 +35,22 @@ namespace SHARP3D
 
             Parameters.DeleteUneededParametersFromFiles();
         }
+
+        public void ChangeUnit(string newUnit, float factor)
+        {
+            Required.Point.Units = newUnit;
+            foreach(C3dPointTrajectory trajectory in Data.Points)
+            {
+                for (int i = 0; i < trajectory.Point.GetLength(0); i++)
+                {
+                    for(int j=0; j< trajectory.Point.GetLength(1); j++)
+                    {
+                        trajectory.Point[i,j] = trajectory.Point[i,j] * factor;
+                    }
+                    trajectory.Residual[i] = trajectory.Residual[i] * factor;
+                }
+            }
+            
+        }
     }
 }
