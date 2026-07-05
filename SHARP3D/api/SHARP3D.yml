@@ -4,6 +4,7 @@ items:
   commentId: N:SHARP3D
   id: SHARP3D
   children:
+  - SHARP3D.C3d
   - SHARP3D.C3dFile
   langs:
   - csharp
@@ -15,6 +16,12 @@ items:
   assemblies:
   - SHARP3D
 references:
+- uid: SHARP3D.C3d
+  commentId: T:SHARP3D.C3d
+  href: SHARP3D.C3d.html
+  name: C3d
+  nameWithType: C3d
+  fullName: SHARP3D.C3d
 - uid: SHARP3D.C3dFile
   commentId: T:SHARP3D.C3dFile
   parent: SHARP3D

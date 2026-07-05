@@ -1,0 +1,965 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.ArrayUtils
+  commentId: T:SHARP3D.Utils.ArrayUtils
+  id: ArrayUtils
+  parent: SHARP3D.Utils
+  children:
+  - SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)
+  - SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  - SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  - SHARP3D.Utils.ArrayUtils.To2DArray``1(System.Collections.Generic.List{``0[]})
+  - SHARP3D.Utils.ArrayUtils.To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  - SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)
+  - SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor``1(``0[0:,0:,0:])
+  - SHARP3D.Utils.ArrayUtils.VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  langs:
+  - csharp
+  - vb
+  name: ArrayUtils
+  nameWithType: ArrayUtils
+  fullName: SHARP3D.Utils.ArrayUtils
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ArrayUtils
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 2
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  syntax:
+    content: public static class ArrayUtils
+    content.vb: Public Module ArrayUtils
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  commentId: M:SHARP3D.Utils.ArrayUtils.VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  id: VecMatMultiplication(System.Single[],System.Single[0:,0:])
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: VecMatMultiplication(float[], float[,])
+  nameWithType: ArrayUtils.VecMatMultiplication(float[], float[,])
+  fullName: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(float[], float[,])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: VecMatMultiplication
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Multiplies a row vector (1xN) by a matrix (NxM), resulting in a row vector (1xM).
+  example: []
+  syntax:
+    content: public static float[] VecMatMultiplication(float[] vector, float[,] matrix)
+    parameters:
+    - id: vector
+      type: System.Single[]
+      description: Row vector (1xN).
+    - id: matrix
+      type: System.Single[,]
+      description: Matrix (NxM).
+    return:
+      type: System.Single[]
+      description: Resulting row vector (1xM).
+    content.vb: Public Shared Function VecMatMultiplication(vector As Single(), matrix As Single(,)) As Single()
+  overload: SHARP3D.Utils.ArrayUtils.VecMatMultiplication*
+  nameWithType.vb: ArrayUtils.VecMatMultiplication(Single(), Single(,))
+  fullName.vb: SHARP3D.Utils.ArrayUtils.VecMatMultiplication(Single(), Single(,))
+  name.vb: VecMatMultiplication(Single(), Single(,))
+- uid: SHARP3D.Utils.ArrayUtils.To2DArray``1(System.Collections.Generic.List{``0[]})
+  commentId: M:SHARP3D.Utils.ArrayUtils.To2DArray``1(System.Collections.Generic.List{``0[]})
+  id: To2DArray``1(System.Collections.Generic.List{``0[]})
+  isExtensionMethod: true
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: To2DArray<T>(List<T[]>)
+  nameWithType: ArrayUtils.To2DArray<T>(List<T[]>)
+  fullName: SHARP3D.Utils.ArrayUtils.To2DArray<T>(System.Collections.Generic.List<T[]>)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: To2DArray
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 48
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a List&lt;T[]&gt; (jagged list) into a rectangular 2D array (T[,]).
+  example: []
+  syntax:
+    content: public static T[,] To2DArray<T>(this List<T[]> jaggedList)
+    parameters:
+    - id: jaggedList
+      type: System.Collections.Generic.List{{T}[]}
+      description: The list of arrays to convert. All inner arrays must have the same length.
+    typeParameters:
+    - id: T
+      description: The type of elements in the arrays.
+    return:
+      type: '{T}[,]'
+      description: A rectangular 2D array containing the elements of the jagged list.
+    content.vb: Public Shared Function To2DArray(Of T)(jaggedList As List(Of T())) As T(,)
+  overload: SHARP3D.Utils.ArrayUtils.To2DArray*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">jaggedList</code> is null, empty, or if any inner array has a different length than the first.
+  nameWithType.vb: ArrayUtils.To2DArray(Of T)(List(Of T()))
+  fullName.vb: SHARP3D.Utils.ArrayUtils.To2DArray(Of T)(System.Collections.Generic.List(Of T()))
+  name.vb: To2DArray(Of T)(List(Of T()))
+- uid: SHARP3D.Utils.ArrayUtils.To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  commentId: M:SHARP3D.Utils.ArrayUtils.To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  id: To3DArray``1(System.Collections.Generic.List{``0[0:,0:]})
+  isExtensionMethod: true
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: To3DArray<T>(List<T[,]>)
+  nameWithType: ArrayUtils.To3DArray<T>(List<T[,]>)
+  fullName: SHARP3D.Utils.ArrayUtils.To3DArray<T>(System.Collections.Generic.List<T[,]>)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: To3DArray
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 79
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a jagged array of 2D arrays (T[][,]) into a 3D rectangular array (T[,,]).
+  example: []
+  syntax:
+    content: public static T[,,] To3DArray<T>(this List<T[,]> jagged3DArray)
+    parameters:
+    - id: jagged3DArray
+      type: System.Collections.Generic.List{{T}[0:,0:]}
+      description: The jagged array of 2D arrays to convert. All inner 2D arrays must have the same dimensions.
+    typeParameters:
+    - id: T
+      description: The type of elements in the arrays.
+    return:
+      type: '{T}[,,]'
+      description: A 3D rectangular array containing the elements of the jagged array.
+    content.vb: Public Shared Function To3DArray(Of T)(jagged3DArray As List(Of T(,))) As T(,,)
+  overload: SHARP3D.Utils.ArrayUtils.To3DArray*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: Thrown if <code class="paramref">jagged3DArray</code> is null, empty, or if any inner 2D array has different dimensions than the first.
+  nameWithType.vb: ArrayUtils.To3DArray(Of T)(List(Of T(,)))
+  fullName.vb: SHARP3D.Utils.ArrayUtils.To3DArray(Of T)(System.Collections.Generic.List(Of T(,)))
+  name.vb: To3DArray(Of T)(List(Of T(,)))
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  commentId: M:SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  id: IsBaseElementPrimitive(System.Array)
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: IsBaseElementPrimitive(Array)
+  nameWithType: ArrayUtils.IsBaseElementPrimitive(Array)
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive(System.Array)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: IsBaseElementPrimitive
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 133
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Determines whether the base elements of a jagged or multi-dimensional array are of a primitive type.
+  remarks: >-
+    This method recursively drills down to the innermost element type of the array.
+
+    For example:
+
+
+    <ul><li><code>int[][]</code> returns <code>true</code> because the base element is <code>int</code>.</li><li><code>string[][]</code> returns <code>false</code> because the base element is <code>string</code>.</li><li><code>char[][][]</code> returns <code>true</code> because the base element is <code>char</code>.</li></ul>
+  example:
+  - >-
+    <pre><code class="lang-csharp">int[][] jaggedIntArray = new int[2][];
+
+    jaggedIntArray[0] = new int[] { 1, 2, 3 };
+
+    bool isPrimitive = IsBaseElementPrimitive(jaggedIntArray); // Returns true</code></pre>
+  syntax:
+    content: public static bool IsBaseElementPrimitive(Array array)
+    parameters:
+    - id: array
+      type: System.Array
+      description: The input array to check. Can be a jagged array (e.g., <code>int[][]</code>) or multi-dimensional array.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the innermost elements of the array are primitive types (e.g., <code>int</code>, <code>char</code>, <code>bool</code>);
+
+        <code>false</code> if the array is <code>null</code>, empty, or the base elements are non-primitive (e.g., <code>string</code>, custom classes).
+    content.vb: Public Shared Function IsBaseElementPrimitive(array As Array) As Boolean
+  overload: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive*
+- uid: SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)
+  commentId: M:SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)
+  id: GetTypeBaseElement(System.Array)
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: GetTypeBaseElement(Array)
+  nameWithType: ArrayUtils.GetTypeBaseElement(Array)
+  fullName: SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetTypeBaseElement
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 160
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Find the base elements of a jagged or multi-dimensional array.
+  remarks: This method recursively drills down to the innermost element type of the array.
+  example: []
+  syntax:
+    content: public static Type? GetTypeBaseElement(Array array)
+    parameters:
+    - id: array
+      type: System.Array
+      description: The input array to check. Can be a jagged array (e.g., <code>int[][]</code>) or multi-dimensional array.
+    return:
+      type: System.Type
+      description: The type of the innermost elements of the array, or <code>null</code> if the array is <code>null</code> or empty.
+    content.vb: Public Shared Function GetTypeBaseElement(array As Array) As Type
+  overload: SHARP3D.Utils.ArrayUtils.GetTypeBaseElement*
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  commentId: M:SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  id: IsBaseElementString(System.Array)
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: IsBaseElementString(Array)
+  nameWithType: ArrayUtils.IsBaseElementString(Array)
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: IsBaseElementString
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 202
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Determines whether the base elements of a jagged or multi-dimensional array are of type <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    This method recursively drills down to the innermost element type of the array.
+
+    For example:
+
+
+    <ul><li><code>string[][]</code> returns <code>true</code> because the base element is <xref href="System.String" data-throw-if-not-resolved="false"></xref>.</li><li><code>string[][][]</code> returns <code>true</code> because the base element is <xref href="System.String" data-throw-if-not-resolved="false"></xref>.</li><li><code>int[][]</code> returns <code>false</code> because the base element is <code>int</code>.</li><li><code>object[][]</code> returns <code>false</code> because the base element is <xref href="System.Object" data-throw-if-not-resolved="false"></xref>.</li></ul>
+  example:
+  - >-
+    <pre><code class="lang-csharp">string[][] jaggedStringArray = new string[2][];
+
+    jaggedStringArray[0] = new string[] { "hello", "world" };
+
+    bool isString = IsBaseElementString(jaggedStringArray); // Returns true</code></pre>
+  syntax:
+    content: public static bool IsBaseElementString(Array array)
+    parameters:
+    - id: array
+      type: System.Array
+      description: The input array to check. Can be a jagged array (e.g., <code>string[][]</code>) or multi-dimensional array.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the innermost elements of the array are of type <xref href="System.String" data-throw-if-not-resolved="false"></xref>;
+
+        <code>false</code> if the array is <code>null</code>, empty, or the base elements are not <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function IsBaseElementString(array As Array) As Boolean
+  overload: SHARP3D.Utils.ArrayUtils.IsBaseElementString*
+- uid: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor``1(``0[0:,0:,0:])
+  commentId: M:SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor``1(``0[0:,0:,0:])
+  id: ToFortranColumnMajor``1(``0[0:,0:,0:])
+  isExtensionMethod: true
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: ToFortranColumnMajor<T>(T[,,])
+  nameWithType: ArrayUtils.ToFortranColumnMajor<T>(T[,,])
+  fullName: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor<T>(T[,,])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToFortranColumnMajor
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 225
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
+  example: []
+  syntax:
+    content: public static T[,,] ToFortranColumnMajor<T>(this T[,,] rowMajorArray)
+    parameters:
+    - id: rowMajorArray
+      type: '{T}[,,]'
+      description: The input row-major array.
+    typeParameters:
+    - id: T
+      description: Type of the array elements.
+    return:
+      type: '{T}[,,]'
+      description: A new array with column-major layout.
+    content.vb: Public Shared Function ToFortranColumnMajor(Of T)(rowMajorArray As T(,,)) As T(,,)
+  overload: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor*
+  nameWithType.vb: ArrayUtils.ToFortranColumnMajor(Of T)(T(,,))
+  fullName.vb: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(Of T)(T(,,))
+  name.vb: ToFortranColumnMajor(Of T)(T(,,))
+- uid: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)
+  commentId: M:SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)
+  id: ToFortranColumnMajor(System.Array)
+  isExtensionMethod: true
+  parent: SHARP3D.Utils.ArrayUtils
+  langs:
+  - csharp
+  - vb
+  name: ToFortranColumnMajor(Array)
+  nameWithType: ArrayUtils.ToFortranColumnMajor(Array)
+  fullName: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/ArrayUtils.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ToFortranColumnMajor
+    path: SHARP3D/Utils/ArrayUtils.cs
+    startLine: 247
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils
+  summary: >-
+    Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
+
+    Supports arrays of rank 1 to 7.
+  example: []
+  syntax:
+    content: public static Array ToFortranColumnMajor(this Array rowMajorArray)
+    parameters:
+    - id: rowMajorArray
+      type: System.Array
+      description: The input row-major array.
+    return:
+      type: System.Array
+      description: A new array with column-major layout.
+    content.vb: Public Shared Function ToFortranColumnMajor(rowMajorArray As Array) As Array
+  overload: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor*
+references:
+- uid: SHARP3D.Utils
+  commentId: N:SHARP3D.Utils
+  href: SHARP3D.html
+  name: SHARP3D.Utils
+  nameWithType: SHARP3D.Utils
+  fullName: SHARP3D.Utils
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.Utils.ArrayUtils.VecMatMultiplication*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.VecMatMultiplication
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_VecMatMultiplication_System_Single___System_Single_0
+  name: VecMatMultiplication
+  nameWithType: ArrayUtils.VecMatMultiplication
+  fullName: SHARP3D.Utils.ArrayUtils.VecMatMultiplication
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: System.Single[,]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[,]
+  nameWithType: float[,]
+  fullName: float[,]
+  nameWithType.vb: Single(,)
+  fullName.vb: Single(,)
+  name.vb: Single(,)
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: ','
+  - name: )
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: SHARP3D.Utils.ArrayUtils.To2DArray*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.To2DArray
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To2DArray__1_System_Collections_Generic_List___0____
+  name: To2DArray
+  nameWithType: ArrayUtils.To2DArray
+  fullName: SHARP3D.Utils.ArrayUtils.To2DArray
+- uid: System.Collections.Generic.List{{T}[]}
+  commentId: T:System.Collections.Generic.List{``0[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T[]>
+  nameWithType: List<T[]>
+  fullName: System.Collections.Generic.List<T[]>
+  nameWithType.vb: List(Of T())
+  fullName.vb: System.Collections.Generic.List(Of T())
+  name.vb: List(Of T())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: (
+  - name: )
+  - name: )
+- uid: '{T}[,]'
+  isExternal: true
+  name: T[,]
+  nameWithType: T[,]
+  fullName: T[,]
+  nameWithType.vb: T(,)
+  fullName.vb: T(,)
+  name.vb: T(,)
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: ','
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SHARP3D.Utils.ArrayUtils.To3DArray*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.To3DArray
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_To3DArray__1_System_Collections_Generic_List___0_0
+  name: To3DArray
+  nameWithType: ArrayUtils.To3DArray
+  fullName: SHARP3D.Utils.ArrayUtils.To3DArray
+- uid: System.Collections.Generic.List{{T}[0:,0:]}
+  commentId: T:System.Collections.Generic.List{``0[0:,0:]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T[,]>
+  nameWithType: List<T[,]>
+  fullName: System.Collections.Generic.List<T[,]>
+  nameWithType.vb: List(Of T(,))
+  fullName.vb: System.Collections.Generic.List(Of T(,))
+  name.vb: List(Of T(,))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '['
+  - name: ','
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: (
+  - name: ','
+  - name: )
+  - name: )
+- uid: '{T}[,,]'
+  isExternal: true
+  name: T[,,]
+  nameWithType: T[,,]
+  fullName: T[,,]
+  nameWithType.vb: T(,,)
+  fullName.vb: T(,,)
+  name.vb: T(,,)
+  spec.csharp:
+  - name: T
+  - name: '['
+  - name: ','
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - name: T
+  - name: (
+  - name: ','
+  - name: ','
+  - name: )
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementPrimitive_System_Array_
+  name: IsBaseElementPrimitive
+  nameWithType: ArrayUtils.IsBaseElementPrimitive
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementPrimitive
+- uid: System.Array
+  commentId: T:System.Array
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.array
+  name: Array
+  nameWithType: Array
+  fullName: System.Array
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SHARP3D.Utils.ArrayUtils.GetTypeBaseElement*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.GetTypeBaseElement
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_System_Array_
+  name: GetTypeBaseElement
+  nameWithType: ArrayUtils.GetTypeBaseElement
+  fullName: SHARP3D.Utils.ArrayUtils.GetTypeBaseElement
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.Utils.ArrayUtils.IsBaseElementString*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.IsBaseElementString
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_IsBaseElementString_System_Array_
+  name: IsBaseElementString
+  nameWithType: ArrayUtils.IsBaseElementString
+  fullName: SHARP3D.Utils.ArrayUtils.IsBaseElementString
+- uid: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor*
+  commentId: Overload:SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor
+  href: SHARP3D.Utils.ArrayUtils.html#SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor__1___0_0
+  name: ToFortranColumnMajor
+  nameWithType: ArrayUtils.ToFortranColumnMajor
+  fullName: SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor

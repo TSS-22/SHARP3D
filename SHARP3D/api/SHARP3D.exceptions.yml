@@ -8,9 +8,8 @@ items:
   - SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
   - SHARP3D.Exceptions.C3dIncompatiblePointUsedValuesException
   - SHARP3D.Exceptions.EmptyParameterGroupException
-  - SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
+  - SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
   - SHARP3D.Exceptions.ParameterNotFoundException
-  - SHARP3D.Exceptions.PointAndAnalogRateException
   - SHARP3D.Exceptions.UnknownProcessorTypeException
   langs:
   - csharp
@@ -41,30 +40,24 @@ references:
   name: C3dBadFrameNumberFormatingException
   nameWithType: C3dBadFrameNumberFormatingException
   fullName: SHARP3D.Exceptions.C3dBadFrameNumberFormatingException
-- uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
-  commentId: T:SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
-  href: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate.html
-  name: IncompatiblePointAndAnalogRate
-  nameWithType: IncompatiblePointAndAnalogRate
-  fullName: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
 - uid: SHARP3D.Exceptions.EmptyParameterGroupException
   commentId: T:SHARP3D.Exceptions.EmptyParameterGroupException
   href: SHARP3D.Exceptions.EmptyParameterGroupException.html
   name: EmptyParameterGroupException
   nameWithType: EmptyParameterGroupException
   fullName: SHARP3D.Exceptions.EmptyParameterGroupException
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  commentId: T:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  href: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html
+  name: NoCalibrationMatrixForForceplateType
+  nameWithType: NoCalibrationMatrixForForceplateType
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
 - uid: SHARP3D.Exceptions.ParameterNotFoundException
   commentId: T:SHARP3D.Exceptions.ParameterNotFoundException
   href: SHARP3D.Exceptions.ParameterNotFoundException.html
   name: ParameterNotFoundException
   nameWithType: ParameterNotFoundException
   fullName: SHARP3D.Exceptions.ParameterNotFoundException
-- uid: SHARP3D.Exceptions.PointAndAnalogRateException
-  commentId: T:SHARP3D.Exceptions.PointAndAnalogRateException
-  href: SHARP3D.Exceptions.PointAndAnalogRateException.html
-  name: PointAndAnalogRateException
-  nameWithType: PointAndAnalogRateException
-  fullName: SHARP3D.Exceptions.PointAndAnalogRateException
 - uid: SHARP3D.Exceptions.UnknownProcessorTypeException
   commentId: T:SHARP3D.Exceptions.UnknownProcessorTypeException
   href: SHARP3D.Exceptions.UnknownProcessorTypeException.html

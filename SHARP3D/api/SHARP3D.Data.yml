@@ -4,7 +4,7 @@ items:
   commentId: N:SHARP3D.Data
   id: SHARP3D.Data
   children:
-  - SHARP3D.Data.C3dDataHelper
+  - SHARP3D.Data.C3dFileDataHelper
   langs:
   - csharp
   - vb
@@ -15,9 +15,9 @@ items:
   assemblies:
   - SHARP3D
 references:
-- uid: SHARP3D.Data.C3dDataHelper
-  commentId: T:SHARP3D.Data.C3dDataHelper
-  href: SHARP3D.Data.C3dDataHelper.html
-  name: C3dDataHelper
-  nameWithType: C3dDataHelper
-  fullName: SHARP3D.Data.C3dDataHelper
+- uid: SHARP3D.Data.C3dFileDataHelper
+  commentId: T:SHARP3D.Data.C3dFileDataHelper
+  href: SHARP3D.Data.C3dFileDataHelper.html
+  name: C3dFileDataHelper
+  nameWithType: C3dFileDataHelper
+  fullName: SHARP3D.Data.C3dFileDataHelper

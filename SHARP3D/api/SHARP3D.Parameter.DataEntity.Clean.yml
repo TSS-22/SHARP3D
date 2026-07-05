@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  commentId: N:SHARP3D.Parameter.DataEntity.Clean
+  id: SHARP3D.Parameter.DataEntity.Clean
+  children:
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  - SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Parameter.DataEntity.Clean
+  nameWithType: SHARP3D.Parameter.DataEntity.Clean
+  fullName: SHARP3D.Parameter.DataEntity.Clean
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html
+  name: C3dParameterAnalog
+  nameWithType: C3dParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
+  name: C3dParameterGroup
+  nameWithType: C3dParameterGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.html
+  name: C3dParameterList
+  nameWithType: C3dParameterList
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html
+  name: C3dParameterPoint
+  nameWithType: C3dParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html
+  name: C3dParameterSection
+  nameWithType: C3dParameterSection
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters.html
+  name: C3dRequiredParameters
+  nameWithType: C3dRequiredParameters
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  commentId: N:SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity.Clean
+  nameWithType: SHARP3D.Parameter.DataEntity.Clean
+  fullName: SHARP3D.Parameter.DataEntity.Clean
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html

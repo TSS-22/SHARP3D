@@ -4,9 +4,11 @@ items:
   commentId: N:SHARP3D.Utils
   id: SHARP3D.Utils
   children:
+  - SHARP3D.Utils.ArrayUtils
   - SHARP3D.Utils.C3dBytesConvertor
   - SHARP3D.Utils.Fortran
   - SHARP3D.Utils.Sharp3dConstants
+  - SHARP3D.Utils.StringArrayPadder
   langs:
   - csharp
   - vb
@@ -17,6 +19,12 @@ items:
   assemblies:
   - SHARP3D
 references:
+- uid: SHARP3D.Utils.ArrayUtils
+  commentId: T:SHARP3D.Utils.ArrayUtils
+  href: SHARP3D.Utils.ArrayUtils.html
+  name: ArrayUtils
+  nameWithType: ArrayUtils
+  fullName: SHARP3D.Utils.ArrayUtils
 - uid: SHARP3D.Utils.C3dBytesConvertor
   commentId: T:SHARP3D.Utils.C3dBytesConvertor
   href: SHARP3D.Utils.C3dBytesConvertor.html
@@ -35,3 +43,9 @@ references:
   name: Sharp3dConstants
   nameWithType: Sharp3dConstants
   fullName: SHARP3D.Utils.Sharp3dConstants
+- uid: SHARP3D.Utils.StringArrayPadder
+  commentId: T:SHARP3D.Utils.StringArrayPadder
+  href: SHARP3D.Utils.StringArrayPadder.html
+  name: StringArrayPadder
+  nameWithType: StringArrayPadder
+  fullName: SHARP3D.Utils.StringArrayPadder

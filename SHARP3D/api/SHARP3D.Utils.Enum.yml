@@ -6,6 +6,7 @@ items:
   children:
   - SHARP3D.Utils.Enum.AnalogFormatFlag
   - SHARP3D.Utils.Enum.DataType
+  - SHARP3D.Utils.Enum.ForceplateType
   - SHARP3D.Utils.Enum.HeaderEventFlag
   - SHARP3D.Utils.Enum.HeaderEventFlagHelper
   - SHARP3D.Utils.Enum.ParameterType
@@ -29,6 +30,13 @@ references:
   name: AnalogFormatFlag
   nameWithType: AnalogFormatFlag
   fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
+- uid: SHARP3D.Utils.Enum.ForceplateType
+  commentId: T:SHARP3D.Utils.Enum.ForceplateType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ForceplateType.html
+  name: ForceplateType
+  nameWithType: ForceplateType
+  fullName: SHARP3D.Utils.Enum.ForceplateType
 - uid: SHARP3D.Utils.Enum.HeaderEventFlag
   commentId: T:SHARP3D.Utils.Enum.HeaderEventFlag
   parent: SHARP3D.Utils.Enum

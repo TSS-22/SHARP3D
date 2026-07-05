@@ -7,41 +7,48 @@ items:
   children:
   - SHARP3D.C3dFile.#ctor
   - SHARP3D.C3dFile.#ctor(System.IO.FileStream)
-  - SHARP3D.C3dFile.C3dStream
-  - SHARP3D.C3dFile.CloseFileStream
-  - SHARP3D.C3dFile.CreateEmpty
+  - SHARP3D.C3dFile.Analog
+  - SHARP3D.C3dFile.ComputeScaleFactor
   - SHARP3D.C3dFile.Data
   - SHARP3D.C3dFile.DataContext
   - SHARP3D.C3dFile.DataTypeFile
+  - SHARP3D.C3dFile.FileLength
+  - SHARP3D.C3dFile.FilePath
+  - SHARP3D.C3dFile.Forceplate
+  - SHARP3D.C3dFile.GetAnalogChannelScale(System.Int32)
+  - SHARP3D.C3dFile.GetAnalogFormat
+  - SHARP3D.C3dFile.GetAnalogGeneralScale
+  - SHARP3D.C3dFile.GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  - SHARP3D.C3dFile.GetAnalogRate
   - SHARP3D.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)
-  - SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  - SHARP3D.C3dFile.GetAnalogUsed
+  - SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
   - SHARP3D.C3dFile.GetDataSectionPointer(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   - SHARP3D.C3dFile.GetFrameValue(System.Object)
   - SHARP3D.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   - SHARP3D.C3dFile.GetParameter(System.String,System.String)
-  - SHARP3D.C3dFile.GetParameterBlockCount(System.IO.FileStream)
   - SHARP3D.C3dFile.GetParameterSectionPointer(System.IO.FileStream)
   - SHARP3D.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
   - SHARP3D.C3dFile.GetPointFrameValue(System.String)
-  - SHARP3D.C3dFile.GetPointScaleFactor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.C3dFile.GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   - SHARP3D.C3dFile.GetRightAmountMarkerPerFrame(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int64,SHARP3D.Utils.Enum.DataType)
   - SHARP3D.C3dFile.GetRightAmountOfFrames
+  - SHARP3D.C3dFile.GetXParameters(System.Int32,System.String,System.String)
   - SHARP3D.C3dFile.Header
-  - SHARP3D.C3dFile.IsFileStreamOpen
   - SHARP3D.C3dFile.LoadFromFile(System.String)
   - SHARP3D.C3dFile.OpenC3dFile(System.String)
   - SHARP3D.C3dFile.ParameterCollection
   - SHARP3D.C3dFile.Parameters
+  - SHARP3D.C3dFile.Point
   - SHARP3D.C3dFile.PointerDataSection
   - SHARP3D.C3dFile.PointerParameterSection
   - SHARP3D.C3dFile.ProcessorFile
   - SHARP3D.C3dFile.ProcessorHost
   - SHARP3D.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
-  - SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
   - SHARP3D.C3dFile.ReadProcessorByte(System.IO.FileStream)
-  - SHARP3D.C3dFile.SaveToFile(System.String)
-  - SHARP3D.C3dFile.ScaleFactor
-  - SHARP3D.C3dFile.ToBinaries
+  - SHARP3D.C3dFile.SetFileAnalog
+  - SHARP3D.C3dFile.setFileForceplate
+  - SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
   langs:
   - csharp
   - vb
@@ -56,7 +63,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: C3dFile
     path: SHARP3D/C3dFile.cs
-    startLine: 24
+    startLine: 25
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -79,37 +86,68 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.C3dFile.C3dStream
-  commentId: P:SHARP3D.C3dFile.C3dStream
-  id: C3dStream
+- uid: SHARP3D.C3dFile.FilePath
+  commentId: P:SHARP3D.C3dFile.FilePath
+  id: FilePath
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: C3dStream
-  nameWithType: C3dFile.C3dStream
-  fullName: SHARP3D.C3dFile.C3dStream
+  name: FilePath
+  nameWithType: C3dFile.FilePath
+  fullName: SHARP3D.C3dFile.FilePath
   type: Property
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: C3dStream
+    id: FilePath
     path: SHARP3D/C3dFile.cs
-    startLine: 29
+    startLine: 30
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Represents the file stream used to access the C3D file.
+  summary: The path of the C3D File.
   example: []
   syntax:
-    content: public FileStream? C3dStream { get; set; }
+    content: public string FilePath { get; set; }
     parameters: []
     return:
-      type: System.IO.FileStream
-    content.vb: Public Property C3dStream As FileStream
-  overload: SHARP3D.C3dFile.C3dStream*
+      type: System.String
+    content.vb: Public Property FilePath As String
+  overload: SHARP3D.C3dFile.FilePath*
+- uid: SHARP3D.C3dFile.FileLength
+  commentId: P:SHARP3D.C3dFile.FileLength
+  id: FileLength
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: FileLength
+  nameWithType: C3dFile.FileLength
+  fullName: SHARP3D.C3dFile.FileLength
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FileLength
+    path: SHARP3D/C3dFile.cs
+    startLine: 35
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: The length of the C3D File in bytes.
+  example: []
+  syntax:
+    content: public long FileLength { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public Property FileLength As Long
+  overload: SHARP3D.C3dFile.FileLength*
 - uid: SHARP3D.C3dFile.ProcessorFile
   commentId: P:SHARP3D.C3dFile.ProcessorFile
   id: ProcessorFile
@@ -128,7 +166,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ProcessorFile
     path: SHARP3D/C3dFile.cs
-    startLine: 34
+    startLine: 40
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -159,7 +197,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ProcessorHost
     path: SHARP3D/C3dFile.cs
-    startLine: 39
+    startLine: 45
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -172,6 +210,37 @@ items:
       type: SHARP3D.Utils.Enum.ProcessorType
     content.vb: Public Property ProcessorHost As ProcessorType
   overload: SHARP3D.C3dFile.ProcessorHost*
+- uid: SHARP3D.C3dFile.DataTypeFile
+  commentId: P:SHARP3D.C3dFile.DataTypeFile
+  id: DataTypeFile
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: DataTypeFile
+  nameWithType: C3dFile.DataTypeFile
+  fullName: SHARP3D.C3dFile.DataTypeFile
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataTypeFile
+    path: SHARP3D/C3dFile.cs
+    startLine: 50
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Gets or sets the data type used in the C3D file.
+  example: []
+  syntax:
+    content: public DataType DataTypeFile { get; set; }
+    parameters: []
+    return:
+      type: SHARP3D.Utils.Enum.DataType
+    content.vb: Public Property DataTypeFile As DataType
+  overload: SHARP3D.C3dFile.DataTypeFile*
 - uid: SHARP3D.C3dFile.PointerParameterSection
   commentId: P:SHARP3D.C3dFile.PointerParameterSection
   id: PointerParameterSection
@@ -190,7 +259,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerParameterSection
     path: SHARP3D/C3dFile.cs
-    startLine: 44
+    startLine: 55
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -221,7 +290,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: PointerDataSection
     path: SHARP3D/C3dFile.cs
-    startLine: 49
+    startLine: 60
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -234,68 +303,6 @@ items:
       type: System.Int32
     content.vb: Public Property PointerDataSection As Integer
   overload: SHARP3D.C3dFile.PointerDataSection*
-- uid: SHARP3D.C3dFile.ScaleFactor
-  commentId: P:SHARP3D.C3dFile.ScaleFactor
-  id: ScaleFactor
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: ScaleFactor
-  nameWithType: C3dFile.ScaleFactor
-  fullName: SHARP3D.C3dFile.ScaleFactor
-  type: Property
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: ScaleFactor
-    path: SHARP3D/C3dFile.cs
-    startLine: 54
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Gets or sets the scale factor used for 3D point data in the C3D file.
-  example: []
-  syntax:
-    content: public float ScaleFactor { get; set; }
-    parameters: []
-    return:
-      type: System.Single
-    content.vb: Public Property ScaleFactor As Single
-  overload: SHARP3D.C3dFile.ScaleFactor*
-- uid: SHARP3D.C3dFile.DataTypeFile
-  commentId: P:SHARP3D.C3dFile.DataTypeFile
-  id: DataTypeFile
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: DataTypeFile
-  nameWithType: C3dFile.DataTypeFile
-  fullName: SHARP3D.C3dFile.DataTypeFile
-  type: Property
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: DataTypeFile
-    path: SHARP3D/C3dFile.cs
-    startLine: 59
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Gets or sets the data type used in the C3D file.
-  example: []
-  syntax:
-    content: public DataType DataTypeFile { get; set; }
-    parameters: []
-    return:
-      type: SHARP3D.Utils.Enum.DataType
-    content.vb: Public Property DataTypeFile As DataType
-  overload: SHARP3D.C3dFile.DataTypeFile*
 - uid: SHARP3D.C3dFile.Header
   commentId: P:SHARP3D.C3dFile.Header
   id: Header
@@ -314,18 +321,18 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Header
     path: SHARP3D/C3dFile.cs
-    startLine: 64
+    startLine: 65
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets or sets the header information of the C3D file.
   example: []
   syntax:
-    content: public C3dHeader Header { get; set; }
+    content: public C3dFileHeader Header { get; set; }
     parameters: []
     return:
-      type: SHARP3D.Header.C3dHeader
-    content.vb: Public Property Header As C3dHeader
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+    content.vb: Public Property Header As C3dFileHeader
   overload: SHARP3D.C3dFile.Header*
 - uid: SHARP3D.C3dFile.Parameters
   commentId: P:SHARP3D.C3dFile.Parameters
@@ -345,18 +352,18 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Parameters
     path: SHARP3D/C3dFile.cs
-    startLine: 69
+    startLine: 70
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets or sets the list of parameter groups in the C3D file.
   example: []
   syntax:
-    content: public List<C3dParameterGroup> Parameters { get; set; }
+    content: public List<C3dFileParameterGroup> Parameters { get; set; }
     parameters: []
     return:
-      type: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
-    content.vb: Public Property Parameters As List(Of C3dParameterGroup)
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+    content.vb: Public Property Parameters As List(Of C3dFileParameterGroup)
   overload: SHARP3D.C3dFile.Parameters*
 - uid: SHARP3D.C3dFile.ParameterCollection
   commentId: P:SHARP3D.C3dFile.ParameterCollection
@@ -376,51 +383,106 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ParameterCollection
     path: SHARP3D/C3dFile.cs
-    startLine: 74
+    startLine: 75
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets or sets the collection of parameters in the C3D file.
   example: []
   syntax:
-    content: public C3dParameterCollection ParameterCollection { get; set; }
+    content: public C3dFileParameterCollection ParameterCollection { get; set; }
     parameters: []
     return:
-      type: SHARP3D.Parameter.Data.C3dParameterCollection
-    content.vb: Public Property ParameterCollection As C3dParameterCollection
+      type: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+    content.vb: Public Property ParameterCollection As C3dFileParameterCollection
   overload: SHARP3D.C3dFile.ParameterCollection*
-- uid: SHARP3D.C3dFile.DataContext
-  commentId: P:SHARP3D.C3dFile.DataContext
-  id: DataContext
+- uid: SHARP3D.C3dFile.Point
+  commentId: P:SHARP3D.C3dFile.Point
+  id: Point
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: DataContext
-  nameWithType: C3dFile.DataContext
-  fullName: SHARP3D.C3dFile.DataContext
+  name: Point
+  nameWithType: C3dFile.Point
+  fullName: SHARP3D.C3dFile.Point
   type: Property
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: DataContext
+    id: Point
     path: SHARP3D/C3dFile.cs
-    startLine: 82
+    startLine: 78
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Centralize the values needed to extract the data from the C3D file.
-  remarks: It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
-  example: []
   syntax:
-    content: public C3dDataContext DataContext { get; set; }
+    content: public C3dFileParameterPoint Point { get; set; }
     parameters: []
     return:
-      type: SHARP3D.Data.Data.C3dDataContext
-    content.vb: Public Property DataContext As C3dDataContext
-  overload: SHARP3D.C3dFile.DataContext*
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+    content.vb: Public Property Point As C3dFileParameterPoint
+  overload: SHARP3D.C3dFile.Point*
+- uid: SHARP3D.C3dFile.Analog
+  commentId: P:SHARP3D.C3dFile.Analog
+  id: Analog
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: Analog
+  nameWithType: C3dFile.Analog
+  fullName: SHARP3D.C3dFile.Analog
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Analog
+    path: SHARP3D/C3dFile.cs
+    startLine: 79
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public C3dFileParameterAnalog Analog { get; set; }
+    parameters: []
+    return:
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+    content.vb: Public Property Analog As C3dFileParameterAnalog
+  overload: SHARP3D.C3dFile.Analog*
+- uid: SHARP3D.C3dFile.Forceplate
+  commentId: P:SHARP3D.C3dFile.Forceplate
+  id: Forceplate
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: Forceplate
+  nameWithType: C3dFile.Forceplate
+  fullName: SHARP3D.C3dFile.Forceplate
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Forceplate
+    path: SHARP3D/C3dFile.cs
+    startLine: 80
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: public C3dFileParameterForceplate Forceplate { get; set; }
+    parameters: []
+    return:
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+    content.vb: Public Property Forceplate As C3dFileParameterForceplate
+  overload: SHARP3D.C3dFile.Forceplate*
 - uid: SHARP3D.C3dFile.Data
   commentId: P:SHARP3D.C3dFile.Data
   id: Data
@@ -439,19 +501,51 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: Data
     path: SHARP3D/C3dFile.cs
-    startLine: 87
+    startLine: 85
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets or sets the data contained in the C3D file.
   example: []
   syntax:
-    content: public C3dData Data { get; set; }
+    content: public C3dFileData Data { get; set; }
     parameters: []
     return:
-      type: SHARP3D.Data.Data.C3dData
-    content.vb: Public Property Data As C3dData
+      type: SHARP3D.Data.DataEntity.C3dFileData
+    content.vb: Public Property Data As C3dFileData
   overload: SHARP3D.C3dFile.Data*
+- uid: SHARP3D.C3dFile.DataContext
+  commentId: P:SHARP3D.C3dFile.DataContext
+  id: DataContext
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: DataContext
+  nameWithType: C3dFile.DataContext
+  fullName: SHARP3D.C3dFile.DataContext
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DataContext
+    path: SHARP3D/C3dFile.cs
+    startLine: 93
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  summary: Centralize the values needed to extract the data from the C3D file.
+  remarks: It is saved as a Class field for testing, and to help work around bad formatting from files at the moment. It might be discarded later or at least rearranged.
+  example: []
+  syntax:
+    content: public C3dFileDataContext DataContext { get; set; }
+    parameters: []
+    return:
+      type: SHARP3D.Data.DataEntity.C3dFileDataContext
+    content.vb: Public Property DataContext As C3dFileDataContext
+  overload: SHARP3D.C3dFile.DataContext*
 - uid: SHARP3D.C3dFile.#ctor
   commentId: M:SHARP3D.C3dFile.#ctor
   id: '#ctor'
@@ -470,7 +564,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
     path: SHARP3D/C3dFile.cs
-    startLine: 94
+    startLine: 98
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -501,7 +595,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
     path: SHARP3D/C3dFile.cs
-    startLine: 102
+    startLine: 104
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -518,37 +612,357 @@ items:
   nameWithType.vb: C3dFile.New(FileStream)
   fullName.vb: SHARP3D.C3dFile.New(System.IO.FileStream)
   name.vb: New(FileStream)
-- uid: SHARP3D.C3dFile.CreateEmpty
-  commentId: M:SHARP3D.C3dFile.CreateEmpty
-  id: CreateEmpty
+- uid: SHARP3D.C3dFile.OpenC3dFile(System.String)
+  commentId: M:SHARP3D.C3dFile.OpenC3dFile(System.String)
+  id: OpenC3dFile(System.String)
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: CreateEmpty()
-  nameWithType: C3dFile.CreateEmpty()
-  fullName: SHARP3D.C3dFile.CreateEmpty()
+  name: OpenC3dFile(string)
+  nameWithType: C3dFile.OpenC3dFile(string)
+  fullName: SHARP3D.C3dFile.OpenC3dFile(string)
   type: Method
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: CreateEmpty
+    id: OpenC3dFile
     path: SHARP3D/C3dFile.cs
-    startLine: 128
+    startLine: 156
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Creates an empty instance of the <xref href="SHARP3D.C3dFile" data-throw-if-not-resolved="false"></xref> class.
+  summary: Opens a C3D file for reading.
+  remarks: For legacy purposes for the tests. This method should be discarded for production.
   example: []
   syntax:
-    content: public C3dFile CreateEmpty()
+    content: internal static FileStream OpenC3dFile(string filepath)
+    parameters:
+    - id: filepath
+      type: System.String
+      description: The path to the C3D file.
     return:
-      type: SHARP3D.C3dFile
-      description: An empty <xref href="SHARP3D.C3dFile" data-throw-if-not-resolved="false"></xref> instance.
-    content.vb: Public Function CreateEmpty() As C3dFile
-  overload: SHARP3D.C3dFile.CreateEmpty*
+      type: System.IO.FileStream
+      description: A file stream for the C3D file.
+    content.vb: Friend Shared Function OpenC3dFile(filepath As String) As FileStream
+  overload: SHARP3D.C3dFile.OpenC3dFile*
+  nameWithType.vb: C3dFile.OpenC3dFile(String)
+  fullName.vb: SHARP3D.C3dFile.OpenC3dFile(String)
+  name.vb: OpenC3dFile(String)
+- uid: SHARP3D.C3dFile.setFileForceplate
+  commentId: M:SHARP3D.C3dFile.setFileForceplate
+  id: setFileForceplate
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: setFileForceplate()
+  nameWithType: C3dFile.setFileForceplate()
+  fullName: SHARP3D.C3dFile.setFileForceplate()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: setFileForceplate
+    path: SHARP3D/C3dFile.cs
+    startLine: 161
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal C3dFileParameterForceplate setFileForceplate()
+    return:
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+    content.vb: Friend Function setFileForceplate() As C3dFileParameterForceplate
+  overload: SHARP3D.C3dFile.setFileForceplate*
+- uid: SHARP3D.C3dFile.SetFileAnalog
+  commentId: M:SHARP3D.C3dFile.SetFileAnalog
+  id: SetFileAnalog
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: SetFileAnalog()
+  nameWithType: C3dFile.SetFileAnalog()
+  fullName: SHARP3D.C3dFile.SetFileAnalog()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SetFileAnalog
+    path: SHARP3D/C3dFile.cs
+    startLine: 358
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal C3dFileParameterAnalog SetFileAnalog()
+    return:
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+    content.vb: Friend Function SetFileAnalog() As C3dFileParameterAnalog
+  overload: SHARP3D.C3dFile.SetFileAnalog*
+- uid: SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
+  commentId: M:SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
+  id: setFilePoint(System.Int32,System.Single)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: setFilePoint(int, float)
+  nameWithType: C3dFile.setFilePoint(int, float)
+  fullName: SHARP3D.C3dFile.setFilePoint(int, float)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: setFilePoint
+    path: SHARP3D/C3dFile.cs
+    startLine: 384
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal C3dFileParameterPoint setFilePoint(int analogUsed, float analogRate)
+    parameters:
+    - id: analogUsed
+      type: System.Int32
+    - id: analogRate
+      type: System.Single
+    return:
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+    content.vb: Friend Function setFilePoint(analogUsed As Integer, analogRate As Single) As C3dFileParameterPoint
+  overload: SHARP3D.C3dFile.setFilePoint*
+  nameWithType.vb: C3dFile.setFilePoint(Integer, Single)
+  fullName.vb: SHARP3D.C3dFile.setFilePoint(Integer, Single)
+  name.vb: setFilePoint(Integer, Single)
+- uid: SHARP3D.C3dFile.GetAnalogRate
+  commentId: M:SHARP3D.C3dFile.GetAnalogRate
+  id: GetAnalogRate
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogRate()
+  nameWithType: C3dFile.GetAnalogRate()
+  fullName: SHARP3D.C3dFile.GetAnalogRate()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogRate
+    path: SHARP3D/C3dFile.cs
+    startLine: 428
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal float GetAnalogRate()
+    return:
+      type: System.Single
+    content.vb: Friend Function GetAnalogRate() As Single
+  overload: SHARP3D.C3dFile.GetAnalogRate*
+- uid: SHARP3D.C3dFile.GetAnalogUsed
+  commentId: M:SHARP3D.C3dFile.GetAnalogUsed
+  id: GetAnalogUsed
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogUsed()
+  nameWithType: C3dFile.GetAnalogUsed()
+  fullName: SHARP3D.C3dFile.GetAnalogUsed()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogUsed
+    path: SHARP3D/C3dFile.cs
+    startLine: 441
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal int GetAnalogUsed()
+    return:
+      type: System.Int32
+    content.vb: Friend Function GetAnalogUsed() As Integer
+  overload: SHARP3D.C3dFile.GetAnalogUsed*
+- uid: SHARP3D.C3dFile.GetAnalogGeneralScale
+  commentId: M:SHARP3D.C3dFile.GetAnalogGeneralScale
+  id: GetAnalogGeneralScale
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogGeneralScale()
+  nameWithType: C3dFile.GetAnalogGeneralScale()
+  fullName: SHARP3D.C3dFile.GetAnalogGeneralScale()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogGeneralScale
+    path: SHARP3D/C3dFile.cs
+    startLine: 454
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal float GetAnalogGeneralScale()
+    return:
+      type: System.Single
+    content.vb: Friend Function GetAnalogGeneralScale() As Single
+  overload: SHARP3D.C3dFile.GetAnalogGeneralScale*
+- uid: SHARP3D.C3dFile.GetAnalogChannelScale(System.Int32)
+  commentId: M:SHARP3D.C3dFile.GetAnalogChannelScale(System.Int32)
+  id: GetAnalogChannelScale(System.Int32)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogChannelScale(int)
+  nameWithType: C3dFile.GetAnalogChannelScale(int)
+  fullName: SHARP3D.C3dFile.GetAnalogChannelScale(int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogChannelScale
+    path: SHARP3D/C3dFile.cs
+    startLine: 465
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal float[] GetAnalogChannelScale(int analogUsed)
+    parameters:
+    - id: analogUsed
+      type: System.Int32
+    return:
+      type: System.Single[]
+    content.vb: Friend Function GetAnalogChannelScale(analogUsed As Integer) As Single()
+  overload: SHARP3D.C3dFile.GetAnalogChannelScale*
+  nameWithType.vb: C3dFile.GetAnalogChannelScale(Integer)
+  fullName.vb: SHARP3D.C3dFile.GetAnalogChannelScale(Integer)
+  name.vb: GetAnalogChannelScale(Integer)
+- uid: SHARP3D.C3dFile.GetAnalogFormat
+  commentId: M:SHARP3D.C3dFile.GetAnalogFormat
+  id: GetAnalogFormat
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogFormat()
+  nameWithType: C3dFile.GetAnalogFormat()
+  fullName: SHARP3D.C3dFile.GetAnalogFormat()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogFormat
+    path: SHARP3D/C3dFile.cs
+    startLine: 494
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal AnalogFormatFlag GetAnalogFormat()
+    return:
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+    content.vb: Friend Function GetAnalogFormat() As AnalogFormatFlag
+  overload: SHARP3D.C3dFile.GetAnalogFormat*
+- uid: SHARP3D.C3dFile.GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  commentId: M:SHARP3D.C3dFile.GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  id: GetAnalogOffset(System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogOffset(int, AnalogFormatFlag)
+  nameWithType: C3dFile.GetAnalogOffset(int, AnalogFormatFlag)
+  fullName: SHARP3D.C3dFile.GetAnalogOffset(int, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogOffset
+    path: SHARP3D/C3dFile.cs
+    startLine: 517
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal int[] GetAnalogOffset(int analogUsed, AnalogFormatFlag analogFormat)
+    parameters:
+    - id: analogUsed
+      type: System.Int32
+    - id: analogFormat
+      type: SHARP3D.Utils.Enum.AnalogFormatFlag
+    return:
+      type: System.Int32[]
+    content.vb: Friend Function GetAnalogOffset(analogUsed As Integer, analogFormat As AnalogFormatFlag) As Integer()
+  overload: SHARP3D.C3dFile.GetAnalogOffset*
+  nameWithType.vb: C3dFile.GetAnalogOffset(Integer, AnalogFormatFlag)
+  fullName.vb: SHARP3D.C3dFile.GetAnalogOffset(Integer, SHARP3D.Utils.Enum.AnalogFormatFlag)
+  name.vb: GetAnalogOffset(Integer, AnalogFormatFlag)
+- uid: SHARP3D.C3dFile.GetXParameters(System.Int32,System.String,System.String)
+  commentId: M:SHARP3D.C3dFile.GetXParameters(System.Int32,System.String,System.String)
+  id: GetXParameters(System.Int32,System.String,System.String)
+  parent: SHARP3D.C3dFile
+  langs:
+  - csharp
+  - vb
+  name: GetXParameters(int, string, string)
+  nameWithType: C3dFile.GetXParameters(int, string, string)
+  fullName: SHARP3D.C3dFile.GetXParameters(int, string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/C3dFile.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetXParameters
+    path: SHARP3D/C3dFile.cs
+    startLine: 535
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D
+  syntax:
+    content: internal string[] GetXParameters(int used, string group, string parameter)
+    parameters:
+    - id: used
+      type: System.Int32
+    - id: group
+      type: System.String
+    - id: parameter
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Friend Function GetXParameters(used As Integer, group As String, parameter As String) As String()
+  overload: SHARP3D.C3dFile.GetXParameters*
+  nameWithType.vb: C3dFile.GetXParameters(Integer, String, String)
+  fullName.vb: SHARP3D.C3dFile.GetXParameters(Integer, String, String)
+  name.vb: GetXParameters(Integer, String, String)
 - uid: SHARP3D.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   commentId: M:SHARP3D.C3dFile.GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   id: GetHeader(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
@@ -567,14 +981,14 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetHeader
     path: SHARP3D/C3dFile.cs
-    startLine: 139
+    startLine: 626
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Reads the header information from the C3D file.
   example: []
   syntax:
-    content: internal C3dHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
+    content: internal C3dFileHeader GetHeader(FileStream fileStream, ProcessorType processorFile)
     parameters:
     - id: fileStream
       type: System.IO.FileStream
@@ -583,9 +997,9 @@ items:
       type: SHARP3D.Utils.Enum.ProcessorType
       description: The processor type used to create the C3D file.
     return:
-      type: SHARP3D.Header.C3dHeader
-      description: A <xref href="SHARP3D.Header.C3dHeader" data-throw-if-not-resolved="false"></xref> object containing the header information.
-    content.vb: Friend Function GetHeader(fileStream As FileStream, processorFile As ProcessorType) As C3dHeader
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: A <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> object containing the header information.
+    content.vb: Friend Function GetHeader(fileStream As FileStream, processorFile As ProcessorType) As C3dFileHeader
   overload: SHARP3D.C3dFile.GetHeader*
 - uid: SHARP3D.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
   commentId: M:SHARP3D.C3dFile.GetParameters(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
@@ -605,14 +1019,14 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetParameters
     path: SHARP3D/C3dFile.cs
-    startLine: 155
+    startLine: 642
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Reads the parameters from the C3D file.
   example: []
   syntax:
-    content: internal List<C3dParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
+    content: internal List<C3dFileParameterGroup> GetParameters(FileStream fileStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
     parameters:
     - id: fileStream
       type: System.IO.FileStream
@@ -627,9 +1041,9 @@ items:
       type: System.Int32
       description: The pointer to the data section.
     return:
-      type: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
-      description: A list of <xref href="SHARP3D.Parameter.Data.C3dParameterGroup" data-throw-if-not-resolved="false"></xref> objects containing the parameters.
-    content.vb: Friend Function GetParameters(fileStream As FileStream, processorFile As ProcessorType, pointerParameterSection As Integer, pointerDataSection As Integer) As List(Of C3dParameterGroup)
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+      description: A list of <xref href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup" data-throw-if-not-resolved="false"></xref> objects containing the parameters.
+    content.vb: Friend Function GetParameters(fileStream As FileStream, processorFile As ProcessorType, pointerParameterSection As Integer, pointerDataSection As Integer) As List(Of C3dFileParameterGroup)
   overload: SHARP3D.C3dFile.GetParameters*
   exceptions:
   - type: System.InvalidOperationException
@@ -656,7 +1070,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: LoadFromFile
     path: SHARP3D/C3dFile.cs
-    startLine: 169
+    startLine: 656
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -694,7 +1108,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetParameterSectionPointer
     path: SHARP3D/C3dFile.cs
-    startLine: 181
+    startLine: 668
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -729,7 +1143,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetDataSectionPointer
     path: SHARP3D/C3dFile.cs
-    startLine: 193
+    startLine: 680
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -749,41 +1163,6 @@ items:
       description: The pointer to the data section.
     content.vb: Friend Shared Function GetDataSectionPointer(c3dStream As FileStream, processor As ProcessorType) As Integer
   overload: SHARP3D.C3dFile.GetDataSectionPointer*
-- uid: SHARP3D.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  commentId: M:SHARP3D.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  id: GetParameterBlockCount(System.IO.FileStream)
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: GetParameterBlockCount(FileStream)
-  nameWithType: C3dFile.GetParameterBlockCount(FileStream)
-  fullName: SHARP3D.C3dFile.GetParameterBlockCount(System.IO.FileStream)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: GetParameterBlockCount
-    path: SHARP3D/C3dFile.cs
-    startLine: 206
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Gets the number of parameter blocks in the C3D file.
-  example: []
-  syntax:
-    content: internal static int GetParameterBlockCount(FileStream c3dStream)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-      description: The file stream to read from.
-    return:
-      type: System.Int32
-      description: The number of parameter blocks.
-    content.vb: Friend Shared Function GetParameterBlockCount(c3dStream As FileStream) As Integer
-  overload: SHARP3D.C3dFile.GetParameterBlockCount*
 - uid: SHARP3D.C3dFile.ReadProcessorByte(System.IO.FileStream)
   commentId: M:SHARP3D.C3dFile.ReadProcessorByte(System.IO.FileStream)
   id: ReadProcessorByte(System.IO.FileStream)
@@ -802,7 +1181,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ReadProcessorByte
     path: SHARP3D/C3dFile.cs
-    startLine: 218
+    startLine: 693
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -819,32 +1198,32 @@ items:
       description: The processor type used to create the C3D file.
     content.vb: Friend Shared Function ReadProcessorByte(c3dStream As FileStream) As ProcessorType
   overload: SHARP3D.C3dFile.ReadProcessorByte*
-- uid: SHARP3D.C3dFile.GetPointScaleFactor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
-  commentId: M:SHARP3D.C3dFile.GetPointScaleFactor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
-  id: GetPointScaleFactor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+- uid: SHARP3D.C3dFile.GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.C3dFile.GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
+  id: GetPointScale(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType)
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: GetPointScaleFactor(FileStream, ProcessorType)
-  nameWithType: C3dFile.GetPointScaleFactor(FileStream, ProcessorType)
-  fullName: SHARP3D.C3dFile.GetPointScaleFactor(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType)
+  name: GetPointScale(FileStream, ProcessorType)
+  nameWithType: C3dFile.GetPointScale(FileStream, ProcessorType)
+  fullName: SHARP3D.C3dFile.GetPointScale(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType)
   type: Method
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: GetPointScaleFactor
+    id: GetPointScale
     path: SHARP3D/C3dFile.cs
-    startLine: 231
+    startLine: 706
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets the point scale factor from the C3D file.
   example: []
   syntax:
-    content: internal float GetPointScaleFactor(FileStream c3dStream, ProcessorType processor)
+    content: internal float GetPointScale(FileStream c3dStream, ProcessorType processor)
     parameters:
     - id: c3dStream
       type: System.IO.FileStream
@@ -855,8 +1234,8 @@ items:
     return:
       type: System.Single
       description: The point scale factor.
-    content.vb: Friend Function GetPointScaleFactor(c3dStream As FileStream, processor As ProcessorType) As Single
-  overload: SHARP3D.C3dFile.GetPointScaleFactor*
+    content.vb: Friend Function GetPointScale(c3dStream As FileStream, processor As ProcessorType) As Single
+  overload: SHARP3D.C3dFile.GetPointScale*
 - uid: SHARP3D.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
   commentId: M:SHARP3D.C3dFile.ReadHeaderBinaries(System.IO.FileStream)
   id: ReadHeaderBinaries(System.IO.FileStream)
@@ -875,7 +1254,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: ReadHeaderBinaries
     path: SHARP3D/C3dFile.cs
-    startLine: 244
+    startLine: 720
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -892,50 +1271,6 @@ items:
       description: A byte array containing the header binaries.
     content.vb: Friend Shared Function ReadHeaderBinaries(c3dStream As FileStream) As Byte()
   overload: SHARP3D.C3dFile.ReadHeaderBinaries*
-- uid: SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
-  commentId: M:SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
-  id: ReadParameterBinaries(System.IO.FileStream,System.Int32,System.Int32)
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: ReadParameterBinaries(FileStream, int, int)
-  nameWithType: C3dFile.ReadParameterBinaries(FileStream, int, int)
-  fullName: SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream, int, int)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: ReadParameterBinaries
-    path: SHARP3D/C3dFile.cs
-    startLine: 258
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Reads the parameter binaries from the C3D file.
-  example: []
-  syntax:
-    content: internal static byte[] ReadParameterBinaries(FileStream c3dStream, int parameterSectionPointer, int parameterBlockCount)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-      description: The file stream to read from.
-    - id: parameterSectionPointer
-      type: System.Int32
-      description: The pointer to the parameter section.
-    - id: parameterBlockCount
-      type: System.Int32
-      description: The number of parameter blocks.
-    return:
-      type: System.Byte[]
-      description: A byte array containing the parameter binaries.
-    content.vb: Friend Shared Function ReadParameterBinaries(c3dStream As FileStream, parameterSectionPointer As Integer, parameterBlockCount As Integer) As Byte()
-  overload: SHARP3D.C3dFile.ReadParameterBinaries*
-  nameWithType.vb: C3dFile.ReadParameterBinaries(FileStream, Integer, Integer)
-  fullName.vb: SHARP3D.C3dFile.ReadParameterBinaries(System.IO.FileStream, Integer, Integer)
-  name.vb: ReadParameterBinaries(FileStream, Integer, Integer)
 - uid: SHARP3D.C3dFile.GetParameter(System.String,System.String)
   commentId: M:SHARP3D.C3dFile.GetParameter(System.String,System.String)
   id: GetParameter(System.String,System.String)
@@ -954,14 +1289,14 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetParameter
     path: SHARP3D/C3dFile.cs
-    startLine: 272
+    startLine: 733
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Gets a parameter from the C3D file by its group and parameter name.
   example: []
   syntax:
-    content: public C3dParameter GetParameter(string groupName, string parameterName)
+    content: public C3dFileParameter GetParameter(string groupName, string parameterName)
     parameters:
     - id: groupName
       type: System.String
@@ -970,39 +1305,39 @@ items:
       type: System.String
       description: The name of the parameter.
     return:
-      type: SHARP3D.Parameter.Data.C3dParameter
-      description: A <xref href="SHARP3D.Parameter.Data.C3dParameter" data-throw-if-not-resolved="false"></xref> object representing the requested parameter.
-    content.vb: Public Function GetParameter(groupName As String, parameterName As String) As C3dParameter
+      type: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+      description: A <xref href="SHARP3D.Parameter.DataEntity.File.C3dFileParameter" data-throw-if-not-resolved="false"></xref> object representing the requested parameter.
+    content.vb: Public Function GetParameter(groupName As String, parameterName As String) As C3dFileParameter
   overload: SHARP3D.C3dFile.GetParameter*
   nameWithType.vb: C3dFile.GetParameter(String, String)
   fullName.vb: SHARP3D.C3dFile.GetParameter(String, String)
   name.vb: GetParameter(String, String)
-- uid: SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  commentId: M:SHARP3D.C3dFile.GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
-  id: GetData(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+- uid: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  commentId: M:SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
+  id: GetDataAndBit(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Single)
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: GetData(FileStream, ProcessorType, DataType, float)
-  nameWithType: C3dFile.GetData(FileStream, ProcessorType, DataType, float)
-  fullName: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
+  name: GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  nameWithType: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, float)
+  fullName: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, float)
   type: Method
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: GetData
+    id: GetDataAndBit
     path: SHARP3D/C3dFile.cs
-    startLine: 286
+    startLine: 747
   assemblies:
   - SHARP3D
   namespace: SHARP3D
   summary: Reads the data from the C3D file.
   example: []
   syntax:
-    content: internal C3dData GetData(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScaleFactor)
+    content: internal (C3dFileData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
     parameters:
     - id: c3dStream
       type: System.IO.FileStream
@@ -1013,17 +1348,17 @@ items:
     - id: dataTypeFile
       type: SHARP3D.Utils.Enum.DataType
       description: The data type used in the C3D file.
-    - id: pointScaleFactor
+    - id: pointScale
       type: System.Single
       description: The point scale factor.
     return:
-      type: SHARP3D.Data.Data.C3dData
-      description: A <xref href="SHARP3D.Data.Data.C3dData" data-throw-if-not-resolved="false"></xref> object containing the data.
-    content.vb: Friend Function GetData(c3dStream As FileStream, processor As ProcessorType, dataTypeFile As DataType, pointScaleFactor As Single) As C3dData
-  overload: SHARP3D.C3dFile.GetData*
-  nameWithType.vb: C3dFile.GetData(FileStream, ProcessorType, DataType, Single)
-  fullName.vb: SHARP3D.C3dFile.GetData(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
-  name.vb: GetData(FileStream, ProcessorType, DataType, Single)
+      type: System.ValueTuple{SHARP3D.Data.DataEntity.C3dFileData,System.Int32}
+      description: A <xref href="SHARP3D.Data.DataEntity.C3dFileData" data-throw-if-not-resolved="false"></xref> object containing the data. And an int containing the ANALOG:BITS guesstimate.
+    content.vb: Friend Function GetDataAndBit(c3dStream As FileStream, processor As ProcessorType, dataTypeFile As DataType, pointScale As Single) As (C3dFileData, Integer)
+  overload: SHARP3D.C3dFile.GetDataAndBit*
+  nameWithType.vb: C3dFile.GetDataAndBit(FileStream, ProcessorType, DataType, Single)
+  fullName.vb: SHARP3D.C3dFile.GetDataAndBit(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Single)
+  name.vb: GetDataAndBit(FileStream, ProcessorType, DataType, Single)
 - uid: SHARP3D.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)
   commentId: M:SHARP3D.C3dFile.GetAnalogSamplePerFrame(System.Single,System.Single)
   id: GetAnalogSamplePerFrame(System.Single,System.Single)
@@ -1042,7 +1377,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetAnalogSamplePerFrame
     path: SHARP3D/C3dFile.cs
-    startLine: 416
+    startLine: 789
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1089,7 +1424,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetRightAmountOfFrames
     path: SHARP3D/C3dFile.cs
-    startLine: 475
+    startLine: 848
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1148,7 +1483,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetFrameValue
     path: SHARP3D/C3dFile.cs
-    startLine: 545
+    startLine: 917
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1189,7 +1524,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetPointFrameValue
     path: SHARP3D/C3dFile.cs
-    startLine: 572
+    startLine: 944
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1235,7 +1570,7 @@ items:
       repo: https://github.com/TSS-22/SHARP3D.git
     id: GetRightAmountMarkerPerFrame
     path: SHARP3D/C3dFile.cs
-    startLine: 616
+    startLine: 988
   assemblies:
   - SHARP3D
   namespace: SHARP3D
@@ -1245,7 +1580,7 @@ items:
 
     Despite the fact that the creator of those file messed up, they might still be usable.
 
-    We assume the followin values to be always truthful:
+    We assume the following values to be always truthful:
 
 
     <ul><li>PARAMETER:POINT:FRAME</li><li>PARAMETER:POINT:RATE</li><li>PARAMETER:ANALOG:RATE</li></ul>
@@ -1292,175 +1627,34 @@ items:
   nameWithType.vb: C3dFile.GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, DataType)
   fullName.vb: SHARP3D.C3dFile.GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, SHARP3D.Utils.Enum.DataType)
   name.vb: GetRightAmountMarkerPerFrame(Integer, Integer, Integer, Integer, Integer, Integer, Long, DataType)
-- uid: SHARP3D.C3dFile.ToBinaries
-  commentId: M:SHARP3D.C3dFile.ToBinaries
-  id: ToBinaries
+- uid: SHARP3D.C3dFile.ComputeScaleFactor
+  commentId: M:SHARP3D.C3dFile.ComputeScaleFactor
+  id: ComputeScaleFactor
   parent: SHARP3D.C3dFile
   langs:
   - csharp
   - vb
-  name: ToBinaries()
-  nameWithType: C3dFile.ToBinaries()
-  fullName: SHARP3D.C3dFile.ToBinaries()
+  name: ComputeScaleFactor()
+  nameWithType: C3dFile.ComputeScaleFactor()
+  fullName: SHARP3D.C3dFile.ComputeScaleFactor()
   type: Method
   source:
     remote:
       path: SHARP3D/SHARP3D/C3dFile.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ToBinaries
+    id: ComputeScaleFactor
     path: SHARP3D/C3dFile.cs
-    startLine: 649
+    startLine: 1014
   assemblies:
   - SHARP3D
   namespace: SHARP3D
-  summary: Converts the C3D file to a byte array.
-  remarks: 'TODO: Implement actual binaries transformation logic.'
-  example: []
   syntax:
-    content: public byte[] ToBinaries()
+    content: internal float ComputeScaleFactor()
     return:
-      type: System.Byte[]
-      description: A byte array representing the C3D file.
-    content.vb: Public Function ToBinaries() As Byte()
-  overload: SHARP3D.C3dFile.ToBinaries*
-- uid: SHARP3D.C3dFile.SaveToFile(System.String)
-  commentId: M:SHARP3D.C3dFile.SaveToFile(System.String)
-  id: SaveToFile(System.String)
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: SaveToFile(string)
-  nameWithType: C3dFile.SaveToFile(string)
-  fullName: SHARP3D.C3dFile.SaveToFile(string)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: SaveToFile
-    path: SHARP3D/C3dFile.cs
-    startLine: 662
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Saves the C3D file to the specified file path.
-  remarks: 'TODO: Implement actual file saving logic. Return 0 if success, else error code. Use the C3dFileManager for this.'
-  example: []
-  syntax:
-    content: public int SaveToFile(string filepath)
-    parameters:
-    - id: filepath
-      type: System.String
-      description: The path to save the C3D file to.
-    return:
-      type: System.Int32
-      description: An integer representing the result of the save operation (0 for success).
-    content.vb: Public Function SaveToFile(filepath As String) As Integer
-  overload: SHARP3D.C3dFile.SaveToFile*
-  nameWithType.vb: C3dFile.SaveToFile(String)
-  fullName.vb: SHARP3D.C3dFile.SaveToFile(String)
-  name.vb: SaveToFile(String)
-- uid: SHARP3D.C3dFile.IsFileStreamOpen
-  commentId: M:SHARP3D.C3dFile.IsFileStreamOpen
-  id: IsFileStreamOpen
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: IsFileStreamOpen()
-  nameWithType: C3dFile.IsFileStreamOpen()
-  fullName: SHARP3D.C3dFile.IsFileStreamOpen()
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: IsFileStreamOpen
-    path: SHARP3D/C3dFile.cs
-    startLine: 671
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Checks if the file stream is open.
-  example: []
-  syntax:
-    content: public bool IsFileStreamOpen()
-    return:
-      type: System.Boolean
-      description: True if the file stream is open; otherwise, false.
-    content.vb: Public Function IsFileStreamOpen() As Boolean
-  overload: SHARP3D.C3dFile.IsFileStreamOpen*
-- uid: SHARP3D.C3dFile.CloseFileStream
-  commentId: M:SHARP3D.C3dFile.CloseFileStream
-  id: CloseFileStream
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: CloseFileStream()
-  nameWithType: C3dFile.CloseFileStream()
-  fullName: SHARP3D.C3dFile.CloseFileStream()
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: CloseFileStream
-    path: SHARP3D/C3dFile.cs
-    startLine: 679
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Closes the file stream.
-  example: []
-  syntax:
-    content: public void CloseFileStream()
-    content.vb: Public Sub CloseFileStream()
-  overload: SHARP3D.C3dFile.CloseFileStream*
-- uid: SHARP3D.C3dFile.OpenC3dFile(System.String)
-  commentId: M:SHARP3D.C3dFile.OpenC3dFile(System.String)
-  id: OpenC3dFile(System.String)
-  parent: SHARP3D.C3dFile
-  langs:
-  - csharp
-  - vb
-  name: OpenC3dFile(string)
-  nameWithType: C3dFile.OpenC3dFile(string)
-  fullName: SHARP3D.C3dFile.OpenC3dFile(string)
-  type: Method
-  source:
-    remote:
-      path: SHARP3D/SHARP3D/C3dFile.cs
-      branch: dev
-      repo: https://github.com/TSS-22/SHARP3D.git
-    id: OpenC3dFile
-    path: SHARP3D/C3dFile.cs
-    startLine: 696
-  assemblies:
-  - SHARP3D
-  namespace: SHARP3D
-  summary: Opens a C3D file for reading.
-  remarks: For legacy purposes for the tests. This method should be discarded for production.
-  example: []
-  syntax:
-    content: internal static FileStream OpenC3dFile(string filepath)
-    parameters:
-    - id: filepath
-      type: System.String
-      description: The path to the C3D file.
-    return:
-      type: System.IO.FileStream
-      description: A file stream for the C3D file.
-    content.vb: Friend Shared Function OpenC3dFile(filepath As String) As FileStream
-  overload: SHARP3D.C3dFile.OpenC3dFile*
-  nameWithType.vb: C3dFile.OpenC3dFile(String)
-  fullName.vb: SHARP3D.C3dFile.OpenC3dFile(String)
-  name.vb: OpenC3dFile(String)
+      type: System.Single
+    content.vb: Friend Function ComputeScaleFactor() As Single
+  overload: SHARP3D.C3dFile.ComputeScaleFactor*
 references:
 - uid: SHARP3D
   commentId: N:SHARP3D
@@ -1705,47 +1899,40 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.C3dFile.C3dStream*
-  commentId: Overload:SHARP3D.C3dFile.C3dStream
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_C3dStream
-  name: C3dStream
-  nameWithType: C3dFile.C3dStream
-  fullName: SHARP3D.C3dFile.C3dStream
-- uid: System.IO.FileStream
-  commentId: T:System.IO.FileStream
-  parent: System.IO
+- uid: SHARP3D.C3dFile.FilePath*
+  commentId: Overload:SHARP3D.C3dFile.FilePath
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_FilePath
+  name: FilePath
+  nameWithType: C3dFile.FilePath
+  fullName: SHARP3D.C3dFile.FilePath
+- uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
-  name: FileStream
-  nameWithType: FileStream
-  fullName: System.IO.FileStream
-- uid: System.IO
-  commentId: N:System.IO
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.C3dFile.FileLength*
+  commentId: Overload:SHARP3D.C3dFile.FileLength
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_FileLength
+  name: FileLength
+  nameWithType: C3dFile.FileLength
+  fullName: SHARP3D.C3dFile.FileLength
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
 - uid: SHARP3D.C3dFile.ProcessorFile*
   commentId: Overload:SHARP3D.C3dFile.ProcessorFile
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ProcessorFile
@@ -1795,6 +1982,19 @@ references:
   name: ProcessorHost
   nameWithType: C3dFile.ProcessorHost
   fullName: SHARP3D.C3dFile.ProcessorHost
+- uid: SHARP3D.C3dFile.DataTypeFile*
+  commentId: Overload:SHARP3D.C3dFile.DataTypeFile
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataTypeFile
+  name: DataTypeFile
+  nameWithType: C3dFile.DataTypeFile
+  fullName: SHARP3D.C3dFile.DataTypeFile
+- uid: SHARP3D.Utils.Enum.DataType
+  commentId: T:SHARP3D.Utils.Enum.DataType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.DataType.html
+  name: DataType
+  nameWithType: DataType
+  fullName: SHARP3D.Utils.Enum.DataType
 - uid: SHARP3D.C3dFile.PointerParameterSection*
   commentId: Overload:SHARP3D.C3dFile.PointerParameterSection
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_PointerParameterSection
@@ -1818,55 +2018,25 @@ references:
   name: PointerDataSection
   nameWithType: C3dFile.PointerDataSection
   fullName: SHARP3D.C3dFile.PointerDataSection
-- uid: SHARP3D.C3dFile.ScaleFactor*
-  commentId: Overload:SHARP3D.C3dFile.ScaleFactor
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ScaleFactor
-  name: ScaleFactor
-  nameWithType: C3dFile.ScaleFactor
-  fullName: SHARP3D.C3dFile.ScaleFactor
-- uid: System.Single
-  commentId: T:System.Single
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: float
-  nameWithType: float
-  fullName: float
-  nameWithType.vb: Single
-  fullName.vb: Single
-  name.vb: Single
-- uid: SHARP3D.C3dFile.DataTypeFile*
-  commentId: Overload:SHARP3D.C3dFile.DataTypeFile
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataTypeFile
-  name: DataTypeFile
-  nameWithType: C3dFile.DataTypeFile
-  fullName: SHARP3D.C3dFile.DataTypeFile
-- uid: SHARP3D.Utils.Enum.DataType
-  commentId: T:SHARP3D.Utils.Enum.DataType
-  parent: SHARP3D.Utils.Enum
-  href: SHARP3D.Utils.Enum.DataType.html
-  name: DataType
-  nameWithType: DataType
-  fullName: SHARP3D.Utils.Enum.DataType
 - uid: SHARP3D.C3dFile.Header*
   commentId: Overload:SHARP3D.C3dFile.Header
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Header
   name: Header
   nameWithType: C3dFile.Header
   fullName: SHARP3D.C3dFile.Header
-- uid: SHARP3D.Header.C3dHeader
-  commentId: T:SHARP3D.Header.C3dHeader
-  parent: SHARP3D.Header
-  href: SHARP3D.Header.C3dHeader.html
-  name: C3dHeader
-  nameWithType: C3dHeader
-  fullName: SHARP3D.Header.C3dHeader
-- uid: SHARP3D.Header
-  commentId: N:SHARP3D.Header
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader
+  commentId: T:SHARP3D.Header.DataEntity.C3dFileHeader
+  parent: SHARP3D.Header.DataEntity
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  name: C3dFileHeader
+  nameWithType: C3dFileHeader
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader
+- uid: SHARP3D.Header.DataEntity
+  commentId: N:SHARP3D.Header.DataEntity
   href: SHARP3D.html
-  name: SHARP3D.Header
-  nameWithType: SHARP3D.Header
-  fullName: SHARP3D.Header
+  name: SHARP3D.Header.DataEntity
+  nameWithType: SHARP3D.Header.DataEntity
+  fullName: SHARP3D.Header.DataEntity
   spec.csharp:
   - uid: SHARP3D
     name: SHARP3D
@@ -1875,6 +2045,10 @@ references:
   - uid: SHARP3D.Header
     name: Header
     href: SHARP3D.Header.html
+  - name: .
+  - uid: SHARP3D.Header.DataEntity
+    name: DataEntity
+    href: SHARP3D.Header.DataEntity.html
   spec.vb:
   - uid: SHARP3D
     name: SHARP3D
@@ -1883,32 +2057,36 @@ references:
   - uid: SHARP3D.Header
     name: Header
     href: SHARP3D.Header.html
+  - name: .
+  - uid: SHARP3D.Header.DataEntity
+    name: DataEntity
+    href: SHARP3D.Header.DataEntity.html
 - uid: SHARP3D.C3dFile.Parameters*
   commentId: Overload:SHARP3D.C3dFile.Parameters
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Parameters
   name: Parameters
   nameWithType: C3dFile.Parameters
   fullName: SHARP3D.C3dFile.Parameters
-- uid: System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
-  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.Data.C3dParameterGroup}
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<C3dParameterGroup>
-  nameWithType: List<C3dParameterGroup>
-  fullName: System.Collections.Generic.List<SHARP3D.Parameter.Data.C3dParameterGroup>
-  nameWithType.vb: List(Of C3dParameterGroup)
-  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.Data.C3dParameterGroup)
-  name.vb: List(Of C3dParameterGroup)
+  name: List<C3dFileParameterGroup>
+  nameWithType: List<C3dFileParameterGroup>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>
+  nameWithType.vb: List(Of C3dFileParameterGroup)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name.vb: List(Of C3dFileParameterGroup)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
-    name: C3dParameterGroup
-    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+    name: C3dFileParameterGroup
+    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -1918,9 +2096,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
-    name: C3dParameterGroup
-    href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+    name: C3dFileParameterGroup
+    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -1993,19 +2171,19 @@ references:
   name: ParameterCollection
   nameWithType: C3dFile.ParameterCollection
   fullName: SHARP3D.C3dFile.ParameterCollection
-- uid: SHARP3D.Parameter.Data.C3dParameterCollection
-  commentId: T:SHARP3D.Parameter.Data.C3dParameterCollection
-  parent: SHARP3D.Parameter.Data
-  href: SHARP3D.Parameter.Data.C3dParameterCollection.html
-  name: C3dParameterCollection
-  nameWithType: C3dParameterCollection
-  fullName: SHARP3D.Parameter.Data.C3dParameterCollection
-- uid: SHARP3D.Parameter.Data
-  commentId: N:SHARP3D.Parameter.Data
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+  commentId: T:SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+  parent: SHARP3D.Parameter.DataEntity.File
+  href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection.html
+  name: C3dFileParameterCollection
+  nameWithType: C3dFileParameterCollection
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+- uid: SHARP3D.Parameter.DataEntity.File
+  commentId: N:SHARP3D.Parameter.DataEntity.File
   href: SHARP3D.html
-  name: SHARP3D.Parameter.Data
-  nameWithType: SHARP3D.Parameter.Data
-  fullName: SHARP3D.Parameter.Data
+  name: SHARP3D.Parameter.DataEntity.File
+  nameWithType: SHARP3D.Parameter.DataEntity.File
+  fullName: SHARP3D.Parameter.DataEntity.File
   spec.csharp:
   - uid: SHARP3D
     name: SHARP3D
@@ -2015,9 +2193,13 @@ references:
     name: Parameter
     href: SHARP3D.Parameter.html
   - name: .
-  - uid: SHARP3D.Parameter.Data
-    name: Data
-    href: SHARP3D.Parameter.Data.html
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.File
+    name: File
+    href: SHARP3D.Parameter.DataEntity.File.html
   spec.vb:
   - uid: SHARP3D
     name: SHARP3D
@@ -2027,65 +2209,138 @@ references:
     name: Parameter
     href: SHARP3D.Parameter.html
   - name: .
-  - uid: SHARP3D.Parameter.Data
-    name: Data
-    href: SHARP3D.Parameter.Data.html
-- uid: SHARP3D.C3dFile.DataContext*
-  commentId: Overload:SHARP3D.C3dFile.DataContext
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataContext
-  name: DataContext
-  nameWithType: C3dFile.DataContext
-  fullName: SHARP3D.C3dFile.DataContext
-- uid: SHARP3D.Data.Data.C3dDataContext
-  commentId: T:SHARP3D.Data.Data.C3dDataContext
-  parent: SHARP3D.Data.Data
-  href: SHARP3D.Data.Data.C3dDataContext.html
-  name: C3dDataContext
-  nameWithType: C3dDataContext
-  fullName: SHARP3D.Data.Data.C3dDataContext
-- uid: SHARP3D.Data.Data
-  commentId: N:SHARP3D.Data.Data
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.File
+    name: File
+    href: SHARP3D.Parameter.DataEntity.File.html
+- uid: SHARP3D.C3dFile.Point*
+  commentId: Overload:SHARP3D.C3dFile.Point
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Point
+  name: Point
+  nameWithType: C3dFile.Point
+  fullName: SHARP3D.C3dFile.Point
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html
+  name: C3dFileParameterPoint
+  nameWithType: C3dFileParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
   href: SHARP3D.html
-  name: SHARP3D.Data.Data
-  nameWithType: SHARP3D.Data.Data
-  fullName: SHARP3D.Data.Data
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
   spec.csharp:
   - uid: SHARP3D
     name: SHARP3D
     href: SHARP3D.html
   - name: .
-  - uid: SHARP3D.Data
-    name: Data
-    href: SHARP3D.Data.html
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
   - name: .
-  - uid: SHARP3D.Data.Data
-    name: Data
-    href: SHARP3D.Data.Data.html
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
   spec.vb:
   - uid: SHARP3D
     name: SHARP3D
     href: SHARP3D.html
   - name: .
-  - uid: SHARP3D.Data
-    name: Data
-    href: SHARP3D.Data.html
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
   - name: .
-  - uid: SHARP3D.Data.Data
-    name: Data
-    href: SHARP3D.Data.Data.html
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+- uid: SHARP3D.C3dFile.Analog*
+  commentId: Overload:SHARP3D.C3dFile.Analog
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Analog
+  name: Analog
+  nameWithType: C3dFile.Analog
+  fullName: SHARP3D.C3dFile.Analog
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html
+  name: C3dFileParameterAnalog
+  nameWithType: C3dFileParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+- uid: SHARP3D.C3dFile.Forceplate*
+  commentId: Overload:SHARP3D.C3dFile.Forceplate
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Forceplate
+  name: Forceplate
+  nameWithType: C3dFile.Forceplate
+  fullName: SHARP3D.C3dFile.Forceplate
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html
+  name: C3dFileParameterForceplate
+  nameWithType: C3dFileParameterForceplate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
 - uid: SHARP3D.C3dFile.Data*
   commentId: Overload:SHARP3D.C3dFile.Data
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_Data
   name: Data
   nameWithType: C3dFile.Data
   fullName: SHARP3D.C3dFile.Data
-- uid: SHARP3D.Data.Data.C3dData
-  commentId: T:SHARP3D.Data.Data.C3dData
-  parent: SHARP3D.Data.Data
-  href: SHARP3D.Data.Data.C3dData.html
-  name: C3dData
-  nameWithType: C3dData
-  fullName: SHARP3D.Data.Data.C3dData
+- uid: SHARP3D.Data.DataEntity.C3dFileData
+  commentId: T:SHARP3D.Data.DataEntity.C3dFileData
+  parent: SHARP3D.Data.DataEntity
+  href: SHARP3D.Data.DataEntity.C3dFileData.html
+  name: C3dFileData
+  nameWithType: C3dFileData
+  fullName: SHARP3D.Data.DataEntity.C3dFileData
+- uid: SHARP3D.Data.DataEntity
+  commentId: N:SHARP3D.Data.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Data.DataEntity
+  nameWithType: SHARP3D.Data.DataEntity
+  fullName: SHARP3D.Data.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.DataEntity
+    name: DataEntity
+    href: SHARP3D.Data.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.DataEntity
+    name: DataEntity
+    href: SHARP3D.Data.DataEntity.html
+- uid: SHARP3D.C3dFile.DataContext*
+  commentId: Overload:SHARP3D.C3dFile.DataContext
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_DataContext
+  name: DataContext
+  nameWithType: C3dFile.DataContext
+  fullName: SHARP3D.C3dFile.DataContext
+- uid: SHARP3D.Data.DataEntity.C3dFileDataContext
+  commentId: T:SHARP3D.Data.DataEntity.C3dFileDataContext
+  parent: SHARP3D.Data.DataEntity
+  href: SHARP3D.Data.DataEntity.C3dFileDataContext.html
+  name: C3dFileDataContext
+  nameWithType: C3dFileDataContext
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext
 - uid: SHARP3D.C3dFile
   commentId: T:SHARP3D.C3dFile
   parent: SHARP3D
@@ -2102,25 +2357,207 @@ references:
   nameWithType.vb: C3dFile.New
   fullName.vb: SHARP3D.C3dFile.New
   name.vb: New
-- uid: SHARP3D.C3dFile.CreateEmpty*
-  commentId: Overload:SHARP3D.C3dFile.CreateEmpty
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_CreateEmpty
-  name: CreateEmpty
-  nameWithType: C3dFile.CreateEmpty
-  fullName: SHARP3D.C3dFile.CreateEmpty
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: SHARP3D.C3dFile.OpenC3dFile*
+  commentId: Overload:SHARP3D.C3dFile.OpenC3dFile
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_OpenC3dFile_System_String_
+  name: OpenC3dFile
+  nameWithType: C3dFile.OpenC3dFile
+  fullName: SHARP3D.C3dFile.OpenC3dFile
+- uid: SHARP3D.C3dFile.setFileForceplate*
+  commentId: Overload:SHARP3D.C3dFile.setFileForceplate
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFileForceplate
+  name: setFileForceplate
+  nameWithType: C3dFile.setFileForceplate
+  fullName: SHARP3D.C3dFile.setFileForceplate
+- uid: SHARP3D.C3dFile.SetFileAnalog*
+  commentId: Overload:SHARP3D.C3dFile.SetFileAnalog
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_SetFileAnalog
+  name: SetFileAnalog
+  nameWithType: C3dFile.SetFileAnalog
+  fullName: SHARP3D.C3dFile.SetFileAnalog
+- uid: SHARP3D.C3dFile.setFilePoint*
+  commentId: Overload:SHARP3D.C3dFile.setFilePoint
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFilePoint_System_Int32_System_Single_
+  name: setFilePoint
+  nameWithType: C3dFile.setFilePoint
+  fullName: SHARP3D.C3dFile.setFilePoint
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: SHARP3D.C3dFile.GetAnalogRate*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogRate
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogRate
+  name: GetAnalogRate
+  nameWithType: C3dFile.GetAnalogRate
+  fullName: SHARP3D.C3dFile.GetAnalogRate
+- uid: SHARP3D.C3dFile.GetAnalogUsed*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogUsed
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogUsed
+  name: GetAnalogUsed
+  nameWithType: C3dFile.GetAnalogUsed
+  fullName: SHARP3D.C3dFile.GetAnalogUsed
+- uid: SHARP3D.C3dFile.GetAnalogGeneralScale*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogGeneralScale
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogGeneralScale
+  name: GetAnalogGeneralScale
+  nameWithType: C3dFile.GetAnalogGeneralScale
+  fullName: SHARP3D.C3dFile.GetAnalogGeneralScale
+- uid: SHARP3D.C3dFile.GetAnalogChannelScale*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogChannelScale
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogChannelScale_System_Int32_
+  name: GetAnalogChannelScale
+  nameWithType: C3dFile.GetAnalogChannelScale
+  fullName: SHARP3D.C3dFile.GetAnalogChannelScale
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: SHARP3D.C3dFile.GetAnalogFormat*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogFormat
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogFormat
+  name: GetAnalogFormat
+  nameWithType: C3dFile.GetAnalogFormat
+  fullName: SHARP3D.C3dFile.GetAnalogFormat
+- uid: SHARP3D.Utils.Enum.AnalogFormatFlag
+  commentId: T:SHARP3D.Utils.Enum.AnalogFormatFlag
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.AnalogFormatFlag.html
+  name: AnalogFormatFlag
+  nameWithType: AnalogFormatFlag
+  fullName: SHARP3D.Utils.Enum.AnalogFormatFlag
+- uid: SHARP3D.C3dFile.GetAnalogOffset*
+  commentId: Overload:SHARP3D.C3dFile.GetAnalogOffset
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogOffset_System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_
+  name: GetAnalogOffset
+  nameWithType: C3dFile.GetAnalogOffset
+  fullName: SHARP3D.C3dFile.GetAnalogOffset
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: SHARP3D.C3dFile.GetXParameters*
+  commentId: Overload:SHARP3D.C3dFile.GetXParameters
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetXParameters_System_Int32_System_String_System_String_
+  name: GetXParameters
+  nameWithType: C3dFile.GetXParameters
+  fullName: SHARP3D.C3dFile.GetXParameters
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
 - uid: SHARP3D.C3dFile.GetHeader*
   commentId: Overload:SHARP3D.C3dFile.GetHeader
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetHeader_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
   name: GetHeader
   nameWithType: C3dFile.GetHeader
   fullName: SHARP3D.C3dFile.GetHeader
-- uid: SHARP3D.Parameter.Data.C3dParameterGroup
-  commentId: T:SHARP3D.Parameter.Data.C3dParameterGroup
-  parent: SHARP3D.Parameter.Data
-  href: SHARP3D.Parameter.Data.C3dParameterGroup.html
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
   name: C3dParameterGroup
   nameWithType: C3dParameterGroup
-  fullName: SHARP3D.Parameter.Data.C3dParameterGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
 - uid: System.InvalidOperationException
   commentId: T:System.InvalidOperationException
   parent: System
@@ -2135,23 +2572,50 @@ references:
   name: GetParameters
   nameWithType: C3dFile.GetParameters
   fullName: SHARP3D.C3dFile.GetParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  commentId: N:SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity.Clean
+  nameWithType: SHARP3D.Parameter.DataEntity.Clean
+  fullName: SHARP3D.Parameter.DataEntity.Clean
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
 - uid: SHARP3D.C3dFile.LoadFromFile*
   commentId: Overload:SHARP3D.C3dFile.LoadFromFile
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_LoadFromFile_System_String_
   name: LoadFromFile
   nameWithType: C3dFile.LoadFromFile
   fullName: SHARP3D.C3dFile.LoadFromFile
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: SHARP3D.C3dFile.GetParameterSectionPointer*
   commentId: Overload:SHARP3D.C3dFile.GetParameterSectionPointer
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetParameterSectionPointer_System_IO_FileStream_
@@ -2164,24 +2628,18 @@ references:
   name: GetDataSectionPointer
   nameWithType: C3dFile.GetDataSectionPointer
   fullName: SHARP3D.C3dFile.GetDataSectionPointer
-- uid: SHARP3D.C3dFile.GetParameterBlockCount*
-  commentId: Overload:SHARP3D.C3dFile.GetParameterBlockCount
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetParameterBlockCount_System_IO_FileStream_
-  name: GetParameterBlockCount
-  nameWithType: C3dFile.GetParameterBlockCount
-  fullName: SHARP3D.C3dFile.GetParameterBlockCount
 - uid: SHARP3D.C3dFile.ReadProcessorByte*
   commentId: Overload:SHARP3D.C3dFile.ReadProcessorByte
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ReadProcessorByte_System_IO_FileStream_
   name: ReadProcessorByte
   nameWithType: C3dFile.ReadProcessorByte
   fullName: SHARP3D.C3dFile.ReadProcessorByte
-- uid: SHARP3D.C3dFile.GetPointScaleFactor*
-  commentId: Overload:SHARP3D.C3dFile.GetPointScaleFactor
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetPointScaleFactor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
-  name: GetPointScaleFactor
-  nameWithType: C3dFile.GetPointScaleFactor
-  fullName: SHARP3D.C3dFile.GetPointScaleFactor
+- uid: SHARP3D.C3dFile.GetPointScale*
+  commentId: Overload:SHARP3D.C3dFile.GetPointScale
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetPointScale_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_
+  name: GetPointScale
+  nameWithType: C3dFile.GetPointScale
+  fullName: SHARP3D.C3dFile.GetPointScale
 - uid: SHARP3D.C3dFile.ReadHeaderBinaries*
   commentId: Overload:SHARP3D.C3dFile.ReadHeaderBinaries
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ReadHeaderBinaries_System_IO_FileStream_
@@ -2211,31 +2669,79 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.byte
   - name: (
   - name: )
-- uid: SHARP3D.C3dFile.ReadParameterBinaries*
-  commentId: Overload:SHARP3D.C3dFile.ReadParameterBinaries
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ReadParameterBinaries_System_IO_FileStream_System_Int32_System_Int32_
-  name: ReadParameterBinaries
-  nameWithType: C3dFile.ReadParameterBinaries
-  fullName: SHARP3D.C3dFile.ReadParameterBinaries
-- uid: SHARP3D.Parameter.Data.C3dParameter
-  commentId: T:SHARP3D.Parameter.Data.C3dParameter
-  parent: SHARP3D.Parameter.Data
-  href: SHARP3D.Parameter.Data.C3dParameter.html
-  name: C3dParameter
-  nameWithType: C3dParameter
-  fullName: SHARP3D.Parameter.Data.C3dParameter
+- uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+  commentId: T:SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+  parent: SHARP3D.Parameter.DataEntity.File
+  href: SHARP3D.Parameter.DataEntity.File.C3dFileParameter.html
+  name: C3dFileParameter
+  nameWithType: C3dFileParameter
+  fullName: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
 - uid: SHARP3D.C3dFile.GetParameter*
   commentId: Overload:SHARP3D.C3dFile.GetParameter
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetParameter_System_String_System_String_
   name: GetParameter
   nameWithType: C3dFile.GetParameter
   fullName: SHARP3D.C3dFile.GetParameter
-- uid: SHARP3D.C3dFile.GetData*
-  commentId: Overload:SHARP3D.C3dFile.GetData
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetData_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
-  name: GetData
-  nameWithType: C3dFile.GetData
-  fullName: SHARP3D.C3dFile.GetData
+- uid: SHARP3D.C3dFile.GetDataAndBit*
+  commentId: Overload:SHARP3D.C3dFile.GetDataAndBit
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetDataAndBit_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Single_
+  name: GetDataAndBit
+  nameWithType: C3dFile.GetDataAndBit
+  fullName: SHARP3D.C3dFile.GetDataAndBit
+- uid: System.ValueTuple{SHARP3D.Data.DataEntity.C3dFileData,System.Int32}
+  commentId: T:System.ValueTuple{SHARP3D.Data.DataEntity.C3dFileData,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: SHARP3D.Data.DataEntity.C3dFileData.html
+  name: (C3dFileData, int)
+  nameWithType: (C3dFileData, int)
+  fullName: (SHARP3D.Data.DataEntity.C3dFileData, int)
+  nameWithType.vb: (C3dFileData, Integer)
+  fullName.vb: (SHARP3D.Data.DataEntity.C3dFileData, Integer)
+  name.vb: (C3dFileData, Integer)
+  spec.csharp:
+  - name: (
+  - uid: SHARP3D.Data.DataEntity.C3dFileData
+    name: C3dFileData
+    href: SHARP3D.Data.DataEntity.C3dFileData.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: SHARP3D.Data.DataEntity.C3dFileData
+    name: C3dFileData
+    href: SHARP3D.Data.DataEntity.C3dFileData.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
 - uid: SHARP3D.C3dFile.GetAnalogSamplePerFrame*
   commentId: Overload:SHARP3D.C3dFile.GetAnalogSamplePerFrame
   href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_GetAnalogSamplePerFrame_System_Single_System_Single_
@@ -2317,17 +2823,6 @@ references:
   name: GetRightAmountMarkerPerFrame
   nameWithType: C3dFile.GetRightAmountMarkerPerFrame
   fullName: SHARP3D.C3dFile.GetRightAmountMarkerPerFrame
-- uid: System.Int64
-  commentId: T:System.Int64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
 - uid: SHARP3D.Exceptions
   commentId: N:SHARP3D.Exceptions
   href: SHARP3D.html
@@ -2350,44 +2845,9 @@ references:
   - uid: SHARP3D.Exceptions
     name: Exceptions
     href: SHARP3D.Exceptions.html
-- uid: SHARP3D.C3dFile.ToBinaries*
-  commentId: Overload:SHARP3D.C3dFile.ToBinaries
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ToBinaries
-  name: ToBinaries
-  nameWithType: C3dFile.ToBinaries
-  fullName: SHARP3D.C3dFile.ToBinaries
-- uid: SHARP3D.C3dFile.SaveToFile*
-  commentId: Overload:SHARP3D.C3dFile.SaveToFile
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_SaveToFile_System_String_
-  name: SaveToFile
-  nameWithType: C3dFile.SaveToFile
-  fullName: SHARP3D.C3dFile.SaveToFile
-- uid: SHARP3D.C3dFile.IsFileStreamOpen*
-  commentId: Overload:SHARP3D.C3dFile.IsFileStreamOpen
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_IsFileStreamOpen
-  name: IsFileStreamOpen
-  nameWithType: C3dFile.IsFileStreamOpen
-  fullName: SHARP3D.C3dFile.IsFileStreamOpen
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: SHARP3D.C3dFile.CloseFileStream*
-  commentId: Overload:SHARP3D.C3dFile.CloseFileStream
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_CloseFileStream
-  name: CloseFileStream
-  nameWithType: C3dFile.CloseFileStream
-  fullName: SHARP3D.C3dFile.CloseFileStream
-- uid: SHARP3D.C3dFile.OpenC3dFile*
-  commentId: Overload:SHARP3D.C3dFile.OpenC3dFile
-  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_OpenC3dFile_System_String_
-  name: OpenC3dFile
-  nameWithType: C3dFile.OpenC3dFile
-  fullName: SHARP3D.C3dFile.OpenC3dFile
+- uid: SHARP3D.C3dFile.ComputeScaleFactor*
+  commentId: Overload:SHARP3D.C3dFile.ComputeScaleFactor
+  href: SHARP3D.C3dFile.html#SHARP3D_C3dFile_ComputeScaleFactor
+  name: ComputeScaleFactor
+  nameWithType: C3dFile.ComputeScaleFactor
+  fullName: SHARP3D.C3dFile.ComputeScaleFactor

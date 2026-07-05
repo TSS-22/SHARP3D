@@ -1,37 +1,35 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.Utils.Sharp3dConstants
-  commentId: T:SHARP3D.Utils.Sharp3dConstants
-  id: Sharp3dConstants
+- uid: SHARP3D.Utils.StringArrayPadder
+  commentId: T:SHARP3D.Utils.StringArrayPadder
+  id: StringArrayPadder
   parent: SHARP3D.Utils
   children:
-  - SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
-  - SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
-  - SHARP3D.Utils.Sharp3dConstants.SignedArrayString
-  - SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
+  - SHARP3D.Utils.StringArrayPadder.FromRank(System.Int32,System.Int32,System.Int32[])
+  - SHARP3D.Utils.StringArrayPadder.GetAllIndexes(System.Array)
+  - SHARP3D.Utils.StringArrayPadder.GetIndices(System.Int32[])
+  - SHARP3D.Utils.StringArrayPadder.PadStringsToChar(System.Array,System.Nullable{System.Int32})
   langs:
   - csharp
   - vb
-  name: Sharp3dConstants
-  nameWithType: Sharp3dConstants
-  fullName: SHARP3D.Utils.Sharp3dConstants
+  name: StringArrayPadder
+  nameWithType: StringArrayPadder
+  fullName: SHARP3D.Utils.StringArrayPadder
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/Utils/Sharp3dConstants.cs
+      path: SHARP3D/SHARP3D/Utils/StringArrayPadder.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: Sharp3dConstants
-    path: SHARP3D/Utils/Sharp3dConstants.cs
-    startLine: 7
+    id: StringArrayPadder
+    path: SHARP3D/Utils/StringArrayPadder.cs
+    startLine: 2
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
-  summary: Provides program-wide constants for SHARP3D, including arrays representing signed and unsigned string literals.
-  example: []
   syntax:
-    content: internal static class Sharp3dConstants
-    content.vb: Friend Module Sharp3dConstants
+    content: public class StringArrayPadder
+    content.vb: Public Class StringArrayPadder
   inheritance:
   - System.Object
   inheritedMembers:
@@ -42,118 +40,145 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
-  commentId: F:SHARP3D.Utils.Sharp3dConstants.SignedArrayString
-  id: SignedArrayString
-  parent: SHARP3D.Utils.Sharp3dConstants
+- uid: SHARP3D.Utils.StringArrayPadder.PadStringsToChar(System.Array,System.Nullable{System.Int32})
+  commentId: M:SHARP3D.Utils.StringArrayPadder.PadStringsToChar(System.Array,System.Nullable{System.Int32})
+  id: PadStringsToChar(System.Array,System.Nullable{System.Int32})
+  parent: SHARP3D.Utils.StringArrayPadder
   langs:
   - csharp
   - vb
-  name: SignedArrayString
-  nameWithType: Sharp3dConstants.SignedArrayString
-  fullName: SHARP3D.Utils.Sharp3dConstants.SignedArrayString
-  type: Field
+  name: PadStringsToChar(Array, int?)
+  nameWithType: StringArrayPadder.PadStringsToChar(Array, int?)
+  fullName: SHARP3D.Utils.StringArrayPadder.PadStringsToChar(System.Array, int?)
+  type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/Utils/Sharp3dConstants.cs
+      path: SHARP3D/SHARP3D/Utils/StringArrayPadder.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: SignedArrayString
-    path: SHARP3D/Utils/Sharp3dConstants.cs
-    startLine: 12
+    id: PadStringsToChar
+    path: SHARP3D/Utils/StringArrayPadder.cs
+    startLine: 5
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
-  summary: A read-only <xref href="System.Array" data-throw-if-not-resolved="false"></xref> of <xref href="System.Char" data-throw-if-not-resolved="false"></xref> representing the string "SIGNED".
-  example: []
   syntax:
-    content: public static readonly Array SignedArrayString
+    content: public static Array PadStringsToChar(Array inputArray, int? maxStringLength = null)
+    parameters:
+    - id: inputArray
+      type: System.Array
+    - id: maxStringLength
+      type: System.Nullable{System.Int32}
     return:
       type: System.Array
-    content.vb: Public Shared ReadOnly SignedArrayString As Array
-- uid: SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
-  commentId: F:SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
-  id: UnsignedArrayString
-  parent: SHARP3D.Utils.Sharp3dConstants
+    content.vb: Public Shared Function PadStringsToChar(inputArray As Array, maxStringLength As Integer? = Nothing) As Array
+  overload: SHARP3D.Utils.StringArrayPadder.PadStringsToChar*
+  nameWithType.vb: StringArrayPadder.PadStringsToChar(Array, Integer?)
+  fullName.vb: SHARP3D.Utils.StringArrayPadder.PadStringsToChar(System.Array, Integer?)
+  name.vb: PadStringsToChar(Array, Integer?)
+- uid: SHARP3D.Utils.StringArrayPadder.GetAllIndexes(System.Array)
+  commentId: M:SHARP3D.Utils.StringArrayPadder.GetAllIndexes(System.Array)
+  id: GetAllIndexes(System.Array)
+  parent: SHARP3D.Utils.StringArrayPadder
   langs:
   - csharp
   - vb
-  name: UnsignedArrayString
-  nameWithType: Sharp3dConstants.UnsignedArrayString
-  fullName: SHARP3D.Utils.Sharp3dConstants.UnsignedArrayString
-  type: Field
+  name: GetAllIndexes(Array)
+  nameWithType: StringArrayPadder.GetAllIndexes(Array)
+  fullName: SHARP3D.Utils.StringArrayPadder.GetAllIndexes(System.Array)
+  type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/Utils/Sharp3dConstants.cs
+      path: SHARP3D/SHARP3D/Utils/StringArrayPadder.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: UnsignedArrayString
-    path: SHARP3D/Utils/Sharp3dConstants.cs
-    startLine: 17
+    id: GetAllIndexes
+    path: SHARP3D/Utils/StringArrayPadder.cs
+    startLine: 51
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
-  summary: A read-only <xref href="System.Array" data-throw-if-not-resolved="false"></xref> of <xref href="System.Char" data-throw-if-not-resolved="false"></xref> representing the string "UNSIGNED".
-  example: []
   syntax:
-    content: public static readonly Array UnsignedArrayString
-    return:
+    content: private static IEnumerable<int[]> GetAllIndexes(Array arr)
+    parameters:
+    - id: arr
       type: System.Array
-    content.vb: Public Shared ReadOnly UnsignedArrayString As Array
-- uid: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
-  commentId: F:SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
-  id: ForceplateChannelNumber
-  parent: SHARP3D.Utils.Sharp3dConstants
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32[]}
+    content.vb: Private Shared Function GetAllIndexes(arr As Array) As IEnumerable(Of Integer())
+  overload: SHARP3D.Utils.StringArrayPadder.GetAllIndexes*
+- uid: SHARP3D.Utils.StringArrayPadder.FromRank(System.Int32,System.Int32,System.Int32[])
+  commentId: M:SHARP3D.Utils.StringArrayPadder.FromRank(System.Int32,System.Int32,System.Int32[])
+  id: FromRank(System.Int32,System.Int32,System.Int32[])
+  parent: SHARP3D.Utils.StringArrayPadder
   langs:
   - csharp
   - vb
-  name: ForceplateChannelNumber
-  nameWithType: Sharp3dConstants.ForceplateChannelNumber
-  fullName: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
-  type: Field
+  name: FromRank(int, int, int[])
+  nameWithType: StringArrayPadder.FromRank(int, int, int[])
+  fullName: SHARP3D.Utils.StringArrayPadder.FromRank(int, int, int[])
+  type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/Utils/Sharp3dConstants.cs
+      path: SHARP3D/SHARP3D/Utils/StringArrayPadder.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ForceplateChannelNumber
-    path: SHARP3D/Utils/Sharp3dConstants.cs
-    startLine: 19
+    id: FromRank
+    path: SHARP3D/Utils/StringArrayPadder.cs
+    startLine: 57
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
   syntax:
-    content: public static readonly Dictionary<ForceplateType, int> ForceplateChannelNumber
+    content: private static IEnumerable<int[]> FromRank(int remainingRanks, int currentSize, int[] nextSizes)
+    parameters:
+    - id: remainingRanks
+      type: System.Int32
+    - id: currentSize
+      type: System.Int32
+    - id: nextSizes
+      type: System.Int32[]
     return:
-      type: System.Collections.Generic.Dictionary{SHARP3D.Utils.Enum.ForceplateType,System.Int32}
-    content.vb: Public Shared ReadOnly ForceplateChannelNumber As Dictionary(Of ForceplateType, Integer)
-- uid: SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
-  commentId: F:SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
-  id: RegexParameterToDiscardFromC3dFileToC3d
-  parent: SHARP3D.Utils.Sharp3dConstants
+      type: System.Collections.Generic.IEnumerable{System.Int32[]}
+    content.vb: Private Shared Function FromRank(remainingRanks As Integer, currentSize As Integer, nextSizes As Integer()) As IEnumerable(Of Integer())
+  overload: SHARP3D.Utils.StringArrayPadder.FromRank*
+  nameWithType.vb: StringArrayPadder.FromRank(Integer, Integer, Integer())
+  fullName.vb: SHARP3D.Utils.StringArrayPadder.FromRank(Integer, Integer, Integer())
+  name.vb: FromRank(Integer, Integer, Integer())
+- uid: SHARP3D.Utils.StringArrayPadder.GetIndices(System.Int32[])
+  commentId: M:SHARP3D.Utils.StringArrayPadder.GetIndices(System.Int32[])
+  id: GetIndices(System.Int32[])
+  parent: SHARP3D.Utils.StringArrayPadder
   langs:
   - csharp
   - vb
-  name: RegexParameterToDiscardFromC3dFileToC3d
-  nameWithType: Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
-  fullName: SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
-  type: Field
+  name: GetIndices(int[])
+  nameWithType: StringArrayPadder.GetIndices(int[])
+  fullName: SHARP3D.Utils.StringArrayPadder.GetIndices(int[])
+  type: Method
   source:
     remote:
-      path: SHARP3D/SHARP3D/Utils/Sharp3dConstants.cs
+      path: SHARP3D/SHARP3D/Utils/StringArrayPadder.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: RegexParameterToDiscardFromC3dFileToC3d
-    path: SHARP3D/Utils/Sharp3dConstants.cs
-    startLine: 29
+    id: GetIndices
+    path: SHARP3D/Utils/StringArrayPadder.cs
+    startLine: 69
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Utils
   syntax:
-    content: public static readonly Dictionary<string, string[]> RegexParameterToDiscardFromC3dFileToC3d
+    content: private static IEnumerable<int[]> GetIndices(int[] sizes)
+    parameters:
+    - id: sizes
+      type: System.Int32[]
     return:
-      type: System.Collections.Generic.Dictionary{System.String,System.String[]}
-    content.vb: Public Shared ReadOnly RegexParameterToDiscardFromC3dFileToC3d As Dictionary(Of String, String())
+      type: System.Collections.Generic.IEnumerable{System.Int32[]}
+    content.vb: Private Shared Function GetIndices(sizes As Integer()) As IEnumerable(Of Integer())
+  overload: SHARP3D.Utils.StringArrayPadder.GetIndices*
+  nameWithType.vb: StringArrayPadder.GetIndices(Integer())
+  fullName.vb: SHARP3D.Utils.StringArrayPadder.GetIndices(Integer())
+  name.vb: GetIndices(Integer())
 references:
 - uid: SHARP3D.Utils
   commentId: N:SHARP3D.Utils
@@ -414,6 +439,12 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SHARP3D.Utils.StringArrayPadder.PadStringsToChar*
+  commentId: Overload:SHARP3D.Utils.StringArrayPadder.PadStringsToChar
+  href: SHARP3D.Utils.StringArrayPadder.html#SHARP3D_Utils_StringArrayPadder_PadStringsToChar_System_Array_System_Nullable_System_Int32__
+  name: PadStringsToChar
+  nameWithType: StringArrayPadder.PadStringsToChar
+  fullName: SHARP3D.Utils.StringArrayPadder.PadStringsToChar
 - uid: System.Array
   commentId: T:System.Array
   parent: System
@@ -422,94 +453,129 @@ references:
   name: Array
   nameWithType: Array
   fullName: System.Array
-- uid: System.Char
-  commentId: T:System.Char
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.char
-  name: char
-  nameWithType: char
-  fullName: char
-  nameWithType.vb: Char
-  fullName.vb: Char
-  name.vb: Char
-- uid: System.Collections.Generic.Dictionary{SHARP3D.Utils.Enum.ForceplateType,System.Int32}
-  commentId: T:System.Collections.Generic.Dictionary{SHARP3D.Utils.Enum.ForceplateType,System.Int32}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.Dictionary`2
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<ForceplateType, int>
-  nameWithType: Dictionary<ForceplateType, int>
-  fullName: System.Collections.Generic.Dictionary<SHARP3D.Utils.Enum.ForceplateType, int>
-  nameWithType.vb: Dictionary(Of ForceplateType, Integer)
-  fullName.vb: System.Collections.Generic.Dictionary(Of SHARP3D.Utils.Enum.ForceplateType, Integer)
-  name.vb: Dictionary(Of ForceplateType, Integer)
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
   spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: <
-  - uid: SHARP3D.Utils.Enum.ForceplateType
-    name: ForceplateType
-    href: SHARP3D.Utils.Enum.ForceplateType.html
-  - name: ','
-  - name: " "
   - uid: System.Int32
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
+  - uid: System.Nullable`1
+    name: Nullable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
   - name: (
   - name: Of
   - name: " "
-  - uid: SHARP3D.Utils.Enum.ForceplateType
-    name: ForceplateType
-    href: SHARP3D.Utils.Enum.ForceplateType.html
-  - name: ','
+  - name: T
+  - name: )
+- uid: SHARP3D.Utils.StringArrayPadder.GetAllIndexes*
+  commentId: Overload:SHARP3D.Utils.StringArrayPadder.GetAllIndexes
+  href: SHARP3D.Utils.StringArrayPadder.html#SHARP3D_Utils_StringArrayPadder_GetAllIndexes_System_Array_
+  name: GetAllIndexes
+  nameWithType: StringArrayPadder.GetAllIndexes
+  fullName: SHARP3D.Utils.StringArrayPadder.GetAllIndexes
+- uid: System.Collections.Generic.IEnumerable{System.Int32[]}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<int[]>
+  nameWithType: IEnumerable<int[]>
+  fullName: System.Collections.Generic.IEnumerable<int[]>
+  nameWithType.vb: IEnumerable(Of Integer())
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Integer())
+  name.vb: IEnumerable(Of Integer())
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
   - name: " "
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
   - name: )
-- uid: System.Collections.Generic.Dictionary`2
-  commentId: T:System.Collections.Generic.Dictionary`2
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<TKey, TValue>
-  nameWithType: Dictionary<TKey, TValue>
-  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
-  nameWithType.vb: Dictionary(Of TKey, TValue)
-  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
-  name.vb: Dictionary(Of TKey, TValue)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
   - name: <
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
+  - name: T
   - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
   - name: (
   - name: Of
   - name: " "
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
+  - name: T
   - name: )
 - uid: System.Collections.Generic
   commentId: N:System.Collections.Generic
@@ -548,54 +614,49 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.Collections.Generic.Dictionary{System.String,System.String[]}
-  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String[]}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.Dictionary`2
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<string, string[]>
-  nameWithType: Dictionary<string, string[]>
-  fullName: System.Collections.Generic.Dictionary<string, string[]>
-  nameWithType.vb: Dictionary(Of String, String())
-  fullName.vb: System.Collections.Generic.Dictionary(Of String, String())
-  name.vb: Dictionary(Of String, String())
+- uid: SHARP3D.Utils.StringArrayPadder.FromRank*
+  commentId: Overload:SHARP3D.Utils.StringArrayPadder.FromRank
+  href: SHARP3D.Utils.StringArrayPadder.html#SHARP3D_Utils_StringArrayPadder_FromRank_System_Int32_System_Int32_System_Int32___
+  name: FromRank
+  nameWithType: StringArrayPadder.FromRank
+  fullName: SHARP3D.Utils.StringArrayPadder.FromRank
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
   spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
+  - uid: System.Int32
+    name: int
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: <
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: '['
   - name: ']'
-  - name: '>'
   spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
+  - uid: System.Int32
+    name: Integer
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: (
   - name: )
-  - name: )
+- uid: SHARP3D.Utils.StringArrayPadder.GetIndices*
+  commentId: Overload:SHARP3D.Utils.StringArrayPadder.GetIndices
+  href: SHARP3D.Utils.StringArrayPadder.html#SHARP3D_Utils_StringArrayPadder_GetIndices_System_Int32___
+  name: GetIndices
+  nameWithType: StringArrayPadder.GetIndices
+  fullName: SHARP3D.Utils.StringArrayPadder.GetIndices

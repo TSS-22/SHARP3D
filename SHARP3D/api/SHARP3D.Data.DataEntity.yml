@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.DataEntity
+  commentId: N:SHARP3D.Data.DataEntity
+  id: SHARP3D.Data.DataEntity
+  children:
+  - SHARP3D.Data.DataEntity.C3dFileData
+  - SHARP3D.Data.DataEntity.C3dFileDataContext
+  - SHARP3D.Data.DataEntity.C3dFileDataPoint
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Data.DataEntity
+  nameWithType: SHARP3D.Data.DataEntity
+  fullName: SHARP3D.Data.DataEntity
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Data.DataEntity.C3dFileData
+  commentId: T:SHARP3D.Data.DataEntity.C3dFileData
+  parent: SHARP3D.Data.DataEntity
+  href: SHARP3D.Data.DataEntity.C3dFileData.html
+  name: C3dFileData
+  nameWithType: C3dFileData
+  fullName: SHARP3D.Data.DataEntity.C3dFileData
+- uid: SHARP3D.Data.DataEntity.C3dFileDataContext
+  commentId: T:SHARP3D.Data.DataEntity.C3dFileDataContext
+  parent: SHARP3D.Data.DataEntity
+  href: SHARP3D.Data.DataEntity.C3dFileDataContext.html
+  name: C3dFileDataContext
+  nameWithType: C3dFileDataContext
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext
+- uid: SHARP3D.Data.DataEntity.C3dFileDataPoint
+  commentId: T:SHARP3D.Data.DataEntity.C3dFileDataPoint
+  parent: SHARP3D.Data.DataEntity
+  href: SHARP3D.Data.DataEntity.C3dFileDataPoint.html
+  name: C3dFileDataPoint
+  nameWithType: C3dFileDataPoint
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataPoint
+- uid: SHARP3D.Data.DataEntity
+  commentId: N:SHARP3D.Data.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Data.DataEntity
+  nameWithType: SHARP3D.Data.DataEntity
+  fullName: SHARP3D.Data.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.DataEntity
+    name: DataEntity
+    href: SHARP3D.Data.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.DataEntity
+    name: DataEntity
+    href: SHARP3D.Data.DataEntity.html

@@ -1,0 +1,78 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.Clean
+  commentId: N:SHARP3D.Data.Clean
+  id: SHARP3D.Data.Clean
+  children:
+  - SHARP3D.Data.Clean.C3dAnalogChannel
+  - SHARP3D.Data.Clean.C3dData
+  - SHARP3D.Data.Clean.C3dForceplate
+  - SHARP3D.Data.Clean.C3dPointTrajectory
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Data.Clean
+  nameWithType: SHARP3D.Data.Clean
+  fullName: SHARP3D.Data.Clean
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel
+  commentId: T:SHARP3D.Data.Clean.C3dAnalogChannel
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dAnalogChannel.html
+  name: C3dAnalogChannel
+  nameWithType: C3dAnalogChannel
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dData
+  commentId: T:SHARP3D.Data.Clean.C3dData
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dData.html
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Clean.C3dData
+- uid: SHARP3D.Data.Clean.C3dForceplate
+  commentId: T:SHARP3D.Data.Clean.C3dForceplate
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dForceplate.html
+  name: C3dForceplate
+  nameWithType: C3dForceplate
+  fullName: SHARP3D.Data.Clean.C3dForceplate
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory
+  commentId: T:SHARP3D.Data.Clean.C3dPointTrajectory
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dPointTrajectory.html
+  name: C3dPointTrajectory
+  nameWithType: C3dPointTrajectory
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory
+- uid: SHARP3D.Data.Clean
+  commentId: N:SHARP3D.Data.Clean
+  href: SHARP3D.html
+  name: SHARP3D.Data.Clean
+  nameWithType: SHARP3D.Data.Clean
+  fullName: SHARP3D.Data.Clean
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Clean
+    name: Clean
+    href: SHARP3D.Data.Clean.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Clean
+    name: Clean
+    href: SHARP3D.Data.Clean.html

@@ -4,6 +4,9 @@ items:
   name: SHARP3D
   type: Namespace
   items:
+  - uid: SHARP3D.C3d
+    name: C3d
+    type: Class
   - uid: SHARP3D.C3dFile
     name: C3dFile
     type: Class
@@ -11,21 +14,37 @@ items:
   name: SHARP3D.Data
   type: Namespace
   items:
-  - uid: SHARP3D.Data.C3dDataHelper
-    name: C3dDataHelper
+  - uid: SHARP3D.Data.C3dFileDataHelper
+    name: C3dFileDataHelper
     type: Class
-- uid: SHARP3D.Data.Data
-  name: SHARP3D.Data.Data
+- uid: SHARP3D.Data.Clean
+  name: SHARP3D.Data.Clean
   type: Namespace
   items:
-  - uid: SHARP3D.Data.Data.C3dData
-    name: C3dData
-    type: Struct
-  - uid: SHARP3D.Data.Data.C3dDataContext
-    name: C3dDataContext
+  - uid: SHARP3D.Data.Clean.C3dAnalogChannel
+    name: C3dAnalogChannel
     type: Class
-  - uid: SHARP3D.Data.Data.C3dDataPoint
-    name: C3dDataPoint
+  - uid: SHARP3D.Data.Clean.C3dData
+    name: C3dData
+    type: Class
+  - uid: SHARP3D.Data.Clean.C3dForceplate
+    name: C3dForceplate
+    type: Class
+  - uid: SHARP3D.Data.Clean.C3dPointTrajectory
+    name: C3dPointTrajectory
+    type: Class
+- uid: SHARP3D.Data.DataEntity
+  name: SHARP3D.Data.DataEntity
+  type: Namespace
+  items:
+  - uid: SHARP3D.Data.DataEntity.C3dFileData
+    name: C3dFileData
+    type: Struct
+  - uid: SHARP3D.Data.DataEntity.C3dFileDataContext
+    name: C3dFileDataContext
+    type: Class
+  - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint
+    name: C3dFileDataPoint
     type: Struct
 - uid: SHARP3D.Exceptions
   name: SHARP3D.Exceptions
@@ -43,27 +62,24 @@ items:
   - uid: SHARP3D.Exceptions.EmptyParameterGroupException
     name: EmptyParameterGroupException
     type: Class
-  - uid: SHARP3D.Exceptions.IncompatiblePointAndAnalogRate
-    name: IncompatiblePointAndAnalogRate
+  - uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+    name: NoCalibrationMatrixForForceplateType
     type: Class
   - uid: SHARP3D.Exceptions.ParameterNotFoundException
     name: ParameterNotFoundException
     type: Class
-  - uid: SHARP3D.Exceptions.PointAndAnalogRateException
-    name: PointAndAnalogRateException
-    type: Class
   - uid: SHARP3D.Exceptions.UnknownProcessorTypeException
     name: UnknownProcessorTypeException
     type: Class
-- uid: SHARP3D.Header
-  name: SHARP3D.Header
+- uid: SHARP3D.Header.DataEntity
+  name: SHARP3D.Header.DataEntity
   type: Namespace
   items:
-  - uid: SHARP3D.Header.C3dHeader
-    name: C3dHeader
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader
+    name: C3dFileHeader
     type: Struct
-  - uid: SHARP3D.Header.C3dHeaderEvent
-    name: C3dHeaderEvent
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeaderEvent
+    name: C3dFileHeaderEvent
     type: Struct
 - uid: SHARP3D.Parameter
   name: SHARP3D.Parameter
@@ -72,23 +88,64 @@ items:
   - uid: SHARP3D.Parameter.C3dParameterHelper
     name: C3dParameterHelper
     type: Class
-- uid: SHARP3D.Parameter.Data
-  name: SHARP3D.Parameter.Data
+- uid: SHARP3D.Parameter.DataEntity
+  name: SHARP3D.Parameter.DataEntity
   type: Namespace
   items:
-  - uid: SHARP3D.Parameter.Data.C3dParameter
-    name: C3dParameter
-    type: Struct
-  - uid: SHARP3D.Parameter.Data.C3dParameterCollection
-    name: C3dParameterCollection
+  - uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+    name: C3dFileParameterAnalog
     type: Class
-  - uid: SHARP3D.Parameter.Data.C3dParameterGroup
+  - uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+    name: C3dFileParameterForceplate
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+    name: C3dFileParameterPoint
+    type: Class
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  name: SHARP3D.Parameter.DataEntity.Clean
+  type: Namespace
+  items:
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
+    name: C3dParameterAnalog
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
     name: C3dParameterGroup
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+    name: C3dParameterList
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
+    name: C3dParameterPoint
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+    name: C3dParameterSection
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters
+    name: C3dRequiredParameters
+    type: Class
+- uid: SHARP3D.Parameter.DataEntity.File
+  name: SHARP3D.Parameter.DataEntity.File
+  type: Namespace
+  items:
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameter
+    name: C3dFileParameter
+    type: Struct
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterCollection
+    name: C3dFileParameterCollection
+    type: Class
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+    name: C3dFileParameterGroup
     type: Struct
 - uid: SHARP3D.Utils
   name: SHARP3D.Utils
   type: Namespace
   items:
+  - uid: SHARP3D.Utils.ArrayUtils
+    name: ArrayUtils
+    type: Class
   - uid: SHARP3D.Utils.C3dBytesConvertor
     name: C3dBytesConvertor
     type: Class
@@ -97,6 +154,9 @@ items:
     type: Class
   - uid: SHARP3D.Utils.Sharp3dConstants
     name: Sharp3dConstants
+    type: Class
+  - uid: SHARP3D.Utils.StringArrayPadder
+    name: StringArrayPadder
     type: Class
 - uid: SHARP3D.Utils.Enum
   name: SHARP3D.Utils.Enum
@@ -107,6 +167,9 @@ items:
     type: Enum
   - uid: SHARP3D.Utils.Enum.DataType
     name: DataType
+    type: Enum
+  - uid: SHARP3D.Utils.Enum.ForceplateType
+    name: ForceplateType
     type: Enum
   - uid: SHARP3D.Utils.Enum.HeaderEventFlag
     name: HeaderEventFlag
