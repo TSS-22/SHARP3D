@@ -15,6 +15,13 @@ namespace SHARP3D
 
         public C3d() { }
 
+        public C3d(C3dData data, C3dParameterSection? parameters = null, C3dRequiredParameters? required = null)
+        {
+            Data = data;
+            Required = required != null ? required : new C3dRequiredParameters(); 
+            Parameters = parameters != null ? parameters : new C3dParameterSection();
+        }
+
         public C3d(string filePath)
         {
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
