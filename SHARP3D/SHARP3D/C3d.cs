@@ -196,7 +196,7 @@ namespace SHARP3D
             {
                 throw new ArgumentException("Object 1 and object 2 have different number camera recording.");
             }
-
+            // Define Required.Point after the checks
             C3dParameterPoint newRequiredPoint = new C3dParameterPoint 
             {
                 Rate = object1.Required.Point.Rate,
@@ -204,10 +204,23 @@ namespace SHARP3D
                 Frames = object1.Required.Point.Frames + object2.Required.Point.Frames,
             };
 
+            // ANALOG checks
+            // General Scale
+            if (object1.Required.Analog.GeneralScale != object2.Required.Analog.GeneralScale)
+            { 
+                Console.Error.WriteLine($"ANALOG:GEN_SCALE values are not compatible: {object1.Required.Analog.GeneralScale} | {object2.Required.Analog.GeneralScale}. Defaulting to General Scale from object 1.");
+                object2.ChangeAnalogGeneralScale(object1.Required.Analog.GeneralScale);
+            }
+            // Sample per frame
+            if (object1.Required.Analog.SamplesPerFrame != object2.Required.Analog.SamplesPerFrame)
+            {
+                throw new ArgumentException($"ANALOG sample per frames values are not compatible: {object1.Required.Analog.SamplesPerFrame} | {object2.Required.Analog.SamplesPerFrame} ");
+            }
+
             // ROW CONCAT
             if (rowConcat) 
             {
-                C3dRequiredParameters parameters = new C3dRequiredParameters();
+                
                 // Associate per Labels, use the description of object1
                 List<int> singleTrajectoriesC3d1 = new List<int>();
                 List<int> singleTrajectoriesC3d2 = new List<int>();
@@ -362,20 +375,166 @@ namespace SHARP3D
                     });
 
                 }
+
                 // Add single trajectories from object2
+                foreach (int idSingle in singleTrajectoriesC3d2)
+                {
+                    List<float?[]> newPointData = new List<float?[]>();
+                    List<float?> newResidualData = new List<float?>();
+                    List<bool[]> newCameraMaskData = new List<bool[]>();
+
+                    for (int idSample = 0; idSample < object2.Data.Points[idSingle].Residual.Length; idSample++)
+                    {
+                        // Point data
+                        List<float?> tempListPoint = new List<float?>();
+                        for (int idAxis = 0; idAxis < object2.Data.Points[idSingle].Point.GetLength(1); idAxis++)
+                        {
+                            tempListPoint.Add(object2.Data.Points[idSingle].Point[idSample, idAxis]);
+                        }
+                        newPointData.Add(tempListPoint.ToArray());
+
+                        newResidualData.Add(null);
+
+                        // Mask
+                        List<bool> tempListMask = new List<bool>();
+                        for (int idCamera = 0; idCamera < object2.Data.Points[idSingle].CameraMask.GetLength(1); idCamera++)
+                        {
+                            tempListMask.Add(object2.Data.Points[idSingle].CameraMask[idSample, idCamera]);
+                        }
+                        newCameraMaskData.Add(tempListMask.ToArray());
+                    }
+
+                    for (int idSample = 0; idSample < object2.Required.Point.Frames; idSample++)
+                    {
+                        // Point data
+                        List<float?> tempListPoint = new List<float?>();
+                        for (int idAxis = 0; idAxis < object2PointAxisNumber; idAxis++)
+                        {
+                            tempListPoint.Add(null);
+                        }
+                        newPointData.Add(tempListPoint.ToArray());
+
+                        newResidualData.Add(null);
+
+                        // Mask
+                        List<bool> tempListMask = new List<bool>();
+                        for (int idCamera = 0; idCamera < object2CameraNumber; idCamera++)
+                        {
+                            tempListMask.Add(false);
+                        }
+                        newCameraMaskData.Add(tempListMask.ToArray());
+
+                    }
+
+                    newPointTrajectories.Add(new C3dPointTrajectory
+                    {
+                        Label = object2.Data.Points[idSingle].Label,
+                        Description = object2.Data.Points[idSingle].Description,
+                        Point = newPointData.To2DArray(),
+                        Residual = newResidualData.ToArray(),
+                        CameraMask = newCameraMaskData.To2DArray()
+                    });
+
+                }
 
                 // ANALOG
                 // Associate per Labels, use the description of object1
-                // Check if same units
-                // Check if same rate
+                List<int> singleAnalogC3d1 = new List<int>();
+                List<int> singleAnalogC3d2 = new List<int>();
+                List<(int, int)> partnerAnalog = new List<(int, int)>();
+
+                for (int label1 = 0; label1 < object1.Data.Analogs.Length; label1++)
+                {
+                    bool partnerFound = false;
+                    for (int label2 = 0; label2 < object2.Data.Analogs.Length; label2++)
+                    {
+                        if (object2.Data.Analogs[label2].Label == object1.Data.Analogs[label1].Label)
+                        {
+                            partnerAnalog.Add((label1, label2));
+                            partnerFound = true;
+                            break;
+                        }
+                    }
+                    if (!partnerFound)
+                    {
+                        singleAnalogC3d1.Add(label1);
+                    }
+                }
+                for (int label2 = 0; label2 < object2.Data.Analogs.Length; label2++)
+                {
+                    bool partnerFound = false;
+                    foreach ((int, int) partners in partnerAnalog)
+                    {
+                        if (partners.Item2 == label2)
+                        {
+                            partnerFound = true;
+                            break;
+                        }
+                    }
+                    if (!partnerFound)
+                    {
+                        singleAnalogC3d2.Add(label2);
+                    }
+                }
+                // Check offset/Scale/Units/Bits.
+                // Units and Bits is not recoverable.
+                // offset and scale are switched to object1 values.
+                // What if object1 analog empty, or object2 analog empty?
 
                 // If somebody is missing labels association, add Offset valued sample
+                List<C3dAnalogChannel> newAnalogChannels = new List<C3dAnalogChannel>();
+                // Add partnered trajectories
+                foreach ((int, int) idPartners in partnerTrajectories)
+                {
+                    List<float?[]> newPointData = new List<float?[]>();
+                    List<bool[]> newCameraMaskData = new List<bool[]>();
+
+                    for (int idSample = 0; idSample < object1.Data.Points[idPartners.Item1].Residual.Length; idSample++)
+                    {
+                        // Point data
+                        List<float?> tempListPoint = new List<float?>();
+                        for (int idAxis = 0; idAxis < object1.Data.Points[idPartners.Item1].Point.GetLength(1); idAxis++)
+                        {
+                            tempListPoint.Add(object1.Data.Points[idPartners.Item1].Point[idSample, idAxis]);
+                        }
+                        newPointData.Add(tempListPoint.ToArray());
+
+                        // Mask
+                        List<bool> tempListMask = new List<bool>();
+                        for (int idCamera = 0; idCamera < object1.Data.Points[idPartners.Item1].Point.GetLength(1); idCamera++)
+                        {
+                            tempListMask.Add(object1.Data.Points[idPartners.Item1].CameraMask[idSample, idCamera]);
+                        }
+                        newCameraMaskData.Add(tempListMask.ToArray());
+                    }
+
+                    for (int idSample = 0; idSample < object2.Data.Points[idPartners.Item2].Residual.Length; idSample++)
+                    {
+                        // Point data
+                        List<float?> tempListPoint = new List<float?>();
+                        for (int idAxis = 0; idAxis < object2.Data.Points[idPartners.Item2].Point.GetLength(1); idAxis++)
+                        {
+                            tempListPoint.Add(object2.Data.Points[idPartners.Item2].Point[idSample, idAxis]);
+                        }
+                        newPointData.Add(tempListPoint.ToArray());
+
+                        // Mask
+                        List<bool> tempListMask = new List<bool>();
+                        for (int idCamera = 0; idCamera < object2.Data.Points[idPartners.Item2].CameraMask.GetLength(1); idCamera++)
+                        {
+                            tempListMask.Add(object2.Data.Points[idPartners.Item2].CameraMask[idSample, idCamera]);
+                        }
+                        newCameraMaskData.Add(tempListMask.ToArray());
+                    }
+
+                    
+                }
 
                 // FORCEPLATE
                 // Do analog check on the data
 
                 // Check same type. Corner. Origin etc
-                }
+            }
             // COL CONCAT
             else
             {
