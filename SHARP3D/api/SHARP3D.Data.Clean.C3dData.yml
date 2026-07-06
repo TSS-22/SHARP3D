@@ -1,0 +1,1650 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Data.Clean.C3dData
+  commentId: T:SHARP3D.Data.Clean.C3dData
+  id: C3dData
+  parent: SHARP3D.Data.Clean
+  children:
+  - SHARP3D.Data.Clean.C3dData.#ctor
+  - SHARP3D.Data.Clean.C3dData.#ctor(SHARP3D.C3dFile)
+  - SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  - SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  - SHARP3D.Data.Clean.C3dData.AddFrame
+  - SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  - SHARP3D.Data.Clean.C3dData.Analogs
+  - SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(System.Int32[][])
+  - SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.Int32[])
+  - SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.String[])
+  - SHARP3D.Data.Clean.C3dData.DeleteForceplate(System.Int32[])
+  - SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
+  - SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
+  - SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.String[])
+  - SHARP3D.Data.Clean.C3dData.Forceplates
+  - SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  - SHARP3D.Data.Clean.C3dData.GetAllForceplateData(System.Boolean)
+  - SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  - SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  - SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  - SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  - SHARP3D.Data.Clean.C3dData.Points
+  langs:
+  - csharp
+  - vb
+  name: C3dData
+  nameWithType: C3dData
+  fullName: SHARP3D.Data.Clean.C3dData
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dData
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public class C3dData
+    content.vb: Public Class C3dData
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Data.Clean.C3dData.Points
+  commentId: F:SHARP3D.Data.Clean.C3dData.Points
+  id: Points
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: C3dData.Points
+  fullName: SHARP3D.Data.Clean.C3dData.Points
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Points
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public C3dPointTrajectory[] Points
+    return:
+      type: SHARP3D.Data.Clean.C3dPointTrajectory[]
+    content.vb: Public Points As C3dPointTrajectory()
+- uid: SHARP3D.Data.Clean.C3dData.Analogs
+  commentId: F:SHARP3D.Data.Clean.C3dData.Analogs
+  id: Analogs
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Analogs
+  nameWithType: C3dData.Analogs
+  fullName: SHARP3D.Data.Clean.C3dData.Analogs
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Analogs
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public C3dAnalogChannel[] Analogs
+    return:
+      type: SHARP3D.Data.Clean.C3dAnalogChannel[]
+    content.vb: Public Analogs As C3dAnalogChannel()
+- uid: SHARP3D.Data.Clean.C3dData.Forceplates
+  commentId: F:SHARP3D.Data.Clean.C3dData.Forceplates
+  id: Forceplates
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: Forceplates
+  nameWithType: C3dData.Forceplates
+  fullName: SHARP3D.Data.Clean.C3dData.Forceplates
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Forceplates
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public C3dForceplate[] Forceplates
+    return:
+      type: SHARP3D.Data.Clean.C3dForceplate[]
+    content.vb: Public Forceplates As C3dForceplate()
+- uid: SHARP3D.Data.Clean.C3dData.#ctor
+  commentId: M:SHARP3D.Data.Clean.C3dData.#ctor
+  id: '#ctor'
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: C3dData()
+  nameWithType: C3dData.C3dData()
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData()
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public C3dData()
+    content.vb: Public Sub New()
+  overload: SHARP3D.Data.Clean.C3dData.#ctor*
+  nameWithType.vb: C3dData.New()
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New()
+  name.vb: New()
+- uid: SHARP3D.Data.Clean.C3dData.#ctor(SHARP3D.C3dFile)
+  commentId: M:SHARP3D.Data.Clean.C3dData.#ctor(SHARP3D.C3dFile)
+  id: '#ctor(SHARP3D.C3dFile)'
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: C3dData(C3dFile)
+  nameWithType: C3dData.C3dData(C3dFile)
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData(SHARP3D.C3dFile)
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public C3dData(C3dFile c3dFile)
+    parameters:
+    - id: c3dFile
+      type: SHARP3D.C3dFile
+    content.vb: Public Sub New(c3dFile As C3dFile)
+  overload: SHARP3D.Data.Clean.C3dData.#ctor*
+  nameWithType.vb: C3dData.New(C3dFile)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New(SHARP3D.C3dFile)
+  name.vb: New(C3dFile)
+- uid: SHARP3D.Data.Clean.C3dData.AddFrame
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddFrame
+  id: AddFrame
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: AddFrame()
+  nameWithType: C3dData.AddFrame()
+  fullName: SHARP3D.Data.Clean.C3dData.AddFrame()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AddFrame
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 37
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public int AddFrame()
+    return:
+      type: System.Int32
+    content.vb: Public Function AddFrame() As Integer
+  overload: SHARP3D.Data.Clean.C3dData.AddFrame*
+- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
+  id: DeleteFrame(System.Int32)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeleteFrame(int)
+  nameWithType: C3dData.DeleteFrame(int)
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame(int)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteFrame
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 43
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public int DeleteFrame(int idFrameToDelete)
+    parameters:
+    - id: idFrameToDelete
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function DeleteFrame(idFrameToDelete As Integer) As Integer
+  overload: SHARP3D.Data.Clean.C3dData.DeleteFrame*
+  nameWithType.vb: C3dData.DeleteFrame(Integer)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteFrame(Integer)
+  name.vb: DeleteFrame(Integer)
+- uid: SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  id: GetAllPointsData
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetAllPointsData()
+  nameWithType: C3dData.GetAllPointsData()
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllPointsData()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAllPointsData
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 63
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public (float?[,,], float?[,], bool[,,]) GetAllPointsData()
+    return:
+      type: System.ValueTuple{System.Nullable{System.Single}[0:,0:,0:],System.Nullable{System.Single}[0:,0:],System.Boolean[0:,0:,0:]}
+    content.vb: Public Function GetAllPointsData() As (Single?(,,), Single?(,), Boolean(,,))
+  overload: SHARP3D.Data.Clean.C3dData.GetAllPointsData*
+- uid: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  id: GetAllAnalogsData
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetAllAnalogsData()
+  nameWithType: C3dData.GetAllAnalogsData()
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAllAnalogsData
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 79
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public float[,] GetAllAnalogsData()
+    return:
+      type: System.Single[,]
+    content.vb: Public Function GetAllAnalogsData() As Single(,)
+  overload: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData*
+- uid: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(System.Boolean)
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAllForceplateData(System.Boolean)
+  id: GetAllForceplateData(System.Boolean)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetAllForceplateData(bool)
+  nameWithType: C3dData.GetAllForceplateData(bool)
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(bool)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAllForceplateData
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 91
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public float[][,] GetAllForceplateData(bool applyCalibrationMatrix)
+    parameters:
+    - id: applyCalibrationMatrix
+      type: System.Boolean
+    return:
+      type: System.Single[,][]
+    content.vb: Public Function GetAllForceplateData(applyCalibrationMatrix As Boolean) As Single()(,)
+  overload: SHARP3D.Data.Clean.C3dData.GetAllForceplateData*
+  nameWithType.vb: C3dData.GetAllForceplateData(Boolean)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetAllForceplateData(Boolean)
+  name.vb: GetAllForceplateData(Boolean)
+- uid: SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  id: AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: AddAnalogChannel(C3dAnalogChannel)
+  nameWithType: C3dData.AddAnalogChannel(C3dAnalogChannel)
+  fullName: SHARP3D.Data.Clean.C3dData.AddAnalogChannel(SHARP3D.Data.Clean.C3dAnalogChannel)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AddAnalogChannel
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 112
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void AddAnalogChannel(C3dAnalogChannel channelToAdd)
+    parameters:
+    - id: channelToAdd
+      type: SHARP3D.Data.Clean.C3dAnalogChannel
+    content.vb: Public Sub AddAnalogChannel(channelToAdd As C3dAnalogChannel)
+  overload: SHARP3D.Data.Clean.C3dData.AddAnalogChannel*
+- uid: SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  id: AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: AddPointTrajectory(C3dPointTrajectory)
+  nameWithType: C3dData.AddPointTrajectory(C3dPointTrajectory)
+  fullName: SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AddPointTrajectory
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 126
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void AddPointTrajectory(C3dPointTrajectory trajectoryToAdd)
+    parameters:
+    - id: trajectoryToAdd
+      type: SHARP3D.Data.Clean.C3dPointTrajectory
+    content.vb: Public Sub AddPointTrajectory(trajectoryToAdd As C3dPointTrajectory)
+  overload: SHARP3D.Data.Clean.C3dData.AddPointTrajectory*
+- uid: SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  commentId: M:SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  id: AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: AddForceplate(C3dForceplate)
+  nameWithType: C3dData.AddForceplate(C3dForceplate)
+  fullName: SHARP3D.Data.Clean.C3dData.AddForceplate(SHARP3D.Data.Clean.C3dForceplate)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AddForceplate
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 140
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void AddForceplate(C3dForceplate forceplateToAdd)
+    parameters:
+    - id: forceplateToAdd
+      type: SHARP3D.Data.Clean.C3dForceplate
+    content.vb: Public Sub AddForceplate(forceplateToAdd As C3dForceplate)
+  overload: SHARP3D.Data.Clean.C3dData.AddForceplate*
+- uid: SHARP3D.Data.Clean.C3dData.DeleteForceplate(System.Int32[])
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteForceplate(System.Int32[])
+  id: DeleteForceplate(System.Int32[])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeleteForceplate(int[])
+  nameWithType: C3dData.DeleteForceplate(int[])
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteForceplate(int[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteForceplate
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 157
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void DeleteForceplate(int[] idPlates)
+    parameters:
+    - id: idPlates
+      type: System.Int32[]
+    content.vb: Public Sub DeleteForceplate(idPlates As Integer())
+  overload: SHARP3D.Data.Clean.C3dData.DeleteForceplate*
+  nameWithType.vb: C3dData.DeleteForceplate(Integer())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteForceplate(Integer())
+  name.vb: DeleteForceplate(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.String[])
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.String[])
+  id: DeletePointTrajectories(System.String[])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeletePointTrajectories(string[])
+  nameWithType: C3dData.DeletePointTrajectories(string[])
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(string[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeletePointTrajectories
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 173
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void DeletePointTrajectories(string[] trajectoriesLabels)
+    parameters:
+    - id: trajectoriesLabels
+      type: System.String[]
+    content.vb: Public Sub DeletePointTrajectories(trajectoriesLabels As String())
+  overload: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories*
+  nameWithType.vb: C3dData.DeletePointTrajectories(String())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(String())
+  name.vb: DeletePointTrajectories(String())
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
+  id: DeletePointTrajectories(System.Int32[])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeletePointTrajectories(int[])
+  nameWithType: C3dData.DeletePointTrajectories(int[])
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(int[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeletePointTrajectories
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 192
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void DeletePointTrajectories(int[] trajectories)
+    parameters:
+    - id: trajectories
+      type: System.Int32[]
+    content.vb: Public Sub DeletePointTrajectories(trajectories As Integer())
+  overload: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories*
+  nameWithType.vb: C3dData.DeletePointTrajectories(Integer())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(Integer())
+  name.vb: DeletePointTrajectories(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.String[])
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.String[])
+  id: DeleteAnalogChannels(System.String[])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeleteAnalogChannels(string[])
+  nameWithType: C3dData.DeleteAnalogChannels(string[])
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(string[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteAnalogChannels
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 207
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void DeleteAnalogChannels(string[] channelLabels)
+    parameters:
+    - id: channelLabels
+      type: System.String[]
+    content.vb: Public Sub DeleteAnalogChannels(channelLabels As String())
+  overload: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels*
+  nameWithType.vb: C3dData.DeleteAnalogChannels(String())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(String())
+  name.vb: DeleteAnalogChannels(String())
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.Int32[])
+  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(System.Int32[])
+  id: DeleteAnalogChannels(System.Int32[])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: DeleteAnalogChannels(int[])
+  nameWithType: C3dData.DeleteAnalogChannels(int[])
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(int[])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteAnalogChannels
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 226
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void DeleteAnalogChannels(int[] channels)
+    parameters:
+    - id: channels
+      type: System.Int32[]
+    content.vb: Public Sub DeleteAnalogChannels(channels As Integer())
+  overload: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels*
+  nameWithType.vb: C3dData.DeleteAnalogChannels(Integer())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels(Integer())
+  name.vb: DeleteAnalogChannels(Integer())
+- uid: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  id: GetPointDataFromFile(System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]},SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetPointDataFromFile(List<C3dFileDataPoint[]>, C3dFileParameterPoint?)
+  nameWithType: C3dData.GetPointDataFromFile(List<C3dFileDataPoint[]>, C3dFileParameterPoint?)
+  fullName: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List<SHARP3D.Data.DataEntity.C3dFileDataPoint[]>, SHARP3D.Parameter.DataEntity.C3dFileParameterPoint?)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetPointDataFromFile
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 242
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: internal C3dPointTrajectory[] GetPointDataFromFile(List<C3dFileDataPoint[]> filePointData, C3dFileParameterPoint? fileParameterPoint = null)
+    parameters:
+    - id: filePointData
+      type: System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]}
+    - id: fileParameterPoint
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+    return:
+      type: SHARP3D.Data.Clean.C3dPointTrajectory[]
+    content.vb: Friend Function GetPointDataFromFile(filePointData As List(Of C3dFileDataPoint()), fileParameterPoint As C3dFileParameterPoint = Nothing) As C3dPointTrajectory()
+  overload: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile*
+  nameWithType.vb: C3dData.GetPointDataFromFile(List(Of C3dFileDataPoint()), C3dFileParameterPoint)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile(System.Collections.Generic.List(Of SHARP3D.Data.DataEntity.C3dFileDataPoint()), SHARP3D.Parameter.DataEntity.C3dFileParameterPoint)
+  name.vb: GetPointDataFromFile(List(Of C3dFileDataPoint()), C3dFileParameterPoint)
+- uid: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  id: GetAnalogDataFromFile(System.Collections.Generic.List{System.Single[][]},SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogDataFromFile(List<float[][]>, C3dFileParameterAnalog?)
+  nameWithType: C3dData.GetAnalogDataFromFile(List<float[][]>, C3dFileParameterAnalog?)
+  fullName: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List<float[][]>, SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog?)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetAnalogDataFromFile
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 311
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: internal C3dAnalogChannel[] GetAnalogDataFromFile(List<float[][]> fileAnalogData, C3dFileParameterAnalog? fileParameterAnalog = null)
+    parameters:
+    - id: fileAnalogData
+      type: System.Collections.Generic.List{System.Single[][]}
+    - id: fileParameterAnalog
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+    return:
+      type: SHARP3D.Data.Clean.C3dAnalogChannel[]
+    content.vb: Friend Function GetAnalogDataFromFile(fileAnalogData As List(Of Single()()), fileParameterAnalog As C3dFileParameterAnalog = Nothing) As C3dAnalogChannel()
+  overload: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile*
+  nameWithType.vb: C3dData.GetAnalogDataFromFile(List(Of Single()()), C3dFileParameterAnalog)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile(System.Collections.Generic.List(Of Single()()), SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog)
+  name.vb: GetAnalogDataFromFile(List(Of Single()()), C3dFileParameterAnalog)
+- uid: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  commentId: M:SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  id: GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[],SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: GetForcePlateDataFromFile(C3dAnalogChannel[], C3dFileParameterForceplate)
+  nameWithType: C3dData.GetForcePlateDataFromFile(C3dAnalogChannel[], C3dFileParameterForceplate)
+  fullName: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel[], SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetForcePlateDataFromFile
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 391
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: internal C3dForceplate[] GetForcePlateDataFromFile(C3dAnalogChannel[] analogData, C3dFileParameterForceplate fileParameterForceplate)
+    parameters:
+    - id: analogData
+      type: SHARP3D.Data.Clean.C3dAnalogChannel[]
+    - id: fileParameterForceplate
+      type: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+    return:
+      type: SHARP3D.Data.Clean.C3dForceplate[]
+    content.vb: Friend Function GetForcePlateDataFromFile(analogData As C3dAnalogChannel(), fileParameterForceplate As C3dFileParameterForceplate) As C3dForceplate()
+  overload: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile*
+  nameWithType.vb: C3dData.GetForcePlateDataFromFile(C3dAnalogChannel(), C3dFileParameterForceplate)
+  fullName.vb: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile(SHARP3D.Data.Clean.C3dAnalogChannel(), SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate)
+  name.vb: GetForcePlateDataFromFile(C3dAnalogChannel(), C3dFileParameterForceplate)
+- uid: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(System.Int32[][])
+  commentId: M:SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(System.Int32[][])
+  id: CleanForceplateInAnalog(System.Int32[][])
+  parent: SHARP3D.Data.Clean.C3dData
+  langs:
+  - csharp
+  - vb
+  name: CleanForceplateInAnalog(int[][])
+  nameWithType: C3dData.CleanForceplateInAnalog(int[][])
+  fullName: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(int[][])
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Data/Clean/C3dData.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: CleanForceplateInAnalog
+    path: SHARP3D/Data/Clean/C3dData.cs
+    startLine: 427
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Data.Clean
+  syntax:
+    content: public void CleanForceplateInAnalog(int[][] forcePlateChannels)
+    parameters:
+    - id: forcePlateChannels
+      type: System.Int32[][]
+    content.vb: Public Sub CleanForceplateInAnalog(forcePlateChannels As Integer()())
+  overload: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog*
+  nameWithType.vb: C3dData.CleanForceplateInAnalog(Integer()())
+  fullName.vb: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog(Integer()())
+  name.vb: CleanForceplateInAnalog(Integer()())
+references:
+- uid: SHARP3D.Data.Clean
+  commentId: N:SHARP3D.Data.Clean
+  href: SHARP3D.html
+  name: SHARP3D.Data.Clean
+  nameWithType: SHARP3D.Data.Clean
+  fullName: SHARP3D.Data.Clean
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Clean
+    name: Clean
+    href: SHARP3D.Data.Clean.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Data
+    name: Data
+    href: SHARP3D.Data.html
+  - name: .
+  - uid: SHARP3D.Data.Clean
+    name: Clean
+    href: SHARP3D.Data.Clean.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory[]
+  isExternal: true
+  href: SHARP3D.Data.Clean.C3dPointTrajectory.html
+  name: C3dPointTrajectory[]
+  nameWithType: C3dPointTrajectory[]
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory[]
+  nameWithType.vb: C3dPointTrajectory()
+  fullName.vb: SHARP3D.Data.Clean.C3dPointTrajectory()
+  name.vb: C3dPointTrajectory()
+  spec.csharp:
+  - uid: SHARP3D.Data.Clean.C3dPointTrajectory
+    name: C3dPointTrajectory
+    href: SHARP3D.Data.Clean.C3dPointTrajectory.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Data.Clean.C3dPointTrajectory
+    name: C3dPointTrajectory
+    href: SHARP3D.Data.Clean.C3dPointTrajectory.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel[]
+  isExternal: true
+  href: SHARP3D.Data.Clean.C3dAnalogChannel.html
+  name: C3dAnalogChannel[]
+  nameWithType: C3dAnalogChannel[]
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel[]
+  nameWithType.vb: C3dAnalogChannel()
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel()
+  name.vb: C3dAnalogChannel()
+  spec.csharp:
+  - uid: SHARP3D.Data.Clean.C3dAnalogChannel
+    name: C3dAnalogChannel
+    href: SHARP3D.Data.Clean.C3dAnalogChannel.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Data.Clean.C3dAnalogChannel
+    name: C3dAnalogChannel
+    href: SHARP3D.Data.Clean.C3dAnalogChannel.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dForceplate[]
+  isExternal: true
+  href: SHARP3D.Data.Clean.C3dForceplate.html
+  name: C3dForceplate[]
+  nameWithType: C3dForceplate[]
+  fullName: SHARP3D.Data.Clean.C3dForceplate[]
+  nameWithType.vb: C3dForceplate()
+  fullName.vb: SHARP3D.Data.Clean.C3dForceplate()
+  name.vb: C3dForceplate()
+  spec.csharp:
+  - uid: SHARP3D.Data.Clean.C3dForceplate
+    name: C3dForceplate
+    href: SHARP3D.Data.Clean.C3dForceplate.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Data.Clean.C3dForceplate
+    name: C3dForceplate
+    href: SHARP3D.Data.Clean.C3dForceplate.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.#ctor*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.#ctor
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData__ctor
+  name: C3dData
+  nameWithType: C3dData.C3dData
+  fullName: SHARP3D.Data.Clean.C3dData.C3dData
+  nameWithType.vb: C3dData.New
+  fullName.vb: SHARP3D.Data.Clean.C3dData.New
+  name.vb: New
+- uid: SHARP3D.C3dFile
+  commentId: T:SHARP3D.C3dFile
+  parent: SHARP3D
+  href: SHARP3D.C3dFile.html
+  name: C3dFile
+  nameWithType: C3dFile
+  fullName: SHARP3D.C3dFile
+- uid: SHARP3D
+  commentId: N:SHARP3D
+  href: SHARP3D.html
+  name: SHARP3D
+  nameWithType: SHARP3D
+  fullName: SHARP3D
+- uid: SHARP3D.Data.Clean.C3dData.AddFrame*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddFrame
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddFrame
+  name: AddFrame
+  nameWithType: C3dData.AddFrame
+  fullName: SHARP3D.Data.Clean.C3dData.AddFrame
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteFrame
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteFrame_System_Int32_
+  name: DeleteFrame
+  nameWithType: C3dData.DeleteFrame
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame
+- uid: SHARP3D.Data.Clean.C3dData.GetAllPointsData*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllPointsData
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllPointsData
+  name: GetAllPointsData
+  nameWithType: C3dData.GetAllPointsData
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllPointsData
+- uid: System.ValueTuple{System.Nullable{System.Single}[0:,0:,0:],System.Nullable{System.Single}[0:,0:],System.Boolean[0:,0:,0:]}
+  commentId: T:System.ValueTuple{System.Nullable{System.Single}[0:,0:,0:],System.Nullable{System.Single}[0:,0:],System.Boolean[0:,0:,0:]}
+  parent: System
+  definition: System.ValueTuple`3
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: (float?[,,], float?[,], bool[,,])
+  nameWithType: (float?[,,], float?[,], bool[,,])
+  fullName: (float?[,,], float?[,], bool[,,])
+  nameWithType.vb: (Single?(,,), Single?(,), Boolean(,,))
+  fullName.vb: (Single?(,,), Single?(,), Boolean(,,))
+  name.vb: (Single?(,,), Single?(,), Boolean(,,))
+  spec.csharp:
+  - name: (
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  - name: '['
+  - name: ','
+  - name: ','
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  - name: '['
+  - name: ','
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '['
+  - name: ','
+  - name: ','
+  - name: ']'
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  - name: (
+  - name: ','
+  - name: ','
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '?'
+  - name: (
+  - name: ','
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: (
+  - name: ','
+  - name: ','
+  - name: )
+  - name: )
+- uid: System.ValueTuple`3
+  commentId: T:System.ValueTuple`3
+  name: (T1, T2, T3)
+  nameWithType: (T1, T2, T3)
+  fullName: (T1, T2, T3)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllAnalogsData
+  name: GetAllAnalogsData
+  nameWithType: C3dData.GetAllAnalogsData
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllAnalogsData
+- uid: System.Single[,]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[,]
+  nameWithType: float[,]
+  fullName: float[,]
+  nameWithType.vb: Single(,)
+  fullName.vb: Single(,)
+  name.vb: Single(,)
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: ','
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.GetAllForceplateData*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAllForceplateData
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAllForceplateData_System_Boolean_
+  name: GetAllForceplateData
+  nameWithType: C3dData.GetAllForceplateData
+  fullName: SHARP3D.Data.Clean.C3dData.GetAllForceplateData
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Single[,][]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[][,]
+  nameWithType: float[][,]
+  fullName: float[][,]
+  nameWithType.vb: Single()(,)
+  fullName.vb: Single()(,)
+  name.vb: Single()(,)
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+  - name: (
+  - name: ','
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.AddAnalogChannel*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddAnalogChannel
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddAnalogChannel_SHARP3D_Data_Clean_C3dAnalogChannel_
+  name: AddAnalogChannel
+  nameWithType: C3dData.AddAnalogChannel
+  fullName: SHARP3D.Data.Clean.C3dData.AddAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel
+  commentId: T:SHARP3D.Data.Clean.C3dAnalogChannel
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dAnalogChannel.html
+  name: C3dAnalogChannel
+  nameWithType: C3dAnalogChannel
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dData.AddPointTrajectory*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddPointTrajectory
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddPointTrajectory_SHARP3D_Data_Clean_C3dPointTrajectory_
+  name: AddPointTrajectory
+  nameWithType: C3dData.AddPointTrajectory
+  fullName: SHARP3D.Data.Clean.C3dData.AddPointTrajectory
+- uid: SHARP3D.Data.Clean.C3dPointTrajectory
+  commentId: T:SHARP3D.Data.Clean.C3dPointTrajectory
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dPointTrajectory.html
+  name: C3dPointTrajectory
+  nameWithType: C3dPointTrajectory
+  fullName: SHARP3D.Data.Clean.C3dPointTrajectory
+- uid: SHARP3D.Data.Clean.C3dData.AddForceplate*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddForceplate
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddForceplate_SHARP3D_Data_Clean_C3dForceplate_
+  name: AddForceplate
+  nameWithType: C3dData.AddForceplate
+  fullName: SHARP3D.Data.Clean.C3dData.AddForceplate
+- uid: SHARP3D.Data.Clean.C3dForceplate
+  commentId: T:SHARP3D.Data.Clean.C3dForceplate
+  parent: SHARP3D.Data.Clean
+  href: SHARP3D.Data.Clean.C3dForceplate.html
+  name: C3dForceplate
+  nameWithType: C3dForceplate
+  fullName: SHARP3D.Data.Clean.C3dForceplate
+- uid: SHARP3D.Data.Clean.C3dData.DeleteForceplate*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteForceplate
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteForceplate_System_Int32___
+  name: DeleteForceplate
+  nameWithType: C3dData.DeleteForceplate
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteForceplate
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeletePointTrajectories
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeletePointTrajectories_System_String___
+  name: DeletePointTrajectories
+  nameWithType: C3dData.DeletePointTrajectories
+  fullName: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteAnalogChannels_System_String___
+  name: DeleteAnalogChannels
+  nameWithType: C3dData.DeleteAnalogChannels
+  fullName: SHARP3D.Data.Clean.C3dData.DeleteAnalogChannels
+- uid: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetPointDataFromFile
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetPointDataFromFile_System_Collections_Generic_List_SHARP3D_Data_DataEntity_C3dFileDataPoint____SHARP3D_Parameter_DataEntity_C3dFileParameterPoint_
+  name: GetPointDataFromFile
+  nameWithType: C3dData.GetPointDataFromFile
+  fullName: SHARP3D.Data.Clean.C3dData.GetPointDataFromFile
+- uid: System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Data.DataEntity.C3dFileDataPoint[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dFileDataPoint[]>
+  nameWithType: List<C3dFileDataPoint[]>
+  fullName: System.Collections.Generic.List<SHARP3D.Data.DataEntity.C3dFileDataPoint[]>
+  nameWithType.vb: List(Of C3dFileDataPoint())
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Data.DataEntity.C3dFileDataPoint())
+  name.vb: List(Of C3dFileDataPoint())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint
+    name: C3dFileDataPoint
+    href: SHARP3D.Data.DataEntity.C3dFileDataPoint.html
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint
+    name: C3dFileDataPoint
+    href: SHARP3D.Data.DataEntity.C3dFileDataPoint.html
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html
+  name: C3dFileParameterPoint
+  nameWithType: C3dFileParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+- uid: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetAnalogDataFromFile_System_Collections_Generic_List_System_Single______SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_
+  name: GetAnalogDataFromFile
+  nameWithType: C3dData.GetAnalogDataFromFile
+  fullName: SHARP3D.Data.Clean.C3dData.GetAnalogDataFromFile
+- uid: System.Collections.Generic.List{System.Single[][]}
+  commentId: T:System.Collections.Generic.List{System.Single[][]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<float[][]>
+  nameWithType: List<float[][]>
+  fullName: System.Collections.Generic.List<float[][]>
+  nameWithType.vb: List(Of Single()())
+  fullName.vb: System.Collections.Generic.List(Of Single()())
+  name.vb: List(Of Single()())
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html
+  name: C3dFileParameterAnalog
+  nameWithType: C3dFileParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+- uid: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_GetForcePlateDataFromFile_SHARP3D_Data_Clean_C3dAnalogChannel___SHARP3D_Parameter_DataEntity_C3dFileParameterForceplate_
+  name: GetForcePlateDataFromFile
+  nameWithType: C3dData.GetForcePlateDataFromFile
+  fullName: SHARP3D.Data.Clean.C3dData.GetForcePlateDataFromFile
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html
+  name: C3dFileParameterForceplate
+  nameWithType: C3dFileParameterForceplate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+- uid: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog*
+  commentId: Overload:SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog
+  href: SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_CleanForceplateInAnalog_System_Int32_____
+  name: CleanForceplateInAnalog
+  nameWithType: C3dData.CleanForceplateInAnalog
+  fullName: SHARP3D.Data.Clean.C3dData.CleanForceplateInAnalog
+- uid: System.Int32[][]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[][]
+  nameWithType: int[][]
+  fullName: int[][]
+  nameWithType.vb: Integer()()
+  fullName.vb: Integer()()
+  name.vb: Integer()()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+  - name: (
+  - name: )

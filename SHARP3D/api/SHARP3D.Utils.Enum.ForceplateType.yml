@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Utils.Enum.ForceplateType
+  commentId: T:SHARP3D.Utils.Enum.ForceplateType
+  id: ForceplateType
+  parent: SHARP3D.Utils.Enum
+  children:
+  - SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  - SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  - SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  - SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  - SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  langs:
+  - csharp
+  - vb
+  name: ForceplateType
+  nameWithType: ForceplateType
+  fullName: SHARP3D.Utils.Enum.ForceplateType
+  type: Enum
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ForceplateType
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 2
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: public enum ForceplateType
+    content.vb: Public Enum ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  id: UNKOWN
+  parent: SHARP3D.Utils.Enum.ForceplateType
+  langs:
+  - csharp
+  - vb
+  name: UNKOWN
+  nameWithType: ForceplateType.UNKOWN
+  fullName: SHARP3D.Utils.Enum.ForceplateType.UNKOWN
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: UNKOWN
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 4
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: UNKOWN = 0
+    return:
+      type: SHARP3D.Utils.Enum.ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  id: TYPE_1
+  parent: SHARP3D.Utils.Enum.ForceplateType
+  langs:
+  - csharp
+  - vb
+  name: TYPE_1
+  nameWithType: ForceplateType.TYPE_1
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_1
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TYPE_1
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: TYPE_1 = 1
+    return:
+      type: SHARP3D.Utils.Enum.ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  id: TYPE_2
+  parent: SHARP3D.Utils.Enum.ForceplateType
+  langs:
+  - csharp
+  - vb
+  name: TYPE_2
+  nameWithType: ForceplateType.TYPE_2
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_2
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TYPE_2
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: TYPE_2 = 2
+    return:
+      type: SHARP3D.Utils.Enum.ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  id: TYPE_3
+  parent: SHARP3D.Utils.Enum.ForceplateType
+  langs:
+  - csharp
+  - vb
+  name: TYPE_3
+  nameWithType: ForceplateType.TYPE_3
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_3
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TYPE_3
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 7
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: TYPE_3 = 3
+    return:
+      type: SHARP3D.Utils.Enum.ForceplateType
+- uid: SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  commentId: F:SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  id: TYPE_4
+  parent: SHARP3D.Utils.Enum.ForceplateType
+  langs:
+  - csharp
+  - vb
+  name: TYPE_4
+  nameWithType: ForceplateType.TYPE_4
+  fullName: SHARP3D.Utils.Enum.ForceplateType.TYPE_4
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Utils/Enum/ForceplateType.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TYPE_4
+    path: SHARP3D/Utils/Enum/ForceplateType.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Utils.Enum
+  syntax:
+    content: TYPE_4 = 4
+    return:
+      type: SHARP3D.Utils.Enum.ForceplateType
+references:
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: SHARP3D.Utils.Enum.ForceplateType
+  commentId: T:SHARP3D.Utils.Enum.ForceplateType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ForceplateType.html
+  name: ForceplateType
+  nameWithType: ForceplateType
+  fullName: SHARP3D.Utils.Enum.ForceplateType

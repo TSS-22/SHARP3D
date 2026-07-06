@@ -11,7 +11,7 @@
         /// <summary>
         /// Compares this instance to another for value equality
         /// </summary>
-        public bool Equals(C3dParameterAnother? other)
+        public bool Equals(C3dParameterAnalog? other)
         {
             if (other is null) return false;
 

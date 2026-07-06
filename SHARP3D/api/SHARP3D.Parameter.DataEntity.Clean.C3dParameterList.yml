@@ -1,34 +1,33 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.Parameter.C3dParameterHelper
-  commentId: T:SHARP3D.Parameter.C3dParameterHelper
-  id: C3dParameterHelper
-  parent: SHARP3D.Parameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  id: C3dParameterList
+  parent: SHARP3D.Parameter.DataEntity.Clean
   children:
-  - SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item(System.Int32)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterList._parameterList
   langs:
   - csharp
   - vb
-  name: C3dParameterHelper
-  nameWithType: C3dParameterHelper
-  fullName: SHARP3D.Parameter.C3dParameterHelper
+  name: C3dParameterList
+  nameWithType: C3dParameterList
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: C3dParameterHelper
-    path: SHARP3D/Parameter/C3dParameterHelper.cs
-    startLine: 11
+    id: C3dParameterList
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
+    startLine: 2
   assemblies:
   - SHARP3D
-  namespace: SHARP3D.Parameter
-  summary: Provides helper methods for loading, parsing, and managing C3D file parameters and parameter groups.
-  example: []
+  namespace: SHARP3D.Parameter.DataEntity.Clean
   syntax:
-    content: public static class C3dParameterHelper
-    content.vb: Public Module C3dParameterHelper
+    content: public class C3dParameterList
+    content.vb: Public Class C3dParameterList
   inheritance:
   - System.Object
   inheritedMembers:
@@ -39,69 +38,74 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
-- uid: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
-  commentId: M:SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
-  id: ParametersFromFileStreams(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,System.Int32,System.Int32)
-  parent: SHARP3D.Parameter.C3dParameterHelper
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList._parameterList
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterList._parameterList
+  id: _parameterList
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
   langs:
   - csharp
   - vb
-  name: ParametersFromFileStreams(FileStream, ProcessorType, int, int)
-  nameWithType: C3dParameterHelper.ParametersFromFileStreams(FileStream, ProcessorType, int, int)
-  fullName: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, int, int)
-  type: Method
+  name: _parameterList
+  nameWithType: C3dParameterList._parameterList
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList._parameterList
+  type: Field
   source:
     remote:
-      path: SHARP3D/SHARP3D/Parameter/C3dParameterHelper.cs
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ParametersFromFileStreams
-    path: SHARP3D/Parameter/C3dParameterHelper.cs
-    startLine: 28
+    id: _parameterList
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
+    startLine: 4
   assemblies:
   - SHARP3D
-  namespace: SHARP3D.Parameter
-  summary: Parses C3D parameter groups and parameters from a file stream.
-  remarks: >-
-    <p>
-
-    Empty groups (which have no parameters linked to them) are discarded. This is implemented due to Vicon potentially adding twice PROCESSING group, once empty and once with the actual parameters.
-
-    </p>
-
-
-    TODO: Handle UTF-8 error cases as per https://en.wikipedia.org/wiki/UTF-8#Error_handling
-  example: []
+  namespace: SHARP3D.Parameter.DataEntity.Clean
   syntax:
-    content: public static List<C3dFileParameterGroup> ParametersFromFileStreams(FileStream c3dStream, ProcessorType processorFile, int pointerParameterSection, int pointerDataSection)
-    parameters:
-    - id: c3dStream
-      type: System.IO.FileStream
-      description: The file stream of the C3D file.
-    - id: processorFile
-      type: SHARP3D.Utils.Enum.ProcessorType
-      description: The processor type used in the C3D file.
-    - id: pointerParameterSection
-      type: System.Int32
-      description: The pointer to the parameter section in the C3D file.
-    - id: pointerDataSection
-      type: System.Int32
-      description: The pointer to the data section in the C3D file.
+    content: private List<C3dParameter> _parameterList
     return:
-      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
-      description: A list of C3dParameterGroup parsed from the file stream.
-    content.vb: Public Shared Function ParametersFromFileStreams(c3dStream As FileStream, processorFile As ProcessorType, pointerParameterSection As Integer, pointerDataSection As Integer) As List(Of C3dFileParameterGroup)
-  overload: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams*
-  nameWithType.vb: C3dParameterHelper.ParametersFromFileStreams(FileStream, ProcessorType, Integer, Integer)
-  fullName.vb: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, Integer, Integer)
-  name.vb: ParametersFromFileStreams(FileStream, ProcessorType, Integer, Integer)
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
+    content.vb: Private _parameterList As List(Of C3dParameter)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item(System.Int32)
+  commentId: P:SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: C3dParameterList.this[int]
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.this[int]
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: this[]
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterList.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameter this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    content.vb: Public Default Property this[](index As Integer) As C3dParameter
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item*
+  nameWithType.vb: C3dParameterList.this[](Integer)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.this[](Integer)
+  name.vb: this[](Integer)
 references:
-- uid: SHARP3D.Parameter
-  commentId: N:SHARP3D.Parameter
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  commentId: N:SHARP3D.Parameter.DataEntity.Clean
   href: SHARP3D.html
-  name: SHARP3D.Parameter
-  nameWithType: SHARP3D.Parameter
-  fullName: SHARP3D.Parameter
+  name: SHARP3D.Parameter.DataEntity.Clean
+  nameWithType: SHARP3D.Parameter.DataEntity.Clean
+  fullName: SHARP3D.Parameter.DataEntity.Clean
   spec.csharp:
   - uid: SHARP3D
     name: SHARP3D
@@ -110,6 +114,14 @@ references:
   - uid: SHARP3D.Parameter
     name: Parameter
     href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
   spec.vb:
   - uid: SHARP3D
     name: SHARP3D
@@ -118,6 +130,14 @@ references:
   - uid: SHARP3D.Parameter
     name: Parameter
     href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -355,58 +375,26 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams*
-  commentId: Overload:SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams
-  href: SHARP3D.Parameter.C3dParameterHelper.html#SHARP3D_Parameter_C3dParameterHelper_ParametersFromFileStreams_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_System_Int32_System_Int32_
-  name: ParametersFromFileStreams
-  nameWithType: C3dParameterHelper.ParametersFromFileStreams
-  fullName: SHARP3D.Parameter.C3dParameterHelper.ParametersFromFileStreams
-- uid: System.IO.FileStream
-  commentId: T:System.IO.FileStream
-  parent: System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.io.filestream
-  name: FileStream
-  nameWithType: FileStream
-  fullName: System.IO.FileStream
-- uid: SHARP3D.Utils.Enum.ProcessorType
-  commentId: T:SHARP3D.Utils.Enum.ProcessorType
-  parent: SHARP3D.Utils.Enum
-  href: SHARP3D.Utils.Enum.ProcessorType.html
-  name: ProcessorType
-  nameWithType: ProcessorType
-  fullName: SHARP3D.Utils.Enum.ProcessorType
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
-  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<C3dFileParameterGroup>
-  nameWithType: List<C3dFileParameterGroup>
-  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>
-  nameWithType.vb: List(Of C3dFileParameterGroup)
-  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
-  name.vb: List(Of C3dFileParameterGroup)
+  name: List<C3dParameter>
+  nameWithType: List<C3dParameter>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.Clean.C3dParameter>
+  nameWithType.vb: List(Of C3dParameter)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameter)
+  name.vb: List(Of C3dParameter)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
-    name: C3dFileParameterGroup
-    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -416,67 +404,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
-    name: C3dFileParameterGroup
-    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
   - name: )
-- uid: System.IO
-  commentId: N:System.IO
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System.IO
-  nameWithType: System.IO
-  fullName: System.IO
-  spec.csharp:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-  spec.vb:
-  - uid: System
-    name: System
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system
-  - name: .
-  - uid: System.IO
-    name: IO
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.io
-- uid: SHARP3D.Utils.Enum
-  commentId: N:SHARP3D.Utils.Enum
-  href: SHARP3D.html
-  name: SHARP3D.Utils.Enum
-  nameWithType: SHARP3D.Utils.Enum
-  fullName: SHARP3D.Utils.Enum
-  spec.csharp:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Utils
-    name: Utils
-    href: SHARP3D.Utils.html
-  - name: .
-  - uid: SHARP3D.Utils.Enum
-    name: Enum
-    href: SHARP3D.Utils.Enum.html
-  spec.vb:
-  - uid: SHARP3D
-    name: SHARP3D
-    href: SHARP3D.html
-  - name: .
-  - uid: SHARP3D.Utils
-    name: Utils
-    href: SHARP3D.Utils.html
-  - name: .
-  - uid: SHARP3D.Utils.Enum
-    name: Enum
-    href: SHARP3D.Utils.Enum.html
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -542,3 +473,30 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.Item
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterList_Item_System_Int32_
+  name: this
+  nameWithType: C3dParameterList.this
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.this
+  nameWithType.vb: C3dParameterList.this[]
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterList.this[]
+  name.vb: this[]
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter

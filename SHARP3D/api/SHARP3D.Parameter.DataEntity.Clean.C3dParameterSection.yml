@@ -1,0 +1,1477 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  id: C3dParameterSection
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  children:
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup})
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(System.String,System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String,System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(System.String,System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(System.String)
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  - SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterSection
+  nameWithType: C3dParameterSection
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dParameterSection
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public class C3dParameterSection
+    content.vb: Public Class C3dParameterSection
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
+  id: Groups
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: Groups
+  nameWithType: C3dParameterSection.Groups
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.Groups
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Groups
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: private List<C3dParameterGroup> Groups
+    return:
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup}
+    content.vb: Private Groups As List(Of C3dParameterGroup)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor
+  id: '#ctor'
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterSection()
+  nameWithType: C3dParameterSection.C3dParameterSection()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection()
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameterSection()
+    content.vb: Public Sub New()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor*
+  nameWithType.vb: C3dParameterSection.New()
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New()
+  name.vb: New()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup})
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup})
+  id: '#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup})'
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterSection(List<C3dParameterGroup>)
+  nameWithType: C3dParameterSection.C3dParameterSection(List<C3dParameterGroup>)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup>)
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameterSection(List<C3dParameterGroup> parameterGroups)
+    parameters:
+    - id: parameterGroups
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup}
+    content.vb: Public Sub New(parameterGroups As List(Of C3dParameterGroup))
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor*
+  nameWithType.vb: C3dParameterSection.New(List(Of C3dParameterGroup))
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup))
+  name.vb: New(List(Of C3dParameterGroup))
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})
+  id: '#ctor(System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup})'
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: C3dParameterSection(List<C3dFileParameterGroup>)
+  nameWithType: C3dParameterSection.C3dParameterSection(List<C3dFileParameterGroup>)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection(System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>)
+  type: Constructor
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: .ctor
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 17
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameterSection(List<C3dFileParameterGroup> fileGroups)
+    parameters:
+    - id: fileGroups
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+    content.vb: Public Sub New(fileGroups As List(Of C3dFileParameterGroup))
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor*
+  nameWithType.vb: C3dParameterSection.New(List(Of C3dFileParameterGroup))
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New(System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup))
+  name.vb: New(List(Of C3dFileParameterGroup))
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  id: DeleteUneededParametersFromFiles
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DeleteUneededParametersFromFiles()
+  nameWithType: C3dParameterSection.DeleteUneededParametersFromFiles()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteUneededParametersFromFiles
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 27
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public void DeleteUneededParametersFromFiles()
+    content.vb: Public Sub DeleteUneededParametersFromFiles()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(System.String)
+  id: GetGroup(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetGroup(string)
+  nameWithType: C3dParameterSection.GetGroup(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetGroup
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 57
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameterGroup GetGroup(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+    content.vb: Public Function GetGroup(name As String) As C3dParameterGroup
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup*
+  nameWithType.vb: C3dParameterSection.GetGroup(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup(String)
+  name.vb: GetGroup(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(System.String)
+  id: GetGroupIndex(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetGroupIndex(string)
+  nameWithType: C3dParameterSection.GetGroupIndex(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetGroupIndex
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 69
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public int GetGroupIndex(string groupName)
+    parameters:
+    - id: groupName
+      type: System.String
+    return:
+      type: System.Int32
+    content.vb: Public Function GetGroupIndex(groupName As String) As Integer
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex*
+  nameWithType.vb: C3dParameterSection.GetGroupIndex(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex(String)
+  name.vb: GetGroupIndex(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})
+  id: AddGroup(System.String,System.String,System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter})
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: AddGroup(string, string, List<C3dParameter>?)
+  nameWithType: C3dParameterSection.AddGroup(string, string, List<C3dParameter>?)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup(string, string, System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.Clean.C3dParameter>?)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AddGroup
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 81
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public void AddGroup(string name, string description, List<C3dParameter>? parameters = null)
+    parameters:
+    - id: name
+      type: System.String
+    - id: description
+      type: System.String
+    - id: parameters
+      type: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
+    content.vb: Public Sub AddGroup(name As String, description As String, parameters As List(Of C3dParameter) = Nothing)
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup*
+  nameWithType.vb: C3dParameterSection.AddGroup(String, String, List(Of C3dParameter))
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup(String, String, System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameter))
+  name.vb: AddGroup(String, String, List(Of C3dParameter))
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup(System.String)
+  id: DeleteGroup(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DeleteGroup(string)
+  nameWithType: C3dParameterSection.DeleteGroup(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteGroup
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 95
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public void DeleteGroup(string groupName)
+    parameters:
+    - id: groupName
+      type: System.String
+    content.vb: Public Sub DeleteGroup(groupName As String)
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup*
+  nameWithType.vb: C3dParameterSection.DeleteGroup(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup(String)
+  name.vb: DeleteGroup(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String)
+  id: GetParameter(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetParameter(string)
+  nameWithType: C3dParameterSection.GetParameter(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetParameter
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 104
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameter[] GetParameter(string parameterName)
+    parameters:
+    - id: parameterName
+      type: System.String
+    return:
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameter[]
+    content.vb: Public Function GetParameter(parameterName As String) As C3dParameter()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter*
+  nameWithType.vb: C3dParameterSection.GetParameter(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(String)
+  name.vb: GetParameter(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String,System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(System.String,System.String)
+  id: GetParameter(System.String,System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetParameter(string, string)
+  nameWithType: C3dParameterSection.GetParameter(string, string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetParameter
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 127
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public C3dParameter GetParameter(string groupName, string parameterName)
+    parameters:
+    - id: groupName
+      type: System.String
+    - id: parameterName
+      type: System.String
+    return:
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    content.vb: Public Function GetParameter(groupName As String, parameterName As String) As C3dParameter
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter*
+  nameWithType.vb: C3dParameterSection.GetParameter(String, String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter(String, String)
+  name.vb: GetParameter(String, String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(System.String,System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(System.String,System.String)
+  id: GetParameterIndex(System.String,System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetParameterIndex(string, string)
+  nameWithType: C3dParameterSection.GetParameterIndex(string, string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetParameterIndex
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 133
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public (int, int) GetParameterIndex(string groupName, string parameterName)
+    parameters:
+    - id: groupName
+      type: System.String
+    - id: parameterName
+      type: System.String
+    return:
+      type: System.ValueTuple{System.Int32,System.Int32}
+    content.vb: Public Function GetParameterIndex(groupName As String, parameterName As String) As (Integer, Integer)
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex*
+  nameWithType.vb: C3dParameterSection.GetParameterIndex(String, String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex(String, String)
+  name.vb: GetParameterIndex(String, String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(System.String,System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(System.String,System.String)
+  id: DeleteParameter(System.String,System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DeleteParameter(string, string)
+  nameWithType: C3dParameterSection.DeleteParameter(string, string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(string, string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DeleteParameter
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 140
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public void DeleteParameter(string groupName, string parameterName)
+    parameters:
+    - id: groupName
+      type: System.String
+    - id: parameterName
+      type: System.String
+    content.vb: Public Sub DeleteParameter(groupName As String, parameterName As String)
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter*
+  nameWithType.vb: C3dParameterSection.DeleteParameter(String, String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter(String, String)
+  name.vb: DeleteParameter(String, String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  id: DisplayStringParameterTree
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DisplayStringParameterTree()
+  nameWithType: C3dParameterSection.DisplayStringParameterTree()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DisplayStringParameterTree
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 150
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string DisplayStringParameterTree()
+    return:
+      type: System.String
+    content.vb: Public Function DisplayStringParameterTree() As String
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  id: DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DisplayStringListParameters(C3dParameterGroup)
+  nameWithType: C3dParameterSection.DisplayStringListParameters(C3dParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DisplayStringListParameters
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 167
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string DisplayStringListParameters(C3dParameterGroup group)
+    parameters:
+    - id: group
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+    return:
+      type: System.String
+    content.vb: Public Function DisplayStringListParameters(group As C3dParameterGroup) As String
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(System.String)
+  id: DisplayStringListParameters(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DisplayStringListParameters(string)
+  nameWithType: C3dParameterSection.DisplayStringListParameters(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DisplayStringListParameters
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 180
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string DisplayStringListParameters(string groupName)
+    parameters:
+    - id: groupName
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function DisplayStringListParameters(groupName As String) As String
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters*
+  nameWithType.vb: C3dParameterSection.DisplayStringListParameters(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters(String)
+  name.vb: DisplayStringListParameters(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  id: DisplayStringListGroups
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: DisplayStringListGroups()
+  nameWithType: C3dParameterSection.DisplayStringListGroups()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: DisplayStringListGroups
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 193
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string DisplayStringListGroups()
+    return:
+      type: System.String
+    content.vb: Public Function DisplayStringListGroups() As String
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  id: GetStringParameterTree
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetStringParameterTree()
+  nameWithType: C3dParameterSection.GetStringParameterTree()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetStringParameterTree
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 205
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public Dictionary<string, string[]> GetStringParameterTree()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String[]}
+    content.vb: Public Function GetStringParameterTree() As Dictionary(Of String, String())
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  id: GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetStringListParameters(C3dParameterGroup)
+  nameWithType: C3dParameterSection.GetStringListParameters(C3dParameterGroup)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetStringListParameters
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 217
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string[] GetStringListParameters(C3dParameterGroup group)
+    parameters:
+    - id: group
+      type: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+    return:
+      type: System.String[]
+    content.vb: Public Function GetStringListParameters(group As C3dParameterGroup) As String()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters*
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(System.String)
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(System.String)
+  id: GetStringListParameters(System.String)
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetStringListParameters(string)
+  nameWithType: C3dParameterSection.GetStringListParameters(string)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(string)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetStringListParameters
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 227
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string[] GetStringListParameters(string groupName)
+    parameters:
+    - id: groupName
+      type: System.String
+    return:
+      type: System.String[]
+    content.vb: Public Function GetStringListParameters(groupName As String) As String()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters*
+  nameWithType.vb: C3dParameterSection.GetStringListParameters(String)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters(String)
+  name.vb: GetStringListParameters(String)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  id: GetStringListGroups
+  parent: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
+  langs:
+  - csharp
+  - vb
+  name: GetStringListGroups()
+  nameWithType: C3dParameterSection.GetStringListGroups()
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetStringListGroups
+    path: SHARP3D/Parameter/DataEntity/Clean/C3dParameterSection.cs
+    startLine: 240
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity.Clean
+  syntax:
+    content: public string[] GetStringListGroups()
+    return:
+      type: System.String[]
+    content.vb: Public Function GetStringListGroups() As String()
+  overload: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups*
+references:
+- uid: SHARP3D.Parameter.DataEntity.Clean
+  commentId: N:SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity.Clean
+  nameWithType: SHARP3D.Parameter.DataEntity.Clean
+  fullName: SHARP3D.Parameter.DataEntity.Clean
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity.Clean
+    name: Clean
+    href: SHARP3D.Parameter.DataEntity.Clean.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dParameterGroup>
+  nameWithType: List<C3dParameterGroup>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup>
+  nameWithType.vb: List(Of C3dParameterGroup)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup)
+  name.vb: List(Of C3dParameterGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+    name: C3dParameterGroup
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.#ctor
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection__ctor
+  name: C3dParameterSection
+  nameWithType: C3dParameterSection.C3dParameterSection
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.C3dParameterSection
+  nameWithType.vb: C3dParameterSection.New
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.New
+  name.vb: New
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dFileParameterGroup>
+  nameWithType: List<C3dFileParameterGroup>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup>
+  nameWithType.vb: List(Of C3dFileParameterGroup)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup)
+  name.vb: List(Of C3dFileParameterGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+    name: C3dFileParameterGroup
+    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup
+    name: C3dFileParameterGroup
+    href: SHARP3D.Parameter.DataEntity.File.C3dFileParameterGroup.html
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteUneededParametersFromFiles
+  name: DeleteUneededParametersFromFiles
+  nameWithType: C3dParameterSection.DeleteUneededParametersFromFiles
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteUneededParametersFromFiles
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroup_System_String_
+  name: GetGroup
+  nameWithType: C3dParameterSection.GetGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroup
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
+  name: C3dParameterGroup
+  nameWithType: C3dParameterGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetGroupIndex_System_String_
+  name: GetGroupIndex
+  nameWithType: C3dParameterSection.GetGroupIndex
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetGroupIndex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_AddGroup_System_String_System_String_System_Collections_Generic_List_SHARP3D_Parameter_DataEntity_Clean_C3dParameter__
+  name: AddGroup
+  nameWithType: C3dParameterSection.AddGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.AddGroup
+- uid: System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
+  commentId: T:System.Collections.Generic.List{SHARP3D.Parameter.DataEntity.Clean.C3dParameter}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<C3dParameter>
+  nameWithType: List<C3dParameter>
+  fullName: System.Collections.Generic.List<SHARP3D.Parameter.DataEntity.Clean.C3dParameter>
+  nameWithType.vb: List(Of C3dParameter)
+  fullName.vb: System.Collections.Generic.List(Of SHARP3D.Parameter.DataEntity.Clean.C3dParameter)
+  name.vb: List(Of C3dParameter)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteGroup_System_String_
+  name: DeleteGroup
+  nameWithType: C3dParameterSection.DeleteGroup
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteGroup
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetParameter_System_String_
+  name: GetParameter
+  nameWithType: C3dParameterSection.GetParameter
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter[]
+  isExternal: true
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  name: C3dParameter[]
+  nameWithType: C3dParameter[]
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter[]
+  nameWithType.vb: C3dParameter()
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameter()
+  name.vb: C3dParameter()
+  spec.csharp:
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+    name: C3dParameter
+    href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+  parent: SHARP3D.Parameter.DataEntity.Clean
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameter.html
+  name: C3dParameter
+  nameWithType: C3dParameter
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetParameterIndex_System_String_System_String_
+  name: GetParameterIndex
+  nameWithType: C3dParameterSection.GetParameterIndex
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetParameterIndex
+- uid: System.ValueTuple{System.Int32,System.Int32}
+  commentId: T:System.ValueTuple{System.Int32,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int, int)
+  nameWithType: (int, int)
+  fullName: (int, int)
+  nameWithType.vb: (Integer, Integer)
+  fullName.vb: (Integer, Integer)
+  name.vb: (Integer, Integer)
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DeleteParameter_System_String_System_String_
+  name: DeleteParameter
+  nameWithType: C3dParameterSection.DeleteParameter
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DeleteParameter
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringParameterTree
+  name: DisplayStringParameterTree
+  nameWithType: C3dParameterSection.DisplayStringParameterTree
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringParameterTree
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListParameters_SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_
+  name: DisplayStringListParameters
+  nameWithType: C3dParameterSection.DisplayStringListParameters
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListParameters
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_DisplayStringListGroups
+  name: DisplayStringListGroups
+  nameWithType: C3dParameterSection.DisplayStringListGroups
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.DisplayStringListGroups
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringParameterTree
+  name: GetStringParameterTree
+  nameWithType: C3dParameterSection.GetStringParameterTree
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringParameterTree
+- uid: System.Collections.Generic.Dictionary{System.String,System.String[]}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, string[]>
+  nameWithType: Dictionary<string, string[]>
+  fullName: System.Collections.Generic.Dictionary<string, string[]>
+  nameWithType.vb: Dictionary(Of String, String())
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, String())
+  name.vb: Dictionary(Of String, String())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListParameters_SHARP3D_Parameter_DataEntity_Clean_C3dParameterGroup_
+  name: GetStringListParameters
+  nameWithType: C3dParameterSection.GetStringListParameters
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListParameters
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups
+  href: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_GetStringListGroups
+  name: GetStringListGroups
+  nameWithType: C3dParameterSection.GetStringListGroups
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.GetStringListGroups

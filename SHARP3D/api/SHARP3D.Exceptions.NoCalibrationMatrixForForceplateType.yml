@@ -1,40 +1,38 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SHARP3D.Exceptions.ParameterNotFoundException
-  commentId: T:SHARP3D.Exceptions.ParameterNotFoundException
-  id: ParameterNotFoundException
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  commentId: T:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
+  id: NoCalibrationMatrixForForceplateType
   parent: SHARP3D.Exceptions
   children:
-  - SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String)
-  - SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String,System.Exception)
+  - SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String)
+  - SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String,System.Exception)
   langs:
   - csharp
   - vb
-  name: ParameterNotFoundException
-  nameWithType: ParameterNotFoundException
-  fullName: SHARP3D.Exceptions.ParameterNotFoundException
+  name: NoCalibrationMatrixForForceplateType
+  nameWithType: NoCalibrationMatrixForForceplateType
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
   type: Class
   source:
     remote:
-      path: SHARP3D/SHARP3D/Exceptions/ParameterNotFoundException.cs
+      path: SHARP3D/SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
-    id: ParameterNotFoundException
-    path: SHARP3D/Exceptions/ParameterNotFoundException.cs
+    id: NoCalibrationMatrixForForceplateType
+    path: SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
     startLine: 5
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Exceptions
-  summary: Exception thrown when a Parameter in not found.
+  summary: Exception thrown when a force plate doesn't have calibration matrix due to its type.
   example: []
   syntax:
-    content: 'public class ParameterNotFoundException : InvalidOperationException, ISerializable'
-    content.vb: Public Class ParameterNotFoundException Inherits InvalidOperationException Implements ISerializable
+    content: 'public class NoCalibrationMatrixForForceplateType : Exception, ISerializable'
+    content.vb: Public Class NoCalibrationMatrixForForceplateType Inherits Exception Implements ISerializable
   inheritance:
   - System.Object
   - System.Exception
-  - System.SystemException
-  - System.InvalidOperationException
   implements:
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
@@ -55,70 +53,70 @@ items:
   - System.Object.GetHashCode
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
-- uid: SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String)
-  commentId: M:SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String)
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String)
+  commentId: M:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String)
   id: '#ctor(System.String)'
-  parent: SHARP3D.Exceptions.ParameterNotFoundException
+  parent: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
   langs:
   - csharp
   - vb
-  name: ParameterNotFoundException(string)
-  nameWithType: ParameterNotFoundException.ParameterNotFoundException(string)
-  fullName: SHARP3D.Exceptions.ParameterNotFoundException.ParameterNotFoundException(string)
+  name: NoCalibrationMatrixForForceplateType(string)
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string)
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string)
   type: Constructor
   source:
     remote:
-      path: SHARP3D/SHARP3D/Exceptions/ParameterNotFoundException.cs
+      path: SHARP3D/SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
-    path: SHARP3D/Exceptions/ParameterNotFoundException.cs
+    path: SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
     startLine: 12
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Exceptions
-  summary: Initializes a new instance of the ParameterNotFoundException class with a specified error message.
+  summary: Initializes a new instance of the C3dBadFormatingException class with a specified error message.
   example: []
   syntax:
-    content: public ParameterNotFoundException(string message)
+    content: public NoCalibrationMatrixForForceplateType(string message)
     parameters:
     - id: message
       type: System.String
       description: A string that provide more deatils on where/why the Exception occured.
     content.vb: Public Sub New(message As String)
-  overload: SHARP3D.Exceptions.ParameterNotFoundException.#ctor*
-  nameWithType.vb: ParameterNotFoundException.New(String)
-  fullName.vb: SHARP3D.Exceptions.ParameterNotFoundException.New(String)
+  overload: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor*
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New(String)
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New(String)
   name.vb: New(String)
-- uid: SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String,System.Exception)
-  commentId: M:SHARP3D.Exceptions.ParameterNotFoundException.#ctor(System.String,System.Exception)
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String,System.Exception)
+  commentId: M:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor(System.String,System.Exception)
   id: '#ctor(System.String,System.Exception)'
-  parent: SHARP3D.Exceptions.ParameterNotFoundException
+  parent: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType
   langs:
   - csharp
   - vb
-  name: ParameterNotFoundException(string, Exception)
-  nameWithType: ParameterNotFoundException.ParameterNotFoundException(string, Exception)
-  fullName: SHARP3D.Exceptions.ParameterNotFoundException.ParameterNotFoundException(string, System.Exception)
+  name: NoCalibrationMatrixForForceplateType(string, Exception)
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string, Exception)
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType(string, System.Exception)
   type: Constructor
   source:
     remote:
-      path: SHARP3D/SHARP3D/Exceptions/ParameterNotFoundException.cs
+      path: SHARP3D/SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
       branch: dev
       repo: https://github.com/TSS-22/SHARP3D.git
     id: .ctor
-    path: SHARP3D/Exceptions/ParameterNotFoundException.cs
+    path: SHARP3D/Exceptions/NoCalibrationMatrixForForceplateType.cs
     startLine: 24
   assemblies:
   - SHARP3D
   namespace: SHARP3D.Exceptions
   summary: >-
-    Initializes a new instance of the ParameterNotFoundException class with a specified error message and a
+    Initializes a new instance of the C3dBadFormatingException class with a specified error message and a
 
     reference to the inner exception that is the cause of this exception.
   example: []
   syntax:
-    content: public ParameterNotFoundException(string message, Exception innerException)
+    content: public NoCalibrationMatrixForForceplateType(string message, Exception innerException)
     parameters:
     - id: message
       type: System.String
@@ -129,9 +127,9 @@ items:
         The exception that is the cause of the current exception, or a null reference if no inner exception is
             specified.
     content.vb: Public Sub New(message As String, innerException As Exception)
-  overload: SHARP3D.Exceptions.ParameterNotFoundException.#ctor*
-  nameWithType.vb: ParameterNotFoundException.New(String, Exception)
-  fullName.vb: SHARP3D.Exceptions.ParameterNotFoundException.New(String, System.Exception)
+  overload: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor*
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New(String, Exception)
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New(String, System.Exception)
   name.vb: New(String, Exception)
 references:
 - uid: SHARP3D.Exceptions
@@ -175,22 +173,6 @@ references:
   name: Exception
   nameWithType: Exception
   fullName: System.Exception
-- uid: System.SystemException
-  commentId: T:System.SystemException
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.systemexception
-  name: SystemException
-  nameWithType: SystemException
-  fullName: System.SystemException
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -552,14 +534,14 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: SHARP3D.Exceptions.ParameterNotFoundException.#ctor*
-  commentId: Overload:SHARP3D.Exceptions.ParameterNotFoundException.#ctor
-  href: SHARP3D.Exceptions.ParameterNotFoundException.html#SHARP3D_Exceptions_ParameterNotFoundException__ctor_System_String_
-  name: ParameterNotFoundException
-  nameWithType: ParameterNotFoundException.ParameterNotFoundException
-  fullName: SHARP3D.Exceptions.ParameterNotFoundException.ParameterNotFoundException
-  nameWithType.vb: ParameterNotFoundException.New
-  fullName.vb: SHARP3D.Exceptions.ParameterNotFoundException.New
+- uid: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor*
+  commentId: Overload:SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.#ctor
+  href: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.html#SHARP3D_Exceptions_NoCalibrationMatrixForForceplateType__ctor_System_String_
+  name: NoCalibrationMatrixForForceplateType
+  nameWithType: NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType
+  fullName: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.NoCalibrationMatrixForForceplateType
+  nameWithType.vb: NoCalibrationMatrixForForceplateType.New
+  fullName.vb: SHARP3D.Exceptions.NoCalibrationMatrixForForceplateType.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String

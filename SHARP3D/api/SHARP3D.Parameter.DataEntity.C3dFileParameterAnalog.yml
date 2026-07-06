@@ -1,0 +1,713 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  id: C3dFileParameterAnalog
+  parent: SHARP3D.Parameter.DataEntity
+  children:
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  langs:
+  - csharp
+  - vb
+  name: C3dFileParameterAnalog
+  nameWithType: C3dFileParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dFileParameterAnalog
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 2
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public class C3dFileParameterAnalog
+    content.vb: Public Class C3dFileParameterAnalog
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  commentId: P:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  id: Bits
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Bits
+  nameWithType: C3dFileParameterAnalog.Bits
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  type: Property
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Bits
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 4
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int Bits { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Bits As Integer
+  overload: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits*
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  id: ChannelScale
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: ChannelScale
+  nameWithType: C3dFileParameterAnalog.ChannelScale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.ChannelScale
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ChannelScale
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public float[] ChannelScale
+    return:
+      type: System.Single[]
+    content.vb: Public ChannelScale As Single()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  id: Descriptions
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Descriptions
+  nameWithType: C3dFileParameterAnalog.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Descriptions
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Descriptions
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string[] Descriptions
+    return:
+      type: System.String[]
+    content.vb: Public Descriptions As String()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  id: GeneralScale
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: GeneralScale
+  nameWithType: C3dFileParameterAnalog.GeneralScale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.GeneralScale
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GeneralScale
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 7
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public float GeneralScale
+    return:
+      type: System.Single
+    content.vb: Public GeneralScale As Single
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  id: Labels
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Labels
+  nameWithType: C3dFileParameterAnalog.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Labels
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Labels
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string[] Labels
+    return:
+      type: System.String[]
+    content.vb: Public Labels As String()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  id: Offset
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Offset
+  nameWithType: C3dFileParameterAnalog.Offset
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Offset
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Offset
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int[] Offset
+    return:
+      type: System.Int32[]
+    content.vb: Public Offset As Integer()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  id: Rate
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Rate
+  nameWithType: C3dFileParameterAnalog.Rate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Rate
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Rate
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public float Rate
+    return:
+      type: System.Single
+    content.vb: Public Rate As Single
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  id: SamplesPerFrame
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: SamplesPerFrame
+  nameWithType: C3dFileParameterAnalog.SamplesPerFrame
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.SamplesPerFrame
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: SamplesPerFrame
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 11
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int SamplesPerFrame
+    return:
+      type: System.Int32
+    content.vb: Public SamplesPerFrame As Integer
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  id: TotalSamples
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: TotalSamples
+  nameWithType: C3dFileParameterAnalog.TotalSamples
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.TotalSamples
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: TotalSamples
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int TotalSamples
+    return:
+      type: System.Int32
+    content.vb: Public TotalSamples As Integer
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  id: Units
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Units
+  nameWithType: C3dFileParameterAnalog.Units
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Units
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Units
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 13
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string[] Units
+    return:
+      type: System.String[]
+    content.vb: Public Units As String()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  id: Used
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  langs:
+  - csharp
+  - vb
+  name: Used
+  nameWithType: C3dFileParameterAnalog.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Used
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Used
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterAnalog.cs
+    startLine: 14
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int Used
+    return:
+      type: System.Int32
+    content.vb: Public Used As Integer
+references:
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits*
+  commentId: Overload:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html#SHARP3D_Parameter_DataEntity_C3dFileParameterAnalog_Bits
+  name: Bits
+  nameWithType: C3dFileParameterAnalog.Bits
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.Bits
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Single[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float[]
+  nameWithType: float[]
+  fullName: float[]
+  nameWithType.vb: Single()
+  fullName.vb: Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: (
+  - name: )
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Int32[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )

@@ -1,0 +1,558 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  id: C3dFileParameterPoint
+  parent: SHARP3D.Parameter.DataEntity
+  children:
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  langs:
+  - csharp
+  - vb
+  name: C3dFileParameterPoint
+  nameWithType: C3dFileParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  type: Class
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dFileParameterPoint
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 2
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public class C3dFileParameterPoint
+    content.vb: Public Class C3dFileParameterPoint
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  id: Descriptions
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Descriptions
+  nameWithType: C3dFileParameterPoint.Descriptions
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Descriptions
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Descriptions
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 4
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string[] Descriptions
+    return:
+      type: System.String[]
+    content.vb: Public Descriptions As String()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  id: Frames
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Frames
+  nameWithType: C3dFileParameterPoint.Frames
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Frames
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Frames
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 5
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int Frames
+    return:
+      type: System.Int32
+    content.vb: Public Frames As Integer
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  id: Labels
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Labels
+  nameWithType: C3dFileParameterPoint.Labels
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Labels
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Labels
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 6
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string[] Labels
+    return:
+      type: System.String[]
+    content.vb: Public Labels As String()
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  id: Rate
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Rate
+  nameWithType: C3dFileParameterPoint.Rate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Rate
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Rate
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 7
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public float Rate
+    return:
+      type: System.Single
+    content.vb: Public Rate As Single
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  id: Scale
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Scale
+  nameWithType: C3dFileParameterPoint.Scale
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Scale
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Scale
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 8
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public float Scale
+    return:
+      type: System.Single
+    content.vb: Public Scale As Single
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  id: Units
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Units
+  nameWithType: C3dFileParameterPoint.Units
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Units
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Units
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 9
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public string Units
+    return:
+      type: System.String
+    content.vb: Public Units As String
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  commentId: F:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  id: Used
+  parent: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: Used
+  nameWithType: C3dFileParameterPoint.Used
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.Used
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Used
+    path: SHARP3D/Parameter/DataEntity/File/C3dFileParameterPoint.cs
+    startLine: 10
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Parameter.DataEntity
+  syntax:
+    content: public int Used
+    return:
+      type: System.Int32
+    content.vb: Public Used As Integer
+references:
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

@@ -1,6 +1,9 @@
 ﻿using SHARP3D.Data.DataEntity;
 using SHARP3D.Parameter.DataEntity;
 using SHARP3D.Utils;
+using System.Reflection.Emit;
+using static System.Formats.Asn1.AsnWriter;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SHARP3D.Data.Clean
 {
@@ -34,32 +37,6 @@ namespace SHARP3D.Data.Clean
             CleanForceplateInAnalog(c3dFile.Forceplate.Channel);
         }
 
-        // TODO
-        public int AddFrame()
-        {
-            return Points.Length != 0 ? Points[0].Residual.Length : 0;
-        }
-
-        // TODO
-        public int DeleteFrame(int idFrameToDelete)
-        {
-            foreach (C3dPointTrajectory trajectory in Points)
-            {
-                
-            }
-
-            foreach (C3dAnalogChannel channel in Analogs)
-            {
-      
-            }
-
-            foreach (C3dForceplate forcePlate in Forceplates)
-            {
-
-            }
-
-            return Points.Length !=0 ? Points[0].Residual.Length : 0;
-        }
 
         public (float?[,,], float?[,], bool[,,]) GetAllPointsData()
         {
@@ -373,17 +350,16 @@ namespace SHARP3D.Data.Clean
                     }
 
                     c3dAnalogChannels.Add(
-                        new C3dAnalogChannel
-                        {
-                            Bits = fileParameterAnalog != null ? fileParameterAnalog.Bits : 12,
-                            Scale = scaleToAdd,
-                            Description = descriptionToAdd,
-                            Label = labelToAdd,
-                            Offset = offsetToAdd,
-                            Rate = fileParameterAnalog != null ? fileParameterAnalog.Rate : fileAnalogData[0].Count() * fileAnalogData[1].Count(),
-                            Unit = unitToAdd,
-                            Data = dataToAdd.ToArray()
-                        });
+                        new C3dAnalogChannel (
+                            fileParameterAnalog != null ? fileParameterAnalog.Bits : 12,
+                            scaleToAdd,
+                            descriptionToAdd,
+                            labelToAdd,
+                            offsetToAdd,
+                            fileParameterAnalog != null ? fileParameterAnalog.Rate : fileAnalogData[0].Count() * fileAnalogData[1].Count(),
+                            unitToAdd,
+                            dataToAdd.ToArray()
+                        ));
                 }
             }
             return c3dAnalogChannels.ToArray();

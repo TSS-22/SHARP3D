@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
+  id: SHARP3D.Parameter.DataEntity
+  children:
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  - SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  langs:
+  - csharp
+  - vb
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
+  type: Namespace
+  assemblies:
+  - SHARP3D
+references:
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog.html
+  name: C3dFileParameterAnalog
+  nameWithType: C3dFileParameterAnalog
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterAnalog
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate.html
+  name: C3dFileParameterForceplate
+  nameWithType: C3dFileParameterForceplate
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterForceplate
+- uid: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  commentId: T:SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+  parent: SHARP3D.Parameter.DataEntity
+  href: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint.html
+  name: C3dFileParameterPoint
+  nameWithType: C3dFileParameterPoint
+  fullName: SHARP3D.Parameter.DataEntity.C3dFileParameterPoint
+- uid: SHARP3D.Parameter.DataEntity
+  commentId: N:SHARP3D.Parameter.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Parameter.DataEntity
+  nameWithType: SHARP3D.Parameter.DataEntity
+  fullName: SHARP3D.Parameter.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Parameter
+    name: Parameter
+    href: SHARP3D.Parameter.html
+  - name: .
+  - uid: SHARP3D.Parameter.DataEntity
+    name: DataEntity
+    href: SHARP3D.Parameter.DataEntity.html

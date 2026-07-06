@@ -1,0 +1,1311 @@
+### YamlMime:ManagedReference
+items:
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader
+  commentId: T:SHARP3D.Header.DataEntity.C3dFileHeader
+  id: C3dFileHeader
+  parent: SHARP3D.Header.DataEntity
+  children:
+  - SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  - SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSamplesPerFrame
+  - SHARP3D.Header.DataEntity.C3dFileHeader.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  - SHARP3D.Header.DataEntity.C3dFileHeader.Equals(System.Object)
+  - SHARP3D.Header.DataEntity.C3dFileHeader.Events
+  - SHARP3D.Header.DataEntity.C3dFileHeader.EventsNb
+  - SHARP3D.Header.DataEntity.C3dFileHeader.FirstFrameRawData
+  - SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  - SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode
+  - SHARP3D.Header.DataEntity.C3dFileHeader.LastFrameRawData
+  - SHARP3D.Header.DataEntity.C3dFileHeader.MarkersPerFrame
+  - SHARP3D.Header.DataEntity.C3dFileHeader.MaxFrameIntepolationGap
+  - SHARP3D.Header.DataEntity.C3dFileHeader.PointerDataSection
+  - SHARP3D.Header.DataEntity.C3dFileHeader.PointerParameterSection
+  - SHARP3D.Header.DataEntity.C3dFileHeader.Rate3dFrame
+  - SHARP3D.Header.DataEntity.C3dFileHeader.ScaleFactor
+  - SHARP3D.Header.DataEntity.C3dFileHeader.StorageFormat
+  - SHARP3D.Header.DataEntity.C3dFileHeader.Support4charEventLabels
+  - SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  - SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  langs:
+  - csharp
+  - vb
+  name: C3dFileHeader
+  nameWithType: C3dFileHeader
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader
+  type: Struct
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: C3dFileHeader
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 12
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    Represents the header information of a C3D file format used in 3D motion capture data.
+
+    It contains helper functions to parse and serialize the header data, as well as fields that map to the C3D header specifications.
+  example: []
+  syntax:
+    content: 'public struct C3dFileHeader : IEquatable<C3dFileHeader>'
+    content.vb: Public Structure C3dFileHeader Implements IEquatable(Of C3dFileHeader)
+  implements:
+  - System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.PointerParameterSection
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.PointerParameterSection
+  id: PointerParameterSection
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: PointerParameterSection
+  nameWithType: C3dFileHeader.PointerParameterSection
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.PointerParameterSection
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointerParameterSection
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 20
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 1 (byte 1)
+    </p>
+
+     A pointer to the first block of the parameter section.
+  example: []
+  syntax:
+    content: public int PointerParameterSection
+    return:
+      type: System.Int32
+    content.vb: Public PointerParameterSection As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.StorageFormat
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.StorageFormat
+  id: StorageFormat
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: StorageFormat
+  nameWithType: C3dFileHeader.StorageFormat
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.StorageFormat
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: StorageFormat
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 28
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 1 (byte 2)
+    </p>
+
+     A flag defininig the data storage format which depends on the system and the software used to acquire the data.
+  example: []
+  syntax:
+    content: public StorageFormat StorageFormat
+    return:
+      type: SHARP3D.Utils.Enum.StorageFormat
+    content.vb: Public StorageFormat As StorageFormat
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.MarkersPerFrame
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.MarkersPerFrame
+  id: MarkersPerFrame
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: MarkersPerFrame
+  nameWithType: C3dFileHeader.MarkersPerFrame
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.MarkersPerFrame
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: MarkersPerFrame
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 36
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 2
+    </p>
+
+     The number of 3D points(markers) stored in each 3D frame.
+  example: []
+  syntax:
+    content: public int MarkersPerFrame
+    return:
+      type: System.Int32
+    content.vb: Public MarkersPerFrame As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSamplesPerFrame
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSamplesPerFrame
+  id: AnalogSamplesPerFrame
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: AnalogSamplesPerFrame
+  nameWithType: C3dFileHeader.AnalogSamplesPerFrame
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogSamplesPerFrame
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogSamplesPerFrame
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 47
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 3
+    </p>
+
+     The total number of analog samples in each 3D frame. If no analog data is stored, this value is zero.
+  remarks: It is given by the multiplication of the number of Analog Frame in each Data Frame by the number of Channel used.
+  example: []
+  syntax:
+    content: public int AnalogSamplesPerFrame
+    return:
+      type: System.Int32
+    content.vb: Public AnalogSamplesPerFrame As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.FirstFrameRawData
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.FirstFrameRawData
+  id: FirstFrameRawData
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: FirstFrameRawData
+  nameWithType: C3dFileHeader.FirstFrameRawData
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.FirstFrameRawData
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FirstFrameRawData
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 55
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 4
+    </p>
+
+     The id number of the first frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
+  example: []
+  syntax:
+    content: public int FirstFrameRawData
+    return:
+      type: System.Int32
+    content.vb: Public FirstFrameRawData As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.LastFrameRawData
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.LastFrameRawData
+  id: LastFrameRawData
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: LastFrameRawData
+  nameWithType: C3dFileHeader.LastFrameRawData
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.LastFrameRawData
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: LastFrameRawData
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 63
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 5
+    </p>
+
+     The id number of the last frame of raw data transfered to the C3D file. This is not the id number of the first frame in the C3D file. This is the id number of the first frame from the raw data used to create the C3D file. It is not to be used and is here as a "just in case" according to the C3D documentation.
+  example: []
+  syntax:
+    content: public int LastFrameRawData
+    return:
+      type: System.Int32
+    content.vb: Public LastFrameRawData As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.MaxFrameIntepolationGap
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.MaxFrameIntepolationGap
+  id: MaxFrameIntepolationGap
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: MaxFrameIntepolationGap
+  nameWithType: C3dFileHeader.MaxFrameIntepolationGap
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.MaxFrameIntepolationGap
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: MaxFrameIntepolationGap
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 71
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 6
+    </p>
+
+     The maximum 3D frame interpolation gap present in the C3D file.
+  example: []
+  syntax:
+    content: public int MaxFrameIntepolationGap
+    return:
+      type: System.Int32
+    content.vb: Public MaxFrameIntepolationGap As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.ScaleFactor
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.ScaleFactor
+  id: ScaleFactor
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: ScaleFactor
+  nameWithType: C3dFileHeader.ScaleFactor
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.ScaleFactor
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: ScaleFactor
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 82
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 7 - 8
+    </p>
+
+     The floating-point factor that scales all 3D values into system measurement units. This transforms data stored as 16 bits signed integers to scale each of the stored 3D point and their residual values to floating point values, real world values. A positive scale value indicates that the data is stored as signed integers and a negative scale factor indicates that the data is stored as 32 bits floating point values. If the values are already in floating point, the scale factor doesn't need to be apllied to them. The Scale factor is computed by dividing the maximum absolute coordinate value by 32000.
+  remarks: The value given in the test suite 01 spreadsheet doesn't match the hex value from the file.
+  example: []
+  syntax:
+    content: public float ScaleFactor
+    return:
+      type: System.Single
+    content.vb: Public ScaleFactor As Single
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.PointerDataSection
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.PointerDataSection
+  id: PointerDataSection
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: PointerDataSection
+  nameWithType: C3dFileHeader.PointerDataSection
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.PointerDataSection
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: PointerDataSection
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 90
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 9
+    </p>
+
+     A pointer to the first block of the data storage section. The pointer is the number of 512 bytes block.
+  example: []
+  syntax:
+    content: public int PointerDataSection
+    return:
+      type: System.Int32
+    content.vb: Public PointerDataSection As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  id: AnalogFramePerDataFrame
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: AnalogFramePerDataFrame
+  nameWithType: C3dFileHeader.AnalogFramePerDataFrame
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.AnalogFramePerDataFrame
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: AnalogFramePerDataFrame
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 98
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 10
+    </p>
+
+     The number of Analog Frame in each Data Frame.
+  example: []
+  syntax:
+    content: public int AnalogFramePerDataFrame
+    return:
+      type: System.Int32
+    content.vb: Public AnalogFramePerDataFrame As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Rate3dFrame
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.Rate3dFrame
+  id: Rate3dFrame
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: Rate3dFrame
+  nameWithType: C3dFileHeader.Rate3dFrame
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Rate3dFrame
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Rate3dFrame
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 106
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 11 - 12
+    </p>
+
+     The 3D frame rate in hertz (frames per second).
+  example: []
+  syntax:
+    content: public float Rate3dFrame
+    return:
+      type: System.Single
+    content.vb: Public Rate3dFrame As Single
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Support4charEventLabels
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.Support4charEventLabels
+  id: Support4charEventLabels
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: Support4charEventLabels
+  nameWithType: C3dFileHeader.Support4charEventLabels
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Support4charEventLabels
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Support4charEventLabels
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 114
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 150
+    </p>
+
+     A key value indicating whether the C3D file supports 4-character event labels. If value is 12345 (0x3039h), 4-character event labels are supported; otherwise, only 3-character labels are supported.
+  example: []
+  syntax:
+    content: public bool Support4charEventLabels
+    return:
+      type: System.Boolean
+    content.vb: Public Support4charEventLabels As Boolean
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.EventsNb
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.EventsNb
+  id: EventsNb
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: EventsNb
+  nameWithType: C3dFileHeader.EventsNb
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.EventsNb
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: EventsNb
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 122
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 151
+    </p>
+
+     Number of defined events in the C3D file.
+  example: []
+  syntax:
+    content: public int EventsNb
+    return:
+      type: System.Int32
+    content.vb: Public EventsNb As Integer
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Events
+  commentId: F:SHARP3D.Header.DataEntity.C3dFileHeader.Events
+  id: Events
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: Events
+  nameWithType: C3dFileHeader.Events
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Events
+  type: Field
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Events
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 132
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: >-
+    <p>
+     Word: 153 - 188 (Event times in seconds, up to 18 events)<br />
+     Word: 189 - 197 (Event display flags 0x00=ON, 0x01=OFF)<br />
+     Word: 199 - 234 (Event labels, up to 4 characters each if Support4charEventLabels is true)
+    </p>
+
+     Array of defined events in the C3D file. The events contain information such as event time, display flag, and event label.
+  example: []
+  syntax:
+    content: public C3dFileHeaderEvent[] Events
+    return:
+      type: SHARP3D.Header.DataEntity.C3dFileHeaderEvent[]
+    content.vb: Public Events As C3dFileHeaderEvent()
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  id: Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: Equals(C3dFileHeader)
+  nameWithType: C3dFileHeader.Equals(C3dFileHeader)
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 135
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Indicates whether the current object is equal to another object of the same type.
+  example: []
+  syntax:
+    content: public bool Equals(C3dFileHeader other)
+    parameters:
+    - id: other
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: An object to compare with this object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the current object is equal to the <code class="paramref">other</code> parameter; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As C3dFileHeader) As Boolean
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.Equals*
+  implements:
+  - System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Equals(System.Object)
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: C3dFileHeader.Equals(object)
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Equals(object)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: Equals
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 161
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Determines whether the current <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance is equal to a specified object.
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to compare with the current instance.
+    return:
+      type: System.Boolean
+      description: True if the current instance is equal to the <code class="paramref">obj</code> parameter; otherwise, false.
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.Equals*
+  nameWithType.vb: C3dFileHeader.Equals(Object)
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.Equals(Object)
+  name.vb: Equals(Object)
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode
+  id: GetHashCode
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: C3dFileHeader.GetHashCode()
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: GetHashCode
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 170
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Returns the hash code for the current <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: A 32-bit signed integer hash code.
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode*
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  id: op_Equality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: operator ==(C3dFileHeader, C3dFileHeader)
+  nameWithType: C3dFileHeader.operator ==(C3dFileHeader, C3dFileHeader)
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.operator ==(SHARP3D.Header.DataEntity.C3dFileHeader, SHARP3D.Header.DataEntity.C3dFileHeader)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Equality
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 205
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Determines whether two specified <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(C3dFileHeader left, C3dFileHeader right)
+    parameters:
+    - id: left
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: The first <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: The second <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: True if <code class="paramref">left</code> and <code class="paramref">right</code> are equal; otherwise, false.
+    content.vb: Public Shared Operator =(left As C3dFileHeader, right As C3dFileHeader) As Boolean
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality*
+  nameWithType.vb: C3dFileHeader.=(C3dFileHeader, C3dFileHeader)
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.=(SHARP3D.Header.DataEntity.C3dFileHeader, SHARP3D.Header.DataEntity.C3dFileHeader)
+  name.vb: =(C3dFileHeader, C3dFileHeader)
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  id: op_Inequality(SHARP3D.Header.DataEntity.C3dFileHeader,SHARP3D.Header.DataEntity.C3dFileHeader)
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: operator !=(C3dFileHeader, C3dFileHeader)
+  nameWithType: C3dFileHeader.operator !=(C3dFileHeader, C3dFileHeader)
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.operator !=(SHARP3D.Header.DataEntity.C3dFileHeader, SHARP3D.Header.DataEntity.C3dFileHeader)
+  type: Operator
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: op_Inequality
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 216
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Determines whether two specified <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(C3dFileHeader left, C3dFileHeader right)
+    parameters:
+    - id: left
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: The first <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance to compare.
+    - id: right
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: The second <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance to compare.
+    return:
+      type: System.Boolean
+      description: True if <code class="paramref">left</code> and <code class="paramref">right</code> are not equal; otherwise, false.
+    content.vb: Public Shared Operator <>(left As C3dFileHeader, right As C3dFileHeader) As Boolean
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality*
+  nameWithType.vb: C3dFileHeader.<>(C3dFileHeader, C3dFileHeader)
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.<>(SHARP3D.Header.DataEntity.C3dFileHeader, SHARP3D.Header.DataEntity.C3dFileHeader)
+  name.vb: <>(C3dFileHeader, C3dFileHeader)
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  commentId: M:SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  id: FromBinaries(System.Byte[],SHARP3D.Utils.Enum.ProcessorType)
+  parent: SHARP3D.Header.DataEntity.C3dFileHeader
+  langs:
+  - csharp
+  - vb
+  name: FromBinaries(byte[], ProcessorType)
+  nameWithType: C3dFileHeader.FromBinaries(byte[], ProcessorType)
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries(byte[], SHARP3D.Utils.Enum.ProcessorType)
+  type: Method
+  source:
+    remote:
+      path: SHARP3D/SHARP3D/Header/DataEntity/C3dFileHeader.cs
+      branch: dev
+      repo: https://github.com/TSS-22/SHARP3D.git
+    id: FromBinaries
+    path: SHARP3D/Header/DataEntity/C3dFileHeader.cs
+    startLine: 229
+  assemblies:
+  - SHARP3D
+  namespace: SHARP3D.Header.DataEntity
+  summary: Parses a byte array into a <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public static C3dFileHeader FromBinaries(byte[] binaries, ProcessorType processorFile)
+    parameters:
+    - id: binaries
+      type: System.Byte[]
+      description: The byte array to parse.
+    - id: processorFile
+      type: SHARP3D.Utils.Enum.ProcessorType
+      description: The <xref href="SHARP3D.Utils.Enum.ProcessorType" data-throw-if-not-resolved="false"></xref> used to interpret the byte order of the binary data.
+    return:
+      type: SHARP3D.Header.DataEntity.C3dFileHeader
+      description: A <xref href="SHARP3D.Header.DataEntity.C3dFileHeader" data-throw-if-not-resolved="false"></xref> instance populated with the parsed data.
+    content.vb: Public Shared Function FromBinaries(binaries As Byte(), processorFile As ProcessorType) As C3dFileHeader
+  overload: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries*
+  nameWithType.vb: C3dFileHeader.FromBinaries(Byte(), ProcessorType)
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries(Byte(), SHARP3D.Utils.Enum.ProcessorType)
+  name.vb: FromBinaries(Byte(), ProcessorType)
+references:
+- uid: SHARP3D.Header.DataEntity
+  commentId: N:SHARP3D.Header.DataEntity
+  href: SHARP3D.html
+  name: SHARP3D.Header.DataEntity
+  nameWithType: SHARP3D.Header.DataEntity
+  fullName: SHARP3D.Header.DataEntity
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html
+  - name: .
+  - uid: SHARP3D.Header.DataEntity
+    name: DataEntity
+    href: SHARP3D.Header.DataEntity.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Header
+    name: Header
+    href: SHARP3D.Header.html
+  - name: .
+  - uid: SHARP3D.Header.DataEntity
+    name: DataEntity
+    href: SHARP3D.Header.DataEntity.html
+- uid: System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}
+  commentId: T:System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<C3dFileHeader>
+  nameWithType: IEquatable<C3dFileHeader>
+  fullName: System.IEquatable<SHARP3D.Header.DataEntity.C3dFileHeader>
+  nameWithType.vb: IEquatable(Of C3dFileHeader)
+  fullName.vb: System.IEquatable(Of SHARP3D.Header.DataEntity.C3dFileHeader)
+  name.vb: IEquatable(Of C3dFileHeader)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader
+    name: C3dFileHeader
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader
+    name: C3dFileHeader
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SHARP3D.Utils.Enum.StorageFormat
+  commentId: T:SHARP3D.Utils.Enum.StorageFormat
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.StorageFormat.html
+  name: StorageFormat
+  nameWithType: StorageFormat
+  fullName: SHARP3D.Utils.Enum.StorageFormat
+- uid: SHARP3D.Utils.Enum
+  commentId: N:SHARP3D.Utils.Enum
+  href: SHARP3D.html
+  name: SHARP3D.Utils.Enum
+  nameWithType: SHARP3D.Utils.Enum
+  fullName: SHARP3D.Utils.Enum
+  spec.csharp:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+  spec.vb:
+  - uid: SHARP3D
+    name: SHARP3D
+    href: SHARP3D.html
+  - name: .
+  - uid: SHARP3D.Utils
+    name: Utils
+    href: SHARP3D.Utils.html
+  - name: .
+  - uid: SHARP3D.Utils.Enum
+    name: Enum
+    href: SHARP3D.Utils.Enum.html
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SHARP3D.Header.DataEntity.C3dFileHeaderEvent[]
+  isExternal: true
+  href: SHARP3D.Header.DataEntity.C3dFileHeaderEvent.html
+  name: C3dFileHeaderEvent[]
+  nameWithType: C3dFileHeaderEvent[]
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeaderEvent[]
+  nameWithType.vb: C3dFileHeaderEvent()
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeaderEvent()
+  name.vb: C3dFileHeaderEvent()
+  spec.csharp:
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeaderEvent
+    name: C3dFileHeaderEvent
+    href: SHARP3D.Header.DataEntity.C3dFileHeaderEvent.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeaderEvent
+    name: C3dFileHeaderEvent
+    href: SHARP3D.Header.DataEntity.C3dFileHeaderEvent.html
+  - name: (
+  - name: )
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.Equals*
+  commentId: Overload:SHARP3D.Header.DataEntity.C3dFileHeader.Equals
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_Equals_SHARP3D_Header_DataEntity_C3dFileHeader_
+  name: Equals
+  nameWithType: C3dFileHeader.Equals
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.Equals
+- uid: System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  commentId: M:System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  parent: System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(C3dFileHeader)
+  nameWithType: IEquatable<C3dFileHeader>.Equals(C3dFileHeader)
+  fullName: System.IEquatable<SHARP3D.Header.DataEntity.C3dFileHeader>.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  nameWithType.vb: IEquatable(Of C3dFileHeader).Equals(C3dFileHeader)
+  fullName.vb: System.IEquatable(Of SHARP3D.Header.DataEntity.C3dFileHeader).Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+  spec.csharp:
+  - uid: System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader
+    name: C3dFileHeader
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{SHARP3D.Header.DataEntity.C3dFileHeader}.Equals(SHARP3D.Header.DataEntity.C3dFileHeader)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader
+    name: C3dFileHeader
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  - name: )
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader
+  commentId: T:SHARP3D.Header.DataEntity.C3dFileHeader
+  parent: SHARP3D.Header.DataEntity
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html
+  name: C3dFileHeader
+  nameWithType: C3dFileHeader
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode*
+  commentId: Overload:SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_GetHashCode
+  name: GetHashCode
+  nameWithType: C3dFileHeader.GetHashCode
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.GetHashCode
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality*
+  commentId: Overload:SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_op_Equality_SHARP3D_Header_DataEntity_C3dFileHeader_SHARP3D_Header_DataEntity_C3dFileHeader_
+  name: operator ==
+  nameWithType: C3dFileHeader.operator ==
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.operator ==
+  nameWithType.vb: C3dFileHeader.=
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Equality*
+    name: ==
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_op_Equality_SHARP3D_Header_DataEntity_C3dFileHeader_SHARP3D_Header_DataEntity_C3dFileHeader_
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality*
+  commentId: Overload:SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_op_Inequality_SHARP3D_Header_DataEntity_C3dFileHeader_SHARP3D_Header_DataEntity_C3dFileHeader_
+  name: operator !=
+  nameWithType: C3dFileHeader.operator !=
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.operator !=
+  nameWithType.vb: C3dFileHeader.<>
+  fullName.vb: SHARP3D.Header.DataEntity.C3dFileHeader.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SHARP3D.Header.DataEntity.C3dFileHeader.op_Inequality*
+    name: '!='
+    href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_op_Inequality_SHARP3D_Header_DataEntity_C3dFileHeader_SHARP3D_Header_DataEntity_C3dFileHeader_
+- uid: SHARP3D.Utils.Enum.ProcessorType
+  commentId: T:SHARP3D.Utils.Enum.ProcessorType
+  parent: SHARP3D.Utils.Enum
+  href: SHARP3D.Utils.Enum.ProcessorType.html
+  name: ProcessorType
+  nameWithType: ProcessorType
+  fullName: SHARP3D.Utils.Enum.ProcessorType
+- uid: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries*
+  commentId: Overload:SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries
+  href: SHARP3D.Header.DataEntity.C3dFileHeader.html#SHARP3D_Header_DataEntity_C3dFileHeader_FromBinaries_System_Byte___SHARP3D_Utils_Enum_ProcessorType_
+  name: FromBinaries
+  nameWithType: C3dFileHeader.FromBinaries
+  fullName: SHARP3D.Header.DataEntity.C3dFileHeader.FromBinaries
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
