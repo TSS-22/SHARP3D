@@ -1,8 +1,6 @@
 ﻿using SHARP3D.Data.Clean;
 using SHARP3D.Parameter.DataEntity.Clean;
-using SHARP3D.Utils
-
-using System.Linq;
+using SHARP3D.Utils;
 
 namespace SHARP3D
 {
@@ -104,6 +102,101 @@ namespace SHARP3D
             {
                 throw new ArgumentException($"POINT:UNITS values are not compatible: {object1.Required.Point.Units} | {object2.Required.Point.Units} ");
             }
+            // Check the point axis dimensions
+            int object1PointAxisNumber = 0;
+            bool firstChek = true;
+            foreach(C3dPointTrajectory trajectory in object1.Data.Points)
+            {
+                if (!firstChek)
+                {
+                    if (object1PointAxisNumber == trajectory.Point.GetLength(1))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Object 1 trajectories don't all have the same number of axis.");
+                    }
+                }
+                else
+                {
+                    object1PointAxisNumber = trajectory.Point.GetLength(1);
+                }
+                    
+            }
+            int object2PointAxisNumber = 0;
+            firstChek = true;
+            foreach (C3dPointTrajectory trajectory in object2.Data.Points)
+            {
+                if (!firstChek)
+                {
+                    if (object2PointAxisNumber == trajectory.Point.GetLength(1))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Object 2 trajectories don't all have the same number of axis.");
+                    }
+                }
+                else
+                {
+                    object2PointAxisNumber = trajectory.Point.GetLength(1);
+                }
+
+            }
+            if (object1PointAxisNumber != object2PointAxisNumber) 
+            {
+                throw new ArgumentException("Object 1 and object 2 trajectories have different number of axis.");
+            }
+            // Check the camera number
+            int object1CameraNumber = 0;
+            firstChek = true;
+            foreach (C3dPointTrajectory trajectory in object1.Data.Points)
+            {
+                if (!firstChek)
+                {
+                    if (object1PointAxisNumber == trajectory.CameraMask.GetLength(1))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Object 1 trajectories don't all have the same number of camera recording.");
+                    }
+                }
+                else
+                {
+                    object1PointAxisNumber = trajectory.CameraMask.GetLength(1);
+                }
+
+            }
+            int object2CameraNumber = 0;
+            firstChek = true;
+            foreach (C3dPointTrajectory trajectory in object2.Data.Points)
+            {
+                if (!firstChek)
+                {
+                    if (object2CameraNumber == trajectory.CameraMask.GetLength(1))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Object 2 trajectories don't all have the same number of camera recording.");
+                    }
+                }
+                else
+                {
+                    object2CameraNumber = trajectory.CameraMask.GetLength(1);
+                }
+
+            }
+            if (object1CameraNumber != object2CameraNumber)
+            {
+                throw new ArgumentException("Object 1 and object 2 have different number camera recording.");
+            }
+
             C3dParameterPoint newRequiredPoint = new C3dParameterPoint 
             {
                 Rate = object1.Required.Point.Rate,
@@ -239,7 +332,24 @@ namespace SHARP3D
 
                     for (int idSample = 0; idSample < object2.Required.Point.Frames; idSample++)
                     {
-                        // Need to check for number of axis and number of camera first
+                        // Point data
+                        List<float?> tempListPoint = new List<float?>();
+                        for (int idAxis = 0; idAxis < object2PointAxisNumber; idAxis++)
+                        {
+                            tempListPoint.Add(null);
+                        }
+                        newPointData.Add(tempListPoint.ToArray());
+
+                        newResidualData.Add(null);
+
+                        // Mask
+                        List<bool> tempListMask = new List<bool>();
+                        for (int idCamera = 0; idCamera < object2CameraNumber; idCamera++)
+                        {
+                            tempListMask.Add(false);
+                        }
+                        newCameraMaskData.Add(tempListMask.ToArray());
+                        
                     }
 
                     newPointTrajectories.Add(new C3dPointTrajectory
@@ -278,6 +388,33 @@ namespace SHARP3D
             }
 
             return new C3d();
+        }
+
+        // TODO
+        public int AddFrame()
+        {
+            return Data.Points.Length != 0 ? Data.Points[0].Residual.Length : 0;
+        }
+
+        // TODO
+        public int DeleteFrame(int idFrameToDelete)
+        {
+            foreach (C3dPointTrajectory trajectory in Data.Points)
+            {
+
+            }
+
+            foreach (C3dAnalogChannel channel in Data.Analogs)
+            {
+
+            }
+
+            foreach (C3dForceplate forcePlate in Data.Forceplates)
+            {
+
+            }
+
+            return Data.Points.Length != 0 ? Data.Points[0].Residual.Length : 0;
         }
     }
 }
