@@ -40,6 +40,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.C3dUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.C3dUtils.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.C3dUtils",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Data.C3dDataHelper.yml",
       "output": {
         ".html": {
@@ -624,7 +638,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.yml\" sourcestartlinenumber=\"1\">Analog 3D parameter data entity with value-based equality</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -666,7 +680,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.yml\" sourcestartlinenumber=\"1\">Point 3D parameter data entity with value-based equality</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class C3dParameterPoint | SHARP3D Documentation ">
       
-      
+      <meta name="description" content="Point 3D parameter data entity with value-based equality">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint" class="text-break">
-Class C3dParameterPoint  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L3"><i class="bi bi-code-slash"></i></a>
+Class C3dParameterPoint  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,12 @@ Class C3dParameterPoint  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Point 3D parameter data entity with value-based equality</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class C3dParameterPoint</code></pre>
+    <pre><code class="lang-csharp hljs">public class C3dParameterPoint : IEquatable&lt;C3dParameterPoint&gt;</code></pre>
   </div>
 
 
@@ -115,19 +116,19 @@ Class C3dParameterPoint  <a class="header-action link-secondary" title="View sou
     </dd>
   </dl>
 
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a>&gt;</div>
+    </dd>
+  </dl>
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -153,9 +154,39 @@ Class C3dParameterPoint  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Frames" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Frames">
+  Frames
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Frames</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Rate" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Rate">
   Rate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -185,7 +216,7 @@ Class C3dParameterPoint  <a class="header-action link-secondary" title="View sou
 
   <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Units" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units">
   Units
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -212,11 +243,203 @@ Class C3dParameterPoint  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals*"></a>
+
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)">
+  Equals(C3dParameterPoint?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares this instance to another for value equality</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(C3dParameterPoint? other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals*"></a>
+
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_System_Object_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Overrides base Equals method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_GetHashCode_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode*"></a>
+
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_GetHashCode" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Overrides GetHashCode for consistency with Equals</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Equality_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality*"></a>
+
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Equality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)">
+  operator ==(C3dParameterPoint?, C3dParameterPoint?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Equality operator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(C3dParameterPoint? left, C3dParameterPoint? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Inequality_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality*"></a>
+
+  <h3 id="SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Inequality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_" data-uid="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)">
+  operator !=(C3dParameterPoint?, C3dParameterPoint?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inequality operator</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(C3dParameterPoint? left, C3dParameterPoint? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html">C3dParameterPoint</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L3" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Parameter/DataEntity/Clean/C3dParameterPoint.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

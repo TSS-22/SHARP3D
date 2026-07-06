@@ -22,6 +22,15 @@ references:
   fullName.vb: SHARP3D.C3d.New()
   nameWithType: C3d.C3d()
   nameWithType.vb: C3d.New()
+- uid: SHARP3D.C3d.#ctor(SHARP3D.Data.Clean.C3dData,SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection,SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters)
+  name: C3d(C3dData, C3dParameterSection?, C3dRequiredParameters?)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d__ctor_SHARP3D_Data_Clean_C3dData_SHARP3D_Parameter_DataEntity_Clean_C3dParameterSection_SHARP3D_Parameter_DataEntity_Clean_C3dRequiredParameters_
+  commentId: M:SHARP3D.C3d.#ctor(SHARP3D.Data.Clean.C3dData,SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection,SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters)
+  name.vb: New(C3dData, C3dParameterSection, C3dRequiredParameters)
+  fullName: SHARP3D.C3d.C3d(SHARP3D.Data.Clean.C3dData, SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection?, SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters?)
+  fullName.vb: SHARP3D.C3d.New(SHARP3D.Data.Clean.C3dData, SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection, SHARP3D.Parameter.DataEntity.Clean.C3dRequiredParameters)
+  nameWithType: C3d.C3d(C3dData, C3dParameterSection?, C3dRequiredParameters?)
+  nameWithType.vb: C3d.New(C3dData, C3dParameterSection, C3dRequiredParameters)
 - uid: SHARP3D.C3d.#ctor(System.String)
   name: C3d(string)
   href: api/SHARP3D.C3d.html#SHARP3D_C3d__ctor_System_String_
@@ -41,12 +50,73 @@ references:
   fullName.vb: SHARP3D.C3d.New
   nameWithType: C3d.C3d
   nameWithType.vb: C3d.New
+- uid: SHARP3D.C3d.AddFrame
+  name: AddFrame()
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_AddFrame
+  commentId: M:SHARP3D.C3d.AddFrame
+  fullName: SHARP3D.C3d.AddFrame()
+  nameWithType: C3d.AddFrame()
+- uid: SHARP3D.C3d.AddFrame*
+  name: AddFrame
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_AddFrame_
+  commentId: Overload:SHARP3D.C3d.AddFrame
+  isSpec: "True"
+  fullName: SHARP3D.C3d.AddFrame
+  nameWithType: C3d.AddFrame
+- uid: SHARP3D.C3d.ChangeAnalogGeneralScale(System.Single)
+  name: ChangeAnalogGeneralScale(float)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_ChangeAnalogGeneralScale_System_Single_
+  commentId: M:SHARP3D.C3d.ChangeAnalogGeneralScale(System.Single)
+  name.vb: ChangeAnalogGeneralScale(Single)
+  fullName: SHARP3D.C3d.ChangeAnalogGeneralScale(float)
+  fullName.vb: SHARP3D.C3d.ChangeAnalogGeneralScale(Single)
+  nameWithType: C3d.ChangeAnalogGeneralScale(float)
+  nameWithType.vb: C3d.ChangeAnalogGeneralScale(Single)
+- uid: SHARP3D.C3d.ChangeAnalogGeneralScale*
+  name: ChangeAnalogGeneralScale
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_ChangeAnalogGeneralScale_
+  commentId: Overload:SHARP3D.C3d.ChangeAnalogGeneralScale
+  isSpec: "True"
+  fullName: SHARP3D.C3d.ChangeAnalogGeneralScale
+  nameWithType: C3d.ChangeAnalogGeneralScale
+- uid: SHARP3D.C3d.ChangePointUnit(System.String,System.Single)
+  name: ChangePointUnit(string, float)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_ChangePointUnit_System_String_System_Single_
+  commentId: M:SHARP3D.C3d.ChangePointUnit(System.String,System.Single)
+  name.vb: ChangePointUnit(String, Single)
+  fullName: SHARP3D.C3d.ChangePointUnit(string, float)
+  fullName.vb: SHARP3D.C3d.ChangePointUnit(String, Single)
+  nameWithType: C3d.ChangePointUnit(string, float)
+  nameWithType.vb: C3d.ChangePointUnit(String, Single)
+- uid: SHARP3D.C3d.ChangePointUnit*
+  name: ChangePointUnit
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_ChangePointUnit_
+  commentId: Overload:SHARP3D.C3d.ChangePointUnit
+  isSpec: "True"
+  fullName: SHARP3D.C3d.ChangePointUnit
+  nameWithType: C3d.ChangePointUnit
 - uid: SHARP3D.C3d.Data
   name: Data
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Data
   commentId: F:SHARP3D.C3d.Data
   fullName: SHARP3D.C3d.Data
   nameWithType: C3d.Data
+- uid: SHARP3D.C3d.DeleteFrame(System.Int32)
+  name: DeleteFrame(int)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteFrame_System_Int32_
+  commentId: M:SHARP3D.C3d.DeleteFrame(System.Int32)
+  name.vb: DeleteFrame(Integer)
+  fullName: SHARP3D.C3d.DeleteFrame(int)
+  fullName.vb: SHARP3D.C3d.DeleteFrame(Integer)
+  nameWithType: C3d.DeleteFrame(int)
+  nameWithType.vb: C3d.DeleteFrame(Integer)
+- uid: SHARP3D.C3d.DeleteFrame*
+  name: DeleteFrame
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_DeleteFrame_
+  commentId: Overload:SHARP3D.C3d.DeleteFrame
+  isSpec: "True"
+  fullName: SHARP3D.C3d.DeleteFrame
+  nameWithType: C3d.DeleteFrame
 - uid: SHARP3D.C3d.FilePath
   name: FilePath
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_FilePath
@@ -684,6 +754,28 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.setFilePoint
   nameWithType: C3dFile.setFilePoint
+- uid: SHARP3D.C3dUtils
+  name: C3dUtils
+  href: api/SHARP3D.C3dUtils.html
+  commentId: T:SHARP3D.C3dUtils
+  fullName: SHARP3D.C3dUtils
+  nameWithType: C3dUtils
+- uid: SHARP3D.C3dUtils.Concat(SHARP3D.C3d,SHARP3D.C3d,System.Boolean)
+  name: Concat(C3d, C3d, bool)
+  href: api/SHARP3D.C3dUtils.html#SHARP3D_C3dUtils_Concat_SHARP3D_C3d_SHARP3D_C3d_System_Boolean_
+  commentId: M:SHARP3D.C3dUtils.Concat(SHARP3D.C3d,SHARP3D.C3d,System.Boolean)
+  name.vb: Concat(C3d, C3d, Boolean)
+  fullName: SHARP3D.C3dUtils.Concat(SHARP3D.C3d, SHARP3D.C3d, bool)
+  fullName.vb: SHARP3D.C3dUtils.Concat(SHARP3D.C3d, SHARP3D.C3d, Boolean)
+  nameWithType: C3dUtils.Concat(C3d, C3d, bool)
+  nameWithType.vb: C3dUtils.Concat(C3d, C3d, Boolean)
+- uid: SHARP3D.C3dUtils.Concat*
+  name: Concat
+  href: api/SHARP3D.C3dUtils.html#SHARP3D_C3dUtils_Concat_
+  commentId: Overload:SHARP3D.C3dUtils.Concat
+  isSpec: "True"
+  fullName: SHARP3D.C3dUtils.Concat
+  nameWithType: C3dUtils.Concat
 - uid: SHARP3D.Data
   name: SHARP3D.Data
   href: api/SHARP3D.Data.html
@@ -948,56 +1040,107 @@ references:
   commentId: T:SHARP3D.Data.Clean.C3dAnalogChannel
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel
   nameWithType: C3dAnalogChannel
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.#ctor(System.Int32,System.Single,System.String,System.String,System.Int32,System.Single,System.String,System.Single[])
+  name: C3dAnalogChannel(int, float, string, string, int, float, string, float[])
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel__ctor_System_Int32_System_Single_System_String_System_String_System_Int32_System_Single_System_String_System_Single___
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.#ctor(System.Int32,System.Single,System.String,System.String,System.Int32,System.Single,System.String,System.Single[])
+  name.vb: New(Integer, Single, String, String, Integer, Single, String, Single())
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.C3dAnalogChannel(int, float, string, string, int, float, string, float[])
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.New(Integer, Single, String, String, Integer, Single, String, Single())
+  nameWithType: C3dAnalogChannel.C3dAnalogChannel(int, float, string, string, int, float, string, float[])
+  nameWithType.vb: C3dAnalogChannel.New(Integer, Single, String, String, Integer, Single, String, Single())
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.#ctor*
+  name: C3dAnalogChannel
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel__ctor_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.C3dAnalogChannel
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.New
+  nameWithType: C3dAnalogChannel.C3dAnalogChannel
+  nameWithType.vb: C3dAnalogChannel.New
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Bits
   name: Bits
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Bits
   commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Bits
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Bits
   nameWithType: C3dAnalogChannel.Bits
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset(System.Int32,System.Single)
+  name: ChangeOffset(int, float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ChangeOffset_System_Int32_System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset(System.Int32,System.Single)
+  name.vb: ChangeOffset(Integer, Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset(int, float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset(Integer, Single)
+  nameWithType: C3dAnalogChannel.ChangeOffset(int, float)
+  nameWithType.vb: C3dAnalogChannel.ChangeOffset(Integer, Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset*
+  name: ChangeOffset
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ChangeOffset_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeOffset
+  nameWithType: C3dAnalogChannel.ChangeOffset
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit(System.String,System.Single)
+  name: ChangeUnit(string, float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ChangeUnit_System_String_System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit(System.String,System.Single)
+  name.vb: ChangeUnit(String, Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit(string, float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit(String, Single)
+  nameWithType: C3dAnalogChannel.ChangeUnit(string, float)
+  nameWithType.vb: C3dAnalogChannel.ChangeUnit(String, Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit*
+  name: ChangeUnit
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ChangeUnit_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ChangeUnit
+  nameWithType: C3dAnalogChannel.ChangeUnit
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Data
   name: Data
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Data
   commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Data
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Data
   nameWithType: C3dAnalogChannel.Data
-- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Descale(System.Single,System.Single)
-  name: Descale(float, float)
-  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Descale_System_Single_System_Single_
-  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.Descale(System.Single,System.Single)
-  name.vb: Descale(Single, Single)
-  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Descale(float, float)
-  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.Descale(Single, Single)
-  nameWithType: C3dAnalogChannel.Descale(float, float)
-  nameWithType.vb: C3dAnalogChannel.Descale(Single, Single)
-- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Descale*
-  name: Descale
-  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Descale_
-  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.Descale
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData(System.Single,System.Single)
+  name: DescaleData(float, float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_DescaleData_System_Single_System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData(System.Single,System.Single)
+  name.vb: DescaleData(Single, Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData(float, float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData(Single, Single)
+  nameWithType: C3dAnalogChannel.DescaleData(float, float)
+  nameWithType.vb: C3dAnalogChannel.DescaleData(Single, Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData*
+  name: DescaleData
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_DescaleData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData
   isSpec: "True"
-  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Descale
-  nameWithType: C3dAnalogChannel.Descale
-- uid: SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData(System.Single[],System.Single)
-  name: DescaledData(float[], float)
-  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_DescaledData_System_Single___System_Single_
-  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData(System.Single[],System.Single)
-  name.vb: DescaledData(Single(), Single)
-  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData(float[], float)
-  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData(Single(), Single)
-  nameWithType: C3dAnalogChannel.DescaledData(float[], float)
-  nameWithType.vb: C3dAnalogChannel.DescaledData(Single(), Single)
-- uid: SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData*
-  name: DescaledData
-  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_DescaledData_
-  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData
-  isSpec: "True"
-  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.DescaledData
-  nameWithType: C3dAnalogChannel.DescaledData
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.DescaleData
+  nameWithType: C3dAnalogChannel.DescaleData
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Description
   name: Description
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Description
   commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Description
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Description
   nameWithType: C3dAnalogChannel.Description
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData(System.Single)
+  name: GetAllDescaledData(float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_GetAllDescaledData_System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData(System.Single)
+  name.vb: GetAllDescaledData(Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData(float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData(Single)
+  nameWithType: C3dAnalogChannel.GetAllDescaledData(float)
+  nameWithType.vb: C3dAnalogChannel.GetAllDescaledData(Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData*
+  name: GetAllDescaledData
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_GetAllDescaledData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.GetAllDescaledData
+  nameWithType: C3dAnalogChannel.GetAllDescaledData
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Label
   name: Label
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Label
@@ -1007,7 +1150,14 @@ references:
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Offset
   name: Offset
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Offset
-  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  commentId: P:SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  nameWithType: C3dAnalogChannel.Offset
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Offset*
+  name: Offset
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Offset_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.Offset
+  isSpec: "True"
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Offset
   nameWithType: C3dAnalogChannel.Offset
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Rate
@@ -1019,15 +1169,79 @@ references:
 - uid: SHARP3D.Data.Clean.C3dAnalogChannel.Scale
   name: Scale
   href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Scale
-  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  commentId: P:SHARP3D.Data.Clean.C3dAnalogChannel.Scale
   fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Scale
   nameWithType: C3dAnalogChannel.Scale
-- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Unit
-  name: Unit
-  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Unit
-  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel.Unit
-  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Unit
-  nameWithType: C3dAnalogChannel.Unit
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Scale*
+  name: Scale
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Scale_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Scale
+  nameWithType: C3dAnalogChannel.Scale
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData(System.Single[],System.Single)
+  name: ScaleAllData(float[], float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ScaleAllData_System_Single___System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData(System.Single[],System.Single)
+  name.vb: ScaleAllData(Single(), Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData(float[], float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData(Single(), Single)
+  nameWithType: C3dAnalogChannel.ScaleAllData(float[], float)
+  nameWithType.vb: C3dAnalogChannel.ScaleAllData(Single(), Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData*
+  name: ScaleAllData
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ScaleAllData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleAllData
+  nameWithType: C3dAnalogChannel.ScaleAllData
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData(System.Single,System.Single)
+  name: ScaleData(float, float)
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ScaleData_System_Single_System_Single_
+  commentId: M:SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData(System.Single,System.Single)
+  name.vb: ScaleData(Single, Single)
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData(float, float)
+  fullName.vb: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData(Single, Single)
+  nameWithType: C3dAnalogChannel.ScaleData(float, float)
+  nameWithType.vb: C3dAnalogChannel.ScaleData(Single, Single)
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData*
+  name: ScaleData
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_ScaleData_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.ScaleData
+  nameWithType: C3dAnalogChannel.ScaleData
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Units
+  name: Units
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Units
+  commentId: P:SHARP3D.Data.Clean.C3dAnalogChannel.Units
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Units
+  nameWithType: C3dAnalogChannel.Units
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel.Units*
+  name: Units
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel_Units_
+  commentId: Overload:SHARP3D.Data.Clean.C3dAnalogChannel.Units
+  isSpec: "True"
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel.Units
+  nameWithType: C3dAnalogChannel.Units
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel._offset
+  name: _offset
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel__offset
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel._offset
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel._offset
+  nameWithType: C3dAnalogChannel._offset
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel._scale
+  name: _scale
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel__scale
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel._scale
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel._scale
+  nameWithType: C3dAnalogChannel._scale
+- uid: SHARP3D.Data.Clean.C3dAnalogChannel._units
+  name: _units
+  href: api/SHARP3D.Data.Clean.C3dAnalogChannel.html#SHARP3D_Data_Clean_C3dAnalogChannel__units
+  commentId: F:SHARP3D.Data.Clean.C3dAnalogChannel._units
+  fullName: SHARP3D.Data.Clean.C3dAnalogChannel._units
+  nameWithType: C3dAnalogChannel._units
 - uid: SHARP3D.Data.Clean.C3dData
   name: C3dData
   href: api/SHARP3D.Data.Clean.C3dData.html
@@ -1088,19 +1302,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.Clean.C3dData.AddForceplate
   nameWithType: C3dData.AddForceplate
-- uid: SHARP3D.Data.Clean.C3dData.AddFrame
-  name: AddFrame()
-  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddFrame
-  commentId: M:SHARP3D.Data.Clean.C3dData.AddFrame
-  fullName: SHARP3D.Data.Clean.C3dData.AddFrame()
-  nameWithType: C3dData.AddFrame()
-- uid: SHARP3D.Data.Clean.C3dData.AddFrame*
-  name: AddFrame
-  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddFrame_
-  commentId: Overload:SHARP3D.Data.Clean.C3dData.AddFrame
-  isSpec: "True"
-  fullName: SHARP3D.Data.Clean.C3dData.AddFrame
-  nameWithType: C3dData.AddFrame
 - uid: SHARP3D.Data.Clean.C3dData.AddPointTrajectory(SHARP3D.Data.Clean.C3dPointTrajectory)
   name: AddPointTrajectory(C3dPointTrajectory)
   href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_AddPointTrajectory_SHARP3D_Data_Clean_C3dPointTrajectory_
@@ -1177,22 +1378,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.Clean.C3dData.DeleteForceplate
   nameWithType: C3dData.DeleteForceplate
-- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
-  name: DeleteFrame(int)
-  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteFrame_System_Int32_
-  commentId: M:SHARP3D.Data.Clean.C3dData.DeleteFrame(System.Int32)
-  name.vb: DeleteFrame(Integer)
-  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame(int)
-  fullName.vb: SHARP3D.Data.Clean.C3dData.DeleteFrame(Integer)
-  nameWithType: C3dData.DeleteFrame(int)
-  nameWithType.vb: C3dData.DeleteFrame(Integer)
-- uid: SHARP3D.Data.Clean.C3dData.DeleteFrame*
-  name: DeleteFrame
-  href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeleteFrame_
-  commentId: Overload:SHARP3D.Data.Clean.C3dData.DeleteFrame
-  isSpec: "True"
-  fullName: SHARP3D.Data.Clean.C3dData.DeleteFrame
-  nameWithType: C3dData.DeleteFrame
 - uid: SHARP3D.Data.Clean.C3dData.DeletePointTrajectories(System.Int32[])
   name: DeletePointTrajectories(int[])
   href: api/SHARP3D.Data.Clean.C3dData.html#SHARP3D_Data_Clean_C3dData_DeletePointTrajectories_System_Int32___
@@ -4056,18 +4241,94 @@ references:
   commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog
   nameWithType: C3dParameterAnalog
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name: Equals(C3dParameterAnalog?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_Equals_SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name.vb: Equals(C3dParameterAnalog)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  nameWithType: C3dParameterAnalog.Equals(C3dParameterAnalog?)
+  nameWithType.vb: C3dParameterAnalog.Equals(C3dParameterAnalog)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(System.Object)
+  name: Equals(object?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_Equals_System_Object_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(object?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals(Object)
+  nameWithType: C3dParameterAnalog.Equals(object?)
+  nameWithType.vb: C3dParameterAnalog.Equals(Object)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals*
+  name: Equals
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_Equals_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.Equals
+  nameWithType: C3dParameterAnalog.Equals
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
   name: GeneralScale
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_GeneralScale
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GeneralScale
   nameWithType: C3dParameterAnalog.GeneralScale
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode
+  name: GetHashCode()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_GetHashCode
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode()
+  nameWithType: C3dParameterAnalog.GetHashCode()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode*
+  name: GetHashCode
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_GetHashCode_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.GetHashCode
+  nameWithType: C3dParameterAnalog.GetHashCode
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
   name: SamplesPerFrame
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_SamplesPerFrame
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.SamplesPerFrame
   nameWithType: C3dParameterAnalog.SamplesPerFrame
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Equality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog,SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name: operator ==(C3dParameterAnalog?, C3dParameterAnalog?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_op_Equality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Equality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog,SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name.vb: =(C3dParameterAnalog, C3dParameterAnalog)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.operator ==(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog?, SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.=(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog, SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  nameWithType: C3dParameterAnalog.operator ==(C3dParameterAnalog?, C3dParameterAnalog?)
+  nameWithType.vb: C3dParameterAnalog.=(C3dParameterAnalog, C3dParameterAnalog)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Equality*
+  name: operator ==
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_op_Equality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.operator ==
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.=
+  nameWithType: C3dParameterAnalog.operator ==
+  nameWithType.vb: C3dParameterAnalog.=
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Inequality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog,SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name: operator !=(C3dParameterAnalog?, C3dParameterAnalog?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_op_Inequality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Inequality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog,SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  name.vb: <>(C3dParameterAnalog, C3dParameterAnalog)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.operator !=(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog?, SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.<>(SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog, SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog)
+  nameWithType: C3dParameterAnalog.operator !=(C3dParameterAnalog?, C3dParameterAnalog?)
+  nameWithType.vb: C3dParameterAnalog.<>(C3dParameterAnalog, C3dParameterAnalog)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Inequality*
+  name: operator !=
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterAnalog_op_Inequality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.operator !=
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterAnalog.<>
+  nameWithType: C3dParameterAnalog.operator !=
+  nameWithType.vb: C3dParameterAnalog.<>
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup
   name: C3dParameterGroup
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterGroup.html
@@ -4259,6 +4520,50 @@ references:
   commentId: T:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint
   nameWithType: C3dParameterPoint
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name: Equals(C3dParameterPoint?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name.vb: Equals(C3dParameterPoint)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  nameWithType: C3dParameterPoint.Equals(C3dParameterPoint?)
+  nameWithType.vb: C3dParameterPoint.Equals(C3dParameterPoint)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(System.Object)
+  name: Equals(object?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_System_Object_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(object?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals(Object)
+  nameWithType: C3dParameterPoint.Equals(object?)
+  nameWithType.vb: C3dParameterPoint.Equals(Object)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals*
+  name: Equals
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Equals_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Equals
+  nameWithType: C3dParameterPoint.Equals
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Frames
+  name: Frames
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Frames
+  commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Frames
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Frames
+  nameWithType: C3dParameterPoint.Frames
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode
+  name: GetHashCode()
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_GetHashCode
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode()
+  nameWithType: C3dParameterPoint.GetHashCode()
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode*
+  name: GetHashCode
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_GetHashCode_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode
+  isSpec: "True"
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.GetHashCode
+  nameWithType: C3dParameterPoint.GetHashCode
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Rate
   name: Rate
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_Rate
@@ -4271,6 +4576,44 @@ references:
   commentId: F:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units
   fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.Units
   nameWithType: C3dParameterPoint.Units
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name: operator ==(C3dParameterPoint?, C3dParameterPoint?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Equality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name.vb: =(C3dParameterPoint, C3dParameterPoint)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.operator ==(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint?, SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.=(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint, SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  nameWithType: C3dParameterPoint.operator ==(C3dParameterPoint?, C3dParameterPoint?)
+  nameWithType.vb: C3dParameterPoint.=(C3dParameterPoint, C3dParameterPoint)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality*
+  name: operator ==
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Equality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.operator ==
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.=
+  nameWithType: C3dParameterPoint.operator ==
+  nameWithType.vb: C3dParameterPoint.=
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name: operator !=(C3dParameterPoint?, C3dParameterPoint?)
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Inequality_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_
+  commentId: M:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint,SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  name.vb: <>(C3dParameterPoint, C3dParameterPoint)
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.operator !=(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint?, SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint?)
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.<>(SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint, SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint)
+  nameWithType: C3dParameterPoint.operator !=(C3dParameterPoint?, C3dParameterPoint?)
+  nameWithType.vb: C3dParameterPoint.<>(C3dParameterPoint, C3dParameterPoint)
+- uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality*
+  name: operator !=
+  href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.html#SHARP3D_Parameter_DataEntity_Clean_C3dParameterPoint_op_Inequality_
+  commentId: Overload:SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.operator !=
+  fullName.vb: SHARP3D.Parameter.DataEntity.Clean.C3dParameterPoint.<>
+  nameWithType: C3dParameterPoint.operator !=
+  nameWithType.vb: C3dParameterPoint.<>
 - uid: SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection
   name: C3dParameterSection
   href: api/SHARP3D.Parameter.DataEntity.Clean.C3dParameterSection.html
