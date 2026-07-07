@@ -9,7 +9,8 @@
         // Scale is calculated when saving to C3D file, not stored here
         public string Units = "mm";
         public int Frames = 0;
-        
+        public int MaximumInterpolationGap = 0;
+
         /// <summary>
         /// Compares this instance to another for value equality
         /// </summary>
