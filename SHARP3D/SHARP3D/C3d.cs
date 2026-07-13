@@ -126,8 +126,8 @@ namespace SHARP3D
         {
             byte[] parameters = ParametersToBinaries();
             byte[] header = HeaderToBinaries(parameters.Length / 512);
-            byte[] data = DataToBinaries();
-            byte[] c3dBinaries = header.Concat(parameters).Concat(data).ToArray();
+            //byte[] data = DataToBinaries();
+            //byte[] c3dBinaries = header.Concat(parameters).Concat(data).ToArray();
         }
 
         public byte[] ParametersToBinaries()

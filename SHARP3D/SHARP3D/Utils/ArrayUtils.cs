@@ -292,6 +292,19 @@
             incrementIndices(0);
             return columnMajorArray;
         }
+
+        public static float[,] IdentityMatrix(int columnNumber)
+        {
+            float[,] identityMatrix = new float[columnNumber, columnNumber];
+            for (int col = 0; col < columnNumber; col++)
+            {
+                for (int row = 0; row < columnNumber; row++)
+                {
+                    identityMatrix[col, row] = col == row ? 1 : 0;
+                }
+            }
+            return identityMatrix;
+        }
     }
 }
 
