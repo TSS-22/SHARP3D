@@ -23,7 +23,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
 
         public string Description = "No Description provided.";
         public List<C3dParameter> Parameters = new List<C3dParameter> { };
-        bool Locked = false;
+        public bool Locked = false;
 
         public C3dParameterGroup(string name, string description, List<C3dParameter>? parameters = null, bool locked= false)
         {

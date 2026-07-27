@@ -67,6 +67,11 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             throw new ArgumentException($"Parameter group with name '{name.ToUpper()}' not found in section.");
         }
 
+        public List<C3dParameterGroup> GetGroups()
+        {
+            return Groups;
+        }
+
         public int GetGroupIndex(string groupName)
         {
             for(int i=0; i<Groups.Count; i++)

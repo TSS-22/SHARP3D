@@ -132,17 +132,57 @@ namespace SHARP3D
 
         public byte[] ParametersToBinaries()
         {
-            List<byte> parameters = new List<byte>();
+            
+            List<byte> parametersBytes = new List<byte>();
             // Introduction to the parameter section
-            parameters.Add((byte)0x00);// Unused/Ignored/Reserved
-            parameters.Add((byte)0x00);// Unused/Ignored/Reserved
-            parameters.Add((byte)0x00);// Length
-            parameters.Add(BitConverter.IsLittleEndian? (byte)0x54 : (byte)0x56);// Processor. Not sure if SIG/MIPS are a general big Endian. But that's the closest.
+            parametersBytes.Add((byte)0x00);// Unused/Ignored/Reserved
+            parametersBytes.Add((byte)0x00);// Unused/Ignored/Reserved
+            parametersBytes.Add((byte)0x00);// Length
+            parametersBytes.Add(BitConverter.IsLittleEndian? (byte)0x54 : (byte)0x56);// Processor. Not sure if SIG/MIPS are a general big Endian. But that's the closest.
 
+            // Groups and Parameters to binary
+            List<C3dParameterGroup> groups = Parameters.GetGroups();
+
+            // For each Groups
+            for (int idGroup = 0; idGroup < groups.Count; idGroup++)
+            {
+                // Add the group
+                // Name Length
+                parametersBytes.Add(groups[idGroup].Locked? 
+                    (byte)(-groups[idGroup].Name.Length) : (byte)groups[idGroup].Name.Length
+                    );
+
+                // ID
+                parametersBytes.Add((byte)(-(idGroup+1)));
+
+                //Name
+                parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(groups[idGroup].Name));
+
+                // Need to know the Description byte length to compute the value of 
+                // PointerToNext
+                // And we need to know the description byte array to compute its length
+                // :O)
+
+                // Description
+                byte[] description = System.Text.Encoding.UTF8.GetBytes(groups[idGroup].Description);
+                // Description length
+                // Description length
+                byte descriptionLength = (byte)description.Length;
+                //Pointer to next
+                parametersBytes.AddRange(BitConverter.GetBytes((Int16)(2 + 1 + descriptionLength)));
+                parametersBytes.Add(descriptionLength);
+                parametersBytes.AddRange(description);
+
+                // Check if groups is one of the constant group that we manage externally
+                // if yes, sort that here
+
+                // Sort the other Parameters
+
+            }
 
             // Put the length of the parameter section in the third byte
-            parameters[2] = (byte)(parameters.Count / 512 + 1);
-            return parameters.ToArray();
+            parametersBytes[2] = (byte)(parametersBytes.Count / 512 + 1);
+            return parametersBytes.ToArray();
         }
 
         public byte[] DataToBinaries(float scaleFactor)
@@ -226,6 +266,8 @@ namespace SHARP3D
             //199 - 234     ASCII   Header Event labels(2 or 4 characters, depending on Word 150).
             for (int i = 0; i < 18; i++)
             {
+                // If the header event support 4 character but the label is less
+                // We add two null character
                 if (i < HeaderEvents.Length)
                 {
                     string label = HeaderEvents[i].EventLabel;
@@ -239,6 +281,7 @@ namespace SHARP3D
                     }
                     header.AddRange(System.Text.Encoding.ASCII.GetBytes(label));
                 }
+                // For the unused event we fill them with null character
                 else
                 {
                     header.AddRange(System.Text.Encoding.ASCII.GetBytes("\0\0\0\0"));
