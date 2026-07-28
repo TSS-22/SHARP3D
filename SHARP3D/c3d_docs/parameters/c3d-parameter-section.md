@@ -68,7 +68,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./requir
 | ID | 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
 | Name | 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
 | Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| Data Type | 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
+| Data Type | 3 + n + 2             | 1              | Signed byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
 | Dimensions Number | 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
 | Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Value of each Parameter's Data dimensions.                                                        |
 | Data | 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
