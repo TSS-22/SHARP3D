@@ -70,7 +70,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./requir
 | Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
 | Data Type | 3 + n + 2             | 1              | Signed byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
 | Dimensions Number | 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
-| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Value of each Parameter's Data dimensions.                                                        |
+| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Value of each Parameter's Data dimensions. Field is skipped with scalars.                                                       |
 | Data | 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
 | Description Length | 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
 | Description | 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description.  
@@ -235,7 +235,7 @@ If the Parameter's data as a value of 2 or more, it is a matrix.
 
 ##### Byte 3+n+4: Dimensions Length
 
-The value of each dimensions of the Parameter's Data. If the Parameter's Data is a scalar, then this field is omitted in the byte definition.
+The value of each dimensions of the Parameter's Data. If the Parameter's Data is a scalar, then this field is omitted.
 
 ##### Byte 3+n+4+d: Data
 

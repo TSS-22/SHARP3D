@@ -2,6 +2,10 @@
 using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils.Enum;
+using System.Data.Common;
+using System.Net.Sockets;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
 
 namespace SHARP3D
 {
@@ -175,6 +179,68 @@ namespace SHARP3D
                 // Check if groups is one of the constant group that we manage externally
                 // if yes, sort that here
 
+                if (groups[idGroup].Name == "ANALOG")
+                {
+                    ////////////////////////////////////
+                    // ANALOG:BITS
+                    int analogBitValue = 16;
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "BITS",
+                        "",
+                        analogBitValue,
+                        true
+                    ));
+
+                    // "DESCRIPTIONS[0-9]*",
+
+                    ////////////////////////////////////
+                    // ANALOG:FORMAT                    
+                    parametersBytes.AddRange(ParameterMonoStringToBinary(
+                        idGroup,
+                        "FORMAT",
+                        "Specifies whether the integer Analog Data and associated integer values Parameters are stored as signed or unsigned 16-bit integer.",
+                        "SIGNED", // To help be compatible with old shit. Change that in the future
+                        true
+                        ));
+                    //////////////////////////////////////
+                    // "GEN_SCALE",
+                    // "LABELS[0-9]*",
+                    // "OFFSET[0-9]*",
+                    // "RATE",
+                    // "SCALE[0-9]*",
+                    // "UNITS[0-9]*",
+                    // "USED",
+                }
+                else if (groups[idGroup].Name == "FORCE_PLATFORM")
+                {
+                    // "CAL_MATRIX",
+                    // "CORNERS",
+                    // "CHANNEL",
+                    // "ORIGIN",
+                    // "TYPE",
+                    // "USED",
+                    // "ZERO",
+                }
+                else if (groups[idGroup].Name == "POINT")
+                {
+                    
+                    // "DESCRIPTIONS[0-9]*",
+                    // "FRAMES",
+                    // "LABELS[0-9]*",
+                    // "LONG_FRAMES", // Don't bother till I have the different save options
+                    // "RATE",
+                    // "SCALE",
+                    // "UNITS",
+                    // "USED",
+                }
+                else if (groups[idGroup].Name == "TRIAL")
+                {
+                    // Don't bother till I have the different save options
+                    // "ACTUAL_END_FIELD",
+                    // "ACTUAL_START_FIELD",
+                }
+
                 // Sort the other Parameters
                 foreach (C3dParameter parameter in groups[idGroup].Parameters) 
                 {
@@ -335,11 +401,244 @@ namespace SHARP3D
 
             }
 
+            // Do POINT:DATA_START
+            // This is so dumb: this is supposed to be a pointer to the data.
+            // But you need to know the parameter block number to know this.
+            // But then once you know it... you add another parameter which can fuck up the count...
+            // WOW. Big brain time.
+            // Do like that retard pointer architecture: precreate and change the value later.
+            // IMPORTANT
+            // Put the the pointerToNext to zero here, as this is the last parameter
+
+            // IMPORTANT
+            // Pads with zero to finish the blocks so it is a multiple of 512 bytes.
+
+
             // Put the length of the parameter section in the third byte
             parametersBytes[2] = (byte)(parametersBytes.Count / 512 + 1);
+
+            
             return parametersBytes.ToArray();
         }
 
+        public byte[] ParameterScalarToBinary(
+            int idGroup,
+            string name,
+            string description,
+            int value,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType = 2;
+            // Dimensions numbers
+            byte dimensionNumber = 0;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                            2 // Pointer to next
+                            + 1 // Data type
+                            + 1 // dimension number. There is no data length because it is a scalar
+                            + 2 // Data bytes
+                            + 1 // Description length
+                            + (int)descriptionLength // Description bytes
+                            )); parameterBytes.AddRange(pointerToNext);
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.AddRange(BitConverter.GetBytes(value));
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
+
+        public byte[] ParameterScalarToBinary(
+            int idGroup,
+            string name,
+            string description,
+            float value,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType = 4;
+            // Dimensions numbers
+            byte dimensionNumber = 0;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                            2 // Pointer to next
+                            + 1 // Data type
+                            + 1 // dimension number. There is no data length because it is a scalar
+                            + 4 // Data bytes
+                            + 1 // Description length
+                            + (int)descriptionLength // Description bytes
+                            )); parameterBytes.AddRange(pointerToNext);
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.AddRange(BitConverter.GetBytes(value));
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
+
+        public byte[] ParameterScalarToBinary(
+            int idGroup,
+            string name,
+            string description,
+            byte value,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType = 1;
+            // Dimensions numbers
+            byte dimensionNumber = 0;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                            2 // Pointer to next
+                            + 1 // Data type
+                            + 1 // dimension number. There is no data length because it is a scalar
+                            + 1 // Data bytes
+                            + 1 // Description length
+                            + (int)descriptionLength // Description bytes
+                            )); parameterBytes.AddRange(pointerToNext);
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.Add(value);
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
+
+        public byte[] ParameterScalarToBinary(
+            int idGroup,
+            string name,
+            string description,
+            char value,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType;
+            unchecked { dataType = (byte)-1; }
+            // Dimensions numbers
+            byte dimensionNumber = 0;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                2 // Pointer to next
+                + 1 // Data type
+                + 1 // dimension number. There is no data length because it is a scalar
+                + 1 // Data bytes
+                + 1 // Description length
+                + (int)descriptionLength // Description bytes
+                ));
+            parameterBytes.AddRange(pointerToNext);
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.Add((byte)value);// C# char are 16-bit but C3D char are 8-bit
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
+
+        public byte[] ParameterMonoStringToBinary(
+            int idGroup,
+            string name,
+            string description,
+            string value,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            byte[] valueByte = System.Text.Encoding.ASCII.GetBytes(value); // C# char are 16-bit but C3D char are 8-bit
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType;
+            unchecked { dataType = (byte)-1; }
+            // Dimensions numbers
+            byte dimensionNumber = 1;
+            // Dimension Length
+            byte dimensionsLength = (byte)valueByte.Length;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                2 // Pointer to next is an int
+                + 1  // Data type
+                + 1 // Dimension number
+                + 1 // Dimension length
+                + valueByte.Length  // Value bytes
+                + 1  // Description length
+                + (int)descriptionLength) // Description bytes 
+                );
+            parameterBytes.AddRange(pointerToNext);
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.Add(dimensionsLength);
+            parameterBytes.AddRange(valueByte);
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
         public byte[] DataToBinaries(float scaleFactor)
         {
             List<byte> data = new List<byte>();
