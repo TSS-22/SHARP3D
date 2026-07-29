@@ -6,7 +6,7 @@
 
 > This parameter is Locked. Extreme caution should be exercised when editing its value as it affects the way that [data](../../../data/c3d-data-section.md) is stored.
 
-The ANALOG:RATE parameter is a single floating-point value that stores the sample rate at which the analog data was collected in samples per second. This indicates the number of analog samples that exist in each analog channel for the given [POINT:RATE](../point/point-rate.md) value. For example, an ANALOG:RATE value of 600 for a C3D file that contains data with a POINT:RATE of 60.00 has 10 analog samples per 3D sample (60 x 10).
+The ANALOG:RATE parameter is a single floating-point value that stores the sample rate at which the analog data was collected in samples per second. From This can be calculated the number of analog samples that exist in each analog channel for the given [POINT:RATE](../point/point-rate.md) value. For example, an ANALOG:RATE value of 600 for a C3D file that contains data with a POINT:RATE of 60.00 has 10 analog samples per 3D sample (60 x 10).
 
 The RATE parameter value is not stored in the C3D file header. However, the header does record the 3D sample frame rate in [words 11-12](../../../c3d-header.md#word-11-12-3d-point-data-acquisition-rate) as well as the number of analog samples per 3D frame in [word 10](../../../c3d-header.md#word-10-number-of-analog-frame-per-data-frame). The ANALOG:RATE parameter value should always be identical to the value:
 

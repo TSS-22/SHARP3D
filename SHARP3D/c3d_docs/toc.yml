@@ -133,7 +133,7 @@
               href: parameters/additional/point/point-long_frames.md
             - name: POINT:RATE
               href: parameters/required/point/point-rate.md
-            - name: POINT:SCALE_FACTOR
+            - name: POINT:SCALE
               href: parameters/required/point/point-scale_factor.md
             - name: POINT:UNITS
               href: parameters/required/point/point-units.md

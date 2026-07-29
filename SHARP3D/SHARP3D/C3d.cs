@@ -150,7 +150,8 @@ namespace SHARP3D
             // For each Groups
             for (int idGroup = 0; idGroup < groups.Count; idGroup++)
             {
-                // Add the group
+                ////////////////////////////////
+                // GROUP
                 // Name Length
                 parametersBytes.Add(groups[idGroup].Locked? 
                     (byte)(-groups[idGroup].Name.Length) : (byte)groups[idGroup].Name.Length
@@ -183,12 +184,23 @@ namespace SHARP3D
                 {
                     ////////////////////////////////////
                     // ANALOG:BITS
-                    int analogBitValue = 16;
+                    List<int> bitsValues = new List<int>();
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        bitsValues.Add(channel.Bits);
+                    }
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        for(int i = 0; i < forceplate.Channels.Length; i++)
+                        {
+                            bitsValues.Add(forceplate.Channels[i].Bits);
+                        }
+                    }
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
                         "BITS",
-                        "",
-                        analogBitValue,
+                        "Describes the analog data sample resolution in bits.",
+                        (int)bitsValues.Average(),
                         true
                     ));
 
@@ -203,14 +215,63 @@ namespace SHARP3D
                         "SIGNED", // To help be compatible with old shit. Change that in the future
                         true
                         ));
+
                     //////////////////////////////////////
-                    // "GEN_SCALE",
+                    // ANALOG:GEN_SCALE
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "GEN_SCALE",
+                        "A universal common analog scaling factor for all analog channels.",
+                        Required.Analog.GeneralScale,
+                        true
+                    ));
                     // "LABELS[0-9]*",
                     // "OFFSET[0-9]*",
-                    // "RATE",
+                    ///////////////////////////////
+                    // ANALOG:RATE
+                    List<float> ratesValues = new List<float>();
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        ratesValues.Add(channel.Rate);
+                    }
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        for (int i = 0; i < forceplate.Channels.Length; i++)
+                        {
+                            ratesValues.Add(forceplate.Channels[i].Rate);
+                        }
+                    }
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "RATE",
+                        "Stores the sample rate at which the analog data was collected in samples per second.",
+                        ratesValues.Average(),
+                        true
+                    ));
+
                     // "SCALE[0-9]*",
                     // "UNITS[0-9]*",
-                    // "USED",
+                    /////////////////////////////////////////
+                    // ANALOG:USED
+                    int analogUsed =0;
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        analogUsed++;
+                    }
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        for (int i = 0; i < forceplate.Channels.Length; i++)
+                        {
+                            analogUsed++;
+                        }
+                    }
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "USED",
+                        "Stores the number of analog channels that are contained within the C3D file.",
+                        analogUsed,
+                        true
+                    ));
                 }
                 else if (groups[idGroup].Name == "FORCE_PLATFORM")
                 {
@@ -219,20 +280,84 @@ namespace SHARP3D
                     // "CHANNEL",
                     // "ORIGIN",
                     // "TYPE",
-                    // "USED",
+                    ////////////////////////////////////////
+                    // FORCE_PLATFORM:USED
+                    int forceplateUsed = 0;
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        forceplateUsed++;
+                    }
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "USED",
+                        "Stores the number of force plateform that are contained within the C3D file.",
+                        forceplateUsed,
+                        true
+                    ));
                     // "ZERO",
                 }
                 else if (groups[idGroup].Name == "POINT")
                 {
-                    
+
                     // "DESCRIPTIONS[0-9]*",
-                    // "FRAMES",
+                    ////////////////////////////////
+                    // POINT:FRAMES
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "FRAMES",
+                        "Stores the number of 3D data frames that are recorded in the C3D file.",
+                        (float)Required.Point.Frames,
+                        true
+                    ));
                     // "LABELS[0-9]*",
-                    // "LONG_FRAMES", // Don't bother till I have the different save options
-                    // "RATE",
-                    // "SCALE",
-                    // "UNITS",
-                    // "USED",
+                    // "LONG_FRAMES", Don't bother till I have the different save options
+                    //////////////////////////////////
+                    // POINT:RATE
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "FRAMES",
+                        "Stores the 3D sample rate of the data contained within the C3D file in samples per second.",
+                        (float)Required.Point.Rate,
+                        true
+                    ));
+                    ///////////////////////////////
+                    // POINT:SCALE
+                    float maximumPointValue = 0;
+                    foreach (C3dPointTrajectory trajectory in Data.Points) 
+                    {
+                        foreach(float val in trajectory.Point)
+                        {
+                            if(Math.Abs(val) > maximumPointValue)
+                            {
+                                maximumPointValue = val;
+                            }
+                        }
+                    }
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "SCALE",
+                        "Stores the scaling factor that is applied to convert each of the signed integer 3D point values into the reference coordinate system values recorded by the POINT:UNITS parameter.",
+                        -(maximumPointValue/32000),
+                        true
+                    ));
+                    //////////////////////////////
+                    // POINT:UNITS
+                    parametersBytes.AddRange(ParameterMonoStringToBinary(
+                        idGroup,
+                        "UNITS",
+                        "four-character ASCII parameter that records the physical measurement environment used by the program that created the 3D Point data stored in the C3D file.",
+                        Required.Point.Units,
+                        true
+                        ));
+                    /////////////////////////////
+                    // POINT:USED
+                    parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "USED",
+                        "Stores number of 3D marker trajectories recorded within the C3D file.",
+                        Data.Points.Length,
+                        true
+                    ));
                 }
                 else if (groups[idGroup].Name == "TRIAL")
                 {
