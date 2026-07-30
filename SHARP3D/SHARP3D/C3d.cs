@@ -384,8 +384,8 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"DESCRIPTIONS{i}",
-                        $"Stores documentation about each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
+                        $"LABELS{i}",
+                        $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
                         fortranAnalogLabels[i],
                         false
                         ));
@@ -474,8 +474,89 @@ namespace SHARP3D
                             false
                             ));
                     }
-                    
-                    // "UNITS[0-9]*",
+
+                    //////////////////////////////////////
+                    // ANALOG:UNITS[0-9]*
+                    List<string> analogUnits = new List<string>();
+                    // Start with the forceplate channels
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        foreach (C3dAnalogChannel channel in forceplate.Channels)
+                        {
+                            analogUnits.Add(channel.Units);
+                        }
+                    }
+                    // Get the rest of the channels
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        analogUnits.Add(channel.Units);
+                    }
+                    int maxUnitLength = 0;
+                    foreach (string unit in analogUnits)
+                    {
+                        if (unit.Length > maxUnitLength)
+                        {
+                            maxUnitLength = unit.Length;
+                        }
+                    }
+                    //// Pad the descriptions
+                    for (int i = 0; i < analogUnits.Count; i++)
+                    {
+                        if (analogUnits[i].Length < maxUnitLength)
+                        {
+                            analogUnits[i] = analogUnits[i] + new string('\0', maxUnitLength - analogUnits[i].Length);
+                        }
+                    }
+                    // Put the description array into FORTRAN mode
+                    List<char[,]> fortranAnalogUnits = new List<char[,]>();
+                    List<char[]> bufferAnalogUnits = new List<char[]>();
+                    int counterAnalogUnit = 0;
+                    for (int i = 0; i < analogUnits.Count; i++)
+                    {
+                        bufferAnalogUnits.Add(analogUnits[i].ToCharArray());
+                        counterAnalogUnit++;
+
+                        if (counterAnalogUnit >= 255)
+                        {
+                            //Transform our buffer array into a FORTRAN array
+                            char[,] tempAnalogUnitArray = bufferAnalogUnits.To2DArray();
+                            char[,] fortranBufferAnalogUnitArray = new char[tempAnalogUnitArray.GetLength(1), tempAnalogUnitArray.GetLength(0)];
+                            for (int row = 0; row < tempAnalogUnitArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempAnalogUnitArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[col, row];
+                                }
+                            }
+                            fortranAnalogUnits.Add(fortranBufferAnalogUnitArray);
+                            bufferAnalogUnits = new List<char[]>();
+                            counterAnalogUnit = 0;
+                        }
+                        if ((i == analogUnits.Count - 1) && (bufferAnalogUnits.Count > 0))
+                        {
+                            char[,] tempAnalogUnitArray = bufferAnalogUnits.To2DArray();
+                            char[,] fortranBufferAnalogUnitArray = new char[tempAnalogUnitArray.GetLength(1), tempAnalogUnitArray.GetLength(0)];
+                            for (int row = 0; row < tempAnalogUnitArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempAnalogUnitArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[col, row];
+                                }
+                            }
+                            fortranAnalogUnits.Add(fortranBufferAnalogUnitArray);
+                        }
+                    }
+
+                    for (int i = 0; i < fortranAnalogUnits.Count; i++)
+                    {
+                        parametersBytes.AddRange(Parameter2DStringToBinary(
+                        idGroup,
+                        $"UNITS{i}",
+                        $"Stores the units of each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
+                        fortranAnalogUnits[i],
+                        false
+                        ));
+                    }
                     /////////////////////////////////////////
                     // ANALOG:USED
                     int analogUsed =0;
