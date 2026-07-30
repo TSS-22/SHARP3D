@@ -323,8 +323,21 @@ namespace SHARP3D
                         originValues,
                         false
                         ));
+                    ///////////////////////////////////
+                    // FORCE_PLATFORM:TYPE
+                    List<int> typeForceplateValues = new List<int>();
+                    foreach(C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        typeForceplateValues.Add((int)forceplate.Type);
+                    }
+                    parametersBytes.AddRange(Parameter1DArrayToBinary(
+                        idGroup,
+                        "TYPE",
+                        "Define the type of force platform output expected from each force platform.",
+                        typeForceplateValues.ToArray(),
+                        false
+                        ));
 
-                    // "TYPE",
                     ////////////////////////////////////////
                     // FORCE_PLATFORM:USED
                     int forceplateUsed = 0;
@@ -344,9 +357,16 @@ namespace SHARP3D
                    int[] zeroValues = new int[2];
                     foreach(C3dForceplate forceplate in Data.Forceplates)
                     {
-                        zeroValues[0] = forceplate.Zero.Item1;
-                        zeroValues[2] = forceplate.Zero.Item2;
+                        zeroValues[0] = forceplate.Zero.Item1 + 1;
+                        zeroValues[2] = forceplate.Zero.Item2 + 1;
                     }
+                    parametersBytes.AddRange(Parameter1DArrayToBinary(
+                        idGroup,
+                        "ZERO",
+                        "Specify the range of 3D data frame numbers that may be used to provide a baseline for the force platform measurements.",
+                        zeroValues,
+                        false
+                        ));
 
                 }
                 else if (groups[idGroup].Name == "POINT")
@@ -818,6 +838,110 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        public byte[] Parameter1DArrayToBinary(
+            int idGroup,
+            string name,
+            string description,
+            float[] arrayData,
+            bool locked = false
+            )
+            {
+                List<byte> parameterBytes = new List<byte>();
+                byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+                byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+                List<byte> dataBytes = new List<byte>();
+                foreach (float value in arrayData)
+                {
+                    dataBytes.AddRange(BitConverter.GetBytes(value));
+                }
+                // Name Length
+                // Locked parameter
+                parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+                // ID
+                parameterBytes.Add((byte)(idGroup + 1));
+                // Name
+                parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+                // Data type
+                byte dataType = 4;
+                // Dimensions numbers
+                byte dimensionNumber = 1;
+                //Dimension length
+                byte dimensionLength = (byte)dataBytes.Count;
+                // Description Length
+                byte descriptionLength = (byte)descriptionBytes.Length;
+                // Pointer to next
+                byte[] pointerToNext = BitConverter.GetBytes((
+                                2 // Pointer to next
+                                + 1 // Data type
+                                + 1 // dimension number. There is no data length because it is a scalar
+                                + 1 // dimension length
+                                + dataBytes.Count // Data bytes
+                                + 1 // Description length
+                                + (int)descriptionLength // Description bytes
+                                )); parameterBytes.AddRange(pointerToNext);
+
+                parameterBytes.Add(dataType);
+                parameterBytes.Add(dimensionNumber);
+                parameterBytes.Add(dimensionLength);
+                parameterBytes.AddRange(dataBytes);
+                parameterBytes.Add(descriptionLength);
+                parameterBytes.AddRange(descriptionBytes);
+
+                return parameterBytes.ToArray();
+            }
+
+        public byte[] Parameter1DArrayToBinary(
+            int idGroup,
+            string name,
+            string description,
+            int[] arrayData,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            List<byte> dataBytes = new List<byte>();
+            foreach (int value in arrayData)
+            {
+                dataBytes.AddRange(BitConverter.GetBytes((Int16)value));
+            }
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType = 4;
+            // Dimensions numbers
+            byte dimensionNumber = 1;
+            //Dimension length
+            byte dimensionLength = (byte)dataBytes.Count;
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                            2 // Pointer to next
+                            + 1 // Data type
+                            + 1 // dimension number. There is no data length because it is a scalar
+                            + 1 // dimension length
+                            + dataBytes.Count // Data bytes
+                            + 1 // Description length
+                            + (int)descriptionLength // Description bytes
+                            )); parameterBytes.AddRange(pointerToNext);
+
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.Add(dimensionLength);
+            parameterBytes.AddRange(dataBytes);
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
+
         public byte[] Parameter2DArrayToBinary(
             int idGroup,
             string name,
@@ -959,7 +1083,7 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 2;
             //Dimension length
-            byte[] dimensionLength = new byte[] { (byte)arrayData.GetLength(1), (byte)arrayData.GetLength(0) };
+            byte[] dimensionLength = new byte[] { (byte)(arrayData.GetLength(1) * 4), (byte)(arrayData.GetLength(0) * 4) };
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
