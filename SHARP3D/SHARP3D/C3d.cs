@@ -263,7 +263,21 @@ namespace SHARP3D
                             bufferAnalogDescriptions = new List<char[]>();
                             counterAnalogDescription = 0;
                         }
+                        if((i == analogDescriptions.Count - 1) && (bufferAnalogDescriptions.Count > 0))
+                        {
+                            char[,] tempAnalogDescriptionArray = bufferAnalogDescriptions.To2DArray();
+                            char[,] fortranBufferAnalogDescriptionArray = new char[tempAnalogDescriptionArray.GetLength(1), tempAnalogDescriptionArray.GetLength(0)];
+                            for (int row = 0; row < tempAnalogDescriptionArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempAnalogDescriptionArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogDescriptionArray[col, row] = tempAnalogDescriptionArray[col, row];
+                                }
+                            }
+                            fortranAnalogDescription.Add(fortranBufferAnalogDescriptionArray);
+                        }
                     }
+                    
                     for(int i=0; i< fortranAnalogDescription.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
@@ -275,7 +289,6 @@ namespace SHARP3D
                         ));
                     }
 
-                    
                     ////////////////////////////////////
                     // ANALOG:FORMAT                    
                     parametersBytes.AddRange(ParameterMonoStringToBinary(
@@ -295,36 +308,120 @@ namespace SHARP3D
                         Required.Analog.GeneralScale,
                         true
                     ));
-                    // "LABELS[0-9]*",
+                    ////////////////////////////////////////
+                    // ANALOG:LABELS[0-9]*
+                    List<string> analogLabels = new List<string>();
+                    // Start with the forceplate channels
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        foreach (C3dAnalogChannel channel in forceplate.Channels)
+                        {
+                            analogLabels.Add(channel.Label);
+                        }
+                    }
+                    // Get the rest of the channels
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        analogLabels.Add(channel.Label);
+                    }
+                    int maxLabelLength = 0;
+                    foreach (string label in analogLabels)
+                    {
+                        if (label.Length > maxLabelLength)
+                        {
+                            maxLabelLength = label.Length;
+                        }
+                    }
+                    //// Pad the descriptions
+                    for (int i = 0; i < analogLabels.Count; i++)
+                    {
+                        if (analogLabels[i].Length < maxLabelLength)
+                        {
+                            analogLabels[i] = analogLabels[i] + new string('\0', maxLabelLength - analogLabels[i].Length);
+                        }
+                    }
+                    // Put the description array into FORTRAN mode
+                    List<char[,]> fortranAnalogLabels = new List<char[,]>();
+                    List<char[]> bufferAnalogLabels = new List<char[]>();
+                    int counterAnalogLabel = 0;
+                    for (int i = 0; i < analogLabels.Count; i++)
+                    {
+                        bufferAnalogLabels.Add(analogLabels[i].ToCharArray());
+                        counterAnalogLabel++;
+
+                        if (counterAnalogLabel >= 255)
+                        {
+                            //Transform our buffer array into a FORTRAN array
+                            char[,] tempAnalogLabelArray = bufferAnalogLabels.To2DArray();
+                            char[,] fortranBufferAnalogLabelArray = new char[tempAnalogLabelArray.GetLength(1), tempAnalogLabelArray.GetLength(0)];
+                            for (int row = 0; row < tempAnalogLabelArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempAnalogLabelArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[col, row];
+                                }
+                            }
+                            fortranAnalogLabels.Add(fortranBufferAnalogLabelArray);
+                            bufferAnalogLabels = new List<char[]>();
+                            counterAnalogLabel = 0;
+                        }
+                        if ((i == analogLabels.Count - 1) && (bufferAnalogLabels.Count > 0))
+                        {
+                            char[,] tempAnalogLabelArray = bufferAnalogLabels.To2DArray();
+                            char[,] fortranBufferAnalogLabelArray = new char[tempAnalogLabelArray.GetLength(1), tempAnalogLabelArray.GetLength(0)];
+                            for (int row = 0; row < tempAnalogLabelArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempAnalogLabelArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[col, row];
+                                }
+                            }
+                            fortranAnalogLabels.Add(fortranBufferAnalogLabelArray);
+                        }
+                    }
+
+                    for (int i = 0; i < fortranAnalogLabels.Count; i++)
+                    {
+                        parametersBytes.AddRange(Parameter2DStringToBinary(
+                        idGroup,
+                        $"DESCRIPTIONS{i}",
+                        $"Stores documentation about each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
+                        fortranAnalogLabels[i],
+                        false
+                        ));
+                    }
+
                     ////////////////////////////////
                     // ANALOG:OFFSET[0-9]*
                     int counter = 0;
                     List<int[]> analogOffsetArrays = new List<int[]>();
                     List<int> bufferOffset = new List<int>();
-                    foreach(C3dAnalogChannel channel in Data.Analogs)
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
                     {
                         bufferOffset.Add(channel.Offset);
                         counter++;
                         if (counter >= 255)
                         {
                             analogOffsetArrays.Add(bufferOffset.ToArray());
-                            bufferOffset = new List<int>();   
+                            bufferOffset = new List<int>();
                             counter = 0;
                         }
                     }
-                    counter = 0;
-                    foreach (int[] analogOffset in analogOffsetArrays)
+                    if (bufferOffset.Count > 0)
+                    {
+                        analogOffsetArrays.Add(bufferOffset.ToArray());
+                    }
+                    for(int i=0; i< analogOffsetArrays.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            $"OFFSET{counter}",
+                            $"OFFSET{i}",
                             "Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied.",
-                            analogOffset,
+                            analogOffsetArrays[i],
                             false
                             ));
-                        counter++;
                     }
-
+                    
                     ///////////////////////////////
                     // ANALOG:RATE
                     List<float> ratesValues = new List<float>();
@@ -363,18 +460,21 @@ namespace SHARP3D
                             counter = 0;
                         }
                     }
-                    counterScale = 0;
-                    foreach (float[] analogScale in analogScaleArrays)
+                    if (bufferScale.Count > 0)
+                    {
+                        analogScaleArrays.Add(bufferScale.ToArray());
+                    }
+                    for (int i = 0; i < analogScaleArrays.Count; i++) 
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            $"SCALE{counterScale}",
+                            $"SCALE{i}",
                             "Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.",
-                            analogScale,
+                            analogScaleArrays[i],
                             false
                             ));
-                        counterScale++;
                     }
+                    
                     // "UNITS[0-9]*",
                     /////////////////////////////////////////
                     // ANALOG:USED
