@@ -227,7 +227,35 @@ namespace SHARP3D
                         true
                     ));
                     // "LABELS[0-9]*",
-                    // "OFFSET[0-9]*",
+                    ////////////////////////////////
+                    // ANALOG:OFFSET[0-9]*
+                    int counter = 0;
+                    List<int[]> analogOffsetArrays = new List<int[]>();
+                    List<int> bufferOffset = new List<int>();
+                    foreach(C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        bufferOffset.Add(channel.Offset);
+                        counter++;
+                        if (counter >= 255)
+                        {
+                            analogOffsetArrays.Add(bufferOffset.ToArray());
+                            bufferOffset = new List<int>();   
+                            counter = 0;
+                        }
+                    }
+                    counter = 0;
+                    foreach (int[] analogOffset in analogOffsetArrays)
+                    {
+                        parametersBytes.AddRange(Parameter1DArrayToBinary(
+                            idGroup,
+                            $"OFFSET{counter}",
+                            "Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied.",
+                            analogOffset,
+                            false
+                            ));
+                        counter++;
+                    }
+
                     ///////////////////////////////
                     // ANALOG:RATE
                     List<float> ratesValues = new List<float>();
@@ -250,7 +278,34 @@ namespace SHARP3D
                         true
                     ));
 
-                    // "SCALE[0-9]*",
+                    /////////////////////////////////////
+                    // ANALOG:SCALE[0-9]*
+                    int counterScale = 0;
+                    List<float[]> analogScaleArrays = new List<float[]>();
+                    List<float> bufferScale = new List<float>();
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        bufferScale.Add(channel.Scale);
+                        counterScale++;
+                        if (counter >= 255)
+                        {
+                            analogScaleArrays.Add(bufferScale.ToArray());
+                            bufferScale = new List<float>();
+                            counter = 0;
+                        }
+                    }
+                    counterScale = 0;
+                    foreach (float[] analogScale in analogScaleArrays)
+                    {
+                        parametersBytes.AddRange(Parameter1DArrayToBinary(
+                            idGroup,
+                            $"SCALE{counterScale}",
+                            "Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.",
+                            analogScale,
+                            false
+                            ));
+                        counterScale++;
+                    }
                     // "UNITS[0-9]*",
                     /////////////////////////////////////////
                     // ANALOG:USED
