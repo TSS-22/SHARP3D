@@ -304,8 +304,25 @@ namespace SHARP3D
                         cornersValues.ToArray(),
                         false
                         ));
-
-                    // "CHANNEL",
+                    //////////////////////////////
+                    // FORCE_PLATFORM:CHANNEL
+                    int[,] forceplateChannelValues = new int[8,Data.Forceplates.Length]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
+                    int idChannel = 0;
+                    for(int i=0; i<Data.Forceplates.Length;i++)
+                    {
+                        for(int j=0; j< Data.Forceplates[i].Channels.Length; j++)
+                        {
+                            forceplateChannelValues[j, i] = idChannel;
+                            idChannel++;
+                        }
+                    }
+                    parametersBytes.AddRange(Parameter2DArrayToBinary(
+                        idGroup,
+                        "CHANNEL",
+                        "Stores which analog channels index contain specific force platform data.",
+                        forceplateChannelValues,
+                        false
+                        ));
                     ////////////////////////////////
                     // FORCE_PLATFORM:ORIGIN
                     float[,] originValues = new float[3,Data.Forceplates.Length];
