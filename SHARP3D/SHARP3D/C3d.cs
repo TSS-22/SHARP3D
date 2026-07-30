@@ -3,9 +3,11 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Net.Sockets;
 using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml.Linq;
 
 namespace SHARP3D
@@ -204,9 +206,76 @@ namespace SHARP3D
                         (int)bitsValues.Average(),
                         true
                     ));
+                    ///////////////////////////////////
+                    // ANALOG:DESCRIPTIONS[0-9]*
+                    List<string> analogDescriptions = new List<string>();
+                    // Start with the forceplate channels
+                    foreach(C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        foreach (C3dAnalogChannel channel in forceplate.Channels)
+                        {
+                            analogDescriptions.Add(channel.Description);
+                        }
+                    }
+                    // Get the rest of the channels
+                    foreach(C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        analogDescriptions.Add(channel.Description);
+                    }
+                    int maxDescriptionLength = 0;
+                    foreach(string description in analogDescriptions)
+                    {
+                        if (description.Length > maxDescriptionLength)
+                        {
+                            maxDescriptionLength = description.Length;
+                        }
+                    }
+                    //// Pad the descriptions
+                    for(int i=0; i<analogDescriptions.Count;i++)
+                    {
+                        if(analogDescriptions[i].Length < maxDescriptionLength)
+                        {
+                            analogDescriptions[i] = analogDescriptions[i] + new string('\0', maxDescriptionLength - analogDescriptions[i].Length);
+                        }
+                    }
+                    // Put the description array into FORTRAN mode
+                    List<char[,]> fortranAnalogDescription = new List<char[,]>();
+                    List<char[]> bufferAnalogDescriptions = new List<char[]>();
+                    int counterAnalogDescription = 0;
+                    for(int i =  0; i<analogDescriptions.Count; i++)
+                    {
+                        bufferAnalogDescriptions.Add(analogDescriptions[i].ToCharArray());
+                        counterAnalogDescription++;
 
-                    // "DESCRIPTIONS[0-9]*",
+                        if(counterAnalogDescription >= 255)
+                        {
+                            //Transform our buffer array into a FORTRAN array
+                            char[,] tempAnalogDescriptionArray = bufferAnalogDescriptions.To2DArray();
+                            char[,] fortranBufferAnalogDescriptionArray = new char[tempAnalogDescriptionArray.GetLength(1), tempAnalogDescriptionArray.GetLength(0)];
+                            for(int row=0; row<tempAnalogDescriptionArray.GetLength(0); row++)
+                            {
+                                for (int col=0; col < tempAnalogDescriptionArray.GetLength(1); col++)
+                                {
+                                    fortranBufferAnalogDescriptionArray[col,row] = tempAnalogDescriptionArray[col,row];
+                                }
+                            }
+                            fortranAnalogDescription.Add(fortranBufferAnalogDescriptionArray);
+                            bufferAnalogDescriptions = new List<char[]>();
+                            counterAnalogDescription = 0;
+                        }
+                    }
+                    for(int i=0; i< fortranAnalogDescription.Count; i++)
+                    {
+                        parametersBytes.AddRange(Parameter2DStringToBinary(
+                        idGroup,
+                        $"DESCRIPTIONS{i}",
+                        $"Stores documentation about each of the individual analog channels from analog channel id {i*255} to up to analog channel id{i+1*255}.",
+                        fortranAnalogDescription[i],
+                        false
+                        ));
+                    }
 
+                    
                     ////////////////////////////////////
                     // ANALOG:FORMAT                    
                     parametersBytes.AddRange(ParameterMonoStringToBinary(
@@ -430,7 +499,7 @@ namespace SHARP3D
                     foreach(C3dForceplate forceplate in Data.Forceplates)
                     {
                         zeroValues[0] = forceplate.Zero.Item1 + 1;
-                        zeroValues[2] = forceplate.Zero.Item2 + 1;
+                        zeroValues[1] = forceplate.Zero.Item2 + 1;
                     }
                     parametersBytes.AddRange(Parameter1DArrayToBinary(
                         idGroup,
@@ -470,11 +539,15 @@ namespace SHARP3D
                     float maximumPointValue = 0;
                     foreach (C3dPointTrajectory trajectory in Data.Points) 
                     {
-                        foreach(float val in trajectory.Point)
+                        foreach(float? val in trajectory.Point)
                         {
-                            if(Math.Abs(val) > maximumPointValue)
+                            if (val == null)
                             {
-                                maximumPointValue = val;
+                                continue;
+                            } 
+                            else if (Math.Abs((float)val) > maximumPointValue)
+                            {
+                                maximumPointValue = (float)val;
                             }
                         }
                     }
@@ -613,36 +686,51 @@ namespace SHARP3D
                     }
                     else
                     {
+                        // Flatten the array, so we can just work on one index.
+                        Array flattenedData;
+                        switch (parameterDataType)
+                        {
+                            case -1: // Char and string
+                                flattenedData = parameter.Data.Cast<char>().ToArray();
+                                break;
+                            case 1: // Byte
+                                flattenedData = parameter.Data.Cast<byte>().ToArray();
+                                break;
+                            case 2: // Int16
+                                flattenedData = parameter.Data.Cast<int>().ToArray();
+                                break;
+                            case 4: // Float
+                                flattenedData = parameter.Data.Cast<float>().ToArray();
+                                break;
+                            default:
+                                throw new Exception($"Unsupported data type {dataType} for parameter {parameter.Name}");
+                        }
                         for (int i = 0; i < parameter.Data.Length; i++)
                         {
-                            // Need to account for the dimensions
-                            // Because with just one index and GetValue, 
-                            // Then I put the data as a row matrix and not column matrix.
-                            // The 80' wants its good idea back...
-                            // Let see if the index work like this or not. That's going to be fun if I need to recompute it.
+                            // Put the datay in bytes
                             switch (parameterDataType)
                             {
                                 case -1: // Char and string
                                     parameterData.Add(
-                                        (byte)(parameter.Data?.GetValue(i) as char? ?? throw new NullReferenceException(""))
+                                        (byte)(flattenedData.GetValue(i) as char? ?? throw new NullReferenceException(""))
                                     );
                                     break;
                                 case 1: // Byte
                                     parameterData.Add(
-                                        parameter.Data?.GetValue(i) as byte? ?? throw new NullReferenceException("")
+                                        flattenedData.GetValue(i) as byte? ?? throw new NullReferenceException("")
                                     );
                                     break;
                                 case 2: // Int16
                                     parameterData.AddRange(
                                         BitConverter.GetBytes(
-                                        parameter.Data?.GetValue(i) as Int16? ?? throw new NullReferenceException("")
+                                        (Int16)(flattenedData.GetValue(i) as int? ?? throw new NullReferenceException(""))
                                         )
                                     );
                                     break;
                                 case 4: // Float
                                     parameterData.AddRange(
                                         BitConverter.GetBytes(
-                                        parameter.Data?.GetValue(i) as float? ?? throw new NullReferenceException("")
+                                        flattenedData.GetValue(i) as float? ?? throw new NullReferenceException("")
                                         )
                                     );
                                     break;
@@ -1155,7 +1243,7 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 2;
             //Dimension length
-            byte[] dimensionLength = new byte[] { (byte)(arrayData.GetLength(1) * 4), (byte)(arrayData.GetLength(0) * 4) };
+            byte[] dimensionLength = new byte[] { (byte)arrayData.GetLength(1), (byte)arrayData.GetLength(0) };
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
@@ -1179,6 +1267,60 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        public byte[] Parameter2DStringToBinary(
+            int idGroup,
+            string name,
+            string description,
+            char[,] arrayData,
+            bool locked = false
+            )
+        {
+            List<byte> parameterBytes = new List<byte>();
+            byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
+            byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
+            List<byte> dataBytes = new List<byte>();
+            for (int i = 0; i < arrayData.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayData.GetLength(1); j++)
+                {
+                    dataBytes.AddRange(BitConverter.GetBytes(arrayData[i, j]));
+                }
+            }
+            // Name Length
+            // Locked parameter
+            parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
+            // ID
+            parameterBytes.Add((byte)(idGroup + 1));
+            // Name
+            parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
+            // Data type
+            byte dataType = 4;
+            // Dimensions numbers
+            byte dimensionNumber = 2;
+            //Dimension length
+            byte[] dimensionLength = new byte[] { (byte)arrayData.GetLength(1), (byte)arrayData.GetLength(0) };
+            // Description Length
+            byte descriptionLength = (byte)descriptionBytes.Length;
+            // Pointer to next
+            byte[] pointerToNext = BitConverter.GetBytes((
+                            2 // Pointer to next
+                            + 1 // Data type
+                            + 1 // dimension number. There is no data length because it is a scalar
+                            + dimensionLength.Length // dimension length
+                            + dataBytes.Count // Data bytes
+                            + 1 // Description length
+                            + (int)descriptionLength // Description bytes
+                            )); parameterBytes.AddRange(pointerToNext);
+
+            parameterBytes.Add(dataType);
+            parameterBytes.Add(dimensionNumber);
+            parameterBytes.AddRange(dimensionLength);
+            parameterBytes.AddRange(dataBytes);
+            parameterBytes.Add(descriptionLength);
+            parameterBytes.AddRange(descriptionBytes);
+
+            return parameterBytes.ToArray();
+        }
 
         public byte[] Parameter3DArrayToBinary(
             int idGroup,
