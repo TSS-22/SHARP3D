@@ -283,7 +283,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         $"DESCRIPTIONS{i}",
-                        $"Stores documentation about each of the individual analog channels from analog channel id {i*255} to up to analog channel id{i+1*255}.",
+                        $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + fortranAnalogDescription[i].Length}.",
                         fortranAnalogDescription[i],
                         false
                         ));
@@ -324,6 +324,7 @@ namespace SHARP3D
                     {
                         analogLabels.Add(channel.Label);
                     }
+                    // Get max label length
                     int maxLabelLength = 0;
                     foreach (string label in analogLabels)
                     {
@@ -332,7 +333,7 @@ namespace SHARP3D
                             maxLabelLength = label.Length;
                         }
                     }
-                    //// Pad the descriptions
+                    //// Pad the labels
                     for (int i = 0; i < analogLabels.Count; i++)
                     {
                         if (analogLabels[i].Length < maxLabelLength)
@@ -340,7 +341,7 @@ namespace SHARP3D
                             analogLabels[i] = analogLabels[i] + new string('\0', maxLabelLength - analogLabels[i].Length);
                         }
                     }
-                    // Put the description array into FORTRAN mode
+                    // Put the labels array into FORTRAN mode
                     List<char[,]> fortranAnalogLabels = new List<char[,]>();
                     List<char[]> bufferAnalogLabels = new List<char[]>();
                     int counterAnalogLabel = 0;
@@ -385,7 +386,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         $"LABELS{i}",
-                        $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
+                        $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogLabels[i].Length}.",
                         fortranAnalogLabels[i],
                         false
                         ));
@@ -416,7 +417,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
                             $"OFFSET{i}",
-                            "Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied.",
+                            $"Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied. From analog channel id{i * 255}, to id {i * 255 + analogOffsetArrays[i].Length}.",
                             analogOffsetArrays[i],
                             false
                             ));
@@ -469,7 +470,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
                             $"SCALE{i}",
-                            "Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.",
+                            $"Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.From analog channel id{i * 255}, to id {i * 255 + analogScaleArrays[i].Length}.",
                             analogScaleArrays[i],
                             false
                             ));
@@ -491,6 +492,7 @@ namespace SHARP3D
                     {
                         analogUnits.Add(channel.Units);
                     }
+                    // Get the longest unit length
                     int maxUnitLength = 0;
                     foreach (string unit in analogUnits)
                     {
@@ -499,7 +501,7 @@ namespace SHARP3D
                             maxUnitLength = unit.Length;
                         }
                     }
-                    //// Pad the descriptions
+                    // Pad the units
                     for (int i = 0; i < analogUnits.Count; i++)
                     {
                         if (analogUnits[i].Length < maxUnitLength)
@@ -507,7 +509,7 @@ namespace SHARP3D
                             analogUnits[i] = analogUnits[i] + new string('\0', maxUnitLength - analogUnits[i].Length);
                         }
                     }
-                    // Put the description array into FORTRAN mode
+                    // Put the units array into FORTRAN mode
                     List<char[,]> fortranAnalogUnits = new List<char[,]>();
                     List<char[]> bufferAnalogUnits = new List<char[]>();
                     int counterAnalogUnit = 0;
@@ -552,7 +554,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         $"UNITS{i}",
-                        $"Stores the units of each of the individual analog channels from analog channel id {i * 255} to up to analog channel id{i + 1 * 255}.",
+                        $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogUnits[i].Length}.",
                         fortranAnalogUnits[i],
                         false
                         ));
@@ -693,8 +695,80 @@ namespace SHARP3D
                 }
                 else if (groups[idGroup].Name == "POINT")
                 {
+                    /////////////////////////////////////////////////
+                    // POINT:DESCRIPTIONS[0-9]*
+                    List<string> pointDescriptions = new List<string>();
 
-                    // "DESCRIPTIONS[0-9]*",
+                    foreach (C3dPointTrajectory trajectory in Data.Points)
+                    {
+                        pointDescriptions.Add(trajectory.Description);
+                    }
+                    int maxDescriptionLength = 0;
+                    foreach (string description in pointDescriptions)
+                    {
+                        if (description.Length > maxDescriptionLength)
+                        {
+                            maxDescriptionLength = description.Length;
+                        }
+                    }
+                    //// Pad the descriptions
+                    for (int i = 0; i < pointDescriptions.Count; i++)
+                    {
+                        if (pointDescriptions[i].Length < maxDescriptionLength)
+                        {
+                            pointDescriptions[i] = pointDescriptions[i] + new string('\0', maxDescriptionLength - pointDescriptions[i].Length);
+                        }
+                    }
+                    // Put the description array into FORTRAN mode
+                    List<char[,]> fortranPointDescription = new List<char[,]>();
+                    List<char[]> bufferPointDescriptions = new List<char[]>();
+                    int counterPointDescription = 0;
+                    for (int i = 0; i < pointDescriptions.Count; i++)
+                    {
+                        bufferPointDescriptions.Add(pointDescriptions[i].ToCharArray());
+                        counterPointDescription++;
+
+                        if (counterPointDescription >= 255)
+                        {
+                            //Transform our buffer array into a FORTRAN array
+                            char[,] tempPointDescriptionArray = bufferPointDescriptions.To2DArray();
+                            char[,] fortranBufferPointDescriptionArray = new char[tempPointDescriptionArray.GetLength(1), tempPointDescriptionArray.GetLength(0)];
+                            for (int row = 0; row < tempPointDescriptionArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
+                                {
+                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[col, row];
+                                }
+                            }
+                            fortranPointDescription.Add(fortranBufferPointDescriptionArray);
+                            bufferPointDescriptions = new List<char[]>();
+                            counterPointDescription = 0;
+                        }
+                        if ((i == pointDescriptions.Count - 1) && (bufferPointDescriptions.Count > 0))
+                        {
+                            char[,] tempPointDescriptionArray = bufferPointDescriptions.To2DArray();
+                            char[,] fortranBufferPointDescriptionArray = new char[tempPointDescriptionArray.GetLength(1), tempPointDescriptionArray.GetLength(0)];
+                            for (int row = 0; row < tempPointDescriptionArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
+                                {
+                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[col, row];
+                                }
+                            }
+                            fortranPointDescription.Add(fortranBufferPointDescriptionArray);
+                        }
+                    }
+
+                    for (int i = 0; i < fortranPointDescription.Count; i++)
+                    {
+                        parametersBytes.AddRange(Parameter2DStringToBinary(
+                        idGroup,
+                        $"DESCRIPTIONS{i}",
+                        $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + fortranPointDescription[i].Length}.",
+                        fortranPointDescription[i],
+                        false
+                        ));
+                    }
                     ////////////////////////////////
                     // POINT:FRAMES
                     parametersBytes.AddRange(ParameterScalarToBinary(
@@ -704,7 +778,81 @@ namespace SHARP3D
                         (float)Required.Point.Frames,
                         true
                     ));
-                    // "LABELS[0-9]*",
+                    //////////////////////////////
+                    // POINT:LABELS[0-9]*
+                    List<string> pointLabels = new List<string>();
+                    // Get the rest of the channels
+                    foreach (C3dPointTrajectory trajectory in Data.Points)
+                    {
+                        pointLabels.Add(trajectory.Label);
+                    }
+                    // Get max label length
+                    int maxLabelLength = 0;
+                    foreach (string label in pointLabels)
+                    {
+                        if (label.Length > maxLabelLength)
+                        {
+                            maxLabelLength = label.Length;
+                        }
+                    }
+                    //// Pad the labels
+                    for (int i = 0; i < pointLabels.Count; i++)
+                    {
+                        if (pointLabels[i].Length < maxLabelLength)
+                        {
+                            pointLabels[i] = pointLabels[i] + new string('\0', maxLabelLength - pointLabels[i].Length);
+                        }
+                    }
+                    // Put the labels array into FORTRAN mode
+                    List<char[,]> fortranPointLabels = new List<char[,]>();
+                    List<char[]> bufferPointLabels = new List<char[]>();
+                    int counterPointLabel = 0;
+                    for (int i = 0; i < pointLabels.Count; i++)
+                    {
+                        bufferPointLabels.Add(pointLabels[i].ToCharArray());
+                        counterPointLabel++;
+
+                        if (counterPointLabel >= 255)
+                        {
+                            //Transform our buffer array into a FORTRAN array
+                            char[,] tempPointLabelArray = bufferPointLabels.To2DArray();
+                            char[,] fortranBufferPointLabelArray = new char[tempPointLabelArray.GetLength(1), tempPointLabelArray.GetLength(0)];
+                            for (int row = 0; row < tempPointLabelArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempPointLabelArray.GetLength(1); col++)
+                                {
+                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[col, row];
+                                }
+                            }
+                            fortranPointLabels.Add(fortranBufferPointLabelArray);
+                            bufferPointLabels = new List<char[]>();
+                            counterPointLabel = 0;
+                        }
+                        if ((i == pointLabels.Count - 1) && (bufferPointLabels.Count > 0))
+                        {
+                            char[,] tempPointLabelArray = bufferPointLabels.To2DArray();
+                            char[,] fortranBufferPointLabelArray = new char[tempPointLabelArray.GetLength(1), tempPointLabelArray.GetLength(0)];
+                            for (int row = 0; row < tempPointLabelArray.GetLength(0); row++)
+                            {
+                                for (int col = 0; col < tempPointLabelArray.GetLength(1); col++)
+                                {
+                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[col, row];
+                                }
+                            }
+                            fortranPointLabels.Add(fortranBufferPointLabelArray);
+                        }
+                    }
+
+                    for (int i = 0; i < fortranPointLabels.Count; i++)
+                    {
+                        parametersBytes.AddRange(Parameter2DStringToBinary(
+                        idGroup,
+                        $"LABELS{i}",
+                        $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + fortranAnalogLabels[i].Length}.",
+                        fortranPointLabels[i],
+                        false
+                        ));
+                    }
                     // "LONG_FRAMES", Don't bother till I have the different save options
                     //////////////////////////////////
                     // POINT:RATE
