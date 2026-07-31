@@ -150,6 +150,7 @@ namespace SHARP3D
             // Groups and Parameters to binary
             List<C3dParameterGroup> groups = Parameters.GetGroups();
 
+            int idGroupPoint = 0;
             // For each Groups
             for (int idGroup = 0; idGroup < groups.Count; idGroup++)
             {
@@ -695,6 +696,7 @@ namespace SHARP3D
                 }
                 else if (groups[idGroup].Name == "POINT")
                 {
+                    idGroupPoint = idGroup;
                     /////////////////////////////////////////////////
                     // POINT:DESCRIPTIONS[0-9]*
                     List<string> pointDescriptions = new List<string>();
@@ -848,7 +850,7 @@ namespace SHARP3D
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         $"LABELS{i}",
-                        $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + fortranAnalogLabels[i].Length}.",
+                        $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + fortranPointLabels[i].Length}.",
                         fortranPointLabels[i],
                         false
                         ));
@@ -1096,7 +1098,13 @@ namespace SHARP3D
             // Do like that retard pointer architecture: precreate and change the value later.
             // IMPORTANT
             // Put the the pointerToNext to zero here, as this is the last parameter
-
+            parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroupPoint,
+                        "FRAMES",
+                        "Stores the 3D sample rate of the data contained within the C3D file in samples per second.",
+                        (int)0,
+                        true
+                    ));
             // IMPORTANT
             // Pads with zero to finish the blocks so it is a multiple of 512 bytes.
 
