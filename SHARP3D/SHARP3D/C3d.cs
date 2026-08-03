@@ -161,7 +161,7 @@ namespace SHARP3D
                     }
                 }
             }
-            byte[] data = DataToBinaries(
+            DataToBinaries(
                 maximumPointValue/32000,
                 fs
                 );
