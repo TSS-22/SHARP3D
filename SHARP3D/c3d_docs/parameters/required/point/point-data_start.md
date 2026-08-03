@@ -11,3 +11,7 @@ The POINT:DATA_START parameter is an unsigned 16-bit integer value used as a poi
 > A C3D file block is always 512 bytes long (256 sixteen-bit words).
 
 A copy of the DATA_START parameter value can also be found stored in [word 9 of the C3D file header](../../../c3d-header.md#word-9-pointer-to-data-section) to enable software applications to quickly locate the start of 3D data without reading the parameter section of the C3D file. The copy of the POINT:DATA_START value stored in the C3D file header value must always be identical to the parameter value. As a result of this parameter being stored as an integer in the C3D file header it must always be written as an integer value in the parameter section.
+
+# Warning
+
+This parameter is copied in the [header of the parameter section](../../c3d-parameter-section.md#byte-3-parameter-section-size). We recommend that parameters do not exceed 254 blocks (512 bytes) to avoid issue with applications that read the byte and not POINT:DATA_START value. 254 because DATA_START pointer value start from the beginning of the file and therefor, the header block needs to be accounted for.

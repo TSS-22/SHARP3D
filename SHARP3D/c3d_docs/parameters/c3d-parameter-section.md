@@ -94,13 +94,18 @@ the first byte of a file to point to the first parameter block and the second by
 
 #### Byte 3: Parameter Section Size
 
-The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the parameter header record as block 1. 
+The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the C3D Header record as block 1. In practice, this means that its value is the number of parameter block + 1 (the C3D header block).
+
+> [Parameter section header](#header) should not be confused with the [C3D Header](../c3d-header.md).
+
 This sets the maximum size of the parameter section storage allocation within the C3D file. 
 
 The Parameter Block Count field is maintained to allow applications reading the C3D file to quickly determine the size of the Parameter Section, instead of having to calculate its size
 by adding up the size of every individual Parameter within the C3D file.
 
 If the parameters are added, edited, or deleted then the parameter storage block count must be verified and updated when the file is closed.
+
+It is a copy of the parameter [POINT:DATA_START](./required/point/point-data_start.md) despite the fact that [POINT:DATA_START](./required/point/point-data_start.md) is an unsigned integer. 
 
 #### Byte 4: Processor Type and File Endianness
 

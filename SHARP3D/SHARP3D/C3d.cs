@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SHARP3D
 {
@@ -177,7 +178,7 @@ namespace SHARP3D
                 // Description length
                 byte groupDescriptionLength = (byte)groupDescription.Length;
                 //Pointer to next
-                parametersBytes.AddRange(BitConverter.GetBytes((Int16)(2 + 1 + groupDescriptionLength)));
+                parametersBytes.AddRange(BitConverter.GetBytes((Int16)(2 + 1 + groupDescription.Length)));
                 parametersBytes.Add(groupDescriptionLength);
                 parametersBytes.AddRange(groupDescription);
 
@@ -375,7 +376,7 @@ namespace SHARP3D
                             {
                                 for (int col = 0; col < tempAnalogLabelArray.GetLength(1); col++)
                                 {
-                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[col, row];
+                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[row, col];
                                 }
                             }
                             fortranAnalogLabels.Add(fortranBufferAnalogLabelArray);
@@ -543,7 +544,7 @@ namespace SHARP3D
                             {
                                 for (int col = 0; col < tempAnalogUnitArray.GetLength(1); col++)
                                 {
-                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[col, row];
+                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[row, col];
                                 }
                             }
                             fortranAnalogUnits.Add(fortranBufferAnalogUnitArray);
@@ -739,7 +740,7 @@ namespace SHARP3D
                             {
                                 for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
                                 {
-                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[col, row];
+                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[row, col];
                                 }
                             }
                             fortranPointDescription.Add(fortranBufferPointDescriptionArray);
@@ -754,7 +755,7 @@ namespace SHARP3D
                             {
                                 for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
                                 {
-                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[col, row];
+                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[row, col];
                                 }
                             }
                             fortranPointDescription.Add(fortranBufferPointDescriptionArray);
@@ -838,7 +839,7 @@ namespace SHARP3D
                             {
                                 for (int col = 0; col < tempPointLabelArray.GetLength(1); col++)
                                 {
-                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[col, row];
+                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[row, col];
                                 }
                             }
                             fortranPointLabels.Add(fortranBufferPointLabelArray);
@@ -1076,7 +1077,7 @@ namespace SHARP3D
                     byte parameterDescriptionLength = (byte)parameterDescription.Length;
 
                     // PointerToNext
-                    int pointerToNext = 2 + 1 + 1 + parameterDimensionsLength.Length + parameterData.Count + 1 + parameterDescriptionLength;
+                    int pointerToNext = 2 + 1 + 1 + parameterDimensionsLength.Length + parameterData.Count + 1 + parameterDescription.Length;
                     
                     // Adding all the bytes together
                     parametersBytes.AddRange(BitConverter.GetBytes((Int16)pointerToNext));
@@ -1098,21 +1099,43 @@ namespace SHARP3D
             // Do like that retard pointer architecture: precreate and change the value later.
             // IMPORTANT
             // Put the the pointerToNext to zero here, as this is the last parameter
-            parametersBytes.AddRange(ParameterScalarToBinary(
-                        idGroupPoint,
-                        "FRAMES",
-                        "Stores the 3D sample rate of the data contained within the C3D file in samples per second.",
-                        (int)0,
-                        true
-                    ));
+            string datastartName = "DATA_START";
+            int datastartNameLength = System.Text.Encoding.ASCII.GetBytes(datastartName).Length;
+            string datastartDescription = "An unsigned 16-bit integer value used as a pointer that points to the first block of the data section. Its value is in blocks (512 bytes).";
+            int datastartDescriptionLength = System.Text.Encoding.UTF8.GetBytes(datastartDescription).Length;
+
+            int datastartByteLength = 
+                1 // Name Length
+                + 1 // ID
+                + datastartNameLength // data_start name length
+                + 2 // Pointer to next
+                + 1 // Data type
+                + 1 // Dim number
+                + 2 // Data
+                + 1 // Description length
+                + datastartDescriptionLength;
+
+            int totalParameterBytesLength = datastartByteLength + parametersBytes.Count;
+
+            int datastartValue = (int)Math.Ceiling((float)7322 / (float)512) + 1;
+
+            parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
+            parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
+            parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(datastartName)); // Name
+            parametersBytes.AddRange(BitConverter.GetBytes((Int16)0)); // Pointer to next
+            parametersBytes.Add((byte)2); // Data type
+            parametersBytes.Add((byte)0); // Dimension number
+            parametersBytes.AddRange(BitConverter.GetBytes((Int16)datastartValue));
+            parametersBytes.Add((byte)datastartDescriptionLength);
+            parametersBytes.AddRange(System.Text.Encoding.UTF8.GetBytes(datastartDescription));
+
             // IMPORTANT
             // Pads with zero to finish the blocks so it is a multiple of 512 bytes.
-
+            parametersBytes.AddRange(new byte[datastartValue * 512 - parametersBytes.Count]);
 
             // Put the length of the parameter section in the third byte
-            parametersBytes[2] = (byte)(parametersBytes.Count / 512 + 1);
-
-            
+            parametersBytes[2] = (byte)datastartValue;
+         
             return parametersBytes.ToArray();
         }
 
@@ -1141,13 +1164,13 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + 2 // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
             parameterBytes.Add(dimensionNumber);
@@ -1183,13 +1206,13 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + 4 // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
             parameterBytes.Add(dimensionNumber);
@@ -1225,13 +1248,13 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + 1 // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
             parameterBytes.Add(dimensionNumber);
@@ -1268,13 +1291,13 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                 2 // Pointer to next
                 + 1 // Data type
                 + 1 // dimension number. There is no data length because it is a scalar
                 + 1 // Data bytes
                 + 1 // Description length
-                + (int)descriptionLength // Description bytes
+                + descriptionLength // Description bytes
                 ));
             parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
@@ -1315,14 +1338,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                 2 // Pointer to next is an int
                 + 1  // Data type
                 + 1 // Dimension number
                 + 1 // Dimension length
                 + valueByte.Length  // Value bytes
                 + 1  // Description length
-                + (int)descriptionLength) // Description bytes 
+                + descriptionLength) // Description bytes 
                 );
             parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
@@ -1367,14 +1390,14 @@ namespace SHARP3D
                 // Description Length
                 byte descriptionLength = (byte)descriptionBytes.Length;
                 // Pointer to next
-                byte[] pointerToNext = BitConverter.GetBytes((
+                byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                                 2 // Pointer to next
                                 + 1 // Data type
                                 + 1 // dimension number. There is no data length because it is a scalar
                                 + 1 // dimension length
                                 + dataBytes.Count // Data bytes
                                 + 1 // Description length
-                                + (int)descriptionLength // Description bytes
+                                + descriptionLength // Description bytes
                                 )); parameterBytes.AddRange(pointerToNext);
 
                 parameterBytes.Add(dataType);
@@ -1419,14 +1442,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + 1 // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
 
             parameterBytes.Add(dataType);
@@ -1474,14 +1497,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + dimensionLength.Length // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
 
             parameterBytes.Add(dataType);
@@ -1529,14 +1552,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + dimensionLength.Length // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
 
             parameterBytes.Add(dataType);
@@ -1584,14 +1607,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + dimensionLength.Length // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             
             parameterBytes.Add(dataType);
@@ -1639,14 +1662,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + dimensionLength.Length // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
 
             parameterBytes.Add(dataType);
@@ -1697,14 +1720,14 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
                             + dimensionLength.Length // dimension length
                             + dataBytes.Count // Data bytes
                             + 1 // Description length
-                            + (int)descriptionLength // Description bytes
+                            + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
 
             parameterBytes.Add(dataType);
@@ -1755,7 +1778,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((
+            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
