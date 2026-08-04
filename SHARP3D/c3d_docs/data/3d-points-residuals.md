@@ -25,7 +25,6 @@ In the C3D Standard, the stored 3D point residuals can also act as flags for mod
 
 An IMU (Inertial Measurement Unit) system can measure and reports forces, angular rates, and orientation, using accelerometers, gyroscopes, and magnetometers. When motion data is created by an IMU, or other markerless 3D data collection systems, then the manufacturer’s software calculates virtual 3D locations using methods that mimic the original trigonometric calculations that generated the 3D point locations recorded in C3D files. Accuracy estimations of each virtual 3D location should be recorded as residuals in the C3D file to document the data collection performance.
 
->The recorded 3D Point residual value is data trial specific number, indicating the location measurement accuracy and, while residuals from different trials during a single data collection session may be compared, any change in the calibration, data
-collection hardware, or software calculating the residuals will affect the recorded values. 
+>The recorded 3D Point residual value is data trial specific number, indicating the location measurement accuracy and, while residuals from different trials during a single data collection session may be compared, any change in the calibration, data collection hardware, or software calculating the residuals will affect the recorded values. 
 
 Regardless, residuals are essential because they document the accuracy of each 3D data recording session in the 3D data collection environment

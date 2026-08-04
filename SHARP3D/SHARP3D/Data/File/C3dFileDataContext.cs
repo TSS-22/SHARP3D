@@ -133,7 +133,7 @@ namespace SHARP3D.Data.DataEntity
             float analogGeneralScale,
             float []analogChannelScale,
             int[] analogOffset,
-            int analogSamplePerFrame,
+            int analogframePerFrame,
             AnalogFormatFlag analogFormat)
         {
             C3dStream = c3dStream;
@@ -145,7 +145,7 @@ namespace SHARP3D.Data.DataEntity
             PointRate = pointRate;
             AnalogRate = analogRate;
             AnalogChannels = analogChannels;
-            AnalogSamplePerFrame = analogSamplePerFrame;
+            AnalogSamplePerFrame = analogframePerFrame;
             PointScaleFactor = pointScale;
             AnalogGeneralScaleFactor = analogGeneralScale;
             AnalogChannelScaleFactor = analogChannelScale;

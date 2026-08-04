@@ -45,7 +45,7 @@ namespace SHARP3D
             };
             Required.Analog = new C3dParameterAnalog{
                 GeneralScale = c3dFile.Analog.GeneralScale,
-                SamplesPerFrame = c3dFile.Analog.SamplesPerFrame,
+                AnalogframePerFrame = c3dFile.Analog.AnalogframePerFrame,
             };
 
             Parameters = new C3dParameterSection(c3dFile.Parameters);
@@ -179,7 +179,7 @@ namespace SHARP3D
             //2   uint16 Number of markers stored in each Data Frame.
             header.AddRange(BitConverter.GetBytes((UInt16)Data.Points.Length));
             //3   uint16 Total number of analog samples per Data Frame.
-            header.AddRange(BitConverter.GetBytes((UInt16)(Required.Analog.SamplesPerFrame * Data.Analogs.Length)));
+            header.AddRange(BitConverter.GetBytes((UInt16)(Required.Analog.AnalogframePerFrame * Data.Analogs.Length)));
             //4   uint16 First frame number of raw data(not used / misleading).
             header.AddRange(BitConverter.GetBytes((UInt16)1));
             //5   uint16 Last frame number of raw data(not used / misleading).
@@ -200,9 +200,9 @@ namespace SHARP3D
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
             header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 1)));
             //10  uint16 Analog Frames per Data Frame.
-            header.AddRange(BitConverter.GetBytes((UInt16)Required.Analog.SamplesPerFrame));
+            header.AddRange(BitConverter.GetBytes((UInt16)Required.Analog.AnalogframePerFrame));
             //11 - 12   float32     3D Point Data acquisition rate in Hertz.
-            header.AddRange(BitConverter.GetBytes(Required.Point.Rate * (float)Required.Analog.SamplesPerFrame));
+            header.AddRange(BitConverter.GetBytes(Required.Point.Rate * (float)Required.Analog.AnalogframePerFrame));
             //13 - 149  — 	Not used.
             for (int i = 0; i < 137; i++)
             {
@@ -1279,8 +1279,52 @@ namespace SHARP3D
             )
         {
             //fs.WriteAsync(header);
+            for(int idFrame = 0; idFrame < Data.Points[0].Point.Length / 3; idFrame++)
+            {
+                foreach (C3dPointTrajectory trajectory in Data.Points)
+                {
+                    // X Y Z values
+                    float x = trajectory.Point[idFrame,0] ?? 0;
+                    float y = trajectory.Point[idFrame,1] ?? 0;
+                    float z = trajectory.Point[idFrame, 2] ?? 0;
 
-            
+                    fs.WriteAsync(BitConverter.GetBytes(x));
+                    fs.WriteAsync(BitConverter.GetBytes(y));
+                    fs.WriteAsync(BitConverter.GetBytes(z));
+
+                    // BIT 1: Camera mask and IsValid
+                    byte bit1 = 0b00000000;
+                    if(
+                        trajectory.Point[idFrame, 0] == null
+                        || trajectory.Point[idFrame, 1] == null
+                        || trajectory.Point[idFrame, 2] == null)
+                    {
+                        bit1 = 0b10000000;
+                    }
+                    for(int idCam = 0; idCam < 7; idCam++) // We stickt ot 7 camera only at the moment as per C3D convention
+                    {
+                        BitManipulator.SetBit(bit1, idCam+1, trajectory.CameraMask[idFrame, idCam]);
+                    }
+
+                    // BIT 2: Residual. We need black magic here lol
+                    byte bit2 = (trajectory.Residual[idFrame] != null ?
+                        (byte)(trajectory.Residual[idFrame] / scaleFactor)
+                        : (byte) 0b00000000);
+
+                    // Write the byte 4
+                    fs.WriteAsync(new byte[] { bit1 });
+                    fs.WriteAsync(new byte[] { bit2 });
+
+                }
+                for (int idAnalogFrame = 0; idAnalogFrame < Required.Analog.AnalogframePerFrame; idAnalogFrame++)
+                {
+                    for(int idChannel = 0; idChannel < Data.Analogs.Length; idChannel++)
+                    {
+                        fs.WriteAsync(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                    }
+                }
+
+            }
         }
 
         public byte[] ParameterScalarToBinary(

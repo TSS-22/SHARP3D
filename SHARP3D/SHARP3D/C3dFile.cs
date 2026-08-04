@@ -120,7 +120,7 @@ namespace SHARP3D
 
             Analog = SetFileAnalog();
             Point = setFilePoint(Analog.Used, Analog.Rate);
-            Analog.SamplesPerFrame = GetAnalogSamplePerFrame(Point.Rate, Analog.Rate);
+            Analog.AnalogframePerFrame = GetAnalogframesPerFrame(Point.Rate, Analog.Rate);
             
             // We put it last because it needs some values from Analog.
             Forceplate = setFileForceplate();
@@ -140,7 +140,7 @@ namespace SHARP3D
             // We make the choice of recomputing the scale factor
             Point.Scale = ComputeScaleFactor();
             // It is usefull to have access to such value later on.
-            Analog.TotalSamples = Data.Analogs.Count * Analog.SamplesPerFrame;
+            Analog.TotalSamples = Data.Analogs.Count * Analog.AnalogframePerFrame;
 
             fileStream.Close();
         }
@@ -399,7 +399,7 @@ namespace SHARP3D
             fileAnalog.Labels = GetXParameters(fileAnalog.Used, "analog", "labels");
             fileAnalog.Descriptions = GetXParameters(fileAnalog.Used, "analog", "descriptions");
             fileAnalog.Units = GetXParameters(fileAnalog.Used, "analog", "units");
-            fileAnalog.SamplesPerFrame = 0;
+            fileAnalog.AnalogframePerFrame = 0;
             return fileAnalog;
         }
 
@@ -416,7 +416,7 @@ namespace SHARP3D
             filePoint.Used = GetRightAmountMarkerPerFrame(
                 filePoint.Frames,
                 analogUsed,
-                GetAnalogSamplePerFrame(filePoint.Rate, analogRate),
+                GetAnalogframesPerFrame(filePoint.Rate, analogRate),
                     Header.MarkersPerFrame,
                     markersPerFrame,
                     PointerDataSection,
@@ -783,7 +783,7 @@ namespace SHARP3D
                 analogGeneralScale: Analog.GeneralScale,
                 analogChannelScale: Analog.ChannelScale,
                 analogOffset: Analog.Offset,
-                analogSamplePerFrame: Analog.SamplesPerFrame,
+                analogframePerFrame: Analog.AnalogframePerFrame,
                 analogFormat: GetAnalogFormat()
                 );
 
@@ -808,7 +808,7 @@ namespace SHARP3D
         /// If this ratio is not an integer, the function will try to recover this value from the word 10 of the header, according to the page 27 of the <see href="https://www.c3d.org/docs/C3D_User_Guide.pdf">C3D User guide</see>, as the C3D file format requires this ratio to be an integer.
         /// We started using the division of the analog rate and the point rate due to the descriptions in the Data sectin of the guide and because some files don't have an actual valid value in WORD 10 of the C3D headers, but some badly formatted files require the use of WORD 10 of the C3D headers.
         /// </remarks>
-        internal int GetAnalogSamplePerFrame(float pointRate, float analogRate)
+        internal int GetAnalogframesPerFrame(float pointRate, float analogRate)
         {
             float analogSamplePerFrame;
             if (analogRate > pointRate) 

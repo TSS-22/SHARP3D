@@ -9,7 +9,7 @@
         public string[] Labels = new string[] { };
         public int[] Offset = new int[] { } ;
         public float Rate = 0;
-        public int SamplesPerFrame = 0;
+        public int AnalogframePerFrame = 0;
         public int TotalSamples = 0;
         public string[] Units = new string[] { };
         public int Used = 0;

@@ -6,7 +6,7 @@
     public class C3dParameterAnalog : IEquatable<C3dParameterAnalog>
     {
         public float GeneralScale = 1;
-        public int SamplesPerFrame = 0;
+        public int AnalogframePerFrame = 0;
 
         /// <summary>
         /// Compares this instance to another for value equality
@@ -18,7 +18,7 @@
             // Compare with tolerance for floating-point values
             const float epsilon = 0.0001f;
             return Math.Abs(GeneralScale - other.GeneralScale) < epsilon &&
-                   SamplesPerFrame == other.SamplesPerFrame;
+                   AnalogframePerFrame == other.AnalogframePerFrame;
         }
 
         /// <summary>
@@ -35,7 +35,7 @@
             {
                 // Use bitwise operations to combine hash codes reliably
                 int hash = 17;
-                hash = hash * 31 + SamplesPerFrame.GetHashCode();
+                hash = hash * 31 + AnalogframePerFrame.GetHashCode();
 
                 // For float, convert bits for consistent hashing
                 hash = hash * 31 + ((GeneralScale == 0) ? 0 : BitConverter.SingleToInt32Bits(GeneralScale));

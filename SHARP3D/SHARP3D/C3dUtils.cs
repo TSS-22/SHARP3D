@@ -133,9 +133,9 @@ namespace SHARP3D
                 object2.ChangeAnalogGeneralScale(object1.Required.Analog.GeneralScale);
             }
             // Sample per frame
-            if (object1.Required.Analog.SamplesPerFrame != object2.Required.Analog.SamplesPerFrame)
+            if (object1.Required.Analog.AnalogframePerFrame != object2.Required.Analog.AnalogframePerFrame)
             {
-                throw new ArgumentException($"ANALOG sample per frames values are not compatible: {object1.Required.Analog.SamplesPerFrame} | {object2.Required.Analog.SamplesPerFrame} ");
+                throw new ArgumentException($"ANALOG sample per frames values are not compatible: {object1.Required.Analog.AnalogframePerFrame} | {object2.Required.Analog.AnalogframePerFrame} ");
             }
 
             // ROW CONCAT
