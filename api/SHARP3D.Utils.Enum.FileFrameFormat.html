@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>POINT:DATA_START | SHARP3D Documentation </title>
+      <title>Enum FileFrameFormat | SHARP3D Documentation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="POINT:DATA_START | SHARP3D Documentation ">
+      <meta name="title" content="Enum FileFrameFormat | SHARP3D Documentation ">
       
       
-      <link rel="icon" href="../../../../favicon.ico">
-      <link rel="stylesheet" href="../../../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../../../public/main.css">
-      <meta name="docfx:navrel" content="../../../../toc.html">
-      <meta name="docfx:tocrel" content="../../../toc.html">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="../../../../">
+      <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TSS-22/SHARP3D/new/main/apiSpec/new?filename=SHARP3D_Utils_Enum_FileFrameFormat.md&amp;value=---%0Auid%3A%20SHARP3D.Utils.Enum.FileFrameFormat%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../../../public/docfx.min.js"></script>
+      <script type="module" src="./../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -39,12 +39,12 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../../../index.html">
-            <img id="logo" class="svg" src="../../../../logo.svg" alt="SHARP3D Documentation">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SHARP3D Documentation">
             SHARP3D Documentation
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,33 +84,57 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="pointdata_start">POINT:DATA_START</h1>
+        <article data-uid="SHARP3D.Utils.Enum.FileFrameFormat">
 
-<ul>
-<li><p><strong>Type</strong>: <a href="../../required.html">Required</a></p>
-</li>
-<li><p><strong>Locked</strong>: True</p>
-</li>
-</ul>
-<blockquote>
-<p>This parameter is locked and should not be changed. Extreme caution should be exercised when editing the value of this parameter.</p>
-</blockquote>
-<p>The POINT:DATA_START parameter is an unsigned 16-bit integer value used as a pointer that points to the first block of the 3D/analog data section, the start of the data section, within the C3D file. The POINT:DATA_START value must always be used to determine location of the data section. The first block in the C3D file is block number one and contains data structures that document the contents of the C3D file. Although located in the POINT group, this parameter is must exist even when the C3D file only contains analog data, as analog data is stored in the 3D data section.</p>
-<blockquote>
-<p>A C3D file block is always 512 bytes long (256 sixteen-bit words).</p>
-</blockquote>
-<p>A copy of the DATA_START parameter value can also be found stored in <a href="../../../c3d-header.html#word-9-pointer-to-data-section">word 9 of the C3D file header</a> to enable software applications to quickly locate the start of 3D data without reading the parameter section of the C3D file. The copy of the POINT:DATA_START value stored in the C3D file header value must always be identical to the parameter value. As a result of this parameter being stored as an integer in the C3D file header it must always be written as an integer value in the parameter section.</p>
-<h1 id="warning">Warning</h1>
-<p>This parameter is copied in the <a href="../../c3d-parameter-section.html#byte-3-parameter-section-size">header of the parameter section</a>. We recommend that parameters do not exceed 254 blocks (512 bytes) to avoid issue with applications that read the byte and not POINT:DATA_START value. 254 because DATA_START pointer value start from the beginning of the file and therefor, the header block needs to be accounted for.</p>
+
+
+
+  <h1 id="SHARP3D_Utils_Enum_FileFrameFormat" data-uid="SHARP3D.Utils.Enum.FileFrameFormat" class="text-break">
+Enum FileFrameFormat  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/Enum/FileFrameFormat.cs/#L3"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SHARP3D.html">SHARP3D</a>.<a class="xref" href="SHARP3D.Utils.html">Utils</a>.<a class="xref" href="SHARP3D.Utils.Enum.html">Enum</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SHARP3D.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum FileFrameFormat</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="SHARP3D_Utils_Enum_FileFrameFormat_C3D_STANDARD"><code>C3D_STANDARD = 0</code></dt>
+  
+  <dd></dd>
+    <dt id="SHARP3D_Utils_Enum_FileFrameFormat_LONG_FRAMES"><code>LONG_FRAMES = 1</code></dt>
+  
+  <dd></dd>
+    <dt id="SHARP3D_Utils_Enum_FileFrameFormat_VICON_STANDARD"><code>VICON_STANDARD = 2</code></dt>
+  
+  <dd></dd>
+  </dl>
+
+
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/c3d_docs/parameters/required/point/point-data_start.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/Enum/FileFrameFormat.cs/#L3" class="edit-link">Edit this page</a>
         </div>
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 

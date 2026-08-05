@@ -152,11 +152,47 @@ Class ArrayUtils  <a class="header-action link-secondary" title="View source" hr
 </h2>
 
 
+  <a id="SHARP3D_Utils_ArrayUtils_GetElementType_" data-uid="SHARP3D.Utils.ArrayUtils.GetElementType*"></a>
+
+  <h3 id="SHARP3D_Utils_ArrayUtils_GetElementType_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.GetElementType(System.Array)">
+  GetElementType(Array)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Type GetElementType(Array array)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.array">Array</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_" data-uid="SHARP3D.Utils.ArrayUtils.GetTypeBaseElement*"></a>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.GetTypeBaseElement(System.Array)">
   GetTypeBaseElement(Array)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L182"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Find the base elements of a jagged or multi-dimensional array.</p>
@@ -190,6 +226,42 @@ Class ArrayUtils  <a class="header-action link-secondary" title="View source" hr
   <h4 class="section" id="SHARP3D_Utils_ArrayUtils_GetTypeBaseElement_System_Array__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method recursively drills down to the innermost element type of the array.</p>
 </div>
+
+
+
+
+  <a id="SHARP3D_Utils_ArrayUtils_IdentityMatrix_" data-uid="SHARP3D.Utils.ArrayUtils.IdentityMatrix*"></a>
+
+  <h3 id="SHARP3D_Utils_ArrayUtils_IdentityMatrix_System_Int32_" data-uid="SHARP3D.Utils.ArrayUtils.IdentityMatrix(System.Int32)">
+  IdentityMatrix(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L319"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float[,] IdentityMatrix(int columnNumber)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>columnNumber</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[,]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
 
 
@@ -248,7 +320,7 @@ For example:</p>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_IsBaseElementString_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.IsBaseElementString(System.Array)">
   IsBaseElementString(Array)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L226"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the base elements of a jagged or multi-dimensional array are of type <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>.</p>
@@ -400,7 +472,7 @@ For example:</p>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor_System_Array_" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor(System.Array)">
   ToFortranColumnMajor(Array)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.
@@ -440,7 +512,7 @@ Supports arrays of rank 1 to 7.</p>
 
   <h3 id="SHARP3D_Utils_ArrayUtils_ToFortranColumnMajor__1___0_0__0__0___" data-uid="SHARP3D.Utils.ArrayUtils.ToFortranColumnMajor``1(``0[0:,0:,0:])">
   ToFortranColumnMajor&lt;T&gt;(T[,,])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TSS-22/SHARP3D/blob/main/SHARP3D/SHARP3D/Utils/ArrayUtils.cs/#L249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Converts a row-major (C#) multidimensional array to a column-major (Fortran) array.</p>

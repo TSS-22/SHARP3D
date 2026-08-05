@@ -171,7 +171,7 @@ the data section of a C3D file, including file stream, processor type, data type
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public C3dFileDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScale, float analogGeneralScale, float[] analogChannelScale, int[] analogOffset, int analogSamplePerFrame, AnalogFormatFlag analogFormat)</code></pre>
+    <pre><code class="lang-csharp hljs">public C3dFileDataContext(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, int pointerDataSection, int framesNumber, int markersPerFrame, float pointRate, float analogRate, int analogChannels, float pointScale, float analogGeneralScale, float[] analogChannelScale, int[] analogOffset, int analogframePerFrame, AnalogFormatFlag analogFormat)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -214,9 +214,8 @@ the data section of a C3D file, including file stream, processor type, data type
     <dt><code>analogOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
     <dd><p>The offset for analog data in the C3D file.</p>
 </dd>
-    <dt><code>analogSamplePerFrame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of analog sample in each frame.</p>
-</dd>
+    <dt><code>analogframePerFrame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
     <dt><code>analogFormat</code> <a class="xref" href="SHARP3D.Utils.Enum.AnalogFormatFlag.html">AnalogFormatFlag</a></dt>
     <dd><p>The analog flag format</p>
 </dd>

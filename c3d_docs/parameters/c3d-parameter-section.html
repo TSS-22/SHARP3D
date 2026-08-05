@@ -219,7 +219,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/poin
 <td>1</td>
 <td>1</td>
 <td>Signed byte</td>
-<td>Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.</td>
+<td>Number of characters in the Parameter name (1-127). If negative, the Parameter is advertised as locked.</td>
 </tr>
 <tr>
 <td>ID</td>
@@ -246,7 +246,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/poin
 <td>Data Type</td>
 <td>3 + n + 2</td>
 <td>1</td>
-<td>Unsigned byte</td>
+<td>Signed byte</td>
 <td>Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32</td>
 </tr>
 <tr>
@@ -261,7 +261,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/poin
 <td>3 + n + 4</td>
 <td>d</td>
 <td>Unsigned byte</td>
-<td>Length of each Parameter Data dimension.</td>
+<td>Value of each Parameter's Data dimensions. Field is skipped with scalars.</td>
 </tr>
 <tr>
 <td>Data</td>
@@ -296,11 +296,15 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as <a href="required/poin
 <p>The original ADTECH file format required
 the first byte of a file to point to the first parameter block and the second byte to define the data format of the file.</p>
 <h4 id="byte-3-parameter-section-size">Byte 3: Parameter Section Size</h4>
-<p>The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the parameter header record as block 1.
-This sets the maximum size of the parameter section storage allocation within the C3D file.</p>
+<p>The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the C3D Header record as block 1. In practice, this means that its value is the number of parameter block + 1 (the C3D header block).</p>
+<blockquote>
+<p><a href="#header">Parameter section header</a> should not be confused with the <a href="../c3d-header.html">C3D Header</a>.</p>
+</blockquote>
+<p>This sets the maximum size of the parameter section storage allocation within the C3D file.</p>
 <p>The Parameter Block Count field is maintained to allow applications reading the C3D file to quickly determine the size of the Parameter Section, instead of having to calculate its size
 by adding up the size of every individual Parameter within the C3D file.</p>
 <p>If the parameters are added, edited, or deleted then the parameter storage block count must be verified and updated when the file is closed.</p>
+<p>It is a copy of the parameter <a href="required/point/point-data_start.html">POINT:DATA_START</a> despite the fact that <a href="required/point/point-data_start.html">POINT:DATA_START</a> is an unsigned integer.</p>
 <h4 id="byte-4-processor-type-and-file-endianness">Byte 4: Processor Type and File Endianness</h4>
 <p>It enables any program accessing the parameter and data files to determine the endian format of the floating-point and integer numbers within the C3D file.</p>
 <p>This comes from a time where CPU architecture was a lot more varied than it is now. Today, most of the files you might encounter, if not all, will be of Intel type endianness.</p>
@@ -412,7 +416,7 @@ parameter types are available; Signed Int16, Float32, Char (8bits), and Byte.</p
 <p>If the Parameter's data as a value of 1, it is a vector.</p>
 <p>If the Parameter's data as a value of 2 or more, it is a matrix.</p>
 <h5 id="byte-3n4-dimensions-length">Byte 3+n+4: Dimensions Length</h5>
-<p>The actual length of each dimensions of the Parameter's Data.</p>
+<p>The value of each dimensions of the Parameter's Data. If the Parameter's Data is a scalar, then this field is omitted.</p>
 <h5 id="byte-3n4d-data">Byte 3+n+4+d: Data</h5>
 <p>The Parameter's data as a vector of <a href="#byte-3n2-data-type">data type</a>. This data vector length is equal to the product of the Dimensions values or 1 if the Parameter's Data is a <a href="https://en.wikipedia.org/wiki/Scalar_processor#Scalar_data_type">scalar</a> and has 0 <a href="#byte-3n3-dimensions-number">dimensions</a>.</p>
 <blockquote>

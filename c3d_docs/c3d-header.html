@@ -216,7 +216,9 @@
 <h3 id="word-2-number-of-3d-markerstrajectories-per-data-frame">Word 2: Number of 3D Markers/Trajectories per Data Frame</h3>
 <p>It records the number of trajectories stored in each frame of the file as 3D points. this is a copy of the <a href="parameters/required/point/point-used.html">POINT:USED parameter</a>.</p>
 <h3 id="word-3-total-number-of-analog-samples-per-data-frames">Word 3: Total Number of Analog Samples per Data Frames</h3>
-<p>It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.</p>
+<p>It contains the total number of analog samples stored with each data frame in the file.</p>
+<p><code>Number of Analog Frame per Data Frames</code> * <code>Number of Analog Channel used</code></p>
+<p>If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.</p>
 <p>If the C3D file does not contain any analog data then the value of Word 3 will be zero.</p>
 <h3 id="word-4-first-frame-number-of-the-raw-data">Word 4: First Frame Number of the Raw Data</h3>
 <p>It contains the number of the first frame of the raw data used to create the C3D file. It does not represent the number of the first frame of the C3D file, as not all the frames from the raw data might have been used to create the C3D file.</p>
