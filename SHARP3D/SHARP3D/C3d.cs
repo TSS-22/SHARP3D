@@ -380,7 +380,7 @@ namespace SHARP3D
                         }
                     }
                     // Put the description array into FORTRAN mode
-                    List<char[,]> fortranAnalogDescription = new List<char[,]>();
+                    List<char[,]> finalAnalogDescription = new List<char[,]>();
                     List<char[]> bufferAnalogDescriptions = new List<char[]>();
                     int counterAnalogDescription = 0;
                     for(int i =  0; i<analogDescriptions.Count; i++)
@@ -388,44 +388,23 @@ namespace SHARP3D
                         bufferAnalogDescriptions.Add(analogDescriptions[i].ToCharArray());
                         counterAnalogDescription++;
 
-                        if(counterAnalogDescription >= 255)
+                        if ((counterAnalogDescription >= 255)
+                            || ((i == analogDescriptions.Count - 1) && (bufferAnalogDescriptions.Count > 0))
+                            )
                         {
-                            //Transform our buffer array into a FORTRAN array
-                            char[,] tempAnalogDescriptionArray = bufferAnalogDescriptions.To2DArray();
-                            char[,] fortranBufferAnalogDescriptionArray = new char[tempAnalogDescriptionArray.GetLength(1), tempAnalogDescriptionArray.GetLength(0)];
-                            for(int row=0; row<tempAnalogDescriptionArray.GetLength(0); row++)
-                            {
-                                for (int col=0; col < tempAnalogDescriptionArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogDescriptionArray[col,row] = tempAnalogDescriptionArray[col,row];
-                                }
-                            }
-                            fortranAnalogDescription.Add(fortranBufferAnalogDescriptionArray);
+                            finalAnalogDescription.Add(bufferAnalogDescriptions.To2DArray());
                             bufferAnalogDescriptions = new List<char[]>();
                             counterAnalogDescription = 0;
                         }
-                        if((i == analogDescriptions.Count - 1) && (bufferAnalogDescriptions.Count > 0))
-                        {
-                            char[,] tempAnalogDescriptionArray = bufferAnalogDescriptions.To2DArray();
-                            char[,] fortranBufferAnalogDescriptionArray = new char[tempAnalogDescriptionArray.GetLength(1), tempAnalogDescriptionArray.GetLength(0)];
-                            for (int row = 0; row < tempAnalogDescriptionArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempAnalogDescriptionArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogDescriptionArray[col, row] = tempAnalogDescriptionArray[col, row];
-                                }
-                            }
-                            fortranAnalogDescription.Add(fortranBufferAnalogDescriptionArray);
-                        }
                     }
                     
-                    for(int i=0; i< fortranAnalogDescription.Count; i++)
+                    for(int i=0; i< finalAnalogDescription.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
-                        $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + fortranAnalogDescription[i].Length}.",
-                        fortranAnalogDescription[i],
+                        $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + finalAnalogDescription[i].Length}.",
+                        finalAnalogDescription[i],
                         false
                         ));
                     }
@@ -483,7 +462,7 @@ namespace SHARP3D
                         }
                     }
                     // Put the labels array into FORTRAN mode
-                    List<char[,]> fortranAnalogLabels = new List<char[,]>();
+                    List<char[,]> finalAnalogLabels = new List<char[,]>();
                     List<char[]> bufferAnalogLabels = new List<char[]>();
                     int counterAnalogLabel = 0;
                     for (int i = 0; i < analogLabels.Count; i++)
@@ -491,44 +470,23 @@ namespace SHARP3D
                         bufferAnalogLabels.Add(analogLabels[i].ToCharArray());
                         counterAnalogLabel++;
 
-                        if (counterAnalogLabel >= 255)
+                        if ((counterAnalogLabel >= 255)
+                            || ((i == analogLabels.Count - 1) && (bufferAnalogLabels.Count > 0))
+                            )
                         {
-                            //Transform our buffer array into a FORTRAN array
-                            char[,] tempAnalogLabelArray = bufferAnalogLabels.To2DArray();
-                            char[,] fortranBufferAnalogLabelArray = new char[tempAnalogLabelArray.GetLength(1), tempAnalogLabelArray.GetLength(0)];
-                            for (int row = 0; row < tempAnalogLabelArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempAnalogLabelArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[col, row];
-                                }
-                            }
-                            fortranAnalogLabels.Add(fortranBufferAnalogLabelArray);
+                            finalAnalogLabels.Add(bufferAnalogLabels.To2DArray());
                             bufferAnalogLabels = new List<char[]>();
                             counterAnalogLabel = 0;
                         }
-                        if ((i == analogLabels.Count - 1) && (bufferAnalogLabels.Count > 0))
-                        {
-                            char[,] tempAnalogLabelArray = bufferAnalogLabels.To2DArray();
-                            char[,] fortranBufferAnalogLabelArray = new char[tempAnalogLabelArray.GetLength(1), tempAnalogLabelArray.GetLength(0)];
-                            for (int row = 0; row < tempAnalogLabelArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempAnalogLabelArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogLabelArray[col, row] = tempAnalogLabelArray[row, col];
-                                }
-                            }
-                            fortranAnalogLabels.Add(fortranBufferAnalogLabelArray);
-                        }
                     }
 
-                    for (int i = 0; i < fortranAnalogLabels.Count; i++)
+                    for (int i = 0; i < finalAnalogLabels.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         i == 0? "LABELS" : $"LABELS{i}",
-                        $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogLabels[i].Length}.",
-                        fortranAnalogLabels[i],
+                        $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogLabels[i].Length}.",
+                        finalAnalogLabels[i],
                         false
                         ));
                     }
@@ -651,7 +609,7 @@ namespace SHARP3D
                         }
                     }
                     // Put the units array into FORTRAN mode
-                    List<char[,]> fortranAnalogUnits = new List<char[,]>();
+                    List<char[,]> finalAnalogUnits = new List<char[,]>();
                     List<char[]> bufferAnalogUnits = new List<char[]>();
                     int counterAnalogUnit = 0;
                     for (int i = 0; i < analogUnits.Count; i++)
@@ -659,44 +617,24 @@ namespace SHARP3D
                         bufferAnalogUnits.Add(analogUnits[i].ToCharArray());
                         counterAnalogUnit++;
 
-                        if (counterAnalogUnit >= 255)
+                        if ((counterAnalogUnit >= 255) 
+                            || ((i == analogUnits.Count - 1) && (bufferAnalogUnits.Count > 0))
+                            )
                         {
-                            //Transform our buffer array into a FORTRAN array
-                            char[,] tempAnalogUnitArray = bufferAnalogUnits.To2DArray();
-                            char[,] fortranBufferAnalogUnitArray = new char[tempAnalogUnitArray.GetLength(1), tempAnalogUnitArray.GetLength(0)];
-                            for (int row = 0; row < tempAnalogUnitArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempAnalogUnitArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[col, row];
-                                }
-                            }
-                            fortranAnalogUnits.Add(fortranBufferAnalogUnitArray);
+                            
+                            finalAnalogUnits.Add(bufferAnalogUnits.To2DArray());
                             bufferAnalogUnits = new List<char[]>();
                             counterAnalogUnit = 0;
                         }
-                        if ((i == analogUnits.Count - 1) && (bufferAnalogUnits.Count > 0))
-                        {
-                            char[,] tempAnalogUnitArray = bufferAnalogUnits.To2DArray();
-                            char[,] fortranBufferAnalogUnitArray = new char[tempAnalogUnitArray.GetLength(1), tempAnalogUnitArray.GetLength(0)];
-                            for (int row = 0; row < tempAnalogUnitArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempAnalogUnitArray.GetLength(1); col++)
-                                {
-                                    fortranBufferAnalogUnitArray[col, row] = tempAnalogUnitArray[row, col];
-                                }
-                            }
-                            fortranAnalogUnits.Add(fortranBufferAnalogUnitArray);
-                        }
                     }
 
-                    for (int i = 0; i < fortranAnalogUnits.Count; i++)
+                    for (int i = 0; i < finalAnalogUnits.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         i == 0 ? "UNITS" : $"UNITS{i}",
-                        $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogUnits[i].Length}.",
-                        fortranAnalogUnits[i],
+                        $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogUnits[i].Length}.",
+                        finalAnalogUnits[i],
                         false
                         ));
                     }
@@ -760,7 +698,7 @@ namespace SHARP3D
                     {
                         for(int j=0; j< Data.Forceplates[i].Channels.Length; j++)
                         {
-                            forceplateChannelValues[j, i] = idChannel;
+                            forceplateChannelValues[j, i] = idChannel + 1; // Because C3D is 1 based index
                             idChannel++;
                         }
                     }
@@ -862,7 +800,7 @@ namespace SHARP3D
                         }
                     }
                     // Put the description array into FORTRAN mode
-                    List<char[,]> fortranPointDescription = new List<char[,]>();
+                    List<char[,]> finalPointDescriptions = new List<char[,]>();
                     List<char[]> bufferPointDescriptions = new List<char[]>();
                     int counterPointDescription = 0;
                     for (int i = 0; i < pointDescriptions.Count; i++)
@@ -870,44 +808,23 @@ namespace SHARP3D
                         bufferPointDescriptions.Add(pointDescriptions[i].ToCharArray());
                         counterPointDescription++;
 
-                        if (counterPointDescription >= 255)
+                        if ((counterPointDescription >= 255) 
+                            || ((i == pointDescriptions.Count - 1) && (bufferPointDescriptions.Count > 0))
+                            )
                         {
-                            //Transform our buffer array into a FORTRAN array
-                            char[,] tempPointDescriptionArray = bufferPointDescriptions.To2DArray();
-                            char[,] fortranBufferPointDescriptionArray = new char[tempPointDescriptionArray.GetLength(1), tempPointDescriptionArray.GetLength(0)];
-                            for (int row = 0; row < tempPointDescriptionArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
-                                {
-                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[row, col];
-                                }
-                            }
-                            fortranPointDescription.Add(fortranBufferPointDescriptionArray);
+                            finalPointDescriptions.Add(bufferPointDescriptions.To2DArray());
                             bufferPointDescriptions = new List<char[]>();
                             counterPointDescription = 0;
                         }
-                        if ((i == pointDescriptions.Count - 1) && (bufferPointDescriptions.Count > 0))
-                        {
-                            char[,] tempPointDescriptionArray = bufferPointDescriptions.To2DArray();
-                            char[,] fortranBufferPointDescriptionArray = new char[tempPointDescriptionArray.GetLength(1), tempPointDescriptionArray.GetLength(0)];
-                            for (int row = 0; row < tempPointDescriptionArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempPointDescriptionArray.GetLength(1); col++)
-                                {
-                                    fortranBufferPointDescriptionArray[col, row] = tempPointDescriptionArray[row, col];
-                                }
-                            }
-                            fortranPointDescription.Add(fortranBufferPointDescriptionArray);
-                        }
                     }
 
-                    for (int i = 0; i < fortranPointDescription.Count; i++)
+                    for (int i = 0; i < finalPointDescriptions.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
-                        $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + fortranPointDescription[i].Length}.",
-                        fortranPointDescription[i],
+                        $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + finalPointDescriptions[i].Length}.",
+                        finalPointDescriptions[i],
                         false
                         ));
                     }
@@ -946,7 +863,7 @@ namespace SHARP3D
                         }
                     }
                     // Put the labels array into FORTRAN mode
-                    List<char[,]> fortranPointLabels = new List<char[,]>();
+                    List<char[,]> finalPointLabels = new List<char[,]>();
                     List<char[]> bufferPointLabels = new List<char[]>();
                     int counterPointLabel = 0;
                     for (int i = 0; i < pointLabels.Count; i++)
@@ -954,44 +871,24 @@ namespace SHARP3D
                         bufferPointLabels.Add(pointLabels[i].ToCharArray());
                         counterPointLabel++;
 
-                        if (counterPointLabel >= 255)
+                        if ((counterPointLabel >= 255)
+                            || ((i == pointLabels.Count - 1) && (bufferPointLabels.Count > 0))
+                            )
                         {
-                            //Transform our buffer array into a FORTRAN array
-                            char[,] tempPointLabelArray = bufferPointLabels.To2DArray();
-                            char[,] fortranBufferPointLabelArray = new char[tempPointLabelArray.GetLength(1), tempPointLabelArray.GetLength(0)];
-                            for (int row = 0; row < tempPointLabelArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempPointLabelArray.GetLength(1); col++)
-                                {
-                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[col, row];
-                                }
-                            }
-                            fortranPointLabels.Add(fortranBufferPointLabelArray);
+
+                            finalPointLabels.Add(bufferPointLabels.To2DArray());
                             bufferPointLabels = new List<char[]>();
                             counterPointLabel = 0;
                         }
-                        if ((i == pointLabels.Count - 1) && (bufferPointLabels.Count > 0))
-                        {
-                            char[,] tempPointLabelArray = bufferPointLabels.To2DArray();
-                            char[,] fortranBufferPointLabelArray = new char[tempPointLabelArray.GetLength(1), tempPointLabelArray.GetLength(0)];
-                            for (int row = 0; row < tempPointLabelArray.GetLength(0); row++)
-                            {
-                                for (int col = 0; col < tempPointLabelArray.GetLength(1); col++)
-                                {
-                                    fortranBufferPointLabelArray[col, row] = tempPointLabelArray[row, col];
-                                }
-                            }
-                            fortranPointLabels.Add(fortranBufferPointLabelArray);
-                        }
                     }
 
-                    for (int i = 0; i < fortranPointLabels.Count; i++)
+                    for (int i = 0; i < finalPointLabels.Count; i++)
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
                         i == 0 ? "LABELS" : $"LABELS{i}",
-                        $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + fortranPointLabels[i].Length}.",
-                        fortranPointLabels[i],
+                        $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + finalPointLabels[i].Length}.",
+                        finalPointLabels[i],
                         false
                         ));
                     }
@@ -1000,7 +897,7 @@ namespace SHARP3D
                     // POINT:RATE
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
-                        "FRAMES",
+                        "RATE",
                         "Stores the 3D sample rate of the data contained within the C3D file in samples per second.",
                         (float)Required.Point.Rate,
                         true
@@ -1058,16 +955,17 @@ namespace SHARP3D
                 // Sort the other Parameters
                 foreach (C3dParameter parameter in groups[idGroup].Parameters) 
                 {
+                    byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(parameter.Name);
                     // Name Length
                     parametersBytes.Add(parameter.Locked ?
-                    (byte)(-parameter.Name.Length) : (byte)parameter.Name.Length
+                    (byte)(-nameBytes.Length) : (byte)nameBytes.Length
                     );
 
                     // ID
                     parametersBytes.Add((byte)(idGroup+1));
 
                     // Name
-                    parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(parameter.Name));
+                    parametersBytes.AddRange(nameBytes);
 
                     // NEEDED FOR POINTER TO NEXT
                     // Same as for the groups, but more complex
@@ -1219,7 +1117,7 @@ namespace SHARP3D
                     int pointerToNext = 2 + 1 + 1 + parameterDimensionsLength.Length + parameterData.Count + 1 + parameterDescription.Length;
                     
                     // Adding all the bytes together
-                    parametersBytes.AddRange(BitConverter.GetBytes((Int16)pointerToNext));
+                    parametersBytes.AddRange(BitConverter.GetBytes((UInt16)pointerToNext));
                     parametersBytes.Add((byte)parameterDataType);
                     parametersBytes.Add(parameterDimensionsNumber);
                     parametersBytes.AddRange(parameterDimensionsLength);
@@ -1261,7 +1159,7 @@ namespace SHARP3D
             parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
             parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
             parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(datastartName)); // Name
-            parametersBytes.AddRange(BitConverter.GetBytes((Int16)0)); // Pointer to next
+            parametersBytes.AddRange(BitConverter.GetBytes((UInt16)0)); // Pointer to next
             parametersBytes.Add((byte)2); // Data type
             parametersBytes.Add((byte)0); // Dimension number
             parametersBytes.AddRange(BitConverter.GetBytes((Int16)datastartValue));
@@ -1357,17 +1255,17 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
-                            + 2 // Data bytes
+                            + dataType // Data bytes (because scalar)
                             + 1 // Description length
                             + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
             parameterBytes.Add(dimensionNumber);
-            parameterBytes.AddRange(BitConverter.GetBytes(value));
+            parameterBytes.AddRange(BitConverter.GetBytes((Int16)value));
             parameterBytes.Add(descriptionLength);
             parameterBytes.AddRange(descriptionBytes);
 
@@ -1399,7 +1297,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1441,7 +1339,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1484,7 +1382,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                 2 // Pointer to next
                 + 1 // Data type
                 + 1 // dimension number. There is no data length because it is a scalar
@@ -1531,7 +1429,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                 2 // Pointer to next is an int
                 + 1  // Data type
                 + 1 // Dimension number
@@ -1583,7 +1481,7 @@ namespace SHARP3D
                 // Description Length
                 byte descriptionLength = (byte)descriptionBytes.Length;
                 // Pointer to next
-                byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+                byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                                 2 // Pointer to next
                                 + 1 // Data type
                                 + 1 // dimension number. There is no data length because it is a scalar
@@ -1627,7 +1525,7 @@ namespace SHARP3D
             // Name
             parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
             // Data type
-            byte dataType = 4;
+            byte dataType = 2;
             // Dimensions numbers
             byte dimensionNumber = 1;
             //Dimension length
@@ -1635,7 +1533,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1682,7 +1580,7 @@ namespace SHARP3D
             // Name
             parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
             // Data type
-            byte dataType = 4;
+            byte dataType = 1;
             // Dimensions numbers
             byte dimensionNumber = 2;
             //Dimension length
@@ -1690,7 +1588,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1745,7 +1643,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1800,7 +1698,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1847,7 +1745,8 @@ namespace SHARP3D
             // Name
             parameterBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(name));
             // Data type
-            byte dataType = 4;
+            byte dataType;
+            unchecked { dataType = (byte)-1; }
             // Dimensions numbers
             byte dimensionNumber = 2;
             //Dimension length
@@ -1855,7 +1754,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1913,7 +1812,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
@@ -1971,7 +1870,7 @@ namespace SHARP3D
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
-            byte[] pointerToNext = BitConverter.GetBytes((Int16)(
+            byte[] pointerToNext = BitConverter.GetBytes((UInt16)(
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
