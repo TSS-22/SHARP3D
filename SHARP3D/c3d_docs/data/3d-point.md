@@ -62,8 +62,7 @@ flowchart TB
 
 The first three Signed Int16 words record the X, Y, and Z coordinate values of the 3D Point, each divided by the Float32 [POINT:SCALE](../parameters/required/point/point-scale_factor.md) parameter value. Word 4 of the 3D Point record is comprised of two bytes in the order determined by the endian format used by the C3D file. 
 
-The first byte stores which Camera provided information used in calculating the 3D Point. The second byte contains the average residual for the 3D Point measurement. The residual value, in [POINT:UNITS](../parameters/required/point/point-units.md), is a measurement of the accuracy of each point. The calculation of the residual is performed by the photogrammetry
-software and depends on the software that generates the value.
+The first byte stores which Camera provided information used in calculating the 3D Point. The second byte contains the average residual for the 3D Point measurement. The residual value, in [POINT:UNITS](../parameters/required/point/point-units.md), is a measurement of the accuracy of each point. The calculation of the residual is performed by the photogrammetry software and depends on the software that generates the value.
 
 ## Float32
 
@@ -71,8 +70,7 @@ This format provides increased precision and, since the data is stored as scaled
 
 Since the Float32 format require eight 16-bit words to store a single 3D Point, it will result in C3D files that are double the size of integer format C3D files.
 
-> If the 3D data points are stored in floating-point format, the X, Y, and Z
-coordinates have been already multiplied by the scale factor.
+> If the 3D data points are stored in floating-point format, the X, Y, and Z coordinates have been already multiplied by the scale factor.
 
 > A valid [POINT:SCALE](../parameters/required/point/point-scale_factor.md) should still be calculated, based on the maximum coordinate value and not just set to -1.
 
@@ -132,17 +130,22 @@ The Camera Mask is optional but the 3D Point Residual is a measurement that, if 
 
 Byte 1 of Word 4 has seven bits that indicate the contribution, or not, of Camera 1 to 7 in the position computation of the 3D Point. If Camera X contributed to the measurement of the 3D Point, the bit corresponding to Camera X is set to `1`. If Camera X didn't contribute to the measurement of the 3D Point, then the bit corresponding the Camera X is set to `0`. Bit 1 represents the Camera 1, bit 2 the Camera 2, etc. 
 
-By convention, all camera bits will be set to 0 if the point value has been interpolated, filtered or otherwise modified in any way. In practice, this convention is not applied strictly and this information cannot be deemed truthful. Note that the camera bits are in the high byte of word 4 of the integer record: the most significant bit of this word is the Residual
-sign bit. Therefore, there are only seven bits available for the cameras, so the camera mask only
+By convention, all camera bits will be set to 0 if the point value has been interpolated, filtered or otherwise modified in any way. In practice, this convention is not applied strictly and this information cannot be deemed truthful. Note that the camera bits are in the high byte of word 4 of the integer record: the most significant bit of this word is the Residual sign bit. Therefore, there are only seven bits available for the cameras, so the camera mask only
 supports seven cameras.
 
 > When 3D data collection systems have more than 7 cameras the camera mask is still valid and can record the camera contributions from the first 7 cameras, or from specific cameras that are defined by parameter values to aid in debugging 3D observational issues.
 
-Setting the 8th bit produces a negative signed integer, and any point with a negative residual is [interpreted as invalid](#invalid-3d-point), in theory. But this convention cannot be trusted in practice. 
+Setting the 8th bit produces a negative signed integer, and any point with a negative residual is [interpreted as invalid](#invalid-3d-point), in theory.
 
 ### Byte 2
 
-Byte 2 of Word 4 represents the average of the residuals for the measurement of the 3D Point. The value from Byte 2 needs to be multiplied by the [POINT:SCALE](../parameters/required/point/point-scale_factor.md) parameter to be interpreted. If byte 2 is zero then the 3D point is recorded as having been filtered, interpolated, or otherwise modified and is not a measured point. This convention is not always implemented in practice, be it when reading or writting a C3D file and should therefor not relied upon for every sources.
+Byte 2 of Word 4 represents the average of the residuals for the measurement of the 3D Point. The value from Byte 2 needs to be multiplied by the [POINT:SCALE](../parameters/required/point/point-scale_factor.md) parameter to be interpreted. If byte 2 is zero then the 3D point is recorded as having been filtered, interpolated, or otherwise modified and is not a measured point. This convention is not always implemented in practice, be it when reading or writting a C3D file and should therefor not be relied upon for every sources.
+
+#### Warning about Residual value
+
+As far as we know, it is impossible to keep the value of the residual as the correct one. One byte simply doesn't have enough information to store what is supposed to be a Float32, division or not. Don't take this value for granted, but more as a token of the Measured/Interpolated nature of the signal, and a loose approximation of the original value.
+
+The value of the residual will be corrupted at each save of the file. This is not avoidable.
 
 ## Invalid 3D Point
 

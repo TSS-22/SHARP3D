@@ -3,7 +3,7 @@
     /// <summary>
     /// Specifies display states for a header event, indicating whether it is ON or OFF.
     /// </summary>
-    public enum HeaderEventFlag : int
+    public enum HeaderEventFlag : byte
     {
         /// <summary>
         /// Represents the 'on' state with a value of 1.

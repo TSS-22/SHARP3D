@@ -135,6 +135,8 @@
         {
             if (array == null)
                 return false;
+            if (array.Length == 0)
+                return false;
 
             Type type = array.GetType();
 
@@ -146,6 +148,25 @@
 
             // Check if the innermost type is primitive
             return type.IsPrimitive;
+        }
+
+        public static Type GetElementType(Array array)
+        {
+            if (array == null)
+                throw new ArgumentException("Array is null.");
+            if(array.Length == 0)
+                throw new ArgumentException("Array is empty.");
+            
+            Type type = array.GetType();
+
+            // Drill down to the innermost element type
+            while (type.IsArray)
+            {
+                type = type.GetElementType();
+            }
+
+            // Check if the innermost type is primitive
+            return type;
         }
 
         /// <summary>
@@ -161,6 +182,8 @@
         public static Type? GetTypeBaseElement(Array array)
         {
             if (array == null)
+                return null;
+            if (array.Length == 0)
                 return null;
 
             Type type = array.GetType();
@@ -291,6 +314,19 @@
 
             incrementIndices(0);
             return columnMajorArray;
+        }
+
+        public static float[,] IdentityMatrix(int columnNumber)
+        {
+            float[,] identityMatrix = new float[columnNumber, columnNumber];
+            for (int col = 0; col < columnNumber; col++)
+            {
+                for (int row = 0; row < columnNumber; row++)
+                {
+                    identityMatrix[col, row] = col == row ? 1 : 0;
+                }
+            }
+            return identityMatrix;
         }
     }
 }

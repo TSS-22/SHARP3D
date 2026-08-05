@@ -64,13 +64,13 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./requir
 
 | Name | Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
 |-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
+| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Parameter is advertised as locked.              |
 | ID | 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
 | Name | 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
 | Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
-| Data Type | 3 + n + 2             | 1              | Unsigned byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
+| Data Type | 3 + n + 2             | 1              | Signed byte   | Length in bytes of each data element:<br>- -1: Char<br>- 1: Byte<br>- 2: Int16<br>- 4: Float32   |
 | Dimensions Number | 3 + n + 3             | 1              | Unsigned byte   | Number of dimensions of the Parameter Data. 0 for scalar.                                       |
-| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Length of each Parameter Data dimension.                                                        |
+| Dimensions Length | 3 + n + 4             | d              | Unsigned byte   | Value of each Parameter's Data dimensions. Field is skipped with scalars.                                                       |
 | Data | 3 + n + 4 + d         | t              | -               | Parameter Data.                                                                                 |
 | Description Length | 3 + n + 4 + d + t     | 1              | Unsigned byte   | Number of bytes in the Parameter description.                                                       |
 | Description | 3 + n + 4 + d + t + 1 | m              | UTF-8           | Parameter description.  
@@ -94,13 +94,18 @@ the first byte of a file to point to the first parameter block and the second by
 
 #### Byte 3: Parameter Section Size
 
-The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the parameter header record as block 1. 
+The third byte of the parameter header contains a count of the number of 512-byte blocks within the parameter section, counting the block that contains the C3D Header record as block 1. In practice, this means that its value is the number of parameter block + 1 (the C3D header block).
+
+> [Parameter section header](#header) should not be confused with the [C3D Header](../c3d-header.md).
+
 This sets the maximum size of the parameter section storage allocation within the C3D file. 
 
 The Parameter Block Count field is maintained to allow applications reading the C3D file to quickly determine the size of the Parameter Section, instead of having to calculate its size
 by adding up the size of every individual Parameter within the C3D file.
 
 If the parameters are added, edited, or deleted then the parameter storage block count must be verified and updated when the file is closed.
+
+It is a copy of the parameter [POINT:DATA_START](./required/point/point-data_start.md) despite the fact that [POINT:DATA_START](./required/point/point-data_start.md) is an unsigned integer. 
 
 #### Byte 4: Processor Type and File Endianness
 
@@ -235,7 +240,7 @@ If the Parameter's data as a value of 2 or more, it is a matrix.
 
 ##### Byte 3+n+4: Dimensions Length
 
-The actual length of each dimensions of the Parameter's Data.
+The value of each dimensions of the Parameter's Data. If the Parameter's Data is a scalar, then this field is omitted.
 
 ##### Byte 3+n+4+d: Data
 

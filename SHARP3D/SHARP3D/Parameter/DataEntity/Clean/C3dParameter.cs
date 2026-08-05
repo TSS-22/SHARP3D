@@ -35,7 +35,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
         }
         public string Description = "No Description provided.";
-        public int[] Dimensions { get; private set; }  = new int[] { };
+        public int[] Dimensions { get; private set; } = new int[] { };
         public Array _Data = new int[] { };
         public Array Data
         {
@@ -52,18 +52,18 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             }
         }
         public bool Locked = false;
-    
+
         public C3dParameter(
             string group,
             string name,
             Array data,
             bool isFortranOrdered = false,
-            string description= "No Description provided.",
-            bool locked=false
+            string description = "No Description provided.",
+            bool locked = false
             )
         {
             // Check data ranks
-            if(data.Rank > 7)
+            if (data.Rank > 7)
             {
                 throw new ArgumentException("C3d only support data array of up to 7 dimensions.");
             }
@@ -104,7 +104,7 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             // Check data type
             if (ArrayUtils.IsBaseElementPrimitive(parameter.Data))
             {
-                if (ArrayUtils.IsBaseElementString(parameter.Data)) 
+                if (ArrayUtils.IsBaseElementString(parameter.Data))
                 {
                     if (parameter.Data.Rank > 6)
                     {
@@ -115,20 +115,20 @@ namespace SHARP3D.Parameter.DataEntity.Clean
                 else
                 {
                     Data = parameter.Data;
-                }    
+                }
             }
             else
             {
                 throw new ArgumentException($"Only primitive types and string are supported. {ArrayUtils.GetTypeBaseElement(parameter.Data)} is unsupported.");
             }
-                Group = groupName.ToUpper();
+            Group = groupName.ToUpper();
             Name = parameter.Name.ToUpper();
             Description = parameter.Description;
             Dimensions = GetDimensions(Data);
             Locked = parameter.Locked;
         }
 
-        private int[] GetDimensions(Array data)
+        public int[] GetDimensions(Array data)
         {
             List<int> dimensions = new List<int> { };
             for (int i = 0; i < Data.Rank; i++)
@@ -138,5 +138,10 @@ namespace SHARP3D.Parameter.DataEntity.Clean
             return dimensions.ToArray();
         }
 
+        public Type GetDataType()
+        {
+            return ArrayUtils.GetElementType(Data);
+
+        }
     }
 }

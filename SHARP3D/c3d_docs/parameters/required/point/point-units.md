@@ -1,4 +1,4 @@
-# POINT:LABELS
+# POINT:UNITS
 
 - **Type**: [Required](../../required.md)
 

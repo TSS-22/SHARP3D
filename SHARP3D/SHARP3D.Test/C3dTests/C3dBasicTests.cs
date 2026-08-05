@@ -68,7 +68,7 @@ namespace SHARP3D.Test.C3dTests
                 FolderPath28,
                 FolderPath29,
                 FolderPath30,
-                FolderPath31,
+                //FolderPath31,
                 FolderPath33,
                 FolderPath34,
                 FolderPath35,

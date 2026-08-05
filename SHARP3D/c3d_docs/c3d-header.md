@@ -54,7 +54,11 @@ It records the number of trajectories stored in each frame of the file as 3D poi
 
 ### Word 3: Total Number of Analog Samples per Data Frames
 
-It contains the total number of analog samples stored with each data frame in the file.  If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.
+It contains the total number of analog samples stored with each data frame in the file.
+
+`Number of Analog Frame per Data Frames` * `Number of Analog Channel used`
+
+If the third word is zero then the C3D file contains 3D Point samples but does not contain any analog data samples. It is obtained by multiplying the number of Analog Frames in each Data Frames by the number of Analog Channels recorded.
 
 If the C3D file does not contain any analog data then the value of Word 3 will be zero.
 
