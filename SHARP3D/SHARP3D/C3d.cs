@@ -179,7 +179,12 @@ namespace SHARP3D
             //2   uint16 Number of markers stored in each Data Frame.
             header.AddRange(BitConverter.GetBytes((UInt16)Data.Points.Length));
             //3   uint16 Total number of analog samples per Data Frame.
-            header.AddRange(BitConverter.GetBytes((UInt16)(Required.Analog.AnalogframePerFrame * Data.Analogs.Length)));
+            int totalNumberAnalogChannels = Data.Analogs.Length;
+            foreach(C3dForceplate forceplate in Data.Forceplates)
+            {
+                totalNumberAnalogChannels = totalNumberAnalogChannels + forceplate.Channels.Length;
+            }
+            header.AddRange(BitConverter.GetBytes((UInt16)(Required.Analog.AnalogframePerFrame * totalNumberAnalogChannels)));
             //4   uint16 First frame number of raw data(not used / misleading).
             header.AddRange(BitConverter.GetBytes((UInt16)1));
             //5   uint16 Last frame number of raw data(not used / misleading).
@@ -202,7 +207,7 @@ namespace SHARP3D
             //10  uint16 Analog Frames per Data Frame.
             header.AddRange(BitConverter.GetBytes((UInt16)Required.Analog.AnalogframePerFrame));
             //11 - 12   float32     3D Point Data acquisition rate in Hertz.
-            header.AddRange(BitConverter.GetBytes(Required.Point.Rate * (float)Required.Analog.AnalogframePerFrame));
+            header.AddRange(BitConverter.GetBytes(Required.Point.Rate));
             //13 - 149  — 	Not used.
             for (int i = 0; i < 137; i++)
             {
@@ -418,7 +423,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"DESCRIPTIONS{i}",
+                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
                         $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + fortranAnalogDescription[i].Length}.",
                         fortranAnalogDescription[i],
                         false
@@ -521,7 +526,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"LABELS{i}",
+                        i == 0? "LABELS" : $"LABELS{i}",
                         $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogLabels[i].Length}.",
                         fortranAnalogLabels[i],
                         false
@@ -552,7 +557,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            $"OFFSET{i}",
+                            i == 0 ? "OFFSET": $"OFFSET{i}",
                             $"Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied. From analog channel id{i * 255}, to id {i * 255 + analogOffsetArrays[i].Length}.",
                             analogOffsetArrays[i],
                             false
@@ -605,7 +610,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            $"SCALE{i}",
+                            i == 0 ? "SCALE" : $"SCALE{i}",
                             $"Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.From analog channel id{i * 255}, to id {i * 255 + analogScaleArrays[i].Length}.",
                             analogScaleArrays[i],
                             false
@@ -689,7 +694,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"UNITS{i}",
+                        i == 0 ? "UNITS" : $"UNITS{i}",
                         $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + fortranAnalogUnits[i].Length}.",
                         fortranAnalogUnits[i],
                         false
@@ -900,7 +905,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"DESCRIPTIONS{i}",
+                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
                         $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + fortranPointDescription[i].Length}.",
                         fortranPointDescription[i],
                         false
@@ -984,7 +989,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        $"LABELS{i}",
+                        i == 0 ? "LABELS" : $"LABELS{i}",
                         $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + fortranPointLabels[i].Length}.",
                         fortranPointLabels[i],
                         false
