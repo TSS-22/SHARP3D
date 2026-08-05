@@ -897,7 +897,7 @@ namespace SHARP3D
                     // POINT:RATE
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
-                        "FRAMES",
+                        "RATE",
                         "Stores the 3D sample rate of the data contained within the C3D file in samples per second.",
                         (float)Required.Point.Rate,
                         true
@@ -955,16 +955,17 @@ namespace SHARP3D
                 // Sort the other Parameters
                 foreach (C3dParameter parameter in groups[idGroup].Parameters) 
                 {
+                    byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(parameter.Name);
                     // Name Length
                     parametersBytes.Add(parameter.Locked ?
-                    (byte)(-parameter.Name.Length) : (byte)parameter.Name.Length
+                    (byte)(-nameBytes.Length) : (byte)nameBytes.Length
                     );
 
                     // ID
                     parametersBytes.Add((byte)(idGroup+1));
 
                     // Name
-                    parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(parameter.Name));
+                    parametersBytes.AddRange(nameBytes);
 
                     // NEEDED FOR POINTER TO NEXT
                     // Same as for the groups, but more complex
@@ -1258,13 +1259,13 @@ namespace SHARP3D
                             2 // Pointer to next
                             + 1 // Data type
                             + 1 // dimension number. There is no data length because it is a scalar
-                            + 2 // Data bytes
+                            + dataType // Data bytes (because scalar)
                             + 1 // Description length
                             + descriptionLength // Description bytes
                             )); parameterBytes.AddRange(pointerToNext);
             parameterBytes.Add(dataType);
             parameterBytes.Add(dimensionNumber);
-            parameterBytes.AddRange(BitConverter.GetBytes(value));
+            parameterBytes.AddRange(BitConverter.GetBytes((Int16)value));
             parameterBytes.Add(descriptionLength);
             parameterBytes.AddRange(descriptionBytes);
 

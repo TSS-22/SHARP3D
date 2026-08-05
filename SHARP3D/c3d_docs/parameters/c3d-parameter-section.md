@@ -64,7 +64,7 @@ ANALOG. Thus, the 3D Point Parameter can be referenced as [POINT:SCALE](./requir
 
 | Name | Position (byte)       | Length (bytes) | Type            | Description                                                                                     |
 |-|-----------------------|----------------|-----------------|-------------------------------------------------------------------------------------------------|
-| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Group is advertised as locked.              |
+| Name Length | 1                     | 1              | Signed byte     | Number of characters in the Parameter name (1-127). If negative, the Parameter is advertised as locked.              |
 | ID | 2                     | 1              | Signed byte     | The Parameter Id (1 to 127). Always positive.                                                      |
 | Name | 3                     | n              | ASCII           | Parameter name. Only uppercase A-Z, 0-9, and "_" are supported.                                     |
 | Pointer to next | 3 + n                 | 2              | Unsigned int    | Number of bytes till the next Parameter Structure (starting at position 3+n, includes pointer).|
