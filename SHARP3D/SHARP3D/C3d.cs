@@ -496,6 +496,21 @@ namespace SHARP3D
                     int counter = 0;
                     List<int[]> analogOffsetArrays = new List<int[]>();
                     List<int> bufferOffset = new List<int>();
+
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        foreach (C3dAnalogChannel channel in forceplate.Channels)
+                        {
+                            bufferOffset.Add(channel.Offset);
+                            counter++;
+                            if (counter >= 255)
+                            {
+                                analogOffsetArrays.Add(bufferOffset.ToArray());
+                                bufferOffset = new List<int>();
+                                counter = 0;
+                            }
+                        }
+                    }
                     foreach (C3dAnalogChannel channel in Data.Analogs)
                     {
                         bufferOffset.Add(channel.Offset);
@@ -525,10 +540,6 @@ namespace SHARP3D
                     ///////////////////////////////
                     // ANALOG:RATE
                     List<float> ratesValues = new List<float>();
-                    foreach (C3dAnalogChannel channel in Data.Analogs)
-                    {
-                        ratesValues.Add(channel.Rate);
-                    }
                     foreach (C3dForceplate forceplate in Data.Forceplates)
                     {
                         for (int i = 0; i < forceplate.Channels.Length; i++)
@@ -536,6 +547,11 @@ namespace SHARP3D
                             ratesValues.Add(forceplate.Channels[i].Rate);
                         }
                     }
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        ratesValues.Add(channel.Rate);
+                    }
+                    
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
                         "RATE",
@@ -549,11 +565,27 @@ namespace SHARP3D
                     int counterScale = 0;
                     List<float[]> analogScaleArrays = new List<float[]>();
                     List<float> bufferScale = new List<float>();
+
+                    foreach (C3dForceplate forceplate in Data.Forceplates)
+                    {
+                        foreach (C3dAnalogChannel channel in forceplate.Channels)
+                        {
+                            bufferScale.Add(channel.Scale);
+                            counterScale++;
+                            if (counterScale >= 255)
+                            {
+                                analogScaleArrays.Add(bufferScale.ToArray());
+                                bufferScale = new List<float>();
+                                counterScale = 0;
+                            }
+                        }
+                    }
+
                     foreach (C3dAnalogChannel channel in Data.Analogs)
                     {
                         bufferScale.Add(channel.Scale);
                         counterScale++;
-                        if (counter >= 255)
+                        if (counterScale >= 255)
                         {
                             analogScaleArrays.Add(bufferScale.ToArray());
                             bufferScale = new List<float>();
@@ -641,16 +673,16 @@ namespace SHARP3D
                     /////////////////////////////////////////
                     // ANALOG:USED
                     int analogUsed =0;
-                    foreach (C3dAnalogChannel channel in Data.Analogs)
-                    {
-                        analogUsed++;
-                    }
                     foreach (C3dForceplate forceplate in Data.Forceplates)
                     {
                         for (int i = 0; i < forceplate.Channels.Length; i++)
                         {
                             analogUsed++;
                         }
+                    }
+                    foreach (C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        analogUsed++;
                     }
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
