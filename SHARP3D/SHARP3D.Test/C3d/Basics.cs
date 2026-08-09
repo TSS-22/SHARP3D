@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace SHARP3D.Test.C3dTests
 {
-    public class C3dBasicTests
+    public class Basics
     {
         public static readonly string PathEb015pi = @"..\..\..\SampleFiles\Sample01\Eb015pi.c3d";
 
@@ -100,7 +100,7 @@ namespace SHARP3D.Test.C3dTests
 
         [Theory]
         [MemberData(nameof(Test_Basic_Data))]
-        public void Basics(string jsonPath, string c3dPath)
+        public void FramesCountAndFirstLastFrameCheck(string jsonPath, string c3dPath)
         {
 
             string jsonContent = File.ReadAllText(jsonPath);
