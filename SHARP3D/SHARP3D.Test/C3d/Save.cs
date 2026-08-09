@@ -34,7 +34,7 @@
         private static string FolderPath36 = @"..\..\..\SampleFiles\Sample36";
         private static string FolderPath37 = @"..\..\..\SampleFiles\Sample37";
 
-        public static IEnumerable<object[]> Test_Basic_Data =>
+        public static IEnumerable<object[]> Data_Full =>
             new[]
             {
                 FolderPath00_ARTG,
@@ -78,7 +78,7 @@
         string tempFileName = "temp_c3d_test_save";
 
         [Theory]
-        [MemberData(nameof(Test_Basic_Data))]
+        [MemberData(nameof(Data_Full))]
         public void CreateSave(string c3dPath)
         {
             if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))

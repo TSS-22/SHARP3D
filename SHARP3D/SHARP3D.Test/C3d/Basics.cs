@@ -1,5 +1,6 @@
 ﻿using SHARP3D.Test.ToolKit;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 namespace SHARP3D.Test.C3dTests
@@ -80,6 +81,46 @@ namespace SHARP3D.Test.C3dTests
                     .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
             );
 
+        public static IEnumerable<object[]> Data_Full =>
+            new[]
+            {
+                FolderPath00_ARTG,
+                FolderPath00_C,
+                FolderPath00_CS,
+                FolderPath00_IST,
+                FolderPath00_MAC,
+                FolderPath00_NE,
+                FolderPath00_VMS,
+                FolderPath01,
+                FolderPath02,
+                FolderPath03,
+                FolderPath04,
+                FolderPath05,
+                FolderPath07,
+                FolderPath08,
+                FolderPath10,
+                FolderPath12,
+                FolderPath17,
+                FolderPath19,
+                FolderPath22,
+                FolderPath23,
+                FolderPath26,
+                FolderPath27,
+                FolderPath28,
+                FolderPath29,
+                FolderPath30,
+                //FolderPath31,
+                FolderPath33,
+                FolderPath34,
+                FolderPath35,
+                FolderPath36,
+                FolderPath37
+            }
+            .SelectMany(folder =>
+                Directory.GetFiles(folder, "*.c3d")
+                    .Select(files => new object[] { files })
+            );
+
         public static IEnumerable<object[]> Sample36C3dFilesData => TestingTools.GetEnumerableC3dFilesData(FolderPath36);
 
         public static IEnumerable<object[]> Sample29C3dFilesData => TestingTools.GetEnumerableC3dFilesData(FolderPath29);
@@ -97,6 +138,7 @@ namespace SHARP3D.Test.C3dTests
             C3d c3d = new C3d();
             Assert.NotNull(c3d);
         }
+
 
         [Theory]
         [MemberData(nameof(Test_Basic_Data))]
@@ -183,9 +225,14 @@ namespace SHARP3D.Test.C3dTests
                     }
                 }
             }
+        }
 
-            
-
+        [Theory]
+        [MemberData(nameof(Data_Full))]
+        public void OpenC3d_Tests(string c3dPath)
+        {
+            C3d c3d = new C3d(c3dPath);
+            Assert.NotNull(c3d);
         }
 
     }
