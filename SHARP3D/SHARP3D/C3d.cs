@@ -136,35 +136,41 @@ namespace SHARP3D
             );
             fs.Seek(0, SeekOrigin.Begin);
 
-            byte[] parameters = ParametersToBinaries();
-            byte[] header = HeaderToBinaries((parameters.Length / 512)); // We add the +1 in the HeaderToBinaries function
-
-            fs.WriteAsync(header);
-            fs.WriteAsync(parameters);
-
-            // Compute scale factor.
-            // This is another reason to put the computation of this managed parameter and their byte function into their respective class
-            // To keep a single source of truth.
-            float maximumPointValue = 0;
-            foreach (C3dPointTrajectory trajectory in Data.Points)
+            try 
             {
-                foreach (float? val in trajectory.Point)
+                byte[] parameters = ParametersToBinaries();
+                byte[] header = HeaderToBinaries((parameters.Length / 512)); // We add the +1 in the HeaderToBinaries function
+
+                fs.WriteAsync(header);
+                fs.WriteAsync(parameters);
+
+                // Compute scale factor.
+                // This is another reason to put the computation of this managed parameter and their byte function into their respective class
+                // To keep a single source of truth.
+                float maximumPointValue = 0;
+                foreach (C3dPointTrajectory trajectory in Data.Points)
                 {
-                    if (val == null)
+                    foreach (float? val in trajectory.Point)
                     {
-                        continue;
-                    }
-                    else if (Math.Abs((float)val) > maximumPointValue)
-                    {
-                        maximumPointValue = (float)val;
+                        if (val == null)
+                        {
+                            continue;
+                        }
+                        else if (Math.Abs((float)val) > maximumPointValue)
+                        {
+                            maximumPointValue = (float)val;
+                        }
                     }
                 }
+                DataToBinaries(
+                    maximumPointValue / 32000,
+                    fs
+                    );
             }
-            DataToBinaries(
-                maximumPointValue/32000,
-                fs
-                );
-            fs.Close();
+            finally
+            {
+                fs.Close();
+            }
         }
 
         // This function add the +1 block from the parameter length to compute blocks to data start.

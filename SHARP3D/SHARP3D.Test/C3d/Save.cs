@@ -85,19 +85,21 @@
             {
                 File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
             }
+            C3d test1 = new C3d(c3dPath);
+            bool fileExist = false;
             try
             {
-                C3d test1 = new C3d(c3dPath);
                 test1.Save(Path.GetDirectoryName(c3dPath), tempFileName);
-                Assert.True(File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"));
+                fileExist = File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
             }
-            finally 
+            finally
             {
                 if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
                 {
                     File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
                 }
             }
+            Assert.True(fileExist);
         }
     }
 }
