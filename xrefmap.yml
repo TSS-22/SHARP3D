@@ -951,6 +951,22 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.SetFileAnalog
   nameWithType: C3dFile.SetFileAnalog
+- uid: SHARP3D.C3dFile.SetFilePoint(System.Int32,System.Single)
+  name: SetFilePoint(int, float)
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SetFilePoint_System_Int32_System_Single_
+  commentId: M:SHARP3D.C3dFile.SetFilePoint(System.Int32,System.Single)
+  name.vb: SetFilePoint(Integer, Single)
+  fullName: SHARP3D.C3dFile.SetFilePoint(int, float)
+  fullName.vb: SHARP3D.C3dFile.SetFilePoint(Integer, Single)
+  nameWithType: C3dFile.SetFilePoint(int, float)
+  nameWithType.vb: C3dFile.SetFilePoint(Integer, Single)
+- uid: SHARP3D.C3dFile.SetFilePoint*
+  name: SetFilePoint
+  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_SetFilePoint_
+  commentId: Overload:SHARP3D.C3dFile.SetFilePoint
+  isSpec: "True"
+  fullName: SHARP3D.C3dFile.SetFilePoint
+  nameWithType: C3dFile.SetFilePoint
 - uid: SHARP3D.C3dFile.setFileForceplate
   name: setFileForceplate()
   href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFileForceplate
@@ -964,22 +980,6 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3dFile.setFileForceplate
   nameWithType: C3dFile.setFileForceplate
-- uid: SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
-  name: setFilePoint(int, float)
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFilePoint_System_Int32_System_Single_
-  commentId: M:SHARP3D.C3dFile.setFilePoint(System.Int32,System.Single)
-  name.vb: setFilePoint(Integer, Single)
-  fullName: SHARP3D.C3dFile.setFilePoint(int, float)
-  fullName.vb: SHARP3D.C3dFile.setFilePoint(Integer, Single)
-  nameWithType: C3dFile.setFilePoint(int, float)
-  nameWithType.vb: C3dFile.setFilePoint(Integer, Single)
-- uid: SHARP3D.C3dFile.setFilePoint*
-  name: setFilePoint
-  href: api/SHARP3D.C3dFile.html#SHARP3D_C3dFile_setFilePoint_
-  commentId: Overload:SHARP3D.C3dFile.setFilePoint
-  isSpec: "True"
-  fullName: SHARP3D.C3dFile.setFilePoint
-  nameWithType: C3dFile.setFilePoint
 - uid: SHARP3D.C3dUtils
   name: C3dUtils
   href: api/SHARP3D.C3dUtils.html
