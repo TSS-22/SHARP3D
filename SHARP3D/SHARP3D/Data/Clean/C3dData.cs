@@ -288,6 +288,10 @@ namespace SHARP3D.Data.Clean
             C3dFileParameterAnalog? fileParameterAnalog = null
             )
         {
+            if (fileParameterAnalog.Used == 0)
+            {
+                return new C3dAnalogChannel[] { };
+            }
             List<C3dAnalogChannel> c3dAnalogChannels = new List<C3dAnalogChannel>();
             if(fileAnalogData.Count() != 0)
             {

@@ -26,7 +26,7 @@ namespace SHARP3D.Test.C3dTests
         private static string FolderPath10 = @"..\..\..\SampleFiles\Sample10";
         private static string FolderPath12 = @"..\..\..\SampleFiles\Sample12";
         private static string FolderPath17 = @"..\..\..\SampleFiles\Sample17";
-        private static string FolderPath19 = @"..\..\..\SampleFiles\Sample19";
+         //private static string FolderPath19 = @"..\..\..\SampleFiles\Sample19"; // Because it advertise 4 used force plate, but none actually exist.
         private static string FolderPath22 = @"..\..\..\SampleFiles\Sample22";
         private static string FolderPath23 = @"..\..\..\SampleFiles\Sample23";
         private static string FolderPath26 = @"..\..\..\SampleFiles\Sample26";
@@ -60,7 +60,7 @@ namespace SHARP3D.Test.C3dTests
                 FolderPath10,
                 FolderPath12,
                 FolderPath17,
-                FolderPath19,
+                //FolderPath19, // cf above
                 FolderPath22,
                 FolderPath23,
                 FolderPath26,
@@ -99,7 +99,7 @@ namespace SHARP3D.Test.C3dTests
                 FolderPath10,
                 FolderPath12,
                 FolderPath17,
-                FolderPath19,
+                //FolderPath19,
                 FolderPath22,
                 FolderPath23,
                 FolderPath26,
