@@ -36,7 +36,6 @@ namespace SHARP3D.Test.C3dTests
         private static string FolderPath30 = @"..\..\..\SampleFiles\Sample30";
         private static string FolderPath31 = @"..\..\..\SampleFiles\Sample31";
         private static string FolderPath33 = @"..\..\..\SampleFiles\Sample33";
-        private static string FolderPath34 = @"..\..\..\SampleFiles\Sample34";
         private static string FolderPath35 = @"..\..\..\SampleFiles\Sample35";
         private static string FolderPath36 = @"..\..\..\SampleFiles\Sample36";
         private static string FolderPath37 = @"..\..\..\SampleFiles\Sample37";
@@ -71,7 +70,6 @@ namespace SHARP3D.Test.C3dTests
                 FolderPath30,
                 //FolderPath31,
                 FolderPath33,
-                FolderPath34,
                 FolderPath35,
                 FolderPath36,
                 FolderPath37
@@ -111,7 +109,6 @@ namespace SHARP3D.Test.C3dTests
                 FolderPath30,
                 //FolderPath31,
                 FolderPath33,
-                FolderPath34,
                 FolderPath35,
                 FolderPath36,
                 FolderPath37

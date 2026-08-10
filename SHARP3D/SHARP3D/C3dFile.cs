@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
 [assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
+// TODO : attention I made poor choice in the visibility of function. Will need to sort that out for the first release
 namespace SHARP3D
 {
     /// <summary>
@@ -119,7 +120,7 @@ namespace SHARP3D
             ParameterCollection = new C3dFileParameterCollection(Parameters);
 
             Analog = SetFileAnalog();
-            Point = setFilePoint(Analog.Used, Analog.Rate);
+            Point = SetFilePoint(Analog.Used, Analog.Rate);
             Analog.AnalogframePerFrame = GetAnalogframesPerFrame(Point.Rate, Analog.Rate);
             
             // We put it last because it needs some values from Analog.
@@ -228,6 +229,15 @@ namespace SHARP3D
                                     temp);
                             }
                             catch (ParameterNotFoundException ex)
+                            {
+                                Console.Error.WriteLine(
+                                    $"WARNING: Parameter FORCE_PLATFORM:CAL_MATRIX not found for forceplate {idFp}." +
+                                    $" Defaulting to identity matrix. {ex.Message}"
+                                    );
+                                calMat = ArrayUtils.IdentityMatrix(calMatColNb);
+                                goto CalMatNotFound;
+                            }
+                            catch(ArgumentException ex)
                             {
                                 Console.Error.WriteLine(
                                     $"WARNING: Parameter FORCE_PLATFORM:CAL_MATRIX not found for forceplate {idFp}." +
@@ -390,6 +400,11 @@ namespace SHARP3D
                 Console.Error.WriteLine($"WARNING: {ex.Message}. Rebuilding from heuristic. See https://tss-22.github.io/SHARP3D/c3d_docs/parameters/required/analog/analog-bits.html.");
                 fileAnalog.Bits = 0;
             }
+            catch(IndexOutOfRangeException ex)
+            {
+                //Sample05 has empty ANALOG:BITS
+                fileAnalog.Bits = 12;
+            }
 
             fileAnalog.GeneralScale = GetAnalogGeneralScale();
             fileAnalog.Rate = GetAnalogRate();
@@ -403,7 +418,7 @@ namespace SHARP3D
             return fileAnalog;
         }
 
-        internal C3dFileParameterPoint setFilePoint(int analogUsed, float analogRate)
+        internal C3dFileParameterPoint SetFilePoint(int analogUsed, float analogRate)
         {
             C3dFileParameterPoint filePoint = new C3dFileParameterPoint();
 
@@ -899,10 +914,34 @@ namespace SHARP3D
             {
                 C3dFileParameter trialActualStartField = GetParameter("trial", "actual_start_field");
                 C3dFileParameter trialActualEndField = GetParameter("trial", "actual_end_field");
+                int firstFrame = -1;
+                int lastFrame = -1;
 
-                int firstFrame = GetFrameValue(trialActualStartField.Data.GetValue(0)) + GetFrameValue(trialActualStartField.Data.GetValue(1)) * 65535;
-                int lastFrame = GetFrameValue(trialActualEndField.Data.GetValue(0)) + GetFrameValue(trialActualEndField.Data.GetValue(1)) * 65535;
+                int frameCount;
+                try
+                {
+                    firstFrame = GetFrameValue(trialActualStartField.Data.GetValue(0)) + GetFrameValue(trialActualStartField.Data.GetValue(1)) * 65535;
+                }
+                catch(ArgumentException ex)
+                {
+                    // To make Sample34 work
+                    firstFrame = GetFrameValue(trialActualStartField.Data.GetValue(0,0)) + GetFrameValue(trialActualStartField.Data.GetValue(0,1)) * 65535;
+                }
 
+                try
+                {
+                    lastFrame = GetFrameValue(trialActualEndField.Data.GetValue(0)) + GetFrameValue(trialActualEndField.Data.GetValue(1)) * 65535;
+                }
+                catch(ArgumentException ex)
+                {
+                    // To make Sample34 work
+                    lastFrame = GetFrameValue(trialActualEndField.Data.GetValue(0,0)) + GetFrameValue(trialActualEndField.Data.GetValue(0,1)) * 65535;
+                }
+
+                if ((firstFrame <0) || (lastFrame < 0))
+                {
+                    throw new C3dBadFrameNumberFormatingException("TRIAL group badly formatted");
+                }
                 // Some files have some values in BADC. Oh my fucking god.
                 if (lastFrame - firstFrame + 1 > 0)
                 {
