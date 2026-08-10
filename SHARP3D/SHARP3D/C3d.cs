@@ -1224,8 +1224,7 @@ namespace SHARP3D
             FileStream fs
             )
         {
-            //fs.WriteAsync(header);
-            for(int idFrame = 0; idFrame < Data.Points[0].Point.Length / 3; idFrame++)
+            for(int idFrame = 0; idFrame < Required.Point.Frames; idFrame++)
             {
                 foreach (C3dPointTrajectory trajectory in Data.Points)
                 {

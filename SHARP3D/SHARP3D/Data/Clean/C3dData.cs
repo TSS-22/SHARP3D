@@ -47,8 +47,19 @@ namespace SHARP3D.Data.Clean
                 dataResidual.Add(trajectory.Residual);
                 dataMask.Add(trajectory.CameraMask);
             }
-
-            return (dataPoints.To3DArray(), dataResidual.To2DArray(), dataMask.To3DArray());
+            if (dataPoints.Count == 0)
+            {
+                return (
+                    new float?[,,] { },
+                    new float?[,] { },
+                    new bool[,,] { }
+                    );
+            }
+            else
+            {
+                return (dataPoints.To3DArray(), dataResidual.To2DArray(), dataMask.To3DArray());
+            }
+                
         }
 
         public float[,] GetAllAnalogsData()
