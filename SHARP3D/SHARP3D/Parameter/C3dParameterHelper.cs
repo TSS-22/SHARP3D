@@ -33,12 +33,9 @@ namespace SHARP3D.Parameter
             List<C3dFileParameterGroup> groups = new List<C3dFileParameterGroup> { };
             List<C3dFileParameter> parameters = new List<C3dFileParameter> { };
 
-            // TO CLEAN
-            //string filePathParameterSave = @"C:\Users\hfm\Documents\GitHub\SHARP3D\Ressources\parameters_samplingerrorfiles.csv";
-
             // Get all the Groups and Parameters
             int pointerToNextStruct = 0;
-            // TODO: WTF AM I SUPPOSE TO WITH THE PARAMETER AS THEY DON'T FOLLOW THE RULE FOR ENDING.
+            
             // WARNING: THE POINTER TO NEXT STRUCT IS NOT 0X00 0X00 FOR THE LAST PARAMETER BLOCK......
             do
             {
@@ -57,9 +54,6 @@ namespace SHARP3D.Parameter
                 byte[] nameBuffer = new byte[Math.Abs((int)nameLength)];
                 c3dStream.ReadExactly(nameBuffer);
                 string name = Encoding.ASCII.GetString(nameBuffer).TrimEnd('\0');
-
-                // TO CLEAN
-                //File.AppendAllText(filePathParameterSave, name + Environment.NewLine);
 
                 byte[] pointerBuffer = new byte[2];
                 c3dStream.ReadExactly(pointerBuffer);
@@ -126,7 +120,7 @@ namespace SHARP3D.Parameter
                     byte[] dataBuffer;
                     Array data;
 
-                    dataTypeFile = (DataType)(sbyte)c3dStream.ReadByte(); // TODO: Test this black magic lol
+                    dataTypeFile = (DataType)(sbyte)c3dStream.ReadByte();
                     numberOfDimensions = c3dStream.ReadByte();
 
                     // Because the frames parameters shoudl be read as unsigned INT16. Conversion to signed INT32, the C# default is not an issue. It just matter at the binary conversion level.
