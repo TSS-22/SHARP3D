@@ -349,7 +349,7 @@ namespace SHARP3D
                         idGroup,
                         "BITS",
                         "Describes the analog data sample resolution in bits.",
-                        (int)bitsValues.Average(),
+                        bitsValues.Count != 0? (int)bitsValues.Average() : (int)12,
                         true
                     ));
                     ///////////////////////////////////
@@ -561,7 +561,7 @@ namespace SHARP3D
                         idGroup,
                         "RATE",
                         "Stores the sample rate at which the analog data was collected in samples per second.",
-                        ratesValues.Average(),
+                        ratesValues.Count !=0 ? ratesValues.Average():0,
                         true
                     ));
 
@@ -699,85 +699,6 @@ namespace SHARP3D
                 }
                 else if (groups[idGroup].Name == "FORCE_PLATFORM")
                 {
-                    /////////////////////////////////
-                    // FORCE_PLATFORM:CAL_MATRIX
-                    List<float[,]> calmatValues = new List<float[,]>();
-                    foreach(C3dForceplate forceplate in Data.Forceplates)
-                    {
-                        calmatValues.Add(forceplate.CalibrationMatrix);
-                    }
-                    parametersBytes.AddRange(Parameter3DArrayToBinary(
-                        idGroup,
-                        "CAL_MATRIX",
-                        "Stores the calibration matrix that enables software applications to correct for cross talk between outputs of the force platform.",
-                        calmatValues.ToArray(),
-                        false
-                        ));
-                    /////////////////////////////////////
-                    // FORCE_PLATFORM:CORNERS
-                    List<float[,]> cornersValues = new List<float[,]>();
-                    foreach (C3dForceplate forceplate in Data.Forceplates)
-                    {
-                        cornersValues.Add(forceplate.Corners);
-                    }
-                    parametersBytes.AddRange(Parameter3DArrayToBinary(
-                        idGroup,
-                        "CORNERS",
-                        "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
-                        cornersValues.ToArray(),
-                        false
-                        ));
-                    //////////////////////////////
-                    // FORCE_PLATFORM:CHANNEL
-                    int[,] forceplateChannelValues = new int[8,Data.Forceplates.Length]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
-                    int idChannel = 0;
-                    for(int i=0; i<Data.Forceplates.Length;i++)
-                    {
-                        for(int j=0; j< Data.Forceplates[i].Channels.Length; j++)
-                        {
-                            forceplateChannelValues[j, i] = idChannel + 1; // Because C3D is 1 based index
-                            idChannel++;
-                        }
-                    }
-                    parametersBytes.AddRange(Parameter2DArrayToBinary(
-                        idGroup,
-                        "CHANNEL",
-                        "Stores which analog channels index contain specific force platform data.",
-                        forceplateChannelValues,
-                        false
-                        ));
-                    ////////////////////////////////
-                    // FORCE_PLATFORM:ORIGIN
-                    float[,] originValues = new float[3,Data.Forceplates.Length];
-                    for(int i =0; i< Data.Forceplates.Length; i++)
-                    {
-                        for(int j =0; j< 3; j++)
-                        {
-                            originValues[j,i] = Data.Forceplates[i].Origin[j];
-                        }
-                    }
-                    parametersBytes.AddRange(Parameter2DArrayToBinary(
-                        idGroup,
-                        "ORIGINS",
-                        "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
-                        originValues,
-                        false
-                        ));
-                    ///////////////////////////////////
-                    // FORCE_PLATFORM:TYPE
-                    List<int> typeForceplateValues = new List<int>();
-                    foreach(C3dForceplate forceplate in Data.Forceplates)
-                    {
-                        typeForceplateValues.Add((int)forceplate.Type);
-                    }
-                    parametersBytes.AddRange(Parameter1DArrayToBinary(
-                        idGroup,
-                        "TYPE",
-                        "Define the type of force platform output expected from each force platform.",
-                        typeForceplateValues.ToArray(),
-                        false
-                        ));
-
                     ////////////////////////////////////////
                     // FORCE_PLATFORM:USED
                     int forceplateUsed = 0;
@@ -792,21 +713,106 @@ namespace SHARP3D
                         forceplateUsed,
                         true
                     ));
-                    ///////////////////////////
-                    // FORCE_PLATFORM:ZERO
-                   int[] zeroValues = new int[2];
-                    foreach(C3dForceplate forceplate in Data.Forceplates)
+
+                    /////////////////////////////////
+                    // FORCE_PLATFORM:CAL_MATRIX
+                    if (forceplateUsed != 0)
                     {
-                        zeroValues[0] = forceplate.Zero.Item1 + 1;
-                        zeroValues[1] = forceplate.Zero.Item2 + 1;
+                        List<float[,]> calmatValues = new List<float[,]>();
+                        foreach (C3dForceplate forceplate in Data.Forceplates)
+                        {
+                            calmatValues.Add(forceplate.CalibrationMatrix);
+                        }
+                        parametersBytes.AddRange(Parameter3DArrayToBinary(
+                            idGroup,
+                            "CAL_MATRIX",
+                            "Stores the calibration matrix that enables software applications to correct for cross talk between outputs of the force platform.",
+                            calmatValues.ToArray(),
+                            false
+                            ));
+
+
+                        /////////////////////////////////////
+                        // FORCE_PLATFORM:CORNERS
+                        List<float[,]> cornersValues = new List<float[,]>();
+                        foreach (C3dForceplate forceplate in Data.Forceplates)
+                        {
+                            cornersValues.Add(forceplate.Corners);
+                        }
+                        parametersBytes.AddRange(Parameter3DArrayToBinary(
+                            idGroup,
+                            "CORNERS",
+                            "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
+                            cornersValues.ToArray(),
+                            false
+                            ));
+                        //////////////////////////////
+                        // FORCE_PLATFORM:CHANNEL
+                        int[,] forceplateChannelValues = new int[8, Data.Forceplates.Length]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
+                        int idChannel = 0;
+                        for (int i = 0; i < Data.Forceplates.Length; i++)
+                        {
+                            for (int j = 0; j < Data.Forceplates[i].Channels.Length; j++)
+                            {
+                                forceplateChannelValues[j, i] = idChannel + 1; // Because C3D is 1 based index
+                                idChannel++;
+                            }
+                        }
+                        parametersBytes.AddRange(Parameter2DArrayToBinary(
+                            idGroup,
+                            "CHANNEL",
+                            "Stores which analog channels index contain specific force platform data.",
+                            forceplateChannelValues,
+                            false
+                            ));
+                        ////////////////////////////////
+                        // FORCE_PLATFORM:ORIGIN
+                        float[,] originValues = new float[3, Data.Forceplates.Length];
+                        for (int i = 0; i < Data.Forceplates.Length; i++)
+                        {
+                            for (int j = 0; j < 3; j++)
+                            {
+                                originValues[j, i] = Data.Forceplates[i].Origin[j];
+                            }
+                        }
+                        parametersBytes.AddRange(Parameter2DArrayToBinary(
+                            idGroup,
+                            "ORIGINS",
+                            "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
+                            originValues,
+                            false
+                            ));
+                        ///////////////////////////////////
+                        // FORCE_PLATFORM:TYPE
+                        List<int> typeForceplateValues = new List<int>();
+                        foreach (C3dForceplate forceplate in Data.Forceplates)
+                        {
+                            typeForceplateValues.Add((int)forceplate.Type);
+                        }
+                        parametersBytes.AddRange(Parameter1DArrayToBinary(
+                            idGroup,
+                            "TYPE",
+                            "Define the type of force platform output expected from each force platform.",
+                            typeForceplateValues.ToArray(),
+                            false
+                            ));
+
+                        ///////////////////////////
+                        // FORCE_PLATFORM:ZERO
+                        int[] zeroValues = new int[2];
+                        foreach (C3dForceplate forceplate in Data.Forceplates)
+                        {
+                            zeroValues[0] = forceplate.Zero.Item1 + 1;
+                            zeroValues[1] = forceplate.Zero.Item2 + 1;
+                        }
+                        parametersBytes.AddRange(Parameter1DArrayToBinary(
+                            idGroup,
+                            "ZERO",
+                            "Specify the range of 3D data frame numbers that may be used to provide a baseline for the force platform measurements.",
+                            zeroValues,
+                            false
+                            ));
                     }
-                    parametersBytes.AddRange(Parameter1DArrayToBinary(
-                        idGroup,
-                        "ZERO",
-                        "Specify the range of 3D data frame numbers that may be used to provide a baseline for the force platform measurements.",
-                        zeroValues,
-                        false
-                        ));
 
                 }
                 else if (groups[idGroup].Name == "POINT")
@@ -1191,7 +1197,7 @@ namespace SHARP3D
 
             int totalParameterBytesLength = datastartByteLength + parametersBytes.Count;
 
-            int datastartValue = (int)Math.Ceiling((float)7322 / (float)512) + 1;
+            int datastartValue = (int)Math.Ceiling((float)totalParameterBytesLength / (float)512) + 1;
 
             parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
             parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
