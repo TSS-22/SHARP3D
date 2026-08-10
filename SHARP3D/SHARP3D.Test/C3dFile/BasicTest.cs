@@ -64,7 +64,6 @@ namespace SHARP3D.Test.Tests
         private static string FolderPath30 = @"..\..\..\SampleFiles\Sample30";
         private static string FolderPath31 = @"..\..\..\SampleFiles\Sample31";
         private static string FolderPath33 = @"..\..\..\SampleFiles\Sample33";
-        private static string FolderPath34 = @"..\..\..\SampleFiles\Sample34";
         private static string FolderPath35 = @"..\..\..\SampleFiles\Sample35";
         private static string FolderPath36 = @"..\..\..\SampleFiles\Sample36";
         private static string FolderPath37 = @"..\..\..\SampleFiles\Sample37";
@@ -99,7 +98,6 @@ namespace SHARP3D.Test.Tests
                 FolderPath30,
                 //FolderPath31,
                 FolderPath33,
-                FolderPath34,
                 FolderPath35,
                 FolderPath36,
                 FolderPath37
@@ -107,6 +105,45 @@ namespace SHARP3D.Test.Tests
             .SelectMany(folder =>
                 TestingTools.GetJsonAndC3dFileList(folder)
                     .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
+            );
+
+        public static IEnumerable<object[]> Data_Full =>
+            new[]
+            {
+                FolderPath00_ARTG,
+                FolderPath00_C,
+                FolderPath00_CS,
+                FolderPath00_IST,
+                FolderPath00_MAC,
+                FolderPath00_NE,
+                FolderPath00_VMS,
+                FolderPath01,
+                FolderPath02,
+                FolderPath03,
+                FolderPath04,
+                FolderPath05,
+                FolderPath07,
+                FolderPath08,
+                FolderPath10,
+                FolderPath12,
+                FolderPath17,
+                FolderPath19,
+                FolderPath22,
+                FolderPath23,
+                FolderPath26,
+                FolderPath27,
+                FolderPath28,
+                FolderPath29,
+                FolderPath30,
+                //FolderPath31,
+                FolderPath33,
+                FolderPath35,
+                FolderPath36,
+                FolderPath37
+            }
+            .SelectMany(folder =>
+                Directory.GetFiles(folder, "*.c3d")
+                    .Select(files => new object[] { files })
             );
 
         public static IEnumerable<object[]> Sample36C3dFilesData => TestingTools.GetEnumerableC3dFilesData(FolderPath36);
@@ -224,7 +261,7 @@ namespace SHARP3D.Test.Tests
 
         [Theory]
         [MemberData(nameof(Test_Basic_Data))]
-        public void Basics(string jsonPath, string c3dPath)
+        public void AssertAgainstEzc3d_Tests(string jsonPath, string c3dPath)
         {
 
             string jsonContent = File.ReadAllText(jsonPath);
@@ -277,6 +314,14 @@ namespace SHARP3D.Test.Tests
             C3dFile c3dFile = C3dFile.LoadFromFile(filePath);
 
             Assert.Equal(c3dFile.DataContext.FramesNumber, c3dFile.Data.Points.Count);
+        }
+
+        [Theory]
+        [MemberData(nameof(Data_Full))]
+        public void OpenC3dFile_Tests(string c3dPath)
+        {
+            C3dFile c3DFile = C3dFile.LoadFromFile(c3dPath);
+            Assert.NotNull(c3DFile);
         }
     }
 }

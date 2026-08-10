@@ -3,7 +3,6 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Reflection.PortableExecutable;
 
 
 namespace SHARP3D
