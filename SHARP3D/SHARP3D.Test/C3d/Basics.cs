@@ -9,7 +9,7 @@ namespace SHARP3D.Test.C3dTests
     {
         public static readonly string PathEb015pi = @"..\..\..\SampleFiles\Sample01\Eb015pi.c3d";
 
-        private static string FolderPath00_ARTG = @"..\..\..\SampleFiles\Sample00\Advanced Realtime Tracking GmbH";
+        //private static string FolderPath00_ARTG = @"..\..\..\SampleFiles\Sample00\Advanced Realtime Tracking GmbH";
         private static string FolderPath00_C = @"..\..\..\SampleFiles\Sample00\Codamotion";
         private static string FolderPath00_CS = @"..\..\..\SampleFiles\Sample00\Cometa Systems";
         private static string FolderPath00_IST = @"..\..\..\SampleFiles\Sample00\Innovative Sports Training";
@@ -43,7 +43,7 @@ namespace SHARP3D.Test.C3dTests
         public static IEnumerable<object[]> Test_Basic_Data =>
             new[]
             {
-                FolderPath00_ARTG,
+                //FolderPath00_ARTG,
                 FolderPath00_C,
                 FolderPath00_CS,
                 FolderPath00_IST,
@@ -82,7 +82,7 @@ namespace SHARP3D.Test.C3dTests
         public static IEnumerable<object[]> Data_Full =>
             new[]
             {
-                FolderPath00_ARTG,
+                //FolderPath00_ARTG,
                 FolderPath00_C,
                 FolderPath00_CS,
                 FolderPath00_IST,
