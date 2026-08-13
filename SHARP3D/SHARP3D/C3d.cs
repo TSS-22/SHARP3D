@@ -608,7 +608,7 @@ namespace SHARP3D
                             i == 0 ? "SCALE" : $"SCALE{i}",
                             $"Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.From analog channel id{i * 255}, to id {i * 255 + analogScaleArrays[i].Length}.",
                             analogScaleArrays[i],
-                            false
+                            true
                             ));
                     }
 
@@ -1467,7 +1467,7 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 1;
             // Dimension Length
-            byte dimensionsLength = (byte)valueByte.Length;
+            byte dimensionsLength = (byte)value.Length;
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
@@ -1519,7 +1519,8 @@ namespace SHARP3D
                 // Dimensions numbers
                 byte dimensionNumber = 1;
                 //Dimension length
-                byte dimensionLength = (byte)dataBytes.Count;
+                //byte dimensionLength = (byte)dataBytes.Count;
+                byte dimensionLength = (byte)arrayData.Length;
                 // Description Length
                 byte descriptionLength = (byte)descriptionBytes.Length;
                 // Pointer to next
@@ -1571,7 +1572,8 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 1;
             //Dimension length
-            byte dimensionLength = (byte)dataBytes.Count;
+            //byte dimensionLength = (byte)dataBytes.Count;
+            byte dimensionLength = (byte)arrayData.Length;
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next

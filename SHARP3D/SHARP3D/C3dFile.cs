@@ -693,8 +693,15 @@ namespace SHARP3D
         public static C3dFile LoadFromFile(string filepath)
         {
             FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-            
-            return new C3dFile(fileStream);
+            try
+            {
+                return new C3dFile(fileStream);
+            }
+            catch(Exception ex)
+            {
+                fileStream.Dispose();
+                throw ex;
+            }
         }
 
         /// <summary>
