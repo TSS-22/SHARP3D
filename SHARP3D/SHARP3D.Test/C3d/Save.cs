@@ -202,7 +202,7 @@ namespace SHARP3D.Test.C3dTests
                         test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
                         ],
                         test2.Data.Points[idTraj].Point[
-                            test1.Data.Points[idTraj].Point.GetLength(0), 0
+                            test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
                             ]);
                     //Assert.Equal(test1.Data.Points[0].Residual[0], test2.Data.Points[0].Residual[0]); // Due to the data corruption inherent to C3D (as far as we understood). This will always be false
                     Assert.Equal(
@@ -210,7 +210,7 @@ namespace SHARP3D.Test.C3dTests
                             test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
                             ],
                         test2.Data.Points[idTraj].CameraMask[
-                            test1.Data.Points[idTraj].Point.GetLength(0), 0
+                            test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
                             ]);
                 }
             }

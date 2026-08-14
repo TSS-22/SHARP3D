@@ -1256,10 +1256,10 @@ namespace SHARP3D
                     }
                     for(int idCam = 0; idCam < 7; idCam++) // We stickt ot 7 camera only at the moment as per C3D convention
                     {
-                        BitManipulator.SetBit(bit1, idCam+1, trajectory.CameraMask[idFrame, idCam]);
+                        bit1 = BitManipulator.SetBit(bit1, idCam, trajectory.CameraMask[idFrame, idCam]);
                     }
 
-                    // BIT 2: Residual. We need black magic here lol
+                    // BIT 2: Residual. We need black magic here lol Or the residuals will be corrupted
                     byte bit2 = (trajectory.Residual[idFrame] != null ?
                         (byte)(trajectory.Residual[idFrame] / scaleFactor)
                         : (byte) 0b00000000);
@@ -1273,12 +1273,18 @@ namespace SHARP3D
                 }
                 for (int idAnalogFrame = 0; idAnalogFrame < Required.Analog.AnalogframePerFrame; idAnalogFrame++)
                 {
+                    foreach (C3dForceplate forceplate in Data.Forceplates) 
+                    {
+                        for (int idChannel = 0; idChannel < forceplate.Channels.Length; idChannel++)
+                        {
+                            fs.WriteAsync(BitConverter.GetBytes(forceplate.Channels[idChannel].DescaleData(forceplate.Channels[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                        }
+                    }
                     for(int idChannel = 0; idChannel < Data.Analogs.Length; idChannel++)
                     {
                         fs.WriteAsync(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
                     }
                 }
-
             }
         }
 
