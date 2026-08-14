@@ -206,7 +206,7 @@ namespace SHARP3D
                     maximumValue = Math.Abs(point.Value);
                 }
             }
-            header.AddRange(BitConverter.GetBytes(maximumValue / 32000f));
+            header.AddRange(BitConverter.GetBytes(-(maximumValue / 32000f)));
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
             header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 1)));
             //10  uint16 Analog Frames per Data Frame.
@@ -1229,9 +1229,15 @@ namespace SHARP3D
                 foreach (C3dPointTrajectory trajectory in Data.Points)
                 {
                     // X Y Z values
-                    float x = trajectory.Point[idFrame,0] != null ? (float)trajectory.Point[idFrame, 0] : 0;
-                    float y = trajectory.Point[idFrame,1] ?? 0;
-                    float z = trajectory.Point[idFrame, 2] ?? 0;
+                    // X
+                    float? tempCoordinate = trajectory.Point[idFrame, 0];
+                    float x = tempCoordinate != null ? (float)tempCoordinate : 0;
+                    // Y
+                    tempCoordinate = trajectory.Point[idFrame, 1];
+                    float y = tempCoordinate != null ? (float)tempCoordinate : 0;
+                    // Z
+                    tempCoordinate = trajectory.Point[idFrame, 2];
+                    float z = tempCoordinate != null ? (float)tempCoordinate : 0;
 
                     fs.WriteAsync(BitConverter.GetBytes(x));
                     fs.WriteAsync(BitConverter.GetBytes(y));
