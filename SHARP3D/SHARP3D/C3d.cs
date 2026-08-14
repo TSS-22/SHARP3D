@@ -139,6 +139,8 @@ namespace SHARP3D
             try 
             {
                 byte[] parameters = ParametersToBinaries();
+                // It should work all the time because the parameter length is padded with zero
+                // So no need for ceiling and float cast, as the division will be round.
                 byte[] header = HeaderToBinaries((parameters.Length / 512)); // We add the +1 in the HeaderToBinaries function
 
                 fs.WriteAsync(header);
@@ -208,7 +210,7 @@ namespace SHARP3D
             }
             header.AddRange(BitConverter.GetBytes(-(maximumValue / 32000f)));
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
-            header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 1)));
+            header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 2))); // Because C3D doesn't start at index 0
             //10  uint16 Analog Frames per Data Frame.
             header.AddRange(BitConverter.GetBytes((UInt16)Required.Analog.AnalogframePerFrame));
             //11 - 12   float32     3D Point Data acquisition rate in Hertz.
@@ -1198,7 +1200,7 @@ namespace SHARP3D
             int totalParameterBytesLength = datastartByteLength + parametersBytes.Count;
 
             int datastartValue = (int)Math.Ceiling((float)totalParameterBytesLength / (float)512) + 1;
-
+            
             parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
             parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
             parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(datastartName)); // Name
