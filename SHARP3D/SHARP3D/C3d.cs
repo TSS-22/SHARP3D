@@ -1229,7 +1229,7 @@ namespace SHARP3D
                 foreach (C3dPointTrajectory trajectory in Data.Points)
                 {
                     // X Y Z values
-                    float x = trajectory.Point[idFrame,0] ?? 0;
+                    float x = trajectory.Point[idFrame,0] != null ? (float)trajectory.Point[idFrame, 0] : 0;
                     float y = trajectory.Point[idFrame,1] ?? 0;
                     float z = trajectory.Point[idFrame, 2] ?? 0;
 
@@ -1778,7 +1778,7 @@ namespace SHARP3D
             {
                 for (int j = 0; j < arrayData.GetLength(1); j++)
                 {
-                    dataBytes.AddRange(BitConverter.GetBytes(arrayData[i, j]));
+                    dataBytes.AddRange(System.Text.Encoding.UTF8.GetBytes(new char[] { arrayData[i, j] }));
                 }
             }
             // Name Length

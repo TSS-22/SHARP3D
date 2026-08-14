@@ -449,7 +449,7 @@ namespace SHARP3D
                 }
                 else
                 {
-                    filePoint.Units = new string(tempUnits).Trim();
+                    filePoint.Units = new string(tempUnits).Trim().TrimEnd('\0');
                 }
             }
             catch(ParameterNotFoundException ex)
@@ -617,7 +617,7 @@ namespace SHARP3D
                             {
                                 tempCharParam.Add(param[k, j]);
                             }
-                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim();
+                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim().TrimEnd('\0');
 
                             paramInBatchToDo--;
                             paramLeft--;
