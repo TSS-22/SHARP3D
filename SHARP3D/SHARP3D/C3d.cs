@@ -1262,9 +1262,11 @@ namespace SHARP3D
                         (byte)(trajectory.Residual[idFrame] / scaleFactor)
                         : (byte) 0b00000000);
 
+                    // Aggregate the bits in a Int16
+                    Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit1, bit2 });
+                    float float32ByteAggregate = (float)int16ByteAggregate;
                     // Write the byte 4
-                    fs.WriteAsync(new byte[] { bit1 });
-                    fs.WriteAsync(new byte[] { bit2 });
+                    fs.WriteAsync(BitConverter.GetBytes(float32ByteAggregate));
 
                 }
                 for (int idAnalogFrame = 0; idAnalogFrame < Required.Analog.AnalogframePerFrame; idAnalogFrame++)

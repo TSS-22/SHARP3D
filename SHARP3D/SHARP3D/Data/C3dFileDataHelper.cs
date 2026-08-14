@@ -364,6 +364,7 @@ namespace SHARP3D.Data
                     rawAnalogSampleInt = (int)(rawAnalogSampleFloat > 0 ? Math.Ceiling(rawAnalogSampleFloat) : Math.Floor(rawAnalogSampleFloat));
                     oneFullAnalogsSample[j] = (rawAnalogSampleFloat - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
 
+                    // WARNING POSSIBLITY OF BUFFER OVERFLOW
                     if (maxRawAnalogSample < Math.Abs(rawAnalogSampleInt))
                     {
                         maxRawAnalogSample = Math.Abs(rawAnalogSampleInt);
