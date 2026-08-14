@@ -1256,7 +1256,10 @@ namespace SHARP3D
                     }
                     for(int idCam = 0; idCam < 7; idCam++) // We stickt ot 7 camera only at the moment as per C3D convention
                     {
-                        bit1 = BitManipulator.SetBit(bit1, idCam, trajectory.CameraMask[idFrame, idCam]);
+                        if(trajectory.CameraMask[idFrame, idCam] == true)
+                        {
+                            bit1 |= (byte)(1 << (idCam));
+                        }
                     }
 
                     // BIT 2: Residual. We need black magic here lol Or the residuals will be corrupted
