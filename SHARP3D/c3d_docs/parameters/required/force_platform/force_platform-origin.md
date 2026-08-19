@@ -4,6 +4,8 @@
 
 - **Locked**: False
 
+> This is FORCE_PLATFORM:ORIGIN and not FORCE_PLATFORM:ORIGINS. The typo is made in C3D User Guide and therefore all the C3D files, as it is what is expected.
+
 The FORCE_PLATFORM:ORIGIN parameter is a floating-point array of size \[3,USED\] whose interpretation depends on the type of force plate used, as set by the [TYPE](./force_platform-type.md) parameter. You should be able to find all the information that you need to calculate the correct ORIGIN values in the appropriate force plate manual supplied by the force plate manufacturer.
 
 The ORIGIN vector is defined to enable the transformation of the force vectors, as measured by the transducers, into the laboratory coordinate system via the center of the working surface of each force plate defined by the CORNERS parameters. Normally the force plate coordinate system origin is below the surface of the platform and the force plate coordinate system $Z$-axis is directed downwards, so that the sign entered in ORIGIN(3) will be negative. The force platform coordinate system depends upon the signals that are output from the transducers, and may need to be modified to provide a standard [right-handed coordinate system](https://en.wikipedia.org/wiki/Right-hand_rule), which ORIGIN is assumed to be. Assuming a [left-handed coordinate system](https://www.evl.uic.edu/ralph/508S98/coordinates.html) will change the sign of one of the components.

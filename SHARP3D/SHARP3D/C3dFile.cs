@@ -8,6 +8,7 @@ using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
@@ -272,14 +273,14 @@ namespace SHARP3D
             
             for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
             {
-                float[,] cornerData = new float[4, 3];
+                float[,] cornerData = new float[3, 4];
                 for (int idCoor = 0; idCoor<3; idCoor++)
                 {
                     for(int idCorner = 0;idCorner<4; idCorner++)
                     {
                         try
                         {
-                            cornerData[idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ??
+                            cornerData[idCoor, idCorner] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ??
                                 throw new NullReferenceException($"Axis {idCoor} of Corner {idCorner} not advertised for forceplate {idFp}."));
                         }
                         catch (Exception ex) when (
@@ -287,7 +288,7 @@ namespace SHARP3D
                             || ex is IndexOutOfRangeException
                             || ex is NullReferenceException) {
                         cornerData[idCorner, idCoor] = 0;
-                            Console.Error.WriteLine(ex.Message);
+                            Console.Error.WriteLine($"ERROR: Forceplate {idFp}, CORNER [{idCorner},{idCoor}]. {ex.Message}");
                         }
                     }
                 }

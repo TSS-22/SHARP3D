@@ -750,13 +750,13 @@ namespace SHARP3D
                             ));
                         //////////////////////////////
                         // FORCE_PLATFORM:CHANNEL
-                        int[,] forceplateChannelValues = new int[8, Data.Forceplates.Length]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
+                        int[,] forceplateChannelValues = new int[Data.Forceplates.Length, 8]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
                         int idChannel = 0;
                         for (int i = 0; i < Data.Forceplates.Length; i++)
                         {
                             for (int j = 0; j < Data.Forceplates[i].Channels.Length; j++)
                             {
-                                forceplateChannelValues[j, i] = idChannel + 1; // Because C3D is 1 based index
+                                forceplateChannelValues[i, j] = idChannel + 1; // Because C3D is 1 based index
                                 idChannel++;
                             }
                         }
@@ -769,17 +769,17 @@ namespace SHARP3D
                             ));
                         ////////////////////////////////
                         // FORCE_PLATFORM:ORIGIN
-                        float[,] originValues = new float[3, Data.Forceplates.Length];
+                        float[,] originValues = new float[Data.Forceplates.Length,3];
                         for (int i = 0; i < Data.Forceplates.Length; i++)
                         {
                             for (int j = 0; j < 3; j++)
                             {
-                                originValues[j, i] = Data.Forceplates[i].Origin[j];
+                                originValues[i, j] = Data.Forceplates[i].Origin[j];
                             }
                         }
                         parametersBytes.AddRange(Parameter2DArrayToBinary(
                             idGroup,
-                            "ORIGINS",
+                            "ORIGIN",
                             "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
                             originValues,
                             false
