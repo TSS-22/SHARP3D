@@ -406,31 +406,6 @@ namespace SHARP3D.Data
             }
         }
 
-        /// <summary>
-        /// Determines if a point is valid based on camera/sign byte, point values, and camera mask.
-        /// </summary>
-        /// <param name="camAndSign">The camera and sign byte.</param>
-        /// <param name="pointValue">The point values.</param>
-        /// <param name="cameraMask">The camera mask.</param>
-        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
-        /// <returns>True if the point is valid; otherwise, false.</returns>
-        /// <remarks>
-        /// This value can't be trusted. Some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.
-        /// </remarks>
-        internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dFileDataContext context) 
-        {
-            // TODO: Isn't this shit show just that I forgot to take into account the differences between the processor ? I guess not because they do specify, byte 1, byte 2. But did they badly explain their shit again?
-            //byte[] buffer = new byte[] { camAndSign, (byte)residual };
-            //return C3dBytesConvertor.ToInt(buffer, context.Processor) < 0? true:false;
-            //return ((camAndSign == 0b10000000) || (camAndSign == 0b00000000));
-            bool theSupposedTestFromDocumentation =  (camAndSign & 0b10000000) == 0 ? true : false;
-            bool apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement = !(pointValue.All(x => x == 0f) && cameraMask.Any(x => !x)); // If it True then that means the measurement is not valid, for some big brain companies.
-            return theSupposedTestFromDocumentation && apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement;
-            //bool signTest =  (camAndSign & 0b10000000) == 0 ? true : false;
-            //bool cameraTest = cameraMask.Any(x => x);
-            //return signTest && cameraTest; // Because some software don't save correctly the values correctly to tell if it is a valid or not measurement.
-        }
-
         internal static bool IsValid(byte[] bufferCamSignRes, C3dFileDataContext context)
         {
             return C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor) < 0 ? false : true;
