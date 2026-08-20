@@ -1851,13 +1851,13 @@ namespace SHARP3D
             List<byte> dataBytes = new List<byte>();
             for (int i = 0; i < arrayData.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayData[i].GetLength(0); j++)
-                {
-                    for (int k = 0; k < arrayData[i].GetLength(1); k++)
+               for (int k = 0; k < arrayData[i].GetLength(1); k++)
+               {
+                    for (int j = 0; j < arrayData[i].GetLength(0); j++)
                     {
                         dataBytes.AddRange(BitConverter.GetBytes((Int16)arrayData[i][j, k]));
                     }
-                }
+               }
             }
             // Name Length
             // Locked parameter
@@ -1909,10 +1909,10 @@ namespace SHARP3D
             List<byte> dataBytes = new List<byte>();
             for (int i = 0; i < arrayData.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayData[i].GetLength(0); j++)
+                for (int k = 0; k < arrayData[i].GetLength(1); k++)
                 {
-                    for (int k = 0; k < arrayData[i].GetLength(1); k++)
-                    {
+                    for (int j = 0; j < arrayData[i].GetLength(0); j++)
+                        {
                         dataBytes.AddRange(BitConverter.GetBytes(arrayData[i][j, k])); 
                     }
                 }

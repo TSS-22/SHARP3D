@@ -242,7 +242,7 @@ namespace SHARP3D.Test.C3dTests
                 for (int idChannel = 0; idChannel < test1.Data.Forceplates[idFp].Channels.Length; idChannel++)
                 {
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Bits, test2.Data.Forceplates[idFp].Channels[idChannel].Bits);
-                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Scale, test2.Data.Analogs[idChannel].Scale);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Scale, test2.Data.Forceplates[idFp].Channels[idChannel].Scale);
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Label, test2.Data.Forceplates[idFp].Channels[idChannel].Label);
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Offset, test2.Data.Forceplates[idFp].Channels[idChannel].Offset);
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Rate, test2.Data.Forceplates[idFp].Channels[idChannel].Rate);
@@ -251,7 +251,12 @@ namespace SHARP3D.Test.C3dTests
                     if (test1.Data.Analogs[idChannel].Data.Length > 0)
                     {
                         Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[0], test2.Data.Forceplates[idFp].Channels[idChannel].Data[0]);
-                        Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1], test2.Data.Analogs[idChannel].Data[test1.Data.Analogs[idChannel].Data.Length - 1]);
+                        Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[
+                            test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1
+                            ],
+                            test2.Data.Forceplates[idFp].Channels[idChannel].Data[
+                                test1.Data.Analogs[idChannel].Data.Length - 1
+                                ]);
                     }
                 }
             }
