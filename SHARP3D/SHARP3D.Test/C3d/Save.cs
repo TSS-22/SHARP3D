@@ -231,7 +231,7 @@ namespace SHARP3D.Test.C3dTests
                 }
             }
             // Forceplates 
-            for (int idFp = 0; idFp < test1.Data.Analogs.Length; idFp++)
+            for (int idFp = 0; idFp < test1.Data.Forceplates.Length; idFp++)
             {
                 Assert.Equal(test1.Data.Forceplates[idFp].Type, test2.Data.Forceplates[idFp].Type);
                 Assert.Equal(test1.Data.Forceplates[idFp].Zero, test2.Data.Forceplates[idFp].Zero);
@@ -248,15 +248,14 @@ namespace SHARP3D.Test.C3dTests
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Rate, test2.Data.Forceplates[idFp].Channels[idChannel].Rate);
                     Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Units, test2.Data.Forceplates[idFp].Channels[idChannel].Units);
 
-                    if (test1.Data.Analogs[idChannel].Data.Length > 0)
+                    if (test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length > 0)
                     {
                         Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[0], test2.Data.Forceplates[idFp].Channels[idChannel].Data[0]);
                         Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[
                             test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1
                             ],
                             test2.Data.Forceplates[idFp].Channels[idChannel].Data[
-                                test1.Data.Analogs[idChannel].Data.Length - 1
-                                ]);
+                                test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1]);
                     }
                 }
             }
