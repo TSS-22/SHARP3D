@@ -244,7 +244,7 @@ namespace SHARP3D.Data
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(bufferCamSignRes, context)
+                    Valid = IsValid(camAndSign)
                 });
             }
             // Get Analogs
@@ -346,7 +346,7 @@ namespace SHARP3D.Data
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid((short)floatCamSignResidual, context)
+                    Valid = IsValid(camAndSign)
                 });
             }
             // Get Analogs
@@ -406,14 +406,10 @@ namespace SHARP3D.Data
             }
         }
 
-        internal static bool IsValid(byte[] bufferCamSignRes, C3dFileDataContext context)
+        internal static bool IsValid(byte camSign)
         {
-            return C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor) < 0 ? false : true;
-        }
-
-        internal static bool IsValid(Int16 camSignRes, C3dFileDataContext context)
-        {
-            return camSignRes < 0 ? false : true;
+            sbyte signedCamSign = (sbyte)camSign;
+            return signedCamSign < 0 ? false : true;
         }
 
         internal static bool[] GetCameraMask(byte camAndSign) 

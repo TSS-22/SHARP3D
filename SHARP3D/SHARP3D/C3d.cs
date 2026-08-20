@@ -1265,7 +1265,7 @@ namespace SHARP3D
                     // BIT 2: Residual. We need black magic here lol Or the residuals will be corrupted
                     byte bit2 = (trajectory.Residual[idFrame] != null ?
                         (byte)(trajectory.Residual[idFrame] / scaleFactor)
-                        : (byte) 0b00000000);
+                        : (byte) 0b00000000); // put 0b11111111 instead ?
 
                     // Aggregate the bits in a Int16
                     Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit1, bit2 });
