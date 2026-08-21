@@ -143,8 +143,8 @@ namespace SHARP3D
                 // So no need for ceiling and float cast, as the division will be round.
                 byte[] header = HeaderToBinaries((parameters.Length / 512)); // We add the +1 in the HeaderToBinaries function
 
-                fs.WriteAsync(header);
-                fs.WriteAsync(parameters);
+                fs.Write(header);
+                fs.Write(parameters);
 
                 // Compute scale factor.
                 // This is another reason to put the computation of this managed parameter and their byte function into their respective class
@@ -1241,9 +1241,9 @@ namespace SHARP3D
                     tempCoordinate = trajectory.Point[idFrame, 2];
                     float z = tempCoordinate != null ? (float)tempCoordinate : 0;
 
-                    fs.WriteAsync(BitConverter.GetBytes(x));
-                    fs.WriteAsync(BitConverter.GetBytes(y));
-                    fs.WriteAsync(BitConverter.GetBytes(z));
+                    fs.Write(BitConverter.GetBytes(x));
+                    fs.Write(BitConverter.GetBytes(y));
+                    fs.Write(BitConverter.GetBytes(z));
 
                     // BIT 1: Camera mask and IsValid
                     byte bit1 = 0b00000000;
@@ -1271,7 +1271,7 @@ namespace SHARP3D
                     Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit1, bit2 });
                     float float32ByteAggregate = (float)int16ByteAggregate;
                     // Write the byte 4
-                    fs.WriteAsync(BitConverter.GetBytes(float32ByteAggregate));
+                    fs.Write(BitConverter.GetBytes(float32ByteAggregate));
 
                 }
                 for (int idAnalogFrame = 0; idAnalogFrame < Required.Analog.AnalogframePerFrame; idAnalogFrame++)
@@ -1280,12 +1280,12 @@ namespace SHARP3D
                     {
                         for (int idChannel = 0; idChannel < forceplate.Channels.Length; idChannel++)
                         {
-                            fs.WriteAsync(BitConverter.GetBytes(forceplate.Channels[idChannel].DescaleData(forceplate.Channels[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                            fs.Write(BitConverter.GetBytes(forceplate.Channels[idChannel].DescaleData(forceplate.Channels[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
                         }
                     }
                     for(int idChannel = 0; idChannel < Data.Analogs.Length; idChannel++)
                     {
-                        fs.WriteAsync(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                        fs.Write(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
                     }
                 }
             }
