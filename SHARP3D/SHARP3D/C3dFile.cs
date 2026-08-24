@@ -791,6 +791,20 @@ namespace SHARP3D
         /// <returns>A <see cref="C3dFileData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
         internal (C3dFileData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
         {
+            C3dSoftware softwareUsedForFile = C3dSoftware.UNKOWN;
+            try
+            {
+                string tempSoftware = new string((char[])GetParameter("manufacturer", "software").Data);
+                if (tempSoftware.Contains("codamotion", StringComparison.OrdinalIgnoreCase))
+                {
+                    softwareUsedForFile = C3dSoftware.CODAMOTION;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Do nothing. Keep default value.
+            }
+
             // TODO: actually sort the error that can come
             DataContext = new C3dFileDataContext(
                 c3dStream: c3dStream,
@@ -807,7 +821,8 @@ namespace SHARP3D
                 analogChannelScale: Analog.ChannelScale,
                 analogOffset: Analog.Offset,
                 analogframePerFrame: Analog.AnalogframePerFrame,
-                analogFormat: GetAnalogFormat()
+                analogFormat: GetAnalogFormat(),
+                softwareUsed: softwareUsedForFile
                 );
 
             return C3dFileDataHelper.FromFileStream(DataContext);

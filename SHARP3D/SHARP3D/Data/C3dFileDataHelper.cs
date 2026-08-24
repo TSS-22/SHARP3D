@@ -338,6 +338,13 @@ namespace SHARP3D.Data
                 byte camAndSign = intCamSignResidual[0];
                 int residualInt = intCamSignResidual[1];
 
+                // Because of Codamotion that invert the bytes order of Word 4 of the C3D data frame.
+                if (context.Software == C3dSoftware.CODAMOTION) 
+                {
+                    byte tempSwitch = camAndSign;
+                    camAndSign = (byte)residualInt;
+                    residualInt = tempSwitch;
+                }
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
                 points.Add(new C3dFileDataPoint
