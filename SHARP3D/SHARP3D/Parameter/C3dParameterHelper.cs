@@ -417,11 +417,11 @@ namespace SHARP3D.Parameter
                 // Act accordingly
                 // If signed, do nothing.
                 // If unsigned, do stuff
-                if (analogFormatValue == signedArrayString)
+                if (new string((char[])analogFormatValue) == new string((char[])signedArrayString))
                 {
                     // Do nothing as it is the default behavior.                   
                 }
-                else if (analogFormatValue == unsignedArrayString)
+                else if (new string((char[])analogFormatValue) == new string((char[])unsignedArrayString))
                 {
                     // Convert ALL the analog parameter that are in signed int16 to unsigned int16. Because that's the only type of parameter that can be affected by that.
                     // At the moment that seems to be our best bet, as the FORMAT parameter behavior (loosely) defined in the doc
@@ -454,7 +454,7 @@ namespace SHARP3D.Parameter
                 }
                 else
                 {
-                    Console.Error.WriteLine("WARNING: Unrecognized ANALOG:FORMAT value: {analogFormatValue}. Defaulting to \"SIGNED\" behavior.");
+                    Console.Error.WriteLine($"WARNING: Unrecognized ANALOG:FORMAT value: {new string((char[])analogFormatValue)}. Defaulting to \"SIGNED\" behavior.");
                 }
             }
 

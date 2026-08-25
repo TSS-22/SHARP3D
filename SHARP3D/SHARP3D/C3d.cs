@@ -139,10 +139,12 @@ namespace SHARP3D
             try 
             {
                 byte[] parameters = ParametersToBinaries();
+                // It should work all the time because the parameter length is padded with zero
+                // So no need for ceiling and float cast, as the division will be round.
                 byte[] header = HeaderToBinaries((parameters.Length / 512)); // We add the +1 in the HeaderToBinaries function
 
-                fs.WriteAsync(header);
-                fs.WriteAsync(parameters);
+                fs.Write(header);
+                fs.Write(parameters);
 
                 // Compute scale factor.
                 // This is another reason to put the computation of this managed parameter and their byte function into their respective class
@@ -206,9 +208,9 @@ namespace SHARP3D
                     maximumValue = Math.Abs(point.Value);
                 }
             }
-            header.AddRange(BitConverter.GetBytes(maximumValue / 32000f));
+            header.AddRange(BitConverter.GetBytes(-(maximumValue / 32000f)));
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
-            header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 1)));
+            header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 2))); // Because C3D doesn't start at index 0
             //10  uint16 Analog Frames per Data Frame.
             header.AddRange(BitConverter.GetBytes((UInt16)Required.Analog.AnalogframePerFrame));
             //11 - 12   float32     3D Point Data acquisition rate in Hertz.
@@ -608,7 +610,7 @@ namespace SHARP3D
                             i == 0 ? "SCALE" : $"SCALE{i}",
                             $"Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.From analog channel id{i * 255}, to id {i * 255 + analogScaleArrays[i].Length}.",
                             analogScaleArrays[i],
-                            false
+                            true
                             ));
                     }
 
@@ -748,13 +750,13 @@ namespace SHARP3D
                             ));
                         //////////////////////////////
                         // FORCE_PLATFORM:CHANNEL
-                        int[,] forceplateChannelValues = new int[8, Data.Forceplates.Length]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
+                        int[,] forceplateChannelValues = new int[Data.Forceplates.Length, 8]; // We default to 8 values, without testing if TYPE-3 plates are present. it should work and is easier.
                         int idChannel = 0;
                         for (int i = 0; i < Data.Forceplates.Length; i++)
                         {
                             for (int j = 0; j < Data.Forceplates[i].Channels.Length; j++)
                             {
-                                forceplateChannelValues[j, i] = idChannel + 1; // Because C3D is 1 based index
+                                forceplateChannelValues[i, j] = idChannel + 1; // Because C3D is 1 based index
                                 idChannel++;
                             }
                         }
@@ -767,17 +769,17 @@ namespace SHARP3D
                             ));
                         ////////////////////////////////
                         // FORCE_PLATFORM:ORIGIN
-                        float[,] originValues = new float[3, Data.Forceplates.Length];
+                        float[,] originValues = new float[Data.Forceplates.Length,3];
                         for (int i = 0; i < Data.Forceplates.Length; i++)
                         {
                             for (int j = 0; j < 3; j++)
                             {
-                                originValues[j, i] = Data.Forceplates[i].Origin[j];
+                                originValues[i, j] = Data.Forceplates[i].Origin[j];
                             }
                         }
                         parametersBytes.AddRange(Parameter2DArrayToBinary(
                             idGroup,
-                            "ORIGINS",
+                            "ORIGIN",
                             "Stores the locations of the force platform corners in the reference coordinate system, measured in POINT:UNITS.",
                             originValues,
                             false
@@ -1198,7 +1200,7 @@ namespace SHARP3D
             int totalParameterBytesLength = datastartByteLength + parametersBytes.Count;
 
             int datastartValue = (int)Math.Ceiling((float)totalParameterBytesLength / (float)512) + 1;
-
+            
             parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
             parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
             parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(datastartName)); // Name
@@ -1229,13 +1231,19 @@ namespace SHARP3D
                 foreach (C3dPointTrajectory trajectory in Data.Points)
                 {
                     // X Y Z values
-                    float x = trajectory.Point[idFrame,0] ?? 0;
-                    float y = trajectory.Point[idFrame,1] ?? 0;
-                    float z = trajectory.Point[idFrame, 2] ?? 0;
+                    // X
+                    float? tempCoordinate = trajectory.Point[idFrame, 0];
+                    float x = tempCoordinate != null ? (float)tempCoordinate : 0;
+                    // Y
+                    tempCoordinate = trajectory.Point[idFrame, 1];
+                    float y = tempCoordinate != null ? (float)tempCoordinate : 0;
+                    // Z
+                    tempCoordinate = trajectory.Point[idFrame, 2];
+                    float z = tempCoordinate != null ? (float)tempCoordinate : 0;
 
-                    fs.WriteAsync(BitConverter.GetBytes(x));
-                    fs.WriteAsync(BitConverter.GetBytes(y));
-                    fs.WriteAsync(BitConverter.GetBytes(z));
+                    fs.Write(BitConverter.GetBytes(x));
+                    fs.Write(BitConverter.GetBytes(y));
+                    fs.Write(BitConverter.GetBytes(z));
 
                     // BIT 1: Camera mask and IsValid
                     byte bit1 = 0b00000000;
@@ -1248,27 +1256,39 @@ namespace SHARP3D
                     }
                     for(int idCam = 0; idCam < 7; idCam++) // We stickt ot 7 camera only at the moment as per C3D convention
                     {
-                        BitManipulator.SetBit(bit1, idCam+1, trajectory.CameraMask[idFrame, idCam]);
+                        if(trajectory.CameraMask[idFrame, idCam] == true)
+                        {
+                            bit1 |= (byte)(1 << (idCam));
+                        }
                     }
 
-                    // BIT 2: Residual. We need black magic here lol
+                    // BIT 2: Residual. We need black magic here lol Or the residuals will be corrupted
                     byte bit2 = (trajectory.Residual[idFrame] != null ?
                         (byte)(trajectory.Residual[idFrame] / scaleFactor)
-                        : (byte) 0b00000000);
+                        : (byte) 0b00000000); // put 0b11111111 instead ?
 
+                    // Aggregate the bits in a Int16
+                    // Low bit first
+                    Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit2 , bit1 });
+                    float float32ByteAggregate = (float)int16ByteAggregate;
                     // Write the byte 4
-                    fs.WriteAsync(new byte[] { bit1 });
-                    fs.WriteAsync(new byte[] { bit2 });
+                    fs.Write(BitConverter.GetBytes(float32ByteAggregate));
 
                 }
                 for (int idAnalogFrame = 0; idAnalogFrame < Required.Analog.AnalogframePerFrame; idAnalogFrame++)
                 {
+                    foreach (C3dForceplate forceplate in Data.Forceplates) 
+                    {
+                        for (int idChannel = 0; idChannel < forceplate.Channels.Length; idChannel++)
+                        {
+                            fs.Write(BitConverter.GetBytes(forceplate.Channels[idChannel].DescaleData(forceplate.Channels[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                        }
+                    }
                     for(int idChannel = 0; idChannel < Data.Analogs.Length; idChannel++)
                     {
-                        fs.WriteAsync(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
+                        fs.Write(BitConverter.GetBytes(Data.Analogs[idChannel].DescaleData(Data.Analogs[idChannel].Data[idFrame * Required.Analog.AnalogframePerFrame + idAnalogFrame], Required.Analog.GeneralScale)));
                     }
                 }
-
             }
         }
 
@@ -1467,7 +1487,7 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 1;
             // Dimension Length
-            byte dimensionsLength = (byte)valueByte.Length;
+            byte dimensionsLength = (byte)value.Length;
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
@@ -1519,7 +1539,8 @@ namespace SHARP3D
                 // Dimensions numbers
                 byte dimensionNumber = 1;
                 //Dimension length
-                byte dimensionLength = (byte)dataBytes.Count;
+                //byte dimensionLength = (byte)dataBytes.Count;
+                byte dimensionLength = (byte)arrayData.Length;
                 // Description Length
                 byte descriptionLength = (byte)descriptionBytes.Length;
                 // Pointer to next
@@ -1571,7 +1592,8 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 1;
             //Dimension length
-            byte dimensionLength = (byte)dataBytes.Count;
+            //byte dimensionLength = (byte)dataBytes.Count;
+            byte dimensionLength = (byte)arrayData.Length;
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next
@@ -1776,7 +1798,7 @@ namespace SHARP3D
             {
                 for (int j = 0; j < arrayData.GetLength(1); j++)
                 {
-                    dataBytes.AddRange(BitConverter.GetBytes(arrayData[i, j]));
+                    dataBytes.AddRange(System.Text.Encoding.UTF8.GetBytes(new char[] { arrayData[i, j] }));
                 }
             }
             // Name Length
@@ -1830,13 +1852,13 @@ namespace SHARP3D
             List<byte> dataBytes = new List<byte>();
             for (int i = 0; i < arrayData.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayData[i].GetLength(0); j++)
-                {
-                    for (int k = 0; k < arrayData[i].GetLength(1); k++)
+               for (int k = 0; k < arrayData[i].GetLength(1); k++)
+               {
+                    for (int j = 0; j < arrayData[i].GetLength(0); j++)
                     {
                         dataBytes.AddRange(BitConverter.GetBytes((Int16)arrayData[i][j, k]));
                     }
-                }
+               }
             }
             // Name Length
             // Locked parameter
@@ -1888,10 +1910,10 @@ namespace SHARP3D
             List<byte> dataBytes = new List<byte>();
             for (int i = 0; i < arrayData.GetLength(0); i++)
             {
-                for (int j = 0; j < arrayData[i].GetLength(0); j++)
+                for (int k = 0; k < arrayData[i].GetLength(1); k++)
                 {
-                    for (int k = 0; k < arrayData[i].GetLength(1); k++)
-                    {
+                    for (int j = 0; j < arrayData[i].GetLength(0); j++)
+                        {
                         dataBytes.AddRange(BitConverter.GetBytes(arrayData[i][j, k])); 
                     }
                 }

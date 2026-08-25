@@ -251,10 +251,19 @@ namespace SHARP3D.Data.Clean
                         points.Add(pointValues.ToArray());
 
                         // Residual
-                        residuals.Add(
-                            filePointData[idFrame][idTraj].Raw ? filePointData[idFrame][idTraj].AverageResidual : null
-                            );
-
+                        // If Not Raw or Not Valid put null residual
+                        // It limit the possibilities for fuck up
+                        if (
+                            (filePointData[idFrame][idTraj].Raw == false)
+                            || (filePointData[idFrame][idTraj].Valid == false)) 
+                        {
+                            residuals.Add(null);
+                        }
+                        else
+                        {
+                            residuals.Add(filePointData[idFrame][idTraj].AverageResidual);
+                        }
+                           
                         //Camera Mask
                         cameramasks.Add(filePointData[idFrame][idTraj].CameraMask);
 

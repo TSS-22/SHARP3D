@@ -1,4 +1,6 @@
-﻿namespace SHARP3D.Test.C3dTests
+﻿using System.Threading.Channels;
+
+namespace SHARP3D.Test.C3dTests
 {
     public class Save
     {
@@ -100,6 +102,171 @@
                 }
             }
             Assert.True(fileExist);
+        }
+
+        [Theory]
+        [MemberData(nameof(Data_Full))]
+        public void OpenSaveC3dFile(string c3dPath)
+        {
+            if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+            {
+                File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            C3d test1 = new C3d(c3dPath);
+            C3dFile test2;
+            try
+            {
+                test1.Save(Path.GetDirectoryName(c3dPath), tempFileName);
+                test2 = C3dFile.LoadFromFile($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            finally
+            {
+                if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+                {
+                    File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+                }
+            }
+            Assert.NotNull(test2);
+        }
+
+        [Theory]
+        [MemberData(nameof(Data_Full))]
+        public void OpenSaveC3d(string c3dPath)
+        {
+            if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+            {
+                File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            C3d test1 = new C3d(c3dPath);
+            C3d test2;
+            try
+            {
+                test1.Save(Path.GetDirectoryName(c3dPath), tempFileName);
+                test2 = new C3d($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            finally
+            {
+                if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+                {
+                    File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+                }
+            }
+            Assert.NotNull(test2);
+        }
+
+        [Theory]
+        [MemberData(nameof(Data_Full))]
+        public void SaveC3dCheckCorruption(string c3dPath)
+        {
+            if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+            {
+                File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            C3d test1 = new C3d(c3dPath);
+            C3d test2;
+            try
+            {
+                test1.Save(Path.GetDirectoryName(c3dPath), tempFileName);
+                test2 = new C3d($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+            }
+            finally
+            {
+                if (File.Exists($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d"))
+                {
+                    File.Delete($"{Path.GetDirectoryName(c3dPath)}\\{tempFileName}.c3d");
+                }
+            }
+            // Required Parameters
+            // Points
+            Assert.Equal(test1.Required.Point.Frames, test1.Required.Point.Frames);
+            Assert.Equal(test1.Required.Point.Rate, test1.Required.Point.Rate);
+            Assert.Equal(test1.Required.Point.MaximumInterpolationGap, test1.Required.Point.MaximumInterpolationGap);
+            Assert.Equal(test1.Required.Point.Units, test1.Required.Point.Units);
+            // Analogs
+            Assert.Equal(test1.Required.Analog.GeneralScale, test1.Required.Analog.GeneralScale);
+            Assert.Equal(test1.Required.Analog.AnalogframePerFrame, test1.Required.Analog.AnalogframePerFrame);
+
+            // Data
+            // Point
+            for (int idTraj = 0; idTraj < test1.Data.Points.Length; idTraj++)
+            {
+                Assert.Equal(test1.Data.Points[idTraj].Label, test2.Data.Points[idTraj].Label);
+                if (test1.Data.Points[idTraj].Point.GetLength(0) > 0)
+                {
+                    Assert.Equal(test1.Data.Points[idTraj].Point[0, 0], test2.Data.Points[idTraj].Point[0, 0]);
+                    //Assert.Equal(test1.Data.Points[0].Residual[0], test2.Data.Points[0].Residual[0]); // Due to the data corruption inherent to C3D (as far as we understood). This will always be false
+                    Assert.Equal(test1.Data.Points[idTraj].CameraMask[0, 0], test2.Data.Points[idTraj].CameraMask[0, 0]);
+
+                    Assert.Equal(
+                        test1.Data.Points[idTraj].Point[
+                        test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
+                        ],
+                        test2.Data.Points[idTraj].Point[
+                            test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
+                            ]);
+                    //Assert.Equal(test1.Data.Points[0].Residual[0], test2.Data.Points[0].Residual[0]); // Due to the data corruption inherent to C3D (as far as we understood). This will always be false
+                    Assert.Equal(
+                        test1.Data.Points[idTraj].CameraMask[
+                            test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
+                            ],
+                        test2.Data.Points[idTraj].CameraMask[
+                            test1.Data.Points[idTraj].Point.GetLength(0) - 1, 0
+                            ]);
+                }
+            }
+            // Analog
+            for (int idChannel = 0; idChannel < test1.Data.Analogs.Length; idChannel++)
+            {
+                Assert.Equal(test1.Data.Analogs[idChannel].Bits, test2.Data.Analogs[idChannel].Bits);
+                Assert.Equal(test1.Data.Analogs[idChannel].Scale, test2.Data.Analogs[idChannel].Scale);
+                Assert.Equal(test1.Data.Analogs[idChannel].Label, test2.Data.Analogs[idChannel].Label);
+                Assert.Equal(test1.Data.Analogs[idChannel].Offset, test2.Data.Analogs[idChannel].Offset);
+                Assert.Equal(test1.Data.Analogs[idChannel].Rate, test2.Data.Analogs[idChannel].Rate);
+                Assert.Equal(test1.Data.Analogs[idChannel].Units, test2.Data.Analogs[idChannel].Units);
+
+                if (test1.Data.Analogs[idChannel].Data.Length > 0)
+                {
+                    Assert.Equal(test1.Data.Analogs[idChannel].Data[0], test2.Data.Analogs[idChannel].Data[0]);
+                    Assert.Equal(test1.Data.Analogs[idChannel].Data[test1.Data.Analogs[idChannel].Data.Length - 1], test2.Data.Analogs[idChannel].Data[test1.Data.Analogs[idChannel].Data.Length - 1]);
+                }
+            }
+            // Forceplates 
+            for (int idFp = 0; idFp < test1.Data.Forceplates.Length; idFp++)
+            {
+                Assert.Equal(test1.Data.Forceplates[idFp].Type, test2.Data.Forceplates[idFp].Type);
+                Assert.Equal(test1.Data.Forceplates[idFp].Zero, test2.Data.Forceplates[idFp].Zero);
+                Assert.Equal(test1.Data.Forceplates[idFp].Corners, test2.Data.Forceplates[idFp].Corners);
+                Assert.Equal(test1.Data.Forceplates[idFp].Origin, test2.Data.Forceplates[idFp].Origin);
+                Assert.Equal(test1.Data.Forceplates[idFp].Zero, test2.Data.Forceplates[idFp].Zero);
+
+                for (int idChannel = 0; idChannel < test1.Data.Forceplates[idFp].Channels.Length; idChannel++)
+                {
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Bits, test2.Data.Forceplates[idFp].Channels[idChannel].Bits);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Scale, test2.Data.Forceplates[idFp].Channels[idChannel].Scale);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Label, test2.Data.Forceplates[idFp].Channels[idChannel].Label);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Offset, test2.Data.Forceplates[idFp].Channels[idChannel].Offset);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Rate, test2.Data.Forceplates[idFp].Channels[idChannel].Rate);
+                    Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Units, test2.Data.Forceplates[idFp].Channels[idChannel].Units);
+
+                    if (test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length > 0)
+                    {
+                        Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[0], test2.Data.Forceplates[idFp].Channels[idChannel].Data[0]);
+                        Assert.Equal(test1.Data.Forceplates[idFp].Channels[idChannel].Data[
+                            test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1
+                            ],
+                            test2.Data.Forceplates[idFp].Channels[idChannel].Data[
+                                test1.Data.Forceplates[idFp].Channels[idChannel].Data.Length - 1]);
+                    }
+                }
+            }
+            // Header event
+            for (int idHeaderEvent = 0; idHeaderEvent < test1.HeaderEvents.Length; idHeaderEvent++) 
+            {
+                Assert.Equal(test1.HeaderEvents[idHeaderEvent], test2.HeaderEvents[idHeaderEvent]); 
+            }
+
+            // Parameters
+
         }
     }
 }

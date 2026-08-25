@@ -244,7 +244,7 @@ namespace SHARP3D.Data
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid(bufferCamSignRes, context)
+                    Valid = IsValid(camAndSign)
                 });
             }
             // Get Analogs
@@ -270,6 +270,7 @@ namespace SHARP3D.Data
                     }
                     
                     oneFullAnalogsSample[j] = (rawAnalogSample - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
+                    // WARNING POSSIBLITY OF BUFFER OVERFLOW
                     if (maxRawAnalogSample < Math.Abs(rawAnalogSample))
                     {
                         maxRawAnalogSample = rawAnalogSample;
@@ -333,10 +334,17 @@ namespace SHARP3D.Data
                         //Console.WriteLine($"WARNING: Camera mask and Residual Float32 value was above the signed limit of Int16 format. Value: {floatCamSignResidual}");
                     }    
                 }
-                byte[] intCamSignResidual = BitConverter.GetBytes((short)floatCamSignResidual);
-                byte camAndSign = intCamSignResidual[0];
-                int residualInt = intCamSignResidual[1];
+                byte[] intCamSignResidual = BitConverter.GetBytes((Int16)(int)floatCamSignResidual);
+                byte camAndSign = intCamSignResidual[1];
+                int residualInt = intCamSignResidual[0];
 
+                // Because of Codamotion that invert the bytes order of Word 4 of the C3D data frame.
+                //if (context.Software == C3dSoftware.CODAMOTION) 
+                //{
+                //    byte tempSwitch = camAndSign;
+                //    camAndSign = (byte)residualInt;
+                //    residualInt = tempSwitch;
+                //}
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
                 points.Add(new C3dFileDataPoint
@@ -345,7 +353,7 @@ namespace SHARP3D.Data
                     AverageResidual = residualInt * context.PointScaleFactor,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
-                    Valid = IsValid((short)floatCamSignResidual, context)
+                    Valid = IsValid(camAndSign)
                 });
             }
             // Get Analogs
@@ -364,10 +372,22 @@ namespace SHARP3D.Data
                     rawAnalogSampleInt = (int)(rawAnalogSampleFloat > 0 ? Math.Ceiling(rawAnalogSampleFloat) : Math.Floor(rawAnalogSampleFloat));
                     oneFullAnalogsSample[j] = (rawAnalogSampleFloat - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
 
-                    if (maxRawAnalogSample < Math.Abs(rawAnalogSampleInt))
+                    // WARNING POSSIBLITY OF BUFFER OVERFLOW
+                    try
                     {
-                        maxRawAnalogSample = Math.Abs(rawAnalogSampleInt);
+                        if (float.IsNaN(rawAnalogSampleFloat)
+                            && maxRawAnalogSample < Math.Abs(rawAnalogSampleInt)
+                            )
+                        {
+                            maxRawAnalogSample = Math.Abs(rawAnalogSampleInt);
+                        }
                     }
+                    catch(OverflowException ex)
+                    {
+                        // Buffer overflow
+                        Console.WriteLine($"Buffer overflow while reading analog value from channel index {i}.");
+                    }
+                    
                     if (rawAnalogSampleFloat < 0)
                     {
                         isThereNegativeValues = true;
@@ -404,39 +424,10 @@ namespace SHARP3D.Data
             }
         }
 
-        /// <summary>
-        /// Determines if a point is valid based on camera/sign byte, point values, and camera mask.
-        /// </summary>
-        /// <param name="camAndSign">The camera and sign byte.</param>
-        /// <param name="pointValue">The point values.</param>
-        /// <param name="cameraMask">The camera mask.</param>
-        /// <param name="context">The <see cref="C3dFileDataContext"/> containing file stream and metadata.</param>
-        /// <returns>True if the point is valid; otherwise, false.</returns>
-        /// <remarks>
-        /// This value can't be trusted. Some people don't log it as specified in the C3D Guidelines. We tried our best to make it work reliably, but if you have any issue with a file, please contact us about it.
-        /// </remarks>
-        internal static bool IsValid(byte camAndSign, float[] pointValue, bool[] cameraMask, C3dFileDataContext context) 
+        internal static bool IsValid(byte camSign)
         {
-            // TODO: Isn't this shit show just that I forgot to take into account the differences between the processor ? I guess not because they do specify, byte 1, byte 2. But did they badly explain their shit again?
-            //byte[] buffer = new byte[] { camAndSign, (byte)residual };
-            //return C3dBytesConvertor.ToInt(buffer, context.Processor) < 0? true:false;
-            //return ((camAndSign == 0b10000000) || (camAndSign == 0b00000000));
-            bool theSupposedTestFromDocumentation =  (camAndSign & 0b10000000) == 0 ? true : false;
-            bool apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement = !(pointValue.All(x => x == 0f) && cameraMask.Any(x => !x)); // If it True then that means the measurement is not valid, for some big brain companies.
-            return theSupposedTestFromDocumentation && apparentlyHowSomePeopleDecidedToInterpretInvalidMeasurement;
-            //bool signTest =  (camAndSign & 0b10000000) == 0 ? true : false;
-            //bool cameraTest = cameraMask.Any(x => x);
-            //return signTest && cameraTest; // Because some software don't save correctly the values correctly to tell if it is a valid or not measurement.
-        }
-
-        internal static bool IsValid(byte[] bufferCamSignRes, C3dFileDataContext context)
-        {
-            return C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor) < 0 ? false : true;
-        }
-
-        internal static bool IsValid(Int16 camSignRes, C3dFileDataContext context)
-        {
-            return camSignRes < 0 ? false : true;
+            sbyte signedCamSign = (sbyte)camSign;
+            return signedCamSign < 0 ? false : true;
         }
 
         internal static bool[] GetCameraMask(byte camAndSign) 

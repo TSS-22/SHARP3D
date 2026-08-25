@@ -6,6 +6,8 @@
 
 The FORCE_PLATFORM:CORNERS parameter is a floating-point array of dimension \[3,4,USED\] that record the locations of the force platform corners in the reference coordinate system, measured in [POINT:UNITS](../point/point-units.md). This parameter is used by any graphics application to draw the force platforms, force vectors, and center of pressure information in the correct locations relative to the 3D point data.
 
+> Despite the official documentation stipulating that 
+
 The first dimension specifies the X, Y, or Z coordinate.
 
 The second dimension specifies the corners.

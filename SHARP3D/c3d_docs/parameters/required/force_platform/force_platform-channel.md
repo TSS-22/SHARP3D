@@ -4,7 +4,7 @@
 
 - **Locked**: False
 
-> This is FORCE_PLATFORM:CHANNEL and not FORCE_PLATFORM:CHANNELS. The typo is made in C3D user guide and therefor all the C3D files as it is what is expected.
+> This is FORCE_PLATFORM:CHANNEL and not FORCE_PLATFORM:CHANNELS. The typo is made in C3D User Guide and therefore all the C3D files, as it is what is expected.
 
 The FORCE_PLATFORM:CHANNEL parameter is an array of signed integer data values that record which analog channels contain specific force platform data. The force platform outputs may be connected to any convenient analog input channels in anyorder that is convenient to the user, provided that the assignment of force platform signals to analog channels is correctly specified in this parameter.
 

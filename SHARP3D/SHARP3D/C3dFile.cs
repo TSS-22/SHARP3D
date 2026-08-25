@@ -8,6 +8,7 @@ using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Parameter.DataEntity.File;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
@@ -272,14 +273,14 @@ namespace SHARP3D
             
             for (int idFp = 0; idFp < fileForceplate.Used; idFp++)
             {
-                float[,] cornerData = new float[4, 3];
+                float[,] cornerData = new float[3, 4];
                 for (int idCoor = 0; idCoor<3; idCoor++)
                 {
                     for(int idCorner = 0;idCorner<4; idCorner++)
                     {
                         try
                         {
-                            cornerData[idCorner, idCoor] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ??
+                            cornerData[idCoor, idCorner] = (float)(GetParameter("force_platform", "corners").Data?.GetValue(idCoor, idCorner, idFp) as float? ??
                                 throw new NullReferenceException($"Axis {idCoor} of Corner {idCorner} not advertised for forceplate {idFp}."));
                         }
                         catch (Exception ex) when (
@@ -287,7 +288,7 @@ namespace SHARP3D
                             || ex is IndexOutOfRangeException
                             || ex is NullReferenceException) {
                         cornerData[idCorner, idCoor] = 0;
-                            Console.Error.WriteLine(ex.Message);
+                            Console.Error.WriteLine($"ERROR: Forceplate {idFp}, CORNER [{idCorner},{idCoor}]. {ex.Message}");
                         }
                     }
                 }
@@ -449,7 +450,7 @@ namespace SHARP3D
                 }
                 else
                 {
-                    filePoint.Units = new string(tempUnits).Trim();
+                    filePoint.Units = new string(tempUnits).Trim().TrimEnd('\0');
                 }
             }
             catch(ParameterNotFoundException ex)
@@ -617,7 +618,7 @@ namespace SHARP3D
                             {
                                 tempCharParam.Add(param[k, j]);
                             }
-                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim();
+                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim().TrimEnd('\0');
 
                             paramInBatchToDo--;
                             paramLeft--;
@@ -693,8 +694,15 @@ namespace SHARP3D
         public static C3dFile LoadFromFile(string filepath)
         {
             FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-            
-            return new C3dFile(fileStream);
+            try
+            {
+                return new C3dFile(fileStream);
+            }
+            catch(Exception ex)
+            {
+                fileStream.Dispose();
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -783,6 +791,20 @@ namespace SHARP3D
         /// <returns>A <see cref="C3dFileData"/> object containing the data. And an int containing the ANALOG:BITS guesstimate.</returns>
         internal (C3dFileData, int) GetDataAndBit(FileStream c3dStream, ProcessorType processor, DataType dataTypeFile, float pointScale)
         {
+            C3dSoftware softwareUsedForFile = C3dSoftware.UNKOWN;
+            try
+            {
+                string tempSoftware = new string((char[])GetParameter("manufacturer", "software").Data);
+                if (tempSoftware.Contains("codamotion", StringComparison.OrdinalIgnoreCase))
+                {
+                    softwareUsedForFile = C3dSoftware.CODAMOTION;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Do nothing. Keep default value.
+            }
+
             // TODO: actually sort the error that can come
             DataContext = new C3dFileDataContext(
                 c3dStream: c3dStream,
@@ -799,7 +821,8 @@ namespace SHARP3D
                 analogChannelScale: Analog.ChannelScale,
                 analogOffset: Analog.Offset,
                 analogframePerFrame: Analog.AnalogframePerFrame,
-                analogFormat: GetAnalogFormat()
+                analogFormat: GetAnalogFormat(),
+                softwareUsed: softwareUsedForFile
                 );
 
             return C3dFileDataHelper.FromFileStream(DataContext);
