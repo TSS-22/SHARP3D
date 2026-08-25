@@ -335,16 +335,16 @@ namespace SHARP3D.Data
                     }    
                 }
                 byte[] intCamSignResidual = BitConverter.GetBytes((Int16)(int)floatCamSignResidual);
-                byte camAndSign = intCamSignResidual[0];
-                int residualInt = intCamSignResidual[1];
+                byte camAndSign = intCamSignResidual[1];
+                int residualInt = intCamSignResidual[0];
 
                 // Because of Codamotion that invert the bytes order of Word 4 of the C3D data frame.
-                if (context.Software == C3dSoftware.CODAMOTION) 
-                {
-                    byte tempSwitch = camAndSign;
-                    camAndSign = (byte)residualInt;
-                    residualInt = tempSwitch;
-                }
+                //if (context.Software == C3dSoftware.CODAMOTION) 
+                //{
+                //    byte tempSwitch = camAndSign;
+                //    camAndSign = (byte)residualInt;
+                //    residualInt = tempSwitch;
+                //}
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
                 points.Add(new C3dFileDataPoint
@@ -373,10 +373,21 @@ namespace SHARP3D.Data
                     oneFullAnalogsSample[j] = (rawAnalogSampleFloat - context.AnalogOffset[j]) * context.AnalogChannelScaleFactor[j] * context.AnalogGeneralScaleFactor;
 
                     // WARNING POSSIBLITY OF BUFFER OVERFLOW
-                    if (maxRawAnalogSample < Math.Abs(rawAnalogSampleInt))
+                    try
                     {
-                        maxRawAnalogSample = Math.Abs(rawAnalogSampleInt);
+                        if (float.IsNaN(rawAnalogSampleFloat)
+                            && maxRawAnalogSample < Math.Abs(rawAnalogSampleInt)
+                            )
+                        {
+                            maxRawAnalogSample = Math.Abs(rawAnalogSampleInt);
+                        }
                     }
+                    catch(OverflowException ex)
+                    {
+                        // Buffer overflow
+                        Console.WriteLine($"Buffer overflow while reading analog value from channel index {i}.");
+                    }
+                    
                     if (rawAnalogSampleFloat < 0)
                     {
                         isThereNegativeValues = true;

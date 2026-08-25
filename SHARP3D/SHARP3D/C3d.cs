@@ -1268,7 +1268,8 @@ namespace SHARP3D
                         : (byte) 0b00000000); // put 0b11111111 instead ?
 
                     // Aggregate the bits in a Int16
-                    Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit1, bit2 });
+                    // Low bit first
+                    Int16 int16ByteAggregate = BitConverter.ToInt16(new byte[] { bit2 , bit1 });
                     float float32ByteAggregate = (float)int16ByteAggregate;
                     // Write the byte 4
                     fs.Write(BitConverter.GetBytes(float32ByteAggregate));
