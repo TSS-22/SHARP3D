@@ -894,6 +894,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.C3dSoftware.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.C3dSoftware.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.C3dSoftware",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Utils.Enum.DataType.yml",
       "output": {
         ".html": {

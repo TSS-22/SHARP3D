@@ -1194,33 +1194,15 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.C3dFileDataHelper.IsRaw
   nameWithType: C3dFileDataHelper.IsRaw
-- uid: SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte,System.Single[],System.Boolean[],SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name: IsValid(byte, float[], bool[], C3dFileDataContext)
-  href: api/SHARP3D.Data.C3dFileDataHelper.html#SHARP3D_Data_C3dFileDataHelper_IsValid_System_Byte_System_Single___System_Boolean___SHARP3D_Data_DataEntity_C3dFileDataContext_
-  commentId: M:SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte,System.Single[],System.Boolean[],SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name.vb: IsValid(Byte, Single(), Boolean(), C3dFileDataContext)
-  fullName: SHARP3D.Data.C3dFileDataHelper.IsValid(byte, float[], bool[], SHARP3D.Data.DataEntity.C3dFileDataContext)
-  fullName.vb: SHARP3D.Data.C3dFileDataHelper.IsValid(Byte, Single(), Boolean(), SHARP3D.Data.DataEntity.C3dFileDataContext)
-  nameWithType: C3dFileDataHelper.IsValid(byte, float[], bool[], C3dFileDataContext)
-  nameWithType.vb: C3dFileDataHelper.IsValid(Byte, Single(), Boolean(), C3dFileDataContext)
-- uid: SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte[],SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name: IsValid(byte[], C3dFileDataContext)
-  href: api/SHARP3D.Data.C3dFileDataHelper.html#SHARP3D_Data_C3dFileDataHelper_IsValid_System_Byte___SHARP3D_Data_DataEntity_C3dFileDataContext_
-  commentId: M:SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte[],SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name.vb: IsValid(Byte(), C3dFileDataContext)
-  fullName: SHARP3D.Data.C3dFileDataHelper.IsValid(byte[], SHARP3D.Data.DataEntity.C3dFileDataContext)
-  fullName.vb: SHARP3D.Data.C3dFileDataHelper.IsValid(Byte(), SHARP3D.Data.DataEntity.C3dFileDataContext)
-  nameWithType: C3dFileDataHelper.IsValid(byte[], C3dFileDataContext)
-  nameWithType.vb: C3dFileDataHelper.IsValid(Byte(), C3dFileDataContext)
-- uid: SHARP3D.Data.C3dFileDataHelper.IsValid(System.Int16,SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name: IsValid(short, C3dFileDataContext)
-  href: api/SHARP3D.Data.C3dFileDataHelper.html#SHARP3D_Data_C3dFileDataHelper_IsValid_System_Int16_SHARP3D_Data_DataEntity_C3dFileDataContext_
-  commentId: M:SHARP3D.Data.C3dFileDataHelper.IsValid(System.Int16,SHARP3D.Data.DataEntity.C3dFileDataContext)
-  name.vb: IsValid(Short, C3dFileDataContext)
-  fullName: SHARP3D.Data.C3dFileDataHelper.IsValid(short, SHARP3D.Data.DataEntity.C3dFileDataContext)
-  fullName.vb: SHARP3D.Data.C3dFileDataHelper.IsValid(Short, SHARP3D.Data.DataEntity.C3dFileDataContext)
-  nameWithType: C3dFileDataHelper.IsValid(short, C3dFileDataContext)
-  nameWithType.vb: C3dFileDataHelper.IsValid(Short, C3dFileDataContext)
+- uid: SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte)
+  name: IsValid(byte)
+  href: api/SHARP3D.Data.C3dFileDataHelper.html#SHARP3D_Data_C3dFileDataHelper_IsValid_System_Byte_
+  commentId: M:SHARP3D.Data.C3dFileDataHelper.IsValid(System.Byte)
+  name.vb: IsValid(Byte)
+  fullName: SHARP3D.Data.C3dFileDataHelper.IsValid(byte)
+  fullName.vb: SHARP3D.Data.C3dFileDataHelper.IsValid(Byte)
+  nameWithType: C3dFileDataHelper.IsValid(byte)
+  nameWithType.vb: C3dFileDataHelper.IsValid(Byte)
 - uid: SHARP3D.Data.C3dFileDataHelper.IsValid*
   name: IsValid
   href: api/SHARP3D.Data.C3dFileDataHelper.html#SHARP3D_Data_C3dFileDataHelper_IsValid_
@@ -2459,15 +2441,15 @@ references:
   commentId: T:SHARP3D.Data.DataEntity.C3dFileDataContext
   fullName: SHARP3D.Data.DataEntity.C3dFileDataContext
   nameWithType: C3dFileDataContext
-- uid: SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
-  name: C3dFileDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
-  href: api/SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_
-  commentId: M:SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag)
-  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
-  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext.C3dFileDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int, SHARP3D.Utils.Enum.AnalogFormatFlag)
-  fullName.vb: SHARP3D.Data.DataEntity.C3dFileDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, SHARP3D.Utils.Enum.AnalogFormatFlag)
-  nameWithType: C3dFileDataContext.C3dFileDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag)
-  nameWithType.vb: C3dFileDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag)
+- uid: SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag,SHARP3D.Utils.Enum.C3dSoftware)
+  name: C3dFileDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag, C3dSoftware)
+  href: api/SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext__ctor_System_IO_FileStream_SHARP3D_Utils_Enum_ProcessorType_SHARP3D_Utils_Enum_DataType_System_Int32_System_Int32_System_Int32_System_Single_System_Single_System_Int32_System_Single_System_Single_System_Single___System_Int32___System_Int32_SHARP3D_Utils_Enum_AnalogFormatFlag_SHARP3D_Utils_Enum_C3dSoftware_
+  commentId: M:SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor(System.IO.FileStream,SHARP3D.Utils.Enum.ProcessorType,SHARP3D.Utils.Enum.DataType,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Int32,System.Single,System.Single,System.Single[],System.Int32[],System.Int32,SHARP3D.Utils.Enum.AnalogFormatFlag,SHARP3D.Utils.Enum.C3dSoftware)
+  name.vb: New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag, C3dSoftware)
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext.C3dFileDataContext(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, int, int, int, float, float, int, float, float, float[], int[], int, SHARP3D.Utils.Enum.AnalogFormatFlag, SHARP3D.Utils.Enum.C3dSoftware)
+  fullName.vb: SHARP3D.Data.DataEntity.C3dFileDataContext.New(System.IO.FileStream, SHARP3D.Utils.Enum.ProcessorType, SHARP3D.Utils.Enum.DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, SHARP3D.Utils.Enum.AnalogFormatFlag, SHARP3D.Utils.Enum.C3dSoftware)
+  nameWithType: C3dFileDataContext.C3dFileDataContext(FileStream, ProcessorType, DataType, int, int, int, float, float, int, float, float, float[], int[], int, AnalogFormatFlag, C3dSoftware)
+  nameWithType.vb: C3dFileDataContext.New(FileStream, ProcessorType, DataType, Integer, Integer, Integer, Single, Single, Integer, Single, Single, Single(), Integer(), Integer, AnalogFormatFlag, C3dSoftware)
 - uid: SHARP3D.Data.DataEntity.C3dFileDataContext.#ctor*
   name: C3dFileDataContext
   href: api/SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext__ctor_
@@ -2673,6 +2655,19 @@ references:
   isSpec: "True"
   fullName: SHARP3D.Data.DataEntity.C3dFileDataContext.Processor
   nameWithType: C3dFileDataContext.Processor
+- uid: SHARP3D.Data.DataEntity.C3dFileDataContext.Software
+  name: Software
+  href: api/SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext_Software
+  commentId: P:SHARP3D.Data.DataEntity.C3dFileDataContext.Software
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext.Software
+  nameWithType: C3dFileDataContext.Software
+- uid: SHARP3D.Data.DataEntity.C3dFileDataContext.Software*
+  name: Software
+  href: api/SHARP3D.Data.DataEntity.C3dFileDataContext.html#SHARP3D_Data_DataEntity_C3dFileDataContext_Software_
+  commentId: Overload:SHARP3D.Data.DataEntity.C3dFileDataContext.Software
+  isSpec: "True"
+  fullName: SHARP3D.Data.DataEntity.C3dFileDataContext.Software
+  nameWithType: C3dFileDataContext.Software
 - uid: SHARP3D.Data.DataEntity.C3dFileDataPoint
   name: C3dFileDataPoint
   href: api/SHARP3D.Data.DataEntity.C3dFileDataPoint.html
@@ -6220,6 +6215,72 @@ references:
   commentId: F:SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
   fullName: SHARP3D.Utils.Enum.AnalogFormatFlag.UNSIGNED
   nameWithType: AnalogFormatFlag.UNSIGNED
+- uid: SHARP3D.Utils.Enum.C3dSoftware
+  name: C3dSoftware
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html
+  commentId: T:SHARP3D.Utils.Enum.C3dSoftware
+  fullName: SHARP3D.Utils.Enum.C3dSoftware
+  nameWithType: C3dSoftware
+- uid: SHARP3D.Utils.Enum.C3dSoftware.CODAMOTION
+  name: CODAMOTION
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_CODAMOTION
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.CODAMOTION
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.CODAMOTION
+  nameWithType: C3dSoftware.CODAMOTION
+- uid: SHARP3D.Utils.Enum.C3dSoftware.COMETA_SYSTEMS
+  name: COMETA_SYSTEMS
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_COMETA_SYSTEMS
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.COMETA_SYSTEMS
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.COMETA_SYSTEMS
+  nameWithType: C3dSoftware.COMETA_SYSTEMS
+- uid: SHARP3D.Utils.Enum.C3dSoftware.EZC3D
+  name: EZC3D
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_EZC3D
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.EZC3D
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.EZC3D
+  nameWithType: C3dSoftware.EZC3D
+- uid: SHARP3D.Utils.Enum.C3dSoftware.INNOVATIVE_SPORTS_TRAINING
+  name: INNOVATIVE_SPORTS_TRAINING
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_INNOVATIVE_SPORTS_TRAINING
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.INNOVATIVE_SPORTS_TRAINING
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.INNOVATIVE_SPORTS_TRAINING
+  nameWithType: C3dSoftware.INNOVATIVE_SPORTS_TRAINING
+- uid: SHARP3D.Utils.Enum.C3dSoftware.MOTION_ANALYSIS
+  name: MOTION_ANALYSIS
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_MOTION_ANALYSIS
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.MOTION_ANALYSIS
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.MOTION_ANALYSIS
+  nameWithType: C3dSoftware.MOTION_ANALYSIS
+- uid: SHARP3D.Utils.Enum.C3dSoftware.NEXGEN_ERGONOMICS
+  name: NEXGEN_ERGONOMICS
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_NEXGEN_ERGONOMICS
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.NEXGEN_ERGONOMICS
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.NEXGEN_ERGONOMICS
+  nameWithType: C3dSoftware.NEXGEN_ERGONOMICS
+- uid: SHARP3D.Utils.Enum.C3dSoftware.OPTITRACK
+  name: OPTITRACK
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_OPTITRACK
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.OPTITRACK
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.OPTITRACK
+  nameWithType: C3dSoftware.OPTITRACK
+- uid: SHARP3D.Utils.Enum.C3dSoftware.SHARP3D
+  name: SHARP3D
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_SHARP3D
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.SHARP3D
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.SHARP3D
+  nameWithType: C3dSoftware.SHARP3D
+- uid: SHARP3D.Utils.Enum.C3dSoftware.UNKOWN
+  name: UNKOWN
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_UNKOWN
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.UNKOWN
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.UNKOWN
+  nameWithType: C3dSoftware.UNKOWN
+- uid: SHARP3D.Utils.Enum.C3dSoftware.VICON
+  name: VICON
+  href: api/SHARP3D.Utils.Enum.C3dSoftware.html#SHARP3D_Utils_Enum_C3dSoftware_VICON
+  commentId: F:SHARP3D.Utils.Enum.C3dSoftware.VICON
+  fullName: SHARP3D.Utils.Enum.C3dSoftware.VICON
+  nameWithType: C3dSoftware.VICON
 - uid: SHARP3D.Utils.Enum.DataType
   name: DataType
   href: api/SHARP3D.Utils.Enum.DataType.html
