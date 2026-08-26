@@ -595,6 +595,9 @@ namespace SHARP3D
                 int paramInBatchToDo = isLastParam ? paramLeft : 255;
 
                 // Get the right parameter name
+                // Because LABELS == LABELS1.
+                // In parameterX, the first one is implicit X == 1
+                // Therefore X "start" at 2
                 string parameterName = $"{parameter}{i + 1}";
                 if (i == 0)
                 {
@@ -651,10 +654,10 @@ namespace SHARP3D
                         paramIndex++;
                     }
                 }
-                if (isLastParam == true)
-                {
-                    break;
-                }
+                //if (isLastParam == true)
+                //{
+                //    break;
+                //}
             }
 
             return analogUnits;

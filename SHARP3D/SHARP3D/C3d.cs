@@ -409,7 +409,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
+                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i+ 1}",
                         $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + finalAnalogDescription[i].Length}.",
                         finalAnalogDescription[i],
                         false
@@ -491,7 +491,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        i == 0? "LABELS" : $"LABELS{i}",
+                        i == 0? "LABELS" : $"LABELS{i+1}",
                         $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogLabels[i].Length}.",
                         finalAnalogLabels[i],
                         false
@@ -537,7 +537,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            i == 0 ? "OFFSET": $"OFFSET{i}",
+                            i == 0 ? "OFFSET": $"OFFSET{i+1}",
                             $"Store array of integer values that are subtracted from each analog measurement before the individual ANALOG:SCALE scaling factors are applied. From analog channel id{i * 255}, to id {i * 255 + analogOffsetArrays[i].Length}.",
                             analogOffsetArrays[i],
                             false
@@ -607,7 +607,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter1DArrayToBinary(
                             idGroup,
-                            i == 0 ? "SCALE" : $"SCALE{i}",
+                            i == 0 ? "SCALE" : $"SCALE{i+1}",
                             $"Stores array of floating-point values that are applied together with the ANALOG:GEN_SCALE parameter value to convert the analog data to physical world values.From analog channel id{i * 255}, to id {i * 255 + analogScaleArrays[i].Length}.",
                             analogScaleArrays[i],
                             true
@@ -671,7 +671,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        i == 0 ? "UNITS" : $"UNITS{i}",
+                        i == 0 ? "UNITS" : $"UNITS{i+1}",
                         $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogUnits[i].Length}.",
                         finalAnalogUnits[i],
                         false
@@ -867,7 +867,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i}",
+                        i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i+1}",
                         $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + finalPointDescriptions[i].Length}.",
                         finalPointDescriptions[i],
                         false
@@ -931,7 +931,7 @@ namespace SHARP3D
                     {
                         parametersBytes.AddRange(Parameter2DStringToBinary(
                         idGroup,
-                        i == 0 ? "LABELS" : $"LABELS{i}",
+                        i == 0 ? "LABELS" : $"LABELS{i+1}",
                         $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + finalPointLabels[i].Length}.",
                         finalPointLabels[i],
                         false
