@@ -277,14 +277,27 @@ namespace SHARP3D.Data.Clean
                         // Label
                         try
                         {
-                            labelToAdd = fileParameterPoint.Labels[idTraj];
+                            if(
+                                !String.IsNullOrEmpty(fileParameterPoint.Labels[idTraj]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterPoint.Labels[idTraj])
+                                )
+                            {
+                                labelToAdd = fileParameterPoint.Labels[idTraj];
+                            }
+                            
                         }
                         catch (IndexOutOfRangeException) { }
 
                         // Description
                         try
                         {
-                            descriptionToAdd = fileParameterPoint.Descriptions[idTraj];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterPoint.Descriptions[idTraj]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterPoint.Descriptions[idTraj])
+                                )
+                            {
+                                descriptionToAdd = fileParameterPoint.Descriptions[idTraj];
+                            }
                         }
                         catch (IndexOutOfRangeException) { }
                     }
@@ -344,14 +357,27 @@ namespace SHARP3D.Data.Clean
                         // Description
                         try
                         {
-                            descriptionToAdd = fileParameterAnalog.Descriptions[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Descriptions[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Descriptions[idChannel])
+                                )
+                            {
+                                descriptionToAdd = fileParameterAnalog.Descriptions[idChannel];
+                            }
                         }
                         catch (IndexOutOfRangeException) { }
 
                         // Label
                         try
                         {
-                            labelToAdd = fileParameterAnalog.Labels[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Labels[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Labels[idChannel])
+                                )
+                            {
+                                labelToAdd = fileParameterAnalog.Labels[idChannel];
+                            }
+                                
                         }
                         catch (IndexOutOfRangeException) { }
 
@@ -365,7 +391,14 @@ namespace SHARP3D.Data.Clean
                         // Unit
                         try
                         {
-                            unitToAdd = fileParameterAnalog.Units[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Units[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Units[idChannel])
+                                )
+                            {
+                                unitToAdd = fileParameterAnalog.Units[idChannel];
+                            }
+                                
                         }
                         catch (IndexOutOfRangeException) { }
                     }
