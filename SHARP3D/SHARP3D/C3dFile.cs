@@ -639,6 +639,7 @@ namespace SHARP3D
                         // It should not happen though, as it is either gonna be filled, not enough filled, or absent
                         throw new NullReferenceException($"{group.ToUpper()}:{parameterName.ToUpper()} is not populated.");
                     }
+                    
                 }
                 catch (Exception ex) when (ex is ParameterNotFoundException || ex is NullReferenceException)
                 {
@@ -649,6 +650,10 @@ namespace SHARP3D
                         paramLeft--;
                         paramIndex++;
                     }
+                }
+                if (isLastParam == true)
+                {
+                    break;
                 }
             }
 

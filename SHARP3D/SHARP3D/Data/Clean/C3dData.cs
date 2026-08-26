@@ -233,7 +233,7 @@ namespace SHARP3D.Data.Clean
             List<C3dPointTrajectory> c3DPoints = new List<C3dPointTrajectory>();
             if(filePointData.Count() != 0)
             {
-                for (int idTraj = 0; idTraj < filePointData[0].Count(); idTraj++)
+                for (int idTraj = 0; idTraj < filePointData[0].Length; idTraj++)
                 {
                     List<float?[]> points = new List<float?[]>();
                     List<float?> residuals = new List<float?>();

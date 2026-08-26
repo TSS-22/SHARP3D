@@ -231,10 +231,10 @@ namespace SHARP3D.Data
                 byte[] bufferCamSignRes = new byte[2];
                 context.C3dStream.ReadExactly(bufferCamSignRes);
 
-                //byte camAndSign = (byte)context.C3dStream.ReadByte();
-                //int residualInt = context.C3dStream.ReadByte();
-                byte camAndSign = bufferCamSignRes[0];
-                int residualInt = bufferCamSignRes[1];
+                Int16 valueCamSignRes = (Int16) C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor);
+                byte[] CamSignResBytesArray = BitConverter.GetBytes(valueCamSignRes);
+                byte camAndSign = CamSignResBytesArray[1];
+                int residualInt = CamSignResBytesArray[0];
 
                 bool[] cameraMask = GetCameraMask(camAndSign);
 
