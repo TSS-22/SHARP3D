@@ -1,5 +1,7 @@
 # Integers and Bytes
 
+> The original C3D file format defaulted to storing all data and parameters as one’s complement, signed 16-bit integer values, with a range of -32767 to +32767
+
 Some of the [parameters](../../parameters/c3d-parameter-section.md) in C3D files store data values using 16-bit integers, while various parameter [header](../../c3d-header.md) values and arrays use an 8-bit byte as an index. In the original C3D specification all integers and bytes in the [parameter section](../../parameters/c3d-parameter-section.md) were one's complement signed integers with a range of –32767 to +32767, and all 8-bit integers were one's complement signed bytes with a range of –127 to +127. Thus, in the original C3D format description every integer and byte in a parameter could store both positive and negative values and arrays could potentially have both positive and negative indexes.
 
 Some 16-bit integer parameters in a C3D file never need to store a negative value; for example the number of 3D points and the number of analog channels are always positive values. In addition, arrays within the C3D file (which use an 8-bit index) never use a negative index – the array index values are always positive, while other parameters (analog data sample values, parameter indexes, group IDs, parameter IDs, and name lengths) require that the stored value is signed.
@@ -35,6 +37,7 @@ signed integer) cannot exist:
 | [POINT:FRAMES](../../parameters/required/point/point-frames.md) | Data value 1 to 32767 | Data value 1 to 65535 |
 | [POINT:LABELS](../../parameters/required/point/point-labels.md) | Array index 1 to 127 | Array index 1 to 255 |
 | [ANALOG:LABELS](../../parameters/required/analog/analog-labels.md) | Array index 1 to 127 | Array index 1 to 255 |
+
 *Typical signed integer vs unsigned integer parameter changes.*
 
 It is worth pointing out at this stage that it is unlikely that most parameters will ever be required to exceed the ranges supported by the original signed value. In general, the [POINT:LABELS](../../parameters/required/point/point-labels.md) and [ANALOG:LABELS](../../parameters/required/analog/analog-labels.md) are the most likely to exceed the signed range of 127 array entries, while old applications may read the frame count stored in [POINT:FRAMES](../../parameters/required/point/point-frames.md) as a negative integer value if the actual frame count is unsigned and exceeds 32767 resulting in an error.

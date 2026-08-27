@@ -116,7 +116,7 @@ Since the Float32 format require eight 16-bit words to store a single 3D Point, 
   </tbody>
 </table>
 
-> The Byte 1 and Byte 2 position, for the Camera Mask and Residual values, are determined by the endianness of the processor of the machine creating the file.
+> The Byte 1 and Byte 2 position, for the Camera Mask and Residual values, are determined by the endianness of the processor of the machine creating the file. So DEC and INTEL (integer little endian) will have: BitResidual, BitCameraMaskAndSign while SIG/MIPS(integer big endian): BitCameraMaskAndSign, BitResidual.
 
 The 3D Point Residual is a measurement that provides information about the relative accuracy of the 3D measurement and must be multiplied by the [POINT:SCALE](../parameters/required/point/point-scale_factor.md) parameter to obtain a physical world scaled value.
 
