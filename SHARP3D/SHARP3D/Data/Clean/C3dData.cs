@@ -271,7 +271,7 @@ namespace SHARP3D.Data.Clean
 
                     // Parameters
                     string labelToAdd = $"Trajectory {idTraj}";
-                    string descriptionToAdd = $"No description provided for trajectory {idTraj}?";
+                    string descriptionToAdd = $"No description provided for trajectory {idTraj}.";
                     if (fileParameterPoint != null)
                     {
                         // Label
@@ -341,7 +341,7 @@ namespace SHARP3D.Data.Clean
                     }
                     // Parameters
                     float scaleToAdd = 1;
-                    string descriptionToAdd = $"No description provided for channel {idChannel}?";
+                    string descriptionToAdd = $"No description provided for channel {idChannel}.";
                     string labelToAdd = $"Channel {idChannel}";
                     int offsetToAdd = 0;
                     string unitToAdd = "NA";

@@ -3,6 +3,7 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System.Text;
 
 
 namespace SHARP3D
@@ -370,37 +371,22 @@ namespace SHARP3D
                     {
                         analogDescriptions.Add(channel.Description);
                     }
-                    int maxDescriptionLength = 0;
-                    foreach(string description in analogDescriptions)
-                    {
-                        if (description.Length > maxDescriptionLength)
-                        {
-                            maxDescriptionLength = description.Length;
-                        }
-                    }
-                    //// Pad the descriptions
-                    for(int i=0; i<analogDescriptions.Count;i++)
-                    {
-                        if(analogDescriptions[i].Length < maxDescriptionLength)
-                        {
-                            analogDescriptions[i] = analogDescriptions[i] + new string('\0', maxDescriptionLength - analogDescriptions[i].Length);
-                        }
-                    }
-                    // Put the description array into FORTRAN mode
-                    List<char[,]> finalAnalogDescription = new List<char[,]>();
-                    List<char[]> bufferAnalogDescriptions = new List<char[]>();
+                    
+                    // Put the description array into 255 string batch
+                    List<string[]> finalAnalogDescription = new List<string[]>();
+                    List<string> bufferAnalogDescriptions = new List<string>();
                     int counterAnalogDescription = 0;
                     for(int i =  0; i<analogDescriptions.Count; i++)
                     {
-                        bufferAnalogDescriptions.Add(analogDescriptions[i].ToCharArray());
+                        bufferAnalogDescriptions.Add(analogDescriptions[i]);
                         counterAnalogDescription++;
 
                         if ((counterAnalogDescription >= 255)
                             || ((i == analogDescriptions.Count - 1) && (bufferAnalogDescriptions.Count > 0))
                             )
                         {
-                            finalAnalogDescription.Add(bufferAnalogDescriptions.To2DArray());
-                            bufferAnalogDescriptions = new List<char[]>();
+                            finalAnalogDescription.Add(bufferAnalogDescriptions.ToArray());
+                            bufferAnalogDescriptions = new List<string>();
                             counterAnalogDescription = 0;
                         }
                     }
@@ -451,38 +437,22 @@ namespace SHARP3D
                     {
                         analogLabels.Add(channel.Label);
                     }
-                    // Get max label length
-                    int maxLabelLength = 0;
-                    foreach (string label in analogLabels)
-                    {
-                        if (label.Length > maxLabelLength)
-                        {
-                            maxLabelLength = label.Length;
-                        }
-                    }
-                    //// Pad the labels
-                    for (int i = 0; i < analogLabels.Count; i++)
-                    {
-                        if (analogLabels[i].Length < maxLabelLength)
-                        {
-                            analogLabels[i] = analogLabels[i] + new string('\0', maxLabelLength - analogLabels[i].Length);
-                        }
-                    }
-                    // Put the labels array into FORTRAN mode
-                    List<char[,]> finalAnalogLabels = new List<char[,]>();
-                    List<char[]> bufferAnalogLabels = new List<char[]>();
+                    
+                    // Put the labels array into 255 batch
+                    List<string[]> finalAnalogLabels = new List<string[]>();
+                    List<string> bufferAnalogLabels = new List<string>();
                     int counterAnalogLabel = 0;
                     for (int i = 0; i < analogLabels.Count; i++)
                     {
-                        bufferAnalogLabels.Add(analogLabels[i].ToCharArray());
+                        bufferAnalogLabels.Add(analogLabels[i]);
                         counterAnalogLabel++;
 
                         if ((counterAnalogLabel >= 255)
                             || ((i == analogLabels.Count - 1) && (bufferAnalogLabels.Count > 0))
                             )
                         {
-                            finalAnalogLabels.Add(bufferAnalogLabels.To2DArray());
-                            bufferAnalogLabels = new List<char[]>();
+                            finalAnalogLabels.Add(bufferAnalogLabels.ToArray());
+                            bufferAnalogLabels = new List<string>();
                             counterAnalogLabel = 0;
                         }
                     }
@@ -630,30 +600,14 @@ namespace SHARP3D
                     {
                         analogUnits.Add(channel.Units);
                     }
-                    // Get the longest unit length
-                    int maxUnitLength = 0;
-                    foreach (string unit in analogUnits)
-                    {
-                        if (unit.Length > maxUnitLength)
-                        {
-                            maxUnitLength = unit.Length;
-                        }
-                    }
-                    // Pad the units
-                    for (int i = 0; i < analogUnits.Count; i++)
-                    {
-                        if (analogUnits[i].Length < maxUnitLength)
-                        {
-                            analogUnits[i] = analogUnits[i] + new string('\0', maxUnitLength - analogUnits[i].Length);
-                        }
-                    }
-                    // Put the units array into FORTRAN mode
-                    List<char[,]> finalAnalogUnits = new List<char[,]>();
-                    List<char[]> bufferAnalogUnits = new List<char[]>();
+
+                    // Put the units array into 255 batch
+                    List<string[]> finalAnalogUnits = new List<string[]>();
+                    List<string> bufferAnalogUnits = new List<string>();
                     int counterAnalogUnit = 0;
                     for (int i = 0; i < analogUnits.Count; i++)
                     {
-                        bufferAnalogUnits.Add(analogUnits[i].ToCharArray());
+                        bufferAnalogUnits.Add(analogUnits[i]);
                         counterAnalogUnit++;
 
                         if ((counterAnalogUnit >= 255) 
@@ -661,8 +615,8 @@ namespace SHARP3D
                             )
                         {
                             
-                            finalAnalogUnits.Add(bufferAnalogUnits.To2DArray());
-                            bufferAnalogUnits = new List<char[]>();
+                            finalAnalogUnits.Add(bufferAnalogUnits.ToArray());
+                            bufferAnalogUnits = new List<string>();
                             counterAnalogUnit = 0;
                         }
                     }
@@ -828,37 +782,22 @@ namespace SHARP3D
                     {
                         pointDescriptions.Add(trajectory.Description);
                     }
-                    int maxDescriptionLength = 0;
-                    foreach (string description in pointDescriptions)
-                    {
-                        if (description.Length > maxDescriptionLength)
-                        {
-                            maxDescriptionLength = description.Length;
-                        }
-                    }
-                    //// Pad the descriptions
-                    for (int i = 0; i < pointDescriptions.Count; i++)
-                    {
-                        if (pointDescriptions[i].Length < maxDescriptionLength)
-                        {
-                            pointDescriptions[i] = pointDescriptions[i] + new string('\0', maxDescriptionLength - pointDescriptions[i].Length);
-                        }
-                    }
-                    // Put the description array into FORTRAN mode
-                    List<char[,]> finalPointDescriptions = new List<char[,]>();
-                    List<char[]> bufferPointDescriptions = new List<char[]>();
+
+                    // Put the description array into 255 batch mode
+                    List<string[]> finalPointDescriptions = new List<string[]>();
+                    List<string> bufferPointDescriptions = new List<string>();
                     int counterPointDescription = 0;
                     for (int i = 0; i < pointDescriptions.Count; i++)
                     {
-                        bufferPointDescriptions.Add(pointDescriptions[i].ToCharArray());
+                        bufferPointDescriptions.Add(pointDescriptions[i]);
                         counterPointDescription++;
 
                         if ((counterPointDescription >= 255) 
                             || ((i == pointDescriptions.Count - 1) && (bufferPointDescriptions.Count > 0))
                             )
                         {
-                            finalPointDescriptions.Add(bufferPointDescriptions.To2DArray());
-                            bufferPointDescriptions = new List<char[]>();
+                            finalPointDescriptions.Add(bufferPointDescriptions.ToArray());
+                            bufferPointDescriptions = new List<string>();
                             counterPointDescription = 0;
                         }
                     }
@@ -890,30 +829,14 @@ namespace SHARP3D
                     {
                         pointLabels.Add(trajectory.Label);
                     }
-                    // Get max label length
-                    int maxLabelLength = 0;
-                    foreach (string label in pointLabels)
-                    {
-                        if (label.Length > maxLabelLength)
-                        {
-                            maxLabelLength = label.Length;
-                        }
-                    }
-                    //// Pad the labels
-                    for (int i = 0; i < pointLabels.Count; i++)
-                    {
-                        if (pointLabels[i].Length < maxLabelLength)
-                        {
-                            pointLabels[i] = pointLabels[i] + new string('\0', maxLabelLength - pointLabels[i].Length);
-                        }
-                    }
-                    // Put the labels array into FORTRAN mode
-                    List<char[,]> finalPointLabels = new List<char[,]>();
-                    List<char[]> bufferPointLabels = new List<char[]>();
+                    
+                    // Put the labels array into 255 batch mode
+                    List<string[]> finalPointLabels = new List<string[]>();
+                    List<string> bufferPointLabels = new List<string>();
                     int counterPointLabel = 0;
                     for (int i = 0; i < pointLabels.Count; i++)
                     {
-                        bufferPointLabels.Add(pointLabels[i].ToCharArray());
+                        bufferPointLabels.Add(pointLabels[i]);
                         counterPointLabel++;
 
                         if ((counterPointLabel >= 255)
@@ -921,8 +844,8 @@ namespace SHARP3D
                             )
                         {
 
-                            finalPointLabels.Add(bufferPointLabels.To2DArray());
-                            bufferPointLabels = new List<char[]>();
+                            finalPointLabels.Add(bufferPointLabels.ToArray());
+                            bufferPointLabels = new List<string>();
                             counterPointLabel = 0;
                         }
                     }
@@ -1786,21 +1709,51 @@ namespace SHARP3D
             int idGroup,
             string name,
             string description,
-            char[,] arrayData,
+            string[] arrayData,
             bool locked = false
             )
         {
+            // Because UTF-8 is inconsistent in the number of bytes it uses to represent any of the character
+            // We actually can't predict in advance the dimension of the fucking byte array.
             List<byte> parameterBytes = new List<byte>();
             byte[] nameBytes = System.Text.Encoding.ASCII.GetBytes(name);
             byte[] descriptionBytes = System.Text.Encoding.UTF8.GetBytes(description);
             List<byte> dataBytes = new List<byte>();
-            for (int i = 0; i < arrayData.GetLength(0); i++)
+            // Put each strings in byte array 
+            // And get the maximum length
+            List<byte[]> byteStringList = new List<byte[]>();
+            int maxByteStringLength = 0;
+
+            foreach(string value in arrayData)
             {
-                for (int j = 0; j < arrayData.GetLength(1); j++)
+                byteStringList.Add(System.Text.Encoding.UTF8.GetBytes(value));
+                if (maxByteStringLength < byteStringList.Last().Length)
                 {
-                    dataBytes.AddRange(System.Text.Encoding.UTF8.GetBytes(new char[] { arrayData[i, j] }));
+                    maxByteStringLength = byteStringList.Last().Length;
                 }
             }
+            // Pad the non max length string
+            for (int i=0; i<byteStringList.Count; i++)
+            {
+                if (byteStringList[i].Length < maxByteStringLength)
+                {
+                    byte[] temp = byteStringList[i];
+                    Array.Resize<byte>(ref temp, maxByteStringLength);
+                    byteStringList[i] = temp;
+                }
+            }
+            byte[,] tempDataBytes = byteStringList.To2DArray(); 
+
+            //Put the array into FORTRAN SHIT ASS MODE
+            // Feed the right dimensions to the constructor
+            for (int i = 0; i < tempDataBytes.GetLength(0); i++)
+            {
+                for (int j = 0; j < tempDataBytes.GetLength(1); j++)
+                {
+                    dataBytes.Add(tempDataBytes[i, j]);
+                }
+            }
+
             // Name Length
             // Locked parameter
             parameterBytes.Add((byte)(locked ? (byte)(-nameBytes.Length) : (byte)nameBytes.Length));
@@ -1814,7 +1767,7 @@ namespace SHARP3D
             // Dimensions numbers
             byte dimensionNumber = 2;
             //Dimension length
-            byte[] dimensionLength = new byte[] { (byte)arrayData.GetLength(1), (byte)arrayData.GetLength(0) };
+            byte[] dimensionLength = new byte[] { (byte)tempDataBytes.GetLength(1), (byte)tempDataBytes.GetLength(0) };
             // Description Length
             byte descriptionLength = (byte)descriptionBytes.Length;
             // Pointer to next

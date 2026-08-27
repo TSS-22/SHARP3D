@@ -11,6 +11,7 @@ using SHARP3D.Utils.Enum;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 [assembly: InternalsVisibleTo("SHARP3D.Test")]
 [assembly: InternalsVisibleTo("SHARP3D.Explorer")] // To remove for production
@@ -579,7 +580,7 @@ namespace SHARP3D
             // Go by chunk of 255 used values and look for the adequate GROUP:PARAMETERX.
             int numberOfParameters = (int)Math.Ceiling((double)used / 255);
             // Create place holder and associated global index for ease of use.
-            string[] analogUnits = new string[used];
+            string[] parameterValue = new string[used];
             int paramIndex = 0;
             int paramLeft = used;
             bool isLastParam = false;
@@ -621,7 +622,9 @@ namespace SHARP3D
                             {
                                 tempCharParam.Add(param[k, j]);
                             }
-                            analogUnits[paramIndex] = new string(tempCharParam.ToArray()).Trim().TrimEnd('\0');
+
+                            byte[] utf8Bytes = tempCharParam.Select(c => (byte)c).ToArray();
+                            parameterValue[paramIndex] = Encoding.UTF8.GetString(utf8Bytes).Trim().TrimEnd('\0');
 
                             paramInBatchToDo--;
                             paramLeft--;
@@ -631,7 +634,7 @@ namespace SHARP3D
                         // If there is some left over
                         for (int j = 0; j < paramInBatchToDo; j++)
                         {
-                            analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                            parameterValue[paramIndex] = $"Index {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
                             paramLeft--;
                             paramIndex++;
                         }
@@ -649,7 +652,7 @@ namespace SHARP3D
                     Console.Error.WriteLine($"WARNING: Error with {group.ToUpper()}:{parameterName.ToUpper()}: {ex.Message}. Defaulting to default values for {group.ToUpper()}:{parameterName.ToUpper()} .");
                     for (int j = 0; j < paramInBatchToDo; j++)
                     {
-                        analogUnits[paramIndex] = $"Channel {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
+                        parameterValue[paramIndex] = $"Index {paramIndex + 1}. No {parameterName[..^1].ToLower()} provided.";
                         paramLeft--;
                         paramIndex++;
                     }
@@ -660,7 +663,7 @@ namespace SHARP3D
                 //}
             }
 
-            return analogUnits;
+            return parameterValue;
         }
 
         /// <summary>
