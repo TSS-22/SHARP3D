@@ -233,7 +233,7 @@ namespace SHARP3D.Data.Clean
             List<C3dPointTrajectory> c3DPoints = new List<C3dPointTrajectory>();
             if(filePointData.Count() != 0)
             {
-                for (int idTraj = 0; idTraj < filePointData[0].Count(); idTraj++)
+                for (int idTraj = 0; idTraj < filePointData[0].Length; idTraj++)
                 {
                     List<float?[]> points = new List<float?[]>();
                     List<float?> residuals = new List<float?>();
@@ -271,20 +271,33 @@ namespace SHARP3D.Data.Clean
 
                     // Parameters
                     string labelToAdd = $"Trajectory {idTraj}";
-                    string descriptionToAdd = $"No description provided for trajectory {idTraj}?";
+                    string descriptionToAdd = $"No description provided for trajectory {idTraj}.";
                     if (fileParameterPoint != null)
                     {
                         // Label
                         try
                         {
-                            labelToAdd = fileParameterPoint.Labels[idTraj];
+                            if(
+                                !String.IsNullOrEmpty(fileParameterPoint.Labels[idTraj]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterPoint.Labels[idTraj])
+                                )
+                            {
+                                labelToAdd = fileParameterPoint.Labels[idTraj];
+                            }
+                            
                         }
                         catch (IndexOutOfRangeException) { }
 
                         // Description
                         try
                         {
-                            descriptionToAdd = fileParameterPoint.Descriptions[idTraj];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterPoint.Descriptions[idTraj]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterPoint.Descriptions[idTraj])
+                                )
+                            {
+                                descriptionToAdd = fileParameterPoint.Descriptions[idTraj];
+                            }
                         }
                         catch (IndexOutOfRangeException) { }
                     }
@@ -328,7 +341,7 @@ namespace SHARP3D.Data.Clean
                     }
                     // Parameters
                     float scaleToAdd = 1;
-                    string descriptionToAdd = $"No description provided for channel {idChannel}?";
+                    string descriptionToAdd = $"No description provided for channel {idChannel}.";
                     string labelToAdd = $"Channel {idChannel}";
                     int offsetToAdd = 0;
                     string unitToAdd = "NA";
@@ -344,14 +357,27 @@ namespace SHARP3D.Data.Clean
                         // Description
                         try
                         {
-                            descriptionToAdd = fileParameterAnalog.Descriptions[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Descriptions[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Descriptions[idChannel])
+                                )
+                            {
+                                descriptionToAdd = fileParameterAnalog.Descriptions[idChannel];
+                            }
                         }
                         catch (IndexOutOfRangeException) { }
 
                         // Label
                         try
                         {
-                            labelToAdd = fileParameterAnalog.Labels[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Labels[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Labels[idChannel])
+                                )
+                            {
+                                labelToAdd = fileParameterAnalog.Labels[idChannel];
+                            }
+                                
                         }
                         catch (IndexOutOfRangeException) { }
 
@@ -365,7 +391,14 @@ namespace SHARP3D.Data.Clean
                         // Unit
                         try
                         {
-                            unitToAdd = fileParameterAnalog.Units[idChannel];
+                            if (
+                                !String.IsNullOrEmpty(fileParameterAnalog.Units[idChannel]) &&
+                                !String.IsNullOrWhiteSpace(fileParameterAnalog.Units[idChannel])
+                                )
+                            {
+                                unitToAdd = fileParameterAnalog.Units[idChannel];
+                            }
+                                
                         }
                         catch (IndexOutOfRangeException) { }
                     }
