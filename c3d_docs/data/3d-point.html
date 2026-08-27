@@ -248,7 +248,7 @@ flowchart TB
   </tbody>
 </table>
 <blockquote>
-<p>The Byte 1 and Byte 2 position, for the Camera Mask and Residual values, are determined by the endianness of the processor of the machine creating the file.</p>
+<p>The Byte 1 and Byte 2 position, for the Camera Mask and Residual values, are determined by the endianness of the processor of the machine creating the file. So DEC and INTEL (integer little endian) will have: BitResidual, BitCameraMaskAndSign while SIG/MIPS(integer big endian): BitCameraMaskAndSign, BitResidual.</p>
 </blockquote>
 <p>The 3D Point Residual is a measurement that provides information about the relative accuracy of the 3D measurement and must be multiplied by the <a href="../parameters/required/point/point-scale_factor.html">POINT:SCALE</a> parameter to obtain a physical world scaled value.</p>
 <p>When the 3D Point Data is recorded as Float32, Word 7 - 8 represents the Camera Mask and Residual value. It is a Float32 value that must be converted to a Signed Int16 and then interpreted as two bytes. A simple cast will do as the value will be of the format: &quot;XYZ.0000&quot;. Once the conversion happened, the interpretation of the two bytes are the same as when the 3D Point Data is recorded as Signed Int16.</p>
