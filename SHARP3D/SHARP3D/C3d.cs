@@ -209,7 +209,7 @@ namespace SHARP3D
                     maximumValue = Math.Abs(point.Value);
                 }
             }
-            header.AddRange(BitConverter.GetBytes(-(maximumValue / 32000f)));
+            header.AddRange(BitConverter.GetBytes(maximumValue !=0? - (maximumValue / 32000f) : -1));
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
             header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 2))); // Because C3D doesn't start at index 0
             //10  uint16 Analog Frames per Data Frame.
@@ -883,15 +883,16 @@ namespace SHARP3D
                             } 
                             else if (Math.Abs((float)val) > maximumPointValue)
                             {
-                                maximumPointValue = (float)val;
+                                maximumPointValue = Math.Abs((float)val);
                             }
                         }
                     }
+                    
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
                         "SCALE",
                         "Stores the scaling factor that is applied to convert each of the signed integer 3D point values into the reference coordinate system values recorded by the POINT:UNITS parameter.",
-                        -(maximumPointValue/32000),
+                        maximumPointValue != 0 ? -(maximumPointValue / 32000) : -1,
                         true
                     ));
                     //////////////////////////////
