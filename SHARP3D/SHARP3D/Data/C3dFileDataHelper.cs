@@ -375,7 +375,7 @@ namespace SHARP3D.Data
                     // WARNING POSSIBLITY OF BUFFER OVERFLOW
                     try
                     {
-                        if (float.IsNaN(rawAnalogSampleFloat)
+                        if (!float.IsNaN(rawAnalogSampleFloat)
                             && maxRawAnalogSample < Math.Abs(rawAnalogSampleInt)
                             )
                         {

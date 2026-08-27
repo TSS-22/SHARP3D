@@ -3,7 +3,8 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Text;
+using System.Threading.Channels;
+
 
 
 namespace SHARP3D
@@ -209,7 +210,7 @@ namespace SHARP3D
                     maximumValue = Math.Abs(point.Value);
                 }
             }
-            header.AddRange(BitConverter.GetBytes(-(maximumValue / 32000f)));
+            header.AddRange(BitConverter.GetBytes(maximumValue !=0? - (maximumValue / 32000f) : -1));
             //9   uint16 Number of 512 - byte blocks to the Data Section + 1.
             header.AddRange(BitConverter.GetBytes((UInt16)(blockLengthParameterSection + 2))); // Because C3D doesn't start at index 0
             //10  uint16 Analog Frames per Data Frame.
@@ -334,6 +335,47 @@ namespace SHARP3D
 
                 if (groups[idGroup].Name == "ANALOG")
                 {
+                    // Check if it is SIGNED or UNSIGNED
+                    // Need to assert the data too lol
+                    // What a beautiful file format that is C3D :O)
+                    bool isAnalogFormatSigned = false; 
+
+                    // Check if descaled analog data have value out of bound.
+                    // Nice optimization, but can be fucked doing more at the time with yet another FUBAR Feature from C3D
+                    foreach(C3dAnalogChannel channel in Data.Analogs)
+                    {
+                        float[] descaledData = channel.GetAllDescaledData(Required.Analog.GeneralScale);
+                        foreach(float value in descaledData)
+                        {
+                            if(value < 0)
+                            {
+                                isAnalogFormatSigned = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!isAnalogFormatSigned)
+                    {
+                        foreach(C3dForceplate forceplate in Data.Forceplates)
+                        {
+                            foreach (C3dAnalogChannel channel in forceplate.Channels)
+                            {
+                                float[] descaledData = channel.GetAllDescaledData(Required.Analog.GeneralScale);
+                                foreach (float value in descaledData)
+                                {
+                                    if (value < 0)
+                                    {
+                                        isAnalogFormatSigned = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (isAnalogFormatSigned) 
+                            {
+                                break;
+                            }
+                        }
+                    }
                     ////////////////////////////////////
                     // ANALOG:BITS
                     List<int> bitsValues = new List<int>();
@@ -402,16 +444,6 @@ namespace SHARP3D
                         ));
                     }
 
-                    ////////////////////////////////////
-                    // ANALOG:FORMAT                    
-                    parametersBytes.AddRange(ParameterMonoStringToBinary(
-                        idGroup,
-                        "FORMAT",
-                        "Specifies whether the integer Analog Data and associated integer values Parameters are stored as signed or unsigned 16-bit integer.",
-                        "SIGNED", // To help be compatible with old shit. Change that in the future
-                        true
-                        ));
-
                     //////////////////////////////////////
                     // ANALOG:GEN_SCALE
                     parametersBytes.AddRange(ParameterScalarToBinary(
@@ -478,6 +510,10 @@ namespace SHARP3D
                     {
                         foreach (C3dAnalogChannel channel in forceplate.Channels)
                         {
+                            if (channel.Offset < 0)
+                            {
+                                isAnalogFormatSigned = true;
+                            }
                             bufferOffset.Add(channel.Offset);
                             counter++;
                             if (counter >= 255)
@@ -490,6 +526,10 @@ namespace SHARP3D
                     }
                     foreach (C3dAnalogChannel channel in Data.Analogs)
                     {
+                        if (channel.Offset < 0)
+                        {
+                            isAnalogFormatSigned = true;
+                        }
                         bufferOffset.Add(channel.Offset);
                         counter++;
                         if (counter >= 255)
@@ -521,11 +561,19 @@ namespace SHARP3D
                     {
                         for (int i = 0; i < forceplate.Channels.Length; i++)
                         {
+                            if (forceplate.Channels[i].Rate < 0 )
+                            {
+                                isAnalogFormatSigned = true;
+                            }
                             ratesValues.Add(forceplate.Channels[i].Rate);
                         }
                     }
                     foreach (C3dAnalogChannel channel in Data.Analogs)
                     {
+                        if (channel.Rate < 0)
+                        {
+                            isAnalogFormatSigned = true;
+                        }
                         ratesValues.Add(channel.Rate);
                     }
                     
@@ -631,6 +679,17 @@ namespace SHARP3D
                         false
                         ));
                     }
+
+                    ////////////////////////////////////
+                    // ANALOG:FORMAT                    
+                    parametersBytes.AddRange(ParameterMonoStringToBinary(
+                        idGroup,
+                        "FORMAT",
+                        "Specifies whether the integer Analog Data and associated integer values Parameters are stored as signed or unsigned 16-bit integer.",
+                        isAnalogFormatSigned? "SIGNED" : "UNSIGNED", // To help be compatible with old shit. Change that in the future
+                        true
+                        ));
+
                     /////////////////////////////////////////
                     // ANALOG:USED
                     int analogUsed =0;
@@ -883,15 +942,16 @@ namespace SHARP3D
                             } 
                             else if (Math.Abs((float)val) > maximumPointValue)
                             {
-                                maximumPointValue = (float)val;
+                                maximumPointValue = Math.Abs((float)val);
                             }
                         }
                     }
+                    
                     parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
                         "SCALE",
                         "Stores the scaling factor that is applied to convert each of the signed integer 3D point values into the reference coordinate system values recorded by the POINT:UNITS parameter.",
-                        -(maximumPointValue/32000),
+                        maximumPointValue != 0 ? -(maximumPointValue / 32000) : -1,
                         true
                     ));
                     //////////////////////////////

@@ -455,6 +455,7 @@ namespace SHARP3D.Data.Clean
             return c3dForceplates.ToArray();
         }
 
+        // Should be delete
         public void CleanForceplateInAnalog(int[][] forcePlateChannels)
         {
             // FORCE_PLATFORM clean up

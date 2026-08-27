@@ -13,7 +13,7 @@
       href: parameters/additional.md
     - name: Application Parameters
       href: parameters/application.md
-    - name: Supported Parameters
+    - name: Documented Parameters
       items:
         - name: ANALOG
           href: parameters/groups/group-analog.md
