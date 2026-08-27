@@ -49,7 +49,18 @@ namespace SHARP3D.Data.Clean
 
         public float DescaleData(float scaledValue, float generalScale=1.0f)
         {
-            return (scaledValue/(generalScale * Scale)) + (float)Offset;
+            // There are case where ANALOG:SCALE is set to 0.0
+            // I suppose it is in order to "cancel" this channel.
+            // Not the cleanest solution, but at least easily found and corrected
+            if ((generalScale == 0) || (Scale == 0))
+            {
+                return 0.0f;
+            }
+            else
+            {
+                return (scaledValue / (generalScale * Scale)) + (float)Offset;
+            }
+                
         }
 
         public float[] GetAllDescaledData(float generalScale=1.0f)
