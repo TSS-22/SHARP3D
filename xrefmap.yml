@@ -220,15 +220,15 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.Parameter2DArrayToBinary
   nameWithType: C3d.Parameter2DArrayToBinary
-- uid: SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.Char[0:,0:],System.Boolean)
-  name: Parameter2DStringToBinary(int, string, string, char[,], bool)
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_System_Int32_System_String_System_String_System_Char_0__0___System_Boolean_
-  commentId: M:SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.Char[0:,0:],System.Boolean)
-  name.vb: Parameter2DStringToBinary(Integer, String, String, Char(,), Boolean)
-  fullName: SHARP3D.C3d.Parameter2DStringToBinary(int, string, string, char[,], bool)
-  fullName.vb: SHARP3D.C3d.Parameter2DStringToBinary(Integer, String, String, Char(,), Boolean)
-  nameWithType: C3d.Parameter2DStringToBinary(int, string, string, char[,], bool)
-  nameWithType.vb: C3d.Parameter2DStringToBinary(Integer, String, String, Char(,), Boolean)
+- uid: SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],System.Boolean)
+  name: Parameter2DStringToBinary(int, string, string, string[], bool)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_System_Int32_System_String_System_String_System_String___System_Boolean_
+  commentId: M:SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],System.Boolean)
+  name.vb: Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
+  fullName: SHARP3D.C3d.Parameter2DStringToBinary(int, string, string, string[], bool)
+  fullName.vb: SHARP3D.C3d.Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
+  nameWithType: C3d.Parameter2DStringToBinary(int, string, string, string[], bool)
+  nameWithType.vb: C3d.Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
 - uid: SHARP3D.C3d.Parameter2DStringToBinary*
   name: Parameter2DStringToBinary
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_
