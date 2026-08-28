@@ -1,4 +1,5 @@
-﻿using System.Threading.Channels;
+﻿using SHARP3D.Parameter.DataEntity.Clean;
+using System.Threading.Channels;
 
 namespace SHARP3D.Test.C3dTests
 {
@@ -266,7 +267,40 @@ namespace SHARP3D.Test.C3dTests
             }
 
             // Parameters
+            // Assert groups
+            string[] listGroup1 = test1.Parameters.GetStringListGroups();
+            string[] listGroup2 = test2.Parameters.GetStringListGroups();
+            Array.Sort(listGroup1);
+            Array.Sort(listGroup2);
+            
+            // Basic checks
+            Assert.Equal(listGroup1.Length, listGroup2.Length);
+            for(int i=0; i < listGroup1.Length; i++)
+            {
+                Assert.Equal(listGroup1[0], listGroup2[0]);
+            }
+            // Cyle through all non managed parameters
+            foreach(string groupName in listGroup1)
+            {
+                C3dParameterGroup group1 = test1.Parameters.GetGroup(groupName);
+                C3dParameterGroup group2 = test2.Parameters.GetGroup(groupName);
 
+                var sortedgroup1 = group1.Parameters
+                    .OrderBy(p => p.Name, StringComparer.Ordinal)
+                    .ToList();
+                var sortedgroup2 = group2.Parameters
+                    .OrderBy(p => p.Name, StringComparer.Ordinal)
+                    .ToList();
+
+                for (int idParam = 0; idParam < group1.Parameters.Count; idParam++)
+                {
+                    Assert.Equal(sortedgroup1[idParam].Name, sortedgroup2[idParam].Name);
+                    Assert.Equal(sortedgroup1[idParam].Dimensions, sortedgroup2[idParam].Dimensions);
+                    // check data point by point
+                    Assert.True(sortedgroup1[idParam].Data.Cast<object>().SequenceEqual(sortedgroup1[idParam].Data.Cast<object>()));
+                }
+            }
+            
         }
     }
 }
