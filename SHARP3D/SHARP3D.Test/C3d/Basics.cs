@@ -40,6 +40,41 @@ namespace SHARP3D.Test.C3dTests
         private static string FolderPath36 = @"..\..\..\SampleFiles\Sample36";
         private static string FolderPath37 = @"..\..\..\SampleFiles\Sample37";
 
+        private static string Sample06 = @"..\..\..\SampleErrorFiles\Sample06";
+        private static string Sample09 = @"..\..\..\SampleErrorFiles\Sample09";
+        private static string Sample11 = @"..\..\..\SampleErrorFiles\Sample11";
+        private static string Sample13 = @"..\..\..\SampleErrorFiles\Sample13";
+        private static string Sample14 = @"..\..\..\SampleErrorFiles\Sample14";
+        private static string Sample15 = @"..\..\..\SampleErrorFiles\Sample15";
+        private static string Sample16 = @"..\..\..\SampleErrorFiles\Sample16";
+        private static string Sample18 = @"..\..\..\SampleErrorFiles\Sample18";
+        private static string Sample20 = @"..\..\..\SampleErrorFiles\Sample20";
+        private static string Sample21 = @"..\..\..\SampleErrorFiles\Sample21";
+        private static string Sample24 = @"..\..\..\SampleErrorFiles\Sample24";
+        private static string Sample25 = @"..\..\..\SampleErrorFiles\Sample25";
+        private static string Sample32 = @"..\..\..\SampleErrorFiles\Sample32";
+
+        public static IEnumerable<object[]> DataError_Full =>
+            new[]
+            {
+                Sample06,
+                Sample09,
+                Sample11,
+                //Sample13,
+                Sample14,
+                Sample15,
+                Sample16,
+                //Sample18,
+                //Sample20,
+                Sample21,
+                Sample24,
+                Sample25,
+                Sample32
+            }.SelectMany(folder =>
+                TestingTools.GetJsonAndC3dFileList(folder)
+                    .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
+            );
+
         public static IEnumerable<object[]> Test_Basic_Data =>
             new[]
             {
@@ -166,6 +201,37 @@ namespace SHARP3D.Test.C3dTests
             
 
         }
+
+        [Theory]
+        [MemberData(nameof(DataError_Full))]
+        public void FramesCountAndFirstLastFrameCheck_errorFiles(string jsonPath, string c3dPath)
+        {
+
+            string jsonContent = File.ReadAllText(jsonPath);
+            BasicTestExpectedResults expectedResults = JsonSerializer.Deserialize<BasicTestExpectedResults>(jsonContent);
+            C3d c3d = new C3d(c3dPath);
+
+            Debug.WriteLine(c3dPath);
+
+
+            // Assert first and last frame value of the first channel
+            // POINTS
+            AssertPointsDataMatch(expectedResults, c3d);
+
+            // Assert the Frames count
+            // POINTS
+            if (c3d.Data.Points.Length == 0)
+            {
+                Assert.Equal(expectedResults.PointFrames, 0);
+            }
+            else
+            {
+                Assert.Equal(expectedResults.PointFrames, c3d.Data.Points[0].Point.GetLength(0));
+            }
+
+
+        }
+
         private static void AssertPointsDataMatch(BasicTestExpectedResults expectedResults, C3d c3d)
         {
             // First frame point
@@ -227,6 +293,14 @@ namespace SHARP3D.Test.C3dTests
         [Theory]
         [MemberData(nameof(Data_Full))]
         public void OpenC3d_Tests(string c3dPath)
+        {
+            C3d c3d = new C3d(c3dPath);
+            Assert.NotNull(c3d);
+        }
+
+        [Theory]
+        [MemberData(nameof(DataError_Full))]
+        public void OpenC3dError_Tests(string c3dPath)
         {
             C3d c3d = new C3d(c3dPath);
             Assert.NotNull(c3d);

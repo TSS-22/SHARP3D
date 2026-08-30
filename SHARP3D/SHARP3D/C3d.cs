@@ -3,8 +3,6 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
-using System.Threading.Channels;
-
 
 
 namespace SHARP3D
@@ -300,6 +298,25 @@ namespace SHARP3D
             List<C3dParameterGroup> groups = Parameters.GetGroups();
 
             int idGroupPoint = 0;
+            foreach (string groupName in Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d.Keys) 
+            {
+                bool exists = groups.Any(g => g.Name == groupName);
+
+                if (!exists)
+                {
+                    groups.Add(new C3dParameterGroup
+                    (
+                        groupName,
+                        Sharp3dConstants.ManagedGroupsDescription.GetValueOrDefault(groupName, $"No description provided for group {groupName}."),
+                        new List<C3dParameter>(),
+                        false
+                    ));
+                }
+            }
+
+            // Just for the sake of cleanness
+            groups.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
+
             // For each Groups
             for (int idGroup = 0; idGroup < groups.Count; idGroup++)
             {
@@ -1185,7 +1202,7 @@ namespace SHARP3D
             int datastartValue = (int)Math.Ceiling((float)totalParameterBytesLength / (float)512) + 1;
             
             parametersBytes.Add((byte)(-datastartNameLength)); // Name length. Negative because POINT:DATA_START is locked
-            parametersBytes.Add((byte)idGroupPoint); // ID. Related to POINT group
+            parametersBytes.Add((byte)(idGroupPoint + 1)); // ID. Related to POINT group
             parametersBytes.AddRange(System.Text.Encoding.ASCII.GetBytes(datastartName)); // Name
             parametersBytes.AddRange(BitConverter.GetBytes((UInt16)0)); // Pointer to next
             parametersBytes.Add((byte)2); // Data type
