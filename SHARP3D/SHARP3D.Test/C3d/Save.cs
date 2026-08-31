@@ -55,20 +55,24 @@ namespace SHARP3D.Test.C3dTests
         public static IEnumerable<object[]> DataError_Full =>
             new[]
             {
-                new object[] { Sample06 },
-                new object[] { Sample09 },
-                new object[] { Sample11 },
-                //new object[] { Sample13 },
-                new object[] { Sample14 },
-                new object[] { Sample15 },
-                new object[] { Sample16 },
-                //new object[] { Sample18 },
-                //new object[] { Sample20 },
-                new object[] { Sample21 },
-                new object[] { Sample24 },
-                new object[] { Sample25 },
-                new object[] { Sample32 }
-            };
+                Sample06,
+                Sample09,
+                Sample11,
+                //Sample13,
+                Sample14,
+                Sample15,
+                Sample16,
+                //Sample18,
+                //Sample20,
+                Sample21,
+                Sample24,
+                Sample25,
+                Sample32
+            }.SelectMany(folder =>
+                Directory.GetFiles(folder, "*.c3d")
+                    .Select(files => new object[] { files })
+            );
+
 
         public static IEnumerable<object[]> Data_Full =>
             new[]

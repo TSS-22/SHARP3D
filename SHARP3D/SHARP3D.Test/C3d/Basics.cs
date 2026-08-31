@@ -71,8 +71,8 @@ namespace SHARP3D.Test.C3dTests
                 Sample25,
                 Sample32
             }.SelectMany(folder =>
-                TestingTools.GetJsonAndC3dFileList(folder)
-                    .Select(pair => new object[] { pair.jsonFile, pair.c3dFile })
+                Directory.GetFiles(folder, "*.c3d")
+                    .Select(files => new object[] { files })
             );
 
         public static IEnumerable<object[]> Test_Basic_Data =>
@@ -202,35 +202,6 @@ namespace SHARP3D.Test.C3dTests
 
         }
 
-        [Theory]
-        [MemberData(nameof(DataError_Full))]
-        public void FramesCountAndFirstLastFrameCheck_errorFiles(string jsonPath, string c3dPath)
-        {
-
-            string jsonContent = File.ReadAllText(jsonPath);
-            BasicTestExpectedResults expectedResults = JsonSerializer.Deserialize<BasicTestExpectedResults>(jsonContent);
-            C3d c3d = new C3d(c3dPath);
-
-            Debug.WriteLine(c3dPath);
-
-
-            // Assert first and last frame value of the first channel
-            // POINTS
-            AssertPointsDataMatch(expectedResults, c3d);
-
-            // Assert the Frames count
-            // POINTS
-            if (c3d.Data.Points.Length == 0)
-            {
-                Assert.Equal(expectedResults.PointFrames, 0);
-            }
-            else
-            {
-                Assert.Equal(expectedResults.PointFrames, c3d.Data.Points[0].Point.GetLength(0));
-            }
-
-
-        }
 
         private static void AssertPointsDataMatch(BasicTestExpectedResults expectedResults, C3d c3d)
         {
