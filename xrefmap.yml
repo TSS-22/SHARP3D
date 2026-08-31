@@ -6599,6 +6599,12 @@ references:
   commentId: F:SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
   fullName: SHARP3D.Utils.Sharp3dConstants.ForceplateChannelNumber
   nameWithType: Sharp3dConstants.ForceplateChannelNumber
+- uid: SHARP3D.Utils.Sharp3dConstants.ManagedGroupsDescription
+  name: ManagedGroupsDescription
+  href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_ManagedGroupsDescription
+  commentId: F:SHARP3D.Utils.Sharp3dConstants.ManagedGroupsDescription
+  fullName: SHARP3D.Utils.Sharp3dConstants.ManagedGroupsDescription
+  nameWithType: Sharp3dConstants.ManagedGroupsDescription
 - uid: SHARP3D.Utils.Sharp3dConstants.RegexParameterToDiscardFromC3dFileToC3d
   name: RegexParameterToDiscardFromC3dFileToC3d
   href: api/SHARP3D.Utils.Sharp3dConstants.html#SHARP3D_Utils_Sharp3dConstants_RegexParameterToDiscardFromC3dFileToC3d
