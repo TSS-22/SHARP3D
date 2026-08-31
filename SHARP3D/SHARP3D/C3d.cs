@@ -456,8 +456,7 @@ namespace SHARP3D
                         idGroup,
                         i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i+ 1}",
                         $"Stores documentation about each of the individual analog channels from analog channel id {i*255}, to id{i*255 + finalAnalogDescription[i].Length}.",
-                        finalAnalogDescription[i],
-                        false
+                        finalAnalogDescription[i]
                         ));
                     }
 
@@ -513,7 +512,7 @@ namespace SHARP3D
                         i == 0? "LABELS" : $"LABELS{i+1}",
                         $"Stores the unique labels of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogLabels[i].Length}.",
                         finalAnalogLabels[i],
-                        false
+                        StringFormatting.ASCII
                         ));
                     }
 
@@ -692,8 +691,7 @@ namespace SHARP3D
                         idGroup,
                         i == 0 ? "UNITS" : $"UNITS{i+1}",
                         $"Stores the units of each of the individual analog channels from analog channel id {i * 255}, to id{i * 255 + finalAnalogUnits[i].Length}.",
-                        finalAnalogUnits[i],
-                        false
+                        finalAnalogUnits[i]
                         ));
                     }
 
@@ -884,8 +882,7 @@ namespace SHARP3D
                         idGroup,
                         i == 0 ? "DESCRIPTIONS" : $"DESCRIPTIONS{i+1}",
                         $"Stores documentation about each of the individual 3D Point Trajectories from trajectory id {i * 255}, to id{i * 255 + finalPointDescriptions[i].Length}.",
-                        finalPointDescriptions[i],
-                        false
+                        finalPointDescriptions[i]
                         ));
                     }
                     ////////////////////////////////
@@ -911,9 +908,9 @@ namespace SHARP3D
                         ));
                     }
 
-                        //////////////////////////////
-                        // POINT:LABELS[0-9]*
-                        List<string> pointLabels = new List<string>();
+                    //////////////////////////////
+                    // POINT:LABELS[0-9]*
+                    List<string> pointLabels = new List<string>();
                     // Get the rest of the channels
                     foreach (C3dPointTrajectory trajectory in Data.Points)
                     {
@@ -947,7 +944,7 @@ namespace SHARP3D
                         i == 0 ? "LABELS" : $"LABELS{i+1}",
                         $"Stores the unique labels of each of the individual 3D Points Trajectories. From trajectory id {i * 255}, to id{i * 255 + finalPointLabels[i].Length}.",
                         finalPointLabels[i],
-                        false
+                        StringFormatting.ASCII
                         ));
                     }
                     // "LONG_FRAMES", Don't bother till I have the different save options
@@ -1306,6 +1303,8 @@ namespace SHARP3D
             }
         }
 
+
+        // SCALAR
         public byte[] ParameterScalarToBinary(
             int idGroup,
             string name,
@@ -1476,6 +1475,7 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        // MONO STRING
         public byte[] ParameterMonoStringToBinary(
             int idGroup,
             string name,
@@ -1525,6 +1525,7 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        // 1D ARRAY
         public byte[] Parameter1DArrayToBinary(
             int idGroup,
             string name,
@@ -1631,6 +1632,7 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        // 2D ARRAY
         public byte[] Parameter2DArrayToBinary(
             int idGroup,
             string name,
@@ -1796,11 +1798,13 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        // 2D STRING
         public byte[] Parameter2DStringToBinary(
             int idGroup,
             string name,
             string description,
             string[] arrayData,
+            StringFormatting stringFormatting = StringFormatting.UTF8,
             bool locked = false
             )
         {
@@ -1817,7 +1821,14 @@ namespace SHARP3D
 
             foreach(string value in arrayData)
             {
-                byteStringList.Add(System.Text.Encoding.UTF8.GetBytes(value));
+                if (stringFormatting == StringFormatting.UTF8) 
+                {
+                    byteStringList.Add(System.Text.Encoding.UTF8.GetBytes(value));
+                }
+                else
+                {
+                    byteStringList.Add(System.Text.Encoding.ASCII.GetBytes(value));
+                }
                 if (maxByteStringLength < byteStringList.Last().Length)
                 {
                     maxByteStringLength = byteStringList.Last().Length;
@@ -1882,6 +1893,7 @@ namespace SHARP3D
             return parameterBytes.ToArray();
         }
 
+        // 3D ARRAY
         public byte[] Parameter3DArrayToBinary(
             int idGroup,
             string name,
