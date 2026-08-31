@@ -890,16 +890,30 @@ namespace SHARP3D
                     }
                     ////////////////////////////////
                     // POINT:FRAMES
-                    parametersBytes.AddRange(ParameterScalarToBinary(
+                    if(Required.Point.Frames > 65535)
+                    {
+                        parametersBytes.AddRange(ParameterScalarToBinary(
                         idGroup,
                         "FRAMES",
                         "Stores the number of 3D data frames that are recorded in the C3D file.",
                         (float)Required.Point.Frames,
                         true
                     ));
-                    //////////////////////////////
-                    // POINT:LABELS[0-9]*
-                    List<string> pointLabels = new List<string>();
+                    }
+                    else
+                    {
+                        parametersBytes.AddRange(ParameterScalarToBinary(
+                        idGroup,
+                        "FRAMES",
+                        "Stores the number of 3D data frames that are recorded in the C3D file.",
+                        Required.Point.Frames,
+                        true
+                        ));
+                    }
+
+                        //////////////////////////////
+                        // POINT:LABELS[0-9]*
+                        List<string> pointLabels = new List<string>();
                     // Get the rest of the channels
                     foreach (C3dPointTrajectory trajectory in Data.Points)
                     {
