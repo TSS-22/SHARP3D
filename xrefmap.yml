@@ -220,15 +220,15 @@ references:
   isSpec: "True"
   fullName: SHARP3D.C3d.Parameter2DArrayToBinary
   nameWithType: C3d.Parameter2DArrayToBinary
-- uid: SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],System.Boolean)
-  name: Parameter2DStringToBinary(int, string, string, string[], bool)
-  href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_System_Int32_System_String_System_String_System_String___System_Boolean_
-  commentId: M:SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],System.Boolean)
-  name.vb: Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
-  fullName: SHARP3D.C3d.Parameter2DStringToBinary(int, string, string, string[], bool)
-  fullName.vb: SHARP3D.C3d.Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
-  nameWithType: C3d.Parameter2DStringToBinary(int, string, string, string[], bool)
-  nameWithType.vb: C3d.Parameter2DStringToBinary(Integer, String, String, String(), Boolean)
+- uid: SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],SHARP3D.Utils.Enum.StringFormatting,System.Boolean)
+  name: Parameter2DStringToBinary(int, string, string, string[], StringFormatting, bool)
+  href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_System_Int32_System_String_System_String_System_String___SHARP3D_Utils_Enum_StringFormatting_System_Boolean_
+  commentId: M:SHARP3D.C3d.Parameter2DStringToBinary(System.Int32,System.String,System.String,System.String[],SHARP3D.Utils.Enum.StringFormatting,System.Boolean)
+  name.vb: Parameter2DStringToBinary(Integer, String, String, String(), StringFormatting, Boolean)
+  fullName: SHARP3D.C3d.Parameter2DStringToBinary(int, string, string, string[], SHARP3D.Utils.Enum.StringFormatting, bool)
+  fullName.vb: SHARP3D.C3d.Parameter2DStringToBinary(Integer, String, String, String(), SHARP3D.Utils.Enum.StringFormatting, Boolean)
+  nameWithType: C3d.Parameter2DStringToBinary(int, string, string, string[], StringFormatting, bool)
+  nameWithType.vb: C3d.Parameter2DStringToBinary(Integer, String, String, String(), StringFormatting, Boolean)
 - uid: SHARP3D.C3d.Parameter2DStringToBinary*
   name: Parameter2DStringToBinary
   href: api/SHARP3D.C3d.html#SHARP3D_C3d_Parameter2DStringToBinary_
@@ -6565,6 +6565,24 @@ references:
   commentId: F:SHARP3D.Utils.Enum.StorageFormat.UNKOWN
   fullName: SHARP3D.Utils.Enum.StorageFormat.UNKOWN
   nameWithType: StorageFormat.UNKOWN
+- uid: SHARP3D.Utils.Enum.StringFormatting
+  name: StringFormatting
+  href: api/SHARP3D.Utils.Enum.StringFormatting.html
+  commentId: T:SHARP3D.Utils.Enum.StringFormatting
+  fullName: SHARP3D.Utils.Enum.StringFormatting
+  nameWithType: StringFormatting
+- uid: SHARP3D.Utils.Enum.StringFormatting.ASCII
+  name: ASCII
+  href: api/SHARP3D.Utils.Enum.StringFormatting.html#SHARP3D_Utils_Enum_StringFormatting_ASCII
+  commentId: F:SHARP3D.Utils.Enum.StringFormatting.ASCII
+  fullName: SHARP3D.Utils.Enum.StringFormatting.ASCII
+  nameWithType: StringFormatting.ASCII
+- uid: SHARP3D.Utils.Enum.StringFormatting.UTF8
+  name: UTF8
+  href: api/SHARP3D.Utils.Enum.StringFormatting.html#SHARP3D_Utils_Enum_StringFormatting_UTF8
+  commentId: F:SHARP3D.Utils.Enum.StringFormatting.UTF8
+  fullName: SHARP3D.Utils.Enum.StringFormatting.UTF8
+  nameWithType: StringFormatting.UTF8
 - uid: SHARP3D.Utils.Fortran
   name: Fortran
   href: api/SHARP3D.Utils.Fortran.html

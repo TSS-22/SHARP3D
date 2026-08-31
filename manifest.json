@@ -1034,6 +1034,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SHARP3D.Utils.Enum.StringFormatting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SHARP3D.Utils.Enum.StringFormatting.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SHARP3D.Utils.Enum.StringFormatting",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SHARP3D.Utils.Enum.yml",
       "output": {
         ".html": {
