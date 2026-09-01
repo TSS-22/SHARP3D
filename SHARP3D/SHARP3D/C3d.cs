@@ -3,6 +3,7 @@ using SHARP3D.Header.DataEntity;
 using SHARP3D.Parameter.DataEntity.Clean;
 using SHARP3D.Utils;
 using SHARP3D.Utils.Enum;
+using System;
 
 
 namespace SHARP3D
@@ -1274,9 +1275,21 @@ namespace SHARP3D
                     }
 
                     // BIT 2: Residual. We need black magic here lol Or the residuals will be corrupted
-                    byte bit2 = (trajectory.Residual[idFrame] != null ?
-                        (byte)(trajectory.Residual[idFrame] / scaleFactor)
-                        : (byte) 0b00000000); // put 0b11111111 instead ?
+                    // We limit the residual precision to limit the amount of corruption
+                    byte bit2 = 0b00000000; // I was thinking it might need to be 0b11111111 
+                    if (trajectory.Residual[idFrame] != null)
+                    {
+                        // We get the number of valid decimal via log10 and then ceil it.
+                        //Math.Log10 tells you the order of magnitude.Math.Ceiling rounds up to the next "clean" power of 10, which becomes your effective step.Negating gives you the decimal count.
+                        //Edge Cases to Watch
+                        //Precision ≥ 1: Log10(1) = 0, so decimalPlaces = 0 — everything rounds to integers. That's probably correct (if your precision is "1 unit," you don't need decimals).
+                        //Precision exactly a power of 10: Log10(0.01) = -2 exactly, Ceiling(-2) = -2, so decimalPlaces = 2.Clean.
+                        //Negative precision: doesn't make physical sense here — guard against it if your data could produce one.
+                        int decimalPlaces = Math.Max(0, -(int)Math.Ceiling(Math.Log10(scaleFactor)));
+                        // Limit the precision
+                        double result = Math.Round((double)trajectory.Residual[idFrame], decimalPlaces);
+                        bit2 = (byte)(Math.Ceiling(result/scaleFactor));
+                    }
 
                     // Aggregate the bits in a Int16
                     // Low bit first
