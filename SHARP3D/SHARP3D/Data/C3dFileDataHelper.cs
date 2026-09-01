@@ -356,7 +356,6 @@ namespace SHARP3D.Data
                 points.Add(new C3dFileDataPoint
                 {
                     Point = pointValues.ToArray(),
-                    //AverageResidual = residualInt * context.PointScaleFactor,
                     AverageResidual = averageResidual,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
