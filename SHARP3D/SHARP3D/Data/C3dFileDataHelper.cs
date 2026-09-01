@@ -346,11 +346,18 @@ namespace SHARP3D.Data
                 //    residualInt = tempSwitch;
                 //}
                 bool[] cameraMask = GetCameraMask(camAndSign);
-
+                // Cf C3d.Save()
+                // That way we only provide what is actually viable precision of the residual
+                // and don't induce any false sense of increased precision with the many decimal due to the multiplication by ScaleFactor.
+                // It also help "not corrupting" the residual data. As it still corrupt it on the first read, due to the limitation of precision imposed by SHARP3D 
+                int decimalPlaces = Math.Max(0, -(int)Math.Ceiling(Math.Log10(context.PointScaleFactor)));
+                //double result = Math.Round((double)trajectory.Residual[idFrame], decimalPlaces);
+                float averageResidual = (float)Math.Round((float)residualInt * context.PointScaleFactor, decimalPlaces);
                 points.Add(new C3dFileDataPoint
                 {
                     Point = pointValues.ToArray(),
-                    AverageResidual = residualInt * context.PointScaleFactor,
+                    //AverageResidual = residualInt * context.PointScaleFactor,
+                    AverageResidual = averageResidual,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
                     Valid = IsValid(camAndSign)
