@@ -233,15 +233,34 @@ namespace SHARP3D.Data
 
                 Int16 valueCamSignRes = (Int16) C3dBytesConvertor.ToInt(bufferCamSignRes, context.Processor);
                 byte[] CamSignResBytesArray = BitConverter.GetBytes(valueCamSignRes);
-                byte camAndSign = CamSignResBytesArray[1];
-                int residualInt = CamSignResBytesArray[0];
+                byte camAndSign;
+                int residualInt;
+                if (BitConverter.IsLittleEndian) 
+                {
+                    camAndSign = CamSignResBytesArray[1];
+                    residualInt = CamSignResBytesArray[0];
+                }
+                else
+                {
+                    camAndSign = CamSignResBytesArray[0];
+                    residualInt = CamSignResBytesArray[1];
+                }
+                    
 
                 bool[] cameraMask = GetCameraMask(camAndSign);
+
+                // Cf C3d.Save()
+                // That way we only provide what is actually viable precision of the residual
+                // and don't induce any false sense of increased precision with the many decimal due to the multiplication by ScaleFactor.
+                // It also help "not corrupting" the residual data. As it still corrupt it on the first read, due to the limitation of precision imposed by SHARP3D 
+                int decimalPlaces = Math.Max(0, -(int)Math.Ceiling(Math.Log10(context.PointScaleFactor)));
+                //double result = Math.Round((double)trajectory.Residual[idFrame], decimalPlaces);
+                float averageResidual = (float)Math.Round((float)residualInt * context.PointScaleFactor, decimalPlaces);
 
                 points.Add(new C3dFileDataPoint 
                 {
                     Point = pointValues.ToArray(),
-                    AverageResidual = residualInt * context.PointScaleFactor,
+                    AverageResidual = averageResidual,
                     CameraMask = cameraMask,
                     Raw = IsRaw(camAndSign, residualInt),
                     Valid = IsValid(camAndSign)
@@ -335,8 +354,20 @@ namespace SHARP3D.Data
                     }    
                 }
                 byte[] intCamSignResidual = BitConverter.GetBytes((Int16)(int)floatCamSignResidual);
-                byte camAndSign = intCamSignResidual[1];
-                int residualInt = intCamSignResidual[0];
+
+                byte camAndSign;
+                int residualInt;
+                if (BitConverter.IsLittleEndian)
+                {
+                    camAndSign = intCamSignResidual[1];
+                    residualInt = intCamSignResidual[0];
+                }
+                else
+                {
+                    camAndSign = intCamSignResidual[0];
+                    residualInt = intCamSignResidual[1];
+                }
+                
 
                 // Because of Codamotion that invert the bytes order of Word 4 of the C3D data frame.
                 //if (context.Software == C3dSoftware.CODAMOTION) 
