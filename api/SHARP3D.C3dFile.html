@@ -1491,9 +1491,8 @@ Returns 0 if no valid value can be determined.</p>
     </li><li>
       Attempts to calculate the number of frames using the "trial/actual_start_field" and
       "trial/actual_end_field" parameters (pages 99-101). The number of frames is calculated as:
-<pre><code>  &lt;pre&gt;&lt;code class=&quot;lang-csharp&quot;&gt;(lastFrame - firstFrame + 1)&lt;/code&gt;&lt;/pre&gt;
-
-  where &lt;code&gt;firstFrame&lt;/code&gt; and &lt;code&gt;lastFrame&lt;/code&gt; are derived from the parameter values.
+<pre><code class="lang-csharp">(lastFrame - firstFrame + 1)</code></pre>
+<pre><code>  where &lt;code&gt;firstFrame&lt;/code&gt; and &lt;code&gt;lastFrame&lt;/code&gt; are derived from the parameter values.
 &lt;/li&gt;&lt;li&gt;
   Falls back to retrieving the value from the &quot;point/frames&quot; parameter (page 66).
   If all else fails, returns 0 as a default value.
