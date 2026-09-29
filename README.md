@@ -7,6 +7,7 @@ We will also plan to implement a `.JSON` and `.HDF5` exporter/importer at that m
 
 At the time, the library open and save C3D files as best as it can. 
 To read a C3D file use
+
 `C3d myC3d = new C3d(@"my/path/to/c3dFile.c3d");`
 
 The `C3d` object try to recover a lot of the errors and formatting issues.
