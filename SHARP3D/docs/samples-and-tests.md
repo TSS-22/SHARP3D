@@ -254,6 +254,7 @@ At the moment 12 tests are failing:
 5. [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample18Basic_Test](#sharp3dtesttestssampleerrorfilestestsample18basic_test)
     1. SampleErrorFiles\Sample18\bad_parameter_section.c3d
 
+6. [Sample 19]
 
 6. [SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test](#sharp3dtesttestssampleerrorfilestestsample20basic_test)
     1. SampleErrorFiles\Sample20\phasespace_sample
@@ -296,6 +297,12 @@ Also the point axis are wrong for some reasons. It is actually quite funny to se
 **Status**: Under investigation
 
 The problem in this file is that there seems to be an "empty" group which has a name with length=9, but actually contains no data. It is quite tricky to work it out. It shouldn't be impossible to work it out, but it is not a priority at the moment.
+
+#### Sample 19
+
+**Status**: Problem found
+
+The force plate parameters are badly formatted and cause issue when going from `C3dFile` to `C3d`. A flag will be added to discard forceplate formatting. In addition, if the file crash on opening in the forceplate formatting, then it will be retried with the flag on. The user will be warned of it.
 
 #### SHARP3D.Test.Tests.SampleErrorFilesTest.Sample20Basic_Test
 
